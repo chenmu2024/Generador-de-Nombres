@@ -237,11 +237,13 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
       <header className="bg-[#0a0a0a]/80 backdrop-blur-xl border-b border-white/5 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16 gap-3">
-            <Link to="/" aria-label="GeneradorDeNombres.net - Página de Inicio" className="flex items-center gap-3 group shrink-0">
-              <div className="bg-gradient-to-br from-violet-500 to-fuchsia-500 p-2 rounded-xl shadow-lg shadow-violet-500/20 group-hover:shadow-violet-500/40 transition-all">
-                <Flame className="w-5 h-5 text-white" aria-hidden="true" />
+            <Link to="/" aria-label="GeneradorDeNombres.net - Página de Inicio" className="flex items-center gap-2.5 group shrink-0">
+              <div className="relative p-1.5 bg-zinc-900 border border-white/10 rounded-xl shadow-lg shadow-violet-500/20 group-hover:border-violet-500/50 group-hover:shadow-violet-500/40 transition-all overflow-hidden">
+                <img src="/favicon.svg" alt="GeneradorDeNombres Logo" className="w-6 h-6 object-contain" />
               </div>
-              <span className="text-xl font-bold font-heading tracking-tight text-white hidden sm:inline">GeneradorDeNombres.net</span>
+              <span className="text-lg font-extrabold font-heading tracking-tight text-white hidden sm:inline">
+                GeneradorDeNombres<span className="text-violet-400">.net</span>
+              </span>
             </Link>
 
             {/* Desktop Nav */}

@@ -22,7 +22,7 @@ export const seoData: Record<string, CategoryData> = {
   home: {
     id: 'home',
     path: '/',
-    title: 'Generador de Nombres para Free Fire | Nombres de Mujer, Mascotas y Letras',
+    title: 'Generador de Nombres para Free Fire, Mujer y Mascotas | GDN',
     h1: 'Generador de Nombres para Free Fire',
     subtitle: 'El mejor creador de nombres para free fire, juegos, bebés y mascotas. Copia símbolos y letras raras en 1 clic.',
     seoText: `
@@ -38,7 +38,7 @@ export const seoData: Record<string, CategoryData> = {
       <h3>Símbolos, Letras Raras y Fuentes Especiales</h3>
       <p>Contamos con la mayor colección de caracteres Unicode compatibles con juegos y redes. Úsalos para decorar tus nicks o biografías de Instagram, TikTok, WhatsApp y Roblox. Transforma tu texto normal en letras cursivas, góticas, asiáticas, medievales y mucho más en un solo clic.</p>
     `,
-    metaDescription: 'El mejor generador de nombres para free fire y creador de apodos. Copia letras raras, espacios invisibles y simbolos para free fire. También nombres de mujer y nombres para perritas.',
+    metaDescription: 'El mejor generador de nombres para Free Fire y apodos. Copia letras raras, espacios invisibles y símbolos. Encuentra nombres de mujer y para perritas.',
     keywords: 'generador de nombres para free fire, creador de nombres para free fire, crear nombres para free fire, simbolos para free fire, espacios para nombres de free fire, nombres de mujer, nombres para perritas, letras raras',
     defaultName: 'Gamer',
 
@@ -61,7 +61,7 @@ export const seoData: Record<string, CategoryData> = {
   'nombres-free-fire': {
     id: 'nombres-free-fire',
     path: '/nombres-free-fire',
-    title: 'Generador y Creador de Nombres para Free Fire (2026) - Apodos Insanos y Símbolos | GeneradorDeNombres.net',
+    title: 'Nombres para Free Fire - Apodos Chidos e Insanos | GDN',
     h1: 'Generador y Creador de Nombres para Free Fire',
     subtitle: 'Crea nombres insanos, espacios invisibles, V de Verificado Ⓥ y apodos para clanes, dúos y chicas en FF.',
     seoText: `
@@ -126,7 +126,7 @@ export const seoData: Record<string, CategoryData> = {
         <li><strong>Costo de Cambio:</strong> Cambiar de nombre cuesta 390 Diamantes o 1 Tarjeta de Cambio de Nombre (Name Change Card).</li>
       </ul>
     `,
-    metaDescription: 'Generador y creador de nombres para Free Fire en 2026. Crea apodos insanos, para clanes, dúos y chicas con espacios invisibles y símbolos de verificado Ⓥ.',
+    metaDescription: 'Lista de nombres para Free Fire con símbolos y letras raras. Encuentra apodos insanos, chidos, de mujer y clanes para destacar en tu juego.',
     keywords: 'nombres para free fire, generador de nombres free fire, creador de nombres para free fire, nombres insanos para free fire, simbolos para free fire, espacios invisibles free fire, nombres para clanes de free fire, nombres para duos free fire',
     defaultName: 'ProPlayer',
     customSymbols: ["꧁", "꧂", "༺", "༻", "⚡", "☠︎", "👑", "✿", "☬", "⚔️", "☯︎", "★", "♥", "✨", "🔥", "ツ", "×͜×", "シ", "ッ", "メ", "🔫", "Ⓥ", "╰‿╯", "乄", "𓆩", "𓆪", "亗", "", "ㅤ"],
@@ -156,7 +156,7 @@ export const seoData: Record<string, CategoryData> = {
   'nombres-roblox': {
     id: 'nombres-roblox',
     path: '/nombres-roblox',
-    title: 'Generador y Creador de Nombres para Roblox (2026) - Aesthetic, Display Names y Validador | GeneradorDeNombres.net',
+    title: 'Nombres para Roblox - Display Names Aesthetic | GDN',
     h1: 'Generador y Creador de Nombres para Roblox',
     subtitle: 'Encuentra y genera nombres de usuario (Username) válidos y Display Names aesthetic para Roblox, Blox Fruits, Brookhaven, Adopt Me! y Da Hood.',
     seoText: `
@@ -217,7 +217,7 @@ export const seoData: Record<string, CategoryData> = {
         <li><strong>Filtro de Censura:</strong> Roblox bloquea automáticamente datos personales (como nombres reales completos, números telefónicos o palabras malsonantes).</li>
       </ol>
     `,
-    metaDescription: 'Generador de nombres para Roblox en 2026. Crea nombres de usuario válidos y Display Names aesthetic para Blox Fruits, Brookhaven y Adopt Me! con validador gratis.',
+    metaDescription: 'Generador de nombres para Roblox. Crea Display Names aesthetic y apodos válidos para Blox Fruits, Brookhaven y Adopt Me con validador.',
     keywords: 'nombres para roblox, nombres aesthetic para roblox, nombres de roblox, validador de usuario roblox, display name roblox, nombres para blox fruits, nombres para brookhaven',
     defaultName: 'Robloxian',
     customSymbols: ["✨", "⚡", "👑", "🖤", "🦋", "🍄", "⭐", "💫", "🧸", "🎀", "🌸", "☁️", "🤍", "🍓", "☠︎", "亗", "𓆩", "𓆪", "×͜×", "✿"],
@@ -243,7 +243,7 @@ export const seoData: Record<string, CategoryData> = {
   'nombres-instagram': {
     id: 'nombres-instagram',
     path: '/nombres-instagram',
-    title: 'Generador y Creador de Nombres para Instagram (2026) - Usuarios Aesthetic y Bio | GeneradorDeNombres.net',
+    title: 'Nombres para Instagram Aesthetic - Generador | GDN',
     h1: 'Generador y Creador de Nombres para Instagram',
     subtitle: 'Encuentra usernames (@usuario) únicos y disponibles, letras bonitas y nombres de perfil aesthetic para cuentas personales, marcas, moda y creadores de contenido.',
     seoText: `
@@ -304,7 +304,7 @@ export const seoData: Record<string, CategoryData> = {
         <li><strong>Disponibilidad:</strong> Si un usuario fue cambiado recientemente por otra persona, Instagram guarda una reserva temporal de 14 días.</li>
       </ol>
     `,
-    metaDescription: 'Generador y creador de nombres para Instagram en 2026. Encuentra usernames válidos, ideas aesthetic para chicas y chicos, y fuentes bonitas para tu bio.',
+    metaDescription: 'Generador de nombres para Instagram aesthetic y redes sociales. Transforma tu usuario con fuentes bonitas, símbolos y estilo único.',
     keywords: 'nombres para instagram, nombres de usuario para instagram, letras para instagram, validador username instagram, nombres aesthetic instagram, usernames bonitos instagram',
     defaultName: 'Aesthetic',
     customSymbols: ["✨", "🤍", "🕊️", "☁️", "🦋", "🌸", "🌷", "🧸", "🍯", "🍵", "🌿", "🪴", "🎨", "🎭", "📸", "🎧", "⚡", "🛍️"],
@@ -330,7 +330,7 @@ export const seoData: Record<string, CategoryData> = {
   'nombres-equipos-futbol': {
     id: 'nombres-equipos-futbol',
     path: '/nombres-equipos-futbol',
-    title: 'Nombres para Equipos de Fútbol (Graciosos, Épicos y Femeninos) - Guía Completa 2026 | GeneradorDeNombres.net',
+    title: 'Nombres para Equipos de Fútbol - Creador | GDN',
     h1: 'Generador de Nombres para Equipos de Fútbol: Graciosos, Épicos y Femeninos',
     subtitle: 'Descubre los mejores nombres para tu equipo de fútbol 5, fútbol 7, torneo de barrio, liga de empresas, clanes de EA Sports FC o eSports. Incluye tabla por estilos, parodias cerveceras, audio de llamado e identificador de escudos y camisetas.',
     seoText: `
@@ -425,7 +425,7 @@ export const seoData: Record<string, CategoryData> = {
         <li><strong>Identidad e Insignias de Escudo:</strong> Utiliza nuestro creador interactivo superior para previsualizar el escudo con símbolos como balones (⚽), trofeos (🏆), coronas (👑), escudos (🛡️) o chopas de cerveza (🍺) para enviar a estampado o publicar en redes.</li>
       </ol>
     `,
-    metaDescription: 'Lista completa de nombres para equipos de fútbol en 2026. Opciones originales, graciosas, cerveceras, épicas y femeninas con audio e identificador de escudos.',
+    metaDescription: 'Ideas de nombres para equipos de fútbol y torneos. Nombres chistosos, imponentes, épicos y originales para tu equipo o club deportivo.',
     keywords: 'nombres para equipos de futbol, nombres de equipos de futbol, nombres para equipos de futbol graciosos, nombres de equipos femeninos, nombres de equipos de futbol 5, nombres para torneos de futbol',
     defaultName: 'Fútbol Club',
     customSymbols: ["⚽", "🏆", "🥇", "🥅", "🦅", "🦁", "🔥", "⭐", "⚔️", "🛡️", "👑", "💪", "⚡", "🏟️", "🍺", "🍻", "🚩", "🎯", "🌟", "✦", "📜"],
@@ -451,7 +451,7 @@ export const seoData: Record<string, CategoryData> = {
   'nombres-japoneses': {
     id: 'nombres-japoneses',
     path: '/nombres-japoneses',
-    title: 'Nombres Japoneses (Kanji, Romaji y Anime) - Guía Completa 2026 | GeneradorDeNombres.net',
+    title: 'Nombres Japoneses de Mujer y Niño con Kanjis | GDN',
     h1: 'Generador de Nombres Japoneses: Kanji, Romaji y Anime',
     subtitle: 'Descubre los nombres japoneses más hermosos, poéticos e imponentes para niña, niño, anime y apodos aesthetic. Incluye ideogramas Kanji, Romaji, significados y audio de pronunciación.',
     seoText: `
@@ -539,7 +539,7 @@ export const seoData: Record<string, CategoryData> = {
         <li><strong>Incorporate Símbolos Estéticos para Nicks:</strong> Para avatares, anime o videojuegos (Genshin Impact, Roblox, Free Fire), personaliza el nombre con kanjis suplementarios (🌸, ⛩️, 陰陽) usando el generador arriba.</li>
       </ol>
     `,
-    metaDescription: 'Lista completa de nombres japoneses para niña, niño y anime en 2026. Descubre ideogramas Kanji, Romaji, significados profundos, combinaciones y audio de pronunciación.',
+    metaDescription: 'Lista completa de nombres japoneses para niña, niño y anime. Con ideogramas Kanji, significados profundos y audio de pronunciación.',
     keywords: 'nombres japoneses, nombres japoneses para niña, nombres japoneses para niño, nombres de anime, nombres japoneses con significado, nombres en kanji, nombres japoneses masculinos, nombres japoneses femeninos',
     defaultName: 'Sakura',
     customSymbols: ["桜", "月", "雪", "愛", "光", "花", "星", "海", "空", "水", "風", "火", "心", "魂", "神", "🌸", "💮", "🎎", "🎏", "🎐", "🎋", "⛩️", "☯️", "🦊", "✦", "📜", "⚡"],
@@ -565,7 +565,7 @@ export const seoData: Record<string, CategoryData> = {
   'nombres-perritas': {
     id: 'nombres-perritas',
     path: '/nombres-perritas',
-    title: 'Nombres para Perritas (Tiernas, Cortas y Originales) - Guía Completa 2026 | GeneradorDeNombres.net',
+    title: 'Nombres para Perritas - Ideas Bonitas y Cortas | GDN',
     h1: 'Generador de Nombres para Perritas: Tiernas, Cortas y Originales',
     subtitle: 'Descubre los nombres para perritas y cachorras más bonitos, cortos y fáciles de recordar. Incluye significados por personalidad, audio de llamado canino y creador de placas.',
     seoText: `
@@ -651,7 +651,7 @@ export const seoData: Record<string, CategoryData> = {
         <li><strong>Refuerzo Positivo Inmediato:</strong> Premia con un bocadito, una golosina o muestra de afecto cada vez que tu cachorra te mire o se acerque al pronunciar su nombre.</li>
       </ol>
     `,
-    metaDescription: 'Lista completa de nombres para perritas y cachorras en 2026. Ideas bonitas, originales, cortas, por tamaño de raza, audio de llamado canino y creador de placas.',
+    metaDescription: 'Lista de nombres para perritas bonitas, cortas y originales. Ideas para cachorras por raza y tamaño con audio de llamado interactivo.',
     keywords: 'nombres para perros hembras, nombres para perritas, nombres para perritas pequeñas, nombres para perritas bonitas, nombres originales de perritas, nombres de perritas cortas, nombres de cachorras, nombres para perritas de raza',
     defaultName: 'Luna',
     customSymbols: ["🐾", "🐶", "🐕", "🐩", "🦴", "🌸", "🎀", "💖", "💕", "👑", "🌟", "✨", "🍖", "🎾", "💗", "🦋", "🌺", "✦", "📜", "⚡"],
@@ -677,7 +677,7 @@ export const seoData: Record<string, CategoryData> = {
   'nombres-coreanos': {
     id: 'nombres-coreanos',
     path: '/nombres-coreanos',
-    title: 'Nombres Coreanos (K-Pop, Doramas y Hangul) - Guía Completa 2026 | GeneradorDeNombres.net',
+    title: 'Nombres Coreanos de Mujer y K-Pop con Hangul | GDN',
     h1: 'Generador de Nombres Coreanos: K-Pop, Doramas y Hangul',
     subtitle: 'Descubre los nombres coreanos más populares, poéticos e icónicos para niña, niño, Idols de K-Pop y doramas. Incluye escritura en Hangul, romanización, significados y audio de pronunciación.',
     seoText: `
@@ -765,7 +765,7 @@ export const seoData: Record<string, CategoryData> = {
         <li><strong>Escucha la Pronunciación en Voz Real:</strong> Comprueba la eufonía de cada nombre reproduciendo el audio en tiempo real desde el reproductor interactivo de nuestro generador arriba.</li>
       </ol>
     `,
-    metaDescription: 'Lista completa de nombres coreanos para niña y niño con escritura en Hangul, romanización, significados, audio nativo y referencias K-Pop / Doramas en 2026.',
+    metaDescription: 'Descubre nombres coreanos de mujer, doramas y K-Pop. Incluye escritura en Hangul, significados poéticos y audio de pronunciación.',
     keywords: 'nombres coreanos de mujer, nombres coreanos, nombres coreanos para niña, nombres coreanos para niño, nombres kpop, nombres en hangul, nombres coreanos masculinos, nombres para doramas, nombres coreanos esteticos',
     defaultName: 'Min Ji',
     customSymbols: ["사랑", "별", "달", "꽃", "눈", "빛", "봄", "여름", "가을", "겨울", "하늘", "바다", "마음", "영혼", "🇰🇷", "✨", "💖", "🌸", "👑", "🎧", "🎀", "⭐", "🔮", "🧸", "✦", "📜", "⚡", "🦋"],
@@ -791,7 +791,7 @@ export const seoData: Record<string, CategoryData> = {
   'nombres-franceses': {
     id: 'nombres-franceses',
     path: '/nombres-franceses',
-    title: 'Nombres Franceses (Elegantes, Románticos y Fonética) - Guía Completa 2026 | GeneradorDeNombres.net',
+    title: 'Nombres Franceses para Niña y Niño Elegantes | GDN',
     h1: 'Generador de Nombres Franceses: Elegantes, Románticos y Fonética',
     subtitle: 'Descubre los nombres franceses más refinados, poéticos y melódicos para niña, niño, mascotas y perfiles aesthetic. Incluye pronunciación fonética, significados profundos y audio real.',
     seoText: `
@@ -879,7 +879,7 @@ export const seoData: Record<string, CategoryData> = {
         <li><strong>Personaliza Apodos con Títulos de Cortesía:</strong> Para perfiles aesthetic en TikTok, Instagram o videojuegos, combina palabras como <em>Chérie, Fleur, Mademoiselle</em> o <em>Monsieur</em> con símbolos elegantes (⚜️, 🌹, 💎) usando el generador interactivo arriba.</li>
       </ol>
     `,
-    metaDescription: 'Lista completa de nombres franceses para niña, niño y bebés en 2026. Descubre guía fonética, pronunciación en audio con voz real, significados románticos y combinaciones.',
+    metaDescription: 'Lista de nombres franceses bonitos y elegantes para niña y niño. Descubre significados románticos y pronunciación en audio con voz real.',
     keywords: 'nombres franceses, nombres franceses para niña, nombres franceses para niño, nombres elegantes franceses, nombres franceses masculinos, fonetica francesa, nombres franceses bonitos, nombres franceses romanticos',
     defaultName: 'Amélie',
     customSymbols: ["❤️", "⚜️", "🥐", "🥖", "🍷", "🧀", "🎨", "🗼", "🌹", "💋", "💌", "🕊️", "✨", "🥂", "👑", "💎", "🍾", "🎀", "✦", "📜", "⚡"],
@@ -905,7 +905,7 @@ export const seoData: Record<string, CategoryData> = {
   'nombres-mayas': {
     id: 'nombres-mayas',
     path: '/nombres-mayas',
-    title: 'Nombres Mayas y Prehispánicos (Naturaleza, Mitología y Dioses) - Guía Completa 2026 | GeneradorDeNombres.net',
+    title: 'Nombres Mayas para Niña y Niño con Significado | GDN',
     h1: 'Generador de Nombres Mayas y Prehispánicos: Naturaleza, Mitología y Dioses',
     subtitle: 'Descubre los nombres mayas y prehispánicos más sagrados, hermosos e imponentes para niña, niño, deidades y apodos de videojuegos. Incluye significados profundos, etimología astral y audio de pronunciación.',
     seoText: `
@@ -993,7 +993,7 @@ export const seoData: Record<string, CategoryData> = {
         <li><strong>Utiliza Símbolos Prehispánicos para Nicks y Avatares:</strong> Enriquece tus perfiles en Free Fire, Roblox o redes sociales añadiendo glifos o jeroglíficos estilizados (☀️, 🐆, 🪶, 🗿, 🐍) con nuestro generador arriba.</li>
       </ol>
     `,
-    metaDescription: 'Lista completa de nombres mayas y prehispánicos para niña, niño y mascotas en 2026. Descubre significados de deidades, elementos de la naturaleza, combinaciones y audio de pronunciación.',
+    metaDescription: 'Lista de nombres mayas y prehispánicos para niña y niño. Descubre significados de deidades, la naturaleza y audio de pronunciación.',
     keywords: 'nombres mayas, nombres mayas para niña, nombres mayas para niño, nombres prehispanicos, nombres de dioses mayas, nombres mayas con significado, nombres mayas de hombre, nombres mayas femeninos',
     defaultName: 'Ixchel',
     customSymbols: ["☀️", "🌙", "⭐", "🦅", "🐆", "🐍", "🌽", "🔥", "💧", "🌿", "🗿", "🌴", "🦜", "🐢", "🪶", "👑", "✨", "🏹", "✦", "📜", "⚡"],
@@ -1019,7 +1019,7 @@ export const seoData: Record<string, CategoryData> = {
   'nombres-gatos': {
     id: 'nombres-gatos',
     path: '/nombres-gatos',
-    title: 'Nombres para Gatos (Machos, Hembras y Gatitos) - Guía Completa 2026 | GeneradorDeNombres.net',
+    title: 'Nombres para Gatos y Gatitas - Ideas Bonitas | GDN',
     h1: 'Generador de Nombres para Gatos: Machos, Hembras y Gatitos Recién Nacidos',
     subtitle: 'Descubre los nombres para michis más bonitos, cortos y graciosos. Incluye significados por tipo de pelaje, audio de llamado felino y creador de placas.',
     seoText: `
@@ -1115,7 +1115,7 @@ export const seoData: Record<string, CategoryData> = {
         <li><strong>Evita el Uso del Nombre para Regaños:</strong> No utilices su nombre para reprimendas para prevenir que asocie su identificación con emociones negativas.</li>
       </ol>
     `,
-    metaDescription: 'Lista completa de nombres para gatos machos, hembras y gatitos en 2026. Ideas por tipo de pelaje, audio interactivo con voz real de llamado felino y creador de placas.',
+    metaDescription: 'Lista de nombres para gatos machos y hembras. Ideas cortas, graciosas y bonitas por color de pelaje con audio de llamado interactivo.',
     keywords: 'nombres para gatos, nombres para gatitos, nombres de gatos machos, nombres de gatos hembras, nombres para gatos naranjas, nombres originales para gatos, nombres bonitos para gatos, nombres para gatos pequeños',
     defaultName: 'Mochi',
     customSymbols: ["🐾", "🐱", "🐈", "🐟", "🧶", "🐁", "🥛", "😻", "😽", "😺", "😸", "💖", "✨", "🍊", "🐈‍⬛", "👑", "✦", "📜", "⚡"],
@@ -1141,7 +1141,7 @@ export const seoData: Record<string, CategoryData> = {
   'nombres-gatos-negros': {
     id: 'nombres-gatos-negros',
     path: '/nombres-gatos-negros',
-    title: 'Nombres para Gatos Negros (Místicos, Magia y Panteritas) - Guía Completa 2026 | GeneradorDeNombres.net',
+    title: 'Nombres para Gatos Negros - Místicos y Únicos | GDN',
     h1: 'Generador de Nombres para Gatos Negros: Místicos, Magia y Panteritas',
     subtitle: 'Descubre los mejores nombres para gatos y gatitas negras. Incluye significados por temática mística, cine y anime, audio de llamado felino y creador de placas.',
     seoText: `
@@ -1236,7 +1236,7 @@ export const seoData: Record<string, CategoryData> = {
         <li><strong>Personaliza su Placa y Perfil Social:</strong> Añade emoticonos de lunas (🌙), murciélagos (🦇), varitas mágicas (🪄) o estrellas (✨) con el creador interactivo arriba para copiar nicks o grabar su collar.</li>
       </ol>
     `,
-    metaDescription: 'Lista completa de nombres para gatos y gatitas negras en 2026. Ideas místicas, mágicas, de cine y anime, audio interactivo de llamado felino y creador de placas.',
+    metaDescription: 'Lista de nombres para gatos negros y gatitas. Ideas místicas, de películas y anime con audio de llamado felino e identificador de placa.',
     keywords: 'nombres para gatos negros, nombres de gatos negros, nombres para panteras, nombres de gatos negros machos, nombres de gatos negros hembras, nombres de brujas para gatos, nombres misticos para gatos, nombres para gatitas negras',
     defaultName: 'Salem',
     customSymbols: ["🐈‍⬛", "🌙", "⭐", "✨", "🔮", "🪄", "🦇", "🕷️", "🕸️", "🖤", "☠️", "👻", "🎃", "🌑", "🦉", "💎", "🧹", "✦", "📜", "⚡"],
@@ -1262,7 +1262,7 @@ export const seoData: Record<string, CategoryData> = {
   'nombres-gatos-machos': {
     id: 'nombres-gatos-machos',
     path: '/nombres-gatos-machos',
-    title: 'Nombres para Gatos Machos (Cortos, Épicos y Tiernos) - Lista Completa 2026 | GeneradorDeNombres.net',
+    title: 'Nombres para Gatos Machos - Originales y Cortos | GDN',
     h1: 'Generador de Nombres para Gatos Machos: Cortos, Épicos y Tiernos',
     subtitle: 'Descubre los mejores nombres para gatos machos y gatitos recién nacidos. Incluye significados por personalidad, tabla de estilos, audio interactivo de llamado felino y creador de placas.',
     seoText: `
@@ -1362,7 +1362,7 @@ export const seoData: Record<string, CategoryData> = {
         </div>
       </div>
     `,
-    metaDescription: 'Descubre los mejores nombres para gatos machos y gatitos recién nacidos. Ideas épicas, bonitas, cortas, mitológicas, audio interactivo de llamado y creador de placas.',
+    metaDescription: 'Descubre los mejores nombres para gatos machos y gatitos. Nombres bonitos, cortos y épicos con audio interactivo de llamado felino.',
     keywords: 'nombres para gatos machos, nombres de gatos machos, nombres para gatitos machos, nombres de gatos machos originales, nombres para gatos machos cortitos, nombres bonitos para gatos machos',
     defaultName: 'Simba',
     customSymbols: ["🐾", "🐈", "🦁", "🐅", "👑", "⚡", "🔥", "⭐", "💪", "🐟", "🧶", "🏆", "🍊", "🐈‍⬛", "😼", "🔨", "🌟"],
@@ -1370,7 +1370,7 @@ export const seoData: Record<string, CategoryData> = {
   'nombres-peluches': {
     id: 'nombres-peluches',
     path: '/nombres-peluches',
-    title: 'Nombres para Peluches y Squishmallows (Kawaii y Tiernos) - Guía Completa 2026 | GeneradorDeNombres.net',
+    title: 'Nombres para Peluches y Osos - Tiernos y Bonitos | GDN',
     h1: 'Generador de Nombres para Peluches y Certificado de Adopción',
     subtitle: 'Descubre los nombres más tiernos, dulces y divertidos para tu osito de felpa, Squishmallow, conejito o peluche con acta oficial de adopción personalizada y voz cariñosa.',
     seoText: `
@@ -1452,7 +1452,7 @@ export const seoData: Record<string, CategoryData> = {
         <li><strong>Celebración de Cumpleaños:</strong> La fecha en que generas la ficha se convierte oficialmente en su día de cumpleaños o aniversario de adopción anual.</li>
       </ol>
     `,
-    metaDescription: 'Lista completa de nombres para peluches, ositos de felpa y Squishmallows en 2026. Ideas adorables, kawaii, con voz interactiva y certificado de adopción.',
+    metaDescription: 'Nombres para peluches, osos de felpa y juguetes. Ideas tiernas, bonitas y creativas para darle personalidad a tus muñecos favoritos.',
     keywords: 'nombres para peluches, nombres de peluches, nombres para ositos de peluche, nombres para squishmallows, acta de adopcion peluche, certificado de adopcion peluche, nombres tiernos para muñecos, nombres para peluches kawaii',
     defaultName: 'Algodón',
     customSymbols: ["🧸", "🎀", "💖", "💕", "☁️", "✨", "🐰", "🦕", "🦄", "🐼", "🐱", "🌸", "🍭", "🍪", "🍡", "🧋", "🧁", "🍩", "🐻", "🐾", "✦", "📜", "⚡"],
@@ -1478,7 +1478,7 @@ export const seoData: Record<string, CategoryData> = {
   'generador-free-fire': {
     id: 'generador-free-fire',
     path: '/generador-free-fire',
-    title: 'Generador de Nombres para Free Fire - Creador de Apodos e Insanos (KD 19) | GeneradorDeNombres.net',
+    title: 'Generador de Nombres para Free Fire con Símbolos | GDN',
     h1: 'Generador y Creador de Nombres para Free Fire',
     subtitle: 'La herramienta #1 para transformar tu apodo en letras raras, símbolos de armas, coronas y estilos insanos para FF.',
     seoText: `
@@ -1487,7 +1487,7 @@ export const seoData: Record<string, CategoryData> = {
       <h3>Símbolos e Insignias Soportados</h3>
       <p>Usa símbolos comprobados como alas (꧁༺ ༻꧂), coronas (👑), rayos (⚡), cruces (☠︎), caras (ツ, ×͜×) y armas (🔫, ⚔️) aceptados directamente en el servidor oficial de Garena Free Fire.</p>
     `,
-    metaDescription: 'Generador y creador de nombres para Free Fire. Transforma tu apodo con símbolos, letras raras e insignias de clan. 100% compatible y rápido.',
+    metaDescription: 'Creador y generador de nombres para Free Fire gratis. Personaliza tu apodo con letras raras, fuentes elegantes y símbolos especiales en 1 clic.',
     keywords: 'generador de nombres para free fire, creador de nombres para free fire, crear nombres para free fire, nombres para free fire',
     defaultName: 'Insano',
     customSymbols: ["ㅤ", "Ⓥ", "꧁", "꧂", "༺", "༻", "⚡", "☠︎", "👑", "✿", "☬", "⚔️", "☯︎", "★", "♥", "✨", "🔥", "ツ", "×͜×", "シ", "ッ", "メ", "🔫"],
@@ -1495,7 +1495,7 @@ export const seoData: Record<string, CategoryData> = {
   'espacios-invisible-ff': {
     id: 'espacios-invisible-ff',
     path: '/espacios-invisible-ff',
-    title: 'Espacio Invisible para Free Fire (2026) - Copiar Letra Transparente U+3000 | GeneradorDeNombres.net',
+    title: 'Espacio Invisible para Free Fire - Copiar U+3000 | GDN',
     h1: 'Generador y Copiador de Espacio Invisible para Free Fire',
     subtitle: 'Copia en 1 clic el espacio en blanco transparente (Unicode U+3000) para nombres de usuario, clanes y nicks invisibles en FF.',
     seoText: `
@@ -1558,7 +1558,7 @@ export const seoData: Record<string, CategoryData> = {
         <li><code>🌸 ㅤ A i t a n a</code> (Aesthetic con espacio transparente)</li>
       </ul>
     `,
-    metaDescription: 'Copia gratis el espacio invisible para Free Fire (Unicode U+3000). Carácter transparente compatible para nombres de usuario, clanes y nicks invisibles en FF.',
+    metaDescription: 'Copia gratis el espacio invisible para Free Fire (Unicode U+3000). Carácter transparente compatible para nombres, clanes y apodos invisibles.',
     keywords: 'espacio invisible free fire, espacios para nombres de free fire, letra invisible free fire, espacio en blanco free fire, copiar espacio invisible ff, unicode u+3000 free fire, nombre invisible free fire',
     defaultName: 'NOOB ㅤ KING',
     customSymbols: ["ㅤ", "ᅠ", " ", " ", " ", " ", "⚡", "👑", "☠︎", "Ⓥ", "亗", "×͜×", "🌸"],
@@ -1588,7 +1588,7 @@ export const seoData: Record<string, CategoryData> = {
   'nombres-ff-unicos': {
     id: 'nombres-ff-unicos',
     path: '/nombres-ff-unicos',
-    title: 'Nombres para Free Fire que Nadie Tenga (2026) - Apodos Exclusivos, Raros e Insanos | GeneradorDeNombres.net',
+    title: 'Nombres para Free Fire que Nadie Tenga - Únicos | GDN',
     h1: 'Nombres para Free Fire que Nadie Tenga (Exclusivos y Raros)',
     subtitle: 'Encuentra y genera nombres originales que no están en uso en Free Fire: combinaciones de 3-4 letras, símbolos raros y apodos de mitología.',
     seoText: `
@@ -1644,7 +1644,7 @@ export const seoData: Record<string, CategoryData> = {
         <li><strong>Paso 3: Añade un Marco de Símbolos Raros:</strong> Encierra tu palabra entre dos símbolos simétricos como <code>𓆩...𓆪</code> o <code>꧁...꧂</code>.</li>
       </ol>
     `,
-    metaDescription: 'Generador de nombres para Free Fire que nadie tenga en 2026. Crea apodos exclusivos, raros e insanos no usados con símbolos raros y espacios invisibles.',
+    metaDescription: 'Descubre nombres para Free Fire que nadie tenga. Apodos raros, originales e insanos con símbolos especiales para destacar en tus partidas.',
     keywords: 'nombres para free fire que nadie tenga, nombres raros free fire, apodos unicos free fire, nombres no usados free fire, nombres de 3 letras para free fire, generador de nombres raros ff',
     defaultName: 'Kyros',
     customSymbols: ["𓆩", "𓆪", "亗", "╰‿╯", "乄", "Ⓥ", "", "☣", "☬", "꧁", "꧂", "༺", "༻", "⚡", "☠︎", "👑", "☯︎", "⚔️", "ㅤ"],
@@ -1670,14 +1670,14 @@ export const seoData: Record<string, CategoryData> = {
   'nombres-ff-mujeres': {
     id: 'nombres-ff-mujeres',
     path: '/nombres-ff-mujeres',
-    title: 'Nombres para Free Fire de Mujer que Nadie Tenga - Apodos Femeninos | GeneradorDeNombres.net',
+    title: 'Nombres para Free Fire de Mujer - Apodos Chidos | GDN',
     h1: 'Nombres para Free Fire para Mujeres y Chicas Insanas',
     subtitle: 'Apodos femeninos con estilo, nombres aesthetic, tiernos y agresivos para jugadoras de FF.',
     seoText: `
       <h2>Los Mejores Nombres Femeninos para Free Fire</h2>
       <p>Las jugadoras de Free Fire destacan por su nivel competitivo y elegancia. Explora apodos adornados con flores (✿), coronas de reina (👑), alas (꧁༺) y estrellas (✨) para que tu perfil sea inolvidable.</p>
     `,
-    metaDescription: 'Lista y generador de nombres para Free Fire de mujer que nadie tenga. Apodos insanos, aesthetic y femeninos con símbolos lindos.',
+    metaDescription: 'Lista de nombres para Free Fire de mujer que nadie tenga. Apodos femeninos insanos, bonitos y con símbolos elegantes para destacar.',
     keywords: 'nombres para free fire para mujeres, nombres para free fire de mujer que nadie tenga, apodos para mujeres en free fire',
     defaultName: 'Queen',
     customSymbols: ["✿", "👑", "🌸", "✨", "🎀", "💖", "💎", "🌙", "🦋", "🥀"],
@@ -1685,7 +1685,7 @@ export const seoData: Record<string, CategoryData> = {
   'nombres-clanes-ff': {
     id: 'nombres-clanes-ff',
     path: '/nombres-clanes-ff',
-    title: 'Nombres para Clanes de Free Fire (2026) - Generador de Tags, Escuadras e Insignias | GeneradorDeNombres.net',
+    title: 'Nombres para Clanes de Free Fire - Generador | GDN',
     h1: 'Nombres para Clanes y Escuadras de Free Fire',
     subtitle: 'Crea nombres e insignias impones para tu clan competitivo, clan mixto, escuadras 4v4 o gremios nivel 10 en FF.',
     seoText: `
@@ -1751,7 +1751,7 @@ export const seoData: Record<string, CategoryData> = {
         <li><strong>Liderazgo y Niveles:</strong> El clan sube de Nivel (hasta Nivel 10) al acumular honor semanal mediante partidas completadas por sus miembros.</li>
       </ul>
     `,
-    metaDescription: 'Generador y lista de nombres para clanes de Free Fire en 2026. Encuentra tags de clan, escuadras insanas, clanes competitivos y símbolos de equipo.',
+    metaDescription: 'Generador de nombres para clanes de Free Fire. Encuentra apodos para escuadras, tags intimidantes y nombres de clanes insanos con símbolos.',
     keywords: 'nombres para clanes de free fire, nombres de clanes free fire, tags para clanes ff, nombres para escuadras free fire, nombres para clanes insanos, prefijos de clanes free fire',
     defaultName: 'ELITE ⚡ TEAM',
     customSymbols: ["🛡️", "⚔️", "👑", "☠︎", "🦅", "🐉", "🔥", "🏆", "☬", "⚡", "VP •", "7K •", "ST •", "FX •", "乄", "亗", "𓆩", "𓆪", "ㅤ", "Ⓥ"],
@@ -1777,7 +1777,7 @@ export const seoData: Record<string, CategoryData> = {
   'nombres-anime': {
     id: 'nombres-anime',
     path: '/nombres-anime',
-    title: 'Generador y Creador de Nombres de Anime para Juegos y Redes Sociales (2026) | GeneradorDeNombres.net',
+    title: 'Nombres de Anime para Juegos y Redes | GDN',
     h1: 'Generador y Creador de Nombres de Anime para Juegos y Redes Sociales',
     subtitle: 'Crea apodos japoneses con sufijos honoríficos (-sama, -kun, -chan, -senpai), caracteres Kanji, Katanas y símbolos de poder para tu perfil otaku en Genshin, Roblox, Free Fire y Discord.',
     seoText: `
@@ -1833,7 +1833,7 @@ export const seoData: Record<string, CategoryData> = {
         </table>
       </div>
     `,
-    metaDescription: 'Generador y creador de nombres de anime para juegos y redes sociales en 2026. Crea apodos otaku con sufijos honoríficos (-sama, -senpai, -chan), kanjis y símbolos para Genshin, Roblox, FF y Discord.',
+    metaDescription: 'Generador de nombres de anime para juegos y redes sociales. Apodos otaku con sufijos (-sama, -senpai, -chan) y kanjis para Genshin, Roblox y Discord.',
     keywords: 'nombres de anime, nombres otaku para juegos, nombres japoneses de anime, creador de nombres anime, apodos anime para discord, nombres para roblox anime, nombres para genshin impact, nombres para blox fruits anime',
     defaultName: 'Kuro',
     customSymbols: ["⛩️", "🌸", "🍥", "🦊", "⚡", "🔥", "🌙", "🗡️", "☯️", "⚔️", "👑", "🐉", "🖤", "✨", "🎋", "☁️", "𓆩", "𓆪", "亗", "☠︎"],
@@ -1859,7 +1859,7 @@ export const seoData: Record<string, CategoryData> = {
   'nombres-de-mujer': {
     id: 'nombres-de-mujer',
     path: '/nombres-de-mujer',
-    title: 'Nombres de Mujer (2026) - Lista de Nombres Bonitos, Elegantes y con Significado | GeneradorDeNombres.net',
+    title: 'Nombres de Mujer - Bonitos, Elegantes y Raros | GDN',
     h1: 'Nombres de Mujer: Lista de Nombres Bonitos, Elegantes y con Significado',
     subtitle: 'Explora y genera miles de nombres de mujer ordenados por estilo (elegantes, bíblicos, cortos, modernos), origen y combinaciones compuestas con audio de pronunciación.',
     seoText: `
@@ -1934,7 +1934,7 @@ export const seoData: Record<string, CategoryData> = {
         <li><strong>Considera los Nombres Compuestos:</strong> Combinar un primer nombre corto con un segundo nombre de ritmo suave aporta versatilidad y distinción.</li>
       </ol>
     `,
-    metaDescription: 'Lista completa y generador de nombres de mujer bonitos, elegantes, bíblicos y con significado para 2026. Encuentra ideas de nombres compuestos con origen y audio de pronunciación.',
+    metaDescription: 'Lista completa de nombres de mujer bonitos, elegantes y con significado. Ideas de nombres compuestos, bíblicos y audio de pronunciación.',
     keywords: 'nombres de mujer, nombres de mujeres bonitos, nombres de mujer con significado, nombres de mujer elegantes, nombres de niña compuestos, nombres femeninos bonitos',
     defaultName: 'Sofía',
     customSymbols: ["✨", "💖", "🌸", "👑", "💎", "🌷", "🦋", "🌺", "🎀", "🕊️"],
@@ -1960,7 +1960,7 @@ export const seoData: Record<string, CategoryData> = {
   'nombres-de-nina': {
     id: 'nombres-de-nina',
     path: '/nombres-de-nina',
-    title: 'Nombres de Niña No Comunes, Cortos y Preciosos (2026) - Raros y con Significado | GeneradorDeNombres.net',
+    title: 'Nombres de Niña No Comunes y Cortos | GDN',
     h1: 'Nombres de Niña (No Comunes, Cortos y Preciosos)',
     subtitle: 'La guía interactiva con más de 300 nombres para niñas raros, cortos (3 y 4 letras), con significado profundo, combinaciones compuestas y audio de pronunciación.',
     seoText: `
@@ -2048,7 +2048,7 @@ export const seoData: Record<string, CategoryData> = {
         <li><strong>Escucha la Pronunciación en Audio:</strong> Utiliza el reproductor de voz interactivo de nuestra herramienta para escuchar la acentuación natural.</li>
       </ol>
     `,
-    metaDescription: 'Descubre los mejores nombres de niña no comunes, cortos (3 y 4 letras), raros, preciosos y con significado para 2026. Generador con origen, combinaciones y pronunciación en audio.',
+    metaDescription: 'Nombres de niña no comunes, cortos, raros y preciosos con significado. Generador con origen, combinaciones y pronunciación en audio.',
     keywords: 'nombres de niña no comunes, nombres de niña cortos, nombres raros de niña, nombres de niña preciosos, nombres de niña de 3 letras, nombres de niña de 4 letras',
     defaultName: 'Aitana',
     customSymbols: ["🌸", "🎀", "💖", "✨", "🌷", "🕊️", "⭐", "🌺", "👑", "🍃"],
@@ -2074,7 +2074,7 @@ export const seoData: Record<string, CategoryData> = {
   'nombres-de-nino': {
     id: 'nombres-de-nino',
     path: '/nombres-de-nino',
-    title: 'Nombres de Niños (2026) - Lista con Significado, Modernos y Raros | GeneradorDeNombres.net',
+    title: 'Nombres de Niños Modernos y con Significado | GDN',
     h1: 'Nombres de Niños: Lista de Nombres con Significado, Modernos y Raros',
     subtitle: 'Nombres masculinos inspiradores para bebés y personajes, con orígenes etimológicos, significados de fuerza, nombres cortos (3 y 4 letras) y audio de pronunciación.',
     seoText: `
@@ -2163,7 +2163,7 @@ export const seoData: Record<string, CategoryData> = {
         <li><strong>Utiliza la Pronunciación en Voz Real:</strong> Aprovecha el reproductor de audio integrado en nuestro generador para escuchar cómo se pronuncia la combinación elegida.</li>
       </ol>
     `,
-    metaDescription: 'Descubre la lista definitiva de nombres de niños con significado en 2026. Nombres masculinos modernos, raros, cortos y bíblicos con etimología y pronunciación en audio.',
+    metaDescription: 'Lista de nombres de niños con significado. Nombres masculinos modernos, raros, cortos y bíblicos con etimología y pronunciación en audio.',
     keywords: 'nombres de niños con significado, nombres para niños modernos, nombres de niños raros, nombres masculinos cortos, nombres para niños compuestos, nombres de bebe nino',
     defaultName: 'Mateo',
     customSymbols: ["⭐", "👑", "🛡️", "⚔️", "🦁", "⚡", "💙", "🏆", "🚀", "🌿"],
@@ -2189,7 +2189,7 @@ export const seoData: Record<string, CategoryData> = {
   'nombres-unisex': {
     id: 'nombres-unisex',
     path: '/nombres-unisex',
-    title: 'Nombres Unisex (2026) - Lista de Nombres Neutros, Modernos y con Estilo | GeneradorDeNombres.net',
+    title: 'Nombres Unisex - Neutros, Modernos y Bonitos | GDN',
     h1: 'Nombres Unisex: Lista de Nombres Neutros, Modernos y con Estilo',
     subtitle: 'La guía interactiva de nombres neutros y sin género para bebés, usuarios de redes sociales, personajes y mascotas con origen etimológico, combinaciones estéticas y audio de pronunciación.',
     seoText: `
@@ -2278,7 +2278,7 @@ export const seoData: Record<string, CategoryData> = {
         <li><strong>Prueba la Pronunciación con Audio en Tiempo Real:</strong> Escucha el ritmo y la cadencia exacta usando el reproductor de voz de nuestra herramienta.</li>
       </ol>
     `,
-    metaDescription: 'Descubre los mejores nombres unisex y neutros para 2026. Lista de nombres sin género para bebés, mascotas y perfiles con origen, significado y audio de pronunciación.',
+    metaDescription: 'Descubre los mejores nombres unisex y neutros. Nombres sin género para bebés, mascotas y perfiles con origen, significado y audio.',
     keywords: 'nombres unisex, nombres neutros, nombres sin genero, nombres unisex para bebes, nombres unisex cortos, nombres neutros con significado, nombres andróginos',
     defaultName: 'Alex',
     customSymbols: ["✨", "☯️", "🌟", "🤍", "🍃", "🕊️", "💫", "🌿", "⚡", "🌌", "🌊", "🔮"],
@@ -2304,7 +2304,7 @@ export const seoData: Record<string, CategoryData> = {
   'nombres-raros': {
     id: 'nombres-raros',
     path: '/nombres-raros',
-    title: 'Nombres Raros (2026) - Guía de Nombres Únicos, Poco Comunes y Exóticos | GeneradorDeNombres.net',
+    title: 'Nombres Raros y Pocos Comunes con Significado | GDN',
     h1: 'Nombres Raros: Guía de Nombres Únicos, Poco Comunes y Exóticos',
     subtitle: 'Descubre nombres raros con significados profundos, orígenes mitológicos, astrales y legendarios con creador de combinaciones y audio de pronunciación.',
     seoText: `
@@ -2393,7 +2393,7 @@ export const seoData: Record<string, CategoryData> = {
         <li><strong>Verifica el Significado Etimológico Completo:</strong> Explora la raíz cultural, historia o mitología detrás de cada nombre en nuestra guía interactiva antes de tomar una decisión.</li>
       </ol>
     `,
-    metaDescription: 'Lista de nombres raros, únicos y poco comunes en 2026. Descubre nombres exóticos masculinos, femeninos y neutros con significado, etimología y audio de pronunciación.',
+    metaDescription: 'Lista de nombres raros, únicos y poco comunes. Nombres exóticos masculinos, femeninos y neutros con significado y audio de pronunciación.',
     keywords: 'nombres raros, nombres poco comunes, nombres raros con significado, nombres exóticos, nombres mitologicos, nombres unicos para bebes, nombres extravagantes',
     defaultName: 'Orion',
     customSymbols: ["🔮", "✨", "🌌", "⭐", "💎", "🪐", "⚜️", "✦", "👑", "📜", "🦅", "🌙"],
@@ -2419,7 +2419,7 @@ export const seoData: Record<string, CategoryData> = {
   'nombres-por-letra': {
     id: 'nombres-por-letra',
     path: '/nombres-por-letra',
-    title: 'Nombres por Letra A-Z (2026) - Guía Completa de Iniciales | GeneradorDeNombres.net',
+    title: 'Nombres por Letra A-Z - Guía de Iniciales | GDN',
     h1: 'Directorio Completo de Nombres por Letra Inicial (A-Z)',
     subtitle: 'Navega por el abecedario completo para descubrir nombres masculinos, femeninos y unisex organizados por su letra inicial con origen, significados y audio de pronunciación.',
     seoText: `
@@ -2508,7 +2508,7 @@ export const seoData: Record<string, CategoryData> = {
         <li><strong>Escucha la Pronunciación en Voz Alta:</strong> Utiliza el reproductor de audio integrado para verificar que la sonoridad de la inicial fluya adecuadamente al articularse.</li>
       </ol>
     `,
-    metaDescription: 'Directorio A-Z de nombres organizados por letra inicial en 2026. Filtra nombres masculinos, femeninos y unisex con significados, etimología y audio de pronunciación.',
+    metaDescription: 'Directorio A-Z de nombres organizados por letra inicial. Filtra nombres de mujer, hombre y bebés con significados y pronunciación.',
     keywords: 'nombres por letra, nombres de la a a la z, directorio de nombres por inicial, nombres masculinos por letra, nombres femeninos por letra, buscador alfabético de nombres',
     defaultName: 'Alberto',
     customSymbols: ["🔤", "🅰️", "🅱️", "Ⓒ", "Ⓓ", "Ⓔ", "Ⓕ", "Ⓖ", "💎", "⭐", "✨"],
@@ -2534,7 +2534,7 @@ export const seoData: Record<string, CategoryData> = {
   'nombres-con-a': {
     id: 'nombres-con-a',
     path: '/nombres-con-a',
-    title: 'Nombres con A (Hombre, Mujer y Bebés) - Guía Completa 2026 | GeneradorDeNombres.net',
+    title: 'Nombres con A para Hombre, Mujer y Bebés | GDN',
     h1: 'Nombres con la Letra A: Guía Completa para Hombre y Mujer',
     subtitle: 'Descubre los nombres más bonitos, populares y modernos que empiezan con la letra A. Incluye etimología, significados profundos, combinaciones compuestas y audio de pronunciación.',
     seoText: `
@@ -2622,7 +2622,7 @@ export const seoData: Record<string, CategoryData> = {
         <li><strong>Comprueba la Pronunciación en Voz Alta:</strong> Utiliza la herramienta interactiva de audio para escuchar la sonoridad del nombre y su combinación antes de decidir.</li>
       </ol>
     `,
-    metaDescription: 'Lista completa de nombres con la letra A para hombres, mujeres y bebés en 2026. Descubre significados profundos, etimologías, combinaciones compuestas y audio de pronunciación en voz real.',
+    metaDescription: 'Lista completa de nombres con A para hombres, mujeres y bebés. Descubre significados, etimologías y audio de pronunciación en voz real.',
     keywords: 'nombres con a, nombres con a de hombre, nombres con a de mujer, nombres con la letra a, nombres con a para bebes, nombres bonitos con a, nombres raros con a',
     defaultName: 'Alexander',
     customSymbols: ["🅰️", "✨", "⭐", "👑", "💎", "⚡", "📜", "🌸", "🛡️", "✦"],
@@ -2648,14 +2648,14 @@ export const seoData: Record<string, CategoryData> = {
   'nombres-con-b': {
     id: 'nombres-con-b',
     path: '/nombres-con-b',
-    title: 'Nombres con B - Para Niña, Niño y Mascotas | GeneradorDeNombres.net',
+    title: 'Nombres con B para Niña, Niño y Mascotas | GDN',
     h1: 'Nombres con la Letra B',
     subtitle: 'Lista de nombres masculinos y femeninos que inician con B.',
     seoText: `
       <h2>Nombres con la Letra B y su Significado</h2>
       <p>Nombres con gran personalidad como Bruno, Bella, Benjamín, Bianca, Balthazar y Bárbara.</p>
     `,
-    metaDescription: 'Directorio de nombres con B para niños, niñas y mascotas. Significados y pronunciaciones.',
+    metaDescription: 'Directorio de nombres con B para niños, niñas y mascotas. Encuentra significados, origenes y audios de pronunciación con voz real.',
     keywords: 'nombres con b, nombres con b de hombre, nombres con b de mujer',
     defaultName: 'Bruno',
     customSymbols: ["🅱️", "✨", "🧸"],
@@ -2663,14 +2663,14 @@ export const seoData: Record<string, CategoryData> = {
   'nombres-con-c': {
     id: 'nombres-con-c',
     path: '/nombres-con-c',
-    title: 'Nombres con C - Para Hombre y Mujer con Significado | GeneradorDeNombres.net',
+    title: 'Nombres con C para Hombre, Mujer y Bebés | GDN',
     h1: 'Nombres con la Letra C',
     subtitle: 'Ideas de nombres con la letra C para bebés y redes.',
     seoText: `
       <h2>Nombres que Empiezan con C</h2>
       <p>Nombres tradicionales y modernos como Carlos, Camila, Cristian, Chloe, Christopher y Catalina.</p>
     `,
-    metaDescription: 'Nombres con C de hombre y mujer. Descubre significados y listas completas con C.',
+    metaDescription: 'Directorio de nombres con C de hombre, mujer y bebés. Encuentra listas completas con origen, significado y audio de pronunciación.',
     keywords: 'nombres con c, nombre con c, nombres con c de mujer',
     defaultName: 'Camila',
     customSymbols: ["Ⓒ", "✨", "💖"],
@@ -2678,14 +2678,14 @@ export const seoData: Record<string, CategoryData> = {
   'nombres-con-e': {
     id: 'nombres-con-e',
     path: '/nombres-con-e',
-    title: 'Nombres con E - Para Hombre, Mujer y Niña | GeneradorDeNombres.net',
+    title: 'Nombres con E para Hombre, Mujer y Bebés | GDN',
     h1: 'Nombres con la Letra E (Hombre y Mujer)',
     subtitle: 'Lista de nombres populares con E y sus significados.',
     seoText: `
       <h2>Los Mejores Nombres con E</h2>
       <p>Nombres vibrantes como Emanuel, Elena, Enzo, Emma, Esteban y Eva.</p>
     `,
-    metaDescription: 'Encuentra nombres con E de hombre y mujer. Listas completas y audios de pronunciación.',
+    metaDescription: 'Lista de nombres con E de hombre, mujer y bebés. Encuentra origenes, significados y audios de pronunciación clara en voz real.',
     keywords: 'nombres con e, nombres con e de hombre, nombres con e de mujer',
     defaultName: 'Enzo',
     customSymbols: ["Ⓔ", "✨", "🌟"],
@@ -2693,7 +2693,7 @@ export const seoData: Record<string, CategoryData> = {
   'nombres-con-f': {
     id: 'nombres-con-f',
     path: '/nombres-con-f',
-    title: 'Nombres con F (Hombre, Mujer y Niña) - Guía Completa 2026 | GeneradorDeNombres.net',
+    title: 'Nombres con F para Hombre, Mujer y Bebés | GDN',
     h1: 'Nombres con la Letra F: Guía Completa para Hombre y Mujer',
     subtitle: 'Descubre los nombres más bonitos, elegantes y poderosos que inician con la letra F. Incluye significados profundos, etimologías, combinaciones compuestas y audio de pronunciación.',
     seoText: `
@@ -2781,7 +2781,7 @@ export const seoData: Record<string, CategoryData> = {
         <li><strong>Comprueba el Ritmo con el Apellido:</strong> Revisa que el flujo fónico entre el nombre terminado y el primer apellido mantenga naturalidad y no cause repetición innecesaria de sílabas.</li>
       </ol>
     `,
-    metaDescription: 'Lista completa de nombres con F para hombre, mujer y bebés en 2026. Descubre significados profundos, etimología, combinaciones compuestas y audio de pronunciación.',
+    metaDescription: 'Lista completa de nombres con F para hombre, mujer y bebés. Descubre significados profundos, etimología y audio de pronunciación.',
     keywords: 'nombres con f, nombres con f de hombre, nombres con f de mujer, nombres con la letra f, nombres bonitos con f, nombres con f para bebes, nombres que empiezan con f',
     defaultName: 'Fernando',
     customSymbols: ["Ⓕ", "🔥", "⚡", "👑", "✨", "🌸", "🛡️", "✦", "📜", "🦅"],
@@ -2807,7 +2807,7 @@ export const seoData: Record<string, CategoryData> = {
   'nombres-con-m': {
     id: 'nombres-con-m',
     path: '/nombres-con-m',
-    title: 'Nombres con M (Mujer, Hombre y Niña) - Guía Completa 2026 | GeneradorDeNombres.net',
+    title: 'Nombres con M para Mujer, Hombre y Bebés | GDN',
     h1: 'Nombres con la Letra M: Guía Completa para Mujer y Hombre',
     subtitle: 'Descubre los nombres más populares, melódicos y elegantes que inician con la letra M. Incluye significados profundos, etimologías, combinaciones compuestas y audio de pronunciación.',
     seoText: `
@@ -2895,7 +2895,7 @@ export const seoData: Record<string, CategoryData> = {
         <li><strong>Verifica la Pronunciación Interactiva:</strong> Escucha cómo suena el nombre en voz real en español utilizando el reproductor de audio de nuestro generador interactivo arriba.</li>
       </ol>
     `,
-    metaDescription: 'Lista completa de nombres con M para mujer, hombre y bebés en 2026. Descubre significados profundos, etimologías, combinaciones compuestas y audio de pronunciación.',
+    metaDescription: 'Lista completa de nombres con M para mujer, hombre y bebés. Descubre significados profundos, etimología y audio de pronunciación.',
     keywords: 'nombres con m, nombres con m de mujer, nombres con m de hombre, nombres de niña con m, nombres con la letra m, nombres bonitos con m, nombres de nino con m',
     defaultName: 'Mateo',
     customSymbols: ["Ⓜ️", "✨", "💖", "⭐", "👑", "🌺", "✦", "📜", "🌙", "🛡️"],
@@ -2921,7 +2921,7 @@ export const seoData: Record<string, CategoryData> = {
   'nombres-con-en': {
     id: 'nombres-con-en',
     path: '/nombres-con-en',
-    title: 'Nombres con Ñ (Únicos, Tradicionales e Hispanos) - Guía Completa 2026 | GeneradorDeNombres.net',
+    title: 'Nombres con Ñ Hispanos y Tradicionales | GDN',
     h1: 'Nombres con la Letra Ñ: Guía Completa de Nombres Hispanos y Autóctonos',
     subtitle: 'Descubre los nombres con la letra Ñ más icónicos, raros y culturales para hombre y mujer. Incluye etimología vasca, quechua y latina, significados, combinaciones y audio de pronunciación.',
     seoText: `
@@ -3009,7 +3009,7 @@ export const seoData: Record<string, CategoryData> = {
         <li><strong>Verifica la Fonética en Audio Real:</strong> Utiliza el reproductor de voz arriba para validar la pronunciación natural en español antes de tomar la decisión final.</li>
       </ol>
     `,
-    metaDescription: 'Lista completa de nombres con la letra Ñ para hombres, mujeres y bebés en 2026. Descubre etimologías vascas e incas, significados, combinaciones y audio de pronunciación.',
+    metaDescription: 'Lista completa de nombres con la letra Ñ para hombres, mujeres y bebés. Descubre etimologías, significados y audio de pronunciación.',
     keywords: 'nombres con ñ, nombres con ñ de mujer, nombres con ñ de hombre, nombres con la letra ñ, nombres tradicionales con ñ, nombres incas con ñ, nombres vascos con ñ',
     defaultName: 'Iñigo',
     customSymbols: ["🇪🇸", "✨", "👑", "⭐", "🌿", "🔥", "✦", "📜", "🛡️", "🏛️"],
@@ -3035,14 +3035,14 @@ export const seoData: Record<string, CategoryData> = {
   'nombres-con-y': {
     id: 'nombres-con-y',
     path: '/nombres-con-y',
-    title: 'Nombres con Y - Para Niña, Niño y Redes | GeneradorDeNombres.net',
+    title: 'Nombres con Y para Niña, Niño y Bebés | GDN',
     h1: 'Nombres con la Letra Y',
     subtitle: 'Ideas de nombres exóticos y modernos que comienzan con Y.',
     seoText: `
       <h2>Nombres que Inician con la Letra Y</h2>
       <p>Nombres llamativos como Yaretzi, Yasmin, Yuri, Yanis, Yael y Yaritza.</p>
     `,
-    metaDescription: 'Directorio de nombres con Y para mujer y hombre. Significados y pronunciación.',
+    metaDescription: 'Directorio de nombres con Y para mujer, hombre y bebés. Descubre significados completos, origenes y audio de pronunciación.',
     keywords: 'nombres con y, nombres con y de mujer, nombres con y de hombre',
     defaultName: 'Yaretzi',
     customSymbols: ["✨", "💖", "🌸"],
@@ -3050,7 +3050,7 @@ export const seoData: Record<string, CategoryData> = {
   'nombres-con-z': {
     id: 'nombres-con-z',
     path: '/nombres-con-z',
-    title: 'Nombres con Z (Hombre, Mujer y Niña) - Guía Completa 2026 | GeneradorDeNombres.net',
+    title: 'Nombres con Z para Hombre, Mujer y Bebés | GDN',
     h1: 'Nombres con la Letra Z: Guía Completa para Hombre y Mujer',
     subtitle: 'Descubre los nombres más potentes, raros y elegantes que inician con la letra Z. Incluye significados profundos, etimologías, combinaciones compuestas y audio de pronunciación.',
     seoText: `
@@ -3138,7 +3138,7 @@ export const seoData: Record<string, CategoryData> = {
         <li><strong>Escucha la Pronunciación en Tiempo Real:</strong> Revisa cómo suena la combinación completa utilizando la herramienta de voz interactiva en nuestro generador.</li>
       </ol>
     `,
-    metaDescription: 'Lista completa de nombres con Z para hombre, mujer y bebés en 2026. Descubre significados profundos, etimologías, combinaciones compuestas y audio de pronunciación.',
+    metaDescription: 'Lista completa de nombres con Z para hombre, mujer y bebés. Descubre significados profundos, etimologías y audio de pronunciación.',
     keywords: 'nombres con z, nombres con z de mujer, nombres con z de hombre, nombres con la letra z, nombres de niña con z, nombres raros con z, nombres bonitos con z',
     defaultName: 'Zoey',
     customSymbols: ["⚡", "✨", "🏛️", "👑", "⭐", "💎", "✦", "📜", "🌙", "🛡️"],
@@ -3164,7 +3164,7 @@ export const seoData: Record<string, CategoryData> = {
   'nombres-de-dioses': {
     id: 'nombres-de-dioses',
     path: '/nombres-de-dioses',
-    title: 'Nombres de Dioses y Deidades Mitológicas (Griegos, Nórdicos y Egipcios) - Guía Completa 2026 | GeneradorDeNombres.net',
+    title: 'Nombres de Dioses y Deidades Mitológicas | GDN',
     h1: 'Nombres de Dioses y Deidades Mitológicas: Guía Épica',
     subtitle: 'Descubre los nombres más imponentes y legendarios inspirados en el Olimpo, Valhalla, el Nilo y civilizaciones antiguas. Incluye significados, panteones, combinaciones y audio de pronunciación.',
     seoText: `
@@ -3252,7 +3252,7 @@ export const seoData: Record<string, CategoryData> = {
         <li><strong>Para Videojuegos y Nicks:</strong> Agrega símbolos celestiales o rúnicos (ej. ⚡, ⚔️, 🏛️) para resaltar el aura mística en plataformas como Free Fire o Instagram.</li>
       </ol>
     `,
-    metaDescription: 'Lista completa de nombres de dioses griegos, nórdicos, egipcios y romanos en 2026. Descubre significados mitológicos, panteones, combinaciones y audio de pronunciación.',
+    metaDescription: 'Lista de nombres de dioses griegos, nórdicos, egipcios y romanos. Descubre significados mitológicos, panteones y audio de pronunciación.',
     keywords: 'nombres de dioses, nombres mitologicos, nombres de dioses griegos, nombres de dioses nordicos, nombres mitologicos para free fire, nombres de diosas, nombres mitologicos de bebes',
     defaultName: 'Zeus',
     customSymbols: ["🏛️", "⚡", "🔨", "👁️", "⚔️", "🛡️", "✦", "📜", "🔥", "👑"],
@@ -3278,7 +3278,7 @@ export const seoData: Record<string, CategoryData> = {
   'nombres-italianos': {
     id: 'nombres-italianos',
     path: '/nombres-italianos',
-    title: 'Nombres Italianos (Elegantes, Clásicos y Modernos) - Guía Completa 2026 | GeneradorDeNombres.net',
+    title: 'Nombres Italianos Hombre y Mujer Elegantes | GDN',
     h1: 'Generador de Nombres Italianos: Elegantes, Clásicos y Modernos',
     subtitle: 'Descubre los nombres de origen italiano más melódicos, aristocráticos y populares para niña, niño, mascotas y perfiles aesthetic. Incluye significados profundos, etimología latina y audio de pronunciación.',
     seoText: `
@@ -3366,7 +3366,7 @@ export const seoData: Record<string, CategoryData> = {
         <li><strong>Prueba la Pronunciación en Voz Real:</strong> Escucha el ritmo y la entonación con nuestro reproductor de voz interactivo en la parte superior.</li>
       </ol>
     `,
-    metaDescription: 'Lista completa de nombres italianos para niña, niño y bebés en 2026. Descubre significados profundos, etimología latina, combinaciones compuestas y audio de pronunciación.',
+    metaDescription: 'Lista completa de nombres italianos para niña, niño y bebés. Descubre significados profundos, etimología latina y audio de pronunciación.',
     keywords: 'nombres italianos hombre, nombres italianos, nombres italianos para niños, nombres italianos de mujer, nombres italianos de niña, nombres italianos elegantes, nombres italianos con significado, nombres italianos para bebe',
     defaultName: 'Matteo',
     customSymbols: ["🇮🇹", "🍷", "🍕", "🎨", "🏛️", "⚜️", "🎭", "☀️", "👑", "✨", "🌹", "💎", "✦", "📜", "⚡"],
@@ -3392,14 +3392,14 @@ export const seoData: Record<string, CategoryData> = {
   'nombres-rusos': {
     id: 'nombres-rusos',
     path: '/nombres-rusos',
-    title: 'Nombres Rusos para Niña y Niño con Significado | GeneradorDeNombres.net',
+    title: 'Nombres Rusos para Niña y Niño con Significado | GDN',
     h1: 'Nombres Rusos (Fuertes y Místicos)',
     subtitle: 'Nombres eslavos y rusos tradicionales con sonoridad única.',
     seoText: `
       <h2>Nombres de Origen Ruso y Eslavo</h2>
       <p>Nombres con gran porte como Dimitri, Anastasia, Sasha, Ivan, Natasha y Nikolai.</p>
     `,
-    metaDescription: 'Lista de nombres rusos para niñas y niños. Significados eslavos y audio de pronunciación.',
+    metaDescription: 'Lista de nombres rusos para niñas y niños. Descubre significados eslavos, combinaciones tradicionales y audio de pronunciación.',
     keywords: 'nombres rusos, nombres rusos para niña, nombres rusos masculinos',
     defaultName: 'Sasha',
     customSymbols: ["🪆", "❄️", "🏰", "✨"],
@@ -3407,14 +3407,14 @@ export const seoData: Record<string, CategoryData> = {
   'nombres-griegos': {
     id: 'nombres-griegos',
     path: '/nombres-griegos',
-    title: 'Nombres Griegos - Clásicos, Mitológicos y Filosofía (KD 22) | GeneradorDeNombres.net',
+    title: 'Nombres Griegos Clásicos y Mitológicos | GDN',
     h1: 'Nombres Griegos (Clásicos y Mitológicos)',
     subtitle: 'Nombres de la antigua Grecia llenos de historia, filosofía y mitología.',
     seoText: `
       <h2>Nombres Griegos Tradicionales y su Significado</h2>
       <p>Nombres ilustres como Alexander, Penelope, Theo, Helena, Nicholas y Chloe.</p>
     `,
-    metaDescription: 'Explora nombres griegos clásicos y mitológicos para hombres y mujeres. Significados profundos.',
+    metaDescription: 'Explora nombres griegos clásicos y mitológicos para hombres y mujeres. Descubre significados profundos y audio de pronunciación.',
     keywords: 'nombres griegos, nombres griegos de mujer, nombres griegos masculinos',
     defaultName: 'Alexander',
     customSymbols: ["🏛️", "🌿", "📜", "⚡"],
@@ -3422,14 +3422,14 @@ export const seoData: Record<string, CategoryData> = {
   'nombres-ingles': {
     id: 'nombres-ingles',
     path: '/nombres-ingles',
-    title: 'Nombres en Inglés para Niños y Niñas (KD 21) | GeneradorDeNombres.net',
+    title: 'Nombres en Inglés para Niños y Niñas | GDN',
     h1: 'Nombres en Inglés (Modernos e Internacionales)',
     subtitle: 'Los nombres en inglés más populares en Estados Unidos y Reino Unido.',
     seoText: `
       <h2>Nombres en Inglés Internacionales</h2>
       <p>Nombres modernos como Oliver, Liam, Emma, Charlotte, Noah y Harper.</p>
     `,
-    metaDescription: 'Descubre nombres en inglés para niños y niñas. Significados y tendencias internacionales.',
+    metaDescription: 'Descubre nombres en inglés para niños y niñas. Tendencias internacionales, significados completos y audio de pronunciación clara.',
     keywords: 'nombres en ingles, nombres para niños en ingles, nombres de niña en ingles',
     defaultName: 'Oliver',
     customSymbols: ["🇺🇸", "🇬🇧", "✨", "⭐"],
@@ -3437,14 +3437,14 @@ export const seoData: Record<string, CategoryData> = {
   'nombres-turcos': {
     id: 'nombres-turcos',
     path: '/nombres-turcos',
-    title: 'Nombres Turcos para Niña y Series (KD 22) | GeneradorDeNombres.net',
+    title: 'Nombres Turcos para Niña y Series de TV | GDN',
     h1: 'Nombres Turcos (Inspirados en Series y Novelas)',
     subtitle: 'Nombres poéticos de origen turco populares por las telenovelas turcas.',
     seoText: `
       <h2>Nombres Turcos Femeninos y Masculinos</h2>
       <p>Nombres exóticos y melódicos como Elif, Eda, Kerem, Defne, Can y Zehra.</p>
     `,
-    metaDescription: 'Lista de nombres turcos para niñas y novelas. Significados y pronunciación.',
+    metaDescription: 'Lista de nombres turcos para niñas y telenovelas. Descubre significados poéticos, origen oriental y audio de pronunciación.',
     keywords: 'nombres turcos para niña, nombres turcos, nombres de novelas turcas',
     defaultName: 'Elif',
     customSymbols: ["🇹🇷", "🌙", "✨", "🌸"],
@@ -3452,14 +3452,14 @@ export const seoData: Record<string, CategoryData> = {
   'nombres-chinos': {
     id: 'nombres-chinos',
     path: '/nombres-chinos',
-    title: 'Nombres Chinos para Niña y Niño con Caracteres (KD 20) | GeneradorDeNombres.net',
+    title: 'Nombres Chinos para Niña y Niño con Caracteres | GDN',
     h1: 'Nombres Chinos (Pinyin, Hanzi y Significado)',
     subtitle: 'Nombres chinos armónicos inspirados en virtudes, flores y elementos naturales.',
     seoText: `
       <h2>Nombres Chinos Tradicionales</h2>
       <p>Nombres poéticos como Mei-Ling, Li, Chen, Lin, Wei y Xia.</p>
     `,
-    metaDescription: 'Descubre nombres chinos para niña y niño con caracteres Hanzi, Pinyin y significados.',
+    metaDescription: 'Descubre nombres chinos para niña y niño con caracteres Hanzi, Pinyin, virtudes de la naturaleza y audio de pronunciación.',
     keywords: 'nombres chinos para niña, nombres chinos, nombres chinos masculinos',
     defaultName: 'Mei',
     customSymbols: ["🇨🇳", "🏮", "🌸", "🐉", "☯️"],
@@ -3467,7 +3467,7 @@ export const seoData: Record<string, CategoryData> = {
   'nombres-perros-machos': {
     id: 'nombres-perros-machos',
     path: '/nombres-perros-machos',
-    title: 'Nombres de Perros Machos (Cortos, Épicos y Fuertes) - Guía Completa 2026 | GeneradorDeNombres.net',
+    title: 'Nombres de Perros Machos - Cortos y Fuertes | GDN',
     h1: 'Generador de Nombres para Perros Machos: Cortos, Épicos y Fuertes',
     subtitle: 'Descubre los mejores nombres para perros machos, perritos y cachorros. Incluye significados por personalidad y tamaño, tabla comparativa, audio de llamado interactivo y creador de placas.',
     seoText: `
@@ -3548,7 +3548,7 @@ export const seoData: Record<string, CategoryData> = {
         <li><strong>Refuerza con Premios y Halagos:</strong> Premia a tu perro con un premio saludable o caricias en el pecho cada vez que acuda a tu llamado al escuchar su nombre.</li>
       </ol>
     `,
-    metaDescription: 'Lista completa de nombres de perros machos y cachorros en 2026. Ideas cortas, épicas, fuertes y bonitas por tamaño, audio interactivo de llamado y creador de placas.',
+    metaDescription: 'Lista completa de nombres de perros machos y cachorros. Ideas cortas, fuertes y bonitas por tamaño con audio interactivo de llamado.',
     keywords: 'nombres de perros machos, nombres para perros machos, nombres para perros machos grandes, nombres para perros machos pequeños, nombres de perros machos originales, nombres para cachorros machos, nombres de perros machos fuertes',
     defaultName: 'Max',
     customSymbols: ["🐾", "🐶", "🦴", "👑", "⚡", "🏆", "🥊", "🥩", "🎾", "🎩", "⭐", "✨", "🤎", "✦", "📜", "⚡"],
@@ -3574,7 +3574,7 @@ export const seoData: Record<string, CategoryData> = {
   'perritas-chihuahua': {
     id: 'perritas-chihuahua',
     path: '/perritas-chihuahua',
-    title: 'Nombres para Perritas Chihuahua (Tiernas, Diminutas y Originales) - Guía Completa 2026 | GeneradorDeNombres.net',
+    title: 'Nombres para Perritas Chihuahua Tiernas | GDN',
     h1: 'Generador de Nombres para Perritas Chihuahua: Tiernas, Diminutas y Originales',
     subtitle: 'Descubre los nombres más adorables, pequeños y con encanto para cachorritas de raza Chihuahua (cabeza de manzana o de ciervo). Incluye guía por tamaño, personalidad, audio de llamado interactivo y creador de placas.',
     seoText: `
@@ -3660,7 +3660,7 @@ export const seoData: Record<string, CategoryData> = {
         <li><strong>Refuerzo Positivo Constante:</strong> Premia inmediatamente cada respuesta positiva con una pequeña croqueta o una caricia bajo su barbilla para afianzar el llamado.</li>
       </ol>
     `,
-    metaDescription: 'Lista completa de nombres para perritas chihuahua en 2026. Ideas tiernas, diminutas, mexicanas, coquetas, con audio interactivo de llamado y creador de placas.',
+    metaDescription: 'Lista de nombres para perritas chihuahua. Ideas tiernas, diminutas, coquetas, mexicanas, con audio interactivo y creador de placas.',
     keywords: 'nombres para perritas chihuahua, nombres de perros chihuahua, nombres para chihuahuas hembras, nombres de chihuahuas pequeñas, nombres para chihuahuas cabeza de manzana, nombres tiernos para chihuahuas',
     defaultName: 'Chispita',
     customSymbols: ["🐾", "🐶", "🎀", "💖", "✨", "👑", "🌸", "💎", "🦴", "💗", "🍪", "🌺", "💕", "🌶️", "🌮", "✦", "📜", "⚡"],
@@ -3686,7 +3686,7 @@ export const seoData: Record<string, CategoryData> = {
   'nombres-perritas-chihuahua': {
     id: 'nombres-perritas-chihuahua',
     path: '/nombres-perritas-chihuahua',
-    title: 'Nombres para Perritas Chihuahua (Tiernas, Diminutas y Originales) - Guía Completa 2026 | GeneradorDeNombres.net',
+    title: 'Nombres para Perritas Chihuahua Tiernas | GDN',
     h1: 'Generador de Nombres para Perritas Chihuahua: Tiernas, Diminutas y Originales',
     subtitle: 'Descubre los nombres más adorables, pequeños y con encanto para cachorritas de raza Chihuahua (cabeza de manzana o de ciervo). Incluye guía por tamaño, personalidad, audio de llamado interactivo y creador de placas.',
     seoText: `
@@ -3772,7 +3772,7 @@ export const seoData: Record<string, CategoryData> = {
         <li><strong>Refuerzo Positivo Constante:</strong> Premia inmediatamente cada respuesta positiva con una pequeña croqueta o una caricia bajo su barbilla para afianzar el llamado.</li>
       </ol>
     `,
-    metaDescription: 'Lista completa de nombres para perritas chihuahua en 2026. Ideas tiernas, diminutas, mexicanas, coquetas, con audio interactivo de llamado y creador de placas.',
+    metaDescription: 'Lista de nombres para perritas chihuahua. Ideas tiernas, diminutas, coquetas, mexicanas, con audio interactivo y creador de placas.',
     keywords: 'nombres para perritas chihuahua, nombres de perros chihuahua, nombres para chihuahuas hembras, nombres de chihuahuas pequeñas, nombres para chihuahuas cabeza de manzana, nombres tiernos para chihuahuas',
     defaultName: 'Chispita',
     customSymbols: ["🐾", "🐶", "🎀", "💖", "✨", "👑", "🌸", "💎", "🦴", "💗", "🍪", "🌺", "💕", "🌶️", "🌮", "✦", "📜", "⚡"],
@@ -3798,7 +3798,7 @@ export const seoData: Record<string, CategoryData> = {
   'nombres-caballos': {
     id: 'nombres-caballos',
     path: '/nombres-caballos',
-    title: 'Nombres para Caballos y Yeguas (Imponentes y Elegantes) - Guía Completa 2026 | GeneradorDeNombres.net',
+    title: 'Nombres para Caballos y Yeguas Elegantes | GDN',
     h1: 'Generador de Nombres para Caballos y Yeguas: Imponentes y Elegantes',
     subtitle: 'Descubre los nombres más majestuosos, fuertes y con señorío para caballos de paso, carreras, ranchos y yeguas de fina estampa. Incluye significados por raza, pelaje, audio de relincho e identificador de hierro.',
     seoText: `
@@ -3893,7 +3893,7 @@ export const seoData: Record<string, CategoryData> = {
         <li><strong>Acupuntura y Tono del Llamado:</strong> Utiliza nuestro reproductor interactivo superior para ensayar la acústica del llamado o relincho simulado.</li>
       </ol>
     `,
-    metaDescription: 'Lista completa de nombres para caballos, yeguas y potrillos en 2026. Ideas imponentes, elegantes, históricas, por pelaje con audio interactivo y creador de marcas.',
+    metaDescription: 'Lista completa de nombres para caballos, yeguas y potrillos. Ideas imponentes, elegantes, por pelaje con audio interactivo de relincho.',
     keywords: 'nombres de caballos, nombres para caballos, nombres para yeguas, nombres de caballos machos, nombres para caballos negros, nombres de yeguas bonitas, nombres para caballos de paso, nombres para potrillos',
     defaultName: 'Tornado',
     customSymbols: ["🐎", "🐴", "⚡", "🌾", "🏆", "👑", "🌟", "🎖️", "🥇", "🚩", "🛡️", "🌹", "🖤", "🔥", "✨", "✦", "📜", "⚡"],
@@ -3919,7 +3919,7 @@ export const seoData: Record<string, CategoryData> = {
   'nombres-para-tiendas': {
     id: 'nombres-para-tiendas',
     path: '/nombres-para-tiendas',
-    title: 'Nombres para Tiendas y Negocios (Pegajosos, Elegantes y E-commerce) - Guía Completa 2026 | GeneradorDeNombres.net',
+    title: 'Nombres para Tiendas y Negocios Pegajosos | GDN',
     h1: 'Generador de Nombres para Tiendas y Negocios: Pegajosos, Elegantes y E-commerce',
     subtitle: 'Encuentra el nombre comercial perfecto para tu tienda de ropa, boutique, abarrotes, bazar, regalos o negocio en línea. Incluye significados por rubro, consejos de branding y SEO, simulador de audio e identificador de letreros.',
     seoText: `
@@ -4001,7 +4001,7 @@ export const seoData: Record<string, CategoryData> = {
         <li><strong>Diseño de Marquesinas y Perfil:</strong> Utiliza nuestro creador interactivo superior para personalizar el letrero de tu negocio con insignias de bolsas (🛍️), diamantes (💎), café (☕) o cajas (📦).</li>
       </ol>
     `,
-    metaDescription: 'Lista completa de nombres para tiendas y negocios en 2026. Ideas pegajosas, elegantes, para e-commerce, boutiques y abarrotes con letreros interactivos.',
+    metaDescription: 'Nombres para tiendas que venden de todo y negocios. Ideas pegajosas, elegantes, para e-commerce y boutiques con letreros interactivos.',
     keywords: 'nombre para tienda que vende de todo, nombres para tiendas, nombres para negocios, nombres de tiendas, nombres para boutiques, nombres para tiendas en linea, nombres para bazares, nombres para tiendas de ropa',
     defaultName: 'Aura Boutique',
     customSymbols: ["🛍️", "🏪", "🛒", "🏷️", "💼", "✨", "💎", "👗", "🥐", "🎁", "☕", "📱", "📦", "🌟", "🌿", "💄", "🎀", "✦", "📜", "⚡"],
@@ -4028,11 +4028,11 @@ export const seoData: Record<string, CategoryData> = {
   'nombres-para-perritas': {
     id: 'nombres-para-perritas',
     path: '/nombres-para-perritas',
-    title: 'Nombres para Perritas - Ideas Bonitas, Cortas y Originales con Audio | GeneradorDeNombres.net',
+    title: 'Nombres para Perros Hembras y Perritas | GDN',
     h1: 'Generador de Nombres para Perritas',
     subtitle: 'Encuentra el nombre perfecto para tu cachorra con pronunciación en audio.',
     seoText: `<h2>Nombres para Perritas Bonitas</h2><p>Explora nombres tiernos y cortos para tu perrita.</p>`,
-    metaDescription: 'Descubre más de 500 nombres para perritas y cachorras.',
+    metaDescription: 'Descubre nombres para perros hembras y perritas bonitas. Ideas cortas, originales y tiernas con audio interactivo de llamado.',
     keywords: 'nombres para perritas, nombres de perritas',
     defaultName: 'Luna',
     customSymbols: ["🐾", "🐶", "🌸", "🎀", "💖"]
