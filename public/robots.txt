@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /assets/
+Allow: /*.jpg
+Allow: /*.png
+Allow: /*.webp
+
+Sitemap: https://generadordenombres.net/sitemap.xml
+Host: https://generadordenombres.net

@@ -1,0 +1,6 @@
+{
+  "name": "GeneradorDeNombres.net",
+  "description": "Generador de Nombres, Apodos Épicos, Símbolos y Letras Raras para Juegos, Mascotas y Redes",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
