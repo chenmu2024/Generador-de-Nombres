@@ -2,28 +2,27 @@ import React, { useEffect, useState, useRef } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { HelpCircle, ChevronRight, Flame, Zap, Gem, Shield, Smartphone, CheckCircle2, Search, Sparkles, Copy, Volume2, Instagram, Gamepad2, Tv, Swords, Printer, Bookmark, Trash2, Heart, Share2, X, Download, CheckSquare, Square, ListOrdered, Home, Star } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import html2canvas from 'html2canvas';
 const LazyGenerator = React.lazy(() => import('../components/Generator'));
 const Generator = (props: any) => (
-  <React.Suspense fallback={<div className="h-64 animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>}>
+  <React.Suspense fallback={<div className="min-h-[580px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>}>
     <LazyGenerator {...props} />
   </React.Suspense>
 );
 const LazyInvisibleSpaceTool = React.lazy(() => import('../components/InvisibleSpaceTool'));
 const InvisibleSpaceTool = (props: any) => (
-  <React.Suspense fallback={<div className="h-64 animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>}>
+  <React.Suspense fallback={<div className="min-h-[520px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>}>
     <LazyInvisibleSpaceTool {...props} />
   </React.Suspense>
 );
 const LazyAlphabetMatrixTool = React.lazy(() => import('../components/AlphabetMatrixTool'));
 const AlphabetMatrixTool = (props: any) => (
-  <React.Suspense fallback={<div className="h-64 animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>}>
+  <React.Suspense fallback={<div className="min-h-[600px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>}>
     <LazyAlphabetMatrixTool {...props} />
   </React.Suspense>
 );
 const LazyStoreNameTool = React.lazy(() => import('../components/StoreNameTool'));
 const StoreNameTool = (props: any) => (
-  <React.Suspense fallback={<div className="h-64 animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>}>
+  <React.Suspense fallback={<div className="min-h-[550px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>}>
     <LazyStoreNameTool {...props} />
   </React.Suspense>
 );
@@ -201,6 +200,7 @@ export default function CategoryPage() {
     if (!certModalRef.current) return;
     try {
       setIsExportingPNG(true);
+      const html2canvas = (await import('html2canvas')).default;
       const canvas = await html2canvas(certModalRef.current, {
         scale: 2,
         useCORS: true,

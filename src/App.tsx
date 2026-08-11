@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import React, { useEffect, Suspense } from 'react';
 import MainLayout from './layouts/MainLayout';
 
-import CategoryPage from './pages/CategoryPage';
+const CategoryPage = React.lazy(() => import('./pages/CategoryPage'));
 const PrivacyPolicy = React.lazy(() => import('./pages/PrivacyPolicy'));
 const TermsOfService = React.lazy(() => import('./pages/TermsOfService'));
 const Contact = React.lazy(() => import('./pages/Contact'));

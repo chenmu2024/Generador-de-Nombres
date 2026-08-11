@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Flame, Menu, X, ChevronDown, Gamepad2, Users, Heart, Type, Globe, Briefcase, Search, Sparkles, ArrowRight, Bookmark, Copy, Trash2, Check, ExternalLink } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import { allLinks, seoData } from '../data/seoData';
+import { allLinks } from '../data/allLinks';
 import CookieBanner from '../components/CookieBanner';
 
 const navGroups = [
@@ -133,66 +133,68 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
   // Dynamic Page Title & Structured Data SEO Update
   useEffect(() => {
     const currentPath = location.pathname === '/' ? 'home' : location.pathname.substring(1);
-    const currentPageData = seoData[currentPath] || seoData['home'];
+    import('../data/seoData').then(({ seoData }) => {
+      const currentPageData = seoData[currentPath] || seoData['home'];
 
-    if (currentPageData) {
-      document.title = currentPageData.title || 'Generador de Nombres | Crea Apodos & Letras Raras';
-      
-      let metaDesc = document.querySelector('meta[name="description"]');
-      if (!metaDesc) {
-        metaDesc = document.createElement('meta');
-        metaDesc.setAttribute('name', 'description');
-        document.head.appendChild(metaDesc);
+      if (currentPageData) {
+        document.title = currentPageData.title || 'Generador de Nombres | Crea Apodos & Letras Raras';
+        
+        let metaDesc = document.querySelector('meta[name="description"]');
+        if (!metaDesc) {
+          metaDesc = document.createElement('meta');
+          metaDesc.setAttribute('name', 'description');
+          document.head.appendChild(metaDesc);
+        }
+        metaDesc.setAttribute('content', currentPageData.metaDescription || '');
+
+        // Inject JSON-LD Schema
+        const schemaId = 'gdn-jsonld-schema';
+        let schemaScript = document.getElementById(schemaId) as HTMLScriptElement | null;
+        if (!schemaScript) {
+          schemaScript = document.createElement('script');
+          schemaScript.id = schemaId;
+          schemaScript.type = 'application/ld+json';
+          document.head.appendChild(schemaScript);
+        }
+
+        const jsonLdData = {
+          '@context': 'https://schema.org',
+          '@graph': [
+            {
+              '@type': 'WebSite',
+              '@id': 'https://generadordenombres.net/#website',
+              'url': 'https://generadordenombres.net',
+              'name': 'GeneradorDeNombres.net',
+              'description': 'El generador de nombres, apodos y símbolos Unicode más completo.',
+              'inLanguage': 'es'
+            },
+            {
+              '@type': 'WebApplication',
+              '@id': `https://generadordenombres.net${currentPageData.path}#webapp`,
+              'url': `https://generadordenombres.net${currentPageData.path}`,
+              'name': currentPageData.h1 || currentPageData.title,
+              'applicationCategory': 'UtilitiesApplication',
+              'operatingSystem': 'All',
+              'browserRequirements': 'Requires JavaScript'
+            },
+            ...(currentPageData.faqs && currentPageData.faqs.length > 0 ? [{
+              '@type': 'FAQPage',
+              '@id': `https://generadordenombres.net${currentPageData.path}#faq`,
+              'mainEntity': currentPageData.faqs.map(faq => ({
+                '@type': 'Question',
+                'name': faq.question,
+                'acceptedAnswer': {
+                  '@type': 'Answer',
+                  'text': faq.answer
+                }
+              }))
+            }] : [])
+          ]
+        };
+
+        schemaScript.text = JSON.stringify(jsonLdData);
       }
-      metaDesc.setAttribute('content', currentPageData.metaDescription || '');
-
-      // Inject JSON-LD Schema
-      const schemaId = 'gdn-jsonld-schema';
-      let schemaScript = document.getElementById(schemaId) as HTMLScriptElement | null;
-      if (!schemaScript) {
-        schemaScript = document.createElement('script');
-        schemaScript.id = schemaId;
-        schemaScript.type = 'application/ld+json';
-        document.head.appendChild(schemaScript);
-      }
-
-      const jsonLdData = {
-        '@context': 'https://schema.org',
-        '@graph': [
-          {
-            '@type': 'WebSite',
-            '@id': 'https://generadordenombres.net/#website',
-            'url': 'https://generadordenombres.net',
-            'name': 'GeneradorDeNombres.net',
-            'description': 'El generador de nombres, apodos y símbolos Unicode más completo.',
-            'inLanguage': 'es'
-          },
-          {
-            '@type': 'WebApplication',
-            '@id': `https://generadordenombres.net${currentPageData.path}#webapp`,
-            'url': `https://generadordenombres.net${currentPageData.path}`,
-            'name': currentPageData.h1 || currentPageData.title,
-            'applicationCategory': 'UtilitiesApplication',
-            'operatingSystem': 'All',
-            'browserRequirements': 'Requires JavaScript'
-          },
-          ...(currentPageData.faqs && currentPageData.faqs.length > 0 ? [{
-            '@type': 'FAQPage',
-            '@id': `https://generadordenombres.net${currentPageData.path}#faq`,
-            'mainEntity': currentPageData.faqs.map(faq => ({
-              '@type': 'Question',
-              'name': faq.question,
-              'acceptedAnswer': {
-                '@type': 'Answer',
-                'text': faq.answer
-              }
-            }))
-          }] : [])
-        ]
-      };
-
-      schemaScript.text = JSON.stringify(jsonLdData);
-    }
+    }).catch(() => {});
   }, [location.pathname]);
 
   const removeFavorite = (nameToRemove: string) => {
@@ -216,11 +218,11 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
   };
 
   // Filter categories and pages for quick search
-  const searchablePages = Object.values(seoData).map(page => ({
-    title: page.title,
+  const searchablePages = allLinks.map(page => ({
+    title: page.label,
     path: page.path,
-    desc: page.metaDescription,
-    h1: page.h1
+    desc: `Generador de nombres y apodos para ${page.label}`,
+    h1: page.label
   }));
 
   const filteredResults = searchQuery.trim() === ''

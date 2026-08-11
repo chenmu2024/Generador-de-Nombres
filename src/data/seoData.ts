@@ -4051,45 +4051,4 @@ export const seoData: Record<string, CategoryData> = {
   }
 };
 
-export const navLinks = [
-  { path: '/', label: 'Inicio' },
-  { path: '/generador-free-fire', label: 'Free Fire', badge: '🔥 Hot' },
-  { path: '/espacios-invisible-ff', label: 'Espacio Invisible', badge: '⚡ Unico' },
-  { path: '/nombres-roblox', label: 'Roblox' },
-  { path: '/nombres-de-mujer', label: 'Personas & Bebés', badge: '👶 Nuevo' },
-  { path: '/nombres-por-letra', label: 'Letras A-Z' },
-  { path: '/nombres-japoneses', label: 'Culturas' },
-  { path: '/nombres-gatos', label: 'Mascotas' },
-  { path: '/nombres-equipos-futbol', label: 'Equipos & Negocios' },
-];
-
-export const allLinks = [
-  ...navLinks,
-  { path: '/nombres-free-fire', label: 'FF Principal' },
-  { path: '/nombres-ff-unicos', label: 'FF Nombres Únicos' },
-  { path: '/nombres-ff-mujeres', label: 'FF Mujeres' },
-  { path: '/nombres-clanes-ff', label: 'FF Clanes' },
-  { path: '/nombres-instagram', label: 'Instagram' },
-  { path: '/nombres-anime', label: 'Anime' },
-  { path: '/nombres-de-nina', label: 'Nombres de Niña' },
-  { path: '/nombres-de-nino', label: 'Nombres de Niño' },
-  { path: '/nombres-unisex', label: 'Nombres Unisex' },
-  { path: '/nombres-raros', label: 'Nombres Raros' },
-  { path: '/nombres-con-a', label: 'Nombres con A' },
-  { path: '/nombres-con-f', label: 'Nombres con F' },
-  { path: '/nombres-con-m', label: 'Nombres con M' },
-  { path: '/nombres-con-z', label: 'Nombres con Z' },
-  { path: '/nombres-de-dioses', label: 'Nombres de Dioses' },
-  { path: '/nombres-coreanos', label: 'Coreanos' },
-  { path: '/nombres-italianos', label: 'Italianos' },
-  { path: '/nombres-mayas', label: 'Mayas' },
-  { path: '/nombres-franceses', label: 'Franceses' },
-  { path: '/nombres-perritas', label: 'Perritas' },
-  { path: '/nombres-perros-machos', label: 'Perros Machos' },
-  { path: '/nombres-gatos-negros', label: 'Gatos Negros' },
-  { path: '/nombres-gatos-machos', label: 'Gatos Machos' },
-  { path: '/perritas-chihuahua', label: 'Perritas Chihuahua' },
-  { path: '/nombres-caballos', label: 'Caballos' },
-  { path: '/nombres-para-tiendas', label: 'Nombres Tiendas' },
-  { path: '/nombres-peluches', label: 'Peluches' },
-];
+export { navLinks, allLinks } from './allLinks';

@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Copy, Wand2, X, CheckCircle2, Dices, Loader2, Download, Sparkles, CheckSquare, Square, Trophy, Shield, Flame, Image, Share2, Scissors, Zap, Crown, Bookmark, Heart } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import html2canvas from 'html2canvas';
 import { generateFancyNicknames, popularSymbols } from '../utils/nameLogic';
 
 interface GeneratorProps {
@@ -205,6 +204,7 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols 
     if (!gamerCardRef.current) return;
     try {
       setIsExportingCard(true);
+      const html2canvas = (await import('html2canvas')).default;
       const canvas = await html2canvas(gamerCardRef.current, {
         scale: 2,
         useCORS: true,
