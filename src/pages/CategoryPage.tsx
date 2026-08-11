@@ -271,9 +271,32 @@ export default function CategoryPage() {
   const [rareSecondName, setRareSecondName] = useState('Cassian');
   const [rareVibe, setRareVibe] = useState<'mitologia' | 'espacial' | 'antiguo' | 'fantasia'>('mitologia');
 
-  const [alphabetLetter, setAlphabetLetter] = useState('A');
+
+  const getInitialAlphabetLetter = () => {
+    if (location.pathname === '/nombres-con-en') return 'Ñ';
+    const match = location.pathname.match(/\/nombres-con-([a-z])$/i);
+    return match ? match[1].toUpperCase() : 'A';
+  };
+  const getInitialAlphabetFirstName = () => {
+    if (location.pathname === '/nombres-con-en') return 'Iñigo';
+    const match = location.pathname.match(/\/nombres-con-([a-z])$/i);
+    if (match) {
+      const letter = match[1].toUpperCase();
+      const sampleMap: Record<string, string> = {
+        A: 'Alexander', B: 'Bruno', C: 'Camila', D: 'Daniel', E: 'Enzo', F: 'Fernando',
+        G: 'Gael', H: 'Hugo', I: 'Ian', J: 'Javier', K: 'Kai', L: 'Leo', M: 'Mateo',
+        N: 'Noah', Ñ: 'Iñigo', O: 'Oliver', P: 'Pablo', Q: 'Quentin', R: 'René', S: 'Sofía',
+        T: 'Thiago', U: 'Uriel', V: 'Valentina', W: 'William', X: 'Ximena', Y: 'Yael', Z: 'Zoe'
+      };
+      return sampleMap[letter] || 'Ariel';
+    }
+    return 'Alexander';
+  };
+
+  const [alphabetLetter, setAlphabetLetter] = useState(getInitialAlphabetLetter);
   const [alphabetGender, setAlphabetGender] = useState<'todos' | 'masculino' | 'femenino' | 'unisex'>('todos');
-  const [alphabetFirstName, setAlphabetFirstName] = useState('Alexander');
+  const [alphabetFirstName, setAlphabetFirstName] = useState(getInitialAlphabetFirstName);
+
   const [alphabetSecondName, setAlphabetSecondName] = useState('Gael');
 
   const speakPlushieName = (text: string) => {

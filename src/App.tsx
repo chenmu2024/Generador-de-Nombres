@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import React, { useEffect, Suspense } from 'react';
 import MainLayout from './layouts/MainLayout';
 
-const CategoryPage = React.lazy(() => import('./pages/CategoryPage'));
+import CategoryPage from './pages/CategoryPage';
 const PrivacyPolicy = React.lazy(() => import('./pages/PrivacyPolicy'));
 const TermsOfService = React.lazy(() => import('./pages/TermsOfService'));
 const Contact = React.lazy(() => import('./pages/Contact'));
@@ -15,13 +15,13 @@ const AboutUs = React.lazy(() => import('./pages/AboutUs'));
 function ScrollToTop() {
   const { pathname } = useLocation();
   useEffect(() => {
-    window.scrollTo(0, 0);
+    setTimeout(() => window.scrollTo(0, 0), 0);
   }, [pathname]);
   return null;
 }
 
 const LoadingSpinner = () => (
-  <div className="flex items-center justify-center min-h-[50vh]">
+  <div className="flex items-center justify-center min-h-[calc(100vh-300px)]">
     <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-violet-500"></div>
   </div>
 );

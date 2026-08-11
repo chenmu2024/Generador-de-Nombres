@@ -34,7 +34,9 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols 
   const [inputText, setInputText] = useState('');
   const [style, setStyle] = useState('all');
   const [vibeFilter, setVibeFilter] = useState<'all' | 'epico' | 'aesthetic' | 'short' | 'toxic'>('all');
-  const [generatedNames, setGeneratedNames] = useState<string[]>([]);
+  const [generatedNames, setGeneratedNames] = useState<string[]>(() => 
+    generateFancyNicknames(defaultName, 'all', customSymbols)
+  );
   const [selectedNames, setSelectedNames] = useState<string[]>([]);
   const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
   const [showToast, setShowToast] = useState(false);
