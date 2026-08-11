@@ -238,6 +238,7 @@ export default function InvisibleSpaceTool() {
             <select
               value={separator}
               onChange={(e) => setSeparator(e.target.value)}
+              aria-label="Tipo de Separador para Espacio Invisible"
               className="w-full px-4 py-3 bg-zinc-950 border border-white/10 rounded-xl text-white font-medium focus:outline-none focus:border-violet-500"
             >
               <option value="ㅤ">Espacio Invisible Simple (U+3000)</option>

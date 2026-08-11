@@ -2358,8 +2358,7 @@ export default function CategoryPage() {
                   </div>
                   <div>
                     <label className="text-[11px] text-zinc-400 font-bold uppercase block mb-1">2. Sufijo Honorífico Japonés</label>
-                    <select
-                      value={animeSuffix}
+                    <select aria-label="Seleccionar opción" value={animeSuffix}
                       onChange={(e) => setAnimeSuffix(e.target.value)}
                       className="w-full bg-zinc-900 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-red-500 font-mono"
                     >
@@ -2876,8 +2875,7 @@ export default function CategoryPage() {
                   </div>
                   <div>
                     <label className="text-[11px] text-zinc-400 font-bold uppercase block mb-1">Símbolo / Emblema</label>
-                    <select
-                      value={ffClanSymbol}
+                    <select aria-label="Seleccionar opción" value={ffClanSymbol}
                       onChange={(e) => setFfClanSymbol(e.target.value)}
                       className="w-full bg-zinc-900 border border-white/10 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-red-500"
                     >
@@ -3620,8 +3618,7 @@ export default function CategoryPage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="text-xs font-semibold text-zinc-400 block mb-2">Prefijo Deportivo / Estilo:</label>
-                    <select
-                      value={teamPrefix}
+                    <select aria-label="Seleccionar opción" value={teamPrefix}
                       onChange={(e) => setTeamPrefix(e.target.value)}
                       className="w-full bg-zinc-800 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-amber-500 text-sm font-semibold"
                     >
@@ -4096,8 +4093,7 @@ export default function CategoryPage() {
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     <div>
                       <label className="text-xs font-semibold text-zinc-400 block mb-2">Apellido Coreano:</label>
-                      <select
-                        value={krSelectedSurname}
+                      <select aria-label="Seleccionar opción" value={krSelectedSurname}
                         onChange={(e) => setKrSelectedSurname(e.target.value)}
                         className="w-full bg-zinc-800 border border-white/10 rounded-xl px-3 py-2.5 text-white focus:outline-none focus:border-violet-500 text-sm font-semibold"
                       >
@@ -4315,8 +4311,7 @@ export default function CategoryPage() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="text-xs font-semibold text-zinc-400 block mb-2">Título / Prefijo de Cortesía:</label>
-                      <select
-                        value={frTitlePrefix}
+                      <select aria-label="Seleccionar opción" value={frTitlePrefix}
                         onChange={(e) => setFrTitlePrefix(e.target.value)}
                         className="w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-sky-500 text-sm font-semibold"
                       >
@@ -4518,8 +4513,7 @@ export default function CategoryPage() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="text-xs font-semibold text-zinc-400 block mb-2">Tótem / Animal de Poder:</label>
-                      <select
-                        value={myTotem}
+                      <select aria-label="Seleccionar opción" value={myTotem}
                         onChange={(e) => setMyTotem(e.target.value)}
                         className="w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-emerald-500 text-sm font-semibold"
                       >
@@ -4720,8 +4714,7 @@ export default function CategoryPage() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="text-xs font-semibold text-zinc-400 block mb-2">Estilo / Personalidad de la Perrita:</label>
-                      <select
-                        value={dogPersonality}
+                      <select aria-label="Seleccionar opción" value={dogPersonality}
                         onChange={(e) => setDogPersonality(e.target.value)}
                         className="w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-pink-500 text-sm font-semibold"
                       >
@@ -5051,8 +5044,7 @@ export default function CategoryPage() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="text-xs font-semibold text-zinc-400 block mb-2">Pelaje / Estilo del Gato:</label>
-                      <select
-                        value={catBreedType}
+                      <select aria-label="Seleccionar opción" value={catBreedType}
                         onChange={(e) => setCatBreedType(e.target.value)}
                         className="w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-amber-500 text-sm font-semibold"
                       >
@@ -5253,8 +5245,7 @@ export default function CategoryPage() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="text-xs font-semibold text-zinc-400 block mb-2">Estilo / Vibe Místico:</label>
-                      <select
-                        value={blackCatVibe}
+                      <select aria-label="Seleccionar opción" value={blackCatVibe}
                         onChange={(e) => setBlackCatVibe(e.target.value)}
                         className="w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-purple-500 text-sm font-semibold"
                       >
@@ -5449,8 +5440,7 @@ export default function CategoryPage() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="text-xs font-semibold text-zinc-400 block mb-2">Personalidad / Estilo:</label>
-                      <select
-                        value={maleCatPersonality}
+                      <select aria-label="Seleccionar opción" value={maleCatPersonality}
                         onChange={(e) => setMaleCatPersonality(e.target.value)}
                         className="w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-blue-500 text-sm font-semibold"
                       >
@@ -5691,8 +5681,7 @@ export default function CategoryPage() {
 
                   <div>
                     <label className="text-xs font-semibold text-zinc-400 block mb-1">Especie / Tipo de Peluche:</label>
-                    <select
-                      value={plushieType}
+                    <select aria-label="Seleccionar opción" value={plushieType}
                       onChange={(e) => setPlushieType(e.target.value)}
                       className="w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-pink-500 text-sm font-semibold"
                     >

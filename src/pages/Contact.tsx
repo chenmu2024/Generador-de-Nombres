@@ -121,6 +121,7 @@ export default function Contact() {
                 <select
                   value={formData.subject}
                   onChange={e => setFormData({ ...formData, subject: e.target.value })}
+                  aria-label="Asunto del mensaje de contacto"
                   className="w-full bg-zinc-900 border border-zinc-800 focus:border-violet-500 rounded-xl px-4 py-3 text-white outline-none text-sm transition-colors"
                 >
                   <option value="Sugerencia">Sugerencia de Símbolos / Fuentes</option>

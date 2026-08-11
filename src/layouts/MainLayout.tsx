@@ -239,7 +239,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
           <div className="flex justify-between items-center h-16 gap-3">
             <Link to="/" aria-label="GeneradorDeNombres.net - Página de Inicio" className="flex items-center gap-2.5 group shrink-0">
               <div className="relative p-1.5 bg-zinc-900 border border-white/10 rounded-xl shadow-lg shadow-violet-500/20 group-hover:border-violet-500/50 group-hover:shadow-violet-500/40 transition-all overflow-hidden">
-                <img src="/favicon.svg" alt="GeneradorDeNombres Logo" className="w-6 h-6 object-contain" />
+                <img src="/favicon.svg" alt="GeneradorDeNombres Logo" width={24} height={24} decoding="async" className="w-6 h-6 object-contain" />
               </div>
               <span className="text-lg font-extrabold font-heading tracking-tight text-white hidden sm:inline">
                 GeneradorDeNombres<span className="text-violet-400">.net</span>

@@ -300,6 +300,7 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols 
           <select
             value={style}
             onChange={(e) => setStyle(e.target.value)}
+            aria-label="Seleccionar estilo de letras y tipografía"
             className="px-5 py-4 text-lg bg-zinc-900/50 border-2 border-white/10 rounded-2xl focus:outline-none focus:border-violet-500 text-white appearance-none cursor-pointer w-full md:w-auto min-w-[200px]"
           >
             <option value="all">Todos los estilos</option>
