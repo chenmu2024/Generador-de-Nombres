@@ -1,12 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { HelpCircle, ChevronRight, Flame, Zap, Gem, Shield, Smartphone, CheckCircle2, Search, Sparkles, Copy, Volume2, Instagram, Gamepad2, Tv, Swords, Printer, Bookmark, Trash2, Heart, Share2, X, Download, CheckSquare, Square, ListOrdered, Home, Star } from 'lucide-react';
-const LazyGenerator = React.lazy(() => import('../components/Generator'));
-const Generator = (props: any) => (
-  <React.Suspense fallback={<div className="min-h-[720px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>}>
-    <LazyGenerator {...props} />
-  </React.Suspense>
-);
+import Generator from '../components/Generator';
 const LazyInvisibleSpaceTool = React.lazy(() => import('../components/InvisibleSpaceTool'));
 const InvisibleSpaceTool = (props: any) => (
   <React.Suspense fallback={<div className="min-h-[520px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>}>
