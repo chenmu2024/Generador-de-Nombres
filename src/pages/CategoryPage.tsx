@@ -3,7 +3,7 @@ import { useLocation, Link } from 'react-router-dom';
 import { HelpCircle, ChevronRight, Flame, Zap, Gem, Shield, Smartphone, CheckCircle2, Search, Sparkles, Copy, Volume2, Instagram, Gamepad2, Tv, Swords, Printer, Bookmark, Trash2, Heart, Share2, X, Download, CheckSquare, Square, ListOrdered, Home, Star } from 'lucide-react';
 const LazyGenerator = React.lazy(() => import('../components/Generator'));
 const Generator = (props: any) => (
-  <React.Suspense fallback={<div className="min-h-[580px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>}>
+  <React.Suspense fallback={<div className="min-h-[720px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>}>
     <LazyGenerator {...props} />
   </React.Suspense>
 );
@@ -710,7 +710,7 @@ export default function CategoryPage() {
         <h1 className="text-5xl md:text-7xl font-extrabold font-heading text-transparent bg-clip-text bg-gradient-to-r from-zinc-100 to-zinc-500 tracking-tight pb-2 leading-tight">
           {data.h1}
         </h1>
-        <p className="text-xl md:text-2xl text-zinc-400 max-w-2xl mx-auto leading-relaxed">
+        <p className="text-xl md:text-2xl text-zinc-400 max-w-2xl mx-auto leading-relaxed min-h-[3.5rem]">
           {data.subtitle}
         </p>
 

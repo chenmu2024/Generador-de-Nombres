@@ -330,7 +330,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
         )}
       </header>
 
-      <main className="flex-grow">
+      <main className="flex-grow min-h-screen">
         {children}
       </main>
 
