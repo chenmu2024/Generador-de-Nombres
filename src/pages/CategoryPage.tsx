@@ -26,12 +26,35 @@ const StoreNameTool = (props: any) => (
     <LazyStoreNameTool {...props} />
   </React.Suspense>
 );
-import { seoData, allLinks } from '../data/seoData';
+import { allLinks } from '../data/allLinks';
+import type { CategoryData } from '../data/seoData';
 
 export default function CategoryPage() {
   const location = useLocation();
   const path = location.pathname === '/' ? 'home' : location.pathname.substring(1);
-  const data = seoData[path] || seoData['home'];
+  const [data, setData] = useState<CategoryData>(() => {
+    const matchedLink = allLinks.find(l => l.path === (location.pathname === '/' ? '/' : location.pathname));
+    const h1 = matchedLink ? matchedLink.label : 'Generador de Nombres';
+    return {
+      id: path,
+      path: location.pathname,
+      title: `${h1} | GeneradorDeNombres.net`,
+      h1: h1,
+      subtitle: 'Crea los mejores nombres, apodos y símbolos con un solo clic.',
+      seoText: '',
+      metaDescription: `Crea los mejores nombres y apodos para ${h1}.`,
+      keywords: 'nombres, apodos, simbolos'
+    };
+  });
+
+  useEffect(() => {
+    import('../data/seoData').then(({ seoData }) => {
+      const fullData = seoData[path] || seoData['home'];
+      if (fullData) {
+        setData(fullData);
+      }
+    }).catch(() => {});
+  }, [path]);
   const [showToast, setShowToast] = useState(false);
   const [feedbackGiven, setFeedbackGiven] = useState(false);
   const [searchCategory, setSearchCategory] = useState(() => {
@@ -366,7 +389,7 @@ export default function CategoryPage() {
 
     // Meta Robots handling for unknown paths (soft 404 protection)
     let metaRobots = document.querySelector('meta[name="robots"]');
-    const isUnknownPath = !seoData[path] && location.pathname !== '/';
+    const isUnknownPath = !allLinks.some(l => l.path === location.pathname) && location.pathname !== '/';
     if (isUnknownPath) {
       if (!metaRobots) {
         metaRobots = document.createElement('meta');
@@ -3308,7 +3331,7 @@ export default function CategoryPage() {
       )}
 
       {/* Roblox Username Validator & Display Name Helper */}
-      {(location.pathname === '/nombres-roblox' || location.pathname === '/') && (
+      {(location.pathname === '/nombres-roblox') && (
         <div className="max-w-6xl mx-auto py-2">
           <div className="bg-[#121212] border border-fuchsia-500/20 rounded-3xl p-8 shadow-2xl relative overflow-hidden bg-gradient-to-br from-fuchsia-950/20 via-[#121212] to-violet-950/10">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8 relative z-10">
@@ -3415,7 +3438,7 @@ export default function CategoryPage() {
       )}
 
       {/* Roblox Display Name Generator & Free Change Guide */}
-      {(location.pathname === '/nombres-roblox' || location.pathname === '/') && (
+      {(location.pathname === '/nombres-roblox') && (
         <div className="max-w-6xl mx-auto py-4 space-y-8">
           {/* Display Name Generator */}
           <div className="bg-[#121212] border border-fuchsia-500/20 rounded-3xl p-8 shadow-2xl relative overflow-hidden">
@@ -3485,7 +3508,7 @@ export default function CategoryPage() {
       )}
 
       {/* Instagram Username Validator & Bio Aesthetic Generator */}
-      {(location.pathname === '/nombres-instagram' || location.pathname === '/') && (
+      {(location.pathname === '/nombres-instagram') && (
         <div className="max-w-6xl mx-auto py-4 space-y-8">
           {/* Username Validator */}
           <div className="bg-[#121212] border border-pink-500/20 rounded-3xl p-8 shadow-2xl relative overflow-hidden bg-gradient-to-br from-pink-950/20 via-[#121212] to-rose-950/10">
@@ -3638,7 +3661,7 @@ export default function CategoryPage() {
       )}
 
       {/* Football & Clan Customizer */}
-      {(location.pathname === '/nombres-equipos-futbol' || location.pathname === '/') && (
+      {(location.pathname === '/nombres-equipos-futbol') && (
         <div className="max-w-6xl mx-auto py-4 space-y-8">
           <div className="bg-[#121212] border border-amber-500/20 rounded-3xl p-8 shadow-2xl bg-gradient-to-br from-amber-950/20 via-[#121212] to-emerald-950/20">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
@@ -3899,7 +3922,7 @@ export default function CategoryPage() {
       )}
 
       {/* Japanese Culture Interactive Directory */}
-      {(location.pathname === '/nombres-japoneses' || location.pathname === '/') && (
+      {(location.pathname === '/nombres-japoneses') && (
         <div className="max-w-6xl mx-auto py-4 space-y-8">
           <div className="bg-[#121212] border border-rose-500/20 rounded-3xl p-6 md:p-8 shadow-2xl">
             {/* Header */}
@@ -4107,7 +4130,7 @@ export default function CategoryPage() {
       )}
 
       {/* Korean Culture Interactive Directory */}
-      {(location.pathname === '/nombres-coreanos' || location.pathname === '/') && (
+      {(location.pathname === '/nombres-coreanos') && (
         <div className="max-w-6xl mx-auto py-4 space-y-8">
           <div className="bg-[#121212] border border-violet-500/20 rounded-3xl p-6 md:p-8 shadow-2xl">
             {/* Header */}
@@ -4325,7 +4348,7 @@ export default function CategoryPage() {
       )}
 
       {/* French Culture Directory */}
-      {(location.pathname === '/nombres-franceses' || location.pathname === '/') && (
+      {(location.pathname === '/nombres-franceses') && (
         <div className="max-w-6xl mx-auto py-4 space-y-8">
           <div className="bg-[#121212] border border-sky-500/20 rounded-3xl p-6 md:p-8 shadow-2xl">
             {/* Header */}
@@ -4527,7 +4550,7 @@ export default function CategoryPage() {
       )}
 
       {/* Maya Culture Directory */}
-      {(location.pathname === '/nombres-mayas' || location.pathname === '/') && (
+      {(location.pathname === '/nombres-mayas') && (
         <div className="max-w-6xl mx-auto py-4 space-y-8">
           <div className="bg-[#121212] border border-emerald-500/20 rounded-3xl p-6 md:p-8 shadow-2xl">
             {/* Header */}
@@ -4728,7 +4751,7 @@ export default function CategoryPage() {
       )}
 
       {/* Female Dog Name Generator & A-Z Filter Directory */}
-      {(location.pathname === '/nombres-perritas' || location.pathname === '/') && (
+      {(location.pathname === '/nombres-perritas' || location.pathname === '/nombres-perros-machos' || location.pathname === '/perritas-chihuahua') && (
         <div className="max-w-6xl mx-auto py-4 space-y-8">
           <div className="bg-[#121212] border border-pink-500/20 rounded-3xl p-6 md:p-8 shadow-2xl">
             {/* Header */}
@@ -4999,7 +5022,7 @@ export default function CategoryPage() {
       )}
 
       {/* Black Cat Mystical Name Section */}
-      {(location.pathname === '/nombres-gatos-negros' || location.pathname === '/') && (
+      {(location.pathname === '/nombres-gatos-negros') && (
         <div className="max-w-6xl mx-auto py-4 space-y-8">
           <div className="bg-[#121212] border border-purple-500/20 rounded-3xl p-8 shadow-2xl bg-gradient-to-br from-purple-950/20 via-[#121212] to-zinc-950">
             <div className="mb-6">
@@ -5058,7 +5081,7 @@ export default function CategoryPage() {
       )}
 
       {/* Dedicated Nombres para Gatos Generator & Directory */}
-      {(location.pathname === '/nombres-gatos' || location.pathname === '/') && (
+      {(location.pathname === '/nombres-gatos' || location.pathname === '/nombres-para-gatos') && (
         <div className="max-w-6xl mx-auto py-4 space-y-8">
           <div className="bg-[#121212] border border-amber-500/20 rounded-3xl p-6 md:p-8 shadow-2xl bg-gradient-to-br from-amber-950/20 via-[#121212] to-zinc-950">
             {/* Header */}
@@ -5259,7 +5282,7 @@ export default function CategoryPage() {
       )}
 
       {/* Dedicated Nombres para Gatos Negros Generator & Library */}
-      {(location.pathname === '/nombres-gatos-negros' || location.pathname === '/') && (
+      {(location.pathname === '/nombres-gatos-negros') && (
         <div className="max-w-6xl mx-auto py-4 space-y-8">
           <div className="bg-[#121212] border border-purple-500/20 rounded-3xl p-6 md:p-8 shadow-2xl bg-gradient-to-br from-purple-950/30 via-[#121212] to-zinc-950">
             {/* Header */}
@@ -5454,7 +5477,7 @@ export default function CategoryPage() {
       )}
 
       {/* Dedicated Nombres para Gatos Machos Generator & Library */}
-      {(location.pathname === '/nombres-gatos-machos' || location.pathname === '/') && (
+      {(location.pathname === '/nombres-gatos-machos') && (
         <div className="max-w-6xl mx-auto py-4 space-y-8">
           <div className="bg-[#121212] border border-blue-500/20 rounded-3xl p-6 md:p-8 shadow-2xl bg-gradient-to-br from-blue-950/30 via-[#121212] to-zinc-950">
             {/* Header */}
@@ -5649,7 +5672,7 @@ export default function CategoryPage() {
       )}
 
       {/* Plushie Adoption Certificate Generator & Library */}
-      {(location.pathname === '/nombres-peluches' || location.pathname === '/') && (
+      {(location.pathname === '/nombres-peluches') && (
         <div className="max-w-6xl mx-auto py-4 space-y-8">
           <div className="bg-[#121212] border border-pink-500/20 rounded-3xl p-6 md:p-8 shadow-2xl bg-gradient-to-br from-pink-950/30 via-[#121212] to-amber-950/20">
             {/* Header */}

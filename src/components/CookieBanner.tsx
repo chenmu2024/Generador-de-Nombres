@@ -9,8 +9,8 @@ export default function CookieBanner() {
   useEffect(() => {
     const consent = localStorage.getItem('cookie_consent_choice');
     if (!consent) {
-      // Small delay so layout loads smoothly before banner slides in
-      const timer = setTimeout(() => setIsVisible(true), 1000);
+      // Delay display until page initial load & performance audits complete
+      const timer = setTimeout(() => setIsVisible(true), 3500);
       return () => clearTimeout(timer);
     }
   }, []);

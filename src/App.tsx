@@ -15,7 +15,9 @@ const AboutUs = React.lazy(() => import('./pages/AboutUs'));
 function ScrollToTop() {
   const { pathname } = useLocation();
   useEffect(() => {
-    setTimeout(() => window.scrollTo(0, 0), 0);
+    if (window.scrollY > 0) {
+      window.scrollTo(0, 0);
+    }
   }, [pathname]);
   return null;
 }
