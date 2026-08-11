@@ -130,72 +130,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  // Dynamic Page Title & Structured Data SEO Update
-  useEffect(() => {
-    const currentPath = location.pathname === '/' ? 'home' : location.pathname.substring(1);
-    import('../data/seoData').then(({ seoData }) => {
-      const currentPageData = seoData[currentPath] || seoData['home'];
 
-      if (currentPageData) {
-        document.title = currentPageData.title || 'Generador de Nombres | Crea Apodos & Letras Raras';
-        
-        let metaDesc = document.querySelector('meta[name="description"]');
-        if (!metaDesc) {
-          metaDesc = document.createElement('meta');
-          metaDesc.setAttribute('name', 'description');
-          document.head.appendChild(metaDesc);
-        }
-        metaDesc.setAttribute('content', currentPageData.metaDescription || '');
-
-        // Inject JSON-LD Schema
-        const schemaId = 'gdn-jsonld-schema';
-        let schemaScript = document.getElementById(schemaId) as HTMLScriptElement | null;
-        if (!schemaScript) {
-          schemaScript = document.createElement('script');
-          schemaScript.id = schemaId;
-          schemaScript.type = 'application/ld+json';
-          document.head.appendChild(schemaScript);
-        }
-
-        const jsonLdData = {
-          '@context': 'https://schema.org',
-          '@graph': [
-            {
-              '@type': 'WebSite',
-              '@id': 'https://generadordenombres.net/#website',
-              'url': 'https://generadordenombres.net',
-              'name': 'GeneradorDeNombres.net',
-              'description': 'El generador de nombres, apodos y símbolos Unicode más completo.',
-              'inLanguage': 'es'
-            },
-            {
-              '@type': 'WebApplication',
-              '@id': `https://generadordenombres.net${currentPageData.path}#webapp`,
-              'url': `https://generadordenombres.net${currentPageData.path}`,
-              'name': currentPageData.h1 || currentPageData.title,
-              'applicationCategory': 'UtilitiesApplication',
-              'operatingSystem': 'All',
-              'browserRequirements': 'Requires JavaScript'
-            },
-            ...(currentPageData.faqs && currentPageData.faqs.length > 0 ? [{
-              '@type': 'FAQPage',
-              '@id': `https://generadordenombres.net${currentPageData.path}#faq`,
-              'mainEntity': currentPageData.faqs.map(faq => ({
-                '@type': 'Question',
-                'name': faq.question,
-                'acceptedAnswer': {
-                  '@type': 'Answer',
-                  'text': faq.answer
-                }
-              }))
-            }] : [])
-          ]
-        };
-
-        schemaScript.text = JSON.stringify(jsonLdData);
-      }
-    }).catch(() => {});
-  }, [location.pathname]);
 
   const removeFavorite = (nameToRemove: string) => {
     const updated = favorites.filter(f => f !== nameToRemove);
