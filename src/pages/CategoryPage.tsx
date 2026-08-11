@@ -3,10 +3,30 @@ import { useLocation, Link } from 'react-router-dom';
 import { HelpCircle, ChevronRight, Flame, Zap, Gem, Shield, Smartphone, CheckCircle2, Search, Sparkles, Copy, Volume2, Instagram, Gamepad2, Tv, Swords, Printer, Bookmark, Trash2, Heart, Share2, X, Download, CheckSquare, Square, ListOrdered, Home, Star } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import html2canvas from 'html2canvas';
-import Generator from '../components/Generator';
-import InvisibleSpaceTool from '../components/InvisibleSpaceTool';
-import AlphabetMatrixTool from '../components/AlphabetMatrixTool';
-import StoreNameTool from '../components/StoreNameTool';
+const LazyGenerator = React.lazy(() => import('../components/Generator'));
+const Generator = (props: any) => (
+  <React.Suspense fallback={<div className="h-64 animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>}>
+    <LazyGenerator {...props} />
+  </React.Suspense>
+);
+const LazyInvisibleSpaceTool = React.lazy(() => import('../components/InvisibleSpaceTool'));
+const InvisibleSpaceTool = (props: any) => (
+  <React.Suspense fallback={<div className="h-64 animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>}>
+    <LazyInvisibleSpaceTool {...props} />
+  </React.Suspense>
+);
+const LazyAlphabetMatrixTool = React.lazy(() => import('../components/AlphabetMatrixTool'));
+const AlphabetMatrixTool = (props: any) => (
+  <React.Suspense fallback={<div className="h-64 animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>}>
+    <LazyAlphabetMatrixTool {...props} />
+  </React.Suspense>
+);
+const LazyStoreNameTool = React.lazy(() => import('../components/StoreNameTool'));
+const StoreNameTool = (props: any) => (
+  <React.Suspense fallback={<div className="h-64 animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>}>
+    <LazyStoreNameTool {...props} />
+  </React.Suspense>
+);
 import { seoData, allLinks } from '../data/seoData';
 
 export default function CategoryPage() {
