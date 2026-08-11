@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import type { Metadata } from 'next';
 import CategoryPage from '@/src/views/CategoryPage';
 import { seoData } from '@/src/data/seoData';
@@ -18,5 +19,9 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
-  return <CategoryPage />;
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-[#0a0a0a]" />}>
+      <CategoryPage />
+    </Suspense>
+  );
 }
