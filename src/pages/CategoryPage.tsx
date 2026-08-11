@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { HelpCircle, ChevronRight, Flame, Zap, Gem, Shield, Smartphone, CheckCircle2, Search, Sparkles, Copy, Volume2, Instagram, Gamepad2, Tv, Swords, Printer, Bookmark, Trash2, Heart, Share2, X, Download, CheckSquare, Square, ListOrdered, Home, Star } from 'lucide-react';
-import { motion, AnimatePresence } from 'motion/react';
 const LazyGenerator = React.lazy(() => import('../components/Generator'));
 const Generator = (props: any) => (
   <React.Suspense fallback={<div className="min-h-[580px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>}>
@@ -676,19 +675,14 @@ export default function CategoryPage() {
     <main className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-20 relative">
       
       {/* Toast Notification */}
-      <AnimatePresence>
-        {showToast && (
-          <motion.div
-            initial={{ opacity: 0, y: 50, x: '-50%' }}
-            animate={{ opacity: 1, y: 0, x: '-50%' }}
-            exit={{ opacity: 0, y: 50, x: '-50%' }}
-            className="fixed bottom-8 left-1/2 z-50 flex items-center gap-2 bg-zinc-800 text-white px-6 py-3 rounded-full shadow-2xl border border-white/10 font-medium"
-          >
-            <CheckCircle2 className="w-5 h-5 text-emerald-400" />
-            ¡Copiado al portapapeles!
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {showToast && (
+        <div
+          className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 flex items-center gap-2 bg-zinc-800 text-white px-6 py-3 rounded-full shadow-2xl border border-white/10 font-medium animate-in fade-in slide-in-from-bottom-5 duration-200"
+        >
+          <CheckCircle2 className="w-5 h-5 text-emerald-400" />
+          ¡Copiado al portapapeles!
+        </div>
+      )}
 
       {/* Breadcrumb Navigation for Google & Users */}
       <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs text-zinc-400 max-w-4xl mx-auto px-1" itemScope itemType="https://schema.org/BreadcrumbList">
@@ -5883,7 +5877,7 @@ export default function CategoryPage() {
         })()}
       </nav>
 
-      {/* Explore All Categories - Show especially on home, or always at the bottom */}
+      {/* Explore All Categories */}
       <section id="relacionados" className="max-w-6xl mx-auto pt-16 border-t border-white/5 scroll-mt-24">
         <div className="text-center mb-10">
           <h2 className="text-3xl md:text-4xl font-bold text-zinc-100 font-heading">Explora Todos Nuestros Generadores</h2>
@@ -5925,110 +5919,100 @@ export default function CategoryPage() {
           )}
         </div>
       </section>
-
-      {/* Printable Certificate Modal */}
-      <AnimatePresence>
-        {showCertPrintModal && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto"
+      {showCertPrintModal && (
+        <div
+          className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto animate-in fade-in duration-200"
+        >
+          <div
+            ref={certModalRef}
+            className="bg-white text-zinc-900 rounded-3xl p-8 max-w-2xl w-full shadow-2xl relative border-8 border-amber-300 print:border-4 print:p-6 print:shadow-none animate-in zoom-in-95 duration-200"
           >
-            <motion.div
-              ref={certModalRef}
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              className="bg-white text-zinc-900 rounded-3xl p-8 max-w-2xl w-full shadow-2xl relative border-8 border-amber-300 print:border-4 print:p-6 print:shadow-none"
+            <button
+              onClick={() => setShowCertPrintModal(false)}
+              className="absolute top-4 right-4 text-zinc-400 hover:text-zinc-700 bg-zinc-100 p-2 rounded-full print:hidden transition-all"
             >
+              <X className="w-5 h-5" />
+            </button>
+
+            {/* Certificate Header */}
+            <div className="text-center border-b-2 border-dashed border-amber-300 pb-6 mb-6">
+              <div className="text-4xl mb-2">🧸 📜 💖</div>
+              <span className="text-xs font-bold uppercase tracking-widest text-amber-600 block">Documento Oficial de Amor</span>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-pink-600 font-heading">Acta Oficial de Adopción de Peluche</h2>
+              <p className="text-xs text-zinc-500 mt-1 font-serif italic">Registrado en la República de la Ternura • N° 2026-PEL</p>
+            </div>
+
+            {/* Certificate Body Grid */}
+            <div className="grid grid-cols-2 gap-4 text-sm mb-6 bg-pink-50/80 p-5 rounded-2xl border border-pink-200">
+              <div>
+                <span className="text-xs font-bold uppercase text-zinc-400 block">Nombre del Peluche:</span>
+                <span className="text-xl font-extrabold text-pink-600 font-heading">{plushieName}</span>
+              </div>
+              <div>
+                <span className="text-xs font-bold uppercase text-zinc-400 block">Tipo / Especie:</span>
+                <span className="text-base font-bold text-amber-700">{plushieType}</span>
+              </div>
+              <div>
+                <span className="text-xs font-bold uppercase text-zinc-400 block">Adoptante Oficial:</span>
+                <span className="text-base font-bold text-zinc-800">{plushieOwner}</span>
+              </div>
+              <div>
+                <span className="text-xs font-bold uppercase text-zinc-400 block">Fecha de Adopción:</span>
+                <span className="text-base font-bold text-zinc-800">{plushieAdoptionDate}</span>
+              </div>
+              <div className="col-span-2 pt-2 border-t border-pink-200">
+                <span className="text-xs font-bold uppercase text-zinc-400 block">Superpoder / Rasgo Especial:</span>
+                <span className="text-sm font-medium text-zinc-700">{plushieTrait}</span>
+              </div>
+              <div className="col-span-2">
+                <span className="text-xs font-bold uppercase text-zinc-400 block">Promesa de Cuidado Eterno:</span>
+                <span className="text-sm italic font-medium text-pink-700">"{plushiePromise}"</span>
+              </div>
+            </div>
+
+            {/* Certificate Signatures & Stamp */}
+            <div className="flex items-center justify-between pt-6 border-t border-dashed border-amber-300 text-center">
+              <div className="w-1/3">
+                <div className="border-b border-zinc-400 pb-1 mb-1 font-serif italic text-sm text-pink-600">{plushieOwner}</div>
+                <span className="text-[10px] text-zinc-400 uppercase font-bold">Firma del Adoptante</span>
+              </div>
+              <div className="text-center">
+                <div className="w-16 h-16 rounded-full bg-amber-400/20 border-2 border-amber-500 text-amber-600 font-bold text-[10px] flex flex-col items-center justify-center p-1 uppercase mx-auto shadow-inner">
+                  <span>⭐ SELLO ⭐</span>
+                  <span className="text-[8px] font-extrabold">OFICIAL</span>
+                </div>
+              </div>
+              <div className="w-1/3">
+                <div className="border-b border-zinc-400 pb-1 mb-1 font-serif italic text-sm text-amber-700">🧸 {plushieName}</div>
+                <span className="text-[10px] text-zinc-400 uppercase font-bold">Huellita / Marca</span>
+              </div>
+            </div>
+
+            {/* Modal Print & Export Action Bar */}
+            <div className="mt-8 flex flex-wrap items-center justify-end gap-3 print:hidden">
               <button
                 onClick={() => setShowCertPrintModal(false)}
-                className="absolute top-4 right-4 text-zinc-400 hover:text-zinc-700 bg-zinc-100 p-2 rounded-full print:hidden transition-all"
+                className="px-4 py-2 bg-zinc-200 hover:bg-zinc-300 text-zinc-700 font-bold text-xs rounded-xl transition-all"
               >
-                <X className="w-5 h-5" />
+                Cerrar
               </button>
-
-              {/* Certificate Header */}
-              <div className="text-center border-b-2 border-dashed border-amber-300 pb-6 mb-6">
-                <div className="text-4xl mb-2">🧸 📜 💖</div>
-                <span className="text-xs font-bold uppercase tracking-widest text-amber-600 block">Documento Oficial de Amor</span>
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-pink-600 font-heading">Acta Oficial de Adopción de Peluche</h2>
-                <p className="text-xs text-zinc-500 mt-1 font-serif italic">Registrado en la República de la Ternura • N° 2026-PEL</p>
-              </div>
-
-              {/* Certificate Body Grid */}
-              <div className="grid grid-cols-2 gap-4 text-sm mb-6 bg-pink-50/80 p-5 rounded-2xl border border-pink-200">
-                <div>
-                  <span className="text-xs font-bold uppercase text-zinc-400 block">Nombre del Peluche:</span>
-                  <span className="text-xl font-extrabold text-pink-600 font-heading">{plushieName}</span>
-                </div>
-                <div>
-                  <span className="text-xs font-bold uppercase text-zinc-400 block">Tipo / Especie:</span>
-                  <span className="text-base font-bold text-amber-700">{plushieType}</span>
-                </div>
-                <div>
-                  <span className="text-xs font-bold uppercase text-zinc-400 block">Adoptante Oficial:</span>
-                  <span className="text-base font-bold text-zinc-800">{plushieOwner}</span>
-                </div>
-                <div>
-                  <span className="text-xs font-bold uppercase text-zinc-400 block">Fecha de Adopción:</span>
-                  <span className="text-base font-bold text-zinc-800">{plushieAdoptionDate}</span>
-                </div>
-                <div className="col-span-2 pt-2 border-t border-pink-200">
-                  <span className="text-xs font-bold uppercase text-zinc-400 block">Superpoder / Rasgo Especial:</span>
-                  <span className="text-sm font-medium text-zinc-700">{plushieTrait}</span>
-                </div>
-                <div className="col-span-2">
-                  <span className="text-xs font-bold uppercase text-zinc-400 block">Promesa de Cuidado Eterno:</span>
-                  <span className="text-sm italic font-medium text-pink-700">"{plushiePromise}"</span>
-                </div>
-              </div>
-
-              {/* Certificate Signatures & Stamp */}
-              <div className="flex items-center justify-between pt-6 border-t border-dashed border-amber-300 text-center">
-                <div className="w-1/3">
-                  <div className="border-b border-zinc-400 pb-1 mb-1 font-serif italic text-sm text-pink-600">{plushieOwner}</div>
-                  <span className="text-[10px] text-zinc-400 uppercase font-bold">Firma del Adoptante</span>
-                </div>
-                <div className="text-center">
-                  <div className="w-16 h-16 rounded-full bg-amber-400/20 border-2 border-amber-500 text-amber-600 font-bold text-[10px] flex flex-col items-center justify-center p-1 uppercase mx-auto shadow-inner">
-                    <span>⭐ SELLO ⭐</span>
-                    <span className="text-[8px] font-extrabold">OFICIAL</span>
-                  </div>
-                </div>
-                <div className="w-1/3">
-                  <div className="border-b border-zinc-400 pb-1 mb-1 font-serif italic text-sm text-amber-700">🧸 {plushieName}</div>
-                  <span className="text-[10px] text-zinc-400 uppercase font-bold">Huellita / Marca</span>
-                </div>
-              </div>
-
-              {/* Modal Print & Export Action Bar */}
-              <div className="mt-8 flex flex-wrap items-center justify-end gap-3 print:hidden">
-                <button
-                  onClick={() => setShowCertPrintModal(false)}
-                  className="px-4 py-2 bg-zinc-200 hover:bg-zinc-300 text-zinc-700 font-bold text-xs rounded-xl transition-all"
-                >
-                  Cerrar
-                </button>
-                <button
-                  onClick={handleDownloadPNG}
-                  disabled={isExportingPNG}
-                  className="px-5 py-2 bg-amber-500 hover:bg-amber-400 text-zinc-950 font-bold text-xs rounded-xl shadow-lg shadow-amber-500/20 transition-all flex items-center gap-2 disabled:opacity-50"
-                >
-                  <Download className="w-4 h-4" /> {isExportingPNG ? 'Generando PNG...' : 'Guardar Imagen PNG'}
-                </button>
-                <button
-                  onClick={() => window.print()}
-                  className="px-5 py-2 bg-pink-600 hover:bg-pink-500 text-white font-bold text-xs rounded-xl shadow-lg shadow-pink-500/30 transition-all flex items-center gap-2"
-                >
-                  <Printer className="w-4 h-4" /> Imprimir / PDF
-                </button>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+              <button
+                onClick={handleDownloadPNG}
+                disabled={isExportingPNG}
+                className="px-5 py-2 bg-amber-500 hover:bg-amber-400 text-zinc-950 font-bold text-xs rounded-xl shadow-lg shadow-amber-500/20 transition-all flex items-center gap-2 disabled:opacity-50"
+              >
+                <Download className="w-4 h-4" /> {isExportingPNG ? 'Generando PNG...' : 'Guardar Imagen PNG'}
+              </button>
+              <button
+                onClick={() => window.print()}
+                className="px-5 py-2 bg-pink-600 hover:bg-pink-500 text-white font-bold text-xs rounded-xl shadow-lg shadow-pink-500/30 transition-all flex items-center gap-2"
+              >
+                <Printer className="w-4 h-4" /> Imprimir / PDF
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Floating Favorites Drawer Widget */}
       <div className="fixed bottom-6 right-6 z-40">
@@ -6040,121 +6024,116 @@ export default function CategoryPage() {
           <span>Mis Favoritos ({savedFavorites.length})</span>
         </button>
 
-        <AnimatePresence>
-          {isFavoritesOpen && (
-            <motion.div
-              initial={{ opacity: 0, y: 20, scale: 0.95 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 20, scale: 0.95 }}
-              className="absolute bottom-16 right-0 w-80 sm:w-96 bg-zinc-900 border border-amber-500/30 rounded-3xl shadow-2xl p-5 text-white z-50 backdrop-blur-xl"
-            >
-              <div className="flex items-center justify-between pb-3 border-b border-white/10 mb-3">
-                <div className="flex items-center gap-2">
-                  <Heart className="w-4 h-4 text-amber-400 fill-amber-400" />
-                  <h3 className="font-bold text-sm font-heading">Nombres Guardados ({savedFavorites.length})</h3>
-                </div>
-                <button
-                  onClick={() => setIsFavoritesOpen(false)}
-                  className="text-zinc-400 hover:text-white p-1"
-                >
-                  <X className="w-4 h-4" />
-                </button>
+        {isFavoritesOpen && (
+          <div
+            className="absolute bottom-16 right-0 w-80 sm:w-96 bg-zinc-900 border border-amber-500/30 rounded-3xl shadow-2xl p-5 text-white z-50 backdrop-blur-xl animate-in zoom-in-95 duration-150"
+          >
+            <div className="flex items-center justify-between pb-3 border-b border-white/10 mb-3">
+              <div className="flex items-center gap-2">
+                <Heart className="w-4 h-4 text-amber-400 fill-amber-400" />
+                <h3 className="font-bold text-sm font-heading">Nombres Guardados ({savedFavorites.length})</h3>
               </div>
+              <button
+                onClick={() => setIsFavoritesOpen(false)}
+                className="text-zinc-400 hover:text-white p-1"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
 
-              {savedFavorites.length > 0 && (
-                <div className="mb-3 relative">
-                  <Search className="w-3.5 h-3.5 text-zinc-500 absolute left-2.5 top-1/2 -translate-y-1/2" />
-                  <input
-                    type="text"
-                    value={favSearchTerm}
-                    onChange={(e) => setFavSearchTerm(e.target.value)}
-                    placeholder="Buscar en favoritos..."
-                    className="w-full pl-8 pr-3 py-1.5 bg-zinc-800 border border-white/10 rounded-xl text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-amber-500"
-                  />
-                  {favSearchTerm && (
-                    <button
-                      onClick={() => setFavSearchTerm('')}
-                      className="absolute right-2 top-1/2 -translate-y-1/2 text-zinc-500 hover:text-white"
-                    >
-                      <X className="w-3 h-3" />
-                    </button>
-                  )}
-                </div>
-              )}
+            {savedFavorites.length > 0 && (
+              <div className="mb-3 relative">
+                <Search className="w-3.5 h-3.5 text-zinc-500 absolute left-2.5 top-1/2 -translate-y-1/2" />
+                <input
+                  type="text"
+                  value={favSearchTerm}
+                  onChange={(e) => setFavSearchTerm(e.target.value)}
+                  placeholder="Buscar en favoritos..."
+                  className="w-full pl-8 pr-3 py-1.5 bg-zinc-800 border border-white/10 rounded-xl text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-amber-500"
+                />
+                {favSearchTerm && (
+                  <button
+                    onClick={() => setFavSearchTerm('')}
+                    className="absolute right-2 top-1/2 -translate-y-1/2 text-zinc-500 hover:text-white"
+                  >
+                    <X className="w-3 h-3" />
+                  </button>
+                )}
+              </div>
+            )}
 
-              {savedFavorites.length === 0 ? (
-                <div className="py-8 text-center text-xs text-zinc-500">
-                  No has guardado nombres aún. Haz clic en el icono ★ junto a cualquier nombre para guardarlo aquí.
-                </div>
-              ) : (
-                <div className="space-y-2 max-h-60 overflow-y-auto pr-1">
-                  {savedFavorites
-                    .filter(fav => fav.toLowerCase().includes(favSearchTerm.toLowerCase()))
-                    .map((fav, fIdx) => (
-                      <div key={fIdx} className="bg-zinc-800/80 border border-white/5 rounded-xl px-3 py-2 flex items-center justify-between text-xs group">
-                        <span className="font-semibold text-amber-200 truncate">{fav}</span>
-                        <div className="flex items-center gap-1">
-                          <button
-                            onClick={() => handleCopyTrending(fav)}
-                            className="p-1 text-zinc-400 hover:text-white transition-colors"
-                            title="Copiar"
-                          >
-                            <Copy className="w-3.5 h-3.5" />
-                          </button>
-                          <button
-                            onClick={() => toggleFavorite(fav)}
-                            className="p-1 text-zinc-500 hover:text-red-400 transition-colors"
-                            title="Eliminar"
-                          >
-                            <Trash2 className="w-3.5 h-3.5" />
-                          </button>
-                        </div>
+            {savedFavorites.length === 0 ? (
+              <div className="py-8 text-center text-xs text-zinc-500">
+                No has guardado nombres aún. Haz clic en el icono ★ junto a cualquier nombre para guardarlo aquí.
+              </div>
+            ) : (
+              <div className="space-y-2 max-h-60 overflow-y-auto pr-1">
+                {savedFavorites
+                  .filter(fav => fav.toLowerCase().includes(favSearchTerm.toLowerCase()))
+                  .map((fav, fIdx) => (
+                    <div key={fIdx} className="bg-zinc-800/80 border border-white/5 rounded-xl px-3 py-2 flex items-center justify-between text-xs group">
+                      <span className="font-semibold text-amber-200 truncate">{fav}</span>
+                      <div className="flex items-center gap-1">
+                        <button
+                          onClick={() => handleCopyTrending(fav)}
+                          className="p-1 text-zinc-400 hover:text-white transition-colors"
+                          title="Copiar"
+                        >
+                          <Copy className="w-3.5 h-3.5" />
+                        </button>
+                        <button
+                          onClick={() => toggleFavorite(fav)}
+                          className="p-1 text-zinc-500 hover:text-red-400 transition-colors"
+                          title="Eliminar"
+                        >
+                          <Trash2 className="w-3.5 h-3.5" />
+                        </button>
                       </div>
-                    ))}
-                </div>
-              )}
+                    </div>
+                  ))}
+              </div>
+            )}
 
-              {savedFavorites.length > 0 && (
-                <div className="pt-3 mt-3 border-t border-white/10 space-y-2">
-                  <div className="flex items-center justify-between gap-2">
+            {savedFavorites.length > 0 && (
+              <div className="pt-3 mt-3 border-t border-white/10 space-y-2">
+                <div className="flex items-center justify-between gap-2">
+                  <button
+                    onClick={() => {
+                      setSavedFavorites([]);
+                      try { localStorage.removeItem('nombres_favoritos_saved'); } catch(e){}
+                    }}
+                    className="text-[11px] text-zinc-500 hover:text-red-400 transition-colors font-medium"
+                  >
+                    Vaciar Lista
+                  </button>
+                  <div className="flex items-center gap-2">
                     <button
                       onClick={() => {
-                        setSavedFavorites([]);
-                        try { localStorage.removeItem('nombres_favoritos_saved'); } catch(e){}
+                        const blob = new Blob([savedFavorites.join('\n')], { type: 'text/plain;charset=utf-8' });
+                        const url = URL.createObjectURL(blob);
+                        const link = document.createElement('a');
+                        link.href = url;
+                        link.download = 'Mis_Nombres_Favoritos_2026.txt';
+                        link.click();
+                        URL.revokeObjectURL(url);
                       }}
-                      className="text-[11px] text-zinc-500 hover:text-red-400 transition-colors font-medium"
+                      className="px-2.5 py-1.5 bg-zinc-800 hover:bg-zinc-700 text-zinc-200 font-bold text-xs rounded-xl border border-white/10 transition-all flex items-center gap-1"
+                      title="Exportar archivo TXT"
                     >
-                      Vaciar Lista
+                      <Download className="w-3.5 h-3.5 text-emerald-400" /> .TXT
                     </button>
-                    <div className="flex items-center gap-2">
-                      <button
-                        onClick={() => {
-                          const blob = new Blob([savedFavorites.join('\n')], { type: 'text/plain;charset=utf-8' });
-                          const url = URL.createObjectURL(blob);
-                          const link = document.createElement('a');
-                          link.href = url;
-                          link.download = 'Mis_Nombres_Favoritos_2026.txt';
-                          link.click();
-                          URL.revokeObjectURL(url);
-                        }}
-                        className="px-2.5 py-1.5 bg-zinc-800 hover:bg-zinc-700 text-zinc-200 font-bold text-xs rounded-xl border border-white/10 transition-all flex items-center gap-1"
-                        title="Exportar archivo TXT"
-                      >
-                        <Download className="w-3.5 h-3.5 text-emerald-400" /> .TXT
-                      </button>
-                      <button
-                        onClick={() => handleCopyTrending(savedFavorites.join(', '))}
-                        className="px-3 py-1.5 bg-amber-500 hover:bg-amber-400 text-zinc-950 font-bold text-xs rounded-xl transition-all shadow-md flex items-center gap-1"
-                      >
-                        <Copy className="w-3.5 h-3.5" /> Copiar Todos ({savedFavorites.length})
-                      </button>
-                    </div>
+                    <button
+                      onClick={() => handleCopyTrending(savedFavorites.join(', '))}
+                      className="px-3 py-1.5 bg-amber-500 hover:bg-amber-400 text-zinc-950 font-bold text-xs rounded-xl transition-all shadow-md flex items-center gap-1"
+                    >
+                      <Copy className="w-3.5 h-3.5" /> Copiar Todos ({savedFavorites.length})
+                    </button>
                   </div>
                 </div>
-              )}
-            </motion.div>
-          )}
-        </AnimatePresence>
+              </div>
+            )}
+          </div>
+        )}
       </div>
 
     </main>

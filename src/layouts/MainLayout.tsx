@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Flame, Menu, X, ChevronDown, Gamepad2, Users, Heart, Type, Globe, Briefcase, Search, Sparkles, ArrowRight, Bookmark, Copy, Trash2, Check, ExternalLink } from 'lucide-react';
-import { motion, AnimatePresence } from 'motion/react';
 import { allLinks } from '../data/allLinks';
 import CookieBanner from '../components/CookieBanner';
 
@@ -218,35 +217,29 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
                     </button>
 
                     {/* Dropdown Box */}
-                    <AnimatePresence>
-                      {activeDropdown === group.title && (
-                        <motion.div
-                          initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                          animate={{ opacity: 1, y: 0, scale: 1 }}
-                          exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                          transition={{ duration: 0.15 }}
-                          className="absolute left-0 top-full pt-2 w-64 z-50"
-                        >
-                          <div className="bg-zinc-900 border border-white/10 rounded-2xl p-2 shadow-2xl backdrop-blur-2xl">
-                            {group.links.map((link) => (
-                              <Link
-                                key={link.path}
-                                to={link.path}
-                                onClick={() => setActiveDropdown(null)}
-                                className={`block px-3.5 py-2.5 rounded-xl transition-all ${
-                                  location.pathname === link.path
-                                    ? 'bg-violet-600/20 text-violet-300 border border-violet-500/30'
-                                    : 'hover:bg-white/5 text-zinc-300 hover:text-white'
-                                }`}
-                              >
-                                <div className="text-sm font-bold">{link.label}</div>
-                                <div className="text-[11px] text-zinc-400">{link.desc}</div>
-                              </Link>
-                            ))}
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
+                    {activeDropdown === group.title && (
+                      <div
+                        className="absolute left-0 top-full pt-2 w-64 z-50 animate-in fade-in zoom-in-95 duration-150"
+                      >
+                        <div className="bg-zinc-900 border border-white/10 rounded-2xl p-2 shadow-2xl backdrop-blur-2xl">
+                          {group.links.map((link) => (
+                            <Link
+                              key={link.path}
+                              to={link.path}
+                              onClick={() => setActiveDropdown(null)}
+                              className={`block px-3.5 py-2.5 rounded-xl transition-all ${
+                                location.pathname === link.path
+                                  ? 'bg-violet-600/20 text-violet-300 border border-violet-500/30'
+                                  : 'hover:bg-white/5 text-zinc-300 hover:text-white'
+                              }`}
+                            >
+                              <div className="text-sm font-bold">{link.label}</div>
+                              <div className="text-[11px] text-zinc-400">{link.desc}</div>
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 );
               })}
@@ -292,54 +285,49 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
         </div>
 
         {/* Mobile Nav */}
-        <AnimatePresence>
-          {isMenuOpen && (
-            <motion.div 
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: 'auto', opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              className="md:hidden border-t border-white/5 bg-[#0a0a0a] overflow-hidden max-h-[85vh] overflow-y-auto"
-            >
-              <div className="px-4 pt-4 pb-6 space-y-4">
-                <Link
-                  to="/"
-                  onClick={() => setIsMenuOpen(false)}
-                  className={`block px-4 py-2.5 rounded-xl text-base font-bold ${
-                    location.pathname === '/' ? 'bg-white/10 text-white' : 'text-zinc-400'
-                  }`}
-                >
-                  🏠 Inicio
-                </Link>
+        {isMenuOpen && (
+          <div 
+            className="md:hidden border-t border-white/5 bg-[#0a0a0a] overflow-hidden max-h-[85vh] overflow-y-auto animate-in slide-in-from-top duration-200"
+          >
+            <div className="px-4 pt-4 pb-6 space-y-4">
+              <Link
+                to="/"
+                onClick={() => setIsMenuOpen(false)}
+                className={`block px-4 py-2.5 rounded-xl text-base font-bold ${
+                  location.pathname === '/' ? 'bg-white/10 text-white' : 'text-zinc-400'
+                }`}
+              >
+                🏠 Inicio
+              </Link>
 
-                {navGroups.map((group) => (
-                  <div key={group.title} className="space-y-1">
-                    <div className="px-4 text-xs font-bold text-violet-400 uppercase tracking-wider flex items-center gap-2">
-                      <group.icon className="w-3.5 h-3.5" />
-                      <span>{group.title}</span>
-                    </div>
-                    <div className="grid grid-cols-1 gap-1 pt-1 pl-2">
-                      {group.links.map((link) => (
-                        <Link
-                          key={link.path}
-                          to={link.path}
-                          onClick={() => setIsMenuOpen(false)}
-                          className={`flex items-center justify-between px-3.5 py-2 rounded-xl text-sm font-medium ${
-                            location.pathname === link.path
-                              ? 'bg-violet-600/20 text-violet-300 font-bold'
-                              : 'text-zinc-300 hover:bg-white/5'
-                          }`}
-                        >
-                          <span>{link.label}</span>
-                          <span className="text-[10px] text-zinc-500">{link.desc}</span>
-                        </Link>
-                      ))}
-                    </div>
+              {navGroups.map((group) => (
+                <div key={group.title} className="space-y-1">
+                  <div className="px-4 text-xs font-bold text-violet-400 uppercase tracking-wider flex items-center gap-2">
+                    <group.icon className="w-3.5 h-3.5" />
+                    <span>{group.title}</span>
                   </div>
-                ))}
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+                  <div className="grid grid-cols-1 gap-1 pt-1 pl-2">
+                    {group.links.map((link) => (
+                      <Link
+                        key={link.path}
+                        to={link.path}
+                        onClick={() => setIsMenuOpen(false)}
+                        className={`flex items-center justify-between px-3.5 py-2 rounded-xl text-sm font-medium ${
+                          location.pathname === link.path
+                            ? 'bg-violet-600/20 text-violet-300 font-bold'
+                            : 'text-zinc-300 hover:bg-white/5'
+                        }`}
+                      >
+                        <span>{link.label}</span>
+                        <span className="text-[10px] text-zinc-500">{link.desc}</span>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </header>
 
       <main className="flex-grow">
@@ -448,211 +436,191 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
       <CookieBanner />
 
       {/* Global Quick Search Modal (Ctrl + K) */}
-      <AnimatePresence>
-        {isSearchOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-start justify-center pt-16 sm:pt-24 p-4 overflow-y-auto"
-            onClick={() => setIsSearchOpen(false)}
+      {isSearchOpen && (
+        <div
+          className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-start justify-center pt-16 sm:pt-24 p-4 overflow-y-auto animate-in fade-in duration-200"
+          onClick={() => setIsSearchOpen(false)}
+        >
+          <div
+            className="bg-zinc-900 border border-white/10 rounded-3xl max-w-2xl w-full shadow-2xl overflow-hidden relative animate-in zoom-in-95 duration-200"
+            onClick={(e) => e.stopPropagation()}
           >
-            <motion.div
-              initial={{ scale: 0.95, opacity: 0, y: -20 }}
-              animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.95, opacity: 0, y: -20 }}
-              className="bg-zinc-900 border border-white/10 rounded-3xl max-w-2xl w-full shadow-2xl overflow-hidden relative"
-              onClick={(e) => e.stopPropagation()}
-            >
-              {/* Search Header */}
-              <div className="p-4 border-b border-white/10 flex items-center gap-3">
-                <Search className="w-5 h-5 text-violet-400" />
-                <input
-                  type="text"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Buscar generadores, categorías (Free Fire, Peluches, Gatos...)"
-                  className="w-full bg-transparent text-white placeholder-zinc-500 text-sm font-semibold focus:outline-none"
-                  autoFocus
-                />
-                <button
-                  onClick={() => setIsSearchOpen(false)}
-                  className="text-zinc-400 hover:text-white p-1 rounded-lg bg-zinc-800"
-                >
-                  <X className="w-4 h-4" />
-                </button>
-              </div>
+            {/* Search Header */}
+            <div className="p-4 border-b border-white/10 flex items-center gap-3">
+              <Search className="w-5 h-5 text-violet-400" />
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Buscar generadores, categorías (Free Fire, Peluches, Gatos...)"
+                className="w-full bg-transparent text-white placeholder-zinc-500 text-sm font-semibold focus:outline-none"
+                autoFocus
+              />
+              <button
+                onClick={() => setIsSearchOpen(false)}
+                className="text-zinc-400 hover:text-white p-1 rounded-lg bg-zinc-800"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
 
-              {/* Quick Tags */}
-              <div className="px-4 py-2 bg-zinc-950/50 border-b border-white/5 flex items-center gap-2 overflow-x-auto text-xs">
-                <span className="text-zinc-500 font-semibold shrink-0">Popular:</span>
-                {[
-                  { label: '🔥 Free Fire', path: '/generador-free-fire' },
-                  { label: '🧸 Peluches', path: '/nombres-peluches' },
-                  { label: '🐱 Gatos', path: '/nombres-gatos-machos' },
-                  { label: '🐶 Perritas', path: '/nombres-perritas' },
-                  { label: '🌸 Niñas', path: '/nombres-de-nina' },
-                  { label: '🎮 Roblox', path: '/nombres-roblox' }
-                ].map((tag, idx) => (
-                  <button
+            {/* Quick Tags */}
+            <div className="px-4 py-2 bg-zinc-950/50 border-b border-white/5 flex items-center gap-2 overflow-x-auto text-xs">
+              <span className="text-zinc-500 font-semibold shrink-0">Popular:</span>
+              {[
+                { label: '🔥 Free Fire', path: '/generador-free-fire' },
+                { label: '🧸 Peluches', path: '/nombres-peluches' },
+                { label: '🐱 Gatos', path: '/nombres-gatos-machos' },
+                { label: '🐶 Perritas', path: '/nombres-perritas' },
+                { label: '🌸 Niñas', path: '/nombres-de-nina' },
+                { label: '🎮 Roblox', path: '/nombres-roblox' }
+              ].map((tag, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => {
+                    navigate(tag.path);
+                    setIsSearchOpen(false);
+                  }}
+                  className="shrink-0 px-2.5 py-1 rounded-full bg-white/5 hover:bg-violet-500/20 text-zinc-300 hover:text-violet-300 border border-white/5 text-[11px] font-medium transition-all"
+                >
+                  {tag.label}
+                </button>
+              ))}
+            </div>
+
+            {/* Search Results List */}
+            <div className="p-3 max-h-96 overflow-y-auto space-y-1">
+              {filteredResults.length === 0 ? (
+                <div className="py-8 text-center text-xs text-zinc-500">
+                  No se encontraron categorías para "{searchQuery}". Pruebe con palabras como Free Fire, Gatos, Bebés o Tiendas.
+                </div>
+              ) : (
+                filteredResults.map((item, idx) => (
+                  <Link
                     key={idx}
-                    onClick={() => {
-                      navigate(tag.path);
-                      setIsSearchOpen(false);
-                    }}
-                    className="shrink-0 px-2.5 py-1 rounded-full bg-white/5 hover:bg-violet-500/20 text-zinc-300 hover:text-violet-300 border border-white/5 text-[11px] font-medium transition-all"
+                    to={item.path}
+                    onClick={() => setIsSearchOpen(false)}
+                    className="block p-3 rounded-2xl hover:bg-violet-600/10 border border-transparent hover:border-violet-500/30 transition-all group"
                   >
-                    {tag.label}
-                  </button>
-                ))}
-              </div>
+                    <div className="flex items-center justify-between">
+                      <span className="font-bold text-white text-sm group-hover:text-violet-300 transition-colors flex items-center gap-2">
+                        <Sparkles className="w-3.5 h-3.5 text-violet-400" />
+                        {item.h1 || item.title}
+                      </span>
+                      <ArrowRight className="w-4 h-4 text-zinc-500 group-hover:text-violet-300 group-hover:translate-x-1 transition-all" />
+                    </div>
+                    <p className="text-xs text-zinc-400 mt-1 line-clamp-1">{item.desc}</p>
+                  </Link>
+                ))
+              )}
+            </div>
 
-              {/* Search Results List */}
-              <div className="p-3 max-h-96 overflow-y-auto space-y-1">
-                {filteredResults.length === 0 ? (
-                  <div className="py-8 text-center text-xs text-zinc-500">
-                    No se encontraron categorías para "{searchQuery}". Pruebe con palabras como Free Fire, Gatos, Bebés o Tiendas.
-                  </div>
-                ) : (
-                  filteredResults.map((item, idx) => (
-                    <Link
-                      key={idx}
-                      to={item.path}
-                      onClick={() => setIsSearchOpen(false)}
-                      className="block p-3 rounded-2xl hover:bg-violet-600/10 border border-transparent hover:border-violet-500/30 transition-all group"
-                    >
-                      <div className="flex items-center justify-between">
-                        <span className="font-bold text-white text-sm group-hover:text-violet-300 transition-colors flex items-center gap-2">
-                          <Sparkles className="w-3.5 h-3.5 text-violet-400" />
-                          {item.h1 || item.title}
-                        </span>
-                        <ArrowRight className="w-4 h-4 text-zinc-500 group-hover:text-violet-300 group-hover:translate-x-1 transition-all" />
-                      </div>
-                      <p className="text-xs text-zinc-400 mt-1 line-clamp-1">{item.desc}</p>
-                    </Link>
-                  ))
-                )}
-              </div>
-
-              {/* Modal Footer */}
-              <div className="p-3 bg-zinc-950 text-[11px] text-zinc-500 flex items-center justify-between border-t border-white/5">
-                <span>Navegación Rápida de Herramientas & Generadores 2026</span>
-                <span className="font-mono">ESC para cerrar</span>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            {/* Modal Footer */}
+            <div className="p-3 bg-zinc-950 text-[11px] text-zinc-500 flex items-center justify-between border-t border-white/5">
+              <span>Navegación Rápida de Herramientas & Generadores 2026</span>
+              <span className="font-mono">ESC para cerrar</span>
+            </div>
+          </div>
+        </div>
+      )}
       {/* Favorites Drawer Overlay */}
-      <AnimatePresence>
-        {isFavDrawerOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex justify-end"
-            onClick={() => setIsFavDrawerOpen(false)}
+      {isFavDrawerOpen && (
+        <div
+          className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex justify-end animate-in fade-in duration-200"
+          onClick={() => setIsFavDrawerOpen(false)}
+        >
+          <div
+            className="bg-zinc-900 border-l border-white/10 w-full max-w-md h-full flex flex-col shadow-2xl overflow-hidden animate-in slide-in-from-right duration-250"
+            onClick={(e) => e.stopPropagation()}
           >
-            <motion.div
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="bg-zinc-900 border-l border-white/10 w-full max-w-md h-full flex flex-col shadow-2xl overflow-hidden"
-              onClick={(e) => e.stopPropagation()}
-            >
-              {/* Drawer Header */}
-              <div className="p-4 border-b border-white/10 flex items-center justify-between bg-zinc-950/60">
-                <div className="flex items-center gap-2">
-                  <Bookmark className="w-5 h-5 text-pink-400 fill-pink-500/20" />
-                  <h3 className="font-bold text-white text-base">Mis Nombres Favoritos</h3>
-                  <span className="text-xs font-mono text-zinc-400 bg-white/10 px-2 py-0.5 rounded-full">
-                    {favorites.length}
-                  </span>
-                </div>
+            {/* Drawer Header */}
+            <div className="p-4 border-b border-white/10 flex items-center justify-between bg-zinc-950/60">
+              <div className="flex items-center gap-2">
+                <Bookmark className="w-5 h-5 text-pink-400 fill-pink-500/20" />
+                <h3 className="font-bold text-white text-base">Mis Nombres Favoritos</h3>
+                <span className="text-xs font-mono text-zinc-400 bg-white/10 px-2 py-0.5 rounded-full">
+                  {favorites.length}
+                </span>
+              </div>
+              <button
+                onClick={() => setIsFavDrawerOpen(false)}
+                className="p-1 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Drawer Actions */}
+            {favorites.length > 0 && (
+              <div className="p-3 bg-zinc-900 border-b border-white/5 flex items-center justify-between text-xs">
                 <button
-                  onClick={() => setIsFavDrawerOpen(false)}
-                  className="p-1 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors"
+                  onClick={copyAllFavorites}
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-pink-500/20 hover:bg-pink-500/30 text-pink-300 border border-pink-500/30 font-semibold transition-all"
                 >
-                  <X className="w-5 h-5" />
+                  {favCopied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
+                  <span>{favCopied ? '¡Lista Copiada!' : 'Copiar Todos'}</span>
+                </button>
+
+                <button
+                  onClick={clearAllFavorites}
+                  className="flex items-center gap-1 px-2.5 py-1.5 rounded-xl text-zinc-400 hover:text-red-400 hover:bg-red-500/10 transition-colors"
+                >
+                  <Trash2 className="w-3.5 h-3.5" />
+                  <span>Vaciar</span>
                 </button>
               </div>
+            )}
 
-              {/* Drawer Actions */}
-              {favorites.length > 0 && (
-                <div className="p-3 bg-zinc-900 border-b border-white/5 flex items-center justify-between text-xs">
-                  <button
-                    onClick={copyAllFavorites}
-                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-pink-500/20 hover:bg-pink-500/30 text-pink-300 border border-pink-500/30 font-semibold transition-all"
-                  >
-                    {favCopied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
-                    <span>{favCopied ? '¡Lista Copiada!' : 'Copiar Todos'}</span>
-                  </button>
-
-                  <button
-                    onClick={clearAllFavorites}
-                    className="flex items-center gap-1 px-2.5 py-1.5 rounded-xl text-zinc-400 hover:text-red-400 hover:bg-red-500/10 transition-colors"
-                  >
-                    <Trash2 className="w-3.5 h-3.5" />
-                    <span>Vaciar</span>
-                  </button>
+            {/* Drawer Content */}
+            <div className="flex-1 p-4 overflow-y-auto space-y-2">
+              {favorites.length === 0 ? (
+                <div className="py-16 text-center space-y-3">
+                  <Bookmark className="w-12 h-12 text-zinc-600 mx-auto" />
+                  <p className="text-zinc-400 text-sm font-medium">No tienes nombres guardados en tus favoritos.</p>
+                  <p className="text-xs text-zinc-500 max-w-xs mx-auto">
+                    Haz clic en el icono de corazón ❤️ o marcador de cualquier nombre generado para guardarlo aquí y consultarlo cuando quieras.
+                  </p>
                 </div>
-              )}
-
-              {/* Drawer Content */}
-              <div className="flex-1 p-4 overflow-y-auto space-y-2">
-                {favorites.length === 0 ? (
-                  <div className="py-16 text-center space-y-3">
-                    <Bookmark className="w-12 h-12 text-zinc-600 mx-auto" />
-                    <p className="text-zinc-400 text-sm font-medium">No tienes nombres guardados en tus favoritos.</p>
-                    <p className="text-xs text-zinc-500 max-w-xs mx-auto">
-                      Haz clic en el icono de corazón ❤️ o marcador de cualquier nombre generado para guardarlo aquí y consultarlo cuando quieras.
-                    </p>
+              ) : (
+                favorites.map((favName, idx) => (
+                  <div
+                    key={idx}
+                    className="bg-zinc-950 border border-white/10 rounded-2xl p-3 flex items-center justify-between gap-3 group hover:border-pink-500/40 transition-all"
+                  >
+                    <span className="font-mono text-sm text-zinc-100 font-bold tracking-wide break-all">
+                      {favName}
+                    </span>
+                    <div className="flex items-center gap-1 shrink-0">
+                      <button
+                        onClick={() => {
+                          navigator.clipboard.writeText(favName);
+                          alert(`¡"${favName}" copiado al portapapeles!`);
+                        }}
+                        className="p-1.5 rounded-lg text-zinc-400 hover:text-pink-300 hover:bg-white/10 transition-colors"
+                        title="Copiar"
+                      >
+                        <Copy className="w-4 h-4" />
+                      </button>
+                      <button
+                        onClick={() => removeFavorite(favName)}
+                        className="p-1.5 rounded-lg text-zinc-500 hover:text-red-400 hover:bg-red-500/10 transition-colors"
+                        title="Eliminar"
+                      >
+                        <Trash2 className="w-4 h-4" />
+                      </button>
+                    </div>
                   </div>
-                ) : (
-                  favorites.map((favName, idx) => (
-                    <motion.div
-                      key={idx}
-                      initial={{ opacity: 0, y: 5 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, scale: 0.95 }}
-                      className="bg-zinc-950 border border-white/10 rounded-2xl p-3 flex items-center justify-between gap-3 group hover:border-pink-500/40 transition-all"
-                    >
-                      <span className="font-mono text-sm text-zinc-100 font-bold tracking-wide break-all">
-                        {favName}
-                      </span>
-                      <div className="flex items-center gap-1 shrink-0">
-                        <button
-                          onClick={() => {
-                            navigator.clipboard.writeText(favName);
-                            alert(`¡"${favName}" copiado al portapapeles!`);
-                          }}
-                          className="p-1.5 rounded-lg text-zinc-400 hover:text-pink-300 hover:bg-white/10 transition-colors"
-                          title="Copiar"
-                        >
-                          <Copy className="w-4 h-4" />
-                        </button>
-                        <button
-                          onClick={() => removeFavorite(favName)}
-                          className="p-1.5 rounded-lg text-zinc-500 hover:text-red-400 hover:bg-red-500/10 transition-colors"
-                          title="Eliminar"
-                        >
-                          <Trash2 className="w-4 h-4" />
-                        </button>
-                      </div>
-                    </motion.div>
-                  ))
-                )}
-              </div>
+                ))
+              )}
+            </div>
 
-              {/* Drawer Footer */}
-              <div className="p-4 bg-zinc-950 border-t border-white/10 text-xs text-zinc-500 text-center">
-                Guardados automáticamente en tu navegador local (LocalStorage).
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            {/* Drawer Footer */}
+            <div className="p-4 bg-zinc-950 border-t border-white/10 text-xs text-zinc-500 text-center">
+              Guardados automáticamente en tu navegador local (LocalStorage).
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

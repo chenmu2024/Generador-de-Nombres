@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Copy, Wand2, X, CheckCircle2, Dices, Loader2, Download, Sparkles, CheckSquare, Square, Trophy, Shield, Flame, Image, Share2, Scissors, Zap, Crown, Bookmark, Heart } from 'lucide-react';
-import { motion, AnimatePresence } from 'motion/react';
 import { generateFancyNicknames, popularSymbols } from '../utils/nameLogic';
 
 interface GeneratorProps {
@@ -234,19 +233,14 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols 
   return (
     <div className="w-full max-w-4xl mx-auto bg-[#121212] rounded-[2rem] shadow-2xl shadow-black/50 overflow-hidden border border-white/10 relative">
       {/* Toast Notification */}
-      <AnimatePresence>
-        {showToast && (
-          <motion.div
-            initial={{ opacity: 0, y: 50, x: '-50%' }}
-            animate={{ opacity: 1, y: 0, x: '-50%' }}
-            exit={{ opacity: 0, y: 50, x: '-50%' }}
-            className="fixed bottom-8 left-1/2 z-50 flex items-center gap-2 bg-zinc-800 text-white px-6 py-3 rounded-full shadow-2xl border border-white/10 font-medium text-sm"
-          >
-            <CheckCircle2 className="w-5 h-5 text-emerald-400" />
-            {toastMessage}
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {showToast && (
+        <div
+          className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 flex items-center gap-2 bg-zinc-800 text-white px-6 py-3 rounded-full shadow-2xl border border-white/10 font-medium text-sm animate-in fade-in slide-in-from-bottom-5 duration-200"
+        >
+          <CheckCircle2 className="w-5 h-5 text-emerald-400" />
+          {toastMessage}
+        </div>
+      )}
 
       <div className="relative p-8 md:p-12 text-center overflow-hidden bg-gradient-to-br from-[#1a1525] to-[#121212] border-b border-white/5">
         {/* Decorative elements */}
@@ -458,17 +452,8 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols 
               </div>
             </div>
 
-            <motion.div 
+            <div 
               className="grid grid-cols-1 md:grid-cols-2 gap-4 max-h-[500px] overflow-y-auto pr-2 custom-scrollbar"
-              initial="hidden"
-              animate="show"
-              variants={{
-                hidden: { opacity: 0 },
-                show: {
-                  opacity: 1,
-                  transition: { staggerChildren: 0.02 }
-                }
-              }}
             >
               {displayedNames.map((name, index) => {
                 const isSelected = selectedNames.includes(name);
@@ -476,12 +461,8 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols 
                 const isExceedFF = name.length > 12;
 
                 return (
-                  <motion.div
+                  <div
                     key={index}
-                    variants={{
-                      hidden: { opacity: 0, y: 10 },
-                      show: { opacity: 1, y: 0 }
-                    }}
                     onClick={() => copyToClipboard(name, index)}
                     className={`group flex items-center justify-between p-4 sm:p-5 rounded-2xl border transition-all cursor-pointer ${
                       isSelected
@@ -573,10 +554,10 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols 
                         )}
                       </button>
                     </div>
-                  </motion.div>
+                  </div>
                 );
               })}
-            </motion.div>
+            </div>
           </div>
         ) : (
           <div className="text-center py-16 px-4 border-2 border-dashed border-white/10 rounded-3xl bg-zinc-900/20">
@@ -617,186 +598,170 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols 
       </div>
 
       {/* Lucky Spinner Modal (Ruleta de la Suerte) */}
-      <AnimatePresence>
-        {isSpinnerOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4"
-            onClick={() => setIsSpinnerOpen(false)}
+      {isSpinnerOpen && (
+        <div
+          className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 animate-in fade-in duration-200"
+          onClick={() => setIsSpinnerOpen(false)}
+        >
+          <div
+            className="bg-zinc-900 border border-amber-500/30 rounded-3xl p-8 max-w-lg w-full text-center shadow-2xl relative overflow-hidden animate-in zoom-in-95 duration-200"
+            onClick={(e) => e.stopPropagation()}
           >
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              className="bg-zinc-900 border border-amber-500/30 rounded-3xl p-8 max-w-lg w-full text-center shadow-2xl relative overflow-hidden"
-              onClick={(e) => e.stopPropagation()}
+            <button
+              onClick={() => setIsSpinnerOpen(false)}
+              className="absolute top-4 right-4 text-zinc-400 hover:text-white p-2 rounded-full bg-zinc-800"
             >
+              <X className="w-5 h-5" />
+            </button>
+
+            <div className="w-16 h-16 bg-amber-500/20 text-amber-400 rounded-3xl flex items-center justify-center mx-auto mb-4 border border-amber-500/30 shadow-lg shadow-amber-500/20">
+              <Trophy className="w-8 h-8" />
+            </div>
+
+            <h3 className="text-2xl font-black text-white font-heading">Ruleta del Nombre Perfecto</h3>
+            <p className="text-zinc-400 text-xs mt-1 mb-6">Si tienes dudas, ¡deja que el azar elija tu nuevo apodo!</p>
+
+            {/* Roulette Display Box */}
+            <div className="bg-zinc-950 border-2 border-amber-500/40 rounded-2xl p-6 min-h-[110px] flex items-center justify-center shadow-inner mb-6 relative">
+              <div className="absolute -top-3 bg-amber-500 text-zinc-950 font-black text-[10px] px-3 py-0.5 rounded-full uppercase tracking-wider">
+                {isSpinning ? 'Girando...' : '¡Nombre Ganador!'}
+              </div>
+              <span className={`text-2xl sm:text-3xl font-extrabold text-amber-300 break-all transition-all ${isSpinning ? 'scale-105 opacity-80 blur-[0.5px]' : 'scale-100'}`}>
+                {spinnerResult || '---'}
+              </span>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex items-center justify-center gap-3">
               <button
-                onClick={() => setIsSpinnerOpen(false)}
-                className="absolute top-4 right-4 text-zinc-400 hover:text-white p-2 rounded-full bg-zinc-800"
+                onClick={startSpin}
+                disabled={isSpinning}
+                className="px-6 py-3 bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-400 hover:to-yellow-400 text-zinc-950 font-black text-xs rounded-xl shadow-lg transition-all disabled:opacity-50 flex items-center gap-2"
               >
-                <X className="w-5 h-5" />
+                <Dices className={`w-4 h-4 ${isSpinning ? 'animate-spin' : ''}`} />
+                {isSpinning ? 'Girando...' : 'Volver a Girar'}
               </button>
 
-              <div className="w-16 h-16 bg-amber-500/20 text-amber-400 rounded-3xl flex items-center justify-center mx-auto mb-4 border border-amber-500/30 shadow-lg shadow-amber-500/20">
-                <Trophy className="w-8 h-8" />
-              </div>
-
-              <h3 className="text-2xl font-black text-white font-heading">Ruleta del Nombre Perfecto</h3>
-              <p className="text-zinc-400 text-xs mt-1 mb-6">Si tienes dudas, ¡deja que el azar elija tu nuevo apodo!</p>
-
-              {/* Roulette Display Box */}
-              <div className="bg-zinc-950 border-2 border-amber-500/40 rounded-2xl p-6 min-h-[110px] flex items-center justify-center shadow-inner mb-6 relative">
-                <div className="absolute -top-3 bg-amber-500 text-zinc-950 font-black text-[10px] px-3 py-0.5 rounded-full uppercase tracking-wider">
-                  {isSpinning ? 'Girando...' : '¡Nombre Ganador!'}
+              {spinnerResult && !isSpinning && (
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={() => {
+                      setCardModalName(spinnerResult);
+                      setIsSpinnerOpen(false);
+                    }}
+                    className="px-4 py-3 bg-zinc-800 hover:bg-zinc-700 text-zinc-200 font-bold text-xs rounded-xl transition-all flex items-center gap-1.5 border border-white/10"
+                  >
+                    <Image className="w-4 h-4 text-violet-400" /> Tarjeta Gamer
+                  </button>
+                  <button
+                    onClick={() => {
+                      copyToClipboard(spinnerResult, null, '¡Nombre ganador copiado!');
+                      setIsSpinnerOpen(false);
+                    }}
+                    className="px-6 py-3 bg-violet-600 hover:bg-violet-500 text-white font-bold text-xs rounded-xl shadow-lg transition-all flex items-center gap-2"
+                  >
+                    <Copy className="w-4 h-4" /> Copiar Este Nombre
+                  </button>
                 </div>
-                <span className={`text-2xl sm:text-3xl font-extrabold text-amber-300 break-all transition-all ${isSpinning ? 'scale-105 opacity-80 blur-[0.5px]' : 'scale-100'}`}>
-                  {spinnerResult || '---'}
-                </span>
-              </div>
-
-              {/* Action Buttons */}
-              <div className="flex items-center justify-center gap-3">
-                <button
-                  onClick={startSpin}
-                  disabled={isSpinning}
-                  className="px-6 py-3 bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-400 hover:to-yellow-400 text-zinc-950 font-black text-xs rounded-xl shadow-lg transition-all disabled:opacity-50 flex items-center gap-2"
-                >
-                  <Dices className={`w-4 h-4 ${isSpinning ? 'animate-spin' : ''}`} />
-                  {isSpinning ? 'Girando...' : 'Volver a Girar'}
-                </button>
-
-                {spinnerResult && !isSpinning && (
-                  <div className="flex items-center gap-2">
-                    <button
-                      onClick={() => {
-                        setCardModalName(spinnerResult);
-                        setIsSpinnerOpen(false);
-                      }}
-                      className="px-4 py-3 bg-zinc-800 hover:bg-zinc-700 text-zinc-200 font-bold text-xs rounded-xl transition-all flex items-center gap-1.5 border border-white/10"
-                    >
-                      <Image className="w-4 h-4 text-violet-400" /> Tarjeta Gamer
-                    </button>
-                    <button
-                      onClick={() => {
-                        copyToClipboard(spinnerResult, null, '¡Nombre ganador copiado!');
-                        setIsSpinnerOpen(false);
-                      }}
-                      className="px-6 py-3 bg-violet-600 hover:bg-violet-500 text-white font-bold text-xs rounded-xl shadow-lg transition-all flex items-center gap-2"
-                    >
-                      <Copy className="w-4 h-4" /> Copiar Este Nombre
-                    </button>
-                  </div>
-                )}
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Gamer Badge Card Modal */}
-      <AnimatePresence>
-        {cardModalName && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4"
-            onClick={() => setCardModalName(null)}
+      {cardModalName && (
+        <div
+          className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 animate-in fade-in duration-200"
+          onClick={() => setCardModalName(null)}
+        >
+          <div
+            className="bg-zinc-900 border border-violet-500/30 rounded-3xl p-6 sm:p-8 max-w-md w-full shadow-2xl relative animate-in zoom-in-95 duration-200"
+            onClick={(e) => e.stopPropagation()}
           >
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              className="bg-zinc-900 border border-violet-500/30 rounded-3xl p-6 sm:p-8 max-w-md w-full shadow-2xl relative"
-              onClick={(e) => e.stopPropagation()}
+            <button
+              onClick={() => setCardModalName(null)}
+              className="absolute top-4 right-4 text-zinc-400 hover:text-white p-2 rounded-full bg-zinc-800 z-10"
             >
+              <X className="w-5 h-5" />
+            </button>
+
+            <div className="text-center mb-6">
+              <span className="text-xs font-bold uppercase tracking-widest text-violet-400 bg-violet-500/10 px-3 py-1 rounded-full border border-violet-500/20">
+                Tarjeta Gamer ID
+              </span>
+              <h3 className="text-xl font-bold text-white font-heading mt-2">Ficha de Identidad Gamer</h3>
+              <p className="text-xs text-zinc-400 mt-1">Guarda tu imagen oficial para redes sociales y clanes</p>
+            </div>
+
+            {/* Downloadable Card Element */}
+            <div
+              ref={gamerCardRef}
+              className="bg-gradient-to-br from-zinc-950 via-zinc-900 to-black border-2 border-violet-500/40 rounded-3xl p-6 relative overflow-hidden shadow-2xl"
+            >
+              {/* Background Decor */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-violet-600/20 rounded-full blur-2xl"></div>
+              <div className="absolute bottom-0 left-0 w-32 h-32 bg-fuchsia-600/20 rounded-full blur-2xl"></div>
+
+              <div className="relative z-10 flex items-center justify-between border-b border-white/10 pb-4 mb-5">
+                <div className="flex items-center gap-2">
+                  <Shield className="w-6 h-6 text-amber-400" />
+                  <div>
+                    <h4 className="text-xs font-black text-white uppercase tracking-wider">Pase de Combate 2026</h4>
+                    <p className="text-[10px] text-zinc-400">Verificado para Free Fire / PUBG</p>
+                  </div>
+                </div>
+                <Crown className="w-5 h-5 text-amber-400" />
+              </div>
+
+              <div className="relative z-10 text-center py-4 bg-zinc-900/80 border border-white/10 rounded-2xl mb-5 shadow-inner">
+                <span className="text-xs text-zinc-400 uppercase tracking-widest block mb-1">Apodo Oficial</span>
+                <div className="text-2xl sm:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-violet-300 via-fuchsia-300 to-amber-300 break-all px-2">
+                  {cardModalName}
+                </div>
+              </div>
+
+              <div className="relative z-10 grid grid-cols-2 gap-3 text-left mb-4">
+                <div className="bg-zinc-900/60 p-3 rounded-xl border border-white/5">
+                  <span className="text-[10px] text-zinc-500 block uppercase">Rango Oficial</span>
+                  <span className="text-xs font-black text-amber-300 flex items-center gap-1 mt-0.5">
+                    <Flame className="w-3.5 h-3.5 text-amber-400" /> Gran Maestro
+                  </span>
+                </div>
+                <div className="bg-zinc-900/60 p-3 rounded-xl border border-white/5">
+                  <span className="text-[10px] text-zinc-500 block uppercase">Límite FF</span>
+                  <span className={`text-xs font-black flex items-center gap-1 mt-0.5 ${cardModalName.length <= 12 ? 'text-emerald-400' : 'text-amber-400'}`}>
+                    <Zap className="w-3.5 h-3.5" /> {cardModalName.length} / 12 Chars
+                  </span>
+                </div>
+              </div>
+
+              <div className="relative z-10 flex items-center justify-between text-[10px] text-zinc-500 pt-2 border-t border-white/5">
+                <span>generadordenombres.net / 2026</span>
+                <span className="font-mono text-violet-400">ID: #{Math.floor(100000 + Math.random() * 900000)}</span>
+              </div>
+            </div>
+
+            {/* Action buttons */}
+            <div className="mt-6 flex items-center justify-end gap-3">
               <button
                 onClick={() => setCardModalName(null)}
-                className="absolute top-4 right-4 text-zinc-400 hover:text-white p-2 rounded-full bg-zinc-800 z-10"
+                className="px-4 py-2 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 text-xs font-bold rounded-xl transition-all"
               >
-                <X className="w-5 h-5" />
+                Cerrar
               </button>
-
-              <div className="text-center mb-6">
-                <span className="text-xs font-bold uppercase tracking-widest text-violet-400 bg-violet-500/10 px-3 py-1 rounded-full border border-violet-500/20">
-                  Tarjeta Gamer ID
-                </span>
-                <h3 className="text-xl font-bold text-white font-heading mt-2">Ficha de Identidad Gamer</h3>
-                <p className="text-xs text-zinc-400 mt-1">Guarda tu imagen oficial para redes sociales y clanes</p>
-              </div>
-
-              {/* Downloadable Card Element */}
-              <div
-                ref={gamerCardRef}
-                className="bg-gradient-to-br from-zinc-950 via-zinc-900 to-black border-2 border-violet-500/40 rounded-3xl p-6 relative overflow-hidden shadow-2xl"
+              <button
+                onClick={handleExportGamerCard}
+                disabled={isExportingCard}
+                className="px-5 py-2.5 bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-500 hover:to-fuchsia-500 text-white font-bold text-xs rounded-xl shadow-lg shadow-violet-500/25 transition-all flex items-center gap-2 disabled:opacity-50"
               >
-                {/* Background Decor */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-violet-600/20 rounded-full blur-2xl"></div>
-                <div className="absolute bottom-0 left-0 w-32 h-32 bg-fuchsia-600/20 rounded-full blur-2xl"></div>
-
-                <div className="relative z-10 flex items-center justify-between border-b border-white/10 pb-4 mb-5">
-                  <div className="flex items-center gap-2">
-                    <Shield className="w-6 h-6 text-amber-400" />
-                    <div>
-                      <h4 className="text-xs font-black text-white uppercase tracking-wider">Pase de Combate 2026</h4>
-                      <p className="text-[10px] text-zinc-400">Verificado para Free Fire / PUBG</p>
-                    </div>
-                  </div>
-                  <Crown className="w-5 h-5 text-amber-400" />
-                </div>
-
-                <div className="relative z-10 text-center py-4 bg-zinc-900/80 border border-white/10 rounded-2xl mb-5 shadow-inner">
-                  <span className="text-xs text-zinc-400 uppercase tracking-widest block mb-1">Apodo Oficial</span>
-                  <div className="text-2xl sm:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-violet-300 via-fuchsia-300 to-amber-300 break-all px-2">
-                    {cardModalName}
-                  </div>
-                </div>
-
-                <div className="relative z-10 grid grid-cols-2 gap-3 text-left mb-4">
-                  <div className="bg-zinc-900/60 p-3 rounded-xl border border-white/5">
-                    <span className="text-[10px] text-zinc-500 block uppercase">Rango Oficial</span>
-                    <span className="text-xs font-black text-amber-300 flex items-center gap-1 mt-0.5">
-                      <Flame className="w-3.5 h-3.5 text-amber-400" /> Gran Maestro
-                    </span>
-                  </div>
-                  <div className="bg-zinc-900/60 p-3 rounded-xl border border-white/5">
-                    <span className="text-[10px] text-zinc-500 block uppercase">Límite FF</span>
-                    <span className={`text-xs font-black flex items-center gap-1 mt-0.5 ${cardModalName.length <= 12 ? 'text-emerald-400' : 'text-amber-400'}`}>
-                      <Zap className="w-3.5 h-3.5" /> {cardModalName.length} / 12 Chars
-                    </span>
-                  </div>
-                </div>
-
-                <div className="relative z-10 flex items-center justify-between text-[10px] text-zinc-500 pt-2 border-t border-white/5">
-                  <span>generadordenombres.net / 2026</span>
-                  <span className="font-mono text-violet-400">ID: #{Math.floor(100000 + Math.random() * 900000)}</span>
-                </div>
-              </div>
-
-              {/* Action buttons */}
-              <div className="mt-6 flex items-center justify-end gap-3">
-                <button
-                  onClick={() => setCardModalName(null)}
-                  className="px-4 py-2 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 text-xs font-bold rounded-xl transition-all"
-                >
-                  Cerrar
-                </button>
-                <button
-                  onClick={handleExportGamerCard}
-                  disabled={isExportingCard}
-                  className="px-5 py-2.5 bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-500 hover:to-fuchsia-500 text-white font-bold text-xs rounded-xl shadow-lg shadow-violet-500/25 transition-all flex items-center gap-2 disabled:opacity-50"
-                >
-                  <Download className="w-4 h-4" />
-                  {isExportingCard ? 'Generando PNG...' : 'Guardar Imagen PNG'}
-                </button>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+                <Download className="w-4 h-4" />
+                {isExportingCard ? 'Generando PNG...' : 'Guardar Imagen PNG'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
