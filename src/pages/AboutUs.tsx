@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useEffect } from 'react';
 import { Users, Flame, Award, HeartHandshake, Sparkles, CheckCircle2 } from 'lucide-react';
 

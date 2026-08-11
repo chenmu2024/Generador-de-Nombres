@@ -1,5 +1,7 @@
+'use client';
+
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from './Link';
 import { ShieldCheck, X } from 'lucide-react';
 
 export default function CookieBanner() {

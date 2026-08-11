@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import { ShoppingBag, Sparkles, Copy, CheckCircle2, Store, RefreshCw, Wand2 } from 'lucide-react';
 

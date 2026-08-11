@@ -397,7 +397,7 @@ for (const routePath of allRoutes) {
   pageHtml = pageHtml.replace('</head>', `${schemaHtml}\n  </head>`);
 
   // Inject Pre-rendered DOM inside <div id="root">
-  pageHtml = pageHtml.replace('<div id="root"></div>', `<div id="root">${rootMarkup}</div>`);
+  pageHtml = pageHtml.replace(/<div id="root">[\s\S]*?<\/div>/i, `<div id="root">${rootMarkup}</div>`);
 
   // Determine output path
   let targetFilePath: string;

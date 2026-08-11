@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import { Copy, CheckCircle2, Sparkles, HelpCircle, Shield, Smartphone, ChevronDown, Crosshair, RefreshCw, Type } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';

@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useEffect } from 'react';
 import { FileCheck, ShieldAlert, CheckCircle, Scale } from 'lucide-react';
 

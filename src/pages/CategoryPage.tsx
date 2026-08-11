@@ -1,5 +1,8 @@
+'use client';
+
 import React, { useEffect, useState, useRef } from 'react';
-import { useLocation, Link } from 'react-router-dom';
+import { useLocation } from '../utils/router';
+import { Link } from '../components/Link';
 import { HelpCircle, ChevronRight, Flame, Zap, Gem, Shield, Smartphone, CheckCircle2, Search, Sparkles, Copy, Volume2, Instagram, Gamepad2, Tv, Swords, Printer, Bookmark, Trash2, Heart, Share2, X, Download, CheckSquare, Square, ListOrdered, Home, Star } from 'lucide-react';
 import Generator from '../components/Generator';
 const LazyInvisibleSpaceTool = React.lazy(() => import('../components/InvisibleSpaceTool'));
