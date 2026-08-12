@@ -20,15 +20,27 @@ export async function generateMetadata({
   const categoryPath = `/${resolvedParams.category}`;
   const data = Object.values(seoData).find((d) => d.path === categoryPath) || seoData[resolvedParams.category];
 
+  const title = data?.title || 'Generador de Nombres | GeneradorDeNombres.net';
+  const description = data?.metaDescription || 'El mejor generador y creador de nombres, apodos y símbolos Unicode.';
+  const keywords = data?.keywords || 'generador de nombres, apodos, simbolos';
+
   return {
-    title: data?.title || 'Generador de Nombres | GeneradorDeNombres.net',
-    description: data?.metaDescription || 'El mejor generador y creador de nombres, apodos y símbolos Unicode.',
-    keywords: data?.keywords || 'generador de nombres, apodos, simbolos',
+    title,
+    description,
+    keywords,
     openGraph: {
-      title: data?.title,
-      description: data?.metaDescription,
+      title,
+      description,
       url: `https://generadordenombres.net/${resolvedParams.category}`,
       type: 'website',
+      images: [
+        {
+          url: 'https://generadordenombres.net/logo.webp',
+          width: 512,
+          height: 512,
+          alt: 'GeneradorDeNombres Logo',
+        },
+      ],
     },
     alternates: {
       canonical: `https://generadordenombres.net/${resolvedParams.category}`,

@@ -12,6 +12,14 @@ export const metadata: Metadata = {
     description: seoData.home?.metaDescription,
     url: 'https://generadordenombres.net/',
     type: 'website',
+    images: [
+      {
+        url: 'https://generadordenombres.net/logo.webp',
+        width: 512,
+        height: 512,
+        alt: 'GeneradorDeNombres Logo',
+      },
+    ],
   },
   alternates: {
     canonical: 'https://generadordenombres.net/',
