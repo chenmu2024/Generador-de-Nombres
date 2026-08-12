@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 import type { Metadata } from 'next';
-import CategoryPage from '@/src/views/CategoryPage';
-import { seoData } from '@/src/data/seoData';
+import CategoryPage from '../views/CategoryPage';
+import { seoData } from '../data/seoData';
 
 export const metadata: Metadata = {
   title: seoData.home?.title || 'Generador de Nombres para Free Fire, Mujer y Mascotas | GDN',

@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from 'next';
-import '@/src/index.css';
-import MainLayout from '@/src/layouts/MainLayout';
+import '../index.css';
+import MainLayout from '../layouts/MainLayout';
 
 export const viewport: Viewport = {
   themeColor: '#0a0a0a',

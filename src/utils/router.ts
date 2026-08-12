@@ -3,11 +3,31 @@
 import { usePathname, useRouter } from 'next/navigation';
 
 export function useLocation() {
-  const pathname = usePathname();
-  return { pathname: pathname || '/' };
+  let pathname = '/';
+  try {
+    pathname = usePathname() || '/';
+  } catch (e) {
+    pathname = '/';
+  }
+  return { pathname };
 }
 
 export function useNavigate() {
-  const router = useRouter();
-  return (path: string) => router.push(path);
+  try {
+    const router = useRouter();
+    return (path: string) => {
+      if (router && router.push) {
+        router.push(path);
+      } else if (typeof window !== 'undefined') {
+        window.location.href = path;
+      }
+    };
+  } catch (e) {
+    return (path: string) => {
+      if (typeof window !== 'undefined') {
+        window.location.href = path;
+      }
+    };
+  }
 }
+
