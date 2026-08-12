@@ -12,13 +12,11 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://generadordenombres.net'),
   title: 'Generador de Nombres, Apodos y Símbolos | GeneradorDeNombres.net',
   description: 'El mejor generador y creador de nombres, apodos y símbolos para Free Fire, Roblox, Instagram y más.',
-  icons: {
-    icon: [
-      { url: '/favicon.svg', type: 'image/svg+xml' },
-      { url: '/favicon.ico', sizes: '32x32' }
-    ],
-    apple: '/assets/logo.png'
-  }
+  icons: [
+    { rel: 'icon', url: '/favicon.svg', type: 'image/svg+xml' },
+    { rel: 'shortcut icon', url: '/favicon.ico' },
+    { rel: 'apple-touch-icon', url: '/assets/logo.png' }
+  ]
 };
 
 export default function RootLayout({

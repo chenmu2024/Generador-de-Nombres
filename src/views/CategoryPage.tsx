@@ -695,17 +695,16 @@ export default function CategoryPage() {
             <Home className="w-3.5 h-3.5" aria-hidden="true" />
             <span itemProp="name">Inicio</span>
           </Link>
-          <meta itemProp="position" content="1" />
+          <span itemProp="position" className="hidden">1</span>
         </span>
         {location.pathname !== '/' && (
-          <>
+          <React.Fragment key="breadcrumb-sub">
             <ChevronRight className="w-3 h-3 text-zinc-600" aria-hidden="true" />
             <span itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem" className="text-zinc-200 font-semibold truncate">
               <span itemProp="name">{data.h1}</span>
-              <link itemProp="item" href={`https://generadordenombres.net${location.pathname}`} />
-              <meta itemProp="position" content="2" />
+              <span itemProp="position" className="hidden">2</span>
             </span>
-          </>
+          </React.Fragment>
         )}
       </nav>
 
