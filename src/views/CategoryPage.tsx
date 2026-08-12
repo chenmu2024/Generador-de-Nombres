@@ -465,7 +465,7 @@ export default function CategoryPage() {
       ogImage.setAttribute('property', 'og:image');
       document.head.appendChild(ogImage);
     }
-    ogImage.setAttribute('content', 'https://generadordenombres.net/assets/og-image.jpg');
+    ogImage.setAttribute('content', 'https://generadordenombres.net/logo.webp');
 
     let ogImageWidth = document.querySelector('meta[property="og:image:width"]');
     if (!ogImageWidth) {
@@ -473,7 +473,7 @@ export default function CategoryPage() {
       ogImageWidth.setAttribute('property', 'og:image:width');
       document.head.appendChild(ogImageWidth);
     }
-    ogImageWidth.setAttribute('content', '1200');
+    ogImageWidth.setAttribute('content', '512');
 
     let ogImageHeight = document.querySelector('meta[property="og:image:height"]');
     if (!ogImageHeight) {
@@ -481,7 +481,7 @@ export default function CategoryPage() {
       ogImageHeight.setAttribute('property', 'og:image:height');
       document.head.appendChild(ogImageHeight);
     }
-    ogImageHeight.setAttribute('content', '630');
+    ogImageHeight.setAttribute('content', '512');
 
     let twitterImage = document.querySelector('meta[name="twitter:image"]');
     if (!twitterImage) {
@@ -489,7 +489,7 @@ export default function CategoryPage() {
       twitterImage.setAttribute('name', 'twitter:image');
       document.head.appendChild(twitterImage);
     }
-    twitterImage.setAttribute('content', 'https://generadordenombres.net/assets/og-image.jpg');
+    twitterImage.setAttribute('content', 'https://generadordenombres.net/logo.webp');
 
     // Update Twitter Cards
     let twitterCard = document.querySelector('meta[name="twitter:card"]');
@@ -573,7 +573,7 @@ export default function CategoryPage() {
         "mainEntityOfPage": currentFullUrl,
         "datePublished": "2024-01-15T08:00:00+00:00",
         "dateModified": "2026-08-08T00:00:00+00:00",
-        "image": "https://generadordenombres.net/assets/og-image.jpg",
+        "image": "https://generadordenombres.net/logo.webp",
         "author": {
           "@type": "Person",
           "name": "Equipo Editorial",
@@ -585,7 +585,7 @@ export default function CategoryPage() {
           "url": "https://generadordenombres.net/",
           "logo": {
             "@type": "ImageObject",
-            "url": "https://generadordenombres.net/assets/logo.png"
+            "url": "https://generadordenombres.net/logo.webp"
           }
         }
       },
