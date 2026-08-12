@@ -280,6 +280,8 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
               <button 
                 className="lg:hidden p-2 text-zinc-400 hover:text-zinc-100 transition-colors"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
+                aria-label={isMenuOpen ? "Cerrar menú principal" : "Abrir menú principal"}
+                aria-expanded={isMenuOpen}
               >
                 {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
