@@ -12,7 +12,7 @@ export default defineConfig(() => {
       },
     },
     build: {
-      target: 'es2022',
+      target: 'es2020',
       cssCodeSplit: true,
       minify: 'esbuild' as const,
       cssMinify: true,

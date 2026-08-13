@@ -327,8 +327,6 @@ export default function InvisibleSpaceTool() {
           <button
             onClick={() => copyToClipboard(combinedNick, 99)}
             className="w-full sm:w-auto px-6 py-3.5 bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-500 hover:to-fuchsia-500 text-white font-bold rounded-xl flex items-center justify-center gap-2 transition-all shadow-lg shadow-violet-600/30 active:scale-95 flex-shrink-0"
-            aria-label={copiedIndex === 99 ? 'Copiar nick completo' : 'Copiar nick completo'}
-            title={copiedIndex === 99 ? '¡Copiado!' : 'Copiar nick completo'}
           >
             <Copy className="w-5 h-5" />
             <span>{copiedIndex === 99 ? '¡COPIADO!' : 'COPIAR NICK COMPLETO'}</span>

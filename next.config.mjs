@@ -7,8 +7,6 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: false,
   },
-  experimental: {
-    optimizePackageImports: ['lucide-react', 'motion'],
-  },
 };
+
 export default nextConfig;

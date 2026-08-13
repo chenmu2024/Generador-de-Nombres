@@ -11,10 +11,10 @@
     "lint": "tsc --noEmit"
   },
   "browserslist": [
-    "chrome >= 100",
-    "edge >= 100",
-    "firefox >= 100",
-    "safari >= 16"
+    "chrome >= 90",
+    "edge >= 90",
+    "firefox >= 90",
+    "safari >= 15"
   ],
   "dependencies": {
     "@google/genai": "^2.4.0",

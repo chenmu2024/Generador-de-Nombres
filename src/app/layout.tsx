@@ -1,19 +1,6 @@
 import type { Metadata, Viewport } from 'next';
-import { Plus_Jakarta_Sans, Outfit } from 'next/font/google';
 import '../index.css';
 import MainLayout from '../layouts/MainLayout';
-
-const plusJakartaSans = Plus_Jakarta_Sans({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-sans',
-});
-
-const outfit = Outfit({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-heading',
-});
 
 export const viewport: Viewport = {
   themeColor: '#0a0a0a',
@@ -39,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es" className={`dark ${plusJakartaSans.variable} ${outfit.variable}`}>
+    <html lang="es" className="dark">
       <body className="bg-[#0a0a0a] text-zinc-100 antialiased selection:bg-violet-500/30 selection:text-violet-200">
         <MainLayout>{children}</MainLayout>
       </body>
