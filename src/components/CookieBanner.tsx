@@ -8,12 +8,21 @@ export default function CookieBanner() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    const handleOpen = () => setIsVisible(true);
+    window.addEventListener('open-cookie-banner', handleOpen);
+
     const consent = localStorage.getItem('cookie_consent_choice');
     if (!consent) {
-      // Delay display until page initial load & performance audits complete
-      const timer = setTimeout(() => setIsVisible(true), 4000);
-      return () => clearTimeout(timer);
+      const timer = setTimeout(() => setIsVisible(true), 800);
+      return () => {
+        clearTimeout(timer);
+        window.removeEventListener('open-cookie-banner', handleOpen);
+      };
     }
+
+    return () => {
+      window.removeEventListener('open-cookie-banner', handleOpen);
+    };
   }, []);
 
   const handleAccept = () => {

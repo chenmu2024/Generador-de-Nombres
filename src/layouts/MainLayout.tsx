@@ -423,9 +423,15 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
             </div>
           </div>
           
-          <nav aria-label="Enlaces legales y de contacto" className="mt-12 pt-8 border-t border-white/5 flex flex-wrap justify-center gap-8 text-sm text-zinc-600">
+          <nav aria-label="Enlaces legales y de contacto" className="mt-12 pt-8 border-t border-white/5 flex flex-wrap justify-center gap-6 sm:gap-8 text-sm text-zinc-600">
             <Link to="/sobre-nosotros" className="hover:text-zinc-300 transition-colors">Sobre Nosotros</Link>
             <Link to="/politica-de-privacidad" className="hover:text-zinc-300 transition-colors">Política de Privacidad</Link>
+            <button
+              onClick={() => window.dispatchEvent(new Event('open-cookie-banner'))}
+              className="hover:text-zinc-300 transition-colors cursor-pointer"
+            >
+              Configuración de Cookies
+            </button>
             <Link to="/terminos-y-condiciones" className="hover:text-zinc-300 transition-colors">Términos y Condiciones</Link>
             <a href="/sitemap.xml" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-300 transition-colors">Mapa del Sitio XML</a>
             <Link to="/contacto" className="hover:text-zinc-300 transition-colors">Contacto y Soporte</Link>

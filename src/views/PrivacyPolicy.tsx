@@ -61,7 +61,13 @@ export default function PrivacyPolicy() {
                 Alternativamente, los usuarios pueden inhabilitar el uso de cookies para la publicidad basada en intereses por parte de otros proveedores de terceros accediendo a <a href="https://www.aboutads.info/choices" target="_blank" rel="noopener noreferrer" className="text-violet-400 underline">www.aboutads.info</a>.
               </li>
               <li>
-                Puedes gestionar o revocar tu consentimiento sobre el uso de cookies en cualquier momento utilizando nuestro panel de configuración de cookies en la parte inferior del sitio web.
+                Puedes gestionar o revocar tu consentimiento sobre el uso de cookies en cualquier momento haciendo clic en nuestro{' '}
+                <button
+                  onClick={() => window.dispatchEvent(new Event('open-cookie-banner'))}
+                  className="text-violet-400 underline hover:text-violet-300 font-medium cursor-pointer"
+                >
+                  Panel de Configuración de Cookies
+                </button>.
               </li>
             </ul>
           </section>
