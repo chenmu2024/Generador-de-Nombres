@@ -275,7 +275,8 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols 
                       setGeneratedNames(generateFancyNicknames(defaultName, style, customSymbols));
                     }}
                     className="p-2 text-zinc-500 hover:text-white hover:bg-white/10 rounded-xl transition-colors"
-                    title="Borrar"
+                    title="Borrar texto"
+                    aria-label="Borrar texto"
                   >
                     <X className="w-5 h-5" />
                   </button>
@@ -284,6 +285,7 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols 
                   onClick={handleRandomize}
                   className="p-2 text-violet-400 hover:text-violet-300 hover:bg-violet-500/20 rounded-xl transition-colors"
                   title="Nombre aleatorio"
+                  aria-label="Generar nombre aleatorio"
                 >
                   <Dices className="w-5 h-5" />
                 </button>
@@ -477,6 +479,7 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols 
                         onClick={(e) => toggleSelectName(name, e)}
                         className="p-1 text-zinc-500 hover:text-violet-400 transition-colors shrink-0"
                         title="Seleccionar para copiar en lote"
+                        aria-label={`Seleccionar ${name} para copiar en lote`}
                       >
                         {isSelected ? (
                           <CheckSquare className="w-5 h-5 text-violet-400" />
@@ -504,6 +507,7 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols 
                               }}
                               className="text-[10px] bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 px-1.5 py-0.5 rounded flex items-center gap-1 border border-amber-500/30 transition-all"
                               title="Recortar automáticamente a 12 caracteres"
+                              aria-label="Recortar automáticamente a 12 caracteres"
                             >
                               <Scissors className="w-3 h-3" /> Ajustar ≤12
                             </button>
@@ -521,6 +525,7 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols 
                             : 'bg-zinc-800/80 hover:bg-pink-500/20 text-zinc-400 hover:text-pink-300 border-white/5'
                         }`}
                         title={favorites.includes(name) ? 'Eliminar de favoritos' : 'Guardar en favoritos'}
+                        aria-label={favorites.includes(name) ? 'Eliminar de favoritos' : 'Guardar en favoritos'}
                       >
                         <Heart className={`w-4 h-4 ${favorites.includes(name) ? 'fill-pink-500' : ''}`} />
                       </button>
@@ -532,16 +537,23 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols 
                         }}
                         className="p-2 bg-zinc-800/80 hover:bg-violet-600/30 text-zinc-400 hover:text-violet-300 rounded-xl border border-white/5 transition-all"
                         title="Generar Tarjeta Gamer PNG"
+                        aria-label="Generar Tarjeta Gamer PNG"
                       >
                         <Image className="w-4 h-4" />
                       </button>
 
                       <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          copyToClipboard(name, index);
+                        }}
                         className={`flex-shrink-0 flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-medium transition-colors border ${
                           copiedIndex === index 
                             ? 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30' 
                             : 'bg-zinc-800/50 text-zinc-400 border-white/5 group-hover:text-violet-300 group-hover:border-violet-500/30 group-hover:bg-violet-500/20'
                         }`}
+                        title={copiedIndex === index ? '¡Copiado!' : 'Copiar nombre'}
+                        aria-label={copiedIndex === index ? 'Copiado' : `Copiar ${name}`}
                       >
                         {copiedIndex === index ? (
                           <>
@@ -551,7 +563,7 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols 
                         ) : (
                           <>
                             <Copy className="w-3.5 h-3.5" />
-                            <span className="hidden sm:inline">Copiar</span>
+                            <span>Copiar</span>
                           </>
                         )}
                       </button>
@@ -612,6 +624,8 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols 
             <button
               onClick={() => setIsSpinnerOpen(false)}
               className="absolute top-4 right-4 text-zinc-400 hover:text-white p-2 rounded-full bg-zinc-800"
+              aria-label="Cerrar ruleta"
+              title="Cerrar ruleta"
             >
               <X className="w-5 h-5" />
             </button>
@@ -684,6 +698,8 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols 
             <button
               onClick={() => setCardModalName(null)}
               className="absolute top-4 right-4 text-zinc-400 hover:text-white p-2 rounded-full bg-zinc-800 z-10"
+              aria-label="Cerrar tarjeta gamer"
+              title="Cerrar tarjeta gamer"
             >
               <X className="w-5 h-5" />
             </button>

@@ -191,6 +191,7 @@ export default function AlphabetMatrixTool({ currentLetter = 'A' }: { currentLet
                 onClick={() => speak(item.name)}
                 className="p-2 bg-zinc-800 hover:bg-violet-600/30 text-zinc-300 hover:text-violet-300 rounded-xl transition-colors"
                 title="Escuchar la pronunciación"
+                aria-label={`Escuchar la pronunciación de ${item.name}`}
               >
                 <Volume2 className="w-4 h-4" />
               </button>
@@ -202,6 +203,7 @@ export default function AlphabetMatrixTool({ currentLetter = 'A' }: { currentLet
                     : 'bg-zinc-800 hover:bg-violet-600/30 text-zinc-300 hover:text-violet-300 border-white/5'
                 }`}
                 title="Copiar nombre"
+                aria-label={copiedName === item.name ? 'Nombre copiado' : `Copiar ${item.name}`}
               >
                 {copiedName === item.name ? <CheckCircle2 className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
               </button>
