@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from '../components/Link';
 import { useLocation, useNavigate } from '../utils/router';
 import { Flame, Menu, X, ChevronDown, Gamepad2, Users, Heart, Type, Globe, Briefcase, Search, Sparkles, ArrowRight, Bookmark, Copy, Trash2, Check, ExternalLink } from 'lucide-react';
@@ -155,24 +155,21 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
   };
 
   // Filter categories and pages for quick search
-  const searchablePages = useMemo(() => allLinks.map(page => ({
+  const searchablePages = allLinks.map(page => ({
     title: page.label,
     path: page.path,
     desc: `Generador de nombres y apodos para ${page.label}`,
     h1: page.label
-  })), []);
+  }));
 
-  const filteredResults = useMemo(() => {
-    if (!isSearchOpen) return [];
-    const query = searchQuery.trim().toLowerCase();
-    if (query === '') return searchablePages.slice(0, 6);
-    return searchablePages.filter(p => 
-      p.title.toLowerCase().includes(query) ||
-      p.desc.toLowerCase().includes(query) ||
-      p.h1.toLowerCase().includes(query) ||
-      p.path.toLowerCase().includes(query)
-    ).slice(0, 8);
-  }, [isSearchOpen, searchQuery, searchablePages]);
+  const filteredResults = searchQuery.trim() === ''
+    ? searchablePages.slice(0, 6)
+    : searchablePages.filter(p => 
+        p.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        p.desc.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        p.h1.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        p.path.toLowerCase().includes(searchQuery.toLowerCase())
+      ).slice(0, 8);
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-zinc-100 flex flex-col font-sans selection:bg-violet-500/30">
@@ -353,7 +350,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
           <p className="text-zinc-400 mb-8 max-w-xl mx-auto leading-relaxed text-sm">
             El generador de nombres, apodos y símbolos Unicode más completo. Crea apodos épicos y letras raras para Free Fire, Roblox, Instagram, mascotas y nombres de bebés.
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 text-left mb-12 border-b border-white/5 pb-12 [content-visibility:auto] [contain-intrinsic-size:500px]">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 text-left mb-12 border-b border-white/5 pb-12">
             <div>
               <h4 className="text-xs font-bold text-violet-400 uppercase tracking-wider mb-3 font-heading">🔥 Free Fire & Gaming</h4>
               <ul className="space-y-2 text-xs text-zinc-400">
@@ -426,15 +423,9 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
             </div>
           </div>
           
-          <nav aria-label="Enlaces legales y de contacto" className="mt-12 pt-8 border-t border-white/5 flex flex-wrap justify-center gap-6 sm:gap-8 text-sm text-zinc-600">
+          <nav aria-label="Enlaces legales y de contacto" className="mt-12 pt-8 border-t border-white/5 flex flex-wrap justify-center gap-8 text-sm text-zinc-600">
             <Link to="/sobre-nosotros" className="hover:text-zinc-300 transition-colors">Sobre Nosotros</Link>
             <Link to="/politica-de-privacidad" className="hover:text-zinc-300 transition-colors">Política de Privacidad</Link>
-            <button
-              onClick={() => window.dispatchEvent(new Event('open-cookie-banner'))}
-              className="hover:text-zinc-300 transition-colors cursor-pointer"
-            >
-              Configuración de Cookies
-            </button>
             <Link to="/terminos-y-condiciones" className="hover:text-zinc-300 transition-colors">Términos y Condiciones</Link>
             <a href="/sitemap.xml" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-300 transition-colors">Mapa del Sitio XML</a>
             <Link to="/contacto" className="hover:text-zinc-300 transition-colors">Contacto y Soporte</Link>

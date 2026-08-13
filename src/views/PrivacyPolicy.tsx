@@ -45,30 +45,12 @@ export default function PrivacyPolicy() {
               2. Cookies de Publicidad y Google AdSense
             </h2>
             <p>
-              Nuestra plataforma utiliza proveedores de terceros y redes publicitarias, incluido <strong>Google AdSense</strong>, para mostrar anuncios publicitarios personalizados y basados en intereses cuando visitas nuestro sitio web:
+              Nuestra plataforma utiliza proveedores de terceros, incluido <strong>Google AdSense</strong>, para mostrar anuncios publicitarios relevantes cuando visitas nuestro sitio web:
             </p>
-            <ul className="list-disc list-inside space-y-2 pl-2 text-zinc-400">
-              <li>
-                Google y otros proveedores de terceros utilizan cookies (como la cookie de DoubleClick / DART) para publicar anuncios basados en las visitas anteriores del usuario a este u otros sitios web de Internet.
-              </li>
-              <li>
-                El uso de cookies de publicidad permite a Google y a sus socios mostrar anuncios a los usuarios en función de sus visitas a nuestros sitios y/o a otros sitios de Internet.
-              </li>
-              <li>
-                Los usuarios pueden inhabilitar la publicidad personalizada dirigiéndose a la <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" className="text-violet-400 underline">Configuración de anuncios de Google</a> o accediendo a <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer" className="text-violet-400 underline">google.com/technologies/ads</a>.
-              </li>
-              <li>
-                Alternativamente, los usuarios pueden inhabilitar el uso de cookies para la publicidad basada en intereses por parte de otros proveedores de terceros accediendo a <a href="https://www.aboutads.info/choices" target="_blank" rel="noopener noreferrer" className="text-violet-400 underline">www.aboutads.info</a>.
-              </li>
-              <li>
-                Puedes gestionar o revocar tu consentimiento sobre el uso de cookies en cualquier momento haciendo clic en nuestro{' '}
-                <button
-                  onClick={() => window.dispatchEvent(new Event('open-cookie-banner'))}
-                  className="text-violet-400 underline hover:text-violet-300 font-medium cursor-pointer"
-                >
-                  Panel de Configuración de Cookies
-                </button>.
-              </li>
+            <ul className="list-disc list-inside space-y-1 pl-2 text-zinc-400">
+              <li>Google utiliza cookies (como la cookie de DART) para mostrar anuncios basados en las visitas previas del usuario a este u otros sitios de Internet.</li>
+              <li>Los usuarios pueden inhabilitar el uso de la cookie de DART o personalizar los anuncios mediante la configuración de anuncios de Google en <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" className="text-violet-400 underline">google.com/settings/ads</a>.</li>
+              <li>Puedes gestionar tus preferencias de privacidad y consentimiento de cookies en cualquier momento a través del banner de configuración de cookies en nuestro sitio.</li>
             </ul>
           </section>
 
