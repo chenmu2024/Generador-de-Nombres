@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useMemo } from 'react';
 import { useLocation } from '../utils/router';
 import { Link } from '../components/Link';
 import { HelpCircle, ChevronRight, Flame, Zap, Gem, Shield, Smartphone, CheckCircle2, Search, Sparkles, Copy, Volume2, Instagram, Gamepad2, Tv, Swords, Printer, Bookmark, Trash2, Heart, Share2, X, Download, CheckSquare, Square, ListOrdered, Home, Star } from 'lucide-react';
@@ -342,10 +342,13 @@ export default function CategoryPage() {
 
   const [homeActiveTool, setHomeActiveTool] = useState<'ff' | 'invisible' | 'alphabet' | 'store'>('ff');
 
-  const filteredLinks = allLinks.filter(link => 
-    link.path !== '/' && 
-    link.label.toLowerCase().includes(searchCategory.toLowerCase())
-  );
+  const filteredLinks = useMemo(() => {
+    const query = searchCategory.trim().toLowerCase();
+    return allLinks.filter(link => 
+      link.path !== '/' && 
+      (query === '' || link.label.toLowerCase().includes(query))
+    );
+  }, [searchCategory]);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -5821,7 +5824,7 @@ export default function CategoryPage() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 [content-visibility:auto] [contain-intrinsic-size:1200px]">
           {filteredLinks.map(link => (
             <Link 
               key={link.path} 
