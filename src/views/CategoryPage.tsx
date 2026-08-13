@@ -370,308 +370,230 @@ export default function CategoryPage() {
       }
     }
 
-    // Meta Robots handling for unknown paths (soft 404 protection)
-    let metaRobots = document.querySelector('meta[name="robots"]');
-    const isUnknownPath = !allLinks.some(l => l.path === location.pathname) && location.pathname !== '/';
-    if (isUnknownPath) {
-      if (!metaRobots) {
-        metaRobots = document.createElement('meta');
-        metaRobots.setAttribute('name', 'robots');
-        document.head.appendChild(metaRobots);
-      }
-      metaRobots.setAttribute('content', 'noindex, follow');
-    } else if (metaRobots) {
-      metaRobots.setAttribute('content', 'index, follow');
-    }
-
-    // Update Title
-    document.title = data.title;
-    
-    // Update Meta Description
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) {
-      metaDesc.setAttribute('content', data.metaDescription);
-    }
-    
-    // Update Keywords
-    let metaKeywords = document.querySelector('meta[name="keywords"]');
-    if (!metaKeywords) {
-      metaKeywords = document.createElement('meta');
-      metaKeywords.setAttribute('name', 'keywords');
-      document.head.appendChild(metaKeywords);
-    }
-    metaKeywords.setAttribute('content', data.keywords);
-
-    // Update Canonical URL
-    let canonicalLink = document.querySelector('link[rel="canonical"]');
-    if (!canonicalLink) {
-      canonicalLink = document.createElement('link');
-      canonicalLink.setAttribute('rel', 'canonical');
-      document.head.appendChild(canonicalLink);
-    }
-    const currentFullUrl = location.pathname === '/' 
-      ? 'https://generadordenombres.net/' 
-      : `https://generadordenombres.net${location.pathname}`;
-    canonicalLink.setAttribute('href', currentFullUrl);
-
-    // Update Open Graph
-    const ogTitle = document.querySelector('meta[property="og:title"]');
-    if (ogTitle) ogTitle.setAttribute('content', data.title);
-    
-    const ogDesc = document.querySelector('meta[property="og:description"]');
-    if (ogDesc) ogDesc.setAttribute('content', data.metaDescription);
-
-    let ogUrl = document.querySelector('meta[property="og:url"]');
-    if (!ogUrl) {
-      ogUrl = document.createElement('meta');
-      ogUrl.setAttribute('property', 'og:url');
-      document.head.appendChild(ogUrl);
-    }
-    ogUrl.setAttribute('content', currentFullUrl);
-
-    let ogSiteName = document.querySelector('meta[property="og:site_name"]');
-    if (!ogSiteName) {
-      ogSiteName = document.createElement('meta');
-      ogSiteName.setAttribute('property', 'og:site_name');
-      document.head.appendChild(ogSiteName);
-    }
-    ogSiteName.setAttribute('content', 'GeneradorDeNombres.net');
-
-    let ogLocale = document.querySelector('meta[property="og:locale"]');
-    if (!ogLocale) {
-      ogLocale = document.createElement('meta');
-      ogLocale.setAttribute('property', 'og:locale');
-      document.head.appendChild(ogLocale);
-    }
-    ogLocale.setAttribute('content', 'es_ES');
-
-    // Hreflang links
-    const hreflangs = ['es', 'x-default', 'es-ES', 'es-MX', 'es-AR', 'es-CO'];
-    hreflangs.forEach(lang => {
-      let hrefLangTag = document.querySelector(`link[hreflang="${lang}"]`);
-      if (!hrefLangTag) {
-        hrefLangTag = document.createElement('link');
-        hrefLangTag.setAttribute('rel', 'alternate');
-        hrefLangTag.setAttribute('hreflang', lang);
-        document.head.appendChild(hrefLangTag);
-      }
-      hrefLangTag.setAttribute('href', currentFullUrl);
-    });
-
-    // Update Open Graph Image
-    let ogImage = document.querySelector('meta[property="og:image"]');
-    if (!ogImage) {
-      ogImage = document.createElement('meta');
-      ogImage.setAttribute('property', 'og:image');
-      document.head.appendChild(ogImage);
-    }
-    ogImage.setAttribute('content', 'https://generadordenombres.net/logo.webp');
-
-    let ogImageWidth = document.querySelector('meta[property="og:image:width"]');
-    if (!ogImageWidth) {
-      ogImageWidth = document.createElement('meta');
-      ogImageWidth.setAttribute('property', 'og:image:width');
-      document.head.appendChild(ogImageWidth);
-    }
-    ogImageWidth.setAttribute('content', '512');
-
-    let ogImageHeight = document.querySelector('meta[property="og:image:height"]');
-    if (!ogImageHeight) {
-      ogImageHeight = document.createElement('meta');
-      ogImageHeight.setAttribute('property', 'og:image:height');
-      document.head.appendChild(ogImageHeight);
-    }
-    ogImageHeight.setAttribute('content', '512');
-
-    let twitterImage = document.querySelector('meta[name="twitter:image"]');
-    if (!twitterImage) {
-      twitterImage = document.createElement('meta');
-      twitterImage.setAttribute('name', 'twitter:image');
-      document.head.appendChild(twitterImage);
-    }
-    twitterImage.setAttribute('content', 'https://generadordenombres.net/logo.webp');
-
-    // Update Twitter Cards
-    let twitterCard = document.querySelector('meta[name="twitter:card"]');
-    if (!twitterCard) {
-      twitterCard = document.createElement('meta');
-      twitterCard.setAttribute('name', 'twitter:card');
-      document.head.appendChild(twitterCard);
-    }
-    twitterCard.setAttribute('content', 'summary_large_image');
-
-    let twitterTitle = document.querySelector('meta[name="twitter:title"]');
-    if (!twitterTitle) {
-      twitterTitle = document.createElement('meta');
-      twitterTitle.setAttribute('name', 'twitter:title');
-      document.head.appendChild(twitterTitle);
-    }
-    twitterTitle.setAttribute('content', data.title);
-
-    let twitterDesc = document.querySelector('meta[name="twitter:description"]');
-    if (!twitterDesc) {
-      twitterDesc = document.createElement('meta');
-      twitterDesc.setAttribute('name', 'twitter:description');
-      document.head.appendChild(twitterDesc);
-    }
-    twitterDesc.setAttribute('content', data.metaDescription);
-
-    // Inject JSON-LD Schema
-    let jsonLdScript = document.getElementById('json-ld-schema');
-    if (!jsonLdScript) {
-      jsonLdScript = document.createElement('script');
-      jsonLdScript.id = 'json-ld-schema';
-      jsonLdScript.setAttribute('type', 'application/ld+json');
-      document.head.appendChild(jsonLdScript);
-    }
-
-    const schemaGraph: any[] = [
-      {
-        "@type": "WebSite",
-        "@id": "https://generadordenombres.net/#website",
-        "url": "https://generadordenombres.net/",
-        "name": "GeneradorDeNombres.net - Generador de Nombres, Apodos y Símbolos",
-        "description": "Generador de nombres, apodos y símbolos para Free Fire, Roblox, Instagram y más.",
-        "inLanguage": "es",
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": {
-            "@type": "EntryPoint",
-            "urlTemplate": "https://generadordenombres.net/?s={search_term_string}"
-          },
-          "query-input": "required name=search_term_string"
+    // Meta & Schema updates wrapped in non-blocking idle callback to eliminate forced layout reflow & TBT
+    const updateHeadMetadata = () => {
+      // Helper to set attribute only if different (prevents layout invalidation & reflow)
+      const setMeta = (selector: string, attrName: string, attrVal: string, tagType = 'meta', createAttrs: Record<string, string> = {}) => {
+        let el = document.querySelector(selector);
+        if (!el) {
+          el = document.createElement(tagType);
+          Object.entries(createAttrs).forEach(([k, v]) => el!.setAttribute(k, v));
+          document.head.appendChild(el);
         }
-      },
-      {
-        "@type": "SoftwareApplication",
-        "@id": `${currentFullUrl}#webapp`,
-        "url": currentFullUrl,
-        "name": data.h1,
-        "applicationCategory": "UtilitiesApplication",
-        "operatingSystem": "All",
-        "browserRequirements": "Requires JavaScript. Requires HTML5.",
-        "softwareVersion": "1.5.0",
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "USD"
-        },
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "ratingCount": "1520",
-          "bestRating": "5",
-          "worstRating": "1"
+        if (el.getAttribute(attrName) !== attrVal) {
+          el.setAttribute(attrName, attrVal);
         }
-      },
-      {
-        "@type": "Article",
-        "@id": `${currentFullUrl}#article`,
-        "headline": data.h1,
-        "description": data.metaDescription,
-        "inLanguage": "es",
-        "mainEntityOfPage": currentFullUrl,
-        "datePublished": "2024-01-15T08:00:00+00:00",
-        "dateModified": "2026-08-08T00:00:00+00:00",
-        "image": "https://generadordenombres.net/logo.webp",
-        "author": {
-          "@type": "Person",
-          "name": "Equipo Editorial",
-          "url": "https://generadordenombres.net/sobre-nosotros"
-        },
-        "publisher": {
-          "@type": "Organization",
-          "name": "GeneradorDeNombres.net",
+      };
+
+      // Meta Robots handling for unknown paths (soft 404 protection)
+      const isUnknownPath = !allLinks.some(l => l.path === location.pathname) && location.pathname !== '/';
+      setMeta('meta[name="robots"]', 'content', isUnknownPath ? 'noindex, follow' : 'index, follow', 'meta', { name: 'robots' });
+
+      // Update Title
+      if (document.title !== data.title) {
+        document.title = data.title;
+      }
+      
+      // Update Meta Description & Keywords
+      setMeta('meta[name="description"]', 'content', data.metaDescription, 'meta', { name: 'description' });
+      setMeta('meta[name="keywords"]', 'content', data.keywords, 'meta', { name: 'keywords' });
+
+      // Update Canonical URL
+      const currentFullUrl = location.pathname === '/' 
+        ? 'https://generadordenombres.net/' 
+        : `https://generadordenombres.net${location.pathname}`;
+      setMeta('link[rel="canonical"]', 'href', currentFullUrl, 'link', { rel: 'canonical' });
+
+      // Update Open Graph
+      setMeta('meta[property="og:title"]', 'content', data.title, 'meta', { property: 'og:title' });
+      setMeta('meta[property="og:description"]', 'content', data.metaDescription, 'meta', { property: 'og:description' });
+      setMeta('meta[property="og:url"]', 'content', currentFullUrl, 'meta', { property: 'og:url' });
+      setMeta('meta[property="og:site_name"]', 'content', 'GeneradorDeNombres.net', 'meta', { property: 'og:site_name' });
+      setMeta('meta[property="og:locale"]', 'content', 'es_ES', 'meta', { property: 'og:locale' });
+
+      // Hreflang links
+      const hreflangs = ['es', 'x-default', 'es-ES', 'es-MX', 'es-AR', 'es-CO'];
+      hreflangs.forEach(lang => {
+        setMeta(`link[hreflang="${lang}"]`, 'href', currentFullUrl, 'link', { rel: 'alternate', hreflang: lang });
+      });
+
+      // Update Open Graph & Twitter Image
+      setMeta('meta[property="og:image"]', 'content', 'https://generadordenombres.net/logo.webp', 'meta', { property: 'og:image' });
+      setMeta('meta[property="og:image:width"]', 'content', '512', 'meta', { property: 'og:image:width' });
+      setMeta('meta[property="og:image:height"]', 'content', '512', 'meta', { property: 'og:image:height' });
+      setMeta('meta[name="twitter:image"]', 'content', 'https://generadordenombres.net/logo.webp', 'meta', { name: 'twitter:image' });
+      setMeta('meta[name="twitter:card"]', 'content', 'summary_large_image', 'meta', { name: 'twitter:card' });
+      setMeta('meta[name="twitter:title"]', 'content', data.title, 'meta', { name: 'twitter:title' });
+      setMeta('meta[name="twitter:description"]', 'content', data.metaDescription, 'meta', { name: 'twitter:description' });
+
+      // Inject JSON-LD Schema
+      let jsonLdScript = document.getElementById('json-ld-schema') as HTMLScriptElement | null;
+      if (!jsonLdScript) {
+        jsonLdScript = document.createElement('script');
+        jsonLdScript.id = 'json-ld-schema';
+        jsonLdScript.setAttribute('type', 'application/ld+json');
+        document.head.appendChild(jsonLdScript);
+      }
+
+      const schemaGraph: any[] = [
+        {
+          "@type": "WebSite",
+          "@id": "https://generadordenombres.net/#website",
           "url": "https://generadordenombres.net/",
-          "logo": {
-            "@type": "ImageObject",
-            "url": "https://generadordenombres.net/logo.webp"
+          "name": "GeneradorDeNombres.net - Generador de Nombres, Apodos y Símbolos",
+          "description": "Generador de nombres, apodos y símbolos para Free Fire, Roblox, Instagram y más.",
+          "inLanguage": "es",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://generadordenombres.net/?s={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
           }
-        }
-      },
-      {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Inicio",
-            "item": "https://generadordenombres.net/"
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": `${currentFullUrl}#webapp`,
+          "url": currentFullUrl,
+          "name": data.h1,
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "All",
+          "browserRequirements": "Requires JavaScript. Requires HTML5.",
+          "softwareVersion": "1.5.0",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
           },
-          ...(location.pathname !== '/' ? [{
-            "@type": "ListItem",
-            "position": 2,
-            "name": data.h1,
-            "item": currentFullUrl
-          }] : [])
-        ]
-      }
-    ];
-
-    if (data.faqs && data.faqs.length > 0) {
-      schemaGraph.push({
-        "@type": "FAQPage",
-        "mainEntity": data.faqs.map(f => ({
-          "@type": "Question",
-          "name": f.question,
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": f.answer
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "ratingCount": "1520",
+            "bestRating": "5",
+            "worstRating": "1"
           }
+        },
+        {
+          "@type": "Article",
+          "@id": `${currentFullUrl}#article`,
+          "headline": data.h1,
+          "description": data.metaDescription,
+          "inLanguage": "es",
+          "mainEntityOfPage": currentFullUrl,
+          "datePublished": "2024-01-15T08:00:00+00:00",
+          "dateModified": "2026-08-08T00:00:00+00:00",
+          "image": "https://generadordenombres.net/logo.webp",
+          "author": {
+            "@type": "Person",
+            "name": "Equipo Editorial",
+            "url": "https://generadordenombres.net/sobre-nosotros"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "GeneradorDeNombres.net",
+            "url": "https://generadordenombres.net/",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://generadordenombres.net/logo.webp"
+            }
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Inicio",
+              "item": "https://generadordenombres.net/"
+            },
+            ...(location.pathname !== '/' ? [{
+              "@type": "ListItem",
+              "position": 2,
+              "name": data.h1,
+              "item": currentFullUrl
+            }] : [])
+          ]
+        }
+      ];
+
+      if (data.faqs && data.faqs.length > 0) {
+        schemaGraph.push({
+          "@type": "FAQPage",
+          "mainEntity": data.faqs.map(f => ({
+            "@type": "Question",
+            "name": f.question,
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": f.answer
+            }
+          }))
+        });
+      }
+
+      const relatedLinksForSchema = (data.related && data.related.length > 0)
+        ? data.related
+        : allLinks
+            .filter(l => l.path !== location.pathname && l.path !== '/')
+            .slice(0, 6)
+            .map(l => ({ title: l.label, path: l.path }));
+
+      schemaGraph.push({
+        "@type": "ItemList",
+        "name": `Generadores y herramientas relacionadas con ${data.h1}`,
+        "itemListElement": relatedLinksForSchema.map((rel: any, index: number) => ({
+          "@type": "ListItem",
+          "position": index + 1,
+          "name": rel.title,
+          "url": `https://generadordenombres.net${rel.path}`
         }))
       });
-    }
 
-    const relatedLinksForSchema = (data.related && data.related.length > 0)
-      ? data.related
-      : allLinks
-          .filter(l => l.path !== location.pathname && l.path !== '/')
-          .slice(0, 6)
-          .map(l => ({ title: l.label, path: l.path }));
+      schemaGraph.push({
+        "@type": "HowTo",
+        "name": `Cómo usar el ${data.h1}`,
+        "description": `Guía rápida para generar e inspirarte con las mejores opciones en ${data.h1}.`,
+        "step": [
+          {
+            "@type": "HowToStep",
+            "position": 1,
+            "name": "Selecciona opciones o estilo",
+            "text": "Elige los filtros, estilos o cantidad de nombres que deseas generar."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 2,
+            "name": "Genera opciones al instante",
+            "text": "Haz clic en el botón de generación para obtener resultados instantáneos."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 3,
+            "name": "Copia tu favorito",
+            "text": "Presiona sobre tu nombre preferido para copiarlo al portapapeles con un solo toque."
+          }
+        ]
+      });
 
-    schemaGraph.push({
-      "@type": "ItemList",
-      "name": `Generadores y herramientas relacionadas con ${data.h1}`,
-      "itemListElement": relatedLinksForSchema.map((rel: any, index: number) => ({
-        "@type": "ListItem",
-        "position": index + 1,
-        "name": rel.title,
-        "url": `https://generadordenombres.net${rel.path}`
-      }))
-    });
+      const schemaData = {
+        "@context": "https://schema.org",
+        "@graph": schemaGraph
+      };
 
-    schemaGraph.push({
-      "@type": "HowTo",
-      "name": `Cómo usar el ${data.h1}`,
-      "description": `Guía rápida para generar e inspirarte con las mejores opciones en ${data.h1}.`,
-      "step": [
-        {
-          "@type": "HowToStep",
-          "position": 1,
-          "name": "Selecciona opciones o estilo",
-          "text": "Elige los filtros, estilos o cantidad de nombres que deseas generar."
-        },
-        {
-          "@type": "HowToStep",
-          "position": 2,
-          "name": "Genera opciones al instante",
-          "text": "Haz clic en el botón de generación para obtener resultados instantáneos."
-        },
-        {
-          "@type": "HowToStep",
-          "position": 3,
-          "name": "Copia tu favorito",
-          "text": "Presiona sobre tu nombre preferido para copiarlo al portapapeles con un solo toque."
-        }
-      ]
-    });
-
-    const schemaData = {
-      "@context": "https://schema.org",
-      "@graph": schemaGraph
+      const newContent = JSON.stringify(schemaData);
+      if (jsonLdScript.textContent !== newContent) {
+        jsonLdScript.textContent = newContent;
+      }
     };
 
-    jsonLdScript.textContent = JSON.stringify(schemaData);
+    if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+      const idleId = (window as any).requestIdleCallback(updateHeadMetadata);
+      return () => (window as any).cancelIdleCallback(idleId);
+    } else {
+      const timer = setTimeout(updateHeadMetadata, 20);
+      return () => clearTimeout(timer);
+    }
 
   }, [data]);
 
