@@ -1,16 +1,9 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 
 export function useLocation() {
-  const [pathname, setPathname] = useState('/');
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      setPathname(window.location.pathname);
-    }
-  }, []);
-
+  const pathname = usePathname() || '/';
   return { pathname };
 }
 
@@ -21,3 +14,4 @@ export function useNavigate() {
     }
   };
 }
+

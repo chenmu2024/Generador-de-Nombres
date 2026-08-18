@@ -33,9 +33,12 @@ const LazyFootballTool = dynamic(() => import('../components/tools/FootballTool'
 });
 import { seoData, allLinks } from '../data/seoData';
 
-export default function CategoryPage() {
-  const location = useLocation();
-  const path = location.pathname === '/' ? 'home' : location.pathname.substring(1);
+export default function CategoryPage({ initialPath }: { initialPath?: string } = {}) {
+  const routerLocation = useLocation();
+  const currentPath = initialPath || routerLocation.pathname || '/';
+  const location = { pathname: currentPath };
+  const rawPath = currentPath === '/' ? 'home' : currentPath.replace(/^\//, '');
+  const path = rawPath === '' ? 'home' : rawPath;
   const data = seoData[path] || seoData['home'];
   const [showToast, setShowToast] = useState(false);
   const [feedbackGiven, setFeedbackGiven] = useState(false);
