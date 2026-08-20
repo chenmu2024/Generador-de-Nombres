@@ -22,24 +22,24 @@ export const seoData: Record<string, CategoryData> = {
   home: {
     id: 'home',
     path: '/',
-    title: 'Generador de Nombres para Free Fire, Mujer y Mascotas | GDN',
-    h1: 'Generador de Nombres para Free Fire',
-    subtitle: 'El mejor creador de nombres para free fire, juegos, bebés y mascotas. Copia símbolos y letras raras en 1 clic.',
+    title: 'Generador de Nombres, Apodos y Símbolos para Juegos y Redes | GDN',
+    h1: 'Generador de Nombres, Apodos y Símbolos',
+    subtitle: 'El mejor creador de nombres y apodos para juegos, redes sociales, bebés y mascotas. Copia símbolos y letras raras en 1 clic.',
     seoText: `
-      <h2>El Mejor Generador de Nombres para Free Fire y Redes Sociales</h2>
-      <p>Bienvenido a <strong>GeneradorDeNombres.net</strong>, la plataforma definitiva si estás buscando un <strong>generador de nombres para free fire</strong> rápido y fácil de usar. Ya sea que necesites destacar en tus partidas o en tus redes sociales, nuestro <strong>creador de nombres para free fire</strong> convierte tu apodo común en un nick épico, utilizando símbolos especiales, letras raras y tipografías exclusivas.</p>
+      <h2>El Mejor Generador de Nombres, Apodos y Letras Bonitas</h2>
+      <p>Bienvenido a <strong>GeneradorDeNombres.net</strong>, la plataforma comunitaria definitiva para personalizar tus nicks, apodos y perfiles. Ya sea que busques destacar en tus partidas de videojuegos (como Free Fire, Roblox, PUBG) o en tus biografías de redes sociales (Instagram, TikTok, WhatsApp), nuestro sistema convierte texto común en combinaciones llamativas con símbolos especiales, letras góticas, cursivas y tipografías Unicode compatibles.</p>
       
-      <h3>¿Cómo crear nombres para Free Fire?</h3>
-      <p>Es muy sencillo <strong>crear nombres para free fire</strong> aquí. Solo escribe tu nombre en el cuadro principal. Al instante, nuestro sistema generará cientos de combinaciones. También incluimos herramientas para copiar <strong>espacios para nombres de free fire</strong> (el famoso espacio invisible) y una enorme colección de <strong>simbolos para free fire</strong> listos para usar (como ꧁༺ ༻꧂, ⚡, ☠︎, y coronas).</p>
+      <h3>¿Cómo crear nombres y apodos personalizados?</h3>
+      <p>Es muy sencillo: solo escribe tu nombre o palabra clave en el cuadro principal. Al instante, nuestro sistema generará decenas de estilos únicos. También incluimos herramientas para copiar el <strong>espacio invisible (Unicode U+3164)</strong> y una amplia biblioteca de <strong>símbolos y caracteres especiales</strong> listos para copiar con un solo clic (como ꧁༺ ༻꧂, ⚡, ☠︎, 👑, y flores).</p>
       
-      <h3>Nombres de Mujer, Bebés y Mascotas</h3>
-      <p>Nuestra plataforma no es solo para gamers. Si buscas inspiración para la vida real, tenemos extensas listas y guías para encontrar hermosos <strong>nombres de mujer</strong>, opciones para bebés (niños y niñas), e incluso adorables <strong>nombres para perritas</strong> y gatos. Explora nuestras categorías y encuentra el nombre perfecto que resalte tu personalidad o la de tus seres queridos.</p>
+      <h3>Nombres para Personas, Bebés y Mascotas</h3>
+      <p>Nuestra plataforma abarca mucho más que apodos para juegos. Si buscas inspiración para la vida real, disponemos de extensas listas y guías para encontrar hermosos <strong>nombres de mujer</strong>, opciones con significado para bebés (niños y niñas), e incluso listas de <strong>nombres para perritas</strong> y gatos con significados profundos.</p>
       
-      <h3>Símbolos, Letras Raras y Fuentes Especiales</h3>
-      <p>Contamos con la mayor colección de caracteres Unicode compatibles con juegos y redes. Úsalos para decorar tus nicks o biografías de Instagram, TikTok, WhatsApp y Roblox. Transforma tu texto normal en letras cursivas, góticas, asiáticas, medievales y mucho más en un solo clic.</p>
+      <h3>Símbolos, Letras Raras y Fuentes Unicode</h3>
+      <p>Contamos con una amplia colección de caracteres Unicode estándar compatibles con la mayoría de navegadores, aplicaciones y juegos modernos. Transforma tu texto normal en letras cursivas, medievales, estéticas y asiáticas de forma 100% gratuita.</p>
     `,
-    metaDescription: 'El mejor generador de nombres para Free Fire y apodos. Copia letras raras, espacios invisibles y símbolos. Encuentra nombres de mujer y para perritas.',
-    keywords: 'generador de nombres para free fire, creador de nombres para free fire, crear nombres para free fire, simbolos para free fire, espacios para nombres de free fire, nombres de mujer, nombres para perritas, letras raras',
+    metaDescription: 'Generador de nombres, apodos y símbolos para juegos, redes sociales, bebés y mascotas. Copia letras raras y espacios invisibles fácilmente.',
+    keywords: 'generador de nombres, creador de apodos, letras raras, simbolos unicode, espacio invisible, nombres de mujer, nombres para perritas',
     defaultName: 'Gamer',
 
     customSymbols: ["꧁", "꧂", "༺", "༻", "⚡", "☠︎", "👑", "✿", "☬", "⚔️", "☯︎", "★", "♥", "✨", "🔥", "ツ", "×͜×", "シ", "ッ", "メ"],

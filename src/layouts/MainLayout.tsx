@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from '../components/Link';
 import { useLocation, useNavigate } from '../utils/router';
-import { Flame, Menu, X, ChevronDown, Gamepad2, Users, Heart, Type, Globe, Briefcase, Search, Sparkles, ArrowRight, Bookmark, Copy, Trash2, Check, ExternalLink } from 'lucide-react';
+import { Flame, Menu, X, ChevronDown, Gamepad2, Users, Heart, Type, Globe, Briefcase, Search, Sparkles, ArrowRight, Bookmark, Copy, Trash2, Check, ExternalLink, ShieldAlert } from 'lucide-react';
 import { allLinks } from '../data/allLinks';
 import CookieBanner from '../components/CookieBanner';
 
@@ -430,6 +430,20 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
             <a href="/sitemap.xml" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-300 transition-colors">Mapa del Sitio XML</a>
             <Link to="/contacto" className="hover:text-zinc-300 transition-colors">Contacto y Soporte</Link>
           </nav>
+
+          {/* Explicit Trademark & Brand Disclaimer Box */}
+          <div className="mt-10 p-5 rounded-2xl bg-zinc-950/80 border border-white/5 text-left max-w-4xl mx-auto space-y-2.5">
+            <div className="flex items-center gap-2 text-xs font-bold text-zinc-300">
+              <ShieldAlert className="w-4 h-4 text-amber-400 shrink-0" />
+              <span>Aviso Legal de Marcas y Exención de Responsabilidad (Nominative Fair Use)</span>
+            </div>
+            <p className="text-[11px] text-zinc-400 leading-relaxed">
+              <strong>GeneradorDeNombres.net</strong> es una plataforma y herramienta independiente de utilidades tipográficas, generación de texto Unicode y apoyo comunitario. Este sitio web <strong>NO</strong> está afiliado, patrocinado, respaldado ni asociado oficialmente con Garena International I Private Limited, Sea Group, Roblox Corporation, Meta Platforms Inc., ni ninguna de sus empresas matrices o subsidiarias.
+            </p>
+            <p className="text-[11px] text-zinc-500 leading-relaxed">
+              Las marcas comerciales, nombres de productos y logotipos como <em>"Free Fire"</em>, <em>"Roblox"</em>, <em>"Instagram"</em> y otros citados en este sitio pertenecen en su totalidad a sus respectivos propietarios legales. Su mención en este portal se realiza con fines estrictamente identificativos e informativos bajo el principio de <strong>Uso Legítimo Nominativo</strong> para señalar la compatibilidad de caracteres, fuentes y nombres generados.
+            </p>
+          </div>
 
           <p className="text-zinc-700 text-sm mt-8">
             © {new Date().getFullYear()} generadordenombres.net. Todos los derechos reservados.

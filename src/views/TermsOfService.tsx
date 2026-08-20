@@ -52,13 +52,13 @@ export default function TermsOfService() {
           <section className="space-y-3">
             <h2 className="text-xl font-bold text-white flex items-center gap-2">
               <ShieldAlert className="w-5 h-5 text-amber-400" />
-              3. Deslinde de Marcas Registradas de Terceros
+              3. Deslinde Legal de Marcas Registradas de Terceros (Nominative Fair Use)
             </h2>
             <p>
-              <strong>GeneradorDeNombres.net</strong> es un sitio web informativo e independiente de generación de utilidades tipográficas.
+              <strong>GeneradorDeNombres.net</strong> es un portal web independiente de utilidades tipográficas y diseño de texto Unicode.
             </p>
-            <p className="text-zinc-400 text-xs">
-              Menciones a nombres comerciales o videojuegos como <em>Free Fire (Garena)</em>, <em>Roblox (Roblox Corporation)</em>, <em>Instagram / WhatsApp (Meta Platforms)</em>, <em>PUBG (Krafton)</em> o <em>Minecraft (Mojang/Microsoft)</em> se realizan exclusivamente con fines descriptivos e identificativos. No existe afiliación, patrocinio ni vinculación comercial directa con dichas entidades.
+            <p className="text-zinc-400 text-xs leading-relaxed">
+              Cualquier referencia o cita a marcas comerciales registradas, incluyendo pero no limitándose a <em>Free Fire</em> (marca registrada de Garena International I Private Limited / Sea Group en Singapur y otros territorios), <em>Roblox</em> (Roblox Corporation), <em>Instagram</em> (Meta Platforms, Inc.), <em>PUBG</em> (Krafton) o <em>Minecraft</em> (Microsoft/Mojang), se realiza estrictamente al amparo de la doctrina de <strong>Uso Legítimo Nominativo (Nominative Fair Use)</strong> con fines meramente descriptivos para orientar al usuario sobre la compatibilidad de fuentes y caracteres. GeneradorDeNombres.net no mantiene ninguna relación de afiliación, patrocinio, asociación oficial ni respaldo con ninguna de dichas entidades ni sus productos.
             </p>
           </section>
 

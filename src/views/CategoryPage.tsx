@@ -746,7 +746,7 @@ export default function CategoryPage({ initialPath }: { initialPath?: string } =
 
       <div className="max-w-6xl mx-auto py-8">
         <Generator 
-          title={location.pathname === '/' ? 'Generador de Nombres para Free Fire' : data.h1}
+          title={location.pathname === '/' ? 'Generador de Nombres, Apodos y Símbolos' : data.h1}
           defaultName={data.defaultName || "Gamer"}
           customSymbols={data.customSymbols}
         />
