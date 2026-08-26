@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import '../index.css';
 import MainLayout from '../layouts/MainLayout';
 
@@ -29,6 +30,7 @@ export default function RootLayout({
     <html lang="es" className="dark">
       <body className="bg-[#0a0a0a] text-zinc-100 antialiased selection:bg-violet-500/30 selection:text-violet-200">
         <MainLayout>{children}</MainLayout>
+        <SpeedInsights />
       </body>
     </html>
   );
