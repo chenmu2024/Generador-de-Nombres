@@ -22,7 +22,7 @@ export const seoData: Record<string, CategoryData> = {
   home: {
     id: 'home',
     path: '/',
-    title: 'Generador de Nombres, Apodos y Símbolos para Juegos y Redes | GDN',
+    title: 'Generador de Nombres, Apodos y Símbolos para Juegos | GDN',
     h1: 'Generador de Nombres, Apodos y Símbolos',
     subtitle: 'El mejor creador de nombres y apodos para juegos, redes sociales, bebés y mascotas. Copia símbolos y letras raras en 1 clic.',
     seoText: `
@@ -4040,7 +4040,7 @@ export const seoData: Record<string, CategoryData> = {
   'nombres-para-gatos': {
     id: 'nombres-para-gatos',
     path: '/nombres-para-gatos',
-    title: 'Nombres para Gatos - Ideas Bonitas, Cortas y Graciosas con Audio | GeneradorDeNombres.net',
+    title: 'Nombres para Gatos - Ideas Bonitas y Graciosas | GDN',
     h1: 'Generador de Nombres para Gatos',
     subtitle: 'Descubre el nombre ideal para tu felino con audio interactivo.',
     seoText: `<h2>Nombres para Gatos y Gatitos</h2><p>Descubre nombres originales para michis.</p>`,
