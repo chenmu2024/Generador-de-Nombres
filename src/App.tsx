@@ -4,6 +4,8 @@
  */
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
+import { Analytics } from '@vercel/analytics/react';
 import MainLayout from './layouts/MainLayout';
 import CategoryPage from './views/CategoryPage';
 import AboutUs from './views/AboutUs';
@@ -23,6 +25,8 @@ export default function App() {
   return (
     <Router>
       <ScrollToTop />
+      <SpeedInsights />
+      <Analytics />
       <MainLayout>
         <Routes>
           <Route path="/" element={<CategoryPage />} />
