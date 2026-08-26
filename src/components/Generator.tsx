@@ -37,6 +37,7 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols 
   const [generatedNames, setGeneratedNames] = useState<string[]>(() => 
     generateFancyNicknames(defaultName, 'all', customSymbols)
   );
+  const [visibleCount, setVisibleCount] = useState(24);
   const [selectedNames, setSelectedNames] = useState<string[]>([]);
   const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
   const [showToast, setShowToast] = useState(false);
@@ -455,9 +456,9 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols 
             </div>
 
             <div 
-              className="grid grid-cols-1 md:grid-cols-2 gap-4 max-h-[500px] overflow-y-auto pr-2 custom-scrollbar"
+              className="grid grid-cols-1 md:grid-cols-2 gap-4 max-h-[520px] overflow-y-auto pr-2 custom-scrollbar"
             >
-              {displayedNames.map((name, index) => {
+              {displayedNames.slice(0, visibleCount).map((name, index) => {
                 const isSelected = selectedNames.includes(name);
                 const rarity = getRarityTier(name);
                 const isExceedFF = name.length > 12;
@@ -560,6 +561,23 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols 
                 );
               })}
             </div>
+
+            {displayedNames.length > visibleCount && (
+              <div className="mt-4 flex items-center justify-center gap-3">
+                <button
+                  onClick={() => setVisibleCount(prev => prev + 30)}
+                  className="px-6 py-2.5 bg-zinc-900 hover:bg-zinc-800 text-violet-400 hover:text-violet-300 border border-violet-500/30 hover:border-violet-500/50 font-bold text-xs rounded-xl transition-all shadow-sm flex items-center gap-2"
+                >
+                  <Sparkles className="w-4 h-4" /> Cargar Más Nombres (+30)
+                </button>
+                <button
+                  onClick={() => setVisibleCount(displayedNames.length)}
+                  className="px-4 py-2.5 bg-zinc-900/60 hover:bg-zinc-800 text-zinc-400 hover:text-zinc-200 border border-white/5 font-medium text-xs rounded-xl transition-all"
+                >
+                  Mostrar Todos ({displayedNames.length})
+                </button>
+              </div>
+            )}
           </div>
         ) : (
           <div className="text-center py-16 px-4 border-2 border-dashed border-white/10 rounded-3xl bg-zinc-900/20">
