@@ -251,12 +251,15 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
             {/* Global Search & Favorites Trigger Buttons */}
             <div className="flex items-center gap-2">
               <button
+                type="button"
                 onClick={() => setIsFavDrawerOpen(true)}
+                aria-label={`Mis Nombres Favoritos Guardados (${favorites.length})`}
                 className="relative bg-zinc-900 hover:bg-zinc-800 border border-white/10 rounded-xl px-2.5 py-1.5 text-xs text-zinc-300 flex items-center gap-1.5 transition-all hover:border-pink-500/40"
                 title="Mis Nombres Favoritos Guardados"
               >
                 <Bookmark className="w-3.5 h-3.5 text-pink-400 fill-pink-500/20" />
                 <span className="hidden sm:inline font-semibold">Favoritos</span>
+                <span className="sr-only">Favoritos</span>
                 {favorites.length > 0 && (
                   <span className="bg-pink-500 text-white text-[10px] font-bold px-1.5 py-0.2 rounded-full min-w-[18px] text-center">
                     {favorites.length}
@@ -265,7 +268,9 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
               </button>
 
               <button
+                type="button"
                 onClick={() => setIsSearchOpen(true)}
+                aria-label="Buscar categorías y herramientas"
                 className="bg-zinc-900 hover:bg-zinc-800 border border-white/10 rounded-xl px-3 py-1.5 text-xs text-zinc-400 flex items-center gap-2 transition-all hover:border-violet-500/40"
               >
                 <Search className="w-3.5 h-3.5 text-violet-400" />
@@ -476,10 +481,13 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
                 autoFocus
               />
               <button
+                type="button"
                 onClick={() => setIsSearchOpen(false)}
+                aria-label="Cerrar modal de búsqueda"
                 className="text-zinc-400 hover:text-white p-1 rounded-lg bg-zinc-800"
               >
                 <X className="w-4 h-4" />
+                <span className="sr-only">Cerrar</span>
               </button>
             </div>
 
@@ -562,10 +570,13 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
                 </span>
               </div>
               <button
+                type="button"
                 onClick={() => setIsFavDrawerOpen(false)}
+                aria-label="Cerrar panel de favoritos"
                 className="p-1 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors"
               >
                 <X className="w-5 h-5" />
+                <span className="sr-only">Cerrar</span>
               </button>
             </div>
 
@@ -573,7 +584,9 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
             {favorites.length > 0 && (
               <div className="p-3 bg-zinc-900 border-b border-white/5 flex items-center justify-between text-xs">
                 <button
+                  type="button"
                   onClick={copyAllFavorites}
+                  aria-label="Copiar todos los nombres favoritos"
                   className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-pink-500/20 hover:bg-pink-500/30 text-pink-300 border border-pink-500/30 font-semibold transition-all"
                 >
                   {favCopied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
@@ -581,7 +594,9 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
                 </button>
 
                 <button
+                  type="button"
                   onClick={clearAllFavorites}
+                  aria-label="Vaciar toda la lista de favoritos"
                   className="flex items-center gap-1 px-2.5 py-1.5 rounded-xl text-zinc-400 hover:text-red-400 hover:bg-red-500/10 transition-colors"
                 >
                   <Trash2 className="w-3.5 h-3.5" />
@@ -611,21 +626,27 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
                     </span>
                     <div className="flex items-center gap-1 shrink-0">
                       <button
+                        type="button"
                         onClick={() => {
                           navigator.clipboard.writeText(favName);
                           alert(`¡"${favName}" copiado al portapapeles!`);
                         }}
+                        aria-label={`Copiar nombre favorito ${favName}`}
                         className="p-1.5 rounded-lg text-zinc-400 hover:text-pink-300 hover:bg-white/10 transition-colors"
                         title="Copiar"
                       >
                         <Copy className="w-4 h-4" />
+                        <span className="sr-only">Copiar</span>
                       </button>
                       <button
+                        type="button"
                         onClick={() => removeFavorite(favName)}
+                        aria-label={`Eliminar nombre favorito ${favName}`}
                         className="p-1.5 rounded-lg text-zinc-500 hover:text-red-400 hover:bg-red-500/10 transition-colors"
                         title="Eliminar"
                       >
                         <Trash2 className="w-4 h-4" />
+                        <span className="sr-only">Eliminar</span>
                       </button>
                     </div>
                   </div>

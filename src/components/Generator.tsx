@@ -515,7 +515,9 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols 
 
                     <div className="flex items-center gap-1.5 shrink-0">
                       <button
+                        type="button"
                         onClick={(e) => toggleFavorite(name, e)}
+                        aria-label={favorites.includes(name) ? `Eliminar ${name} de favoritos` : `Guardar ${name} en favoritos`}
                         className={`p-2 rounded-xl border transition-all ${
                           favorites.includes(name)
                             ? 'bg-pink-500/20 text-pink-400 border-pink-500/40 shadow-sm'
@@ -527,10 +529,12 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols 
                       </button>
 
                       <button
+                        type="button"
                         onClick={(e) => {
                           e.stopPropagation();
                           setCardModalName(name);
                         }}
+                        aria-label={`Generar Tarjeta Gamer PNG para ${name}`}
                         className="p-2 bg-zinc-800/80 hover:bg-violet-600/30 text-zinc-400 hover:text-violet-300 rounded-xl border border-white/5 transition-all"
                         title="Generar Tarjeta Gamer PNG"
                       >
@@ -538,6 +542,9 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols 
                       </button>
 
                       <button
+                        type="button"
+                        aria-label={copiedIndex === index ? `Nombre ${name} copiado` : `Copiar nombre ${name}`}
+                        title={`Copiar ${name}`}
                         className={`flex-shrink-0 flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-medium transition-colors border ${
                           copiedIndex === index 
                             ? 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30' 
@@ -553,6 +560,7 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols 
                           <>
                             <Copy className="w-3.5 h-3.5" />
                             <span className="hidden sm:inline">Copiar</span>
+                            <span className="sr-only">Copiar</span>
                           </>
                         )}
                       </button>
@@ -628,10 +636,13 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols 
             onClick={(e) => e.stopPropagation()}
           >
             <button
+              type="button"
               onClick={() => setIsSpinnerOpen(false)}
+              aria-label="Cerrar ruleta de la suerte"
               className="absolute top-4 right-4 text-zinc-400 hover:text-white p-2 rounded-full bg-zinc-800"
             >
               <X className="w-5 h-5" />
+              <span className="sr-only">Cerrar</span>
             </button>
 
             <div className="w-16 h-16 bg-amber-500/20 text-amber-400 rounded-3xl flex items-center justify-center mx-auto mb-4 border border-amber-500/30 shadow-lg shadow-amber-500/20">
@@ -700,10 +711,13 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols 
             onClick={(e) => e.stopPropagation()}
           >
             <button
+              type="button"
               onClick={() => setCardModalName(null)}
+              aria-label="Cerrar ficha de identidad gamer"
               className="absolute top-4 right-4 text-zinc-400 hover:text-white p-2 rounded-full bg-zinc-800 z-10"
             >
               <X className="w-5 h-5" />
+              <span className="sr-only">Cerrar</span>
             </button>
 
             <div className="text-center mb-6">
