@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from 'next';
 import '../index.css';
 import MainLayout from '../layouts/MainLayout';
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Analytics } from '@vercel/analytics/next';
 
 export const viewport: Viewport = {
   themeColor: '#0a0a0a',
@@ -29,6 +31,8 @@ export default function RootLayout({
     <html lang="es" className="dark">
       <body className="bg-[#0a0a0a] text-zinc-100 antialiased selection:bg-violet-500/30 selection:text-violet-200">
         <MainLayout>{children}</MainLayout>
+        <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );

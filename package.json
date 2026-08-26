@@ -11,10 +11,8 @@
     "lint": "tsc --noEmit"
   },
   "browserslist": [
-    "chrome >= 90",
-    "edge >= 90",
-    "firefox >= 90",
-    "safari >= 15"
+    "defaults and fully supports es6-module",
+    "maintained node versions"
   ],
   "dependencies": {
     "@google/genai": "^2.4.0",
