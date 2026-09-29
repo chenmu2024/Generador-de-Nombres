@@ -53,8 +53,8 @@ export default function MayaNamesTool({
     <div>
     <label className="text-xs font-semibold text-zinc-400 block mb-2">Tótem / Animal de Poder:</label>
     <select aria-label="Seleccionar opción" value={myTotem}
-    onChange={(e) = className="gdn-tool-input"> setMyTotem(e.target.value)}
-    className="w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-emerald-500 text-sm font-semibold"
+    onChange={(e) => setMyTotem(e.target.value)}
+    className="gdn-tool-input w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-emerald-500 text-sm font-semibold"
     >
     {['Jaguar 🐆', 'Quetzal 🪶', 'Sol ☀️', 'Luna 🌙', 'Agua 💧', 'Serpiente 🐍', 'Ceiba 🌳', 'Fuego 🔥'].map(t => (
     <option key={t} value={t}>{t}</option>
@@ -67,9 +67,9 @@ export default function MayaNamesTool({
     <input
     type="text"
     value={myCustomName}
-    onChange={(e) = className="gdn-tool-input"> setMyCustomName(e.target.value)}
+    onChange={(e) => setMyCustomName(e.target.value)}
     placeholder="Ixchel, Balam, Yaretzi..."
-    className="w-full bg-zinc-800 border border-white/10 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-emerald-500 text-sm font-bold"
+    className="gdn-tool-input w-full bg-zinc-800 border border-white/10 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-emerald-500 text-sm font-bold"
     />
     </div>
     </div>
