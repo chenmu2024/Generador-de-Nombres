@@ -247,10 +247,10 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
     ];
 
     return (
-      <section className="gdn-home-hero-v4 px-5 py-8 sm:px-8 md:px-12 md:py-12 lg:px-14 lg:py-14">
-        <div className="grid lg:grid-cols-[1.35fr_0.75fr] gap-8 lg:gap-12 items-center">
-          <div className="space-y-5">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-violet-100 text-violet-700 text-[11px] sm:text-xs font-semibold">
+      <section className="gdn-home-hero-v4 px-5 py-8 sm:px-8 md:px-12 md:py-12 lg:px-[72px] lg:py-10">
+        <div className="gdn-home-hero-grid grid gap-8 lg:gap-12 items-center">
+          <div className="gdn-home-hero-copy space-y-5">
+            <div className="gdn-home-badge inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-violet-100 text-violet-700 text-[11px] sm:text-xs font-semibold">
               <Sparkles className="w-3.5 h-3.5" />
               Miles de ideas para encontrar el nombre perfecto
             </div>
@@ -291,13 +291,13 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
                 <span>{isGenerating ? 'Generando...' : 'Generar'}</span>
               </button>
             </div>
-            <div className="flex flex-wrap gap-2">
-              {quickStyles.map((item) => (
+            <div className="gdn-home-style-chips flex flex-wrap gap-2">
+              {quickStyles.map((item, index) => (
                 <button
                   key={item.id}
                   type="button"
                   onClick={() => setStyle(item.id)}
-                  className={`px-3.5 py-2 rounded-full border text-xs font-semibold transition-all ${
+                  className={`${index > 2 ? 'hidden sm:inline-flex' : 'inline-flex'} px-3.5 py-2 rounded-full border text-xs font-semibold transition-all ${
                     style === item.id
                       ? 'bg-violet-50 text-violet-700 border-violet-300'
                       : 'bg-white text-slate-600 border-slate-200 hover:border-violet-200 hover:text-violet-700'
@@ -309,7 +309,7 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
             </div>
           </div>
 
-          <div className="gdn-home-preview rounded-[22px] p-4 sm:p-5 space-y-2.5">
+          <div className="gdn-home-preview hidden lg:block rounded-[22px] p-4 sm:p-5 space-y-2.5">
             <div className="text-[11px] font-semibold text-slate-500 px-1 pb-1">Vista previa instantánea</div>
             {previewNames.map((name, index) => (
               <div

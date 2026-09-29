@@ -989,3 +989,83 @@ body {
 .gdn-tool-shell .gdn-gamer-card .border-white\/10 {
   border-color: rgba(255,255,255,0.10) !important;
 }
+
+
+/* V4 Figma Fidelity Pass */
+.gdn-home-hero-v4 {
+  width: 100vw;
+  max-width: none;
+  margin-left: calc(50% - 50vw);
+  border-left: 0 !important;
+  border-right: 0 !important;
+  border-radius: 0 !important;
+  min-height: 430px;
+}
+
+.gdn-home-hero-grid {
+  max-width: 81rem;
+  margin-inline: auto;
+  grid-template-columns: minmax(0, 700px) 390px;
+  justify-content: space-between;
+}
+
+.gdn-home-content-v4 {
+  width: 100vw;
+  max-width: none;
+  margin-left: calc(50% - 50vw);
+  background: #FFFFFF;
+  padding: 44px max(1rem, calc((100vw - 1296px) / 2)) 42px;
+}
+
+.gdn-home-section-v4 {
+  max-width: 81rem;
+}
+
+.gdn-home-directory-v4 {
+  width: 100vw;
+  max-width: none !important;
+  margin-left: calc(50% - 50vw) !important;
+  background: #FFFFFF;
+  padding-left: max(1rem, calc((100vw - 1296px) / 2));
+  padding-right: max(1rem, calc((100vw - 1296px) / 2));
+  padding-bottom: 72px;
+}
+
+@media (max-width: 1023px) {
+  .gdn-home-hero-v4 {
+    min-height: auto;
+  }
+
+  .gdn-home-hero-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 639px) {
+  .gdn-home-hero-v4 {
+    padding-top: 22px !important;
+    padding-bottom: 22px !important;
+  }
+
+  .gdn-home-hero-copy {
+    align-items: center;
+    text-align: center;
+  }
+
+  .gdn-home-badge {
+    align-self: center;
+  }
+
+  .gdn-home-style-chips {
+    justify-content: center;
+  }
+
+  .gdn-home-content-v4 {
+    padding-top: 28px;
+    padding-bottom: 30px;
+  }
+
+  .gdn-home-directory-v4 {
+    padding-bottom: 48px;
+  }
+}

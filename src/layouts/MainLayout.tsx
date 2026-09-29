@@ -196,7 +196,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
     <div className="gdn-shell min-h-screen text-slate-900 flex flex-col font-sans selection:bg-violet-200">
       <header className="gdn-header backdrop-blur-xl border-b sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16 gap-3">
+          <div className="flex justify-between items-center h-16 xl:h-[72px] gap-3">
             <Link to="/" aria-label="GeneradorDeNombres.net - Página de Inicio" className="flex items-center gap-2.5 group shrink-0">
               <img
                 src="/favicon.svg"

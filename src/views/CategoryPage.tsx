@@ -177,7 +177,7 @@ export default function CategoryPage({
 
 
   return (
-    <main className="gdn-page-shell py-8 md:py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12 md:space-y-16 relative">
+    <main className={`gdn-page-shell max-w-7xl mx-auto relative ${location.pathname === '/' ? 'px-4 sm:px-6 lg:px-8 py-0 space-y-0' : 'py-8 md:py-10 px-4 sm:px-6 lg:px-8 space-y-12 md:space-y-16'}`}>
       
       {/* Toast Notification */}
       {showToast && (
@@ -279,7 +279,7 @@ export default function CategoryPage({
 
       {/* V4 Homepage discovery */}
       {location.pathname === '/' && (
-        <div className="space-y-12 md:space-y-16">
+        <div className="gdn-home-content-v4 space-y-12 md:space-y-16">
           <section id="herramientas-populares" className="gdn-home-section-v4 space-y-6 scroll-mt-24">
             <div className="flex items-end justify-between gap-4">
               <div>
@@ -1090,7 +1090,7 @@ export default function CategoryPage({
       </nav>
 
       {/* Explore All Categories */}
-      <section id="relacionados" className={`max-w-6xl mx-auto border-t border-slate-200 scroll-mt-24 ${location.pathname === '/' ? 'pt-10' : 'pt-16'}`}>
+      <section id="relacionados" className={`${location.pathname === '/' ? 'gdn-home-directory-v4' : 'max-w-6xl mx-auto'} border-t border-slate-200 scroll-mt-24 ${location.pathname === '/' ? 'pt-10' : 'pt-16'}`}>
         <div className={`text-center ${location.pathname === '/' ? 'mb-6' : 'mb-10'}`}>
           <h2 className={`font-bold text-slate-900 font-heading ${location.pathname === '/' ? 'text-2xl md:text-3xl' : 'text-3xl md:text-4xl'}`}>Explora Todos Nuestros Generadores</h2>
           <p className={`text-slate-500 mt-2 max-w-2xl mx-auto ${location.pathname === '/' ? 'text-sm' : 'text-base'}`}>Encuentra el nombre perfecto para cualquier plataforma o mascota</p>
