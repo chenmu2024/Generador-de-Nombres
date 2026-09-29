@@ -155,17 +155,17 @@ export default function PlushieTool({
       <input
       type="text"
       value={plushieName}
-      onChange={(e) = className="gdn-tool-input"> setPlushieName(e.target.value)}
+      onChange={(e) => setPlushieName(e.target.value)}
       placeholder="Algodón, Mochi, Boba..."
-      className="w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-pink-500 text-sm font-bold"
+      className="gdn-tool-input w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-pink-500 text-sm font-bold"
       />
       </div>
       
       <div>
       <label className="text-xs font-semibold text-zinc-400 block mb-1">Especie / Tipo de Peluche:</label>
       <select aria-label="Seleccionar opción" value={plushieType}
-      onChange={(e) = className="gdn-tool-input"> setPlushieType(e.target.value)}
-      className="w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-pink-500 text-sm font-semibold"
+      onChange={(e) => setPlushieType(e.target.value)}
+      className="gdn-tool-input w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-pink-500 text-sm font-semibold"
       >
       {['Osito de Felpa 🧸', 'Squishmallow ☁️', 'Unicornio Mágico 🦄', 'Dinosaurio 🦕', 'Conejito 🐰', 'Gatito Kawaii 🐱', 'Oso Panda 🐼', 'Perrito Suave 🐶', 'Dragón Fantástico 🐲'].map(t => (
       <option key={t} value={t}>{t}</option>
@@ -178,9 +178,9 @@ export default function PlushieTool({
       <input
       type="text"
       value={plushieOwner}
-      onChange={(e) = className="gdn-tool-input"> setPlushieOwner(e.target.value)}
+      onChange={(e) => setPlushieOwner(e.target.value)}
       placeholder="Tu nombre..."
-      className="w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-pink-500 text-sm font-medium"
+      className="gdn-tool-input w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-pink-500 text-sm font-medium"
       />
       </div>
       
@@ -189,9 +189,9 @@ export default function PlushieTool({
       <input
       type="text"
       value={plushieTrait}
-      onChange={(e) = className="gdn-tool-input"> setPlushieTrait(e.target.value)}
+      onChange={(e) => setPlushieTrait(e.target.value)}
       placeholder="Ama los abrazos y galletas..."
-      className="w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-pink-500 text-sm"
+      className="gdn-tool-input w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-pink-500 text-sm"
       />
       </div>
       
@@ -200,9 +200,9 @@ export default function PlushieTool({
       <input
       type="text"
       value={plushiePromise}
-      onChange={(e) = className="gdn-tool-input"> setPlushiePromise(e.target.value)}
+      onChange={(e) => setPlushiePromise(e.target.value)}
       placeholder="Prometo darle abrazos diarios..."
-      className="w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-pink-500 text-xs"
+      className="gdn-tool-input w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-pink-500 text-xs"
       />
       </div>
       </div>
@@ -316,9 +316,9 @@ export default function PlushieTool({
       <input
       type="text"
       value={plushieWord1}
-      onChange={(e) = className="gdn-tool-input"> setPlushieWord1(e.target.value)}
+      onChange={(e) => setPlushieWord1(e.target.value)}
       placeholder="Mochi..."
-      className="w-full bg-zinc-800 border border-white/10 rounded-xl px-3 py-2 text-white text-sm focus:outline-none focus:border-pink-500"
+      className="gdn-tool-input w-full bg-zinc-800 border border-white/10 rounded-xl px-3 py-2 text-white text-sm focus:outline-none focus:border-pink-500"
       />
       </div>
       <div>
@@ -326,9 +326,9 @@ export default function PlushieTool({
       <input
       type="text"
       value={plushieWord2}
-      onChange={(e) = className="gdn-tool-input"> setPlushieWord2(e.target.value)}
+      onChange={(e) => setPlushieWord2(e.target.value)}
       placeholder="Copito..."
-      className="w-full bg-zinc-800 border border-white/10 rounded-xl px-3 py-2 text-white text-sm focus:outline-none focus:border-pink-500"
+      className="gdn-tool-input w-full bg-zinc-800 border border-white/10 rounded-xl px-3 py-2 text-white text-sm focus:outline-none focus:border-pink-500"
       />
       </div>
       <div className="sm:col-span-2 flex items-end">
