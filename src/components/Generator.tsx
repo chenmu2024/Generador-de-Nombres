@@ -263,10 +263,10 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols 
                 ref={inputRef}
                 type="text"
                 value={inputText}
-                onChange={(e) = className="gdn-tool-input"> setInputText(e.target.value)}
+                onChange={(e) => setInputText(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && handleGenerate()}
                 placeholder={`Escribe tu nombre (ej. ${defaultName})`}
-                className="gdn-input flex-1 px-5 py-4 pr-24 text-base md:text-lg border rounded-xl focus:outline-none placeholder-zinc-500 transition-all w-full"
+                className="gdn-tool-input gdn-input flex-1 px-5 py-4 pr-24 text-base md:text-lg border rounded-xl focus:outline-none placeholder-zinc-500 transition-all w-full"
               />
               <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-1">
                 {inputText && (
@@ -298,9 +298,9 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols 
           </div>
           <select
             value={style}
-            onChange={(e) = className="gdn-tool-input"> setStyle(e.target.value)}
+            onChange={(e) => setStyle(e.target.value)}
             aria-label="Seleccionar estilo de letras y tipografía"
-            className="gdn-input px-5 py-4 text-base md:text-lg border rounded-xl focus:outline-none appearance-none cursor-pointer w-full md:w-auto min-w-[200px]"
+            className="gdn-tool-input gdn-input px-5 py-4 text-base md:text-lg border rounded-xl focus:outline-none appearance-none cursor-pointer w-full md:w-auto min-w-[200px]"
           >
             <option value="all">Todos los estilos</option>
             <option value="fancy">Letras Fancy (𝓔)</option>
