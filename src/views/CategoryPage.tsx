@@ -221,7 +221,7 @@ export default function CategoryPage({
   }, [location.pathname]);
 
   return (
-    <main className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-20 relative">
+    <main className="py-14 md:py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-16 md:space-y-20 relative">
       
       {/* Toast Notification */}
       {showToast && (
@@ -255,31 +255,31 @@ export default function CategoryPage({
 
       {/* Header Section */}
       <div className="text-center max-w-4xl mx-auto space-y-6" id="generador">
-        <h1 className="text-5xl md:text-7xl font-extrabold font-heading text-transparent bg-clip-text bg-gradient-to-r from-zinc-100 to-zinc-500 tracking-tight pb-2 leading-tight">
+        <h1 className="gdn-hero-title text-4xl sm:text-5xl md:text-6xl font-bold font-heading pb-2 leading-[1.05]">
           {data.h1}
         </h1>
-        <p className="text-xl md:text-2xl text-zinc-400 max-w-2xl mx-auto leading-relaxed min-h-[3.5rem]">
+        <p className="gdn-copy text-lg md:text-xl max-w-2xl mx-auto leading-relaxed min-h-[3.5rem]">
           {data.subtitle}
         </p>
 
         {/* Table of Contents / Índice Rápido */}
-        <div className="bg-zinc-900/90 border border-violet-500/20 p-3 sm:p-4 rounded-2xl max-w-2xl mx-auto text-left shadow-xl">
-          <div className="flex items-center gap-2 text-violet-300 font-bold text-xs uppercase tracking-wider mb-2">
+        <div className="gdn-surface-raised border p-3 sm:p-4 rounded-2xl max-w-2xl mx-auto text-left">
+          <div className="gdn-section-label flex items-center gap-2 font-bold text-xs uppercase tracking-wider mb-2">
             <ListOrdered className="w-4 h-4 text-violet-400" /> Índice de Contenidos Rápido
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
-            <a href="#generador" className="p-2 rounded-xl bg-zinc-800/80 hover:bg-violet-600/30 text-zinc-300 hover:text-white transition-all flex items-center justify-center gap-1.5 border border-white/5 font-medium">
+            <a href="#generador" className="gdn-chip p-2 rounded-xl transition-all flex items-center justify-center gap-1.5 border font-medium">
               <span>⚡</span> Generador
             </a>
-            <a href="#articulos-guia" className="p-2 rounded-xl bg-zinc-800/80 hover:bg-violet-600/30 text-zinc-300 hover:text-white transition-all flex items-center justify-center gap-1.5 border border-white/5 font-medium">
+            <a href="#articulos-guia" className="gdn-chip p-2 rounded-xl transition-all flex items-center justify-center gap-1.5 border font-medium">
               <span>📖</span> Guía
             </a>
             {data.hasFaq && (
-              <a href="#preguntas-frecuentes" className="p-2 rounded-xl bg-zinc-800/80 hover:bg-violet-600/30 text-zinc-300 hover:text-white transition-all flex items-center justify-center gap-1.5 border border-white/5 font-medium">
+              <a href="#preguntas-frecuentes" className="gdn-chip p-2 rounded-xl transition-all flex items-center justify-center gap-1.5 border font-medium">
                 <span>❓</span> Preguntas
               </a>
             )}
-            <a href="#relacionados" className="p-2 rounded-xl bg-zinc-800/80 hover:bg-violet-600/30 text-zinc-300 hover:text-white transition-all flex items-center justify-center gap-1.5 border border-white/5 font-medium">
+            <a href="#relacionados" className="gdn-chip p-2 rounded-xl transition-all flex items-center justify-center gap-1.5 border font-medium">
               <span>🔗</span> Más Nombres
             </a>
           </div>
@@ -316,7 +316,7 @@ export default function CategoryPage({
       {location.pathname === '/' && (
         <div className="space-y-6">
           {/* Trending 1-Click Copy Bar */}
-          <div className="bg-gradient-to-r from-violet-950/60 via-zinc-900 to-fuchsia-950/60 border border-violet-500/20 p-4 sm:p-6 rounded-3xl max-w-4xl mx-auto shadow-2xl">
+          <div className="gdn-surface border p-4 sm:p-6 rounded-2xl max-w-4xl mx-auto">
             <div className="flex items-center justify-between mb-3 px-1">
               <span className="text-xs font-bold text-violet-300 uppercase tracking-wider flex items-center gap-1.5">
                 <Flame className="w-4 h-4 text-amber-400 animate-pulse" /> Apodos y Símbolos Tendencia de Hoy (Copiar en 1-Clic)
@@ -337,7 +337,7 @@ export default function CategoryPage({
                 <button
                   key={i}
                   onClick={() => handleCopyTrending(chip.val)}
-                  className="px-3.5 py-2 bg-zinc-950/80 hover:bg-violet-600/30 text-zinc-200 hover:text-violet-200 border border-white/10 hover:border-violet-500/40 rounded-xl text-xs font-medium transition-all active:scale-95 flex items-center gap-1.5 group"
+                  className="gdn-chip px-3.5 py-2 border rounded-xl text-xs font-medium transition-all active:scale-95 flex items-center gap-1.5 group"
                 >
                   <span className="font-mono">{chip.label}</span>
                   <Copy className="w-3 h-3 text-zinc-500 group-hover:text-violet-300" />
@@ -346,12 +346,12 @@ export default function CategoryPage({
             </div>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 bg-zinc-900/90 border border-white/10 p-2 rounded-2xl max-w-3xl mx-auto shadow-2xl">
+          <div className="gdn-nav flex flex-wrap items-center justify-center gap-2 sm:gap-3 border p-2 max-w-3xl mx-auto">
             <button
               onClick={() => setHomeActiveTool('ff')}
               className={`px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm flex items-center gap-2 transition-all active:scale-95 ${
                 homeActiveTool === 'ff'
-                  ? 'bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white shadow-lg shadow-violet-600/30'
+                  ? 'gdn-primary-button text-white'
                   : 'text-zinc-400 hover:text-white hover:bg-white/5'
               }`}
             >
@@ -361,7 +361,7 @@ export default function CategoryPage({
               onClick={() => setHomeActiveTool('invisible')}
               className={`px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm flex items-center gap-2 transition-all active:scale-95 ${
                 homeActiveTool === 'invisible'
-                  ? 'bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white shadow-lg shadow-violet-600/30'
+                  ? 'gdn-primary-button text-white'
                   : 'text-zinc-400 hover:text-white hover:bg-white/5'
               }`}
             >
@@ -371,7 +371,7 @@ export default function CategoryPage({
               onClick={() => setHomeActiveTool('alphabet')}
               className={`px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm flex items-center gap-2 transition-all active:scale-95 ${
                 homeActiveTool === 'alphabet'
-                  ? 'bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white shadow-lg shadow-violet-600/30'
+                  ? 'gdn-primary-button text-white'
                   : 'text-zinc-400 hover:text-white hover:bg-white/5'
               }`}
             >
@@ -381,7 +381,7 @@ export default function CategoryPage({
               onClick={() => setHomeActiveTool('store')}
               className={`px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm flex items-center gap-2 transition-all active:scale-95 ${
                 homeActiveTool === 'store'
-                  ? 'bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white shadow-lg shadow-violet-600/30'
+                  ? 'gdn-primary-button text-white'
                   : 'text-zinc-400 hover:text-white hover:bg-white/5'
               }`}
             >

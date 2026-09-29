@@ -37,44 +37,15 @@ export default function SeoGuide({ data, currentPath }: { data: CategoryData; cu
   const moreLinks = getTopicalLinks(currentPath, data);
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 max-w-6xl mx-auto">
-      <article id="articulos-guia" className="lg:col-span-8 bg-[#121212] rounded-3xl border border-white/5 p-8 md:p-12 prose prose-invert prose-zinc prose-lg max-w-none shadow-2xl shadow-black/50 prose-headings:font-heading prose-a:text-violet-400 hover:prose-a:text-violet-300 prose-strong:text-white scroll-mt-24">
-        <div className="mb-8 p-6 bg-zinc-900/90 rounded-2xl border border-violet-500/20 not-prose">
-          <div className="flex items-center gap-2 font-bold text-white mb-3 text-base font-heading">
-            <span aria-hidden="true">☰</span>
-            <span>Índice de Contenidos</span>
-          </div>
-          <ul className="space-y-2 text-sm text-zinc-300">
-            <li>
-              <a href="#articulos-guia" className="hover:text-violet-400 transition-colors flex items-center gap-1.5 font-medium">
-                <span className="text-violet-500" aria-hidden="true">›</span>
-                <span>Guía Completa e Ideas para {data.h1}</span>
-              </a>
-            </li>
-            {data.faqs && data.faqs.length > 0 && (
-              <li>
-                <a href="#preguntas-frecuentes" className="hover:text-violet-400 transition-colors flex items-center gap-1.5 font-medium">
-                  <span className="text-violet-500" aria-hidden="true">›</span>
-                  <span>Preguntas Frecuentes (FAQ)</span>
-                </a>
-              </li>
-            )}
-            <li>
-              <a href="#relacionados" className="hover:text-violet-400 transition-colors flex items-center gap-1.5 font-medium">
-                <span className="text-violet-500" aria-hidden="true">›</span>
-                <span>Generadores y Herramientas Relacionadas</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-
+    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 max-w-6xl mx-auto">
+      <article id="articulos-guia" className="gdn-reading lg:col-span-8 rounded-2xl border p-7 md:p-10 prose prose-invert prose-zinc prose-lg max-w-none prose-headings:font-heading prose-a:text-violet-400 hover:prose-a:text-violet-300 prose-strong:text-white scroll-mt-24">
         <div dangerouslySetInnerHTML={{ __html: data.seoText }} />
       </article>
 
       <div className="lg:col-span-4 space-y-8">
         {data.faqs && data.faqs.length > 0 && (
-          <section id="preguntas-frecuentes" className="bg-gradient-to-br from-violet-900/40 to-fuchsia-900/20 rounded-3xl p-8 text-white border border-violet-500/20 shadow-xl relative overflow-hidden scroll-mt-24" itemScope itemType="https://schema.org/FAQPage">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-violet-500/20 rounded-full blur-3xl -mr-10 -mt-10 pointer-events-none"></div>
+          <section id="preguntas-frecuentes" className="gdn-surface rounded-2xl p-7 text-white border relative overflow-hidden scroll-mt-24" itemScope itemType="https://schema.org/FAQPage">
+            <div className="absolute top-0 right-0 w-28 h-28 bg-violet-500/10 rounded-full blur-3xl -mr-10 -mt-10 pointer-events-none"></div>
             <div className="flex items-center gap-3 mb-8 relative z-10">
               <div className="bg-violet-500/20 p-2 rounded-xl text-violet-300" aria-hidden="true">?</div>
               <h3 className="text-2xl font-bold font-heading">Preguntas Frecuentes</h3>
@@ -92,7 +63,7 @@ export default function SeoGuide({ data, currentPath }: { data: CategoryData; cu
           </section>
         )}
 
-        <div className="bg-[#121212] rounded-3xl p-8 border border-white/5 shadow-xl">
+        <div className="gdn-surface rounded-2xl p-7 border">
           <h3 className="text-xl font-bold text-zinc-100 mb-6 font-heading">Más Generadores</h3>
           <div className="space-y-2">
             {moreLinks.map(link => (
@@ -115,7 +86,7 @@ export default function SeoGuide({ data, currentPath }: { data: CategoryData; cu
 
         <FeedbackWidget />
 
-        <div className="bg-gradient-to-br from-zinc-900 via-zinc-950 to-black rounded-3xl p-6 border border-white/10 shadow-2xl space-y-3 text-xs text-zinc-400">
+        <div className="gdn-surface-raised rounded-2xl p-6 border space-y-3 text-xs text-zinc-400">
           <div className="flex items-center gap-2 text-violet-400 font-bold text-sm">
             <span aria-hidden="true">✓</span>
             <span>Metodología y revisión editorial</span>
