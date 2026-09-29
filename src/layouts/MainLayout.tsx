@@ -257,7 +257,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
                 className="gdn-chip relative border rounded-xl px-2.5 py-1.5 text-xs flex items-center gap-1.5 transition-all"
                 title="Mis Nombres Favoritos Guardados"
               >
-                <Bookmark className="w-3.5 h-3.5 text-pink-400 fill-pink-500/20" />
+                <Bookmark className="w-3.5 h-3.5 text-violet-400 fill-violet-500/10" />
                 <span className="hidden sm:inline font-semibold">Favoritos</span>
                 <span className="sr-only">Favoritos</span>
                 {favorites.length > 0 && (
@@ -463,7 +463,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
           onClick={() => setIsSearchOpen(false)}
         >
           <div
-            className="bg-zinc-900 border border-white/10 rounded-3xl max-w-2xl w-full shadow-2xl overflow-hidden relative animate-in zoom-in-95 duration-200"
+            className="gdn-surface border rounded-2xl max-w-2xl w-full overflow-hidden relative animate-in zoom-in-95 duration-200"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Search Header */}
@@ -489,7 +489,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
             </div>
 
             {/* Quick Tags */}
-            <div className="px-4 py-2 bg-zinc-950/50 border-b border-white/5 flex items-center gap-2 overflow-x-auto text-xs">
+            <div className="gdn-surface-raised px-4 py-2 border-b flex items-center gap-2 overflow-x-auto text-xs">
               <span className="text-zinc-500 font-semibold shrink-0">Popular:</span>
               {[
                 { label: '🔥 Free Fire', path: '/generador-free-fire' },
@@ -505,7 +505,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
                     navigate(tag.path);
                     setIsSearchOpen(false);
                   }}
-                  className="shrink-0 px-2.5 py-1 rounded-full bg-white/5 hover:bg-violet-500/20 text-zinc-300 hover:text-violet-300 border border-white/5 text-[11px] font-medium transition-all"
+                  className="gdn-chip shrink-0 px-2.5 py-1 rounded-full border text-[11px] font-medium transition-all"
                 >
                   {tag.label}
                 </button>
@@ -524,7 +524,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
                     key={idx}
                     to={item.path}
                     onClick={() => setIsSearchOpen(false)}
-                    className="block p-3 rounded-2xl hover:bg-violet-600/10 border border-transparent hover:border-violet-500/30 transition-all group"
+                    className="block p-3 rounded-xl hover:bg-violet-600/10 border border-transparent hover:border-violet-500/30 transition-all group"
                   >
                     <div className="flex items-center justify-between">
                       <span className="font-bold text-white text-sm group-hover:text-violet-300 transition-colors flex items-center gap-2">
@@ -540,7 +540,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
             </div>
 
             {/* Modal Footer */}
-            <div className="p-3 bg-zinc-950 text-[11px] text-zinc-500 flex items-center justify-between border-t border-white/5">
+            <div className="gdn-surface-raised p-3 text-[11px] text-zinc-500 flex items-center justify-between border-t">
               <span>Navegación Rápida de Herramientas & Generadores 2026</span>
               <span className="font-mono">ESC para cerrar</span>
             </div>
@@ -554,13 +554,13 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
           onClick={() => setIsFavDrawerOpen(false)}
         >
           <div
-            className="bg-zinc-900 border-l border-white/10 w-full max-w-md h-full flex flex-col shadow-2xl overflow-hidden animate-in slide-in-from-right duration-250"
+            className="gdn-surface border-l w-full max-w-md h-full flex flex-col overflow-hidden animate-in slide-in-from-right duration-250"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Drawer Header */}
-            <div className="p-4 border-b border-white/10 flex items-center justify-between bg-zinc-950/60">
+            <div className="gdn-surface-raised p-4 border-b flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <Bookmark className="w-5 h-5 text-pink-400 fill-pink-500/20" />
+                <Bookmark className="w-5 h-5 text-violet-400 fill-violet-500/10" />
                 <h3 className="font-bold text-white text-base">Mis Nombres Favoritos</h3>
                 <span className="text-xs font-mono text-zinc-400 bg-white/10 px-2 py-0.5 rounded-full">
                   {favorites.length}
@@ -579,12 +579,12 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
 
             {/* Drawer Actions */}
             {favorites.length > 0 && (
-              <div className="p-3 bg-zinc-900 border-b border-white/5 flex items-center justify-between text-xs">
+              <div className="gdn-surface p-3 border-b flex items-center justify-between text-xs">
                 <button
                   type="button"
                   onClick={copyAllFavorites}
                   aria-label="Copiar todos los nombres favoritos"
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-pink-500/20 hover:bg-pink-500/30 text-pink-300 border border-pink-500/30 font-semibold transition-all"
+                  className="gdn-primary-button flex items-center gap-1.5 px-3 py-1.5 rounded-xl font-semibold transition-all"
                 >
                   {favCopied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
                   <span>{favCopied ? '¡Lista Copiada!' : 'Copiar Todos'}</span>
@@ -616,7 +616,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
                 favorites.map((favName, idx) => (
                   <div
                     key={idx}
-                    className="bg-zinc-950 border border-white/10 rounded-2xl p-3 flex items-center justify-between gap-3 group hover:border-pink-500/40 transition-all"
+                    className="gdn-surface-raised border rounded-xl p-3 flex items-center justify-between gap-3 group hover:border-violet-500/30 transition-all"
                   >
                     <span className="font-mono text-sm text-zinc-100 font-bold tracking-wide break-all">
                       {favName}
@@ -629,7 +629,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
                           alert(`¡"${favName}" copiado al portapapeles!`);
                         }}
                         aria-label={`Copiar nombre favorito ${favName}`}
-                        className="p-1.5 rounded-lg text-zinc-400 hover:text-pink-300 hover:bg-white/10 transition-colors"
+                        className="p-1.5 rounded-lg text-zinc-400 hover:text-violet-300 hover:bg-white/10 transition-colors"
                         title="Copiar"
                       >
                         <Copy className="w-4 h-4" />
@@ -652,7 +652,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
             </div>
 
             {/* Drawer Footer */}
-            <div className="p-4 bg-zinc-950 border-t border-white/10 text-xs text-zinc-500 text-center">
+            <div className="gdn-surface-raised p-4 border-t text-xs text-zinc-500 text-center">
               Guardados automáticamente en tu navegador local (LocalStorage).
             </div>
           </div>
