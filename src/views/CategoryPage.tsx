@@ -177,7 +177,7 @@ export default function CategoryPage({
 
 
   return (
-    <main className="py-8 md:py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12 md:space-y-16 relative">
+    <main className="gdn-page-shell py-8 md:py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12 md:space-y-16 relative">
       
       {/* Toast Notification */}
       {showToast && (
@@ -210,7 +210,7 @@ export default function CategoryPage({
       </nav>
 
       {/* Header Section */}
-      <div className="text-center max-w-4xl mx-auto space-y-4" id="generador">
+      <div className="gdn-page-hero text-center max-w-4xl mx-auto space-y-4" id="generador">
         <h1 className="gdn-hero-title text-4xl sm:text-5xl md:text-6xl font-bold font-heading pb-2 leading-[1.05]">
           {data.h1}
         </h1>
@@ -273,8 +273,8 @@ export default function CategoryPage({
 
       {/* Homepage quick access — compact, no duplicated embedded tools */}
       {location.pathname === '/' && (
-        <section className="space-y-4" aria-label="Accesos rápidos y tendencias">
-          <div className="gdn-nav border p-2 max-w-4xl mx-auto flex flex-wrap items-center justify-center gap-2">
+        <section className="gdn-home-discovery space-y-4" aria-label="Accesos rápidos y tendencias">
+          <div className="gdn-home-quick gdn-nav border p-2 max-w-4xl mx-auto flex flex-wrap items-center justify-center gap-2">
             <span className="gdn-section-label px-2 text-[11px] font-bold uppercase tracking-wider">Accesos rápidos</span>
             <Link to="/generador-free-fire" className="gdn-chip px-3.5 py-2 rounded-xl border text-xs font-semibold transition-all">🎮 Free Fire</Link>
             <Link to="/espacios-invisible-ff" className="gdn-chip px-3.5 py-2 rounded-xl border text-xs font-semibold transition-all">⚡ Espacio Invisible</Link>
@@ -282,7 +282,7 @@ export default function CategoryPage({
             <Link to="/nombres-para-tiendas" className="gdn-chip px-3.5 py-2 rounded-xl border text-xs font-semibold transition-all">🛍️ Nombres para Tiendas</Link>
           </div>
 
-          <div className="gdn-surface border p-4 sm:p-5 rounded-2xl max-w-4xl mx-auto">
+          <div className="gdn-home-trends gdn-surface border p-4 sm:p-5 rounded-2xl max-w-4xl mx-auto">
             <div className="flex items-center justify-between mb-3 px-1">
               <span className="text-xs font-bold text-violet-300 uppercase tracking-wider flex items-center gap-1.5">
                 <Flame className="w-4 h-4 text-amber-400" /> Apodos y Símbolos Tendencia de Hoy
@@ -314,7 +314,7 @@ export default function CategoryPage({
 
       {/* Bento Grid Portal Hub for Homepage */}
       {location.pathname === '/' && (
-        <div className="max-w-6xl mx-auto space-y-8">
+        <div className="gdn-home-hub max-w-6xl mx-auto space-y-8">
           <div className="text-center space-y-3">
             <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-bold bg-violet-500/10 text-violet-300 border border-violet-500/20">
               🌐 Portal Hub 6 Canales Principales
