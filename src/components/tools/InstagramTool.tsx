@@ -35,7 +35,7 @@ export default function InstagramTool({ handleCopyTrending }: InstagramToolProps
         </div>
 
         {/* Live Validator Box */}
-        <div className="bg-zinc-900/90 border border-white/10 rounded-2xl p-6 relative z-10 space-y-6">
+        <div className="gdn-tool-result bg-zinc-900/90 border border-white/10 rounded-2xl p-6 relative z-10 space-y-6">
           <div>
             <label className="text-xs font-semibold text-zinc-400 block mb-2">Escribe tu candidato a Username de IG (@usuario):</label>
             <div className="relative">
@@ -45,9 +45,9 @@ export default function InstagramTool({ handleCopyTrending }: InstagramToolProps
                 value={igInput}
                 onChange={(e) => setIgInput(e.target.value)}
                 placeholder="iam.sofia_"
-                className="gdn-tool-input w-full pl-10 pr-36 py-4 bg-zinc-800/80 border border-white/10 rounded-xl text-white placeholder-zinc-500 focus:outline-none focus:border-pink-500 font-mono text-lg tracking-wide"
+                className="gdn-validator-input gdn-tool-input w-full pl-10 pr-36 py-4 bg-zinc-800/80 border border-white/10 rounded-xl text-white placeholder-zinc-500 focus:outline-none focus:border-pink-500 font-mono text-lg tracking-wide"
               />
-              <div className="absolute right-4 top-1/2 -translate-y-1/2">
+              <div className="gdn-validator-status absolute right-4 top-1/2 -translate-y-1/2">
                 {isIgValid ? (
                   <span className="px-3 py-1 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded-full text-xs font-bold">
                     ✓ Formato Válido en IG
