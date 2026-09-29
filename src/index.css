@@ -770,3 +770,84 @@ body {
     gap: 14px;
   }
 }
+
+
+/* V4 Unified Specialized Tools */
+.gdn-tool-shell {
+  width: 100%;
+  max-width: 72rem !important;
+}
+
+.gdn-tool-shell:not(.gdn-generator-v4)[class*="bg-gradient"],
+.gdn-tool-shell:not(.gdn-generator-v4) > div:first-child {
+  background: #fff !important;
+  background-image: none !important;
+  border: 1px solid var(--gdn-border) !important;
+  border-radius: 22px !important;
+  box-shadow: 0 10px 30px rgba(17, 24, 39, 0.045) !important;
+}
+
+.gdn-tool-shell:not(.gdn-generator-v4)[class*="bg-gradient"] {
+  padding: 24px !important;
+}
+
+.gdn-tool-shell:not(.gdn-generator-v4) > div:first-child {
+  padding: 24px !important;
+}
+
+.gdn-tool-shell:not(.gdn-generator-v4) h2 {
+  color: var(--gdn-text) !important;
+  font-size: clamp(1.4rem, 2.1vw, 1.85rem) !important;
+  line-height: 1.16 !important;
+  letter-spacing: -0.025em !important;
+}
+
+.gdn-tool-shell:not(.gdn-generator-v4) h3 {
+  color: var(--gdn-text) !important;
+}
+
+.gdn-tool-shell:not(.gdn-generator-v4) p {
+  color: var(--gdn-text-secondary);
+}
+
+.gdn-tool-shell [class*="shadow-2xl"]:not(button),
+.gdn-tool-shell [class*="shadow-xl"]:not(button) {
+  box-shadow: none !important;
+}
+
+.gdn-tool-shell [class*="rounded-[2rem]"],
+.gdn-tool-shell [class*="rounded-[2.5rem]"] {
+  border-radius: 20px !important;
+}
+
+.gdn-tool-shell button[class*="bg-zinc-800"],
+.gdn-tool-shell button[class*="bg-zinc-900"] {
+  background: var(--gdn-surface-soft) !important;
+  color: var(--gdn-text-secondary) !important;
+  border-color: var(--gdn-border) !important;
+}
+
+.gdn-tool-shell button[class*="bg-zinc-800"]:hover,
+.gdn-tool-shell button[class*="bg-zinc-900"]:hover {
+  background: var(--gdn-primary-soft) !important;
+  color: var(--gdn-primary) !important;
+  border-color: var(--gdn-primary-border) !important;
+}
+
+.gdn-tool-shell input,
+.gdn-tool-shell select,
+.gdn-tool-shell textarea {
+  font-size: 0.95rem;
+}
+
+@media (max-width: 640px) {
+  .gdn-tool-shell:not(.gdn-generator-v4)[class*="bg-gradient"],
+  .gdn-tool-shell:not(.gdn-generator-v4) > div:first-child {
+    padding: 18px !important;
+    border-radius: 18px !important;
+  }
+
+  .gdn-tool-shell:not(.gdn-generator-v4) h2 {
+    font-size: 1.35rem !important;
+  }
+}
