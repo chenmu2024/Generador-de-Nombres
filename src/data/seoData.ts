@@ -1500,7 +1500,7 @@ export const seoData: Record<string, CategoryData> = {
     subtitle: 'Copia Hangul Filler (U+3164), U+1160 y el espacio ideográfico U+3000 para probar separaciones Unicode en nombres y clanes.',
     seoText: `
       <h2>El Mejor Generador y Copiador de Espacio Invisible para Free Fire</h2>
-      <p>El <strong>espacio invisible para Free Fire</strong> (también conocido como <em>letra transparente</em>, <em>espacio en blanco Unicode</em> o <em>código transparente</em>) es el carácter indispensable si quieres separar el tag de tu clan de tu nombre en el juego (por ejemplo: <code>TM ㅤ INSANO</code>) o crear un <strong>nickname 100% invisible o fantasma</strong>.</p>
+      <p>El <strong>espacio invisible para Free Fire</strong> (también conocido como <em>letra transparente</em>, <em>espacio en blanco Unicode</em> o <em>código transparente</em>) puede servir para separar el tag de tu clan de tu nombre cuando tu versión del juego admite ese carácter (por ejemplo: <code>TM ㅤ INSANO</code>) o crear un <strong>nickname 100% invisible o fantasma</strong>.</p>
       
       <p>Garena Free Fire bloquea la barra espaciadora predeterminada del teclado Android e iOS. Por esa razón, necesitas utilizar el carácter especial <strong>Unicode U+3164 (Hangul Filler)</strong>, <strong>U+1160 (Hangul Jungseong Filler)</strong> o <strong>U+3000 (Ideographic Space)</strong>, el cual el motor del juego procesa como una letra válida pero renderiza de forma totalmente invisible.</p>
 
@@ -1651,7 +1651,7 @@ export const seoData: Record<string, CategoryData> = {
     faqs: [
       {
         question: "¿Cómo saber si un nombre para Free Fire ya está registrado?",
-        answer: "Puedes comprobarlo directamente en la tienda del juego al usar una Tarjeta de Cambio de Nombre o intentando añadir a ese jugador mediante la barra de búsqueda de amigos. Si el juego responde 'Jugador no encontrado', el nombre está 100% disponible."
+        answer: "Puedes comprobarlo directamente en la tienda del juego al usar una Tarjeta de Cambio de Nombre o intentando añadir a ese jugador mediante la barra de búsqueda de amigos. Si el juego no encuentra al jugador, tómalo solo como una señal orientativa: la disponibilidad real se confirma al intentar guardar el apodo."
       },
       {
         question: "¿Por qué los nombres de 3 letras son los más cotizados en Free Fire?",
@@ -2297,7 +2297,7 @@ export const seoData: Record<string, CategoryData> = {
       },
       {
         question: "¿Existen nombres unisex inspirados en la naturaleza?",
-        answer: "Sí, nombres como Sol, River, Sky, Eden, Vega, Cruz, Iris, Nieve, Jade y Boreal provienen de elementos naturales y celestiales, siendo 100% neutros e inspiradores."
+        answer: "Sí, nombres como Sol, River, Sky, Eden, Vega, Cruz, Iris, Nieve, Jade y Boreal provienen de elementos naturales y celestiales, y suelen utilizarse como opciones unisex."
       }
     ]
   },
