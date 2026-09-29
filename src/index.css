@@ -335,3 +335,117 @@ body {
     min-height: 40px;
   }
 }
+
+
+/* V2.1 Final Product Polish */
+.gdn-tool-shell h2 + p {
+  max-width: 42rem;
+  color: var(--gdn-text-secondary) !important;
+  font-size: 0.875rem !important;
+  line-height: 1.6 !important;
+}
+
+.gdn-tool-result > :first-child {
+  position: relative;
+  z-index: 1;
+}
+
+.gdn-tool-result [class*="tracking-widest"],
+.gdn-tool-result [class*="uppercase"] {
+  letter-spacing: 0.08em !important;
+}
+
+.gdn-tool-result button {
+  box-shadow: none !important;
+}
+
+@media (max-width: 640px) {
+  .gdn-page-shell {
+    padding-top: 20px !important;
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+    gap: 32px !important;
+  }
+
+  .gdn-page-hero {
+    gap: 10px !important;
+  }
+
+  .gdn-page-hero .gdn-hero-title {
+    font-size: clamp(1.85rem, 9vw, 2.35rem) !important;
+    line-height: 1.06 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .gdn-page-hero .gdn-copy {
+    font-size: 0.925rem !important;
+    line-height: 1.55 !important;
+  }
+
+  .gdn-home-discovery {
+    gap: 12px !important;
+  }
+
+  .gdn-home-quick {
+    flex-wrap: nowrap !important;
+    justify-content: flex-start !important;
+    overflow-x: auto;
+    padding: 8px !important;
+    scrollbar-width: none;
+  }
+
+  .gdn-home-quick::-webkit-scrollbar,
+  .gdn-home-trends [class*="flex-wrap"]::-webkit-scrollbar {
+    display: none;
+  }
+
+  .gdn-home-quick > * {
+    flex: 0 0 auto;
+  }
+
+  .gdn-home-trends {
+    padding: 14px !important;
+  }
+
+  .gdn-home-trends [class*="flex-wrap"] {
+    flex-wrap: nowrap !important;
+    justify-content: flex-start !important;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .gdn-home-trends button {
+    flex: 0 0 auto;
+    min-height: 38px !important;
+  }
+
+  .gdn-home-hub {
+    gap: 20px !important;
+  }
+
+  .gdn-home-hub > div:first-child {
+    text-align: left !important;
+  }
+
+  .gdn-home-hub h2 {
+    font-size: 1.5rem !important;
+    line-height: 1.15 !important;
+  }
+
+  .gdn-home-hub [class*="grid-cols-1"] {
+    gap: 12px !important;
+  }
+
+  .gdn-home-hub [class*="rounded-2xl"][class*="p-6"] {
+    padding: 18px !important;
+  }
+
+  .gdn-tool-result {
+    padding: 16px !important;
+  }
+
+  .gdn-tool-result [class*="text-4xl"],
+  .gdn-tool-result [class*="text-3xl"] {
+    font-size: 1.75rem !important;
+  }
+}
