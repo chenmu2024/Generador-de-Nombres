@@ -90,7 +90,7 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(appSchema) }}
       />
       <Suspense fallback={<div className="min-h-screen bg-[#0a0a0a]" />}>
-        <CategoryPage initialPath="/" />
+        <CategoryPage initialPath="/" data={homeData} />
       </Suspense>
     </>
   );
