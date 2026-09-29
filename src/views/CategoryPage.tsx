@@ -188,8 +188,6 @@ export default function CategoryPage({
     japoneses: ['乄', '么', '亗', '卍', '气', '王', '神', '鬼', '龍', '魔']
   };
 
-  const [homeActiveTool, setHomeActiveTool] = useState<'ff' | 'invisible' | 'alphabet' | 'store'>('ff');
-
   const filteredLinks = allLinks.filter(link => 
     link.path !== '/' && 
     link.label.toLowerCase().includes(searchCategory.toLowerCase())
@@ -221,7 +219,7 @@ export default function CategoryPage({
   }, [location.pathname]);
 
   return (
-    <main className="py-14 md:py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-16 md:space-y-20 relative">
+    <main className="py-8 md:py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12 md:space-y-16 relative">
       
       {/* Toast Notification */}
       {showToast && (
@@ -234,7 +232,7 @@ export default function CategoryPage({
       )}
 
       {/* Breadcrumb Navigation for Google & Users */}
-      <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs text-zinc-400 max-w-4xl mx-auto px-1" itemScope itemType="https://schema.org/BreadcrumbList">
+      <nav aria-label="Breadcrumb" className={`${location.pathname === '/' ? 'hidden' : 'flex'} items-center gap-2 text-xs text-zinc-400 max-w-4xl mx-auto px-1`} itemScope itemType="https://schema.org/BreadcrumbList">
         <span itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
           <Link to="/" itemProp="item" className="hover:text-violet-300 transition-colors flex items-center gap-1">
             <Home className="w-3.5 h-3.5" aria-hidden="true" />
@@ -254,16 +252,16 @@ export default function CategoryPage({
       </nav>
 
       {/* Header Section */}
-      <div className="text-center max-w-4xl mx-auto space-y-6" id="generador">
+      <div className="text-center max-w-4xl mx-auto space-y-4" id="generador">
         <h1 className="gdn-hero-title text-4xl sm:text-5xl md:text-6xl font-bold font-heading pb-2 leading-[1.05]">
           {data.h1}
         </h1>
-        <p className="gdn-copy text-lg md:text-xl max-w-2xl mx-auto leading-relaxed min-h-[3.5rem]">
+        <p className="gdn-copy text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
           {data.subtitle}
         </p>
 
         {/* Table of Contents / Índice Rápido */}
-        <div className="gdn-surface-raised border p-3 sm:p-4 rounded-2xl max-w-2xl mx-auto text-left">
+        <div className={`${location.pathname === '/' ? 'hidden' : 'gdn-surface-raised'} border p-3 sm:p-4 rounded-2xl max-w-2xl mx-auto text-left`}>
           <div className="gdn-section-label flex items-center gap-2 font-bold text-xs uppercase tracking-wider mb-2">
             <ListOrdered className="w-4 h-4 text-violet-400" /> Índice de Contenidos Rápido
           </div>
@@ -286,7 +284,7 @@ export default function CategoryPage({
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto py-8">
+      <div className={`max-w-6xl mx-auto ${location.pathname === '/' ? 'pt-0 pb-2' : 'py-6'}`}>
         <Generator 
           title={location.pathname === '/' ? 'Generador de Nombres, Apodos y Símbolos' : data.h1}
           defaultName={data.defaultName || "Gamer"}
@@ -312,16 +310,23 @@ export default function CategoryPage({
         )}
       </div>
 
-      {/* Quick Tool Switcher Bar for Homepage */}
+      {/* Homepage quick access — compact, no duplicated embedded tools */}
       {location.pathname === '/' && (
-        <div className="space-y-6">
-          {/* Trending 1-Click Copy Bar */}
-          <div className="gdn-surface border p-4 sm:p-6 rounded-2xl max-w-4xl mx-auto">
+        <section className="space-y-4" aria-label="Accesos rápidos y tendencias">
+          <div className="gdn-nav border p-2 max-w-4xl mx-auto flex flex-wrap items-center justify-center gap-2">
+            <span className="gdn-section-label px-2 text-[11px] font-bold uppercase tracking-wider">Accesos rápidos</span>
+            <Link to="/generador-free-fire" className="gdn-chip px-3.5 py-2 rounded-xl border text-xs font-semibold transition-all">🎮 Free Fire</Link>
+            <Link to="/espacios-invisible-ff" className="gdn-chip px-3.5 py-2 rounded-xl border text-xs font-semibold transition-all">⚡ Espacio Invisible</Link>
+            <Link to="/nombres-por-letra" className="gdn-chip px-3.5 py-2 rounded-xl border text-xs font-semibold transition-all">🔤 Nombres A-Z</Link>
+            <Link to="/nombres-para-tiendas" className="gdn-chip px-3.5 py-2 rounded-xl border text-xs font-semibold transition-all">🛍️ Nombres para Tiendas</Link>
+          </div>
+
+          <div className="gdn-surface border p-4 sm:p-5 rounded-2xl max-w-4xl mx-auto">
             <div className="flex items-center justify-between mb-3 px-1">
               <span className="text-xs font-bold text-violet-300 uppercase tracking-wider flex items-center gap-1.5">
-                <Flame className="w-4 h-4 text-amber-400 animate-pulse" /> Apodos y Símbolos Tendencia de Hoy (Copiar en 1-Clic)
+                <Flame className="w-4 h-4 text-amber-400" /> Apodos y Símbolos Tendencia de Hoy
               </span>
-              <span className="text-[10px] text-zinc-500 hidden sm:inline">Actualizado 2026</span>
+              <span className="text-[10px] text-zinc-500 hidden sm:inline">Copiar en 1 clic</span>
             </div>
             <div className="flex flex-wrap gap-2 justify-center sm:justify-start">
               {[
@@ -330,9 +335,7 @@ export default function CategoryPage({
                 { label: '✿ Q u e e n ✿', val: '✿ Q u e e n ✿' },
                 { label: '⚡ 🇳​​​​​🇴​​​​​🇴​​​​​🇧​​​​​ ⚡', val: '⚡ 🇳​​​​​🇴​​​​​🇴​​​​​🇧​​​​​ ⚡' },
                 { label: 'ㅤ (Espacio Invisible)', val: 'ㅤ' },
-                { label: '亗 L E G E N D 亗', val: '亗 L E G E N D 亗' },
-                { label: '☠︎ 𝔖𝔥𝔞𝔡𝔬𝔮 ☠︎', val: '☠︎ 𝔖𝔥𝔞𝔡𝔬𝔮 ☠︎' },
-                { label: '🌸 A i t a n a 🌸', val: '🌸 A i t a n a 🌸' }
+                { label: '亗 L E G E N D 亗', val: '亗 L E G E N D 亗' }
               ].map((chip, i) => (
                 <button
                   key={i}
@@ -345,67 +348,7 @@ export default function CategoryPage({
               ))}
             </div>
           </div>
-
-          <div className="gdn-nav flex flex-wrap items-center justify-center gap-2 sm:gap-3 border p-2 max-w-3xl mx-auto">
-            <button
-              onClick={() => setHomeActiveTool('ff')}
-              className={`px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm flex items-center gap-2 transition-all active:scale-95 ${
-                homeActiveTool === 'ff'
-                  ? 'gdn-primary-button text-white'
-                  : 'text-zinc-400 hover:text-white hover:bg-white/5'
-              }`}
-            >
-              <span>🎮</span> Generador Gamer FF
-            </button>
-            <button
-              onClick={() => setHomeActiveTool('invisible')}
-              className={`px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm flex items-center gap-2 transition-all active:scale-95 ${
-                homeActiveTool === 'invisible'
-                  ? 'gdn-primary-button text-white'
-                  : 'text-zinc-400 hover:text-white hover:bg-white/5'
-              }`}
-            >
-              <span>⚡</span> Espacio Invisible
-            </button>
-            <button
-              onClick={() => setHomeActiveTool('alphabet')}
-              className={`px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm flex items-center gap-2 transition-all active:scale-95 ${
-                homeActiveTool === 'alphabet'
-                  ? 'gdn-primary-button text-white'
-                  : 'text-zinc-400 hover:text-white hover:bg-white/5'
-              }`}
-            >
-              <span>🔤</span> Nombres A-Z
-            </button>
-            <button
-              onClick={() => setHomeActiveTool('store')}
-              className={`px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm flex items-center gap-2 transition-all active:scale-95 ${
-                homeActiveTool === 'store'
-                  ? 'gdn-primary-button text-white'
-                  : 'text-zinc-400 hover:text-white hover:bg-white/5'
-              }`}
-            >
-              <span>🛍️</span> Generador Tiendas
-            </button>
-          </div>
-
-          {/* Render selected micro tool */}
-          {homeActiveTool === 'invisible' && (
-            <div className="mt-8">
-              <InvisibleSpaceTool />
-            </div>
-          )}
-          {homeActiveTool === 'alphabet' && (
-            <div className="mt-8">
-              <AlphabetMatrixTool />
-            </div>
-          )}
-          {homeActiveTool === 'store' && (
-            <div className="mt-8">
-              <StoreNameTool />
-            </div>
-          )}
-        </div>
+        </section>
       )}
 
       {/* Bento Grid Portal Hub for Homepage */}
@@ -1965,29 +1908,9 @@ export default function CategoryPage({
       {location.pathname === '/nombres-peluches' && (
         <LazyPlushieTool handleCopyTrending={handleCopyTrending} />
       )}
-      {location.pathname === '/' && (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto py-8">
-          {[
-            { icon: <Zap className="w-6 h-6" />, title: 'Rápido y Fácil', desc: 'Genera cientos de nombres épicos en un solo clic.' },
-            { icon: <Gem className="w-6 h-6" />, title: 'Símbolos Únicos', desc: 'La mayor colección de letras raras y adornos.' },
-            { icon: <Shield className="w-6 h-6" />, title: 'Uso responsable', desc: 'La compatibilidad de caracteres puede variar según la plataforma y sus actualizaciones.' },
-            { icon: <Smartphone className="w-6 h-6" />, title: 'Para Móvil', desc: 'Copia y pega fácilmente desde tu celular.' }
-          ].map((feature, i) => (
-            <div key={i} className="gdn-surface p-6 rounded-2xl border flex flex-col items-center text-center gap-4 hover:border-violet-500/30 transition-colors">
-              <div className="w-12 h-12 bg-violet-500/10 text-violet-400 rounded-2xl flex items-center justify-center">
-                {feature.icon}
-              </div>
-              <div>
-                <h3 className="text-lg font-bold text-zinc-100 font-heading mb-2">{feature.title}</h3>
-                <p className="text-zinc-500 text-sm leading-relaxed">{feature.desc}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      )}
 
       {/* Trending Names Section */}
-      {(location.pathname === '/' || location.pathname === '/nombres-free-fire' || location.pathname === '/generador-free-fire' || location.pathname === '/espacios-invisible-ff' || location.pathname === '/nombres-ff-unicos' || location.pathname === '/nombres-ff-mujeres' || location.pathname === '/nombres-clanes-ff') && (
+      {(location.pathname === '/nombres-free-fire' || location.pathname === '/generador-free-fire' || location.pathname === '/espacios-invisible-ff' || location.pathname === '/nombres-ff-unicos' || location.pathname === '/nombres-ff-mujeres' || location.pathname === '/nombres-clanes-ff') && (
         <div className="max-w-6xl mx-auto py-8">
           <div className="gdn-surface border rounded-2xl p-7 md:p-8 relative overflow-hidden">
             {/* Background Glow */}
@@ -2036,7 +1959,7 @@ export default function CategoryPage({
       )}
 
       {/* Symbol Bank Section */}
-      {(location.pathname === '/' || location.pathname === '/nombres-free-fire' || location.pathname === '/generador-free-fire' || location.pathname === '/espacios-invisible-ff' || location.pathname === '/nombres-ff-unicos' || location.pathname === '/nombres-ff-mujeres' || location.pathname === '/nombres-clanes-ff') && (
+      {(location.pathname === '/nombres-free-fire' || location.pathname === '/generador-free-fire' || location.pathname === '/espacios-invisible-ff' || location.pathname === '/nombres-ff-unicos' || location.pathname === '/nombres-ff-mujeres' || location.pathname === '/nombres-clanes-ff') && (
         <div className="max-w-6xl mx-auto py-4">
           <div className="gdn-surface border rounded-2xl p-7 md:p-8 relative overflow-hidden">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
@@ -2090,7 +2013,7 @@ export default function CategoryPage({
       )}
 
       {/* Duos and Couples Section (For Free Fire page) */}
-      {(location.pathname === '/nombres-free-fire' || location.pathname === '/' || location.pathname === '/generador-free-fire' || location.pathname === '/espacios-invisible-ff' || location.pathname === '/nombres-ff-unicos' || location.pathname === '/nombres-ff-mujeres' || location.pathname === '/nombres-clanes-ff') && (
+      {(location.pathname === '/nombres-free-fire' || location.pathname === '/generador-free-fire' || location.pathname === '/espacios-invisible-ff' || location.pathname === '/nombres-ff-unicos' || location.pathname === '/nombres-ff-mujeres' || location.pathname === '/nombres-clanes-ff') && (
         <div className="max-w-6xl mx-auto py-2">
           <div className="gdn-surface border rounded-2xl p-7 md:p-8 relative overflow-hidden">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
@@ -2142,7 +2065,7 @@ export default function CategoryPage({
       )}
 
       {/* How to Change Name Guide */}
-      {(location.pathname === '/nombres-free-fire' || location.pathname === '/' || location.pathname === '/generador-free-fire' || location.pathname === '/espacios-invisible-ff' || location.pathname === '/nombres-ff-unicos' || location.pathname === '/nombres-ff-mujeres' || location.pathname === '/nombres-clanes-ff') && (
+      {(location.pathname === '/nombres-free-fire' || location.pathname === '/generador-free-fire' || location.pathname === '/espacios-invisible-ff' || location.pathname === '/nombres-ff-unicos' || location.pathname === '/nombres-ff-mujeres' || location.pathname === '/nombres-clanes-ff') && (
         <div className="max-w-6xl mx-auto py-4">
           <div className="bg-gradient-to-br from-zinc-900 to-zinc-950 border border-white/5 rounded-3xl p-8 shadow-2xl">
             <h2 className="text-2xl md:text-3xl font-bold text-white font-heading mb-6 flex items-center gap-3">
@@ -2173,7 +2096,7 @@ export default function CategoryPage({
       {children}
 
       {/* Category Sequential Pagination Bar for Google Crawling & UX */}
-      <nav aria-label="Navegación de categorías relacionadas" className="gdn-surface max-w-6xl mx-auto my-12 p-6 border rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4">
+      <nav aria-label="Navegación de categorías relacionadas" className={`${location.pathname === '/' ? 'hidden' : 'gdn-surface'} max-w-6xl mx-auto my-12 p-6 border rounded-2xl flex-col sm:flex-row items-center justify-between gap-4 ${location.pathname === '/' ? '' : 'flex'}`}>
         {(() => {
           const cIdx = allLinks.findIndex(l => l.path === location.pathname);
           const pLink = cIdx > 0 ? allLinks[cIdx - 1] : allLinks[allLinks.length - 1];
