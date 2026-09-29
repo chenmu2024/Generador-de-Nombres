@@ -3,7 +3,7 @@
 import React, { useEffect, useState, type ReactNode } from 'react';
 import { useLocation } from '../utils/router';
 import { Link } from '../components/Link';
-import { ChevronRight, Flame, Zap, Gem, Shield, Smartphone, CheckCircle2, Search, Sparkles, Copy, Volume2, Instagram, Gamepad2, Tv, Swords, Bookmark, Share2, X, CheckSquare, Square, ListOrdered, Home } from 'lucide-react';
+import { ChevronRight, Flame, Zap, Gem, Shield, Smartphone, CheckCircle2, Search, Sparkles, Copy, Volume2, Instagram, X, ListOrdered, Home } from 'lucide-react';
 import Generator from '../components/Generator';
 import dynamic from 'next/dynamic';
 
