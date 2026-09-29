@@ -36,9 +36,9 @@ export default function AboutUs() {
             <div className="p-3 bg-violet-500/10 rounded-xl w-fit text-violet-400">
               <Target className="w-6 h-6" />
             </div>
-            <h3 className="text-lg font-bold text-white">Compatibilidad 100%</h3>
+            <h3 className="text-lg font-bold text-white">Pruebas de compatibilidad</h3>
             <p className="text-sm text-zinc-400 leading-relaxed">
-              Verificamos cada símbolo y espacio invisible en plataformas como Free Fire, Roblox, Instagram, TikTok y WhatsApp.
+              Revisamos periódicamente símbolos y espacios invisibles en distintas plataformas. La compatibilidad puede cambiar según la aplicación, el dispositivo y sus actualizaciones.
             </p>
           </div>
 
