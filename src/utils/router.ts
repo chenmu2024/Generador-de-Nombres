@@ -1,6 +1,6 @@
 'use client';
 
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 
 export function useLocation() {
   const pathname = usePathname() || '/';
@@ -8,10 +8,9 @@ export function useLocation() {
 }
 
 export function useNavigate() {
+  const router = useRouter();
+
   return (path: string) => {
-    if (typeof window !== 'undefined') {
-      window.location.href = path;
-    }
+    router.push(path);
   };
 }
-
