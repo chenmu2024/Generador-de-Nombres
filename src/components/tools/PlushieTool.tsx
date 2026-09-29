@@ -124,7 +124,7 @@ export default function PlushieTool({
       <button
       key={th.id}
       onClick={() => setPlushieTheme(th.id as any)}
-      className={`px-2.5 py-1 rounded-xl text-xs font-bold border transition-all ${
+      className={`gdn-tool-tab px-2.5 py-1 rounded-xl text-xs font-bold border transition-all ${
       plushieTheme === th.id
       ? `${th.border} ${th.bg} shadow-md`
       : 'border-white/10 bg-zinc-800 text-zinc-400 hover:text-white'
@@ -409,7 +409,7 @@ export default function PlushieTool({
       <button
       key={tab}
       onClick={() => setPlushieCategoryTab(tab)}
-      className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
+      className={`gdn-tool-tab px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
       plushieCategoryTab === tab
       ? 'bg-pink-600 text-white shadow-md shadow-pink-500/20'
       : 'bg-zinc-800 text-zinc-400 hover:text-white'
