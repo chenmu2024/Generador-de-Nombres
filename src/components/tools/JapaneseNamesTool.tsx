@@ -102,7 +102,7 @@ export default function JapaneseNamesTool({
     </div>
     
     {/* Styled Output Card */}
-    <div className="bg-gradient-to-b from-rose-950/30 via-zinc-950 to-zinc-950 border border-rose-500/30 rounded-2xl p-5 flex flex-col justify-between items-center text-center shadow-xl">
+    <div className="gdn-tool-result bg-gradient-to-b from-rose-950/30 via-zinc-950 to-zinc-950 border border-rose-500/30 rounded-2xl p-5 flex flex-col justify-between items-center text-center shadow-xl">
     <div>
     <div className="text-xs text-rose-400 font-bold uppercase tracking-widest mb-2">Vista Previa Apodo</div>
     <div className="text-4xl font-extrabold text-rose-400 font-mono mb-2">
