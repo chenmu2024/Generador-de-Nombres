@@ -3,7 +3,7 @@
 import React, { useEffect, useState, useRef, type ReactNode } from 'react';
 import { useLocation } from '../utils/router';
 import { Link } from '../components/Link';
-import { ChevronRight, Flame, Zap, Gem, Shield, Smartphone, CheckCircle2, Search, Sparkles, Copy, Volume2, Instagram, Gamepad2, Tv, Swords, Printer, Bookmark, Trash2, Heart, Share2, X, Download, CheckSquare, Square, ListOrdered, Home } from 'lucide-react';
+import { ChevronRight, Flame, Zap, Gem, Shield, Smartphone, CheckCircle2, Search, Sparkles, Copy, Volume2, Instagram, Gamepad2, Tv, Swords, Printer, Bookmark, Share2, X, Download, CheckSquare, Square, ListOrdered, Home } from 'lucide-react';
 import Generator from '../components/Generator';
 import dynamic from 'next/dynamic';
 
@@ -238,25 +238,32 @@ export default function CategoryPage({
     }
   };
 
-  // Persistent Favorites Drawer state
-  const [savedFavorites, setSavedFavorites] = useState<string[]>(() => {
-    try {
-      const local = localStorage.getItem('nombres_favoritos_saved');
-      return local ? JSON.parse(local) : ['Algodón 🧸', 'Mochi 🍡', '⚡ N I N J A ⚡'];
-    } catch {
-      return ['Algodón 🧸', 'Mochi 🍡'];
-    }
-  });
-  const [isFavoritesOpen, setIsFavoritesOpen] = useState(false);
-  const [favSearchTerm, setFavSearchTerm] = useState('');
+  // Shared favorites state. Uses the same storage/event contract as Generator + MainLayout.
+  const [savedFavorites, setSavedFavorites] = useState<string[]>([]);
+
+  useEffect(() => {
+    const loadSharedFavorites = () => {
+      try {
+        const local = localStorage.getItem('gdn_favorites');
+        setSavedFavorites(local ? JSON.parse(local) : []);
+      } catch {
+        setSavedFavorites([]);
+      }
+    };
+
+    loadSharedFavorites();
+    window.addEventListener('gdn_favorites_updated', loadSharedFavorites);
+    return () => window.removeEventListener('gdn_favorites_updated', loadSharedFavorites);
+  }, []);
 
   const toggleFavorite = (name: string) => {
     setSavedFavorites(prev => {
       const exists = prev.includes(name);
-      const updated = exists ? prev.filter(n => n !== name) : [...prev, name];
+      const updated = exists ? prev.filter(n => n !== name) : [name, ...prev];
       try {
-        localStorage.setItem('nombres_favoritos_saved', JSON.stringify(updated));
-      } catch (e) {}
+        localStorage.setItem('gdn_favorites', JSON.stringify(updated));
+        window.dispatchEvent(new Event('gdn_favorites_updated'));
+      } catch {}
       return updated;
     });
   };
@@ -5609,127 +5616,6 @@ export default function CategoryPage({
         </div>
       )}
 
-      {/* Floating Favorites Drawer Widget */}
-      <div className="fixed bottom-6 right-6 z-40">
-        <button
-          onClick={() => setIsFavoritesOpen(!isFavoritesOpen)}
-          className="bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-400 hover:to-yellow-400 text-zinc-950 font-extrabold text-xs px-4 py-3 rounded-2xl shadow-2xl shadow-amber-500/40 border border-amber-300 flex items-center gap-2 transition-all hover:scale-105 active:scale-95"
-        >
-          <Heart className="w-4 h-4 fill-zinc-950" />
-          <span>Mis Favoritos ({savedFavorites.length})</span>
-        </button>
-
-        {isFavoritesOpen && (
-          <div
-            className="absolute bottom-16 right-0 w-80 sm:w-96 bg-zinc-900 border border-amber-500/30 rounded-3xl shadow-2xl p-5 text-white z-50 backdrop-blur-xl animate-in zoom-in-95 duration-150"
-          >
-            <div className="flex items-center justify-between pb-3 border-b border-white/10 mb-3">
-              <div className="flex items-center gap-2">
-                <Heart className="w-4 h-4 text-amber-400 fill-amber-400" />
-                <h3 className="font-bold text-sm font-heading">Nombres Guardados ({savedFavorites.length})</h3>
-              </div>
-              <button
-                onClick={() => setIsFavoritesOpen(false)}
-                className="text-zinc-400 hover:text-white p-1"
-              >
-                <X className="w-4 h-4" />
-              </button>
-            </div>
-
-            {savedFavorites.length > 0 && (
-              <div className="mb-3 relative">
-                <Search className="w-3.5 h-3.5 text-zinc-500 absolute left-2.5 top-1/2 -translate-y-1/2" />
-                <input
-                  type="text"
-                  value={favSearchTerm}
-                  onChange={(e) => setFavSearchTerm(e.target.value)}
-                  placeholder="Buscar en favoritos..."
-                  className="w-full pl-8 pr-3 py-1.5 bg-zinc-800 border border-white/10 rounded-xl text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-amber-500"
-                />
-                {favSearchTerm && (
-                  <button
-                    onClick={() => setFavSearchTerm('')}
-                    className="absolute right-2 top-1/2 -translate-y-1/2 text-zinc-500 hover:text-white"
-                  >
-                    <X className="w-3 h-3" />
-                  </button>
-                )}
-              </div>
-            )}
-
-            {savedFavorites.length === 0 ? (
-              <div className="py-8 text-center text-xs text-zinc-500">
-                No has guardado nombres aún. Haz clic en el icono ★ junto a cualquier nombre para guardarlo aquí.
-              </div>
-            ) : (
-              <div className="space-y-2 max-h-60 overflow-y-auto pr-1">
-                {savedFavorites
-                  .filter(fav => fav.toLowerCase().includes(favSearchTerm.toLowerCase()))
-                  .map((fav, fIdx) => (
-                    <div key={fIdx} className="bg-zinc-800/80 border border-white/5 rounded-xl px-3 py-2 flex items-center justify-between text-xs group">
-                      <span className="font-semibold text-amber-200 truncate">{fav}</span>
-                      <div className="flex items-center gap-1">
-                        <button
-                          onClick={() => handleCopyTrending(fav)}
-                          className="p-1 text-zinc-400 hover:text-white transition-colors"
-                          title="Copiar"
-                        >
-                          <Copy className="w-3.5 h-3.5" />
-                        </button>
-                        <button
-                          onClick={() => toggleFavorite(fav)}
-                          className="p-1 text-zinc-500 hover:text-red-400 transition-colors"
-                          title="Eliminar"
-                        >
-                          <Trash2 className="w-3.5 h-3.5" />
-                        </button>
-                      </div>
-                    </div>
-                  ))}
-              </div>
-            )}
-
-            {savedFavorites.length > 0 && (
-              <div className="pt-3 mt-3 border-t border-white/10 space-y-2">
-                <div className="flex items-center justify-between gap-2">
-                  <button
-                    onClick={() => {
-                      setSavedFavorites([]);
-                      try { localStorage.removeItem('nombres_favoritos_saved'); } catch(e){}
-                    }}
-                    className="text-[11px] text-zinc-500 hover:text-red-400 transition-colors font-medium"
-                  >
-                    Vaciar Lista
-                  </button>
-                  <div className="flex items-center gap-2">
-                    <button
-                      onClick={() => {
-                        const blob = new Blob([savedFavorites.join('\n')], { type: 'text/plain;charset=utf-8' });
-                        const url = URL.createObjectURL(blob);
-                        const link = document.createElement('a');
-                        link.href = url;
-                        link.download = 'Mis_Nombres_Favoritos_2026.txt';
-                        link.click();
-                        URL.revokeObjectURL(url);
-                      }}
-                      className="px-2.5 py-1.5 bg-zinc-800 hover:bg-zinc-700 text-zinc-200 font-bold text-xs rounded-xl border border-white/10 transition-all flex items-center gap-1"
-                      title="Exportar archivo TXT"
-                    >
-                      <Download className="w-3.5 h-3.5 text-emerald-400" /> .TXT
-                    </button>
-                    <button
-                      onClick={() => handleCopyTrending(savedFavorites.join(', '))}
-                      className="px-3 py-1.5 bg-amber-500 hover:bg-amber-400 text-zinc-950 font-bold text-xs rounded-xl transition-all shadow-md flex items-center gap-1"
-                    >
-                      <Copy className="w-3.5 h-3.5" /> Copiar Todos ({savedFavorites.length})
-                    </button>
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
-        )}
-      </div>
 
     </main>
   );
