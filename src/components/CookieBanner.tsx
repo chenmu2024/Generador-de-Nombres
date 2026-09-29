@@ -18,11 +18,13 @@ export default function CookieBanner() {
 
   const handleAccept = () => {
     localStorage.setItem('cookie_consent_choice', 'accepted');
+    window.dispatchEvent(new Event('cookie-consent-change'));
     setIsVisible(false);
   };
 
   const handleDecline = () => {
     localStorage.setItem('cookie_consent_choice', 'declined');
+    window.dispatchEvent(new Event('cookie-consent-change'));
     setIsVisible(false);
   };
 
@@ -47,7 +49,7 @@ export default function CookieBanner() {
       </div>
 
       <p className="text-zinc-400 text-xs leading-relaxed">
-        Utilizamos cookies propias y de terceros (como Google AdSense y Analytics) para personalizar anuncios, analizar el tráfico y recordar tus preferencias. Puedes consultar nuestra{' '}
+        Usamos almacenamiento local para recordar tu elección. Las herramientas opcionales de analítica de rendimiento solo se cargan cuando eliges “Aceptar Todas”. Puedes consultar nuestra{' '}
         <Link to="/politica-de-privacidad" className="text-violet-400 underline hover:text-violet-300">
           Política de Privacidad
         </Link>.
