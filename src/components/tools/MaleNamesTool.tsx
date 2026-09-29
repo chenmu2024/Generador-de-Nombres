@@ -24,7 +24,7 @@ export default function MaleNamesTool({
   };
 
   return (
-    <div className="bg-gradient-to-br from-blue-950/40 via-[#121212] to-cyan-950/30 border border-blue-500/30 rounded-3xl p-8 shadow-2xl relative overflow-hidden space-y-6">
+    <div className="gdn-tool-shell bg-gradient-to-br from-blue-950/40 via-[#121212] to-cyan-950/30 border border-blue-500/30 rounded-3xl p-8 shadow-2xl relative overflow-hidden space-y-6">
     <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10">
     <div>
     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-300 text-xs font-semibold uppercase tracking-wider mb-3">
@@ -57,7 +57,7 @@ export default function MaleNamesTool({
     <button
     key={tab.id}
     onClick={() => setMaleVibe(tab.id as any)}
-    className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+    className={`gdn-tool-tab px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
     maleVibe === tab.id
     ? 'bg-gradient-to-r from-blue-600 to-cyan-600 text-white shadow-md'
     : 'text-zinc-400 hover:text-white'
@@ -76,7 +76,7 @@ export default function MaleNamesTool({
     <input
     type="text"
     value={maleFirstName}
-    onChange={(e) => setMaleFirstName(e.target.value)}
+    onChange={(e) = className="gdn-tool-input"> setMaleFirstName(e.target.value)}
     placeholder="Ej: Mateo, Leo, Liam, Enzo"
     className="w-full bg-zinc-900 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500 font-medium"
     />
@@ -86,7 +86,7 @@ export default function MaleNamesTool({
     <input
     type="text"
     value={maleSecondName}
-    onChange={(e) => setMaleSecondName(e.target.value)}
+    onChange={(e) = className="gdn-tool-input"> setMaleSecondName(e.target.value)}
     placeholder="Ej: Gael, Gabriel, Alexander, Thiago"
     className="w-full bg-zinc-900 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500 font-medium"
     />
@@ -122,7 +122,7 @@ export default function MaleNamesTool({
     const mean2 = maleMeaningsDb[m2Name.toLowerCase()] || { origin: 'Origen Ilustre', meaning: 'Nobleza, liderazgo y sabiduría' };
     
     return (
-    <div className="bg-zinc-900/90 p-5 rounded-2xl border border-blue-500/30 space-y-4">
+    <div className="gdn-tool-result bg-zinc-900/90 p-5 rounded-2xl border border-blue-500/30 space-y-4">
     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/10 pb-3">
     <div>
     <span className="text-[10px] font-bold text-blue-400 uppercase tracking-wider block">Combinación Masculina Resultante</span>
