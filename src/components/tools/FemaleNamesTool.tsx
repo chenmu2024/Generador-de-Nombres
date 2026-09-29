@@ -26,7 +26,7 @@ export default function FemaleNamesTool({
   };
 
   return (
-    <div className="bg-gradient-to-br from-pink-950/40 via-[#121212] to-amber-950/30 border border-pink-500/30 rounded-3xl p-8 shadow-2xl relative overflow-hidden space-y-6">
+    <div className="gdn-tool-shell bg-gradient-to-br from-pink-950/40 via-[#121212] to-amber-950/30 border border-pink-500/30 rounded-3xl p-8 shadow-2xl relative overflow-hidden space-y-6">
     <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10">
     <div>
     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-500/10 border border-pink-500/20 text-pink-300 text-xs font-semibold uppercase tracking-wider mb-3">
@@ -63,7 +63,7 @@ export default function FemaleNamesTool({
     <button
     key={tab.id}
     onClick={() => setFemaleVibe(tab.id as any)}
-    className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+    className={`gdn-tool-tab px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
     femaleVibe === tab.id
     ? 'bg-gradient-to-r from-pink-600 to-amber-600 text-white shadow-md'
     : 'text-zinc-400 hover:text-white'
@@ -82,7 +82,7 @@ export default function FemaleNamesTool({
     <input
     type="text"
     value={femaleFirstName}
-    onChange={(e) => setFemaleFirstName(e.target.value)}
+    onChange={(e) = className="gdn-tool-input"> setFemaleFirstName(e.target.value)}
     placeholder="Ej: Zoe, Mia, Aitana, Iris"
     className="w-full bg-zinc-900 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-pink-500 font-medium"
     />
@@ -92,7 +92,7 @@ export default function FemaleNamesTool({
     <input
     type="text"
     value={femaleSecondName}
-    onChange={(e) => setFemaleSecondName(e.target.value)}
+    onChange={(e) = className="gdn-tool-input"> setFemaleSecondName(e.target.value)}
     placeholder="Ej: Valentina, Lucía, Elena, Isabel"
     className="w-full bg-zinc-900 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-pink-500 font-medium"
     />
@@ -133,7 +133,7 @@ export default function FemaleNamesTool({
     const m2 = meaningsDatabase[p2.toLowerCase()] || { origin: 'Origen Noble', meaning: 'Gracia, nobleza y virtud' };
     
     return (
-    <div className="bg-zinc-900/90 p-5 rounded-2xl border border-pink-500/30 space-y-4">
+    <div className="gdn-tool-result bg-zinc-900/90 p-5 rounded-2xl border border-pink-500/30 space-y-4">
     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/10 pb-3">
     <div>
     <span className="text-[10px] font-bold text-pink-400 uppercase tracking-wider block">Combinación Compuesta Resultante</span>
