@@ -184,3 +184,62 @@ body {
     letter-spacing: -0.025em;
   }
 }
+
+
+/* V2.1 Tool Component Contract */
+.gdn-tool-shell {
+  --gdn-tool-control-height: 46px;
+  --gdn-tool-radius: 12px;
+  --gdn-tool-card-radius: 16px;
+}
+
+.gdn-tool-shell input:not([type="checkbox"]):not([type="radio"]),
+.gdn-tool-shell select,
+.gdn-tool-shell textarea,
+.gdn-tool-input {
+  min-height: var(--gdn-tool-control-height);
+  background: var(--gdn-surface-soft) !important;
+  border: 1px solid var(--gdn-border) !important;
+  border-radius: var(--gdn-tool-radius) !important;
+  color: var(--gdn-text) !important;
+  box-shadow: none !important;
+}
+
+.gdn-tool-shell input::placeholder,
+.gdn-tool-shell textarea::placeholder {
+  color: var(--gdn-text-muted) !important;
+}
+
+.gdn-tool-shell input:focus,
+.gdn-tool-shell select:focus,
+.gdn-tool-shell textarea:focus,
+.gdn-tool-input:focus {
+  outline: none !important;
+  border-color: var(--gdn-primary) !important;
+  box-shadow: 0 0 0 3px var(--gdn-primary-soft) !important;
+}
+
+.gdn-tool-tab {
+  min-height: 36px;
+  border-radius: 10px !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.01em;
+  box-shadow: none !important;
+}
+
+.gdn-tool-result {
+  background: var(--gdn-surface-raised) !important;
+  border-color: var(--gdn-primary-border) !important;
+  border-radius: var(--gdn-tool-card-radius) !important;
+  box-shadow: none !important;
+}
+
+.gdn-tool-shell label {
+  color: var(--gdn-text-secondary);
+}
+
+@media (max-width: 640px) {
+  .gdn-tool-shell {
+    --gdn-tool-control-height: 44px;
+  }
+}
