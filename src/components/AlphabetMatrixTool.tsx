@@ -98,7 +98,7 @@ export default function AlphabetMatrixTool({ currentLetter = 'A' }: { currentLet
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto space-y-8">
+    <div className="gdn-tool-shell w-full max-w-4xl mx-auto space-y-8">
       {/* Alphabet Pill Selector */}
       <div className="bg-zinc-900/90 border border-white/10 rounded-[2rem] p-6 shadow-2xl">
         <h3 className="text-xs font-bold text-zinc-400 uppercase tracking-wider mb-4 flex items-center justify-between">
@@ -132,7 +132,7 @@ export default function AlphabetMatrixTool({ currentLetter = 'A' }: { currentLet
           <input
             type="text"
             value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
+            onChange={(e) = className="gdn-tool-input"> setSearchTerm(e.target.value)}
             placeholder={`Buscar nombres con ${selectedLetter}...`}
             className="w-full pl-10 pr-4 py-2.5 bg-zinc-950 border border-white/10 rounded-xl text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-violet-500"
           />
