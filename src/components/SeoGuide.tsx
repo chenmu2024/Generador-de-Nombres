@@ -2,8 +2,39 @@ import type { CategoryData } from '../data/seoData';
 import { allLinks } from '../data/allLinks';
 import FeedbackWidget from './FeedbackWidget';
 
+const topicalClusters = [
+  ['/nombres-free-fire', '/generador-free-fire', '/espacios-invisible-ff', '/nombres-ff-unicos', '/nombres-ff-mujeres', '/nombres-clanes-ff', '/nombres-anime'],
+  ['/nombres-roblox', '/nombres-instagram', '/nombres-anime', '/generador-free-fire', '/espacios-invisible-ff'],
+  ['/nombres-de-mujer', '/nombres-de-nina', '/nombres-de-nino', '/nombres-unisex', '/nombres-raros', '/nombres-por-letra'],
+  ['/nombres-japoneses', '/nombres-coreanos', '/nombres-chinos', '/nombres-rusos', '/nombres-griegos', '/nombres-italianos', '/nombres-franceses', '/nombres-turcos', '/nombres-ingles', '/nombres-mayas', '/nombres-de-dioses'],
+  ['/nombres-perritas', '/nombres-perros-machos', '/nombres-gatos', '/nombres-gatos-negros', '/nombres-gatos-machos', '/perritas-chihuahua', '/nombres-caballos'],
+  ['/nombres-por-letra', '/nombres-con-a', '/nombres-con-b', '/nombres-con-c', '/nombres-con-e', '/nombres-con-f', '/nombres-con-m', '/nombres-con-en', '/nombres-con-y', '/nombres-con-z'],
+  ['/nombres-equipos-futbol', '/nombres-para-tiendas', '/nombres-peluches'],
+];
+
+function getTopicalLinks(currentPath: string, data: CategoryData) {
+  if (data.related?.length) {
+    return data.related
+      .filter(link => link.path !== currentPath)
+      .slice(0, 6)
+      .map(link => ({ path: link.path, label: link.title }));
+  }
+
+  const cluster = topicalClusters.find(paths => paths.includes(currentPath));
+  if (cluster) {
+    const clusterSet = new Set(cluster);
+    return allLinks
+      .filter(link => clusterSet.has(link.path) && link.path !== currentPath)
+      .slice(0, 6);
+  }
+
+  return allLinks
+    .filter(link => link.path !== currentPath && link.path !== '/')
+    .slice(0, 6);
+}
+
 export default function SeoGuide({ data, currentPath }: { data: CategoryData; currentPath: string }) {
-  const moreLinks = allLinks.filter(link => link.path !== currentPath && link.path !== '/').slice(0, 5);
+  const moreLinks = getTopicalLinks(currentPath, data);
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 max-w-6xl mx-auto">
@@ -76,8 +107,8 @@ export default function SeoGuide({ data, currentPath }: { data: CategoryData; cu
             ))}
           </div>
           <div className="mt-6 pt-6 border-t border-white/5">
-            <a href="/nombres-free-fire" className="text-violet-400 font-semibold hover:text-violet-300 transition-colors text-sm flex items-center justify-center gap-2">
-              Ver todos los generadores <span aria-hidden="true">›</span>
+            <a href="/" className="text-violet-400 font-semibold hover:text-violet-300 transition-colors text-sm flex items-center justify-center gap-2">
+              Explorar todos los generadores <span aria-hidden="true">›</span>
             </a>
           </div>
         </div>
