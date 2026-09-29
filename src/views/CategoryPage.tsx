@@ -246,7 +246,7 @@ export default function CategoryPage({
       </div>
       )}
 
-      <div className={`${location.pathname === '/' ? 'max-w-7xl mx-auto' : 'max-w-6xl mx-auto py-6'}`}>
+      <div className={`${location.pathname === '/' ? 'max-w-7xl mx-auto' : 'max-w-[81rem] mx-auto pt-3 pb-2'}`}>
         {!usesDedicatedGenerator && (
           <Generator
             title={location.pathname === '/' ? 'Generador de Nombres, Apodos y Símbolos' : data.h1}
@@ -348,7 +348,7 @@ export default function CategoryPage({
 
       {/* Espacio Invisible Section & FF Pro Kit (Pestaña / Herramienta Exclusiva Free Fire) */}
       {(location.pathname === '/nombres-free-fire' || location.pathname === '/generador-free-fire' || location.pathname === '/nombres-ff-unicos' || location.pathname === '/nombres-ff-mujeres' || location.pathname === '/nombres-clanes-ff' || location.pathname === '/nombres-anime' || location.pathname === '/nombres-de-mujer' || location.pathname === '/nombres-de-nina' || location.pathname === '/nombres-de-nino' || location.pathname === '/nombres-unisex' || location.pathname === '/nombres-raros') && (
-        <div className="gdn-tool-shell max-w-6xl mx-auto py-2 space-y-8">
+        <div className="gdn-tool-shell max-w-[81rem] mx-auto py-2 space-y-8">
           {location.pathname === '/nombres-raros' && (
             <LazyRareNamesTool handleCopyTrending={handleCopyTrending} />
           )}

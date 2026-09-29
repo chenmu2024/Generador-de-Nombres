@@ -1069,3 +1069,38 @@ body {
     padding-bottom: 48px;
   }
 }
+
+
+/* V4 Tool Proportion Fidelity */
+.gdn-generator-v4 {
+  max-width: 81rem !important;
+}
+
+.gdn-generator-workspace {
+  grid-template-columns: minmax(0, 820px) minmax(300px, 410px);
+  justify-content: space-between;
+}
+
+.gdn-generator-aside {
+  width: 100%;
+}
+
+.gdn-tool-page-header-v4 {
+  max-width: 56.25rem !important;
+}
+
+.gdn-tool-page-header-v4 + div {
+  width: 100%;
+}
+
+@media (max-width: 1180px) {
+  .gdn-generator-workspace {
+    grid-template-columns: minmax(0, 1fr) 320px;
+  }
+}
+
+@media (max-width: 900px) {
+  .gdn-generator-workspace {
+    grid-template-columns: 1fr;
+  }
+}
