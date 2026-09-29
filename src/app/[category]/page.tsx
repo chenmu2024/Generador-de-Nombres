@@ -1,6 +1,7 @@
 import { Suspense } from 'react';
 import type { Metadata } from 'next';
 import CategoryPage from '../../views/CategoryPage';
+import SeoGuide from '../../components/SeoGuide';
 import { seoData } from '../../data/seoData';
 
 export async function generateStaticParams() {
@@ -18,7 +19,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const resolvedParams = await params;
   const categoryPath = `/${resolvedParams.category}`;
-  const data = Object.values(seoData).find((d) => d.path === categoryPath) || seoData[resolvedParams.category];
+  const data = Object.values(seoData).find((d) => d.path === categoryPath) || seoData[resolvedParams.category] || seoData.home;
 
   const title = data?.title || 'Generador de Nombres | GeneradorDeNombres.net';
   const description = data?.metaDescription || 'El mejor generador y creador de nombres, apodos y símbolos Unicode.';
@@ -55,7 +56,7 @@ export default async function DynamicCategoryPage({
 }) {
   const resolvedParams = await params;
   const categoryPath = `/${resolvedParams.category}`;
-  const data = Object.values(seoData).find((d) => d.path === categoryPath) || seoData[resolvedParams.category];
+  const data = Object.values(seoData).find((d) => d.path === categoryPath) || seoData[resolvedParams.category] || seoData.home;
 
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
@@ -121,7 +122,18 @@ export default async function DynamicCategoryPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(appSchema) }}
       />
       <Suspense fallback={<div className="min-h-screen bg-[#0a0a0a]" />}>
-        <CategoryPage initialPath={categoryPath} data={data} />
+        <CategoryPage
+          initialPath={categoryPath}
+          data={{
+            h1: data.h1,
+            subtitle: data.subtitle,
+            defaultName: data.defaultName,
+            customSymbols: data.customSymbols,
+            hasFaq: Boolean(data.faqs?.length),
+          }}
+        >
+          <SeoGuide data={data} currentPath={categoryPath} />
+        </CategoryPage>
       </Suspense>
     </>
   );
