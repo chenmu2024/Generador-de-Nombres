@@ -45,7 +45,7 @@ export default function StoreNameTool() {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto space-y-8">
+    <div className="gdn-tool-shell w-full max-w-4xl mx-auto space-y-8">
       {/* Header Banner */}
       <div className="bg-gradient-to-br from-amber-950/60 via-zinc-900 to-zinc-950 p-8 md:p-12 rounded-[2.5rem] border border-amber-500/20 shadow-2xl text-center relative overflow-hidden">
         <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30 mb-4">
@@ -65,7 +65,7 @@ export default function StoreNameTool() {
           <button
             key={st.id}
             onClick={() => setActiveTab(st.id)}
-            className={`px-4 py-2.5 rounded-xl font-bold text-xs md:text-sm transition-all active:scale-95 ${
+            className={`gdn-tool-tab px-4 py-2.5 rounded-xl font-bold text-xs md:text-sm transition-all active:scale-95 ${
               activeTab === st.id
                 ? 'bg-amber-500 text-zinc-950 font-black shadow-lg shadow-amber-500/20'
                 : 'bg-zinc-900/80 text-zinc-400 hover:text-white border border-white/5'
@@ -86,14 +86,14 @@ export default function StoreNameTool() {
             type="text"
             value={customKeyword}
             onChange={(e) => setCustomKeyword(e.target.value)}
-            className="w-full px-4 py-3 bg-zinc-950 border border-white/10 rounded-xl text-white font-medium focus:outline-none focus:border-amber-500"
+            className="gdn-tool-input w-full px-4 py-3 bg-zinc-950 border border-white/10 rounded-xl text-white font-medium focus:outline-none focus:border-amber-500"
             placeholder="Ej. Ofertas, Novedades, Luna..."
           />
         </div>
       </div>
 
       {/* Generated Results Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="gdn-tool-result grid grid-cols-1 md:grid-cols-2 gap-4">
         {(customKeyword ? generatedCustomList : currentList).map((name, idx) => (
           <div
             key={idx}

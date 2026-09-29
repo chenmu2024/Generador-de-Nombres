@@ -24,7 +24,7 @@ export default function FrenchNamesTool({
   };
 
   return (
-    <div className="max-w-6xl mx-auto py-4 space-y-8">
+    <div className="gdn-tool-shell max-w-6xl mx-auto py-4 space-y-8">
     <div className="bg-[#121212] border border-sky-500/20 rounded-3xl p-6 md:p-8 shadow-2xl">
     {/* Header */}
     <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
@@ -54,7 +54,7 @@ export default function FrenchNamesTool({
     <label className="text-xs font-semibold text-zinc-400 block mb-2">Título / Prefijo de Cortesía:</label>
     <select aria-label="Seleccionar opción" value={frTitlePrefix}
     onChange={(e) => setFrTitlePrefix(e.target.value)}
-    className="w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-sky-500 text-sm font-semibold"
+    className="gdn-tool-input w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-sky-500 text-sm font-semibold"
     >
     {['Mademoiselle', 'Monsieur', 'Chérie', 'Fleur', 'Prince', 'Princesse', 'Madame'].map(p => (
     <option key={p} value={p}>{p}</option>
@@ -69,7 +69,7 @@ export default function FrenchNamesTool({
     value={frCustomName}
     onChange={(e) => setFrCustomName(e.target.value)}
     placeholder="Amélie, Juliette, Louis..."
-    className="w-full bg-zinc-800 border border-white/10 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-sky-500 text-sm font-bold"
+    className="gdn-tool-input w-full bg-zinc-800 border border-white/10 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-sky-500 text-sm font-bold"
     />
     </div>
     </div>
@@ -155,7 +155,7 @@ export default function FrenchNamesTool({
     <button
     key={tab}
     onClick={() => setFrCategoryTab(tab)}
-    className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
+    className={`gdn-tool-tab px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
     frCategoryTab === tab
     ? 'bg-sky-500 text-zinc-950 shadow-md shadow-sky-500/20'
     : 'bg-zinc-800 text-zinc-400 hover:text-white'

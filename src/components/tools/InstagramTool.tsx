@@ -17,7 +17,7 @@ export default function InstagramTool({ handleCopyTrending }: InstagramToolProps
   const isIgValid = igInput.length > 0 && isIgLenValid && isIgCharsValid && isIgDotEdgeValid && isIgConsecutiveDotValid;
 
   return (
-    <div className="max-w-6xl mx-auto py-4 space-y-8">
+    <div className="gdn-tool-shell max-w-6xl mx-auto py-4 space-y-8">
       {/* Username Validator */}
       <div className="bg-[#121212] border border-pink-500/20 rounded-3xl p-8 shadow-2xl relative overflow-hidden bg-gradient-to-br from-pink-950/20 via-[#121212] to-rose-950/10">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8 relative z-10">
@@ -45,7 +45,7 @@ export default function InstagramTool({ handleCopyTrending }: InstagramToolProps
                 value={igInput}
                 onChange={(e) => setIgInput(e.target.value)}
                 placeholder="iam.sofia_"
-                className="w-full pl-10 pr-36 py-4 bg-zinc-800/80 border border-white/10 rounded-xl text-white placeholder-zinc-500 focus:outline-none focus:border-pink-500 font-mono text-lg tracking-wide"
+                className="gdn-tool-input w-full pl-10 pr-36 py-4 bg-zinc-800/80 border border-white/10 rounded-xl text-white placeholder-zinc-500 focus:outline-none focus:border-pink-500 font-mono text-lg tracking-wide"
               />
               <div className="absolute right-4 top-1/2 -translate-y-1/2">
                 {isIgValid ? (

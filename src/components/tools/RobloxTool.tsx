@@ -17,7 +17,7 @@ export default function RobloxTool({ handleCopyTrending }: RobloxToolProps) {
   const isRobloxValid = robloxInput.length > 0 && isLengthValid && isCharsValid && isUnderscoreValid && isEdgeUnderscoreValid;
 
   return (
-    <div className="max-w-6xl mx-auto py-4 space-y-8">
+    <div className="gdn-tool-shell max-w-6xl mx-auto py-4 space-y-8">
       {/* Username Validator */}
       <div className="bg-[#121212] border border-fuchsia-500/20 rounded-3xl p-8 shadow-2xl relative overflow-hidden bg-gradient-to-br from-fuchsia-950/20 via-[#121212] to-violet-950/10">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8 relative z-10">
@@ -43,7 +43,7 @@ export default function RobloxTool({ handleCopyTrending }: RobloxToolProps) {
                 value={robloxInput}
                 onChange={(e) => setRobloxInput(e.target.value)}
                 placeholder="Ej. x_AestheticGirl_x"
-                className="w-full px-5 py-4 bg-zinc-800/80 border border-white/10 rounded-xl text-white placeholder-zinc-500 focus:outline-none focus:border-fuchsia-500 font-mono text-lg tracking-wide"
+                className="gdn-tool-input w-full px-5 py-4 bg-zinc-800/80 border border-white/10 rounded-xl text-white placeholder-zinc-500 focus:outline-none focus:border-fuchsia-500 font-mono text-lg tracking-wide"
               />
               <div className="absolute right-4 top-1/2 -translate-y-1/2">
                 {isRobloxValid ? (

@@ -26,7 +26,7 @@ export default function BlackCatNamesTool({
 
   return (
     <>
-      <div className="max-w-6xl mx-auto py-4 space-y-8">
+      <div className="gdn-tool-shell max-w-6xl mx-auto py-4 space-y-8">
       <div className="bg-[#121212] border border-purple-500/20 rounded-3xl p-8 shadow-2xl bg-gradient-to-br from-purple-950/20 via-[#121212] to-zinc-950">
       <div className="mb-6">
       <h2 className="text-2xl md:text-3xl font-bold text-white font-heading flex items-center gap-3">
@@ -111,7 +111,7 @@ export default function BlackCatNamesTool({
       <label className="text-xs font-semibold text-zinc-400 block mb-2">Estilo / Vibe Místico:</label>
       <select aria-label="Seleccionar opción" value={blackCatVibe}
       onChange={(e) => setBlackCatVibe(e.target.value)}
-      className="w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-purple-500 text-sm font-semibold"
+      className="gdn-tool-input w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-purple-500 text-sm font-semibold"
       >
       {['Místico 🔮', 'Panterita 🐈‍⬛', 'Magia / Bruja 🪄', 'Anime / Ghibli 🎬', 'Noche / Cosmos 🌑', 'Elegante / Dark 🖤'].map(v => (
       <option key={v} value={v}>{v}</option>
@@ -126,7 +126,7 @@ export default function BlackCatNamesTool({
       value={blackCatCustomName}
       onChange={(e) => setBlackCatCustomName(e.target.value)}
       placeholder="Salem, Sombra, Jiji..."
-      className="w-full bg-zinc-800 border border-white/10 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-purple-500 text-sm font-bold"
+      className="gdn-tool-input w-full bg-zinc-800 border border-white/10 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-purple-500 text-sm font-bold"
       />
       </div>
       </div>
@@ -206,7 +206,7 @@ export default function BlackCatNamesTool({
       <button
       key={tab}
       onClick={() => setBlackCatCategoryTab(tab)}
-      className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
+      className={`gdn-tool-tab px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
       blackCatCategoryTab === tab
       ? 'bg-purple-600 text-white shadow-md shadow-purple-500/20'
       : 'bg-zinc-800 text-zinc-400 hover:text-white'

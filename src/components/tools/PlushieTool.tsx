@@ -89,7 +89,7 @@ export default function PlushieTool({
 
   return (
     <>
-      <div className="max-w-6xl mx-auto py-4 space-y-8">
+      <div className="gdn-tool-shell max-w-6xl mx-auto py-4 space-y-8">
       <div className="bg-[#121212] border border-pink-500/20 rounded-3xl p-6 md:p-8 shadow-2xl bg-gradient-to-br from-pink-950/30 via-[#121212] to-amber-950/20">
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
@@ -124,7 +124,7 @@ export default function PlushieTool({
       <button
       key={th.id}
       onClick={() => setPlushieTheme(th.id as any)}
-      className={`px-2.5 py-1 rounded-xl text-xs font-bold border transition-all ${
+      className={`gdn-tool-tab px-2.5 py-1 rounded-xl text-xs font-bold border transition-all ${
       plushieTheme === th.id
       ? `${th.border} ${th.bg} shadow-md`
       : 'border-white/10 bg-zinc-800 text-zinc-400 hover:text-white'
@@ -157,7 +157,7 @@ export default function PlushieTool({
       value={plushieName}
       onChange={(e) => setPlushieName(e.target.value)}
       placeholder="Algodón, Mochi, Boba..."
-      className="w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-pink-500 text-sm font-bold"
+      className="gdn-tool-input w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-pink-500 text-sm font-bold"
       />
       </div>
       
@@ -165,7 +165,7 @@ export default function PlushieTool({
       <label className="text-xs font-semibold text-zinc-400 block mb-1">Especie / Tipo de Peluche:</label>
       <select aria-label="Seleccionar opción" value={plushieType}
       onChange={(e) => setPlushieType(e.target.value)}
-      className="w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-pink-500 text-sm font-semibold"
+      className="gdn-tool-input w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-pink-500 text-sm font-semibold"
       >
       {['Osito de Felpa 🧸', 'Squishmallow ☁️', 'Unicornio Mágico 🦄', 'Dinosaurio 🦕', 'Conejito 🐰', 'Gatito Kawaii 🐱', 'Oso Panda 🐼', 'Perrito Suave 🐶', 'Dragón Fantástico 🐲'].map(t => (
       <option key={t} value={t}>{t}</option>
@@ -180,7 +180,7 @@ export default function PlushieTool({
       value={plushieOwner}
       onChange={(e) => setPlushieOwner(e.target.value)}
       placeholder="Tu nombre..."
-      className="w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-pink-500 text-sm font-medium"
+      className="gdn-tool-input w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-pink-500 text-sm font-medium"
       />
       </div>
       
@@ -191,7 +191,7 @@ export default function PlushieTool({
       value={plushieTrait}
       onChange={(e) => setPlushieTrait(e.target.value)}
       placeholder="Ama los abrazos y galletas..."
-      className="w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-pink-500 text-sm"
+      className="gdn-tool-input w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-pink-500 text-sm"
       />
       </div>
       
@@ -202,13 +202,13 @@ export default function PlushieTool({
       value={plushiePromise}
       onChange={(e) => setPlushiePromise(e.target.value)}
       placeholder="Prometo darle abrazos diarios..."
-      className="w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-pink-500 text-xs"
+      className="gdn-tool-input w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-pink-500 text-xs"
       />
       </div>
       </div>
       
       {/* Live Certificate Preview Card with Theme Styling */}
-      <div className={`md:col-span-2 border rounded-2xl p-6 relative flex flex-col justify-between shadow-2xl transition-all duration-300 ${
+      <div className={`gdn-tool-result md:col-span-2 border rounded-2xl p-6 relative flex flex-col justify-between shadow-2xl transition-all duration-300 ${
       plushieTheme === 'pink' ? 'bg-gradient-to-br from-pink-950/60 via-zinc-950 to-rose-950/40 border-pink-500/40' :
       plushieTheme === 'blue' ? 'bg-gradient-to-br from-sky-950/60 via-zinc-950 to-cyan-950/40 border-sky-500/40' :
       plushieTheme === 'purple' ? 'bg-gradient-to-br from-purple-950/60 via-zinc-950 to-fuchsia-950/40 border-purple-500/40' :
@@ -318,7 +318,7 @@ export default function PlushieTool({
       value={plushieWord1}
       onChange={(e) => setPlushieWord1(e.target.value)}
       placeholder="Mochi..."
-      className="w-full bg-zinc-800 border border-white/10 rounded-xl px-3 py-2 text-white text-sm focus:outline-none focus:border-pink-500"
+      className="gdn-tool-input w-full bg-zinc-800 border border-white/10 rounded-xl px-3 py-2 text-white text-sm focus:outline-none focus:border-pink-500"
       />
       </div>
       <div>
@@ -328,7 +328,7 @@ export default function PlushieTool({
       value={plushieWord2}
       onChange={(e) => setPlushieWord2(e.target.value)}
       placeholder="Copito..."
-      className="w-full bg-zinc-800 border border-white/10 rounded-xl px-3 py-2 text-white text-sm focus:outline-none focus:border-pink-500"
+      className="gdn-tool-input w-full bg-zinc-800 border border-white/10 rounded-xl px-3 py-2 text-white text-sm focus:outline-none focus:border-pink-500"
       />
       </div>
       <div className="sm:col-span-2 flex items-end">
@@ -409,7 +409,7 @@ export default function PlushieTool({
       <button
       key={tab}
       onClick={() => setPlushieCategoryTab(tab)}
-      className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
+      className={`gdn-tool-tab px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
       plushieCategoryTab === tab
       ? 'bg-pink-600 text-white shadow-md shadow-pink-500/20'
       : 'bg-zinc-800 text-zinc-400 hover:text-white'

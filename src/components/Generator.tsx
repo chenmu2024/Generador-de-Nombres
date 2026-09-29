@@ -8,6 +8,7 @@ interface GeneratorProps {
   title: string;
   defaultName?: string;
   customSymbols?: string[];
+  compact?: boolean;
 }
 
 const randomNames = ["Ninja", "Shadow", "Killer", "Pro", "Ghost", "Sniper", "King", "Queen", "Legend", "Alpha"];
@@ -30,7 +31,7 @@ function autoTrimFF(name: string): string {
   return name.slice(0, 12);
 }
 
-export default function Generator({ title, defaultName = 'Gamer', customSymbols }: GeneratorProps) {
+export default function Generator({ title, defaultName = 'Gamer', customSymbols, compact = false }: GeneratorProps) {
   const [inputText, setInputText] = useState('');
   const [style, setStyle] = useState('all');
   const [vibeFilter, setVibeFilter] = useState<'all' | 'epico' | 'aesthetic' | 'short' | 'toxic'>('all');
@@ -234,7 +235,7 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols 
   });
 
   return (
-    <div className="gdn-surface w-full max-w-4xl mx-auto rounded-[1.25rem] overflow-hidden border relative">
+    <div className="gdn-tool-shell gdn-surface w-full max-w-4xl mx-auto rounded-[1.25rem] overflow-hidden border relative">
       {/* Toast Notification */}
       {showToast && (
         <div
@@ -245,17 +246,19 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols 
         </div>
       )}
 
-      <div className="gdn-surface-raised relative p-7 md:p-10 text-center overflow-hidden border-b">
-        {/* Decorative elements */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10 pointer-events-none">
-          <div className="absolute -top-12 -left-12 w-64 h-64 bg-violet-600 rounded-full blur-[100px]"></div>
-          <div className="absolute top-12 -right-12 w-64 h-64 bg-fuchsia-600 rounded-full blur-[100px]"></div>
+      {!compact && (
+        <div className="gdn-surface-raised relative p-7 md:p-10 text-center overflow-hidden border-b">
+          {/* Decorative elements */}
+          <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10 pointer-events-none">
+            <div className="absolute -top-12 -left-12 w-64 h-64 bg-violet-600 rounded-full blur-[100px]"></div>
+            <div className="absolute top-12 -right-12 w-64 h-64 bg-fuchsia-600 rounded-full blur-[100px]"></div>
+          </div>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-3 relative z-10 font-heading">{title}</h2>
+          <p className="text-zinc-400 relative z-10 max-w-lg mx-auto">Crea apodos únicos en segundos con símbolos épicos y exporta con un clic</p>
         </div>
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-3 relative z-10 font-heading">{title}</h2>
-        <p className="text-zinc-400 relative z-10 max-w-lg mx-auto">Crea apodos únicos en segundos con símbolos épicos y exporta con un clic</p>
-      </div>
+      )}
       
-      <div className="p-6 md:p-10 space-y-10">
+      <div className={compact ? 'p-4 md:p-6 space-y-8' : 'p-6 md:p-10 space-y-10'}>
         <div className="flex flex-col md:flex-row gap-4 items-start">
           <div className="flex-1 w-full">
             <div className="flex-1 flex relative w-full group">
@@ -266,7 +269,7 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols 
                 onChange={(e) => setInputText(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && handleGenerate()}
                 placeholder={`Escribe tu nombre (ej. ${defaultName})`}
-                className="gdn-input flex-1 px-5 py-4 pr-24 text-base md:text-lg border rounded-xl focus:outline-none placeholder-zinc-500 transition-all w-full"
+                className="gdn-tool-input gdn-input flex-1 px-5 py-4 pr-24 text-base md:text-lg border rounded-xl focus:outline-none placeholder-zinc-500 transition-all w-full"
               />
               <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-1">
                 {inputText && (
@@ -300,7 +303,7 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols 
             value={style}
             onChange={(e) => setStyle(e.target.value)}
             aria-label="Seleccionar estilo de letras y tipografía"
-            className="gdn-input px-5 py-4 text-base md:text-lg border rounded-xl focus:outline-none appearance-none cursor-pointer w-full md:w-auto min-w-[200px]"
+            className="gdn-tool-input gdn-input px-5 py-4 text-base md:text-lg border rounded-xl focus:outline-none appearance-none cursor-pointer w-full md:w-auto min-w-[200px]"
           >
             <option value="all">Todos los estilos</option>
             <option value="fancy">Letras Fancy (𝓔)</option>
@@ -389,7 +392,7 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols 
                 <button
                   key={vibe.id}
                   onClick={() => setVibeFilter(vibe.id as any)}
-                  className={`shrink-0 px-3 py-1.5 rounded-xl border text-xs font-semibold transition-all ${
+                  className={`gdn-tool-tab shrink-0 px-3 py-1.5 rounded-xl border text-xs font-semibold transition-all ${
                     vibeFilter === vibe.id
                       ? 'bg-violet-600 text-white border-violet-400 shadow-md shadow-violet-500/20'
                       : vibe.color + ' border-white/5'

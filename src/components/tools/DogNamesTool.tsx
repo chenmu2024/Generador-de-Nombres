@@ -26,7 +26,7 @@ export default function DogNamesTool({
 
   return (
     <>
-      <div className="max-w-6xl mx-auto py-4 space-y-8">
+      <div className="gdn-tool-shell max-w-6xl mx-auto py-4 space-y-8">
       <div className="bg-[#121212] border border-pink-500/20 rounded-3xl p-6 md:p-8 shadow-2xl">
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
@@ -56,7 +56,7 @@ export default function DogNamesTool({
       <label className="text-xs font-semibold text-zinc-400 block mb-2">Estilo / Personalidad de la Perrita:</label>
       <select aria-label="Seleccionar opción" value={dogPersonality}
       onChange={(e) => setDogPersonality(e.target.value)}
-      className="w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-pink-500 text-sm font-semibold"
+      className="gdn-tool-input w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-pink-500 text-sm font-semibold"
       >
       {['Pequeña 🎀', 'Alegre 🎾', 'Princesa 👑', 'Guerrera ⚡', 'Dulce 🍯', 'Elegante 💎'].map(p => (
       <option key={p} value={p}>{p}</option>
@@ -71,7 +71,7 @@ export default function DogNamesTool({
       value={dogCustomName}
       onChange={(e) => setDogCustomName(e.target.value)}
       placeholder="Luna, Kira, Chloe..."
-      className="w-full bg-zinc-800 border border-white/10 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-pink-500 text-sm font-bold"
+      className="gdn-tool-input w-full bg-zinc-800 border border-white/10 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-pink-500 text-sm font-bold"
       />
       </div>
       </div>
@@ -151,7 +151,7 @@ export default function DogNamesTool({
       <button
       key={tab}
       onClick={() => setDogCategoryTab(tab)}
-      className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
+      className={`gdn-tool-tab px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
       dogCategoryTab === tab
       ? 'bg-pink-500 text-zinc-950 shadow-md shadow-pink-500/20'
       : 'bg-zinc-800 text-zinc-400 hover:text-white'
@@ -230,7 +230,7 @@ export default function DogNamesTool({
       <button
       key={letter}
       onClick={() => setDogLetter(letter)}
-      className={`w-10 h-10 rounded-xl font-bold text-sm transition-all ${
+      className={`gdn-tool-tab w-10 h-10 rounded-xl font-bold text-sm transition-all ${
       dogLetter === letter
       ? 'bg-pink-500 text-zinc-950 shadow-lg shadow-pink-500/30 scale-105'
       : 'bg-zinc-800 text-zinc-400 hover:text-white hover:bg-zinc-700'

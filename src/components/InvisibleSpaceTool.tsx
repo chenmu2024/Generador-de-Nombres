@@ -94,7 +94,7 @@ export default function InvisibleSpaceTool() {
   ];
 
   return (
-    <div className="w-full max-w-4xl mx-auto space-y-10">
+    <div className="gdn-tool-shell w-full max-w-4xl mx-auto space-y-10">
       {/* Toast */}
       <AnimatePresence>
         {showToast && (
@@ -231,7 +231,7 @@ export default function InvisibleSpaceTool() {
               type="text"
               value={tagText}
               onChange={(e) => setTagText(e.target.value)}
-              className="w-full px-4 py-3 bg-zinc-950 border border-white/10 rounded-xl text-white font-medium focus:outline-none focus:border-violet-500"
+              className="gdn-tool-input w-full px-4 py-3 bg-zinc-950 border border-white/10 rounded-xl text-white font-medium focus:outline-none focus:border-violet-500"
               placeholder="Ej. TM, LOS, 7K"
             />
           </div>
@@ -241,7 +241,7 @@ export default function InvisibleSpaceTool() {
               value={separator}
               onChange={(e) => setSeparator(e.target.value)}
               aria-label="Tipo de Separador para Espacio Invisible"
-              className="w-full px-4 py-3 bg-zinc-950 border border-white/10 rounded-xl text-white font-medium focus:outline-none focus:border-violet-500"
+              className="gdn-tool-input w-full px-4 py-3 bg-zinc-950 border border-white/10 rounded-xl text-white font-medium focus:outline-none focus:border-violet-500"
             >
               <option value="ㅤ">Hangul Filler (U+3164)</option>
               <option value="ㅤㅤ">Hangul Filler Doble (U+3164 x2)</option>
@@ -258,7 +258,7 @@ export default function InvisibleSpaceTool() {
               type="text"
               value={customText}
               onChange={(e) => setCustomText(e.target.value)}
-              className="w-full px-4 py-3 bg-zinc-950 border border-white/10 rounded-xl text-white font-medium focus:outline-none focus:border-violet-500"
+              className="gdn-tool-input w-full px-4 py-3 bg-zinc-950 border border-white/10 rounded-xl text-white font-medium focus:outline-none focus:border-violet-500"
               placeholder="Ej. INSANO"
             />
           </div>
@@ -315,7 +315,7 @@ export default function InvisibleSpaceTool() {
         </div>
 
         {/* Live Preview Box */}
-        <div className="bg-black/60 border border-violet-500/30 rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="gdn-tool-result bg-black/60 border border-violet-500/30 rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div>
             <span className="text-[10px] font-bold uppercase tracking-wider text-zinc-500 block mb-1">Nombre Completo Listo para Copiar</span>
             <div className="text-2xl font-black text-white font-mono tracking-wide break-all">

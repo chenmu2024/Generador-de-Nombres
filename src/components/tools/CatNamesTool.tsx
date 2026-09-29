@@ -25,7 +25,7 @@ export default function CatNamesTool({
 
   return (
     <>
-      <div className="max-w-6xl mx-auto py-4 space-y-8">
+      <div className="gdn-tool-shell max-w-6xl mx-auto py-4 space-y-8">
       <div className="bg-[#121212] border border-amber-500/20 rounded-3xl p-6 md:p-8 shadow-2xl bg-gradient-to-br from-amber-950/20 via-[#121212] to-zinc-950">
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
@@ -55,7 +55,7 @@ export default function CatNamesTool({
       <label className="text-xs font-semibold text-zinc-400 block mb-2">Pelaje / Estilo del Gato:</label>
       <select aria-label="Seleccionar opción" value={catBreedType}
       onChange={(e) => setCatBreedType(e.target.value)}
-      className="w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-amber-500 text-sm font-semibold"
+      className="gdn-tool-input w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-amber-500 text-sm font-semibold"
       >
       {['Gato Naranjita 🍊', 'Panterita Negra 🐈‍⬛', 'Gato Blanco / Nieve ❄️', 'Siamés / Elegante 👑', 'Gato Atigrado 🐯', 'Mestizo / Bebé 🐱'].map(b => (
       <option key={b} value={b}>{b}</option>
@@ -70,7 +70,7 @@ export default function CatNamesTool({
       value={catCustomName}
       onChange={(e) => setCatCustomName(e.target.value)}
       placeholder="Mochi, Simba, Felix..."
-      className="w-full bg-zinc-800 border border-white/10 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-amber-500 text-sm font-bold"
+      className="gdn-tool-input w-full bg-zinc-800 border border-white/10 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-amber-500 text-sm font-bold"
       />
       </div>
       </div>
@@ -156,7 +156,7 @@ export default function CatNamesTool({
       <button
       key={tab}
       onClick={() => setCatCategoryTab(tab)}
-      className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
+      className={`gdn-tool-tab px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
       catCategoryTab === tab
       ? 'bg-amber-500 text-zinc-950 shadow-md shadow-amber-500/20'
       : 'bg-zinc-800 text-zinc-400 hover:text-white'
