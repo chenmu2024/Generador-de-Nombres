@@ -1495,7 +1495,7 @@ export const seoData: Record<string, CategoryData> = {
   'espacios-invisible-ff': {
     id: 'espacios-invisible-ff',
     path: '/espacios-invisible-ff',
-    title: 'Espacio Invisible Free Fire - Copiar U+3164 | GDN',
+    title: 'Espacio Invisible para Free Fire - U+3164 y U+3000 | GDN',
     h1: 'Generador y Copiador de Espacio Invisible para Free Fire',
     subtitle: 'Copia Hangul Filler (U+3164), U+1160 y el espacio ideográfico U+3000 para probar separaciones Unicode en nombres y clanes.',
     seoText: `
