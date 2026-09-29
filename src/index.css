@@ -449,3 +449,24 @@ body {
     font-size: 1.75rem !important;
   }
 }
+
+
+/* V2.1 Responsive Validators */
+@media (max-width: 640px) {
+  .gdn-validator-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .gdn-validator-status {
+    position: static !important;
+    transform: none !important;
+    align-self: flex-start;
+  }
+
+  .gdn-validator-input {
+    padding-right: 16px !important;
+    font-size: 0.95rem !important;
+  }
+}
