@@ -39,8 +39,8 @@ export default function FootballTool({ handleCopyTrending }: FootballToolProps) 
               <div>
                 <label className="text-xs font-semibold text-zinc-400 block mb-2">Prefijo Deportivo / Estilo:</label>
                 <select aria-label="Seleccionar opción" value={teamPrefix}
-                  onChange={(e) = className="gdn-tool-input"> setTeamPrefix(e.target.value)}
-                  className="w-full bg-zinc-800 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-amber-500 text-sm font-semibold"
+                  onChange={(e) => setTeamPrefix(e.target.value)}
+                  className="gdn-tool-input w-full bg-zinc-800 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-amber-500 text-sm font-semibold"
                 >
                   {['Real', 'Atlético', 'Inter', 'Deportivo', 'Sporting', 'FC', 'Los', 'Club', 'Rayo', 'Vodka', 'Aston', 'Nottingham', 'Espartanos'].map(p => (
                     <option key={p} value={p}>{p}</option>
@@ -53,9 +53,9 @@ export default function FootballTool({ handleCopyTrending }: FootballToolProps) 
                 <input
                   type="text"
                   value={teamBase}
-                  onChange={(e) = className="gdn-tool-input"> setTeamBase(e.target.value)}
+                  onChange={(e) => setTeamBase(e.target.value)}
                   placeholder="Tapitas, Titan, Barrio..."
-                  className="w-full bg-zinc-800 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-amber-500 text-sm font-bold"
+                  className="gdn-tool-input w-full bg-zinc-800 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-amber-500 text-sm font-bold"
                 />
               </div>
             </div>
@@ -115,9 +115,9 @@ export default function FootballTool({ handleCopyTrending }: FootballToolProps) 
               <input
                 type="text"
                 value={teamSlogan}
-                onChange={(e) = className="gdn-tool-input"> setTeamSlogan(e.target.value)}
+                onChange={(e) => setTeamSlogan(e.target.value)}
                 placeholder="Unidos por la Gloria..."
-                className="w-full bg-zinc-800 border border-white/10 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-amber-500 text-xs italic"
+                className="gdn-tool-input w-full bg-zinc-800 border border-white/10 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-amber-500 text-xs italic"
               />
               <div className="flex flex-wrap gap-1.5 mt-2">
                 {[
