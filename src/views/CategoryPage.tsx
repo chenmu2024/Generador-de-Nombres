@@ -272,6 +272,49 @@ export default function CategoryPage({
         )}
       </div>
 
+      {/* Restored homepage quick access and trends — preserved from pre-V4 content */}
+      {location.pathname === '/' && (
+        <section className="gdn-home-restored gdn-home-content-v4 space-y-4" aria-label="Accesos rápidos y tendencias">
+          <div className="gdn-home-section-v4">
+            <div className="flex flex-wrap items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white p-2.5">
+              <span className="px-2 text-[11px] font-bold uppercase tracking-wider text-slate-400">Accesos rápidos</span>
+              <Link to="/generador-free-fire" className="gdn-chip px-3.5 py-2 rounded-xl border text-xs font-semibold transition-all">🎮 Free Fire</Link>
+              <Link to="/espacios-invisible-ff" className="gdn-chip px-3.5 py-2 rounded-xl border text-xs font-semibold transition-all">⚡ Espacio Invisible</Link>
+              <Link to="/nombres-por-letra" className="gdn-chip px-3.5 py-2 rounded-xl border text-xs font-semibold transition-all">🔤 Nombres A-Z</Link>
+              <Link to="/nombres-para-tiendas" className="gdn-chip px-3.5 py-2 rounded-xl border text-xs font-semibold transition-all">🛍️ Nombres para Tiendas</Link>
+            </div>
+
+            <div className="mt-4 rounded-2xl border border-slate-200 bg-white p-4 sm:p-5">
+              <div className="flex items-center justify-between mb-3 px-1">
+                <span className="text-xs font-bold text-violet-700 uppercase tracking-wider flex items-center gap-1.5">
+                  <Flame className="w-4 h-4 text-amber-500" /> Apodos y Símbolos Tendencia de Hoy
+                </span>
+                <span className="text-[10px] text-slate-400 hidden sm:inline">Copiar en 1 clic</span>
+              </div>
+              <div className="flex flex-wrap gap-2 justify-center sm:justify-start">
+                {[
+                  { label: '×͜× ㅤ 𝙆𝙄𝙉𝙂 ㅤ ×͜×', val: '×͜× ㅤ 𝙆𝙄𝙉𝙂 ㅤ ×͜×' },
+                  { label: '꧁༺ Cärlös ༻꧂', val: '꧁༺ Cärlös ༻꧂' },
+                  { label: '✿ Q u e e n ✿', val: '✿ Q u e e n ✿' },
+                  { label: '⚡ 🇳​​​​​🇴​​​​​🇴​​​​​🇧​​​​​ ⚡', val: '⚡ 🇳​​​​​🇴​​​​​🇴​​​​​🇧​​​​​ ⚡' },
+                  { label: 'ㅤ (Espacio Invisible)', val: 'ㅤ' },
+                  { label: '亗 L E G E N D 亗', val: '亗 L E G E N D 亗' }
+                ].map((chip, i) => (
+                  <button
+                    key={i}
+                    onClick={() => handleCopyTrending(chip.val)}
+                    className="gdn-chip px-3.5 py-2 border rounded-xl text-xs font-medium transition-all active:scale-95 flex items-center gap-1.5 group"
+                  >
+                    <span className="font-mono">{chip.label}</span>
+                    <Copy className="w-3 h-3 text-slate-400 group-hover:text-violet-600" />
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* V4 Homepage discovery */}
       {location.pathname === '/' && (
         <div className="gdn-home-content-v4 space-y-12 md:space-y-16">
@@ -339,6 +382,146 @@ export default function CategoryPage({
             </div>
           </section>
         </div>
+      )}
+
+      {/* Restored Portal Hub — all pre-V4 content and internal links preserved */}
+      {location.pathname === '/' && (
+        <section className="gdn-home-content-v4 pt-0">
+          <div className="gdn-home-section-v4 space-y-7">
+            <div className="text-center space-y-3">
+              <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-bold bg-violet-50 text-violet-700 border border-violet-100">
+                🌐 Portal Hub 6 Canales Principales
+              </span>
+              <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900 font-heading tracking-tight">
+                Explora Nuestro Catálogo Completo de Nombres
+              </h2>
+              <p className="text-slate-500 max-w-2xl mx-auto text-sm">
+                Accede directamente a los generadores especializados y guías de nombres más buscadas en Latinoamérica.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {[
+                {
+                  icon: Gamepad2,
+                  badge: 'Gaming & Redes',
+                  title: 'Gamer, Free Fire & Redes',
+                  desc: 'Generadores de apodos insanos, símbolos raros, espacios invisibles y biografías aesthetic para Instagram y Roblox.',
+                  links: [
+                    ['/generador-free-fire', 'Generador FF'],
+                    ['/espacios-invisible-ff', 'Espacio Invisible'],
+                    ['/nombres-ff-unicos', 'FF Únicos'],
+                    ['/nombres-instagram', 'Instagram']
+                  ],
+                  cta: ['/generador-free-fire', 'Ir a Herramientas Gamer'],
+                  accent: 'text-violet-600 bg-violet-50'
+                },
+                {
+                  icon: Sparkles,
+                  badge: 'Personas & Bebés',
+                  title: 'Personas & Bebés',
+                  desc: 'Listas completas de nombres de mujer, niña poco comunes, niños con significado profundo, unisex y raros.',
+                  links: [
+                    ['/nombres-de-mujer', 'Nombres Mujer'],
+                    ['/nombres-de-nina', 'Niña Poco Comunes'],
+                    ['/nombres-de-nino', 'Niños con Significado'],
+                    ['/nombres-unisex', 'Unisex']
+                  ],
+                  cta: ['/nombres-de-mujer', 'Explorar Personas y Bebés'],
+                  accent: 'text-pink-600 bg-pink-50'
+                },
+                {
+                  icon: Type,
+                  badge: 'Filtro Interactivo A-Z',
+                  title: 'Directorio Por Letra A-Z',
+                  desc: 'Navega por iniciales de la A a la Z. Encuentra nombres masculinos, femeninos y tradicionales con pronunciación en audio.',
+                  links: [
+                    ['/nombres-con-a', 'Con A'],
+                    ['/nombres-con-f', 'Con F'],
+                    ['/nombres-con-m', 'Con M'],
+                    ['/nombres-con-en', 'Con Ñ'],
+                    ['/nombres-con-z', 'Con Z']
+                  ],
+                  cta: ['/nombres-por-letra', 'Abrir Directorio A-Z'],
+                  accent: 'text-violet-600 bg-violet-50'
+                },
+                {
+                  icon: Globe2,
+                  badge: 'Mitología & Idiomas',
+                  title: 'Culturas del Mundo',
+                  desc: 'Nombres de dioses griegos y nórdicos, nombres japoneses con Kanji, coreanos Hangul, mayas, italianos y franceses.',
+                  links: [
+                    ['/nombres-de-dioses', 'Dioses'],
+                    ['/nombres-japoneses', 'Japoneses'],
+                    ['/nombres-coreanos', 'Coreanos'],
+                    ['/nombres-mayas', 'Mayas']
+                  ],
+                  cta: ['/nombres-japoneses', 'Explorar Culturas'],
+                  accent: 'text-cyan-600 bg-cyan-50'
+                },
+                {
+                  icon: PawPrint,
+                  badge: 'Mascotas & Animales',
+                  title: 'Mascotas & Animales',
+                  desc: 'Ideas bonitas para perritas, perros machos, michis y gatos negros, chihuahuas diminutas y caballos imponentes.',
+                  links: [
+                    ['/nombres-perritas', 'Perritas Bonitas'],
+                    ['/nombres-perros-machos', 'Perros Machos'],
+                    ['/nombres-gatos', 'Gatos'],
+                    ['/perritas-chihuahua', 'Chihuahuas']
+                  ],
+                  cta: ['/nombres-perritas', 'Ver Nombres de Mascotas'],
+                  accent: 'text-amber-600 bg-amber-50'
+                },
+                {
+                  icon: Store,
+                  badge: 'Brazaletes & Marcas',
+                  title: 'Equipos & Negocios',
+                  desc: 'Generador de nombres e insignias para equipos de fútbol, marcas para tiendas que venden de todo y peluches.',
+                  links: [
+                    ['/nombres-equipos-futbol', 'Equipos Fútbol'],
+                    ['/nombres-para-tiendas', 'Tiendas & Bazares'],
+                    ['/nombres-peluches', 'Peluches']
+                  ],
+                  cta: ['/nombres-equipos-futbol', 'Crear Nombres de Marca'],
+                  accent: 'text-emerald-600 bg-emerald-50'
+                }
+              ].map((group) => {
+                const Icon = group.icon;
+                return (
+                  <article key={group.title} className="gdn-home-category-card p-5 md:p-6 flex flex-col justify-between gap-5 group">
+                    <div>
+                      <div className="flex items-center justify-between gap-3 mb-4">
+                        <span className={`w-11 h-11 rounded-[14px] flex items-center justify-center ${group.accent}`}>
+                          <Icon className="w-5 h-5" strokeWidth={2} aria-hidden="true" />
+                        </span>
+                        <span className="text-[10px] font-bold border border-slate-200 bg-slate-50 text-slate-500 px-3 py-1 rounded-full uppercase">
+                          {group.badge}
+                        </span>
+                      </div>
+                      <h3 className="text-lg font-bold text-slate-900 font-heading mb-2 group-hover:text-violet-700 transition-colors">
+                        {group.title}
+                      </h3>
+                      <p className="text-xs text-slate-500 leading-relaxed mb-4">
+                        {group.desc}
+                      </p>
+                      <div className="flex flex-wrap gap-1.5">
+                        {group.links.map(([path, label]) => (
+                          <Link key={path} to={path} className="gdn-chip text-xs font-semibold px-2.5 py-1 rounded-lg transition-colors border">
+                            {label}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                    <Link to={group.cta[0]} className="text-xs font-bold text-violet-600 hover:text-violet-700 flex items-center gap-1">
+                      {group.cta[1]} <ChevronRight className="w-4 h-4" />
+                    </Link>
+                  </article>
+                );
+              })}
+            </div>
+          </div>
+        </section>
       )}
 
       {/* Espacio Invisible Section & FF Pro Kit (Pestaña / Herramienta Exclusiva Free Fire) */}
