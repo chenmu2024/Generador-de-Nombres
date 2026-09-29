@@ -1,6 +1,6 @@
 # GeneradorDeNombres.net - Generador de Nombres
 
-> GeneradorDeNombres.net es la plataforma en español líder para crear nombres de usuario, apodos para juegos, nombres aesthetic para redes sociales e ideas originales para bebés, mascotas y negocios.
+> GeneradorDeNombres.net ofrece herramientas en español para crear nombres de usuario, apodos, símbolos Unicode e ideas de nombres para juegos, redes sociales, personas, mascotas y negocios.
 
 ## Herramientas Principales
 
@@ -27,8 +27,8 @@
 
 ## Mascotas y Negocios
 
-- [Nombres para Perritas](https://generadordenombres.net/nombres-para-perritas): Ideas bonitas.
-- [Nombres para Gatos](https://generadordenombres.net/nombres-para-gatos): Nombres para felinos.
+- [Nombres para Perritas](https://generadordenombres.net/nombres-perritas): Ideas bonitas.
+- [Nombres para Gatos](https://generadordenombres.net/nombres-gatos): Nombres para felinos.
 - [Nombres para Tiendas](https://generadordenombres.net/nombres-para-tiendas): Ideas pegajosas.
 
 ## Información del Sitio
