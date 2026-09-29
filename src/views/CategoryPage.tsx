@@ -1,9 +1,9 @@
 'use client';
 
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, type ReactNode } from 'react';
 import { useLocation } from '../utils/router';
 import { Link } from '../components/Link';
-import { HelpCircle, ChevronRight, Flame, Zap, Gem, Shield, Smartphone, CheckCircle2, Search, Sparkles, Copy, Volume2, Instagram, Gamepad2, Tv, Swords, Printer, Bookmark, Trash2, Heart, Share2, X, Download, CheckSquare, Square, ListOrdered, Home, Star } from 'lucide-react';
+import { ChevronRight, Flame, Zap, Gem, Shield, Smartphone, CheckCircle2, Search, Sparkles, Copy, Volume2, Instagram, Gamepad2, Tv, Swords, Printer, Bookmark, Trash2, Heart, Share2, X, Download, CheckSquare, Square, ListOrdered, Home } from 'lucide-react';
 import Generator from '../components/Generator';
 import dynamic from 'next/dynamic';
 
@@ -32,14 +32,28 @@ const LazyFootballTool = dynamic(() => import('../components/tools/FootballTool'
   loading: () => <div className="min-h-[400px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>
 });
 import { allLinks } from '../data/allLinks';
-import type { CategoryData } from '../data/seoData';
 
-export default function CategoryPage({ initialPath, data }: { initialPath?: string; data: CategoryData }) {
+type CategoryClientData = {
+  h1: string;
+  subtitle: string;
+  defaultName?: string;
+  customSymbols?: string[];
+  hasFaq: boolean;
+};
+
+export default function CategoryPage({
+  initialPath,
+  data,
+  children,
+}: {
+  initialPath?: string;
+  data: CategoryClientData;
+  children?: ReactNode;
+}) {
   const routerLocation = useLocation();
   const currentPath = initialPath || routerLocation.pathname || '/';
   const location = { pathname: currentPath };
   const [showToast, setShowToast] = useState(false);
-  const [feedbackGiven, setFeedbackGiven] = useState(false);
   const [searchCategory, setSearchCategory] = useState(() => {
     if (typeof window !== 'undefined') {
       const params = new URLSearchParams(window.location.search);
@@ -371,10 +385,7 @@ export default function CategoryPage({ initialPath, data }: { initialPath?: stri
       }
     }
 
-    if (document.title !== data.title) {
-      document.title = data.title;
-    }
-  }, [data, location.pathname]);
+  }, [location.pathname]);
 
   return (
     <main className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-20 relative">
@@ -430,7 +441,7 @@ export default function CategoryPage({ initialPath, data }: { initialPath?: stri
             <a href="#articulos-guia" className="p-2 rounded-xl bg-zinc-800/80 hover:bg-violet-600/30 text-zinc-300 hover:text-white transition-all flex items-center justify-center gap-1.5 border border-white/5 font-medium">
               <span>📖</span> Guía
             </a>
-            {data.faqs && data.faqs.length > 0 && (
+            {data.hasFaq && (
               <a href="#preguntas-frecuentes" className="p-2 rounded-xl bg-zinc-800/80 hover:bg-violet-600/30 text-zinc-300 hover:text-white transition-all flex items-center justify-center gap-1.5 border border-white/5 font-medium">
                 <span>❓</span> Preguntas
               </a>
@@ -5413,148 +5424,7 @@ export default function CategoryPage({ initialPath, data }: { initialPath?: stri
         </div>
       )}
 
-      {/* Main Content Area */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 max-w-6xl mx-auto">
-        
-        {/* SEO Text */}
-        <article id="articulos-guia" className="lg:col-span-8 bg-[#121212] rounded-3xl border border-white/5 p-8 md:p-12 prose prose-invert prose-zinc prose-lg max-w-none shadow-2xl shadow-black/50 prose-headings:font-heading prose-a:text-violet-400 hover:prose-a:text-violet-300 prose-strong:text-white scroll-mt-24">
-          {/* Interactive Table of Contents for SEO & UX */}
-          <div className="mb-8 p-6 bg-zinc-900/90 rounded-2xl border border-violet-500/20 not-prose">
-            <div className="flex items-center gap-2 font-bold text-white mb-3 text-base font-heading">
-              <ListOrdered className="w-5 h-5 text-violet-400" />
-              <span>Índice de Contenidos</span>
-            </div>
-            <ul className="space-y-2 text-sm text-zinc-300">
-              <li>
-                <a href="#articulos-guia" className="hover:text-violet-400 transition-colors flex items-center gap-1.5 font-medium">
-                  <ChevronRight className="w-3.5 h-3.5 text-violet-500" />
-                  <span>Guía Completa e Ideas para {data.h1}</span>
-                </a>
-              </li>
-              {data.faqs && data.faqs.length > 0 && (
-                <li>
-                  <a href="#preguntas-frecuentes" className="hover:text-violet-400 transition-colors flex items-center gap-1.5 font-medium">
-                    <ChevronRight className="w-3.5 h-3.5 text-violet-500" />
-                    <span>Preguntas Frecuentes (FAQ)</span>
-                  </a>
-                </li>
-              )}
-              <li>
-                <a href="#relacionados" className="hover:text-violet-400 transition-colors flex items-center gap-1.5 font-medium">
-                  <ChevronRight className="w-3.5 h-3.5 text-violet-500" />
-                  <span>Generadores y Herramientas Relacionadas</span>
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <div dangerouslySetInnerHTML={{ __html: data.seoText }} />
-        </article>
-
-        {/* Sidebar Features */}
-        <div className="lg:col-span-4 space-y-8">
-          {data.faqs && data.faqs.length > 0 && (
-            <section id="preguntas-frecuentes" className="bg-gradient-to-br from-violet-900/40 to-fuchsia-900/20 rounded-3xl p-8 text-white border border-violet-500/20 shadow-xl relative overflow-hidden scroll-mt-24" itemScope itemType="https://schema.org/FAQPage">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-violet-500/20 rounded-full blur-3xl -mr-10 -mt-10 pointer-events-none"></div>
-              <div className="flex items-center gap-3 mb-8 relative z-10">
-                <div className="bg-violet-500/20 p-2 rounded-xl text-violet-300">
-                  <HelpCircle className="w-6 h-6" aria-hidden="true" />
-                </div>
-                <h3 className="text-2xl font-bold font-heading">Preguntas Frecuentes</h3>
-              </div>
-              <div className="space-y-6 relative z-10">
-                {data.faqs.map((faq, index) => (
-                  <div key={index} className="space-y-2 border-b border-white/10 pb-5 last:border-0 last:pb-0" itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                    <h4 className="font-semibold text-lg text-zinc-100" itemProp="name">{faq.question}</h4>
-                    <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                      <p className="text-zinc-400 text-sm leading-relaxed" itemProp="text">{faq.answer}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </section>
-          )}
-
-          <div className="bg-[#121212] rounded-3xl p-8 border border-white/5 shadow-xl">
-            <h3 className="text-xl font-bold text-zinc-100 mb-6 font-heading">Más Generadores</h3>
-            <div className="space-y-2">
-              {allLinks.filter(link => link.path !== location.pathname && link.path !== '/').slice(0, 5).map(link => (
-                <Link 
-                  key={link.path} 
-                  to={link.path}
-                  className="flex items-center justify-between p-3 rounded-xl hover:bg-white/5 transition-colors group"
-                >
-                  <span className="font-medium text-zinc-400 group-hover:text-zinc-100 transition-colors">{link.label}</span>
-                  <ChevronRight className="w-5 h-5 text-zinc-600 group-hover:text-violet-400 transition-colors" />
-                </Link>
-              ))}
-            </div>
-            <div className="mt-6 pt-6 border-t border-white/5">
-               <Link to="/nombres-free-fire" className="text-violet-400 font-semibold hover:text-violet-300 transition-colors text-sm flex items-center justify-center gap-2">
-                 Ver todos los generadores <ChevronRight className="w-4 h-4" />
-               </Link>
-            </div>
-          </div>
-
-          {/* Interactive User Rating / Feedback Widget */}
-          <div className="bg-[#121212] rounded-3xl p-6 border border-white/5 shadow-xl text-center space-y-3">
-            <div className="flex items-center justify-center gap-1 text-amber-400">
-              <Star className="w-4 h-4 fill-amber-400" />
-              <Star className="w-4 h-4 fill-amber-400" />
-              <Star className="w-4 h-4 fill-amber-400" />
-              <Star className="w-4 h-4 fill-amber-400" />
-              <Star className="w-4 h-4 fill-amber-400" />
-              <span className="text-xs font-bold text-zinc-300 ml-1">Tu opinión nos ayuda a mejorar</span>
-            </div>
-            <p className="text-sm text-zinc-200 font-medium">¿Te sirvieron las ideas de este generador?</p>
-            {feedbackGiven ? (
-              <div className="p-2.5 bg-emerald-500/10 text-emerald-400 rounded-xl text-xs font-semibold border border-emerald-500/20">
-                ¡Gracias por tu valoración! ❤️
-              </div>
-            ) : (
-              <div className="flex items-center justify-center gap-2">
-                <button
-                  onClick={() => setFeedbackGiven(true)}
-                  className="px-4 py-2 bg-violet-600/20 hover:bg-violet-600/30 text-violet-300 rounded-xl text-xs font-bold border border-violet-500/30 transition-all flex items-center gap-1"
-                >
-                  👍 ¡Sí, me sirvió!
-                </button>
-                <button
-                  onClick={() => setFeedbackGiven(true)}
-                  className="px-3 py-2 bg-zinc-800 hover:bg-zinc-700 text-zinc-400 rounded-xl text-xs font-medium border border-white/5 transition-all"
-                >
-                  👎 Regular
-                </button>
-              </div>
-            )}
-          </div>
-
-          {/* E-E-A-T Quality Guarantee Card */}
-          <div className="bg-gradient-to-br from-zinc-900 via-zinc-950 to-black rounded-3xl p-6 border border-white/10 shadow-2xl space-y-3 text-xs text-zinc-400">
-            <div className="flex items-center gap-2 text-violet-400 font-bold text-sm">
-              <Shield className="w-4 h-4 text-emerald-400" />
-              <span>Metodología y revisión editorial</span>
-            </div>
-            <p className="leading-relaxed">
-              Revisamos periódicamente los caracteres, símbolos y ejemplos incluidos en nuestras herramientas. La compatibilidad puede variar según la plataforma, el dispositivo y futuras actualizaciones de cada servicio.
-            </p>
-            <div className="pt-2.5 border-t border-white/5 space-y-1.5 text-[11px] text-zinc-400">
-              <div className="flex items-center justify-between">
-                <span className="text-zinc-500">Última revisión:</span>
-                <span className="font-semibold text-zinc-300">Septiembre 2026</span>
-              </div>
-              <div className="flex items-center justify-between">
-                <span className="text-zinc-500">Compatibilidad:</span>
-                <span className="font-semibold text-emerald-400">Compatibilidad variable por plataforma</span>
-              </div>
-              <div className="flex items-center justify-between pt-1">
-                <Link to="/politica-de-privacidad" className="text-violet-400 hover:underline">Política de Privacidad</Link>
-                <Link to="/contacto" className="text-violet-400 hover:underline">Soporte Editorial</Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      {children}
 
       {/* Category Sequential Pagination Bar for Google Crawling & UX */}
       <nav aria-label="Navegación de categorías relacionadas" className="max-w-6xl mx-auto my-12 p-6 bg-[#121212] border border-white/5 rounded-3xl flex flex-col sm:flex-row items-center justify-between gap-4">
