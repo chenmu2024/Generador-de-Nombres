@@ -77,16 +77,16 @@ export default function AnimeNamesTool({
     <input
     type="text"
     value={animeBaseName}
-    onChange={(e) = className="gdn-tool-input"> setAnimeBaseName(e.target.value)}
+    onChange={(e) => setAnimeBaseName(e.target.value)}
     placeholder="Ej: Kuro, Akira, Sora, Ren, Kage"
-    className="w-full bg-zinc-900 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-red-500 font-mono"
+    className="gdn-tool-input w-full bg-zinc-900 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-red-500 font-mono"
     />
     </div>
     <div>
     <label className="text-[11px] text-zinc-400 font-bold uppercase block mb-1">2. Sufijo Honorífico Japonés</label>
     <select aria-label="Seleccionar opción" value={animeSuffix}
-    onChange={(e) = className="gdn-tool-input"> setAnimeSuffix(e.target.value)}
-    className="w-full bg-zinc-900 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-red-500 font-mono"
+    onChange={(e) => setAnimeSuffix(e.target.value)}
+    className="gdn-tool-input w-full bg-zinc-900 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-red-500 font-mono"
     >
     <option value="-sama">-sama (様 - Señor / Respeto Supremo)</option>
     <option value="-senpai">-senpai (先輩 - Superior / Guía)</option>
