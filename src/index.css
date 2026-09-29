@@ -470,3 +470,25 @@ body {
     font-size: 0.95rem !important;
   }
 }
+
+
+/* V2.1 Mobile Discovery Finish */
+@media (max-width: 640px) {
+  .gdn-home-quick .gdn-section-label {
+    display: none;
+  }
+
+  .gdn-home-quick,
+  .gdn-home-trends [class*="flex-wrap"] {
+    scroll-snap-type: x proximity;
+  }
+
+  .gdn-home-quick > *,
+  .gdn-home-trends button {
+    scroll-snap-align: start;
+  }
+
+  .gdn-validator-field > span.absolute {
+    z-index: 2;
+  }
+}
