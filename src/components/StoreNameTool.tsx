@@ -65,7 +65,7 @@ export default function StoreNameTool() {
           <button
             key={st.id}
             onClick={() => setActiveTab(st.id)}
-            className={`px-4 py-2.5 rounded-xl font-bold text-xs md:text-sm transition-all active:scale-95 ${
+            className={`gdn-tool-tab px-4 py-2.5 rounded-xl font-bold text-xs md:text-sm transition-all active:scale-95 ${
               activeTab === st.id
                 ? 'bg-amber-500 text-zinc-950 font-black shadow-lg shadow-amber-500/20'
                 : 'bg-zinc-900/80 text-zinc-400 hover:text-white border border-white/5'
