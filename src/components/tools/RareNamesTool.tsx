@@ -7,7 +7,7 @@ export default function RareNamesTool({
   handleCopyTrending,
 }: {
   handleCopyTrending: (value: string) => void;
-} {
+}) {
   const [rareFirstName, setRareFirstName] = useState('Orion');
   const [rareSecondName, setRareSecondName] = useState('Cassian');
   const [rareVibe, setRareVibe] = useState<'mitologia' | 'espacial' | 'antiguo' | 'fantasia'>('mitologia');
