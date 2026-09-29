@@ -96,6 +96,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
   const [favorites, setFavorites] = useState<string[]>([]);
   const [isFavDrawerOpen, setIsFavDrawerOpen] = useState(false);
   const [favCopied, setFavCopied] = useState(false);
+  const [copiedFavorite, setCopiedFavorite] = useState<string | null>(null);
 
   // Load favorites from LocalStorage
   const loadFavorites = () => {
@@ -134,7 +135,17 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
+  useEffect(() => {
+    const shouldLockScroll = isSearchOpen || isFavDrawerOpen || isMenuOpen;
+    if (!shouldLockScroll) return;
 
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [isSearchOpen, isFavDrawerOpen, isMenuOpen]);
 
   const removeFavorite = (nameToRemove: string) => {
     const updated = favorites.filter(f => f !== nameToRemove);
@@ -154,6 +165,14 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
     navigator.clipboard.writeText(favorites.join('\n'));
     setFavCopied(true);
     setTimeout(() => setFavCopied(false), 2000);
+  };
+
+  const copyFavorite = (name: string) => {
+    navigator.clipboard.writeText(name);
+    setCopiedFavorite(name);
+    setTimeout(() => {
+      setCopiedFavorite(current => current === name ? null : current);
+    }, 1600);
   };
 
   // Filter categories and pages for quick search
@@ -569,6 +588,9 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
         <div
           className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex justify-end animate-in fade-in duration-200"
           onClick={() => setIsFavDrawerOpen(false)}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Mis nombres favoritos"
         >
           <div
             className="gdn-surface border-l w-full max-w-md h-full flex flex-col overflow-hidden animate-in slide-in-from-right duration-250"
@@ -641,22 +663,19 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
                     <div className="flex items-center gap-1 shrink-0">
                       <button
                         type="button"
-                        onClick={() => {
-                          navigator.clipboard.writeText(favName);
-                          alert(`¡"${favName}" copiado al portapapeles!`);
-                        }}
-                        aria-label={`Copiar nombre favorito ${favName}`}
-                        className="p-1.5 rounded-lg text-zinc-400 hover:text-violet-300 hover:bg-white/10 transition-colors"
-                        title="Copiar"
+                        onClick={() => copyFavorite(favName)}
+                        aria-label={copiedFavorite === favName ? `Nombre favorito ${favName} copiado` : `Copiar nombre favorito ${favName}`}
+                        className={`p-2.5 rounded-lg transition-colors ${copiedFavorite === favName ? 'text-emerald-400 bg-emerald-500/10' : 'text-zinc-400 hover:text-violet-300 hover:bg-white/10'}`}
+                        title={copiedFavorite === favName ? 'Copiado' : 'Copiar'}
                       >
-                        <Copy className="w-4 h-4" />
-                        <span className="sr-only">Copiar</span>
+                        {copiedFavorite === favName ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+                        <span className="sr-only">{copiedFavorite === favName ? 'Copiado' : 'Copiar'}</span>
                       </button>
                       <button
                         type="button"
                         onClick={() => removeFavorite(favName)}
                         aria-label={`Eliminar nombre favorito ${favName}`}
-                        className="p-1.5 rounded-lg text-zinc-500 hover:text-red-400 hover:bg-red-500/10 transition-colors"
+                        className="p-2.5 rounded-lg text-zinc-500 hover:text-red-400 hover:bg-red-500/10 transition-colors"
                         title="Eliminar"
                       >
                         <Trash2 className="w-4 h-4" />

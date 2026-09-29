@@ -1,8 +1,11 @@
 import { Suspense } from 'react';
 import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 import CategoryPage from '../../views/CategoryPage';
 import SeoGuide from '../../components/SeoGuide';
 import { seoData } from '../../data/seoData';
+
+export const dynamicParams = false;
 
 export async function generateStaticParams() {
   return Object.values(seoData)
@@ -19,11 +22,18 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const resolvedParams = await params;
   const categoryPath = `/${resolvedParams.category}`;
-  const data = Object.values(seoData).find((d) => d.path === categoryPath) || seoData[resolvedParams.category] || seoData.home;
+  const data = Object.values(seoData).find((d) => d.path === categoryPath) || seoData[resolvedParams.category];
 
-  const title = data?.title || 'Generador de Nombres | GeneradorDeNombres.net';
-  const description = data?.metaDescription || 'El mejor generador y creador de nombres, apodos y símbolos Unicode.';
-  const keywords = data?.keywords || 'generador de nombres, apodos, simbolos';
+  if (!data) {
+    return {
+      title: 'Página no encontrada | GDN',
+      robots: { index: false, follow: false },
+    };
+  }
+
+  const title = data.title;
+  const description = data.metaDescription;
+  const keywords = data.keywords;
 
   return {
     title,
@@ -56,7 +66,11 @@ export default async function DynamicCategoryPage({
 }) {
   const resolvedParams = await params;
   const categoryPath = `/${resolvedParams.category}`;
-  const data = Object.values(seoData).find((d) => d.path === categoryPath) || seoData[resolvedParams.category] || seoData.home;
+  const data = Object.values(seoData).find((d) => d.path === categoryPath) || seoData[resolvedParams.category];
+
+  if (!data) {
+    notFound();
+  }
 
   const breadcrumbSchema = {
     '@context': 'https://schema.org',

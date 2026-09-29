@@ -183,6 +183,8 @@ export default function CategoryPage({
       {showToast && (
         <div
           className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 flex items-center gap-2 bg-zinc-800 text-white px-6 py-3 rounded-full shadow-2xl border border-white/10 font-medium animate-in fade-in slide-in-from-bottom-5 duration-200"
+          role="status"
+          aria-live="polite"
         >
           <CheckCircle2 className="w-5 h-5 text-emerald-400" />
           ¡Copiado al portapapeles!
