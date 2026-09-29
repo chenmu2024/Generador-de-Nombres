@@ -318,7 +318,7 @@ export default function CategoryPage({
           {/* Trending 1-Click Copy Bar */}
           <div className="gdn-surface border p-4 sm:p-6 rounded-2xl max-w-4xl mx-auto">
             <div className="flex items-center justify-between mb-3 px-1">
-              <span className="text-xs font-bold text-violet-300 uppercase tracking-wider flex items-center gap-1.5">
+              <span className="text-xs font-bold text-cyan-300 uppercase tracking-wider flex items-center gap-1.5">
                 <Flame className="w-4 h-4 text-amber-400 animate-pulse" /> Apodos y Símbolos Tendencia de Hoy (Copiar en 1-Clic)
               </span>
               <span className="text-[10px] text-zinc-500 hidden sm:inline">Actualizado 2026</span>
@@ -1328,7 +1328,7 @@ export default function CategoryPage({
             <div className="bg-gradient-to-br from-cyan-950/40 via-[#121212] to-violet-950/30 border border-cyan-500/30 rounded-3xl p-8 shadow-2xl relative overflow-hidden space-y-6">
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10">
                 <div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-violet-300 text-xs font-semibold uppercase tracking-wider mb-3">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-xs font-semibold uppercase tracking-wider mb-3">
                     🎮 Creador & Validador de Usuario y Display Name de Roblox (2026)
                   </div>
                   <h2 className="text-2xl md:text-3xl font-bold text-white font-heading flex items-center gap-3">
@@ -1343,7 +1343,7 @@ export default function CategoryPage({
               {/* Interactive Validator & Generator */}
               <div className="bg-zinc-950/90 border border-cyan-500/20 rounded-2xl p-6 relative z-10 space-y-5">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/5 pb-4">
-                  <span className="text-xs font-bold text-violet-300 uppercase tracking-wider flex items-center gap-1.5">
+                  <span className="text-xs font-bold text-amber-300 uppercase tracking-wider flex items-center gap-1.5">
                     <Sparkles className="w-4 h-4 text-cyan-400" /> Validador Oficial de Requisitos de Roblox
                   </span>
                   
@@ -1434,7 +1434,7 @@ export default function CategoryPage({
                         className="p-3 bg-zinc-900/90 hover:bg-cyan-600/20 text-zinc-200 hover:text-white border border-white/10 hover:border-cyan-500/40 rounded-xl text-xs font-mono font-bold transition-all active:scale-95 flex items-center justify-between group"
                       >
                         <span className="truncate">{variant}</span>
-                        <Copy className="w-3.5 h-3.5 text-zinc-500 group-hover:text-violet-300 shrink-0 ml-2" />
+                        <Copy className="w-3.5 h-3.5 text-zinc-500 group-hover:text-cyan-300 shrink-0 ml-2" />
                       </button>
                     ))}
                   </div>
@@ -1463,8 +1463,8 @@ export default function CategoryPage({
                       className="p-3.5 bg-zinc-900/90 hover:bg-cyan-600/20 text-zinc-200 hover:text-white border border-white/10 hover:border-cyan-500/40 rounded-xl text-xs font-mono font-bold transition-all active:scale-95 flex flex-col justify-between gap-1.5 group text-left"
                     >
                       <div className="flex items-center justify-between w-full">
-                        <span className="text-violet-300 font-bold truncate">{item.label}</span>
-                        <Copy className="w-3.5 h-3.5 text-zinc-500 group-hover:text-violet-300 shrink-0" />
+                        <span className="text-cyan-300 font-bold truncate">{item.label}</span>
+                        <Copy className="w-3.5 h-3.5 text-zinc-500 group-hover:text-cyan-300 shrink-0" />
                       </div>
                       <span className="text-[10px] text-zinc-500 font-normal">{item.desc}</span>
                     </button>
@@ -1675,7 +1675,7 @@ export default function CategoryPage({
             <div className="bg-gradient-to-br from-amber-950/30 via-[#121212] to-violet-950/20 border border-amber-500/30 rounded-3xl p-8 shadow-2xl relative overflow-hidden space-y-6">
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10">
                 <div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-violet-300 text-xs font-semibold uppercase tracking-wider mb-3">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-300 text-xs font-semibold uppercase tracking-wider mb-3">
                     💎 Generador Exclusivo de Apodos Únicos (KD 19)
                   </div>
                   <h2 className="text-2xl md:text-3xl font-bold text-white font-heading flex items-center gap-3">
@@ -1709,7 +1709,7 @@ export default function CategoryPage({
                       className="p-3.5 bg-zinc-900/90 hover:bg-amber-500/20 text-zinc-200 hover:text-white border border-white/10 hover:border-amber-500/40 rounded-xl text-xs font-mono font-bold transition-all active:scale-95 flex flex-col justify-between gap-1.5 group text-left"
                     >
                       <div className="flex items-center justify-between w-full">
-                        <span className="text-violet-300 font-bold truncate">{item.label}</span>
+                        <span className="text-amber-300 font-bold truncate">{item.label}</span>
                         <Copy className="w-3.5 h-3.5 text-zinc-500 group-hover:text-violet-300 shrink-0" />
                       </div>
                       <span className="text-[10px] text-zinc-500 font-normal">{item.desc}</span>
@@ -1723,7 +1723,7 @@ export default function CategoryPage({
                 <div className="space-y-1">
                   <div className="flex items-center gap-2">
                     <span className="text-xs font-bold text-amber-400 uppercase tracking-wider">Índice de Exclusividad Estimado</span>
-                    <span className="text-[10px] bg-amber-500/20 text-violet-300 px-2 py-0.5 rounded border border-amber-500/30 font-bold">99% RARO</span>
+                    <span className="text-[10px] bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded border border-amber-500/30 font-bold">99% RARO</span>
                   </div>
                   <p className="text-xs text-zinc-400">
                     Al integrar caracteres Unicode avanzados (como U+3000 o símbolos egipcios 𓆩𓆪), la probabilidad de encontrar un nombre duplicado en Free Fire se reduce a prácticamente cero.
@@ -1883,16 +1883,16 @@ export default function CategoryPage({
                 🎨 Códigos de Colores HEX para Chat y Firma en Free Fire
               </h3>
               <p className="text-xs text-zinc-400">
-                Pega estos códigos entre corchetes antes de tu nombre en la firma o chat del juego para cambiar su color (Ejemplo: <code className="text-violet-300">[FF0000]MiNombre</code> para texto rojo):
+                Pega estos códigos entre corchetes antes de tu nombre en la firma o chat del juego para cambiar su color (Ejemplo: <code className="text-amber-300">[FF0000]MiNombre</code> para texto rojo):
               </p>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">
                 {[
                   { color: 'Rojo Fuego', hex: '[FF0000]', bg: 'bg-red-500/20 text-red-300 border-red-500/30' },
                   { color: 'Amarillo Dorado', hex: '[FFFF00]', bg: 'bg-yellow-500/20 text-yellow-300 border-yellow-500/30' },
-                  { color: 'Verde Neón', hex: '[00FF00]', bg: 'bg-emerald-500/20 text-violet-300 border-emerald-500/30' },
-                  { color: 'Azul Celeste', hex: '[00FFFF]', bg: 'bg-cyan-500/20 text-violet-300 border-cyan-500/30' },
-                  { color: 'Rosa Neón', hex: '[FF00FF]', bg: 'bg-pink-500/20 text-violet-300 border-pink-500/30' },
-                  { color: 'Naranja Épico', hex: '[FF8800]', bg: 'bg-amber-500/20 text-violet-300 border-amber-500/30' }
+                  { color: 'Verde Neón', hex: '[00FF00]', bg: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30' },
+                  { color: 'Azul Celeste', hex: '[00FFFF]', bg: 'bg-cyan-500/20 text-cyan-300 border-cyan-500/30' },
+                  { color: 'Rosa Neón', hex: '[FF00FF]', bg: 'bg-pink-500/20 text-pink-300 border-pink-500/30' },
+                  { color: 'Naranja Épico', hex: '[FF8800]', bg: 'bg-amber-500/20 text-amber-300 border-amber-500/30' }
                 ].map((item, idx) => (
                   <button
                     key={idx}
