@@ -372,10 +372,6 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
               <h4 className="text-xs font-bold text-violet-400 uppercase tracking-wider mb-3 font-heading">📱 Redes Sociales</h4>
               <ul className="space-y-2 text-xs text-zinc-400">
                 <li><Link to="/nombres-instagram" className="hover:text-violet-300 transition-colors">Nombres Instagram</Link></li>
-                <li><Link to="/nombres-tiktok" className="hover:text-violet-300 transition-colors">Nombres TikTok</Link></li>
-                <li><Link to="/nombres-canales-youtube" className="hover:text-violet-300 transition-colors">Canales de YouTube</Link></li>
-                <li><Link to="/nombres-para-podcast" className="hover:text-violet-300 transition-colors">Nombres para Podcast</Link></li>
-                <li><Link to="/simbolos-letras-raras" className="hover:text-violet-300 transition-colors">Letras Raras & Símbolos</Link></li>
               </ul>
             </div>
 
@@ -387,7 +383,6 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
                 <li><Link to="/nombres-de-nino" className="hover:text-violet-300 transition-colors">Nombres de Niño</Link></li>
                 <li><Link to="/nombres-unisex" className="hover:text-violet-300 transition-colors">Nombres Unisex</Link></li>
                 <li><Link to="/nombres-raros" className="hover:text-violet-300 transition-colors">Nombres Raros & Únicos</Link></li>
-                <li><Link to="/generador-apellidos" className="hover:text-violet-300 transition-colors">Generador de Apellidos</Link></li>
               </ul>
             </div>
 
@@ -420,9 +415,6 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
               <ul className="space-y-2 text-xs text-zinc-400">
                 <li><Link to="/nombres-para-tiendas" className="hover:text-violet-300 transition-colors">Nombres para Tiendas</Link></li>
                 <li><Link to="/nombres-equipos-futbol" className="hover:text-violet-300 transition-colors">Equipos de Fútbol</Link></li>
-                <li><Link to="/nombres-bandas-rock" className="hover:text-violet-300 transition-colors">Bandas de Rock</Link></li>
-                <li><Link to="/nombres-superheroes" className="hover:text-violet-300 transition-colors">Superhéroes</Link></li>
-                <li><Link to="/nombres-barcos" className="hover:text-violet-300 transition-colors">Nombres de Barcos</Link></li>
                 <li><Link to="/nombres-por-letra" className="hover:text-violet-300 transition-colors">Directorio A-Z</Link></li>
               </ul>
             </div>
