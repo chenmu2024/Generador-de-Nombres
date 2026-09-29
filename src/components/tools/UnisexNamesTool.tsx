@@ -7,7 +7,7 @@ export default function UnisexNamesTool({
   handleCopyTrending,
 }: {
   handleCopyTrending: (value: string) => void;
-} {
+}) {
   const [unisexFirstName, setUnisexFirstName] = useState('Alex');
   const [unisexSecondName, setUnisexSecondName] = useState('Morgan');
   const [unisexVibe, setUnisexVibe] = useState<'moderno' | 'naturaleza' | 'elegante' | 'mistico'>('moderno');
