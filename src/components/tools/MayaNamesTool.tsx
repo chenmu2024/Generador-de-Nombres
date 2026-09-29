@@ -104,7 +104,7 @@ export default function MayaNamesTool({
     </div>
     
     {/* Styled Output Preview */}
-    <div className="bg-gradient-to-b from-emerald-950/40 via-zinc-950 to-zinc-950 border border-emerald-500/30 rounded-2xl p-5 flex flex-col justify-between items-center text-center shadow-xl">
+    <div className="gdn-tool-result bg-gradient-to-b from-emerald-950/40 via-zinc-950 to-zinc-950 border border-emerald-500/30 rounded-2xl p-5 flex flex-col justify-between items-center text-center shadow-xl">
     <div>
     <div className="text-xs text-emerald-400 font-bold uppercase tracking-widest mb-2">Identidad Sagrada Maya</div>
     <div className="text-3xl font-extrabold text-emerald-300 font-heading mb-2">
