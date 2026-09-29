@@ -42,10 +42,10 @@ export default function PrivacyPolicy() {
           <section className="space-y-3">
             <h2 className="text-xl font-bold text-white flex items-center gap-2">
               <Eye className="w-5 h-5 text-emerald-400" />
-              2. Cookies de Publicidad y Google AdSense
+              2. Cookies de Publicidad y servicios publicitarios, si se habilitan
             </h2>
             <p>
-              Nuestra plataforma utiliza proveedores de terceros, incluido <strong>Google AdSense</strong>, para mostrar anuncios publicitarios relevantes cuando visitas nuestro sitio web:
+              Nuestra plataforma utiliza proveedores de terceros, incluido <strong>servicios publicitarios, si se habilitan</strong>, para mostrar anuncios publicitarios relevantes cuando visitas nuestro sitio web:
             </p>
             <ul className="list-disc list-inside space-y-1 pl-2 text-zinc-400">
               <li>Google utiliza cookies (como la cookie de DART) para mostrar anuncios basados en las visitas previas del usuario a este u otros sitios de Internet.</li>

@@ -66,7 +66,7 @@ export const seoData: Record<string, CategoryData> = {
     subtitle: 'Crea nombres insanos, espacios invisibles, V de Verificado Ⓥ y apodos para clanes, dúos y chicas en FF.',
     seoText: `
       <h2>Los Mejores Nombres para Free Fire en 2026 (Apodos Insanos y Épicos)</h2>
-      <p>Destacar en Free Fire (FF) empieza antes de caer del avión: tu nickname o apodo es tu carta de presentación ante tus rivales y tu escuadra. Ya sea que busques un <strong>nombre insano que dé miedo</strong>, un nombre con <strong>espacio invisible Unicode (U+3164)</strong>, el icono <strong>V de Verificado (Ⓥ)</strong>, o combinaciones para <strong>dúos dinámicos y clanes nivel 10</strong>, nuestro generador en vivo crea opciones 100% compatibles con la regla de los 12 caracteres de Garena.</p>
+      <p>Destacar en Free Fire (FF) empieza antes de caer del avión: tu nickname o apodo es tu carta de presentación ante tus rivales y tu escuadra. Ya sea que busques un <strong>nombre insano que dé miedo</strong>, un nombre con <strong>espacio invisible Unicode (U+3164)</strong>, el icono <strong>V de Verificado (Ⓥ)</strong>, o combinaciones para <strong>dúos dinámicos y clanes nivel 10</strong>, nuestro generador crea variantes adaptadas a nombres cortos; los límites y caracteres admitidos pueden cambiar según la versión del juego.</p>
       
       <h3>Guía Rápida: Estilos de Nombres para Free Fire Más Buscados</h3>
       <p>A continuación te mostramos las combinaciones más populares clasificadas por estilo e intención en partida:</p>
@@ -121,9 +121,9 @@ export const seoData: Record<string, CategoryData> = {
 
       <h3>Reglas Oficiales de Longitud de Nombres en Free Fire</h3>
       <ul>
-        <li><strong>Límite de Caracteres:</strong> Máximo 12 caracteres en total (incluyendo símbolos y espacios invisibles).</li>
+        <li><strong>Longitud del apodo:</strong> Comprueba el límite que muestra tu versión de Free Fire antes de confirmar, ya que las reglas pueden cambiar.</li>
         <li><strong>Símbolos Permitidos:</strong> Caracteres Unicode especiales (꧁, ꧂, ⚡, ☠︎, 👑, ✿, ☬, ⚔️, ☯︎, ★, ♥, ✨, 🔥, ツ, ×͜×, Ⓥ, ╰‿╯).</li>
-        <li><strong>Costo de Cambio:</strong> Cambiar de nombre cuesta 390 Diamantes o 1 Tarjeta de Cambio de Nombre (Name Change Card).</li>
+        <li><strong>Cambio de nombre:</strong> El coste y los métodos disponibles pueden variar; confirma siempre lo que muestra tu cuenta dentro del juego.</li>
       </ul>
     `,
     metaDescription: 'Lista de nombres para Free Fire con símbolos y letras raras. Encuentra apodos insanos, chidos, de mujer y clanes para destacar en tu juego.',
@@ -137,7 +137,7 @@ export const seoData: Record<string, CategoryData> = {
       },
       {
         question: "¿Cuál es el límite de letras para los nombres en Free Fire?",
-        answer: "Free Fire permite un máximo estricto de 12 caracteres en el nickname (contando letras, números, símbolos y espacios invisibles). Nuestro generador incluye un contador automático para asegurarte de que tu nombre no exceda este límite."
+        answer: "El juego puede aplicar límites de longitud y de caracteres según la versión. Usa el contador del generador como referencia y confirma el resultado en el campo de apodo antes de guardar."
       },
       {
         question: "¿Cómo pongo la V de Verificado (Ⓥ) en mi perfil de Free Fire?",
@@ -145,7 +145,7 @@ export const seoData: Record<string, CategoryData> = {
       },
       {
         question: "¿Cuánto cuesta cambiar de nombre en Free Fire?",
-        answer: "Cambiar tu nombre en Free Fire cuesta 390 Diamantes. También puedes comprar o canjear una 'Tarjeta de Cambio de Nombre' en la tienda del juego o mediante eventos de clan."
+        answer: "El coste y los métodos para cambiar el apodo pueden variar con el tiempo. Revisa el precio y las opciones que aparecen en tu cuenta antes de confirmar."
       },
       {
         question: "¿Es gratis usar este creador de nombres para Free Fire?",
@@ -444,7 +444,7 @@ export const seoData: Record<string, CategoryData> = {
       },
       {
         question: "¿Puedo usar estos nombres para clanes de eSports o EA Sports FC / FIFA / eFootball?",
-        answer: "¡Totalmente! Todos los nombres generados son 100% compatibles con EA Sports FC Ultimate Team, eFootball, Liga Master y clanes de eSports en Free Fire, PUBG o Rocket League."
+        answer: "Los nombres generados son texto Unicode, pero cada juego o plataforma aplica sus propias reglas de longitud y caracteres permitidos. Conviene comprobar el nombre antes de guardarlo."
       }
     ]
   },
@@ -570,7 +570,7 @@ export const seoData: Record<string, CategoryData> = {
     subtitle: 'Descubre los nombres para perritas y cachorras más bonitos, cortos y fáciles de recordar. Incluye significados por personalidad, audio de llamado canino y creador de placas.',
     seoText: `
       <h2>Los Mejores Nombres para Perritas, Cachorras y Mascotas Femeninas (2026)</h2>
-      <p>La llegada de una nueva cachorra a la familia es un momento inolvidable repleto de ternura y felicidad. Elegir su nombre es una decisión trascendental que reforzará el vínculo afectivo y facilitará su educación diaria. Especialistas en etología canina y adiestradores profesionales recomiendan seleccionar nombres cortos de 2 sílabas con terminación en vocal abierta (como <em>Luna, Kira, Nala, Maya, Lola, Bella, Chloe, Pipa, Mimi</em> o <em>Sasha</em>), ya que las perritas los diferencian y memorizan con extrema rapidez.</p>
+      <p>La llegada de una nueva cachorra a la familia es un momento inolvidable repleto de ternura y felicidad. Elegir un nombre corto y fácil de pronunciar también resulta práctico para el llamado diario. Muchas familias prefieren opciones de dos sílabas, como <em>Luna, Kira, Nala, Maya, Lola, Bella, Chloe, Pipa, Mimi</em> o <em>Sasha</em>, porque son rápidas de decir y fáciles de repetir de forma consistente.</p>
 
       <h3>Categorías Principales de Nombres para Perritas</h3>
       <p>Observa el aspecto físico y el temperamento único de tu perrita para encontrar la opción ideal:</p>
@@ -658,7 +658,7 @@ export const seoData: Record<string, CategoryData> = {
     faqs: [
       {
         question: "¿Cuántas sílabas debe tener el nombre ideal de una perrita?",
-        answer: "La recomendación de etólogos es de 2 sílabas. Las palabras de una sola sílaba se confunden fácilmente con comandos cortos y las de 3 o más resultan más difíciles de procesar velozmente."
+        answer: "Los nombres de dos sílabas son una opción práctica porque suelen ser rápidos de pronunciar y repetir. No es una regla estricta: lo más importante es usar el nombre de forma consistente."
       },
       {
         question: "¿Cuáles son los nombres de perrita más elegidos en 2026?",
@@ -1024,7 +1024,7 @@ export const seoData: Record<string, CategoryData> = {
     subtitle: 'Descubre los nombres para michis más bonitos, cortos y graciosos. Incluye significados por tipo de pelaje, audio de llamado felino y creador de placas.',
     seoText: `
       <h2>Los Mejores Nombres para Gatos, Gatitas y Gatitos Recién Nacidos (2026)</h2>
-      <p>Elegir el nombre perfecto para un gato o gatita es un momento mágico e inolvidable. A diferencia de otros animales, la capacidad auditiva felina es sumamente aguda y sensible a las frecuencias elevadas e instintivas. Etólogos felinos y veterinarios recomiendan seleccionar nombres cortos de 2 sílabas que contengan vocales claras (como "i" u "o") y consonantes suaves (como <em>Mochi, Simba, Salem, Kira, Felix, Luna, Mimi, Garfield</em> o <em>Nieve</em>), permitiendo que el michi reconozca su nombre de inmediato.</p>
+      <p>Elegir el nombre perfecto para un gato o gatita es un momento mágico e inolvidable. Para el uso cotidiano suelen ser cómodos los nombres cortos y fáciles de repetir. Opciones como <em>Mochi, Simba, Salem, Kira, Felix, Luna, Mimi, Garfield</em> o <em>Nieve</em> funcionan bien como inspiración porque se pronuncian con rapidez y tienen sonidos claramente diferenciables.</p>
 
       <h3>Categorías Principales de Nombres Felinos</h3>
       <p>El aspecto físico y el carácter único de tu felino son la mejor fuente de inspiración:</p>
@@ -1267,7 +1267,7 @@ export const seoData: Record<string, CategoryData> = {
     subtitle: 'Descubre los mejores nombres para gatos machos y gatitos recién nacidos. Incluye significados por personalidad, tabla de estilos, audio interactivo de llamado felino y creador de placas.',
     seoText: `
       <h2>Los Mejores Nombres para Gatos Machos y Gatitos Recién Nacidos (2026)</h2>
-      <p>Dar la bienvenida a un gato macho a la familia es una experiencia emocionante e inolvidable. Ya sea un inquieto gatito atigrado, un cariñoso michi naranja o una elegante panterita negra, encontrar un nombre que refleje su temperamento, agilidad y personalidad es fundamental. Estudios de etología felina señalan que los gatos machos aprenden rápidamente nombres de 2 sílabas con vocales claras y consonantes resonantes (como <em>Simba, Loki, Milo, Thor, Zeus, Felix, Oliver, Salem, Nacho</em> o <em>Chester</em>).</p>
+      <p>Dar la bienvenida a un gato macho a la familia es una experiencia emocionante e inolvidable. Ya sea un inquieto gatito atigrado, un cariñoso michi naranja o una elegante panterita negra, encontrar un nombre que refleje su temperamento, agilidad y personalidad es fundamental. Para el llamado diario suelen resultar prácticos los nombres cortos y fáciles de repetir, como <em>Simba, Loki, Milo, Thor, Zeus, Felix, Oliver, Salem, Nacho</em> o <em>Chester</em>.</p>
 
       <h3>1. Clasificación de Nombres para Gatos Machos Según su Personalidad y Pelaje</h3>
       <p>Observa el comportamiento y los rasgos de tu felino para elegir el nombre perfecto:</p>
@@ -1495,14 +1495,14 @@ export const seoData: Record<string, CategoryData> = {
   'espacios-invisible-ff': {
     id: 'espacios-invisible-ff',
     path: '/espacios-invisible-ff',
-    title: 'Espacio Invisible para Free Fire - Copiar U+3000 | GDN',
+    title: 'Espacio Invisible Free Fire - Copiar U+3164 | GDN',
     h1: 'Generador y Copiador de Espacio Invisible para Free Fire',
-    subtitle: 'Copia en 1 clic el espacio en blanco transparente (Unicode U+3000) para nombres de usuario, clanes y nicks invisibles en FF.',
+    subtitle: 'Copia Hangul Filler (U+3164), U+1160 y el espacio ideográfico U+3000 para probar separaciones Unicode en nombres y clanes.',
     seoText: `
       <h2>El Mejor Generador y Copiador de Espacio Invisible para Free Fire</h2>
-      <p>El <strong>espacio invisible para Free Fire</strong> (también conocido como <em>letra transparente</em>, <em>espacio en blanco Unicode</em> o <em>código transparente</em>) es el carácter indispensable si quieres separar el tag de tu clan de tu nombre en el juego (por ejemplo: <code>TM ㅤ INSANO</code>) o crear un <strong>nickname 100% invisible o fantasma</strong>.</p>
+      <p>El <strong>espacio invisible para Free Fire</strong> (también conocido como <em>letra transparente</em>, <em>espacio en blanco Unicode</em> o <em>código transparente</em>) puede servir para separar el tag de tu clan de tu nombre cuando tu versión del juego admite ese carácter (por ejemplo: <code>TM ㅤ INSANO</code>) o crear un <strong>nickname 100% invisible o fantasma</strong>.</p>
       
-      <p>Garena Free Fire bloquea la barra espaciadora predeterminada del teclado Android e iOS. Por esa razón, necesitas utilizar el carácter especial <strong>Unicode U+3000 (Hangul Filler)</strong> o <strong>U+3164</strong>, el cual el motor del juego procesa como una letra válida pero renderiza de forma totalmente invisible.</p>
+      <p>Garena Free Fire bloquea la barra espaciadora predeterminada del teclado Android e iOS. Por esa razón, necesitas utilizar el carácter especial <strong>Unicode U+3164 (Hangul Filler)</strong>, <strong>U+1160 (Hangul Jungseong Filler)</strong> o <strong>U+3000 (Ideographic Space)</strong>, el cual el motor del juego procesa como una letra válida pero renderiza de forma totalmente invisible.</p>
 
       <h3>Opciones de Espacio Invisible para Copiar (1-Clic)</h3>
       <div class="overflow-x-auto not-prose mb-8 mt-4">
@@ -1516,23 +1516,23 @@ export const seoData: Record<string, CategoryData> = {
           </thead>
           <tbody class="text-zinc-300 divide-y divide-white/5">
             <tr class="hover:bg-white/5 transition-colors">
-              <td class="py-3 px-4 font-bold text-violet-300">Espacio Mediano (Recomendado)</td>
-              <td class="py-3 px-4 font-mono text-amber-300">U+3000</td>
+              <td class="py-3 px-4 font-bold text-violet-300">Hangul Filler</td>
+              <td class="py-3 px-4 font-mono text-amber-300">U+3164</td>
               <td class="py-3 px-4 font-medium text-zinc-100">Separar tag de clan y apodo en nick de 12 caracteres.</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
-              <td class="py-3 px-4 font-bold text-violet-300">Espacio Pequeño / Transparente</td>
-              <td class="py-3 px-4 font-mono text-amber-300">U+3164</td>
+              <td class="py-3 px-4 font-bold text-violet-300">Hangul Jungseong Filler</td>
+              <td class="py-3 px-4 font-mono text-amber-300">U+1160</td>
               <td class="py-3 px-4 font-medium text-zinc-100">Separación estrecha en firmas de perfil o biografía.</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
-              <td class="py-3 px-4 font-bold text-violet-300">Espacio Doble / Ancho</td>
-              <td class="py-3 px-4 font-mono text-amber-300">U+3000 x2</td>
+              <td class="py-3 px-4 font-bold text-violet-300">Espacio Ideográfico</td>
+              <td class="py-3 px-4 font-mono text-amber-300">U+3000</td>
               <td class="py-3 px-4 font-medium text-zinc-100">Separación amplia en apodos de 2 palabras.</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
-              <td class="py-3 px-4 font-bold text-violet-300">Espacio Triple (Nombre Fantasma)</td>
-              <td class="py-3 px-4 font-mono text-amber-300">U+3000 x3</td>
+              <td class="py-3 px-4 font-bold text-violet-300">Hangul Filler Doble</td>
+              <td class="py-3 px-4 font-mono text-amber-300">U+3164 x2</td>
               <td class="py-3 px-4 font-medium text-zinc-100">Nick completamente invisible en partida y Kill Feed.</td>
             </tr>
           </tbody>
@@ -1545,7 +1545,7 @@ export const seoData: Record<string, CategoryData> = {
         <li>Abre el juego <strong>Free Fire</strong> o <strong>Free Fire MAX</strong> en tu dispositivo móvil.</li>
         <li>Dirígete a tu <strong>Perfil de Jugador</strong> (esquina superior izquierda) y presiona el ícono del lápiz amarillo de edición.</li>
         <li>Mantiene presionado el cuadro de texto de "Apodo Nuevo" y selecciona <strong>Pegar</strong>.</li>
-        <li>Confirma los cambios gastando 390 Diamantes o 1 Tarjeta de Cambio de Nombre.</li>
+        <li>Confirma el cambio usando el método y coste que muestre tu cuenta en ese momento.</li>
       </ol>
 
       <h3>Plantillas de Nombres con Espacio Invisible Listas para Copiar</h3>
@@ -1558,18 +1558,18 @@ export const seoData: Record<string, CategoryData> = {
         <li><code>🌸 ㅤ A i t a n a</code> (Aesthetic con espacio transparente)</li>
       </ul>
     `,
-    metaDescription: 'Copia gratis el espacio invisible para Free Fire (Unicode U+3000). Carácter transparente compatible para nombres, clanes y apodos invisibles.',
-    keywords: 'espacio invisible free fire, espacios para nombres de free fire, letra invisible free fire, espacio en blanco free fire, copiar espacio invisible ff, unicode u+3000 free fire, nombre invisible free fire',
+    metaDescription: 'Copia caracteres invisibles Unicode para Free Fire: Hangul Filler U+3164, U+1160 y espacio ideográfico U+3000. Prueba cuál admite tu versión.',
+    keywords: 'espacio invisible free fire, letra invisible free fire, copiar espacio invisible ff, unicode u+3164 free fire, unicode u+3000 free fire, nombre invisible free fire',
     defaultName: 'NOOB ㅤ KING',
     customSymbols: ["ㅤ", "ᅠ", " ", " ", " ", " ", "⚡", "👑", "☠︎", "Ⓥ", "亗", "×͜×", "🌸"],
     faqs: [
       {
         question: "¿Por qué no funciona la barra espaciadora normal en Free Fire?",
-        answer: "Free Fire bloquea el espacio en blanco estándar (ASCII 32) en los apodos de usuario. Para separar palabras debes usar el carácter especial Unicode (U+3000) que el juego procesa como una letra legítima pero transparente."
+        answer: "Free Fire puede rechazar el espacio ASCII normal en algunos campos. Hangul Filler (U+3164) es una alternativa frecuente, aunque la compatibilidad puede variar según la versión del juego."
       },
       {
         question: "¿Me pueden banear por usar espacio invisible en Free Fire?",
-        answer: "No, no hay ningún riesgo de baneo. El espacio invisible es un carácter tipográfico Unicode legítimo (Hangul Filler) 100% soportado por Android, iOS y Garena Free Fire."
+        answer: "Hangul Filler es un carácter Unicode legítimo, pero las reglas sobre nombres especiales dependen de Garena y pueden cambiar. Revisa las normas vigentes y confirma que tu versión del juego acepte el carácter."
       },
       {
         question: "¿Cómo poner un nombre 100% invisible o transparente en Free Fire?",
@@ -1651,7 +1651,7 @@ export const seoData: Record<string, CategoryData> = {
     faqs: [
       {
         question: "¿Cómo saber si un nombre para Free Fire ya está registrado?",
-        answer: "Puedes comprobarlo directamente en la tienda del juego al usar una Tarjeta de Cambio de Nombre o intentando añadir a ese jugador mediante la barra de búsqueda de amigos. Si el juego responde 'Jugador no encontrado', el nombre está 100% disponible."
+        answer: "Puedes comprobarlo directamente en la tienda del juego al usar una Tarjeta de Cambio de Nombre o intentando añadir a ese jugador mediante la barra de búsqueda de amigos. Si el juego no encuentra al jugador, tómalo solo como una señal orientativa: la disponibilidad real se confirma al intentar guardar el apodo."
       },
       {
         question: "¿Por qué los nombres de 3 letras son los más cotizados en Free Fire?",
@@ -1663,7 +1663,7 @@ export const seoData: Record<string, CategoryData> = {
       },
       {
         question: "¿Qué pasa si uso un símbolo no compatible con mi celular?",
-        answer: "Si un símbolo no es soportado por el teclado de tu sistema operativo (Android/iOS), se mostrará como un cuadro con signo de interrogación [?]. Todos los símbolos incluidos en nuestra herramienta han sido probados y verificados como 100% compatibles con la app de Garena Free Fire."
+        answer: "Si un símbolo no es soportado por el teclado de tu sistema operativo (Android/iOS), se mostrará como un cuadro con signo de interrogación [?]. Los símbolos incluidos se ofrecen como opciones Unicode para probar; su compatibilidad puede variar según la versión de Free Fire, el dispositivo y futuras actualizaciones."
       }
     ]
   },
@@ -1844,7 +1844,7 @@ export const seoData: Record<string, CategoryData> = {
       },
       {
         question: "¿Puedo usar estos nombres de anime en Discord, Roblox y Free Fire?",
-        answer: "Sí. Todos los nombres y tipografías generados por nuestra herramienta utilizan fuentes estándar Unicode, 100% compatibles con los apodos de servidores de Discord, Display Names de Roblox, firmas de Free Fire y perfiles de Genshin Impact."
+        answer: "Sí. Todos los nombres y tipografías generados por nuestra herramienta utilizan fuentes estándar Unicode, diseñadas para Unicode y pueden funcionar en muchas plataformas, aunque cada servicio puede filtrar o normalizar ciertos caracteres."
       },
       {
         question: "¿Cómo poner la flor de cerezo (🌸) o la puerta Torii (⛩️) en mi nombre?",
@@ -2297,7 +2297,7 @@ export const seoData: Record<string, CategoryData> = {
       },
       {
         question: "¿Existen nombres unisex inspirados en la naturaleza?",
-        answer: "Sí, nombres como Sol, River, Sky, Eden, Vega, Cruz, Iris, Nieve, Jade y Boreal provienen de elementos naturales y celestiales, siendo 100% neutros e inspiradores."
+        answer: "Sí, nombres como Sol, River, Sky, Eden, Vega, Cruz, Iris, Nieve, Jade y Boreal provienen de elementos naturales y celestiales, y suelen utilizarse como opciones unisex."
       }
     ]
   },
@@ -3472,7 +3472,7 @@ export const seoData: Record<string, CategoryData> = {
     subtitle: 'Descubre los mejores nombres para perros machos, perritos y cachorros. Incluye significados por personalidad y tamaño, tabla comparativa, audio de llamado interactivo y creador de placas.',
     seoText: `
       <h2>Los Mejores Nombres para Perros Machos y Cachorros (2026)</h2>
-      <p>Elegir el nombre ideal para un perro macho es uno de los primeros pasos para consolidar una relación de lealtad, liderazgo y cariño indiscutible. Ya sea un imponente Pastor Alemán, un activo Golden Retriever, un protector Pitbull o un cariñoso mestizo, seleccionar un nombre sonoro y fácil de comprender facilitará su adiestramiento y comunicación cotidiana. Expertos en etología canina recomiendan nombres cortos de 2 sílabas con vocales claras y consonantes firmes (como <em>Max, Thor, Rocky, Toby, Bruno, Zeus, Coco, Duke, Milo, Leo</em> o <em>Ares</em>).</p>
+      <p>Elegir el nombre ideal para un perro macho es uno de los primeros pasos para consolidar una relación de lealtad, liderazgo y cariño indiscutible. Ya sea un imponente Pastor Alemán, un activo Golden Retriever, un protector Pitbull o un cariñoso mestizo, seleccionar un nombre sonoro y fácil de comprender facilitará su adiestramiento y comunicación cotidiana. Para el uso cotidiano, muchas personas prefieren nombres cortos y fáciles de repetir, como <em>Max, Thor, Rocky, Toby, Bruno, Zeus, Coco, Duke, Milo, Leo</em> o <em>Ares</em>.</p>
 
       <h3>Categorías Principales de Nombres para Perros Machos</h3>
       <p>Explora ideas organizadas según el temperamento, porte y tamaño de tu compañero:</p>
@@ -3653,9 +3653,9 @@ export const seoData: Record<string, CategoryData> = {
         </table>
       </div>
 
-      <h3>Consejos Clave de Adiestramiento y Etología para Perritas Chihuahua</h3>
+      <h3>Consejos Prácticos para Elegir y Usar el Nombre de tu Chihuahua</h3>
       <ol>
-        <li><strong>Brevedad Auditiva Ideal:</strong> Selecciona nombres de máximo 2 sílabas terminados en vocales abiertas como "a" u "i" (<em>Chispita, Mimi, Lola, Frida, Chloe</em>).</li>
+        <li><strong>Nombre corto y práctico:</strong> Las opciones de una o dos palabras, como <em>Chispita, Mimi, Lola, Frida</em> o <em>Chloe</em>, suelen ser cómodas para repetir durante el día.</li>
         <li><strong>Tono de Voz Estimulante:</strong> Utiliza nuestro simulador de audio interactivo arriba para escuchar la articulación limpia en un tono agudo, alegre y amigable.</li>
         <li><strong>Refuerzo Positivo Constante:</strong> Premia inmediatamente cada respuesta positiva con una pequeña croqueta o una caricia bajo su barbilla para afianzar el llamado.</li>
       </ol>
@@ -3667,7 +3667,7 @@ export const seoData: Record<string, CategoryData> = {
     faqs: [
       {
         question: "¿Por qué los nombres cortos de 2 sílabas son mejores para perritas chihuahua?",
-        answer: "Los chihuahuas perciben las frecuencias agudas con extrema rapidez. Un nombre de 2 sílabas evita que la perrita se distraiga y le permite reconocer su llamado de inmediato entre el ruido ambiental."
+        answer: "Los nombres de dos sílabas son una opción práctica porque suelen ser fáciles de pronunciar y repetir. No es una regla estricta: elige uno que tu familia pueda usar de forma consistente."
       },
       {
         question: "¿Cuáles son los nombres más elegidos para perritas chihuahua en 2026?",
@@ -3683,118 +3683,7 @@ export const seoData: Record<string, CategoryData> = {
       }
     ]
   },
-  'nombres-perritas-chihuahua': {
-    id: 'nombres-perritas-chihuahua',
-    path: '/nombres-perritas-chihuahua',
-    title: 'Nombres para Perritas Chihuahua Tiernas | GDN',
-    h1: 'Generador de Nombres para Perritas Chihuahua: Tiernas, Diminutas y Originales',
-    subtitle: 'Descubre los nombres más adorables, pequeños y con encanto para cachorritas de raza Chihuahua (cabeza de manzana o de ciervo). Incluye guía por tamaño, personalidad, audio de llamado interactivo y creador de placas.',
-    seoText: `
-      <h2>Los Mejores Nombres para Perritas Chihuahua, Cachorras y Tacita de Té (2026)</h2>
-      <p>Las perritas Chihuahua son conocidas en todo el mundo por su diminuto tamaño, sus expresivos ojos brillantes, sus grandes orejitas erguidas y una personalidad gigante repletas de valentía, lealtad y ternura indiscutible. Ya sea una chihuahua con cabeza de manzana, cabeza de ciervo, de pelo corto o de pelo largo (tipo "Toy" o "Teacup"), elegir un nombre dulce y fácil de recordar reforzará su entrenamiento y aprendizaje diario.</p>
 
-      <h3>Categorías Principales de Nombres para Chihuahuas</h3>
-      <p>Encuentra la opción que mejor combine con las características únicas de tu cachorrita:</p>
-      <ul>
-        <li><strong>Nombres Diminutos y Tiernos (Especial Tacita de Té / Teacup):</strong> <em>Chispita, Chiquita, Mimi, Perlita, Pipa, Mochi, Bambi, Copito, Porotita, Botón, Galletita</em> y <em>Lulu</em>.</li>
-        <li><strong>Nombres Mexicanos y Tradicionales con Carácter:</strong> <em>Frida, Canela, Lola, Lupe, Chilindrina, Maya, Paloma, Sol, Guayaba, Nieve</em> y <em>Tequila</em>.</li>
-        <li><strong>Nombres Coquetos y Elegantes (Princesas de Hogar):</strong> <em>Bella, Chloe, Princesa, Daisy, Molly, Chanel, Paris, Sofía, Cleo, Luna, Valentina</em> y <em>Fifi</em>.</li>
-      </ul>
-
-      <h3>Tabla Comparativa: Nombre para Chihuahua, Variedad, Significado y Placa Recomendada</h3>
-      <div class="overflow-x-auto not-prose mb-8 mt-4">
-        <table class="min-w-full text-left border-collapse rounded-2xl overflow-hidden border border-white/10 bg-zinc-900/60">
-          <thead>
-            <tr class="bg-indigo-950/60 text-indigo-200 border-b border-white/10">
-              <th class="py-3.5 px-4 font-bold">Nombre para Chihuahua</th>
-              <th class="py-3.5 px-4 font-bold">Estilo / Variedad</th>
-              <th class="py-3.5 px-4 font-bold">Significado Profundo</th>
-              <th class="py-3.5 px-4 font-bold">Placa / Apodo Recomendado</th>
-            </tr>
-          </thead>
-          <tbody class="text-zinc-300 divide-y divide-white/5">
-            <tr class="hover:bg-white/5 transition-colors">
-              <td class="py-3 px-4 font-bold text-indigo-400">Chispita</td>
-              <td class="py-3 px-4 text-zinc-300">Diminuta / Activa</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Rayo de luz diminuto, llena de energía, chispa y viva alegría.</td>
-              <td class="py-3 px-4 font-mono text-indigo-300">🎀 Chispita ✨</td>
-            </tr>
-            <tr class="hover:bg-white/5 transition-colors">
-              <td class="py-3 px-4 font-bold text-indigo-400">Chiquita</td>
-              <td class="py-3 px-4 text-zinc-300">Tipo Teacup / Tierna</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Pequeñita de enorme corazón, la consentida y mimada del hogar.</td>
-              <td class="py-3 px-4 font-mono text-indigo-300">🐾 Chiquita 💖</td>
-            </tr>
-            <tr class="hover:bg-white/5 transition-colors">
-              <td class="py-3 px-4 font-bold text-indigo-400">Mimi</td>
-              <td class="py-3 px-4 text-zinc-300">Cabeza de Manzana</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Princesa suave, dulce amor, tierno afecto e inseparable.</td>
-              <td class="py-3 px-4 font-mono text-indigo-300">👑 Mimi 🌸</td>
-            </tr>
-            <tr class="hover:bg-white/5 transition-colors">
-              <td class="py-3 px-4 font-bold text-indigo-400">Perlita</td>
-              <td class="py-3 px-4 text-zinc-300">Pelo Corto / Claro</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Joya diminuta del océano, pureza, brillo y radiante elegancia.</td>
-              <td class="py-3 px-4 font-mono text-indigo-300">💎 Perlita ✨</td>
-            </tr>
-            <tr class="hover:bg-white/5 transition-colors">
-              <td class="py-3 px-4 font-bold text-indigo-400">Canela</td>
-              <td class="py-3 px-4 text-zinc-300">Pelaje Café / Golondrino</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Aroma cálido, dulzura especiada, mirada tierna y cariñosa.</td>
-              <td class="py-3 px-4 font-mono text-indigo-300">🍪 Canela 🐾</td>
-            </tr>
-            <tr class="hover:bg-white/5 transition-colors">
-              <td class="py-3 px-4 font-bold text-indigo-400">Frida</td>
-              <td class="py-3 px-4 text-zinc-300">Cabeza de Ciervo / Valiente</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Princesa de la paz, espíritu valiente, artístico y noble.</td>
-              <td class="py-3 px-4 font-mono text-indigo-300">🎨 Frida 👑</td>
-            </tr>
-            <tr class="hover:bg-white/5 transition-colors">
-              <td class="py-3 px-4 font-bold text-indigo-400">Bella</td>
-              <td class="py-3 px-4 text-zinc-300">Coqueta / Pelo Largo</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Hermosa, de encanto deslumbrante, ojos expresivos y gracia.</td>
-              <td class="py-3 px-4 font-mono text-indigo-300">🎀 Bella 💗</td>
-            </tr>
-            <tr class="hover:bg-white/5 transition-colors">
-              <td class="py-3 px-4 font-bold text-indigo-400">Lola</td>
-              <td class="py-3 px-4 text-zinc-300">Extrovertida / Audaz</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Alegre, firme carácter, llena de dinamismo y siempre alerta.</td>
-              <td class="py-3 px-4 font-mono text-indigo-300">💕 Lola 🦴</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <h3>Consejos Clave de Adiestramiento y Etología para Perritas Chihuahua</h3>
-      <ol>
-        <li><strong>Brevedad Auditiva Ideal:</strong> Selecciona nombres de máximo 2 sílabas terminados en vocales abiertas como "a" u "i" (<em>Chispita, Mimi, Lola, Frida, Chloe</em>).</li>
-        <li><strong>Tono de Voz Estimulante:</strong> Utiliza nuestro simulador de audio interactivo arriba para escuchar la articulación limpia en un tono agudo, alegre y amigable.</li>
-        <li><strong>Refuerzo Positivo Constante:</strong> Premia inmediatamente cada respuesta positiva con una pequeña croqueta o una caricia bajo su barbilla para afianzar el llamado.</li>
-      </ol>
-    `,
-    metaDescription: 'Lista de nombres para perritas chihuahua. Ideas tiernas, diminutas, coquetas, mexicanas, con audio interactivo y creador de placas.',
-    keywords: 'nombres para perritas chihuahua, nombres de perros chihuahua, nombres para chihuahuas hembras, nombres de chihuahuas pequeñas, nombres para chihuahuas cabeza de manzana, nombres tiernos para chihuahuas',
-    defaultName: 'Chispita',
-    customSymbols: ["🐾", "🐶", "🎀", "💖", "✨", "👑", "🌸", "💎", "🦴", "💗", "🍪", "🌺", "💕", "🌶️", "🌮", "✦", "📜", "⚡"],
-    faqs: [
-      {
-        question: "¿Por qué los nombres cortos de 2 sílabas son mejores para perritas chihuahua?",
-        answer: "Los chihuahuas perciben las frecuencias agudas con extrema rapidez. Un nombre de 2 sílabas evita que la perrita se distraiga y le permite reconocer su llamado de inmediato entre el ruido ambiental."
-      },
-      {
-        question: "¿Cuáles son los nombres más elegidos para perritas chihuahua en 2026?",
-        answer: "Entre los preferidos de la comunidad destacan Chispita, Chiquita, Mimi, Perlita, Canela, Frida, Bella, Lola, Chloe, Daisy, Pipa, Mochi y Princesa."
-      },
-      {
-        question: "¿Qué diferencia hay entre nombres para chihuahuas Cabeza de Manzana y Cabeza de Ciervo?",
-        answer: "Para las chihuahuas Cabeza de Manzana (rostro más redondeado y tierno) se suelen buscar nombres dulces como Mimi, Mochi o Chiquita. Para las Cabeza de Ciervo (facciones alargadas y vivaces) lucen muy bien nombres con personalidad como Frida, Maya, Cleo o Lola."
-      },
-      {
-        question: "¿Puedo personalizar una placa diminuta o perfil social para mi chihuahua?",
-        answer: "¡Claro que sí! Con nuestro creador interactivo superior puedes agregar coronitas (👑), moños (🎀), gemas (💎), chiles (🌶️) y flores (🌸) para mandar a grabar su placa miniatura o diseñar su biografía de Instagram o TikTok."
-      }
-    ]
-  },
   'nombres-caballos': {
     id: 'nombres-caballos',
     path: '/nombres-caballos',
@@ -4024,31 +3913,6 @@ export const seoData: Record<string, CategoryData> = {
       }
     ]
   },
-  // Route aliases for backward compatibility and SEO variations
-  'nombres-para-perritas': {
-    id: 'nombres-para-perritas',
-    path: '/nombres-para-perritas',
-    title: 'Nombres para Perros Hembras y Perritas | GDN',
-    h1: 'Generador de Nombres para Perritas',
-    subtitle: 'Encuentra el nombre perfecto para tu cachorra con pronunciación en audio.',
-    seoText: `<h2>Nombres para Perritas Bonitas</h2><p>Explora nombres tiernos y cortos para tu perrita.</p>`,
-    metaDescription: 'Descubre nombres para perros hembras y perritas bonitas. Ideas cortas, originales y tiernas con audio interactivo de llamado.',
-    keywords: 'nombres para perritas, nombres de perritas',
-    defaultName: 'Luna',
-    customSymbols: ["🐾", "🐶", "🌸", "🎀", "💖"]
-  },
-  'nombres-para-gatos': {
-    id: 'nombres-para-gatos',
-    path: '/nombres-para-gatos',
-    title: 'Nombres para Gatos - Ideas Bonitas y Graciosas | GDN',
-    h1: 'Generador de Nombres para Gatos',
-    subtitle: 'Descubre el nombre ideal para tu felino con audio interactivo.',
-    seoText: `<h2>Nombres para Gatos y Gatitos</h2><p>Descubre nombres originales para michis.</p>`,
-    metaDescription: 'Descubre más de 500 nombres para gatos machos y hembras.',
-    keywords: 'nombres para gatos, nombres de gatos',
-    defaultName: 'Mochi',
-    customSymbols: ["🐾", "🐱", "🐟", "🧶", "🍊"]
-  }
 };
 
 export { navLinks, allLinks } from './allLinks';

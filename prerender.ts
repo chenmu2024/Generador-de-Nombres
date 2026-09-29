@@ -271,7 +271,7 @@ for (const routePath of allRoutes) {
     },
     "datePublished": "2026-01-01T08:00:00+00:00",
     "dateModified": "2026-08-08T08:00:00+00:00",
-    "image": "https://generadordenombres.net/assets/og-image.jpg"
+    "image": "https://generadordenombres.net/logo.webp"
   });
 
   // 2. SoftwareApplication / WebApplication Schema
@@ -429,7 +429,7 @@ const sitemapEntries = allRoutes.map(rPath => {
     <changefreq>${changefreq}</changefreq>
     <priority>${priority}</priority>
     <image:image>
-      <image:loc>https://generadordenombres.net/assets/og-image.jpg</image:loc>
+      <image:loc>https://generadordenombres.net/logo.webp</image:loc>
       <image:title>Generador de Nombres, Apodos y Símbolos</image:title>
     </image:image>
   </url>`;

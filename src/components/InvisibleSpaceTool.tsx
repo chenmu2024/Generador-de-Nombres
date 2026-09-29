@@ -14,10 +14,10 @@ export default function InvisibleSpaceTool() {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
   const spaces = [
-    { title: 'Espacio Invisible Mediano (Recomendado FF)', char: 'ㅤ', unicode: 'U+3000', desc: 'El carácter oficial más seguro para separar el tag de clan de tu apodo en Free Fire.' },
-    { title: 'Espacio Invisible Pequeño (Letra Transparente)', char: 'ᅠ', unicode: 'U+3164', desc: 'Ideal para espacios ajustados en la biografía o firma del perfil de jugador.' },
-    { title: 'Espacio Invisible Doble (Separación Ancha)', char: 'ㅤㅤ', unicode: 'U+3000 x2', desc: 'Crea una separación bien distinguible entre dos palabras de tu nick.' },
-    { title: 'Espacio Invisible Triple (Nombre 100% Fantasma)', char: 'ㅤㅤㅤ', unicode: 'U+3000 x3', desc: 'Úsalo para que tu nick quede completamente en blanco e invisible en la partida.' }
+    { title: 'Hangul Filler (Recomendado)', char: 'ㅤ', unicode: 'U+3164', desc: 'Carácter Hangul invisible usado con frecuencia para separar palabras cuando una plataforma admite este Unicode.' },
+    { title: 'Hangul Jungseong Filler', char: 'ᅠ', unicode: 'U+1160', desc: 'Alternativa Unicode invisible cuya compatibilidad puede variar según la aplicación y el dispositivo.' },
+    { title: 'Espacio Ideográfico', char: '　', unicode: 'U+3000', desc: 'Espacio CJK de ancho completo. Algunas plataformas lo aceptan y otras pueden normalizarlo o rechazarlo.' },
+    { title: 'Hangul Filler Doble', char: 'ㅤㅤ', unicode: 'U+3164 x2', desc: 'Dos caracteres U+3164 consecutivos para una separación visual más amplia cuando la plataforma los admite.' }
   ];
 
   const superscripts = ['ᵀᴹ', 'ᵖʳᵒ', 'Ⓥ', '⚡', '亗', '×͜×', '☠︎', '🌸'];
@@ -77,19 +77,19 @@ export default function InvisibleSpaceTool() {
   const faqs = [
     {
       q: '¿Por qué la barra espaciadora normal no funciona en Free Fire?',
-      a: 'Garena Free Fire bloquea el espacio en blanco estándar (ASCII 32) en el campo de nombre. Para separar palabras es obligatorio usar un carácter Unicode especial (U+3000) que el juego reconoce como letra transparente.'
+      a: 'Free Fire puede rechazar el espacio ASCII normal en algunos campos de nombre. Una alternativa habitual es Hangul Filler (U+3164); la compatibilidad puede cambiar con futuras versiones del juego.'
     },
     {
       q: '¿Garena banea por usar el Espacio Invisible?',
-      a: 'No, no existe riesgo de baneos. El espacio invisible es un carácter tipográfico Unicode legítimo (Hangul Filler) compatible de forma nativa en Android e iOS.'
+      a: 'Hangul Filler es un carácter Unicode legítimo, pero las reglas de nombres y su compatibilidad dependen de cada plataforma. Revisa siempre las normas vigentes del juego antes de usar caracteres especiales.'
     },
     {
-      q: '¿Cómo poner un nombre 100% invisible en la partida?',
-      a: 'Copia la opción "Espacio Invisible Triple" de esta página y pégalo en el cuadro de cambio de nombre de Free Fire. Al no tener letras visibles, aparecerás sin nombre en el Kill Feed.'
+      q: '¿Cómo probar un nombre visualmente invisible en la partida?',
+      a: 'Copia una de las opciones invisibles y pruébala en el campo de nombre. El resultado puede variar porque el juego puede normalizar, limitar o rechazar ciertos caracteres.'
     },
     {
       q: '¿Cómo cambiar de nombre usando la Tarjeta de Cambio de Nick?',
-      a: 'Abre Free Fire > Toca tu perfil arriba a la izquierda > Presiona el icono del lápiz amarillo > Pega tu nick con espacio invisible > Confirma gastando tu tarjeta de cambio o 800 diamantes.'
+      a: 'Abre Free Fire > Toca tu perfil > Abre la edición del apodo > Pega el nombre preparado > Confirma siguiendo el método y coste que muestre tu cuenta en ese momento.'
     }
   ];
 
@@ -118,23 +118,23 @@ export default function InvisibleSpaceTool() {
         </div>
         
         <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-bold bg-violet-500/20 text-violet-300 border border-violet-500/30 mb-4">
-          <Sparkles className="w-3.5 h-3.5" /> Herramienta Unicode Oficial FF 2026
+          <Sparkles className="w-3.5 h-3.5" /> Herramienta de caracteres Unicode
         </span>
         <h2 className="text-3xl md:text-5xl font-black text-white mb-4 font-heading tracking-tight">
           Copiador de Espacio Invisible para Free Fire
         </h2>
         <p className="text-zinc-400 max-w-xl mx-auto text-sm md:text-base leading-relaxed mb-6">
-          Haz 1-clic para copiar el espacio en blanco transparente (Hangul Filler U+3000) indispensable para separar nicks, tags de clanes y nombres invisibles en Free Fire.
+          Haz 1-clic para copiar el espacio en blanco transparente (Hangul Filler U+3164) como opción de separación invisible. La compatibilidad depende de la versión del juego y del dispositivo.
         </p>
 
         {/* Compatibility Chips */}
         <div className="flex flex-wrap items-center justify-center gap-2 pt-2 border-t border-white/5">
-          <span className="text-[10px] uppercase font-bold text-zinc-500 mr-2">Compatibilidad Verificada:</span>
+          <span className="text-[10px] uppercase font-bold text-zinc-500 mr-2">Compatibilidad orientativa:</span>
           {[
-            'Free Fire & FF MAX ✅',
-            'WhatsApp & IG Bio ✅',
-            'PUBG Mobile ✅',
-            'Roblox & Discord ✅'
+            'Free Fire / FF MAX',
+            'WhatsApp / Instagram',
+            'PUBG Mobile',
+            'Roblox / Discord'
           ].map((item, idx) => (
             <span key={idx} className="text-xs bg-zinc-900/90 text-zinc-300 border border-white/10 px-3 py-1 rounded-full font-medium">
               {item}
@@ -149,7 +149,7 @@ export default function InvisibleSpaceTool() {
           <span className="text-xs font-bold text-violet-300 uppercase tracking-wider flex items-center gap-1.5">
             <Sparkles className="w-4 h-4 text-amber-400" /> Plantillas de Nicks Invisibles Insanos (Clic para Copiar)
           </span>
-          <span className="text-[10px] text-zinc-500">100% Probados en FF</span>
+          <span className="text-[10px] text-zinc-500">Prueba antes de guardar</span>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5">
           {[
@@ -243,9 +243,10 @@ export default function InvisibleSpaceTool() {
               aria-label="Tipo de Separador para Espacio Invisible"
               className="w-full px-4 py-3 bg-zinc-950 border border-white/10 rounded-xl text-white font-medium focus:outline-none focus:border-violet-500"
             >
-              <option value="ㅤ">Espacio Invisible Simple (U+3000)</option>
-              <option value="ㅤㅤ">Espacio Invisible Doble (U+3000 x2)</option>
-              <option value="ᅠ">Espacio Invisible Pequeño (U+3164)</option>
+              <option value="ㅤ">Hangul Filler (U+3164)</option>
+              <option value="ㅤㅤ">Hangul Filler Doble (U+3164 x2)</option>
+              <option value="ᅠ">Hangul Jungseong Filler (U+1160)</option>
+                      <option value="　">Espacio Ideográfico (U+3000)</option>
               <option value=" • ">Punto Central ( • )</option>
               <option value=" ⚡ ">Rayo ( ⚡ )</option>
               <option value=" Ⓥ ">Verificado ( Ⓥ )</option>

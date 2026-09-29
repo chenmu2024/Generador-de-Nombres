@@ -1,0 +1,19 @@
+{
+  "redirects": [
+    {
+      "source": "/nombres-perritas-chihuahua",
+      "destination": "/perritas-chihuahua",
+      "permanent": true
+    },
+    {
+      "source": "/nombres-para-perritas",
+      "destination": "/nombres-perritas",
+      "permanent": true
+    },
+    {
+      "source": "/nombres-para-gatos",
+      "destination": "/nombres-gatos",
+      "permanent": true
+    }
+  ]
+}
