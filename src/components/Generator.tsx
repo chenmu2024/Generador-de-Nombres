@@ -8,6 +8,7 @@ interface GeneratorProps {
   title: string;
   defaultName?: string;
   customSymbols?: string[];
+  compact?: boolean;
 }
 
 const randomNames = ["Ninja", "Shadow", "Killer", "Pro", "Ghost", "Sniper", "King", "Queen", "Legend", "Alpha"];
@@ -30,7 +31,7 @@ function autoTrimFF(name: string): string {
   return name.slice(0, 12);
 }
 
-export default function Generator({ title, defaultName = 'Gamer', customSymbols }: GeneratorProps) {
+export default function Generator({ title, defaultName = 'Gamer', customSymbols, compact = false }: GeneratorProps) {
   const [inputText, setInputText] = useState('');
   const [style, setStyle] = useState('all');
   const [vibeFilter, setVibeFilter] = useState<'all' | 'epico' | 'aesthetic' | 'short' | 'toxic'>('all');
@@ -245,17 +246,19 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols 
         </div>
       )}
 
-      <div className="gdn-surface-raised relative p-7 md:p-10 text-center overflow-hidden border-b">
-        {/* Decorative elements */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10 pointer-events-none">
-          <div className="absolute -top-12 -left-12 w-64 h-64 bg-violet-600 rounded-full blur-[100px]"></div>
-          <div className="absolute top-12 -right-12 w-64 h-64 bg-fuchsia-600 rounded-full blur-[100px]"></div>
+      {!compact && (
+        <div className="gdn-surface-raised relative p-7 md:p-10 text-center overflow-hidden border-b">
+          {/* Decorative elements */}
+          <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10 pointer-events-none">
+            <div className="absolute -top-12 -left-12 w-64 h-64 bg-violet-600 rounded-full blur-[100px]"></div>
+            <div className="absolute top-12 -right-12 w-64 h-64 bg-fuchsia-600 rounded-full blur-[100px]"></div>
+          </div>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-3 relative z-10 font-heading">{title}</h2>
+          <p className="text-zinc-400 relative z-10 max-w-lg mx-auto">Crea apodos únicos en segundos con símbolos épicos y exporta con un clic</p>
         </div>
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-3 relative z-10 font-heading">{title}</h2>
-        <p className="text-zinc-400 relative z-10 max-w-lg mx-auto">Crea apodos únicos en segundos con símbolos épicos y exporta con un clic</p>
-      </div>
+      )}
       
-      <div className="p-6 md:p-10 space-y-10">
+      <div className={compact ? 'p-4 md:p-6 space-y-8' : 'p-6 md:p-10 space-y-10'}>
         <div className="flex flex-col md:flex-row gap-4 items-start">
           <div className="flex-1 w-full">
             <div className="flex-1 flex relative w-full group">
