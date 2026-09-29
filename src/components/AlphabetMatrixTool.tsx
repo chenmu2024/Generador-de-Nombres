@@ -112,7 +112,7 @@ export default function AlphabetMatrixTool({ currentLetter = 'A' }: { currentLet
               <button
                 key={letter}
                 onClick={() => setSelectedLetter(letter)}
-                className={`w-10 h-10 rounded-xl font-black text-sm transition-all active:scale-95 ${
+                className={`gdn-tool-tab w-10 h-10 rounded-xl font-black text-sm transition-all active:scale-95 ${
                   isSelected
                     ? 'bg-gradient-to-br from-violet-600 to-fuchsia-600 text-white shadow-lg shadow-violet-600/30 border border-white/20'
                     : 'bg-zinc-950 text-zinc-400 hover:text-white hover:bg-white/10 border border-white/5'
@@ -141,7 +141,7 @@ export default function AlphabetMatrixTool({ currentLetter = 'A' }: { currentLet
         <div className="flex items-center gap-1.5 bg-zinc-950 p-1 rounded-xl border border-white/5 w-full sm:w-auto justify-center">
           <button
             onClick={() => setGenderFilter('all')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${
+            className={`gdn-tool-tab px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${
               genderFilter === 'all' ? 'bg-white/10 text-white' : 'text-zinc-400 hover:text-white'
             }`}
           >
@@ -149,7 +149,7 @@ export default function AlphabetMatrixTool({ currentLetter = 'A' }: { currentLet
           </button>
           <button
             onClick={() => setGenderFilter('f')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${
+            className={`gdn-tool-tab px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${
               genderFilter === 'f' ? 'bg-pink-500/20 text-pink-300 border border-pink-500/30' : 'text-zinc-400 hover:text-white'
             }`}
           >
@@ -157,7 +157,7 @@ export default function AlphabetMatrixTool({ currentLetter = 'A' }: { currentLet
           </button>
           <button
             onClick={() => setGenderFilter('m')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${
+            className={`gdn-tool-tab px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${
               genderFilter === 'm' ? 'bg-blue-500/20 text-blue-300 border border-blue-500/30' : 'text-zinc-400 hover:text-white'
             }`}
           >
