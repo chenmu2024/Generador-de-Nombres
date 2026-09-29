@@ -127,17 +127,6 @@ export default function CategoryPage({
   const [activeSymbolTab, setActiveSymbolTab] = useState('populares');
   const [ffTag, setFfTag] = useState('TAG');
   const [ffName, setFfName] = useState('NINJA');
-  const [robloxInput, setRobloxInput] = useState('v_softie_x');
-  const [igInput, setIgInput] = useState('iam.sofia_');
-
-  // Interactive modules state
-  const [teamPrefix, setTeamPrefix] = useState('Real');
-  const [teamBase, setTeamBase] = useState('Tapitas');
-  const [teamMascot, setTeamMascot] = useState('🦅');
-  const [teamSlogan, setTeamSlogan] = useState('Unidos por la Gloria y el Balón');
-  const [teamKitColor, setTeamKitColor] = useState('🔴🔵 Azulgrana');
-  const [teamCategoryTab, setTeamCategoryTab] = useState('Graciosos 🍺');
-  
   const [ffClanTag, setFfClanTag] = useState('7K');
   const [ffClanName, setFfClanName] = useState('MAFIA');
   const [ffClanSymbol, setFfClanSymbol] = useState('⚡');
@@ -185,18 +174,6 @@ export default function CategoryPage({
       window.speechSynthesis.speak(utterance);
     }
   };
-
-  const isLengthValid = robloxInput.length >= 3 && robloxInput.length <= 20;
-  const isCharsValid = /^[a-zA-Z0-9_]+$/.test(robloxInput) || robloxInput === '';
-  const isUnderscoreValid = (robloxInput.match(/_/g) || []).length <= 1;
-  const isEdgeUnderscoreValid = !robloxInput.startsWith('_') && !robloxInput.endsWith('_');
-  const isRobloxValid = isLengthValid && isCharsValid && isUnderscoreValid && isEdgeUnderscoreValid;
-
-  const isIgLenValid = igInput.length >= 1 && igInput.length <= 30;
-  const isIgCharsValid = /^[a-zA-Z0-9._]+$/.test(igInput) || igInput === '';
-  const isIgDotEdgeValid = !igInput.startsWith('.') && !igInput.endsWith('.');
-  const isIgConsecutiveDotValid = !igInput.includes('..');
-  const isIgValid = isIgLenValid && isIgCharsValid && isIgDotEdgeValid && isIgConsecutiveDotValid;
 
   const handleCopyTrending = (name: string) => {
     navigator.clipboard.writeText(name);
