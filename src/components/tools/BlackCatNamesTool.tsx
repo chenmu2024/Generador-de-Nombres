@@ -159,7 +159,7 @@ export default function BlackCatNamesTool({
       </div>
       
       {/* Live Black Cat Tag Card Preview */}
-      <div className="bg-gradient-to-b from-purple-950/50 via-zinc-950 to-zinc-950 border border-purple-500/30 rounded-2xl p-5 flex flex-col justify-between items-center text-center shadow-xl">
+      <div className="gdn-tool-result bg-gradient-to-b from-purple-950/50 via-zinc-950 to-zinc-950 border border-purple-500/30 rounded-2xl p-5 flex flex-col justify-between items-center text-center shadow-xl">
       <div>
       <div className="text-xs text-purple-400 font-bold uppercase tracking-widest mb-2">Placa de Identificación Mística 🔮</div>
       <div className="text-3xl font-extrabold text-purple-300 font-heading mb-2">
