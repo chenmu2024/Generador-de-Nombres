@@ -54,8 +54,8 @@ export default function CatNamesTool({
       <div>
       <label className="text-xs font-semibold text-zinc-400 block mb-2">Pelaje / Estilo del Gato:</label>
       <select aria-label="Seleccionar opción" value={catBreedType}
-      onChange={(e) = className="gdn-tool-input"> setCatBreedType(e.target.value)}
-      className="w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-amber-500 text-sm font-semibold"
+      onChange={(e) => setCatBreedType(e.target.value)}
+      className="gdn-tool-input w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-amber-500 text-sm font-semibold"
       >
       {['Gato Naranjita 🍊', 'Panterita Negra 🐈‍⬛', 'Gato Blanco / Nieve ❄️', 'Siamés / Elegante 👑', 'Gato Atigrado 🐯', 'Mestizo / Bebé 🐱'].map(b => (
       <option key={b} value={b}>{b}</option>
@@ -68,9 +68,9 @@ export default function CatNamesTool({
       <input
       type="text"
       value={catCustomName}
-      onChange={(e) = className="gdn-tool-input"> setCatCustomName(e.target.value)}
+      onChange={(e) => setCatCustomName(e.target.value)}
       placeholder="Mochi, Simba, Felix..."
-      className="w-full bg-zinc-800 border border-white/10 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-amber-500 text-sm font-bold"
+      className="gdn-tool-input w-full bg-zinc-800 border border-white/10 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-amber-500 text-sm font-bold"
       />
       </div>
       </div>
