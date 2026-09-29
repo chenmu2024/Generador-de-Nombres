@@ -54,8 +54,8 @@ export default function KoreanNamesTool({
     <div>
     <label className="text-xs font-semibold text-zinc-400 block mb-2">Apellido Coreano:</label>
     <select aria-label="Seleccionar opción" value={krSelectedSurname}
-    onChange={(e) = className="gdn-tool-input"> setKrSelectedSurname(e.target.value)}
-    className="w-full bg-zinc-800 border border-white/10 rounded-xl px-3 py-2.5 text-white focus:outline-none focus:border-violet-500 text-sm font-semibold"
+    onChange={(e) => setKrSelectedSurname(e.target.value)}
+    className="gdn-tool-input w-full bg-zinc-800 border border-white/10 rounded-xl px-3 py-2.5 text-white focus:outline-none focus:border-violet-500 text-sm font-semibold"
     >
     {['Kim (김)', 'Lee (이)', 'Park (박)', 'Choi (최)', 'Jung (정)', 'Kang (강)', 'Yoon (윤)', 'Jang (장)'].map(s => (
     <option key={s} value={s}>{s}</option>
@@ -68,9 +68,9 @@ export default function KoreanNamesTool({
     <input
     type="text"
     value={krCustomName}
-    onChange={(e) = className="gdn-tool-input"> setKrCustomName(e.target.value)}
+    onChange={(e) => setKrCustomName(e.target.value)}
     placeholder="Min-Ji, Tae-Hyung..."
-    className="w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-violet-500 text-sm font-bold"
+    className="gdn-tool-input w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-violet-500 text-sm font-bold"
     />
     </div>
     
@@ -79,9 +79,9 @@ export default function KoreanNamesTool({
     <input
     type="text"
     value={krCustomHangul}
-    onChange={(e) = className="gdn-tool-input"> setKrCustomHangul(e.target.value)}
+    onChange={(e) => setKrCustomHangul(e.target.value)}
     placeholder="민지, 태형..."
-    className="w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-violet-300 focus:outline-none focus:border-violet-500 text-sm font-mono font-bold"
+    className="gdn-tool-input w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-violet-300 focus:outline-none focus:border-violet-500 text-sm font-mono font-bold"
     />
     </div>
     </div>
