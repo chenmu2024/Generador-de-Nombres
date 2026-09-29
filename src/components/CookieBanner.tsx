@@ -32,7 +32,7 @@ export default function CookieBanner() {
 
   return (
     <div
-      className="fixed bottom-4 left-4 right-4 md:left-auto md:right-6 md:max-w-md z-50 bg-[#121212]/95 backdrop-blur-xl border border-white/10 rounded-2xl p-5 shadow-2xl text-zinc-300 text-xs sm:text-sm space-y-3 animate-in fade-in slide-in-from-bottom-5 duration-300 transition-all"
+      className="gdn-surface fixed bottom-4 left-4 right-4 md:left-auto md:right-6 md:max-w-md z-50 backdrop-blur-xl border rounded-2xl p-5 text-zinc-300 text-xs sm:text-sm space-y-3 animate-in fade-in slide-in-from-bottom-5 duration-300 transition-all"
     >
       <div className="flex items-start justify-between gap-3">
         <div className="flex items-center gap-2 text-white font-bold text-sm">
@@ -58,13 +58,13 @@ export default function CookieBanner() {
       <div className="flex items-center gap-2 pt-1">
         <button
           onClick={handleAccept}
-          className="flex-1 bg-violet-600 hover:bg-violet-500 text-white font-bold py-2 px-4 rounded-xl text-xs transition-colors shadow-lg shadow-violet-600/20 cursor-pointer"
+          className="gdn-primary-button flex-1 text-white font-bold py-2 px-4 rounded-xl text-xs transition-colors cursor-pointer"
         >
           Aceptar Todas
         </button>
         <button
           onClick={handleDecline}
-          className="bg-zinc-800 hover:bg-zinc-700 text-zinc-300 hover:text-white font-medium py-2 px-3 rounded-xl text-xs transition-colors cursor-pointer"
+          className="gdn-chip border text-zinc-300 hover:text-white font-medium py-2 px-3 rounded-xl text-xs transition-colors cursor-pointer"
         >
           Solo Necesarias
         </button>
