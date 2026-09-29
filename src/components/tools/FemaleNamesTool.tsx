@@ -9,7 +9,7 @@ export default function FemaleNamesTool({
 }: {
   handleCopyTrending: (value: string) => void;
   currentPath: string;
-} {
+}) {
   const [femaleFirstName, setFemaleFirstName] = useState('Sofía');
   const [femaleSecondName, setFemaleSecondName] = useState('Valentina');
   const [femaleVibe, setFemaleVibe] = useState<'elegante' | 'corto' | 'biblico' | 'moderno' | 'internacional'>('elegante');
