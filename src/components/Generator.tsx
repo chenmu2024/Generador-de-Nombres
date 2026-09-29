@@ -353,7 +353,7 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
   }
 
   return (
-    <div className="gdn-tool-shell gdn-surface w-full max-w-4xl mx-auto rounded-[1.25rem] overflow-hidden border relative">
+    <div className="gdn-tool-shell gdn-generator-v4 w-full max-w-6xl mx-auto relative">
       {/* Toast Notification */}
       {showToast && (
         <div
@@ -364,19 +364,7 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
         </div>
       )}
 
-      {!compact && (
-        <div className="gdn-surface-raised relative p-7 md:p-10 text-center overflow-hidden border-b">
-          {/* Decorative elements */}
-          <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10 pointer-events-none">
-            <div className="absolute -top-12 -left-12 w-64 h-64 bg-violet-600 rounded-full blur-[100px]"></div>
-            <div className="absolute top-12 -right-12 w-64 h-64 bg-fuchsia-600 rounded-full blur-[100px]"></div>
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-3 relative z-10 font-heading">{title}</h2>
-          <p className="text-zinc-400 relative z-10 max-w-lg mx-auto">Crea apodos únicos en segundos con símbolos épicos y exporta con un clic</p>
-        </div>
-      )}
-      
-      <div className={compact ? 'p-4 md:p-6 space-y-8' : 'p-6 md:p-10 space-y-10'}>
+      <div className="space-y-7">
         <div className="flex flex-col md:flex-row gap-4 items-start">
           <div className="flex-1 w-full">
             <div className="flex-1 flex relative w-full group">
@@ -478,7 +466,8 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
           </button>
         </div>
 
-        <div>
+        <div className="gdn-generator-workspace">
+        <div className="gdn-generator-aside gdn-tool-result">
           <h3 className="text-sm font-semibold text-zinc-400 uppercase tracking-wider mb-4 flex items-center gap-2">
             Símbolos Rápidos <span className="text-xs font-normal normal-case text-zinc-600">(Clic para agregar)</span>
           </h3>
@@ -493,10 +482,14 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
               </button>
             ))}
           </div>
+          <div className="mt-5 rounded-xl bg-slate-50 border border-slate-200 p-3.5">
+            <div className="text-xs font-bold text-slate-800 mb-1">Consejo</div>
+            <p className="text-xs text-slate-500 leading-relaxed">Mantén el nombre corto para que sea más fácil de recordar, copiar y usar en juegos o perfiles.</p>
+          </div>
         </div>
 
         {generatedNames.length > 0 ? (
-          <div className="gdn-tool-result">
+          <div className="gdn-generator-results gdn-tool-result">
             {/* Vibe / Mood Quick Filters */}
             <div className="mb-5 flex items-center gap-2 overflow-x-auto pb-1 text-xs">
               <span className="text-zinc-500 font-bold shrink-0">Filtrar Estilo:</span>
@@ -522,7 +515,7 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
             </div>
 
             {/* Toolbar for Selection & Spinner */}
-            <div className="flex flex-wrap items-center justify-between gap-3 mb-6 border-b border-white/5 pb-4">
+            <div className="flex flex-wrap items-center justify-between gap-3 mb-6 border-b border-slate-200 pb-4">
               <div className="flex items-center gap-2">
                 <button
                   onClick={toggleSelectAll}
@@ -577,7 +570,7 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
             </div>
 
             <div 
-              className="grid grid-cols-1 md:grid-cols-2 gap-4 max-h-[520px] overflow-y-auto pr-2 custom-scrollbar"
+              className="grid grid-cols-1 gap-3 max-h-[620px] overflow-y-auto pr-1 custom-scrollbar"
             >
               {displayedNames.slice(0, visibleCount).map((name, index) => {
                 const isSelected = selectedNames.includes(name);
@@ -591,7 +584,7 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
                     className={`group flex items-center justify-between p-4 sm:p-5 rounded-2xl border transition-all cursor-pointer ${
                       isSelected
                         ? 'border-violet-500/70 bg-violet-500/10'
-                        : 'border-[#252B34] bg-[#151A21] hover:bg-[#191F27] hover:border-violet-500/30'
+                        : 'border-slate-200 bg-white hover:bg-slate-50 hover:border-violet-300'
                     }`}
                   >
                     <div className="flex items-center gap-3 pr-2 min-w-0">
@@ -709,16 +702,17 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
             )}
           </div>
         ) : (
-          <div className="gdn-tool-result text-center py-12 px-4 border-2 border-dashed border-white/10 rounded-3xl bg-zinc-900/20">
+          <div className="gdn-generator-results gdn-tool-result text-center py-12 px-4 border-2 border-dashed border-slate-200 rounded-3xl bg-white">
             <Wand2 className="w-12 h-12 text-zinc-700 mx-auto mb-4" />
             <h3 className="text-xl font-medium text-zinc-300 font-heading">No hay resultados</h3>
             <p className="text-zinc-500 mt-2">Escribe un nombre y haz clic en Generar para ver resultados increíbles.</p>
           </div>
         )}
+        </div>
 
         {/* History Section */}
         {history.length > 0 && (
-          <div className="pt-8 border-t border-white/5">
+          <div className="pt-8 border-t border-slate-200">
              <div className="flex items-center justify-between mb-5">
                <h3 className="text-sm font-semibold text-zinc-400 uppercase tracking-wider flex items-center gap-2">
                  Historial Reciente (Últimos copiados)
@@ -735,7 +729,7 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
                  <button
                    key={idx}
                    onClick={() => copyToClipboard(name, null)}
-                   className="px-4 py-2 bg-zinc-900/50 border border-white/5 hover:border-violet-500/30 hover:bg-violet-500/10 rounded-xl text-sm text-zinc-300 transition-colors flex items-center gap-2 group"
+                   className="px-4 py-2 bg-white border border-slate-200 hover:border-violet-300 hover:bg-violet-50 rounded-xl text-sm text-slate-700 transition-colors flex items-center gap-2 group"
                  >
                    <span>{name}</span>
                    <Copy className="w-3 h-3 text-zinc-600 group-hover:text-violet-400 transition-colors" />
@@ -891,7 +885,7 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
                 </div>
               </div>
 
-              <div className="relative z-10 flex items-center justify-between text-[10px] text-zinc-500 pt-2 border-t border-white/5">
+              <div className="relative z-10 flex items-center justify-between text-[10px] text-zinc-500 pt-2 border-t border-slate-200">
                 <span>generadordenombres.net / 2026</span>
                 <span className="font-mono text-violet-400">ID: #{Math.floor(100000 + Math.random() * 900000)}</span>
               </div>

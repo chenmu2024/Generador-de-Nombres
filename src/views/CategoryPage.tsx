@@ -213,11 +213,11 @@ export default function CategoryPage({
 
       {/* Header Section */}
       {location.pathname !== '/' && (
-      <div className="gdn-page-hero text-center max-w-4xl mx-auto space-y-4" id="generador">
-        <h1 className="gdn-hero-title text-4xl sm:text-5xl md:text-6xl font-bold font-heading pb-2 leading-[1.05]">
+      <div className="gdn-page-hero gdn-tool-page-header-v4 text-center max-w-4xl mx-auto space-y-3" id="generador">
+        <h1 className="gdn-hero-title text-3xl sm:text-4xl md:text-[2.65rem] font-bold font-heading pb-1 leading-[1.08]">
           {data.h1}
         </h1>
-        <p className="gdn-copy text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+        <p className="gdn-copy text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
           {data.subtitle}
         </p>
 
