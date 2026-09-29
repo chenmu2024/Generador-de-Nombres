@@ -800,6 +800,27 @@ export default function CategoryPage({ initialPath }: { initialPath?: string } =
                     );
                   })}
                 </div>
+                <nav aria-label="Páginas de nombres por letra" className="flex flex-wrap gap-2 pt-2">
+                  {[
+                    { label: 'A', path: '/nombres-con-a' },
+                    { label: 'B', path: '/nombres-con-b' },
+                    { label: 'C', path: '/nombres-con-c' },
+                    { label: 'E', path: '/nombres-con-e' },
+                    { label: 'F', path: '/nombres-con-f' },
+                    { label: 'M', path: '/nombres-con-m' },
+                    { label: 'Ñ', path: '/nombres-con-en' },
+                    { label: 'Y', path: '/nombres-con-y' },
+                    { label: 'Z', path: '/nombres-con-z' }
+                  ].map(item => (
+                    <Link
+                      key={item.path}
+                      to={item.path}
+                      className="text-[11px] font-semibold text-indigo-300 hover:text-white bg-indigo-500/10 hover:bg-indigo-500/20 border border-indigo-500/20 rounded-lg px-2.5 py-1.5 transition-colors"
+                    >
+                      Nombres con {item.label}
+                    </Link>
+                  ))}
+                </nav>
               </div>
 
               {/* Interactive Alphabet Name Builder & Meaning Explorer */}
