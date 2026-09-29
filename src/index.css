@@ -250,3 +250,66 @@ body {
   border-radius: var(--gdn-tool-card-radius) !important;
   box-shadow: none !important;
 }
+
+
+/* V2.1 Tool Information Hierarchy */
+.gdn-tool-shell {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.gdn-tool-shell > :not([hidden]) ~ :not([hidden]) {
+  margin-top: 0 !important;
+}
+
+.gdn-tool-shell h2 {
+  font-size: clamp(1.5rem, 2.5vw, 2rem) !important;
+  line-height: 1.15 !important;
+  letter-spacing: -0.025em !important;
+}
+
+.gdn-tool-shell h3 {
+  letter-spacing: -0.015em;
+}
+
+.gdn-tool-shell > [class*="rounded-3xl"],
+.gdn-tool-shell > [class*="rounded-[2.5rem]"] {
+  border-radius: 20px !important;
+}
+
+.gdn-tool-shell > [class*="shadow-2xl"],
+.gdn-tool-shell > [class*="shadow-xl"] {
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.18) !important;
+}
+
+.gdn-tool-shell [class*="border-b"][class*="pb-4"] {
+  padding-bottom: 12px !important;
+}
+
+.gdn-tool-shell [class*="mb-8"] {
+  margin-bottom: 24px !important;
+}
+
+.gdn-tool-shell [class*="space-y-10"] {
+  --tw-space-y-reverse: 0;
+}
+
+.gdn-tool-shell .gdn-tool-result {
+  padding: 20px;
+}
+
+@media (max-width: 640px) {
+  .gdn-tool-shell {
+    gap: 18px;
+  }
+
+  .gdn-tool-shell h2 {
+    font-size: 1.5rem !important;
+  }
+
+  .gdn-tool-shell > [class*="p-8"],
+  .gdn-tool-shell > [class*="p-12"] {
+    padding: 20px !important;
+  }
+}
