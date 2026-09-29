@@ -425,11 +425,11 @@ export default function CategoryPage({
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Hub 1: Gamer & Redes */}
-            <div className="bg-gradient-to-br from-violet-950/40 via-zinc-900 to-zinc-950 border border-violet-500/30 rounded-3xl p-6 shadow-xl hover:border-violet-500/60 transition-all flex flex-col justify-between group">
+            <div className="gdn-surface border rounded-2xl p-6 hover:border-violet-500/35 transition-all flex flex-col justify-between group">
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-3xl">🎮</span>
-                  <span className="text-[10px] font-bold bg-violet-500/20 text-violet-300 border border-violet-500/30 px-3 py-1 rounded-full uppercase">
+                  <span className="gdn-chip text-[10px] font-bold border px-3 py-1 rounded-full uppercase">
                     Gaming & Redes
                   </span>
                 </div>
@@ -440,10 +440,10 @@ export default function CategoryPage({
                   Generadores de apodos insanos, símbolos raros, espacios invisibles y biografías aesthetic para Instagram y Roblox.
                 </p>
                 <div className="flex flex-wrap gap-1.5 mb-6">
-                  <Link to="/generador-free-fire" className="text-xs font-semibold bg-zinc-800 hover:bg-violet-600/30 text-violet-300 px-2.5 py-1 rounded-lg transition-colors border border-white/5">Generador FF</Link>
-                  <Link to="/espacios-invisible-ff" className="text-xs font-semibold bg-zinc-800 hover:bg-violet-600/30 text-violet-300 px-2.5 py-1 rounded-lg transition-colors border border-white/5">Espacio Invisible</Link>
-                  <Link to="/nombres-ff-unicos" className="text-xs font-semibold bg-zinc-800 hover:bg-violet-600/30 text-violet-300 px-2.5 py-1 rounded-lg transition-colors border border-white/5">FF Únicos</Link>
-                  <Link to="/nombres-instagram" className="text-xs font-semibold bg-zinc-800 hover:bg-violet-600/30 text-violet-300 px-2.5 py-1 rounded-lg transition-colors border border-white/5">Instagram</Link>
+                  <Link to="/generador-free-fire" className="gdn-chip text-xs font-semibold px-2.5 py-1 rounded-lg transition-colors border">Generador FF</Link>
+                  <Link to="/espacios-invisible-ff" className="gdn-chip text-xs font-semibold px-2.5 py-1 rounded-lg transition-colors border">Espacio Invisible</Link>
+                  <Link to="/nombres-ff-unicos" className="gdn-chip text-xs font-semibold px-2.5 py-1 rounded-lg transition-colors border">FF Únicos</Link>
+                  <Link to="/nombres-instagram" className="gdn-chip text-xs font-semibold px-2.5 py-1 rounded-lg transition-colors border">Instagram</Link>
                 </div>
               </div>
               <Link to="/generador-free-fire" className="text-xs font-bold text-violet-400 hover:text-violet-300 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
@@ -452,136 +452,136 @@ export default function CategoryPage({
             </div>
 
             {/* Hub 2: Personas & Bebés */}
-            <div className="bg-gradient-to-br from-pink-950/40 via-zinc-900 to-zinc-950 border border-pink-500/30 rounded-3xl p-6 shadow-xl hover:border-pink-500/60 transition-all flex flex-col justify-between group">
+            <div className="gdn-surface border rounded-2xl p-6 hover:border-violet-500/35 transition-all flex flex-col justify-between group">
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-3xl">👶</span>
-                  <span className="text-[10px] font-bold bg-pink-500/20 text-pink-300 border border-pink-500/30 px-3 py-1 rounded-full uppercase">
+                  <span className="gdn-chip text-[10px] font-bold border px-3 py-1 rounded-full uppercase">
                     Personas & Bebés
                   </span>
                 </div>
-                <h3 className="text-xl font-bold text-white font-heading mb-2 group-hover:text-pink-300 transition-colors">
+                <h3 className="text-xl font-bold text-white font-heading mb-2 group-hover:text-violet-300 transition-colors">
                   Personas & Bebés
                 </h3>
                 <p className="text-xs text-zinc-400 leading-relaxed mb-4">
                   Listas completas de nombres de mujer, niña poco comunes, niños con significado profundo, unisex y raros.
                 </p>
                 <div className="flex flex-wrap gap-1.5 mb-6">
-                  <Link to="/nombres-de-mujer" className="text-xs font-semibold bg-zinc-800 hover:bg-pink-600/30 text-pink-300 px-2.5 py-1 rounded-lg transition-colors border border-white/5">Nombres Mujer</Link>
-                  <Link to="/nombres-de-nina" className="text-xs font-semibold bg-zinc-800 hover:bg-pink-600/30 text-pink-300 px-2.5 py-1 rounded-lg transition-colors border border-white/5">Niña Poco Comunes</Link>
-                  <Link to="/nombres-de-nino" className="text-xs font-semibold bg-zinc-800 hover:bg-pink-600/30 text-pink-300 px-2.5 py-1 rounded-lg transition-colors border border-white/5">Niños con Significado</Link>
-                  <Link to="/nombres-unisex" className="text-xs font-semibold bg-zinc-800 hover:bg-pink-600/30 text-pink-300 px-2.5 py-1 rounded-lg transition-colors border border-white/5">Unisex</Link>
+                  <Link to="/nombres-de-mujer" className="gdn-chip text-xs font-semibold px-2.5 py-1 rounded-lg transition-colors border">Nombres Mujer</Link>
+                  <Link to="/nombres-de-nina" className="gdn-chip text-xs font-semibold px-2.5 py-1 rounded-lg transition-colors border">Niña Poco Comunes</Link>
+                  <Link to="/nombres-de-nino" className="gdn-chip text-xs font-semibold px-2.5 py-1 rounded-lg transition-colors border">Niños con Significado</Link>
+                  <Link to="/nombres-unisex" className="gdn-chip text-xs font-semibold px-2.5 py-1 rounded-lg transition-colors border">Unisex</Link>
                 </div>
               </div>
-              <Link to="/nombres-de-mujer" className="text-xs font-bold text-pink-400 hover:text-pink-300 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+              <Link to="/nombres-de-mujer" className="text-xs font-bold text-violet-400 hover:text-violet-300 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
                 Explorar Personas y Bebés <ChevronRight className="w-4 h-4" />
               </Link>
             </div>
 
             {/* Hub 3: Directorio A-Z */}
-            <div className="bg-gradient-to-br from-blue-950/40 via-zinc-900 to-zinc-950 border border-blue-500/30 rounded-3xl p-6 shadow-xl hover:border-blue-500/60 transition-all flex flex-col justify-between group">
+            <div className="gdn-surface border rounded-2xl p-6 hover:border-violet-500/35 transition-all flex flex-col justify-between group">
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-3xl">🔤</span>
-                  <span className="text-[10px] font-bold bg-blue-500/20 text-blue-300 border border-blue-500/30 px-3 py-1 rounded-full uppercase">
+                  <span className="gdn-chip text-[10px] font-bold border px-3 py-1 rounded-full uppercase">
                     Filtro Interactivo A-Z
                   </span>
                 </div>
-                <h3 className="text-xl font-bold text-white font-heading mb-2 group-hover:text-blue-300 transition-colors">
+                <h3 className="text-xl font-bold text-white font-heading mb-2 group-hover:text-violet-300 transition-colors">
                   Directorio Por Letra A-Z
                 </h3>
                 <p className="text-xs text-zinc-400 leading-relaxed mb-4">
                   Navega por iniciales de la A a la Z. Encuentra nombres masculinos, femeninos y tradicionales con pronunciación en audio.
                 </p>
                 <div className="flex flex-wrap gap-1.5 mb-6">
-                  <Link to="/nombres-con-a" className="text-xs font-semibold bg-zinc-800 hover:bg-blue-600/30 text-blue-300 px-2.5 py-1 rounded-lg transition-colors border border-white/5">Con A</Link>
-                  <Link to="/nombres-con-f" className="text-xs font-semibold bg-zinc-800 hover:bg-blue-600/30 text-blue-300 px-2.5 py-1 rounded-lg transition-colors border border-white/5">Con F</Link>
-                  <Link to="/nombres-con-m" className="text-xs font-semibold bg-zinc-800 hover:bg-blue-600/30 text-blue-300 px-2.5 py-1 rounded-lg transition-colors border border-white/5">Con M</Link>
-                  <Link to="/nombres-con-en" className="text-xs font-semibold bg-zinc-800 hover:bg-blue-600/30 text-blue-300 px-2.5 py-1 rounded-lg transition-colors border border-white/5">Con Ñ</Link>
-                  <Link to="/nombres-con-z" className="text-xs font-semibold bg-zinc-800 hover:bg-blue-600/30 text-blue-300 px-2.5 py-1 rounded-lg transition-colors border border-white/5">Con Z</Link>
+                  <Link to="/nombres-con-a" className="gdn-chip text-xs font-semibold px-2.5 py-1 rounded-lg transition-colors border">Con A</Link>
+                  <Link to="/nombres-con-f" className="gdn-chip text-xs font-semibold px-2.5 py-1 rounded-lg transition-colors border">Con F</Link>
+                  <Link to="/nombres-con-m" className="gdn-chip text-xs font-semibold px-2.5 py-1 rounded-lg transition-colors border">Con M</Link>
+                  <Link to="/nombres-con-en" className="gdn-chip text-xs font-semibold px-2.5 py-1 rounded-lg transition-colors border">Con Ñ</Link>
+                  <Link to="/nombres-con-z" className="gdn-chip text-xs font-semibold px-2.5 py-1 rounded-lg transition-colors border">Con Z</Link>
                 </div>
               </div>
-              <Link to="/nombres-por-letra" className="text-xs font-bold text-blue-400 hover:text-blue-300 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+              <Link to="/nombres-por-letra" className="text-xs font-bold text-violet-400 hover:text-violet-300 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
                 Abrir Directorio A-Z <ChevronRight className="w-4 h-4" />
               </Link>
             </div>
 
             {/* Hub 4: Culturas del Mundo */}
-            <div className="bg-gradient-to-br from-emerald-950/40 via-zinc-900 to-zinc-950 border border-emerald-500/30 rounded-3xl p-6 shadow-xl hover:border-emerald-500/60 transition-all flex flex-col justify-between group">
+            <div className="gdn-surface border rounded-2xl p-6 hover:border-violet-500/35 transition-all flex flex-col justify-between group">
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-3xl">🌐</span>
-                  <span className="text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 px-3 py-1 rounded-full uppercase">
+                  <span className="gdn-chip text-[10px] font-bold border px-3 py-1 rounded-full uppercase">
                     Mitología & Idiomas
                   </span>
                 </div>
-                <h3 className="text-xl font-bold text-white font-heading mb-2 group-hover:text-emerald-300 transition-colors">
+                <h3 className="text-xl font-bold text-white font-heading mb-2 group-hover:text-violet-300 transition-colors">
                   Culturas del Mundo
                 </h3>
                 <p className="text-xs text-zinc-400 leading-relaxed mb-4">
                   Nombres de dioses griegos y nórdicos, nombres japoneses con Kanji, coreanos Hangul, mayas, italianos y franceses.
                 </p>
                 <div className="flex flex-wrap gap-1.5 mb-6">
-                  <Link to="/nombres-de-dioses" className="text-xs font-semibold bg-zinc-800 hover:bg-emerald-600/30 text-emerald-300 px-2.5 py-1 rounded-lg transition-colors border border-white/5">Dioses</Link>
-                  <Link to="/nombres-japoneses" className="text-xs font-semibold bg-zinc-800 hover:bg-emerald-600/30 text-emerald-300 px-2.5 py-1 rounded-lg transition-colors border border-white/5">Japoneses</Link>
-                  <Link to="/nombres-coreanos" className="text-xs font-semibold bg-zinc-800 hover:bg-emerald-600/30 text-emerald-300 px-2.5 py-1 rounded-lg transition-colors border border-white/5">Coreanos</Link>
-                  <Link to="/nombres-mayas" className="text-xs font-semibold bg-zinc-800 hover:bg-emerald-600/30 text-emerald-300 px-2.5 py-1 rounded-lg transition-colors border border-white/5">Mayas</Link>
+                  <Link to="/nombres-de-dioses" className="gdn-chip text-xs font-semibold px-2.5 py-1 rounded-lg transition-colors border">Dioses</Link>
+                  <Link to="/nombres-japoneses" className="gdn-chip text-xs font-semibold px-2.5 py-1 rounded-lg transition-colors border">Japoneses</Link>
+                  <Link to="/nombres-coreanos" className="gdn-chip text-xs font-semibold px-2.5 py-1 rounded-lg transition-colors border">Coreanos</Link>
+                  <Link to="/nombres-mayas" className="gdn-chip text-xs font-semibold px-2.5 py-1 rounded-lg transition-colors border">Mayas</Link>
                 </div>
               </div>
-              <Link to="/nombres-japoneses" className="text-xs font-bold text-emerald-400 hover:text-emerald-300 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+              <Link to="/nombres-japoneses" className="text-xs font-bold text-violet-400 hover:text-violet-300 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
                 Explorar Culturas <ChevronRight className="w-4 h-4" />
               </Link>
             </div>
 
             {/* Hub 5: Mascotas */}
-            <div className="bg-gradient-to-br from-amber-950/40 via-zinc-900 to-zinc-950 border border-amber-500/30 rounded-3xl p-6 shadow-xl hover:border-amber-500/60 transition-all flex flex-col justify-between group">
+            <div className="gdn-surface border rounded-2xl p-6 hover:border-violet-500/35 transition-all flex flex-col justify-between group">
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-3xl">🐾</span>
-                  <span className="text-[10px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30 px-3 py-1 rounded-full uppercase">
+                  <span className="gdn-chip text-[10px] font-bold border px-3 py-1 rounded-full uppercase">
                     Mascotas & Animales
                   </span>
                 </div>
-                <h3 className="text-xl font-bold text-white font-heading mb-2 group-hover:text-amber-300 transition-colors">
+                <h3 className="text-xl font-bold text-white font-heading mb-2 group-hover:text-violet-300 transition-colors">
                   Mascotas & Animales
                 </h3>
                 <p className="text-xs text-zinc-400 leading-relaxed mb-4">
                   Ideas bonitas para perritas, perros machos, michis y gatos negros, chihuahuas diminutas y caballos imponentes.
                 </p>
                 <div className="flex flex-wrap gap-1.5 mb-6">
-                  <Link to="/nombres-perritas" className="text-xs font-semibold bg-zinc-800 hover:bg-amber-600/30 text-amber-300 px-2.5 py-1 rounded-lg transition-colors border border-white/5">Perritas Bonitas</Link>
-                  <Link to="/nombres-perros-machos" className="text-xs font-semibold bg-zinc-800 hover:bg-amber-600/30 text-amber-300 px-2.5 py-1 rounded-lg transition-colors border border-white/5">Perros Machos</Link>
-                  <Link to="/nombres-gatos" className="text-xs font-semibold bg-zinc-800 hover:bg-amber-600/30 text-amber-300 px-2.5 py-1 rounded-lg transition-colors border border-white/5">Gatos</Link>
-                  <Link to="/perritas-chihuahua" className="text-xs font-semibold bg-zinc-800 hover:bg-amber-600/30 text-amber-300 px-2.5 py-1 rounded-lg transition-colors border border-white/5">Chihuahuas</Link>
+                  <Link to="/nombres-perritas" className="gdn-chip text-xs font-semibold px-2.5 py-1 rounded-lg transition-colors border">Perritas Bonitas</Link>
+                  <Link to="/nombres-perros-machos" className="gdn-chip text-xs font-semibold px-2.5 py-1 rounded-lg transition-colors border">Perros Machos</Link>
+                  <Link to="/nombres-gatos" className="gdn-chip text-xs font-semibold px-2.5 py-1 rounded-lg transition-colors border">Gatos</Link>
+                  <Link to="/perritas-chihuahua" className="gdn-chip text-xs font-semibold px-2.5 py-1 rounded-lg transition-colors border">Chihuahuas</Link>
                 </div>
               </div>
-              <Link to="/nombres-perritas" className="text-xs font-bold text-amber-400 hover:text-amber-300 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+              <Link to="/nombres-perritas" className="text-xs font-bold text-violet-400 hover:text-violet-300 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
                 Ver Nombres de Mascotas <ChevronRight className="w-4 h-4" />
               </Link>
             </div>
 
             {/* Hub 6: Equipos & Negocios */}
-            <div className="bg-gradient-to-br from-cyan-950/40 via-zinc-900 to-zinc-950 border border-cyan-500/30 rounded-3xl p-6 shadow-xl hover:border-cyan-500/60 transition-all flex flex-col justify-between group">
+            <div className="gdn-surface border rounded-2xl p-6 hover:border-violet-500/35 transition-all flex flex-col justify-between group">
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-3xl">💼</span>
-                  <span className="text-[10px] font-bold bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 px-3 py-1 rounded-full uppercase">
+                  <span className="gdn-chip text-[10px] font-bold border px-3 py-1 rounded-full uppercase">
                     Brazaletes & Marcas
                   </span>
                 </div>
-                <h3 className="text-xl font-bold text-white font-heading mb-2 group-hover:text-cyan-300 transition-colors">
+                <h3 className="text-xl font-bold text-white font-heading mb-2 group-hover:text-violet-300 transition-colors">
                   Equipos & Negocios
                 </h3>
                 <p className="text-xs text-zinc-400 leading-relaxed mb-4">
                   Generador de nombres e insignias para equipos de fútbol, marcas para tiendas que venden de todo y peluches.
                 </p>
                 <div className="flex flex-wrap gap-1.5 mb-6">
-                  <Link to="/nombres-equipos-futbol" className="text-xs font-semibold bg-zinc-800 hover:bg-cyan-600/30 text-cyan-300 px-2.5 py-1 rounded-lg transition-colors border border-white/5">Equipos Fútbol</Link>
-                  <Link to="/nombres-para-tiendas" className="text-xs font-semibold bg-zinc-800 hover:bg-cyan-600/30 text-cyan-300 px-2.5 py-1 rounded-lg transition-colors border border-white/5">Tiendas & Bazares</Link>
-                  <Link to="/nombres-peluches" className="text-xs font-semibold bg-zinc-800 hover:bg-cyan-600/30 text-cyan-300 px-2.5 py-1 rounded-lg transition-colors border border-white/5">Peluches</Link>
+                  <Link to="/nombres-equipos-futbol" className="gdn-chip text-xs font-semibold px-2.5 py-1 rounded-lg transition-colors border">Equipos Fútbol</Link>
+                  <Link to="/nombres-para-tiendas" className="gdn-chip text-xs font-semibold px-2.5 py-1 rounded-lg transition-colors border">Tiendas & Bazares</Link>
+                  <Link to="/nombres-peluches" className="gdn-chip text-xs font-semibold px-2.5 py-1 rounded-lg transition-colors border">Peluches</Link>
                 </div>
               </div>
-              <Link to="/nombres-equipos-futbol" className="text-xs font-bold text-cyan-400 hover:text-cyan-300 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+              <Link to="/nombres-equipos-futbol" className="text-xs font-bold text-violet-400 hover:text-violet-300 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
                 Crear Nombres de Marca <ChevronRight className="w-4 h-4" />
               </Link>
             </div>
@@ -1328,7 +1328,7 @@ export default function CategoryPage({
             <div className="bg-gradient-to-br from-cyan-950/40 via-[#121212] to-violet-950/30 border border-cyan-500/30 rounded-3xl p-8 shadow-2xl relative overflow-hidden space-y-6">
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10">
                 <div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-xs font-semibold uppercase tracking-wider mb-3">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-violet-300 text-xs font-semibold uppercase tracking-wider mb-3">
                     🎮 Creador & Validador de Usuario y Display Name de Roblox (2026)
                   </div>
                   <h2 className="text-2xl md:text-3xl font-bold text-white font-heading flex items-center gap-3">
@@ -1343,7 +1343,7 @@ export default function CategoryPage({
               {/* Interactive Validator & Generator */}
               <div className="bg-zinc-950/90 border border-cyan-500/20 rounded-2xl p-6 relative z-10 space-y-5">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/5 pb-4">
-                  <span className="text-xs font-bold text-cyan-300 uppercase tracking-wider flex items-center gap-1.5">
+                  <span className="text-xs font-bold text-violet-300 uppercase tracking-wider flex items-center gap-1.5">
                     <Sparkles className="w-4 h-4 text-cyan-400" /> Validador Oficial de Requisitos de Roblox
                   </span>
                   
@@ -1434,7 +1434,7 @@ export default function CategoryPage({
                         className="p-3 bg-zinc-900/90 hover:bg-cyan-600/20 text-zinc-200 hover:text-white border border-white/10 hover:border-cyan-500/40 rounded-xl text-xs font-mono font-bold transition-all active:scale-95 flex items-center justify-between group"
                       >
                         <span className="truncate">{variant}</span>
-                        <Copy className="w-3.5 h-3.5 text-zinc-500 group-hover:text-cyan-300 shrink-0 ml-2" />
+                        <Copy className="w-3.5 h-3.5 text-zinc-500 group-hover:text-violet-300 shrink-0 ml-2" />
                       </button>
                     ))}
                   </div>
@@ -1443,7 +1443,7 @@ export default function CategoryPage({
 
               {/* Ready-to-copy Game-Specific Presets Grid */}
               <div className="space-y-3 relative z-10">
-                <span className="text-xs font-bold text-cyan-300 uppercase tracking-wider flex items-center gap-1.5">
+                <span className="text-xs font-bold text-violet-300 uppercase tracking-wider flex items-center gap-1.5">
                   <Flame className="w-4 h-4 text-amber-400" /> Presets Populares por Juego de Roblox (Blox Fruits, Brookhaven, Y2K)
                 </span>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
@@ -1463,8 +1463,8 @@ export default function CategoryPage({
                       className="p-3.5 bg-zinc-900/90 hover:bg-cyan-600/20 text-zinc-200 hover:text-white border border-white/10 hover:border-cyan-500/40 rounded-xl text-xs font-mono font-bold transition-all active:scale-95 flex flex-col justify-between gap-1.5 group text-left"
                     >
                       <div className="flex items-center justify-between w-full">
-                        <span className="text-cyan-300 font-bold truncate">{item.label}</span>
-                        <Copy className="w-3.5 h-3.5 text-zinc-500 group-hover:text-cyan-300 shrink-0" />
+                        <span className="text-violet-300 font-bold truncate">{item.label}</span>
+                        <Copy className="w-3.5 h-3.5 text-zinc-500 group-hover:text-violet-300 shrink-0" />
                       </div>
                       <span className="text-[10px] text-zinc-500 font-normal">{item.desc}</span>
                     </button>
@@ -1675,7 +1675,7 @@ export default function CategoryPage({
             <div className="bg-gradient-to-br from-amber-950/30 via-[#121212] to-violet-950/20 border border-amber-500/30 rounded-3xl p-8 shadow-2xl relative overflow-hidden space-y-6">
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10">
                 <div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-300 text-xs font-semibold uppercase tracking-wider mb-3">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-violet-300 text-xs font-semibold uppercase tracking-wider mb-3">
                     💎 Generador Exclusivo de Apodos Únicos (KD 19)
                   </div>
                   <h2 className="text-2xl md:text-3xl font-bold text-white font-heading flex items-center gap-3">
@@ -1689,7 +1689,7 @@ export default function CategoryPage({
 
               {/* Ready-to-copy Exclusives Grid */}
               <div className="space-y-3 relative z-10">
-                <span className="text-xs font-bold text-amber-300 uppercase tracking-wider flex items-center gap-1.5">
+                <span className="text-xs font-bold text-violet-300 uppercase tracking-wider flex items-center gap-1.5">
                   <Sparkles className="w-4 h-4 text-amber-400" /> Plantillas de Nicks Rarísimos No Usados (Clic para Copiar)
                 </span>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
@@ -1709,8 +1709,8 @@ export default function CategoryPage({
                       className="p-3.5 bg-zinc-900/90 hover:bg-amber-500/20 text-zinc-200 hover:text-white border border-white/10 hover:border-amber-500/40 rounded-xl text-xs font-mono font-bold transition-all active:scale-95 flex flex-col justify-between gap-1.5 group text-left"
                     >
                       <div className="flex items-center justify-between w-full">
-                        <span className="text-amber-300 font-bold truncate">{item.label}</span>
-                        <Copy className="w-3.5 h-3.5 text-zinc-500 group-hover:text-amber-300 shrink-0" />
+                        <span className="text-violet-300 font-bold truncate">{item.label}</span>
+                        <Copy className="w-3.5 h-3.5 text-zinc-500 group-hover:text-violet-300 shrink-0" />
                       </div>
                       <span className="text-[10px] text-zinc-500 font-normal">{item.desc}</span>
                     </button>
@@ -1723,7 +1723,7 @@ export default function CategoryPage({
                 <div className="space-y-1">
                   <div className="flex items-center gap-2">
                     <span className="text-xs font-bold text-amber-400 uppercase tracking-wider">Índice de Exclusividad Estimado</span>
-                    <span className="text-[10px] bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded border border-amber-500/30 font-bold">99% RARO</span>
+                    <span className="text-[10px] bg-amber-500/20 text-violet-300 px-2 py-0.5 rounded border border-amber-500/30 font-bold">99% RARO</span>
                   </div>
                   <p className="text-xs text-zinc-400">
                     Al integrar caracteres Unicode avanzados (como U+3000 o símbolos egipcios 𓆩𓆪), la probabilidad de encontrar un nombre duplicado en Free Fire se reduce a prácticamente cero.
@@ -1883,16 +1883,16 @@ export default function CategoryPage({
                 🎨 Códigos de Colores HEX para Chat y Firma en Free Fire
               </h3>
               <p className="text-xs text-zinc-400">
-                Pega estos códigos entre corchetes antes de tu nombre en la firma o chat del juego para cambiar su color (Ejemplo: <code className="text-amber-300">[FF0000]MiNombre</code> para texto rojo):
+                Pega estos códigos entre corchetes antes de tu nombre en la firma o chat del juego para cambiar su color (Ejemplo: <code className="text-violet-300">[FF0000]MiNombre</code> para texto rojo):
               </p>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">
                 {[
                   { color: 'Rojo Fuego', hex: '[FF0000]', bg: 'bg-red-500/20 text-red-300 border-red-500/30' },
                   { color: 'Amarillo Dorado', hex: '[FFFF00]', bg: 'bg-yellow-500/20 text-yellow-300 border-yellow-500/30' },
-                  { color: 'Verde Neón', hex: '[00FF00]', bg: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30' },
-                  { color: 'Azul Celeste', hex: '[00FFFF]', bg: 'bg-cyan-500/20 text-cyan-300 border-cyan-500/30' },
-                  { color: 'Rosa Neón', hex: '[FF00FF]', bg: 'bg-pink-500/20 text-pink-300 border-pink-500/30' },
-                  { color: 'Naranja Épico', hex: '[FF8800]', bg: 'bg-amber-500/20 text-amber-300 border-amber-500/30' }
+                  { color: 'Verde Neón', hex: '[00FF00]', bg: 'bg-emerald-500/20 text-violet-300 border-emerald-500/30' },
+                  { color: 'Azul Celeste', hex: '[00FFFF]', bg: 'bg-cyan-500/20 text-violet-300 border-cyan-500/30' },
+                  { color: 'Rosa Neón', hex: '[FF00FF]', bg: 'bg-pink-500/20 text-violet-300 border-pink-500/30' },
+                  { color: 'Naranja Épico', hex: '[FF8800]', bg: 'bg-amber-500/20 text-violet-300 border-amber-500/30' }
                 ].map((item, idx) => (
                   <button
                     key={idx}
@@ -1973,7 +1973,7 @@ export default function CategoryPage({
             { icon: <Shield className="w-6 h-6" />, title: 'Uso responsable', desc: 'La compatibilidad de caracteres puede variar según la plataforma y sus actualizaciones.' },
             { icon: <Smartphone className="w-6 h-6" />, title: 'Para Móvil', desc: 'Copia y pega fácilmente desde tu celular.' }
           ].map((feature, i) => (
-            <div key={i} className="bg-[#121212] p-6 rounded-3xl border border-white/5 flex flex-col items-center text-center gap-4 hover:border-violet-500/20 transition-colors">
+            <div key={i} className="gdn-surface p-6 rounded-2xl border flex flex-col items-center text-center gap-4 hover:border-violet-500/30 transition-colors">
               <div className="w-12 h-12 bg-violet-500/10 text-violet-400 rounded-2xl flex items-center justify-center">
                 {feature.icon}
               </div>
@@ -1989,9 +1989,9 @@ export default function CategoryPage({
       {/* Trending Names Section */}
       {(location.pathname === '/' || location.pathname === '/nombres-free-fire' || location.pathname === '/generador-free-fire' || location.pathname === '/espacios-invisible-ff' || location.pathname === '/nombres-ff-unicos' || location.pathname === '/nombres-ff-mujeres' || location.pathname === '/nombres-clanes-ff') && (
         <div className="max-w-6xl mx-auto py-8">
-          <div className="bg-gradient-to-br from-zinc-900 to-zinc-950 border border-white/5 rounded-3xl p-8 shadow-2xl relative overflow-hidden">
+          <div className="gdn-surface border rounded-2xl p-7 md:p-8 relative overflow-hidden">
             {/* Background Glow */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-violet-600/10 blur-[120px] rounded-full pointer-events-none"></div>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-violet-600/5 blur-[120px] rounded-full pointer-events-none"></div>
             
             <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-8 relative z-10">
               <div>
@@ -2024,7 +2024,7 @@ export default function CategoryPage({
                 <button
                   key={i}
                   onClick={() => handleCopyTrending(name)}
-                  className="group bg-[#121212] hover:bg-violet-500/10 border border-white/5 hover:border-violet-500/30 rounded-2xl p-4 flex flex-col items-center justify-center gap-2 transition-all active:scale-95"
+                  className="group gdn-surface-raised hover:border-violet-500/30 border rounded-xl p-4 flex flex-col items-center justify-center gap-2 transition-all active:scale-95"
                 >
                   <span className="font-medium text-zinc-200 truncate w-full text-center group-hover:text-violet-300 transition-colors">{name}</span>
                   <span className="text-[10px] uppercase tracking-wider font-semibold text-zinc-500 group-hover:text-violet-400 transition-colors">Copiar</span>
@@ -2038,7 +2038,7 @@ export default function CategoryPage({
       {/* Symbol Bank Section */}
       {(location.pathname === '/' || location.pathname === '/nombres-free-fire' || location.pathname === '/generador-free-fire' || location.pathname === '/espacios-invisible-ff' || location.pathname === '/nombres-ff-unicos' || location.pathname === '/nombres-ff-mujeres' || location.pathname === '/nombres-clanes-ff') && (
         <div className="max-w-6xl mx-auto py-4">
-          <div className="bg-[#121212] border border-white/5 rounded-3xl p-8 shadow-2xl relative overflow-hidden">
+          <div className="gdn-surface border rounded-2xl p-7 md:p-8 relative overflow-hidden">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
               <div>
                 <h2 className="text-2xl md:text-3xl font-bold text-white font-heading flex items-center gap-3">
@@ -2049,7 +2049,7 @@ export default function CategoryPage({
               </div>
 
               {/* Tabs */}
-              <div className="flex flex-wrap gap-2 bg-zinc-900/80 p-1.5 rounded-2xl border border-white/5">
+              <div className="gdn-nav flex flex-wrap gap-2 p-1.5 border">
                 {[
                   { id: 'populares', label: '🔥 Populares' },
                   { id: 'coronas', label: '👑 Coronas' },
@@ -2061,7 +2061,7 @@ export default function CategoryPage({
                     onClick={() => setActiveSymbolTab(tab.id)}
                     className={`px-4 py-2 rounded-xl text-sm font-medium transition-all ${
                       activeSymbolTab === tab.id
-                        ? 'bg-violet-600 text-white shadow-lg shadow-violet-500/25'
+                        ? 'gdn-primary-button text-white'
                         : 'text-zinc-400 hover:text-white hover:bg-white/5'
                     }`}
                   >
@@ -2077,7 +2077,7 @@ export default function CategoryPage({
                 <button
                   key={idx}
                   onClick={() => handleCopyTrending(sym)}
-                  className="h-14 bg-zinc-900/60 hover:bg-violet-500/20 border border-white/5 hover:border-violet-500/30 rounded-2xl text-xl flex items-center justify-center text-zinc-200 transition-all active:scale-95 group relative"
+                  className="gdn-chip h-14 border rounded-xl text-xl flex items-center justify-center transition-all active:scale-95 group relative"
                   title="Copiar símbolo"
                 >
                   <span>{sym}</span>
@@ -2092,7 +2092,7 @@ export default function CategoryPage({
       {/* Duos and Couples Section (For Free Fire page) */}
       {(location.pathname === '/nombres-free-fire' || location.pathname === '/' || location.pathname === '/generador-free-fire' || location.pathname === '/espacios-invisible-ff' || location.pathname === '/nombres-ff-unicos' || location.pathname === '/nombres-ff-mujeres' || location.pathname === '/nombres-clanes-ff') && (
         <div className="max-w-6xl mx-auto py-2">
-          <div className="bg-[#121212] border border-white/5 rounded-3xl p-8 shadow-2xl relative overflow-hidden">
+          <div className="gdn-surface border rounded-2xl p-7 md:p-8 relative overflow-hidden">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
               <div>
                 <h2 className="text-2xl md:text-3xl font-bold text-white font-heading flex items-center gap-3">
@@ -2109,7 +2109,7 @@ export default function CategoryPage({
                 { pair1: '⚡ B O N N I E ⚡', pair2: '⚡ C L Y D E ⚡', tag: 'Pareja Mítica' },
                 { pair1: '亗 A D A N 亗', pair2: '亗 E V A 亗', tag: 'Clásico Pro' }
               ].map((duo, idx) => (
-                <div key={idx} className="bg-zinc-900/60 border border-white/5 rounded-2xl p-4 flex items-center justify-between gap-3 hover:border-violet-500/30 transition-all">
+                <div key={idx} className="gdn-surface-raised border rounded-xl p-4 flex items-center justify-between gap-3 hover:border-violet-500/30 transition-all">
                   <div className="flex items-center gap-3 overflow-hidden">
                     <span className="text-xs font-semibold px-2.5 py-1 bg-violet-500/10 text-violet-300 rounded-lg border border-violet-500/20 whitespace-nowrap">
                       {duo.tag}
@@ -2121,14 +2121,14 @@ export default function CategoryPage({
                   <div className="flex items-center gap-2 shrink-0">
                     <button
                       onClick={() => handleCopyTrending(duo.pair1)}
-                      className="px-3 py-1.5 bg-zinc-800 hover:bg-violet-600/30 text-zinc-300 hover:text-violet-200 rounded-lg text-xs font-medium border border-white/5 transition-all"
+                      className="gdn-chip px-3 py-1.5 rounded-lg text-xs font-medium border transition-all"
                       title="Copiar Él"
                     >
                       Él
                     </button>
                     <button
                       onClick={() => handleCopyTrending(duo.pair2)}
-                      className="px-3 py-1.5 bg-zinc-800 hover:bg-fuchsia-600/30 text-zinc-300 hover:text-fuchsia-200 rounded-lg text-xs font-medium border border-white/5 transition-all"
+                      className="gdn-chip px-3 py-1.5 rounded-lg text-xs font-medium border transition-all"
                       title="Copiar Ella"
                     >
                       Ella
@@ -2155,8 +2155,8 @@ export default function CategoryPage({
                 { step: '3', title: 'Icono de Lápiz', desc: 'Toca el icono amarillo de edición que aparece debajo de tu nombre actual.' },
                 { step: '4', title: 'Pega y Confirma', desc: 'Pega el apodo copiado y confirma usando 390 Diamantes o una Tarjeta de Nombre.' }
               ].map((item, idx) => (
-                <div key={idx} className="bg-[#121212] border border-white/5 rounded-2xl p-6 relative flex flex-col justify-between">
-                  <div className="w-10 h-10 rounded-xl bg-violet-600 text-white font-bold font-heading flex items-center justify-center text-lg mb-4 shadow-lg shadow-violet-500/30">
+                <div key={idx} className="gdn-surface-raised border rounded-xl p-6 relative flex flex-col justify-between">
+                  <div className="w-10 h-10 rounded-xl bg-violet-600 text-white font-bold font-heading flex items-center justify-center text-lg mb-4 ">
                     {item.step}
                   </div>
                   <div>
@@ -2173,7 +2173,7 @@ export default function CategoryPage({
       {children}
 
       {/* Category Sequential Pagination Bar for Google Crawling & UX */}
-      <nav aria-label="Navegación de categorías relacionadas" className="max-w-6xl mx-auto my-12 p-6 bg-[#121212] border border-white/5 rounded-3xl flex flex-col sm:flex-row items-center justify-between gap-4">
+      <nav aria-label="Navegación de categorías relacionadas" className="gdn-surface max-w-6xl mx-auto my-12 p-6 border rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4">
         {(() => {
           const cIdx = allLinks.findIndex(l => l.path === location.pathname);
           const pLink = cIdx > 0 ? allLinks[cIdx - 1] : allLinks[allLinks.length - 1];
