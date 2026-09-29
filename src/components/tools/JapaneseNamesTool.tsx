@@ -55,9 +55,9 @@ export default function JapaneseNamesTool({
     <input
     type="text"
     value={jpCustomName}
-    onChange={(e) = className="gdn-tool-input"> setJpCustomName(e.target.value)}
+    onChange={(e) => setJpCustomName(e.target.value)}
     placeholder="Sakura, Hinata, Gojo..."
-    className="w-full bg-zinc-800 border border-white/10 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-rose-500 text-sm font-bold"
+    className="gdn-tool-input w-full bg-zinc-800 border border-white/10 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-rose-500 text-sm font-bold"
     />
     </div>
     <div>
@@ -65,9 +65,9 @@ export default function JapaneseNamesTool({
     <input
     type="text"
     value={jpCustomKanji}
-    onChange={(e) = className="gdn-tool-input"> setJpCustomKanji(e.target.value)}
+    onChange={(e) => setJpCustomKanji(e.target.value)}
     placeholder="桜, 日向, 鬼..."
-    className="w-full bg-zinc-800 border border-white/10 rounded-xl px-4 py-2.5 text-rose-400 focus:outline-none focus:border-rose-500 text-sm font-mono font-bold"
+    className="gdn-tool-input w-full bg-zinc-800 border border-white/10 rounded-xl px-4 py-2.5 text-rose-400 focus:outline-none focus:border-rose-500 text-sm font-mono font-bold"
     />
     </div>
     </div>
