@@ -82,9 +82,9 @@ export default function FemaleNamesTool({
     <input
     type="text"
     value={femaleFirstName}
-    onChange={(e) = className="gdn-tool-input"> setFemaleFirstName(e.target.value)}
+    onChange={(e) => setFemaleFirstName(e.target.value)}
     placeholder="Ej: Zoe, Mia, Aitana, Iris"
-    className="w-full bg-zinc-900 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-pink-500 font-medium"
+    className="gdn-tool-input w-full bg-zinc-900 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-pink-500 font-medium"
     />
     </div>
     <div>
@@ -92,9 +92,9 @@ export default function FemaleNamesTool({
     <input
     type="text"
     value={femaleSecondName}
-    onChange={(e) = className="gdn-tool-input"> setFemaleSecondName(e.target.value)}
+    onChange={(e) => setFemaleSecondName(e.target.value)}
     placeholder="Ej: Valentina, Lucía, Elena, Isabel"
-    className="w-full bg-zinc-900 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-pink-500 font-medium"
+    className="gdn-tool-input w-full bg-zinc-900 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-pink-500 font-medium"
     />
     </div>
     </div>
