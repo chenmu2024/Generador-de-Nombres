@@ -588,7 +588,7 @@ export default function CategoryPage({ initialPath }: { initialPath?: string } =
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-3xl">🎮</span>
                   <span className="text-[10px] font-bold bg-violet-500/20 text-violet-300 border border-violet-500/30 px-3 py-1 rounded-full uppercase">
-                    135k Busquedas/mes
+                    Gaming & Redes
                   </span>
                 </div>
                 <h3 className="text-xl font-bold text-white font-heading mb-2 group-hover:text-violet-300 transition-colors">
@@ -615,7 +615,7 @@ export default function CategoryPage({ initialPath }: { initialPath?: string } =
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-3xl">👶</span>
                   <span className="text-[10px] font-bold bg-pink-500/20 text-pink-300 border border-pink-500/30 px-3 py-1 rounded-full uppercase">
-                    40.5k Busquedas/mes
+                    Personas & Bebés
                   </span>
                 </div>
                 <h3 className="text-xl font-bold text-white font-heading mb-2 group-hover:text-pink-300 transition-colors">
@@ -653,9 +653,9 @@ export default function CategoryPage({ initialPath }: { initialPath?: string } =
                 </p>
                 <div className="flex flex-wrap gap-1.5 mb-6">
                   <Link to="/nombres-con-a" className="text-xs font-semibold bg-zinc-800 hover:bg-blue-600/30 text-blue-300 px-2.5 py-1 rounded-lg transition-colors border border-white/5">Con A</Link>
-                  <Link to="/nombres-con-f" className="text-xs font-semibold bg-zinc-800 hover:bg-blue-600/30 text-blue-300 px-2.5 py-1 rounded-lg transition-colors border border-white/5">Con F (KD 24)</Link>
+                  <Link to="/nombres-con-f" className="text-xs font-semibold bg-zinc-800 hover:bg-blue-600/30 text-blue-300 px-2.5 py-1 rounded-lg transition-colors border border-white/5">Con F</Link>
                   <Link to="/nombres-con-m" className="text-xs font-semibold bg-zinc-800 hover:bg-blue-600/30 text-blue-300 px-2.5 py-1 rounded-lg transition-colors border border-white/5">Con M</Link>
-                  <Link to="/nombres-con-en" className="text-xs font-semibold bg-zinc-800 hover:bg-blue-600/30 text-blue-300 px-2.5 py-1 rounded-lg transition-colors border border-white/5">Con Ñ (KD 22)</Link>
+                  <Link to="/nombres-con-en" className="text-xs font-semibold bg-zinc-800 hover:bg-blue-600/30 text-blue-300 px-2.5 py-1 rounded-lg transition-colors border border-white/5">Con Ñ</Link>
                   <Link to="/nombres-con-z" className="text-xs font-semibold bg-zinc-800 hover:bg-blue-600/30 text-blue-300 px-2.5 py-1 rounded-lg transition-colors border border-white/5">Con Z</Link>
                 </div>
               </div>
@@ -683,7 +683,7 @@ export default function CategoryPage({ initialPath }: { initialPath?: string } =
                   <Link to="/nombres-de-dioses" className="text-xs font-semibold bg-zinc-800 hover:bg-emerald-600/30 text-emerald-300 px-2.5 py-1 rounded-lg transition-colors border border-white/5">Dioses</Link>
                   <Link to="/nombres-japoneses" className="text-xs font-semibold bg-zinc-800 hover:bg-emerald-600/30 text-emerald-300 px-2.5 py-1 rounded-lg transition-colors border border-white/5">Japoneses</Link>
                   <Link to="/nombres-coreanos" className="text-xs font-semibold bg-zinc-800 hover:bg-emerald-600/30 text-emerald-300 px-2.5 py-1 rounded-lg transition-colors border border-white/5">Coreanos</Link>
-                  <Link to="/nombres-mayas" className="text-xs font-semibold bg-zinc-800 hover:bg-emerald-600/30 text-emerald-300 px-2.5 py-1 rounded-lg transition-colors border border-white/5">Mayas (KD 19)</Link>
+                  <Link to="/nombres-mayas" className="text-xs font-semibold bg-zinc-800 hover:bg-emerald-600/30 text-emerald-300 px-2.5 py-1 rounded-lg transition-colors border border-white/5">Mayas</Link>
                 </div>
               </div>
               <Link to="/nombres-japoneses" className="text-xs font-bold text-emerald-400 hover:text-emerald-300 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
@@ -697,7 +697,7 @@ export default function CategoryPage({ initialPath }: { initialPath?: string } =
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-3xl">🐾</span>
                   <span className="text-[10px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30 px-3 py-1 rounded-full uppercase">
-                    27.1k Busquedas/mes
+                    Mascotas & Animales
                   </span>
                 </div>
                 <h3 className="text-xl font-bold text-white font-heading mb-2 group-hover:text-amber-300 transition-colors">
@@ -748,7 +748,7 @@ export default function CategoryPage({ initialPath }: { initialPath?: string } =
       )}
 
       {/* Espacio Invisible Section & FF Pro Kit (Pestaña / Herramienta Exclusiva Free Fire) */}
-      {(location.pathname === '/nombres-free-fire' || location.pathname === '/generador-free-fire' || location.pathname === '/nombres-ff-unicos' || location.pathname === '/nombres-free-fire-mujeres' || location.pathname === '/nombres-clanes-ff' || location.pathname === '/nombres-roblox' || location.pathname === '/nombres-instagram' || location.pathname === '/nombres-anime' || location.pathname === '/nombres-de-mujer' || location.pathname === '/nombres-de-nina' || location.pathname === '/nombres-de-nino' || location.pathname === '/nombres-unisex' || location.pathname === '/nombres-raros' || location.pathname === '/nombres-por-letra' || location.pathname.startsWith('/nombres-con-') || location.pathname === '/') && (
+      {(location.pathname === '/nombres-free-fire' || location.pathname === '/generador-free-fire' || location.pathname === '/nombres-ff-unicos' || location.pathname === '/nombres-ff-mujeres' || location.pathname === '/nombres-clanes-ff' || location.pathname === '/nombres-roblox' || location.pathname === '/nombres-instagram' || location.pathname === '/nombres-anime' || location.pathname === '/nombres-de-mujer' || location.pathname === '/nombres-de-nina' || location.pathname === '/nombres-de-nino' || location.pathname === '/nombres-unisex' || location.pathname === '/nombres-raros' || location.pathname === '/nombres-por-letra' || location.pathname.startsWith('/nombres-con-') || location.pathname === '/') && (
         <div className="max-w-6xl mx-auto py-2 space-y-8">
           {/* A-Z Alphabet Directory Specialized Meaning Finder & Name Explorer */}
           {(location.pathname === '/nombres-por-letra' || location.pathname.startsWith('/nombres-con-')) && (
@@ -2691,8 +2691,8 @@ export default function CategoryPage({ initialPath }: { initialPath?: string } =
               </div>
             </div>
           )}
-          {/* Female / Chicas Insanas Specialized Generator Block for /nombres-free-fire-mujeres */}
-          {location.pathname === '/nombres-free-fire-mujeres' && (
+          {/* Female / Chicas Insanas Specialized Generator Block for /nombres-ff-mujeres */}
+          {location.pathname === '/nombres-ff-mujeres' && (
             <div className="bg-gradient-to-br from-fuchsia-950/40 via-[#121212] to-violet-950/30 border border-fuchsia-500/30 rounded-3xl p-8 shadow-2xl relative overflow-hidden space-y-6">
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10">
                 <div>
@@ -5194,7 +5194,7 @@ export default function CategoryPage({ initialPath }: { initialPath?: string } =
           {[
             { icon: <Zap className="w-6 h-6" />, title: 'Rápido y Fácil', desc: 'Genera cientos de nombres épicos en un solo clic.' },
             { icon: <Gem className="w-6 h-6" />, title: 'Símbolos Únicos', desc: 'La mayor colección de letras raras y adornos.' },
-            { icon: <Shield className="w-6 h-6" />, title: '100% Seguro', desc: 'Caracteres Unicode aceptados. Sin riesgo de ban.' },
+            { icon: <Shield className="w-6 h-6" />, title: 'Uso responsable', desc: 'La compatibilidad de caracteres puede variar según la plataforma y sus actualizaciones.' },
             { icon: <Smartphone className="w-6 h-6" />, title: 'Para Móvil', desc: 'Copia y pega fácilmente desde tu celular.' }
           ].map((feature, i) => (
             <div key={i} className="bg-[#121212] p-6 rounded-3xl border border-white/5 flex flex-col items-center text-center gap-4 hover:border-violet-500/20 transition-colors">
@@ -5221,16 +5221,16 @@ export default function CategoryPage({ initialPath }: { initialPath?: string } =
               <div>
                 <h2 className="text-2xl md:text-3xl font-bold text-white font-heading flex items-center gap-3">
                   <Flame className="w-8 h-8 text-orange-500" />
-                  Apodos en Tendencia
+                  Apodos Populares
                 </h2>
-                <p className="text-zinc-400 mt-2">Los nombres más copiados por la comunidad hoy.</p>
+                <p className="text-zinc-400 mt-2">Una selección de estilos populares para inspirarte y copiar.</p>
               </div>
               <div className="flex items-center gap-2">
                 <span className="flex h-3 w-3 relative">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
                 </span>
-                <span className="text-sm font-medium text-emerald-400">Actualizado en vivo</span>
+                <span className="text-sm font-medium text-emerald-400">Ejemplos listos para copiar</span>
               </div>
             </div>
 
@@ -5485,7 +5485,7 @@ export default function CategoryPage({ initialPath }: { initialPath?: string } =
               <Star className="w-4 h-4 fill-amber-400" />
               <Star className="w-4 h-4 fill-amber-400" />
               <Star className="w-4 h-4 fill-amber-400" />
-              <span className="text-xs font-bold text-zinc-300 ml-1">4.9/5 (1,520 valoraciones)</span>
+              <span className="text-xs font-bold text-zinc-300 ml-1">Tu opinión nos ayuda a mejorar</span>
             </div>
             <p className="text-sm text-zinc-200 font-medium">¿Te sirvieron las ideas de este generador?</p>
             {feedbackGiven ? (
@@ -5514,19 +5514,19 @@ export default function CategoryPage({ initialPath }: { initialPath?: string } =
           <div className="bg-gradient-to-br from-zinc-900 via-zinc-950 to-black rounded-3xl p-6 border border-white/10 shadow-2xl space-y-3 text-xs text-zinc-400">
             <div className="flex items-center gap-2 text-violet-400 font-bold text-sm">
               <Shield className="w-4 h-4 text-emerald-400" />
-              <span>Garantía de Calidad Editorial & E-E-A-T</span>
+              <span>Metodología y revisión editorial</span>
             </div>
             <p className="leading-relaxed">
-              Contenido verificado y supervisado por el <strong>Equipo Editorial de GeneradorDeNombres.net</strong>. Todos los caracteres y símbolos Unicode son probados y 100% compatibles con Android, iOS, Free Fire y redes sociales.
+              Revisamos periódicamente los caracteres, símbolos y ejemplos incluidos en nuestras herramientas. La compatibilidad puede variar según la plataforma, el dispositivo y futuras actualizaciones de cada servicio.
             </p>
             <div className="pt-2.5 border-t border-white/5 space-y-1.5 text-[11px] text-zinc-400">
               <div className="flex items-center justify-between">
                 <span className="text-zinc-500">Última revisión:</span>
-                <span className="font-semibold text-zinc-300">Agosto 2026</span>
+                <span className="font-semibold text-zinc-300">Septiembre 2026</span>
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-zinc-500">Compatibilidad:</span>
-                <span className="font-semibold text-emerald-400">Unicode 15.0 Seguro</span>
+                <span className="font-semibold text-emerald-400">Compatibilidad variable por plataforma</span>
               </div>
               <div className="flex items-center justify-between pt-1">
                 <Link to="/politica-de-privacidad" className="text-violet-400 hover:underline">Política de Privacidad</Link>
