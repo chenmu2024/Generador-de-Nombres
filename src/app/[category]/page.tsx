@@ -121,7 +121,7 @@ export default async function DynamicCategoryPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(appSchema) }}
       />
       <Suspense fallback={<div className="min-h-screen bg-[#0a0a0a]" />}>
-        <CategoryPage initialPath={categoryPath} />
+        <CategoryPage initialPath={categoryPath} data={data} />
       </Suspense>
     </>
   );

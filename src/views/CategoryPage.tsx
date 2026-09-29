@@ -31,15 +31,13 @@ const LazyFootballTool = dynamic(() => import('../components/tools/FootballTool'
   ssr: false,
   loading: () => <div className="min-h-[400px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>
 });
-import { seoData, allLinks } from '../data/seoData';
+import { allLinks } from '../data/allLinks';
+import type { CategoryData } from '../data/seoData';
 
-export default function CategoryPage({ initialPath }: { initialPath?: string } = {}) {
+export default function CategoryPage({ initialPath, data }: { initialPath?: string; data: CategoryData }) {
   const routerLocation = useLocation();
   const currentPath = initialPath || routerLocation.pathname || '/';
   const location = { pathname: currentPath };
-  const rawPath = currentPath === '/' ? 'home' : currentPath.replace(/^\//, '');
-  const path = rawPath === '' ? 'home' : rawPath;
-  const data = seoData[path] || seoData['home'];
   const [showToast, setShowToast] = useState(false);
   const [feedbackGiven, setFeedbackGiven] = useState(false);
   const [searchCategory, setSearchCategory] = useState(() => {
