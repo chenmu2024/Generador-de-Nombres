@@ -24,7 +24,7 @@ export default function AnimeNamesTool({
   };
 
   return (
-    <div className="bg-gradient-to-br from-red-950/40 via-[#121212] to-violet-950/30 border border-red-500/30 rounded-3xl p-8 shadow-2xl relative overflow-hidden space-y-6">
+    <div className="gdn-tool-shell bg-gradient-to-br from-red-950/40 via-[#121212] to-violet-950/30 border border-red-500/30 rounded-3xl p-8 shadow-2xl relative overflow-hidden space-y-6">
     <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10">
     <div>
     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/10 border border-red-500/20 text-red-300 text-xs font-semibold uppercase tracking-wider mb-3">
@@ -58,7 +58,7 @@ export default function AnimeNamesTool({
     <button
     key={tab.id}
     onClick={() => setAnimeArchetype(tab.id as any)}
-    className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+    className={`gdn-tool-tab px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
     animeArchetype === tab.id
     ? 'bg-gradient-to-r from-red-600 to-violet-600 text-white shadow-md'
     : 'text-zinc-400 hover:text-white'
@@ -77,7 +77,7 @@ export default function AnimeNamesTool({
     <input
     type="text"
     value={animeBaseName}
-    onChange={(e) => setAnimeBaseName(e.target.value)}
+    onChange={(e) = className="gdn-tool-input"> setAnimeBaseName(e.target.value)}
     placeholder="Ej: Kuro, Akira, Sora, Ren, Kage"
     className="w-full bg-zinc-900 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-red-500 font-mono"
     />
@@ -85,7 +85,7 @@ export default function AnimeNamesTool({
     <div>
     <label className="text-[11px] text-zinc-400 font-bold uppercase block mb-1">2. Sufijo Honorífico Japonés</label>
     <select aria-label="Seleccionar opción" value={animeSuffix}
-    onChange={(e) => setAnimeSuffix(e.target.value)}
+    onChange={(e) = className="gdn-tool-input"> setAnimeSuffix(e.target.value)}
     className="w-full bg-zinc-900 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-red-500 font-mono"
     >
     <option value="-sama">-sama (様 - Señor / Respeto Supremo)</option>
@@ -141,7 +141,7 @@ export default function AnimeNamesTool({
     const currentCombos = archetypeCombos[animeArchetype] || archetypeCombos.shonen;
     
     return (
-    <div className="space-y-3 pt-2">
+    <div className="gdn-tool-result space-y-3 pt-2">
     <span className="text-xs font-bold text-zinc-300 block">Variaciones Listas para Copiar y Usar en Juego:</span>
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
     {currentCombos.map((combo, idx) => (
