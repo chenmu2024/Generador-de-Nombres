@@ -879,3 +879,70 @@ body {
     padding-top: 28px !important;
   }
 }
+
+
+/* V4 Static & Editorial Surfaces */
+.gdn-shell main > div[class*="bg-[#0a0a0a]"] {
+  background: var(--gdn-bg) !important;
+  color: var(--gdn-text) !important;
+}
+
+.gdn-shell main > div[class*="bg-[#0a0a0a]"] .bg-zinc-900\/60,
+.gdn-shell main > div[class*="bg-[#0a0a0a]"] .bg-zinc-900\/40,
+.gdn-shell main > div[class*="bg-[#0a0a0a]"] .bg-zinc-900\/30,
+.gdn-shell main > div[class*="bg-[#0a0a0a]"] .bg-zinc-950 {
+  background: #fff !important;
+}
+
+.gdn-shell main > div[class*="bg-[#0a0a0a]"] .border-white\/10,
+.gdn-shell main > div[class*="bg-[#0a0a0a]"] .border-white\/5 {
+  border-color: var(--gdn-border) !important;
+}
+
+.gdn-shell main > div[class*="bg-[#0a0a0a]"] h1,
+.gdn-shell main > div[class*="bg-[#0a0a0a]"] h2,
+.gdn-shell main > div[class*="bg-[#0a0a0a]"] h3,
+.gdn-shell main > div[class*="bg-[#0a0a0a]"] h4 {
+  color: var(--gdn-text) !important;
+}
+
+.gdn-shell main > div[class*="bg-[#0a0a0a]"] .text-zinc-100,
+.gdn-shell main > div[class*="bg-[#0a0a0a]"] .text-zinc-200,
+.gdn-shell main > div[class*="bg-[#0a0a0a]"] .text-zinc-300,
+.gdn-shell main > div[class*="bg-[#0a0a0a]"] .text-zinc-400 {
+  color: var(--gdn-text-secondary) !important;
+}
+
+.gdn-shell main > div[class*="bg-[#0a0a0a]"] .text-zinc-500 {
+  color: var(--gdn-text-muted) !important;
+}
+
+.gdn-shell main > div[class*="bg-[#0a0a0a]"] input,
+.gdn-shell main > div[class*="bg-[#0a0a0a]"] select,
+.gdn-shell main > div[class*="bg-[#0a0a0a]"] textarea {
+  background: #fff !important;
+  border-color: var(--gdn-border) !important;
+  color: var(--gdn-text) !important;
+}
+
+.gdn-shell main > div[class*="bg-[#0a0a0a]"] input::placeholder,
+.gdn-shell main > div[class*="bg-[#0a0a0a]"] textarea::placeholder {
+  color: var(--gdn-text-muted) !important;
+}
+
+.gdn-shell main > div[class*="bg-[#0a0a0a]"] h1.text-transparent {
+  background-image: none !important;
+  color: var(--gdn-text) !important;
+  -webkit-text-fill-color: currentColor !important;
+}
+
+.gdn-reading strong {
+  color: var(--gdn-text) !important;
+}
+
+.gdn-reading code {
+  color: var(--gdn-primary);
+  background: var(--gdn-primary-soft);
+  border-radius: 6px;
+  padding: 0.08em 0.3em;
+}
