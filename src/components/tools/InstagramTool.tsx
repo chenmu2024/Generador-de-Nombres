@@ -38,7 +38,7 @@ export default function InstagramTool({ handleCopyTrending }: InstagramToolProps
         <div className="gdn-tool-result bg-zinc-900/90 border border-white/10 rounded-2xl p-6 relative z-10 space-y-6">
           <div>
             <label className="text-xs font-semibold text-zinc-400 block mb-2">Escribe tu candidato a Username de IG (@usuario):</label>
-            <div className="relative">
+            <div className="gdn-validator-field relative">
               <span className="absolute left-4 top-1/2 -translate-y-1/2 text-pink-400 font-bold text-lg font-mono">@</span>
               <input
                 type="text"

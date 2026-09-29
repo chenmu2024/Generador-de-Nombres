@@ -253,17 +253,20 @@ export default function CategoryPage({
         )}
 
         {location.pathname === '/espacios-invisible-ff' && (
-          <div className="mt-3 md:mt-5">\n            <InvisibleSpaceTool />
+          <div className="mt-3 md:mt-5">
+            <InvisibleSpaceTool />
           </div>
         )}
 
         {(location.pathname === '/nombres-por-letra' || location.pathname.startsWith('/nombres-con-')) && (
-          <div className="mt-3 md:mt-5">\n            <AlphabetMatrixTool />
+          <div className="mt-3 md:mt-5">
+            <AlphabetMatrixTool />
           </div>
         )}
 
         {location.pathname === '/nombres-para-tiendas' && (
-          <div className="mt-3 md:mt-5">\n            <StoreNameTool />
+          <div className="mt-3 md:mt-5">
+            <StoreNameTool />
           </div>
         )}
       </div>
