@@ -54,8 +54,8 @@ export default function MaleCatNamesTool({
       <div>
       <label className="text-xs font-semibold text-zinc-400 block mb-2">Personalidad / Estilo:</label>
       <select aria-label="Seleccionar opción" value={maleCatPersonality}
-      onChange={(e) = className="gdn-tool-input"> setMaleCatPersonality(e.target.value)}
-      className="w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-blue-500 text-sm font-semibold"
+      onChange={(e) => setMaleCatPersonality(e.target.value)}
+      className="gdn-tool-input w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-blue-500 text-sm font-semibold"
       >
       {['Épico / Rey 👑', 'Juguetón / Travieso ⚡', 'Súper Corto ⚡', 'Cariñoso / Mochi 🍡', 'Mitología / Héroe 🏛️', 'Elegante / Sir 🎩'].map(p => (
       <option key={p} value={p}>{p}</option>
@@ -68,9 +68,9 @@ export default function MaleCatNamesTool({
       <input
       type="text"
       value={maleCatCustomName}
-      onChange={(e) = className="gdn-tool-input"> setMaleCatCustomName(e.target.value)}
+      onChange={(e) => setMaleCatCustomName(e.target.value)}
       placeholder="Simba, Thor, Leo..."
-      className="w-full bg-zinc-800 border border-white/10 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-blue-500 text-sm font-bold"
+      className="gdn-tool-input w-full bg-zinc-800 border border-white/10 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-blue-500 text-sm font-bold"
       />
       </div>
       </div>
