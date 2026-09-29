@@ -66,7 +66,7 @@ export const seoData: Record<string, CategoryData> = {
     subtitle: 'Crea nombres insanos, espacios invisibles, V de Verificado Ⓥ y apodos para clanes, dúos y chicas en FF.',
     seoText: `
       <h2>Los Mejores Nombres para Free Fire en 2026 (Apodos Insanos y Épicos)</h2>
-      <p>Destacar en Free Fire (FF) empieza antes de caer del avión: tu nickname o apodo es tu carta de presentación ante tus rivales y tu escuadra. Ya sea que busques un <strong>nombre insano que dé miedo</strong>, un nombre con <strong>espacio invisible Unicode (U+3164)</strong>, el icono <strong>V de Verificado (Ⓥ)</strong>, o combinaciones para <strong>dúos dinámicos y clanes nivel 10</strong>, nuestro generador en vivo crea opciones 100% compatibles con la regla de los 12 caracteres de Garena.</p>
+      <p>Destacar en Free Fire (FF) empieza antes de caer del avión: tu nickname o apodo es tu carta de presentación ante tus rivales y tu escuadra. Ya sea que busques un <strong>nombre insano que dé miedo</strong>, un nombre con <strong>espacio invisible Unicode (U+3164)</strong>, el icono <strong>V de Verificado (Ⓥ)</strong>, o combinaciones para <strong>dúos dinámicos y clanes nivel 10</strong>, nuestro generador crea variantes adaptadas a nombres cortos; los límites y caracteres admitidos pueden cambiar según la versión del juego.</p>
       
       <h3>Guía Rápida: Estilos de Nombres para Free Fire Más Buscados</h3>
       <p>A continuación te mostramos las combinaciones más populares clasificadas por estilo e intención en partida:</p>
@@ -121,9 +121,9 @@ export const seoData: Record<string, CategoryData> = {
 
       <h3>Reglas Oficiales de Longitud de Nombres en Free Fire</h3>
       <ul>
-        <li><strong>Límite de Caracteres:</strong> Máximo 12 caracteres en total (incluyendo símbolos y espacios invisibles).</li>
+        <li><strong>Longitud del apodo:</strong> Comprueba el límite que muestra tu versión de Free Fire antes de confirmar, ya que las reglas pueden cambiar.</li>
         <li><strong>Símbolos Permitidos:</strong> Caracteres Unicode especiales (꧁, ꧂, ⚡, ☠︎, 👑, ✿, ☬, ⚔️, ☯︎, ★, ♥, ✨, 🔥, ツ, ×͜×, Ⓥ, ╰‿╯).</li>
-        <li><strong>Costo de Cambio:</strong> Cambiar de nombre cuesta 390 Diamantes o 1 Tarjeta de Cambio de Nombre (Name Change Card).</li>
+        <li><strong>Cambio de nombre:</strong> El coste y los métodos disponibles pueden variar; confirma siempre lo que muestra tu cuenta dentro del juego.</li>
       </ul>
     `,
     metaDescription: 'Lista de nombres para Free Fire con símbolos y letras raras. Encuentra apodos insanos, chidos, de mujer y clanes para destacar en tu juego.',
@@ -137,7 +137,7 @@ export const seoData: Record<string, CategoryData> = {
       },
       {
         question: "¿Cuál es el límite de letras para los nombres en Free Fire?",
-        answer: "Free Fire permite un máximo estricto de 12 caracteres en el nickname (contando letras, números, símbolos y espacios invisibles). Nuestro generador incluye un contador automático para asegurarte de que tu nombre no exceda este límite."
+        answer: "El juego puede aplicar límites de longitud y de caracteres según la versión. Usa el contador del generador como referencia y confirma el resultado en el campo de apodo antes de guardar."
       },
       {
         question: "¿Cómo pongo la V de Verificado (Ⓥ) en mi perfil de Free Fire?",
@@ -145,7 +145,7 @@ export const seoData: Record<string, CategoryData> = {
       },
       {
         question: "¿Cuánto cuesta cambiar de nombre en Free Fire?",
-        answer: "Cambiar tu nombre en Free Fire cuesta 390 Diamantes. También puedes comprar o canjear una 'Tarjeta de Cambio de Nombre' en la tienda del juego o mediante eventos de clan."
+        answer: "El coste y los métodos para cambiar el apodo pueden variar con el tiempo. Revisa el precio y las opciones que aparecen en tu cuenta antes de confirmar."
       },
       {
         question: "¿Es gratis usar este creador de nombres para Free Fire?",
@@ -444,7 +444,7 @@ export const seoData: Record<string, CategoryData> = {
       },
       {
         question: "¿Puedo usar estos nombres para clanes de eSports o EA Sports FC / FIFA / eFootball?",
-        answer: "¡Totalmente! Todos los nombres generados son 100% compatibles con EA Sports FC Ultimate Team, eFootball, Liga Master y clanes de eSports en Free Fire, PUBG o Rocket League."
+        answer: "Los nombres generados son texto Unicode, pero cada juego o plataforma aplica sus propias reglas de longitud y caracteres permitidos. Conviene comprobar el nombre antes de guardarlo."
       }
     ]
   },
@@ -1495,14 +1495,14 @@ export const seoData: Record<string, CategoryData> = {
   'espacios-invisible-ff': {
     id: 'espacios-invisible-ff',
     path: '/espacios-invisible-ff',
-    title: 'Espacio Invisible para Free Fire - Copiar U+3000 | GDN',
+    title: 'Espacio Invisible Free Fire - Copiar U+3164 | GDN',
     h1: 'Generador y Copiador de Espacio Invisible para Free Fire',
-    subtitle: 'Copia en 1 clic el espacio en blanco transparente (Unicode U+3000) para nombres de usuario, clanes y nicks invisibles en FF.',
+    subtitle: 'Copia Hangul Filler (U+3164), U+1160 y el espacio ideográfico U+3000 para probar separaciones Unicode en nombres y clanes.',
     seoText: `
       <h2>El Mejor Generador y Copiador de Espacio Invisible para Free Fire</h2>
       <p>El <strong>espacio invisible para Free Fire</strong> (también conocido como <em>letra transparente</em>, <em>espacio en blanco Unicode</em> o <em>código transparente</em>) es el carácter indispensable si quieres separar el tag de tu clan de tu nombre en el juego (por ejemplo: <code>TM ㅤ INSANO</code>) o crear un <strong>nickname 100% invisible o fantasma</strong>.</p>
       
-      <p>Garena Free Fire bloquea la barra espaciadora predeterminada del teclado Android e iOS. Por esa razón, necesitas utilizar el carácter especial <strong>Unicode U+3000 (Hangul Filler)</strong> o <strong>U+3164</strong>, el cual el motor del juego procesa como una letra válida pero renderiza de forma totalmente invisible.</p>
+      <p>Garena Free Fire bloquea la barra espaciadora predeterminada del teclado Android e iOS. Por esa razón, necesitas utilizar el carácter especial <strong>Unicode U+3164 (Hangul Filler)</strong>, <strong>U+1160 (Hangul Jungseong Filler)</strong> o <strong>U+3000 (Ideographic Space)</strong>, el cual el motor del juego procesa como una letra válida pero renderiza de forma totalmente invisible.</p>
 
       <h3>Opciones de Espacio Invisible para Copiar (1-Clic)</h3>
       <div class="overflow-x-auto not-prose mb-8 mt-4">
@@ -1516,23 +1516,23 @@ export const seoData: Record<string, CategoryData> = {
           </thead>
           <tbody class="text-zinc-300 divide-y divide-white/5">
             <tr class="hover:bg-white/5 transition-colors">
-              <td class="py-3 px-4 font-bold text-violet-300">Espacio Mediano (Recomendado)</td>
-              <td class="py-3 px-4 font-mono text-amber-300">U+3000</td>
+              <td class="py-3 px-4 font-bold text-violet-300">Hangul Filler</td>
+              <td class="py-3 px-4 font-mono text-amber-300">U+3164</td>
               <td class="py-3 px-4 font-medium text-zinc-100">Separar tag de clan y apodo en nick de 12 caracteres.</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
-              <td class="py-3 px-4 font-bold text-violet-300">Espacio Pequeño / Transparente</td>
-              <td class="py-3 px-4 font-mono text-amber-300">U+3164</td>
+              <td class="py-3 px-4 font-bold text-violet-300">Hangul Jungseong Filler</td>
+              <td class="py-3 px-4 font-mono text-amber-300">U+1160</td>
               <td class="py-3 px-4 font-medium text-zinc-100">Separación estrecha en firmas de perfil o biografía.</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
-              <td class="py-3 px-4 font-bold text-violet-300">Espacio Doble / Ancho</td>
-              <td class="py-3 px-4 font-mono text-amber-300">U+3000 x2</td>
+              <td class="py-3 px-4 font-bold text-violet-300">Espacio Ideográfico</td>
+              <td class="py-3 px-4 font-mono text-amber-300">U+3000</td>
               <td class="py-3 px-4 font-medium text-zinc-100">Separación amplia en apodos de 2 palabras.</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
-              <td class="py-3 px-4 font-bold text-violet-300">Espacio Triple (Nombre Fantasma)</td>
-              <td class="py-3 px-4 font-mono text-amber-300">U+3000 x3</td>
+              <td class="py-3 px-4 font-bold text-violet-300">Hangul Filler Doble</td>
+              <td class="py-3 px-4 font-mono text-amber-300">U+3164 x2</td>
               <td class="py-3 px-4 font-medium text-zinc-100">Nick completamente invisible en partida y Kill Feed.</td>
             </tr>
           </tbody>
@@ -1545,7 +1545,7 @@ export const seoData: Record<string, CategoryData> = {
         <li>Abre el juego <strong>Free Fire</strong> o <strong>Free Fire MAX</strong> en tu dispositivo móvil.</li>
         <li>Dirígete a tu <strong>Perfil de Jugador</strong> (esquina superior izquierda) y presiona el ícono del lápiz amarillo de edición.</li>
         <li>Mantiene presionado el cuadro de texto de "Apodo Nuevo" y selecciona <strong>Pegar</strong>.</li>
-        <li>Confirma los cambios gastando 390 Diamantes o 1 Tarjeta de Cambio de Nombre.</li>
+        <li>Confirma el cambio usando el método y coste que muestre tu cuenta en ese momento.</li>
       </ol>
 
       <h3>Plantillas de Nombres con Espacio Invisible Listas para Copiar</h3>
@@ -1558,18 +1558,18 @@ export const seoData: Record<string, CategoryData> = {
         <li><code>🌸 ㅤ A i t a n a</code> (Aesthetic con espacio transparente)</li>
       </ul>
     `,
-    metaDescription: 'Copia gratis el espacio invisible para Free Fire (Unicode U+3000). Carácter transparente compatible para nombres, clanes y apodos invisibles.',
-    keywords: 'espacio invisible free fire, espacios para nombres de free fire, letra invisible free fire, espacio en blanco free fire, copiar espacio invisible ff, unicode u+3000 free fire, nombre invisible free fire',
+    metaDescription: 'Copia caracteres invisibles Unicode para Free Fire: Hangul Filler U+3164, U+1160 y espacio ideográfico U+3000. Prueba cuál admite tu versión.',
+    keywords: 'espacio invisible free fire, letra invisible free fire, copiar espacio invisible ff, unicode u+3164 free fire, unicode u+3000 free fire, nombre invisible free fire',
     defaultName: 'NOOB ㅤ KING',
     customSymbols: ["ㅤ", "ᅠ", " ", " ", " ", " ", "⚡", "👑", "☠︎", "Ⓥ", "亗", "×͜×", "🌸"],
     faqs: [
       {
         question: "¿Por qué no funciona la barra espaciadora normal en Free Fire?",
-        answer: "Free Fire bloquea el espacio en blanco estándar (ASCII 32) en los apodos de usuario. Para separar palabras debes usar el carácter especial Unicode (U+3000) que el juego procesa como una letra legítima pero transparente."
+        answer: "Free Fire puede rechazar el espacio ASCII normal en algunos campos. Hangul Filler (U+3164) es una alternativa frecuente, aunque la compatibilidad puede variar según la versión del juego."
       },
       {
         question: "¿Me pueden banear por usar espacio invisible en Free Fire?",
-        answer: "No, no hay ningún riesgo de baneo. El espacio invisible es un carácter tipográfico Unicode legítimo (Hangul Filler) 100% soportado por Android, iOS y Garena Free Fire."
+        answer: "Hangul Filler es un carácter Unicode legítimo, pero las reglas sobre nombres especiales dependen de Garena y pueden cambiar. Revisa las normas vigentes y confirma que tu versión del juego acepte el carácter."
       },
       {
         question: "¿Cómo poner un nombre 100% invisible o transparente en Free Fire?",
@@ -1663,7 +1663,7 @@ export const seoData: Record<string, CategoryData> = {
       },
       {
         question: "¿Qué pasa si uso un símbolo no compatible con mi celular?",
-        answer: "Si un símbolo no es soportado por el teclado de tu sistema operativo (Android/iOS), se mostrará como un cuadro con signo de interrogación [?]. Todos los símbolos incluidos en nuestra herramienta han sido probados y verificados como 100% compatibles con la app de Garena Free Fire."
+        answer: "Si un símbolo no es soportado por el teclado de tu sistema operativo (Android/iOS), se mostrará como un cuadro con signo de interrogación [?]. Los símbolos incluidos se ofrecen como opciones Unicode para probar; su compatibilidad puede variar según la versión de Free Fire, el dispositivo y futuras actualizaciones."
       }
     ]
   },
@@ -1844,7 +1844,7 @@ export const seoData: Record<string, CategoryData> = {
       },
       {
         question: "¿Puedo usar estos nombres de anime en Discord, Roblox y Free Fire?",
-        answer: "Sí. Todos los nombres y tipografías generados por nuestra herramienta utilizan fuentes estándar Unicode, 100% compatibles con los apodos de servidores de Discord, Display Names de Roblox, firmas de Free Fire y perfiles de Genshin Impact."
+        answer: "Sí. Todos los nombres y tipografías generados por nuestra herramienta utilizan fuentes estándar Unicode, diseñadas para Unicode y pueden funcionar en muchas plataformas, aunque cada servicio puede filtrar o normalizar ciertos caracteres."
       },
       {
         question: "¿Cómo poner la flor de cerezo (🌸) o la puerta Torii (⛩️) en mi nombre?",
