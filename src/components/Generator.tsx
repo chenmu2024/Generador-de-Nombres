@@ -234,7 +234,7 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols 
   });
 
   return (
-    <div className="gdn-surface w-full max-w-4xl mx-auto rounded-[1.25rem] overflow-hidden border relative">
+    <div className="gdn-tool-shell gdn-surface w-full max-w-4xl mx-auto rounded-[1.25rem] overflow-hidden border relative">
       {/* Toast Notification */}
       {showToast && (
         <div
@@ -263,7 +263,7 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols 
                 ref={inputRef}
                 type="text"
                 value={inputText}
-                onChange={(e) => setInputText(e.target.value)}
+                onChange={(e) = className="gdn-tool-input"> setInputText(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && handleGenerate()}
                 placeholder={`Escribe tu nombre (ej. ${defaultName})`}
                 className="gdn-input flex-1 px-5 py-4 pr-24 text-base md:text-lg border rounded-xl focus:outline-none placeholder-zinc-500 transition-all w-full"
@@ -298,7 +298,7 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols 
           </div>
           <select
             value={style}
-            onChange={(e) => setStyle(e.target.value)}
+            onChange={(e) = className="gdn-tool-input"> setStyle(e.target.value)}
             aria-label="Seleccionar estilo de letras y tipografía"
             className="gdn-input px-5 py-4 text-base md:text-lg border rounded-xl focus:outline-none appearance-none cursor-pointer w-full md:w-auto min-w-[200px]"
           >
