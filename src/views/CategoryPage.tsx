@@ -3,7 +3,7 @@
 import React, { useState, type ReactNode } from 'react';
 import { useLocation } from '../utils/router';
 import { Link } from '../components/Link';
-import { ChevronRight, Flame, CheckCircle2, Search, Sparkles, Copy, ListOrdered, Home } from 'lucide-react';
+import { ChevronRight, Flame, Shield, CheckCircle2, Search, Sparkles, Copy, ListOrdered, Home } from 'lucide-react';
 import Generator from '../components/Generator';
 import dynamic from 'next/dynamic';
 
@@ -495,7 +495,7 @@ export default function CategoryPage({
 
       {/* Espacio Invisible Section & FF Pro Kit (Pestaña / Herramienta Exclusiva Free Fire) */}
       {(location.pathname === '/nombres-free-fire' || location.pathname === '/generador-free-fire' || location.pathname === '/nombres-ff-unicos' || location.pathname === '/nombres-ff-mujeres' || location.pathname === '/nombres-clanes-ff' || location.pathname === '/nombres-anime' || location.pathname === '/nombres-de-mujer' || location.pathname === '/nombres-de-nina' || location.pathname === '/nombres-de-nino' || location.pathname === '/nombres-unisex' || location.pathname === '/nombres-raros') && (
-        <div className="max-w-6xl mx-auto py-2 space-y-8">
+        <div className="gdn-tool-shell max-w-6xl mx-auto py-2 space-y-8">
           {location.pathname === '/nombres-raros' && (
             <LazyRareNamesTool handleCopyTrending={handleCopyTrending} />
           )}
