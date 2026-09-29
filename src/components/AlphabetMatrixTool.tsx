@@ -167,7 +167,7 @@ export default function AlphabetMatrixTool({ currentLetter = 'A' }: { currentLet
       </div>
 
       {/* Names Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="gdn-tool-result grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
         {filteredNames.map((item, idx) => (
           <div
             key={idx}
