@@ -407,6 +407,11 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
                 <li><Link to="/nombres-anime" className="hover:text-violet-300 transition-colors">Nombres Anime</Link></li>
                 <li><Link to="/nombres-mayas" className="hover:text-violet-300 transition-colors">Nombres Mayas</Link></li>
                 <li><Link to="/nombres-italianos" className="hover:text-violet-300 transition-colors">Nombres Italianos</Link></li>
+                <li><Link to="/nombres-chinos" className="hover:text-violet-300 transition-colors">Nombres Chinos</Link></li>
+                <li><Link to="/nombres-rusos" className="hover:text-violet-300 transition-colors">Nombres Rusos</Link></li>
+                <li><Link to="/nombres-griegos" className="hover:text-violet-300 transition-colors">Nombres Griegos</Link></li>
+                <li><Link to="/nombres-turcos" className="hover:text-violet-300 transition-colors">Nombres Turcos</Link></li>
+                <li><Link to="/nombres-ingles" className="hover:text-violet-300 transition-colors">Nombres en Inglés</Link></li>
               </ul>
             </div>
 
