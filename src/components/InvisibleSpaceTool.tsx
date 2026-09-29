@@ -84,7 +84,7 @@ export default function InvisibleSpaceTool() {
       a: 'Hangul Filler es un carácter Unicode legítimo, pero las reglas de nombres y su compatibilidad dependen de cada plataforma. Revisa siempre las normas vigentes del juego antes de usar caracteres especiales.'
     },
     {
-      q: '¿Cómo poner un nombre 100% invisible en la partida?',
+      q: '¿Cómo probar un nombre visualmente invisible en la partida?',
       a: 'Copia una de las opciones invisibles y pruébala en el campo de nombre. El resultado puede variar porque el juego puede normalizar, limitar o rechazar ciertos caracteres.'
     },
     {
@@ -149,7 +149,7 @@ export default function InvisibleSpaceTool() {
           <span className="text-xs font-bold text-violet-300 uppercase tracking-wider flex items-center gap-1.5">
             <Sparkles className="w-4 h-4 text-amber-400" /> Plantillas de Nicks Invisibles Insanos (Clic para Copiar)
           </span>
-          <span className="text-[10px] text-zinc-500">100% Probados en FF</span>
+          <span className="text-[10px] text-zinc-500">Prueba antes de guardar</span>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5">
           {[
