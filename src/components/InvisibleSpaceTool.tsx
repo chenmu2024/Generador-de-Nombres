@@ -230,8 +230,8 @@ export default function InvisibleSpaceTool() {
             <input
               type="text"
               value={tagText}
-              onChange={(e) = className="gdn-tool-input"> setTagText(e.target.value)}
-              className="w-full px-4 py-3 bg-zinc-950 border border-white/10 rounded-xl text-white font-medium focus:outline-none focus:border-violet-500"
+              onChange={(e) => setTagText(e.target.value)}
+              className="gdn-tool-input w-full px-4 py-3 bg-zinc-950 border border-white/10 rounded-xl text-white font-medium focus:outline-none focus:border-violet-500"
               placeholder="Ej. TM, LOS, 7K"
             />
           </div>
@@ -239,9 +239,9 @@ export default function InvisibleSpaceTool() {
             <label className="block text-xs font-bold text-zinc-400 uppercase tracking-wider mb-2">2. Tipo de Separador</label>
             <select
               value={separator}
-              onChange={(e) = className="gdn-tool-input"> setSeparator(e.target.value)}
+              onChange={(e) => setSeparator(e.target.value)}
               aria-label="Tipo de Separador para Espacio Invisible"
-              className="w-full px-4 py-3 bg-zinc-950 border border-white/10 rounded-xl text-white font-medium focus:outline-none focus:border-violet-500"
+              className="gdn-tool-input w-full px-4 py-3 bg-zinc-950 border border-white/10 rounded-xl text-white font-medium focus:outline-none focus:border-violet-500"
             >
               <option value="ㅤ">Hangul Filler (U+3164)</option>
               <option value="ㅤㅤ">Hangul Filler Doble (U+3164 x2)</option>
@@ -257,8 +257,8 @@ export default function InvisibleSpaceTool() {
             <input
               type="text"
               value={customText}
-              onChange={(e) = className="gdn-tool-input"> setCustomText(e.target.value)}
-              className="w-full px-4 py-3 bg-zinc-950 border border-white/10 rounded-xl text-white font-medium focus:outline-none focus:border-violet-500"
+              onChange={(e) => setCustomText(e.target.value)}
+              className="gdn-tool-input w-full px-4 py-3 bg-zinc-950 border border-white/10 rounded-xl text-white font-medium focus:outline-none focus:border-violet-500"
               placeholder="Ej. INSANO"
             />
           </div>
