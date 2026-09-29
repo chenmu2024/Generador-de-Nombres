@@ -212,6 +212,7 @@ export default function CategoryPage({
       </nav>
 
       {/* Header Section */}
+      {location.pathname !== '/' && (
       <div className="gdn-page-hero text-center max-w-4xl mx-auto space-y-4" id="generador">
         <h1 className="gdn-hero-title text-4xl sm:text-5xl md:text-6xl font-bold font-heading pb-2 leading-[1.05]">
           {data.h1}
@@ -243,14 +244,17 @@ export default function CategoryPage({
           </div>
         </div>
       </div>
+      )}
 
-      <div className={`max-w-6xl mx-auto ${location.pathname === '/' ? 'pt-0 pb-2' : 'py-6'}`}>
+      <div className={`${location.pathname === '/' ? 'max-w-7xl mx-auto' : 'max-w-6xl mx-auto py-6'}`}>
         {!usesDedicatedGenerator && (
-          <Generator 
+          <Generator
             title={location.pathname === '/' ? 'Generador de Nombres, Apodos y Símbolos' : data.h1}
             defaultName={data.defaultName || "Gamer"}
             customSymbols={data.customSymbols}
             compact={location.pathname === '/'}
+            heroTitle={location.pathname === '/' ? data.h1 : undefined}
+            heroSubtitle={location.pathname === '/' ? data.subtitle : undefined}
           />
         )}
 
@@ -273,225 +277,62 @@ export default function CategoryPage({
         )}
       </div>
 
-      {/* Homepage quick access — compact, no duplicated embedded tools */}
+      {/* V4 Homepage discovery */}
       {location.pathname === '/' && (
-        <section className="gdn-home-discovery space-y-4" aria-label="Accesos rápidos y tendencias">
-          <div className="gdn-home-quick gdn-nav border p-2 max-w-4xl mx-auto flex flex-wrap items-center justify-center gap-2">
-            <span className="gdn-section-label px-2 text-[11px] font-bold uppercase tracking-wider">Accesos rápidos</span>
-            <Link to="/generador-free-fire" className="gdn-chip px-3.5 py-2 rounded-xl border text-xs font-semibold transition-all">🎮 Free Fire</Link>
-            <Link to="/espacios-invisible-ff" className="gdn-chip px-3.5 py-2 rounded-xl border text-xs font-semibold transition-all">⚡ Espacio Invisible</Link>
-            <Link to="/nombres-por-letra" className="gdn-chip px-3.5 py-2 rounded-xl border text-xs font-semibold transition-all">🔤 Nombres A-Z</Link>
-            <Link to="/nombres-para-tiendas" className="gdn-chip px-3.5 py-2 rounded-xl border text-xs font-semibold transition-all">🛍️ Nombres para Tiendas</Link>
-          </div>
-
-          <div className="gdn-home-trends gdn-surface border p-4 sm:p-5 rounded-2xl max-w-4xl mx-auto">
-            <div className="flex items-center justify-between mb-3 px-1">
-              <span className="text-xs font-bold text-violet-300 uppercase tracking-wider flex items-center gap-1.5">
-                <Flame className="w-4 h-4 text-amber-400" /> Apodos y Símbolos Tendencia de Hoy
-              </span>
-              <span className="text-[10px] text-zinc-500 hidden sm:inline">Copiar en 1 clic</span>
+        <div className="space-y-12 md:space-y-16">
+          <section id="herramientas-populares" className="gdn-home-section-v4 space-y-6 scroll-mt-24">
+            <div className="flex items-end justify-between gap-4">
+              <div>
+                <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900 font-heading tracking-tight">Herramientas populares</h2>
+                <p className="text-sm text-slate-500 mt-1">Accede rápido a los generadores más utilizados.</p>
+              </div>
+              <a href="#relacionados" className="hidden sm:inline-flex text-xs font-bold text-violet-600 hover:text-violet-700 items-center gap-1">
+                Ver todas <ChevronRight className="w-4 h-4" />
+              </a>
             </div>
-            <div className="flex flex-wrap gap-2 justify-center sm:justify-start">
+            <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-7 gap-3 md:gap-4">
               {[
-                { label: '×͜× ㅤ 𝙆𝙄𝙉𝙂 ㅤ ×͜×', val: '×͜× ㅤ 𝙆𝙄𝙉𝙂 ㅤ ×͜×' },
-                { label: '꧁༺ Cärlös ༻꧂', val: '꧁༺ Cärlös ༻꧂' },
-                { label: '✿ Q u e e n ✿', val: '✿ Q u e e n ✿' },
-                { label: '⚡ 🇳​​​​​🇴​​​​​🇴​​​​​🇧​​​​​ ⚡', val: '⚡ 🇳​​​​​🇴​​​​​🇴​​​​​🇧​​​​​ ⚡' },
-                { label: 'ㅤ (Espacio Invisible)', val: 'ㅤ' },
-                { label: '亗 L E G E N D 亗', val: '亗 L E G E N D 亗' }
-              ].map((chip, i) => (
-                <button
-                  key={i}
-                  onClick={() => handleCopyTrending(chip.val)}
-                  className="gdn-chip px-3.5 py-2 border rounded-xl text-xs font-medium transition-all active:scale-95 flex items-center gap-1.5 group"
-                >
-                  <span className="font-mono">{chip.label}</span>
-                  <Copy className="w-3 h-3 text-zinc-500 group-hover:text-violet-300" />
-                </button>
+                { icon: '🔥', label: 'Free Fire', path: '/generador-free-fire' },
+                { icon: '◼', label: 'Roblox', path: '/nombres-roblox' },
+                { icon: '◎', label: 'Instagram', path: '/nombres-instagram' },
+                { icon: 'あ', label: 'Japoneses', path: '/nombres-japoneses' },
+                { icon: '한', label: 'Coreanos', path: '/nombres-coreanos' },
+                { icon: '🐾', label: 'Mascotas', path: '/nombres-gatos' },
+                { icon: 'A', label: 'Letras A-Z', path: '/nombres-por-letra' }
+              ].map((item) => (
+                <Link key={item.path} to={item.path} className="gdn-home-tool-tile min-h-[106px] p-3 sm:p-4 flex flex-col items-center justify-center text-center gap-2 transition-all">
+                  <span className="w-10 h-10 rounded-xl bg-violet-50 flex items-center justify-center text-lg font-bold text-violet-600">{item.icon}</span>
+                  <span className="text-xs sm:text-sm font-bold text-slate-900">{item.label}</span>
+                </Link>
               ))}
             </div>
-          </div>
-        </section>
-      )}
+          </section>
 
-      {/* Bento Grid Portal Hub for Homepage */}
-      {location.pathname === '/' && (
-        <div className="gdn-home-hub max-w-6xl mx-auto space-y-8">
-          <div className="text-center space-y-3">
-            <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-bold bg-violet-500/10 text-violet-300 border border-violet-500/20">
-              🌐 Portal Hub 6 Canales Principales
-            </span>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-white font-heading">
-              Explora Nuestro Catálogo Completo de Nombres
-            </h2>
-            <p className="text-zinc-400 max-w-xl mx-auto text-sm">
-              Accede directamente a los generadores especializados y guías de nombres más buscadas en Latinoamérica.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Hub 1: Gamer & Redes */}
-            <div className="gdn-surface border rounded-2xl p-6 hover:border-violet-500/35 transition-all flex flex-col justify-between group">
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-3xl">🎮</span>
-                  <span className="gdn-chip text-[10px] font-bold border px-3 py-1 rounded-full uppercase">
-                    Gaming & Redes
-                  </span>
-                </div>
-                <h3 className="text-xl font-bold text-white font-heading mb-2 group-hover:text-violet-300 transition-colors">
-                  Gamer, Free Fire & Redes
-                </h3>
-                <p className="text-xs text-zinc-400 leading-relaxed mb-4">
-                  Generadores de apodos insanos, símbolos raros, espacios invisibles y biografías aesthetic para Instagram y Roblox.
-                </p>
-                <div className="flex flex-wrap gap-1.5 mb-6">
-                  <Link to="/generador-free-fire" className="gdn-chip text-xs font-semibold px-2.5 py-1 rounded-lg transition-colors border">Generador FF</Link>
-                  <Link to="/espacios-invisible-ff" className="gdn-chip text-xs font-semibold px-2.5 py-1 rounded-lg transition-colors border">Espacio Invisible</Link>
-                  <Link to="/nombres-ff-unicos" className="gdn-chip text-xs font-semibold px-2.5 py-1 rounded-lg transition-colors border">FF Únicos</Link>
-                  <Link to="/nombres-instagram" className="gdn-chip text-xs font-semibold px-2.5 py-1 rounded-lg transition-colors border">Instagram</Link>
-                </div>
-              </div>
-              <Link to="/generador-free-fire" className="text-xs font-bold text-violet-400 hover:text-violet-300 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                Ir a Herramientas Gamer <ChevronRight className="w-4 h-4" />
-              </Link>
+          <section className="gdn-home-section-v4 space-y-6">
+            <div>
+              <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900 font-heading tracking-tight">Explora por categoría</h2>
+              <p className="text-sm text-slate-500 mt-1">Encuentra el generador perfecto para cada necesidad.</p>
             </div>
-
-            {/* Hub 2: Personas & Bebés */}
-            <div className="gdn-surface border rounded-2xl p-6 hover:border-violet-500/35 transition-all flex flex-col justify-between group">
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-3xl">👶</span>
-                  <span className="gdn-chip text-[10px] font-bold border px-3 py-1 rounded-full uppercase">
-                    Personas & Bebés
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
+              {[
+                { icon: '🎮', title: 'Juegos', desc: 'Free Fire, Roblox, Minecraft y más', path: '/generador-free-fire', accent: 'text-violet-600 bg-violet-50' },
+                { icon: '◎', title: 'Redes Sociales', desc: 'Instagram, perfiles y nombres aesthetic', path: '/nombres-instagram', accent: 'text-pink-600 bg-pink-50' },
+                { icon: '🐾', title: 'Mascotas', desc: 'Perros, gatos y nombres adorables', path: '/nombres-gatos', accent: 'text-amber-600 bg-amber-50' },
+                { icon: '🌐', title: 'Culturas e idiomas', desc: 'Japoneses, coreanos, mayas y más', path: '/nombres-japoneses', accent: 'text-cyan-600 bg-cyan-50' },
+                { icon: '▣', title: 'Negocios', desc: 'Tiendas, marcas y proyectos', path: '/nombres-para-tiendas', accent: 'text-emerald-600 bg-emerald-50' },
+                { icon: '✦', title: 'Símbolos y letras', desc: 'A-Z, espacios invisibles y estilos', path: '/nombres-por-letra', accent: 'text-violet-600 bg-violet-50' }
+              ].map((item) => (
+                <Link key={item.title} to={item.path} className="gdn-home-category-card p-5 flex items-center gap-4 group transition-all">
+                  <span className={`w-11 h-11 rounded-[14px] flex items-center justify-center text-xl shrink-0 ${item.accent}`}>{item.icon}</span>
+                  <span className="min-w-0 flex-1">
+                    <span className="block text-sm font-bold text-slate-900">{item.title}</span>
+                    <span className="block text-xs text-slate-500 mt-1 leading-relaxed">{item.desc}</span>
                   </span>
-                </div>
-                <h3 className="text-xl font-bold text-white font-heading mb-2 group-hover:text-violet-300 transition-colors">
-                  Personas & Bebés
-                </h3>
-                <p className="text-xs text-zinc-400 leading-relaxed mb-4">
-                  Listas completas de nombres de mujer, niña poco comunes, niños con significado profundo, unisex y raros.
-                </p>
-                <div className="flex flex-wrap gap-1.5 mb-6">
-                  <Link to="/nombres-de-mujer" className="gdn-chip text-xs font-semibold px-2.5 py-1 rounded-lg transition-colors border">Nombres Mujer</Link>
-                  <Link to="/nombres-de-nina" className="gdn-chip text-xs font-semibold px-2.5 py-1 rounded-lg transition-colors border">Niña Poco Comunes</Link>
-                  <Link to="/nombres-de-nino" className="gdn-chip text-xs font-semibold px-2.5 py-1 rounded-lg transition-colors border">Niños con Significado</Link>
-                  <Link to="/nombres-unisex" className="gdn-chip text-xs font-semibold px-2.5 py-1 rounded-lg transition-colors border">Unisex</Link>
-                </div>
-              </div>
-              <Link to="/nombres-de-mujer" className="text-xs font-bold text-violet-400 hover:text-violet-300 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                Explorar Personas y Bebés <ChevronRight className="w-4 h-4" />
-              </Link>
+                  <ChevronRight className="w-4 h-4 text-violet-500 group-hover:translate-x-0.5 transition-transform shrink-0" />
+                </Link>
+              ))}
             </div>
-
-            {/* Hub 3: Directorio A-Z */}
-            <div className="gdn-surface border rounded-2xl p-6 hover:border-violet-500/35 transition-all flex flex-col justify-between group">
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-3xl">🔤</span>
-                  <span className="gdn-chip text-[10px] font-bold border px-3 py-1 rounded-full uppercase">
-                    Filtro Interactivo A-Z
-                  </span>
-                </div>
-                <h3 className="text-xl font-bold text-white font-heading mb-2 group-hover:text-violet-300 transition-colors">
-                  Directorio Por Letra A-Z
-                </h3>
-                <p className="text-xs text-zinc-400 leading-relaxed mb-4">
-                  Navega por iniciales de la A a la Z. Encuentra nombres masculinos, femeninos y tradicionales con pronunciación en audio.
-                </p>
-                <div className="flex flex-wrap gap-1.5 mb-6">
-                  <Link to="/nombres-con-a" className="gdn-chip text-xs font-semibold px-2.5 py-1 rounded-lg transition-colors border">Con A</Link>
-                  <Link to="/nombres-con-f" className="gdn-chip text-xs font-semibold px-2.5 py-1 rounded-lg transition-colors border">Con F</Link>
-                  <Link to="/nombres-con-m" className="gdn-chip text-xs font-semibold px-2.5 py-1 rounded-lg transition-colors border">Con M</Link>
-                  <Link to="/nombres-con-en" className="gdn-chip text-xs font-semibold px-2.5 py-1 rounded-lg transition-colors border">Con Ñ</Link>
-                  <Link to="/nombres-con-z" className="gdn-chip text-xs font-semibold px-2.5 py-1 rounded-lg transition-colors border">Con Z</Link>
-                </div>
-              </div>
-              <Link to="/nombres-por-letra" className="text-xs font-bold text-violet-400 hover:text-violet-300 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                Abrir Directorio A-Z <ChevronRight className="w-4 h-4" />
-              </Link>
-            </div>
-
-            {/* Hub 4: Culturas del Mundo */}
-            <div className="gdn-surface border rounded-2xl p-6 hover:border-violet-500/35 transition-all flex flex-col justify-between group">
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-3xl">🌐</span>
-                  <span className="gdn-chip text-[10px] font-bold border px-3 py-1 rounded-full uppercase">
-                    Mitología & Idiomas
-                  </span>
-                </div>
-                <h3 className="text-xl font-bold text-white font-heading mb-2 group-hover:text-violet-300 transition-colors">
-                  Culturas del Mundo
-                </h3>
-                <p className="text-xs text-zinc-400 leading-relaxed mb-4">
-                  Nombres de dioses griegos y nórdicos, nombres japoneses con Kanji, coreanos Hangul, mayas, italianos y franceses.
-                </p>
-                <div className="flex flex-wrap gap-1.5 mb-6">
-                  <Link to="/nombres-de-dioses" className="gdn-chip text-xs font-semibold px-2.5 py-1 rounded-lg transition-colors border">Dioses</Link>
-                  <Link to="/nombres-japoneses" className="gdn-chip text-xs font-semibold px-2.5 py-1 rounded-lg transition-colors border">Japoneses</Link>
-                  <Link to="/nombres-coreanos" className="gdn-chip text-xs font-semibold px-2.5 py-1 rounded-lg transition-colors border">Coreanos</Link>
-                  <Link to="/nombres-mayas" className="gdn-chip text-xs font-semibold px-2.5 py-1 rounded-lg transition-colors border">Mayas</Link>
-                </div>
-              </div>
-              <Link to="/nombres-japoneses" className="text-xs font-bold text-violet-400 hover:text-violet-300 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                Explorar Culturas <ChevronRight className="w-4 h-4" />
-              </Link>
-            </div>
-
-            {/* Hub 5: Mascotas */}
-            <div className="gdn-surface border rounded-2xl p-6 hover:border-violet-500/35 transition-all flex flex-col justify-between group">
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-3xl">🐾</span>
-                  <span className="gdn-chip text-[10px] font-bold border px-3 py-1 rounded-full uppercase">
-                    Mascotas & Animales
-                  </span>
-                </div>
-                <h3 className="text-xl font-bold text-white font-heading mb-2 group-hover:text-violet-300 transition-colors">
-                  Mascotas & Animales
-                </h3>
-                <p className="text-xs text-zinc-400 leading-relaxed mb-4">
-                  Ideas bonitas para perritas, perros machos, michis y gatos negros, chihuahuas diminutas y caballos imponentes.
-                </p>
-                <div className="flex flex-wrap gap-1.5 mb-6">
-                  <Link to="/nombres-perritas" className="gdn-chip text-xs font-semibold px-2.5 py-1 rounded-lg transition-colors border">Perritas Bonitas</Link>
-                  <Link to="/nombres-perros-machos" className="gdn-chip text-xs font-semibold px-2.5 py-1 rounded-lg transition-colors border">Perros Machos</Link>
-                  <Link to="/nombres-gatos" className="gdn-chip text-xs font-semibold px-2.5 py-1 rounded-lg transition-colors border">Gatos</Link>
-                  <Link to="/perritas-chihuahua" className="gdn-chip text-xs font-semibold px-2.5 py-1 rounded-lg transition-colors border">Chihuahuas</Link>
-                </div>
-              </div>
-              <Link to="/nombres-perritas" className="text-xs font-bold text-violet-400 hover:text-violet-300 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                Ver Nombres de Mascotas <ChevronRight className="w-4 h-4" />
-              </Link>
-            </div>
-
-            {/* Hub 6: Equipos & Negocios */}
-            <div className="gdn-surface border rounded-2xl p-6 hover:border-violet-500/35 transition-all flex flex-col justify-between group">
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-3xl">💼</span>
-                  <span className="gdn-chip text-[10px] font-bold border px-3 py-1 rounded-full uppercase">
-                    Brazaletes & Marcas
-                  </span>
-                </div>
-                <h3 className="text-xl font-bold text-white font-heading mb-2 group-hover:text-violet-300 transition-colors">
-                  Equipos & Negocios
-                </h3>
-                <p className="text-xs text-zinc-400 leading-relaxed mb-4">
-                  Generador de nombres e insignias para equipos de fútbol, marcas para tiendas que venden de todo y peluches.
-                </p>
-                <div className="flex flex-wrap gap-1.5 mb-6">
-                  <Link to="/nombres-equipos-futbol" className="gdn-chip text-xs font-semibold px-2.5 py-1 rounded-lg transition-colors border">Equipos Fútbol</Link>
-                  <Link to="/nombres-para-tiendas" className="gdn-chip text-xs font-semibold px-2.5 py-1 rounded-lg transition-colors border">Tiendas & Bazares</Link>
-                  <Link to="/nombres-peluches" className="gdn-chip text-xs font-semibold px-2.5 py-1 rounded-lg transition-colors border">Peluches</Link>
-                </div>
-              </div>
-              <Link to="/nombres-equipos-futbol" className="text-xs font-bold text-violet-400 hover:text-violet-300 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                Crear Nombres de Marca <ChevronRight className="w-4 h-4" />
-              </Link>
-            </div>
-          </div>
+          </section>
         </div>
       )}
 
@@ -1239,9 +1080,9 @@ export default function CategoryPage({
       </nav>
 
       {/* Explore All Categories */}
-      <section id="relacionados" className={`max-w-6xl mx-auto border-t border-white/5 scroll-mt-24 ${location.pathname === '/' ? 'pt-10' : 'pt-16'}`}>
+      <section id="relacionados" className={`max-w-6xl mx-auto border-t border-slate-200 scroll-mt-24 ${location.pathname === '/' ? 'pt-10' : 'pt-16'}`}>
         <div className={`text-center ${location.pathname === '/' ? 'mb-6' : 'mb-10'}`}>
-          <h2 className={`font-bold text-zinc-100 font-heading ${location.pathname === '/' ? 'text-2xl md:text-3xl' : 'text-3xl md:text-4xl'}`}>Explora Todos Nuestros Generadores</h2>
+          <h2 className={`font-bold text-slate-900 font-heading ${location.pathname === '/' ? 'text-2xl md:text-3xl' : 'text-3xl md:text-4xl'}`}>Explora Todos Nuestros Generadores</h2>
           <p className={`text-zinc-400 mt-2 max-w-2xl mx-auto ${location.pathname === '/' ? 'text-sm' : 'text-lg'}`}>Encuentra el nombre perfecto para cualquier plataforma o mascota</p>
           
           {/* Search Bar for Categories — internal pages only; global search already covers homepage */}

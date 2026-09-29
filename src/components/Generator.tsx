@@ -9,6 +9,8 @@ interface GeneratorProps {
   defaultName?: string;
   customSymbols?: string[];
   compact?: boolean;
+  heroTitle?: string;
+  heroSubtitle?: string;
 }
 
 const randomNames = ["Ninja", "Shadow", "Killer", "Pro", "Ghost", "Sniper", "King", "Queen", "Legend", "Alpha"];
@@ -31,7 +33,7 @@ function autoTrimFF(name: string): string {
   return name.slice(0, 12);
 }
 
-export default function Generator({ title, defaultName = 'Gamer', customSymbols, compact = false }: GeneratorProps) {
+export default function Generator({ title, defaultName = 'Gamer', customSymbols, compact = false, heroTitle, heroSubtitle }: GeneratorProps) {
   const [inputText, setInputText] = useState('');
   const [style, setStyle] = useState('all');
   const [vibeFilter, setVibeFilter] = useState<'all' | 'epico' | 'aesthetic' | 'short' | 'toxic'>('all');
@@ -233,6 +235,122 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
     if (vibeFilter === 'toxic') return /[☠️☣️🖤😈✞]/.test(name) || name.includes('Killer') || name.includes('Shadow');
     return true;
   });
+
+  if (compact) {
+    const previewNames = generatedNames.slice(0, 3);
+    const quickStyles = [
+      { id: 'all', label: 'Todos' },
+      { id: 'fancy', label: 'Elegante' },
+      { id: 'kawaii', label: 'Kawaii' },
+      { id: 'bold', label: 'Moderno' },
+      { id: 'gothic', label: 'Gótico' }
+    ];
+
+    return (
+      <section className="gdn-home-hero-v4 px-5 py-8 sm:px-8 md:px-12 md:py-12 lg:px-14 lg:py-14">
+        <div className="grid lg:grid-cols-[1.35fr_0.75fr] gap-8 lg:gap-12 items-center">
+          <div className="space-y-5">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-violet-100 text-violet-700 text-[11px] sm:text-xs font-semibold">
+              <Sparkles className="w-3.5 h-3.5" />
+              Miles de ideas para encontrar el nombre perfecto
+            </div>
+            <div className="space-y-3">
+              <h1 className="gdn-home-hero-title font-heading font-extrabold text-4xl sm:text-5xl lg:text-[3.45rem] max-w-3xl">
+                {heroTitle || title}
+              </h1>
+              <p className="text-sm sm:text-base text-slate-500 max-w-2xl leading-relaxed">
+                {heroSubtitle || 'Crea nombres únicos, bonitos y personalizados en segundos.'}
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-2.5 max-w-2xl">
+              <div className="relative flex-1">
+                <input
+                  ref={inputRef}
+                  type="text"
+                  value={inputText}
+                  onChange={(e) => setInputText(e.target.value)}
+                  onKeyDown={(e) => e.key === 'Enter' && handleGenerate()}
+                  placeholder="Escribe un nombre o palabra clave..."
+                  className="gdn-input w-full h-[52px] px-5 pr-20 border rounded-[14px] text-sm sm:text-base focus:outline-none"
+                />
+                <button
+                  type="button"
+                  onClick={handleRandomize}
+                  aria-label="Generar palabra aleatoria"
+                  className="absolute right-2 top-1/2 -translate-y-1/2 p-2 text-violet-600 hover:bg-violet-50 rounded-lg"
+                >
+                  <Dices className="w-4 h-4" />
+                </button>
+              </div>
+              <button
+                onClick={handleGenerate}
+                disabled={isGenerating}
+                className="gdn-primary-button h-[52px] px-7 rounded-[14px] font-bold flex items-center justify-center gap-2 transition-all active:scale-[0.98] sm:min-w-[150px]"
+              >
+                {isGenerating ? <Loader2 className="w-4 h-4 animate-spin" /> : <Wand2 className="w-4 h-4" />}
+                <span>{isGenerating ? 'Generando...' : 'Generar'}</span>
+              </button>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {quickStyles.map((item) => (
+                <button
+                  key={item.id}
+                  type="button"
+                  onClick={() => setStyle(item.id)}
+                  className={`px-3.5 py-2 rounded-full border text-xs font-semibold transition-all ${
+                    style === item.id
+                      ? 'bg-violet-50 text-violet-700 border-violet-300'
+                      : 'bg-white text-slate-600 border-slate-200 hover:border-violet-200 hover:text-violet-700'
+                  }`}
+                >
+                  {item.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="gdn-home-preview rounded-[22px] p-4 sm:p-5 space-y-2.5">
+            <div className="text-[11px] font-semibold text-slate-500 px-1 pb-1">Vista previa instantánea</div>
+            {previewNames.map((name, index) => (
+              <div
+                key={index}
+                className={`flex items-center justify-between gap-3 rounded-2xl border px-4 py-3.5 ${
+                  index === 1 ? 'bg-violet-50 border-violet-100' : 'bg-white border-slate-200'
+                }`}
+              >
+                <button
+                  type="button"
+                  onClick={() => copyToClipboard(name, index)}
+                  className="min-w-0 flex-1 text-left font-semibold text-slate-900 truncate"
+                  title={`Copiar ${name}`}
+                >
+                  {name}
+                </button>
+                <div className="flex items-center gap-1">
+                  <button
+                    type="button"
+                    onClick={() => copyToClipboard(name, index)}
+                    aria-label={`Copiar ${name}`}
+                    className="p-2 rounded-lg text-slate-400 hover:text-violet-600 hover:bg-violet-50"
+                  >
+                    {copiedIndex === index ? <CheckCircle2 className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4" />}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={(e) => toggleFavorite(name, e)}
+                    aria-label={favorites.includes(name) ? `Eliminar ${name} de favoritos` : `Guardar ${name} en favoritos`}
+                    className={`p-2 rounded-lg hover:bg-pink-50 ${favorites.includes(name) ? 'text-pink-500' : 'text-slate-400 hover:text-pink-500'}`}
+                  >
+                    <Heart className={`w-4 h-4 ${favorites.includes(name) ? 'fill-pink-500' : ''}`} />
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <div className="gdn-tool-shell gdn-surface w-full max-w-4xl mx-auto rounded-[1.25rem] overflow-hidden border relative">

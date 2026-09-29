@@ -193,90 +193,79 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
       ).slice(0, 8);
 
   return (
-    <div className="gdn-shell min-h-screen text-zinc-100 flex flex-col font-sans selection:bg-violet-500/30">
+    <div className="gdn-shell min-h-screen text-slate-900 flex flex-col font-sans selection:bg-violet-200">
       <header className="gdn-header backdrop-blur-xl border-b sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16 gap-3">
             <Link to="/" aria-label="GeneradorDeNombres.net - Página de Inicio" className="flex items-center gap-2.5 group shrink-0">
-              <div className="relative p-1.5 bg-zinc-900 border border-white/10 rounded-xl shadow-lg shadow-violet-500/20 group-hover:border-violet-500/50 group-hover:shadow-violet-500/40 transition-all overflow-hidden">
-                <img src="/favicon.svg" alt="GeneradorDeNombres Logo" width={24} height={24} loading="eager" fetchPriority="high" decoding="async" className="w-6 h-6 object-contain" />
+              <div className="relative p-1.5 bg-gradient-to-br from-violet-600 to-violet-500 border border-violet-500/20 rounded-xl shadow-sm transition-all overflow-hidden">
+                <img src="/favicon.svg" alt="GeneradorDeNombres Logo" width={24} height={24} loading="eager" fetchPriority="high" decoding="async" className="w-6 h-6 object-contain brightness-0 invert" />
               </div>
-              <span className="text-lg font-extrabold font-heading tracking-tight text-white hidden sm:inline">
-                GeneradorDeNombres<span className="text-violet-400">.net</span>
+              <span className="text-base lg:text-lg font-extrabold font-heading tracking-tight text-slate-900 hidden sm:inline">
+                GeneradorDeNombres<span className="text-violet-600">.net</span>
               </span>
             </Link>
 
-            {/* Desktop Nav */}
-            <nav className="gdn-nav hidden xl:flex items-center gap-1 p-1 border">
+            {/* Desktop Nav — V4 */}
+            <nav className="hidden xl:flex items-center gap-1">
               <Link
                 to="/"
-                className={`px-3 py-1.5 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 ${
-                  location.pathname === '/'
-                    ? 'bg-white/10 text-white shadow-sm'
-                    : 'text-zinc-400 hover:text-zinc-100 hover:bg-white/5'
-                }`}
+                className={`px-3 py-2 rounded-xl text-sm font-semibold transition-colors ${location.pathname === '/' ? 'text-slate-950 bg-slate-100' : 'text-slate-500 hover:text-slate-900 hover:bg-slate-50'}`}
               >
-                Inicio
+                Generador
               </Link>
-
-              {navGroups.map((group) => {
-                const isGroupActive = group.links.some(l => l.path === location.pathname);
-                return (
-                  <div
-                    key={group.title}
-                    className="relative"
-                    onMouseEnter={() => setActiveDropdown(group.title)}
-                    onMouseLeave={() => setActiveDropdown(null)}
-                    onBlur={(e) => {
-                      if (!e.currentTarget.contains(e.relatedTarget as Node)) {
-                        setActiveDropdown(null);
-                      }
-                    }}
-                  >
-                    <button
-                      type="button"
-                      onClick={() => setActiveDropdown(prev => prev === group.title ? null : group.title)}
-                      onFocus={() => setActiveDropdown(group.title)}
-                      aria-haspopup="menu"
-                      aria-expanded={activeDropdown === group.title}
-                      className={`flex items-center gap-1 px-3 py-1.5 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 ${
-                        isGroupActive
-                          ? 'bg-white/10 text-white shadow-sm'
-                          : 'text-zinc-400 hover:text-zinc-100 hover:bg-white/5'
-                      }`}
-                    >
-                      <group.icon className="w-3.5 h-3.5 opacity-70" />
-                      <span>{group.title}</span>
-                      <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === group.title ? 'rotate-180' : ''}`} />
-                    </button>
-
-                    {/* Dropdown Box */}
-                    {activeDropdown === group.title && (
-                      <div
-                        className="absolute left-0 top-full pt-2 w-64 z-50 animate-in fade-in zoom-in-95 duration-150"
-                      >
-                        <div className="gdn-surface border rounded-2xl p-2 backdrop-blur-2xl">
-                          {group.links.map((link) => (
-                            <Link
-                              key={link.path}
-                              to={link.path}
-                              onClick={() => setActiveDropdown(null)}
-                              className={`block px-3.5 py-2.5 rounded-xl transition-all ${
-                                location.pathname === link.path
-                                  ? 'bg-violet-600/20 text-violet-300 border border-violet-500/30'
-                                  : 'hover:bg-white/5 text-zinc-300 hover:text-white'
-                              }`}
-                            >
-                              <div className="text-sm font-bold">{link.label}</div>
-                              <div className="text-[11px] text-zinc-400">{link.desc}</div>
-                            </Link>
-                          ))}
+              <div
+                className="relative"
+                onMouseEnter={() => setActiveDropdown('Categorías')}
+                onMouseLeave={() => setActiveDropdown(null)}
+                onBlur={(e) => {
+                  if (!e.currentTarget.contains(e.relatedTarget as Node)) setActiveDropdown(null);
+                }}
+              >
+                <button
+                  type="button"
+                  onClick={() => setActiveDropdown(prev => prev === 'Categorías' ? null : 'Categorías')}
+                  onFocus={() => setActiveDropdown('Categorías')}
+                  aria-haspopup="menu"
+                  aria-expanded={activeDropdown === 'Categorías'}
+                  className="flex items-center gap-1 px-3 py-2 rounded-xl text-sm font-medium text-slate-500 hover:text-slate-900 hover:bg-slate-50 transition-colors"
+                >
+                  Categorías
+                  <ChevronDown className={`w-3.5 h-3.5 transition-transform ${activeDropdown === 'Categorías' ? 'rotate-180' : ''}`} />
+                </button>
+                {activeDropdown === 'Categorías' && (
+                  <div className="absolute left-1/2 -translate-x-1/2 top-full pt-3 z-50">
+                    <div className="gdn-v4-mega-menu rounded-2xl p-4 grid grid-cols-3 gap-3">
+                      {navGroups.map((group) => (
+                        <div key={group.title} className="rounded-xl p-2">
+                          <div className="flex items-center gap-2 px-2 pb-2 text-xs font-bold text-slate-900">
+                            <group.icon className="w-4 h-4 text-violet-500" />
+                            {group.title}
+                          </div>
+                          <div className="space-y-0.5">
+                            {group.links.map((link) => (
+                              <Link
+                                key={link.path}
+                                to={link.path}
+                                onClick={() => setActiveDropdown(null)}
+                                className={`block rounded-lg px-2 py-1.5 text-xs transition-colors ${location.pathname === link.path ? 'bg-violet-50 text-violet-700 font-semibold' : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'}`}
+                              >
+                                {link.label}
+                              </Link>
+                            ))}
+                          </div>
                         </div>
-                      </div>
-                    )}
+                      ))}
+                    </div>
                   </div>
-                );
-              })}
+                )}
+              </div>
+              <Link to="/#herramientas-populares" className="px-3 py-2 rounded-xl text-sm font-medium text-slate-500 hover:text-slate-900 hover:bg-slate-50 transition-colors">
+                Herramientas
+              </Link>
+              <a href="#articulos-guia" className="px-3 py-2 rounded-xl text-sm font-medium text-slate-500 hover:text-slate-900 hover:bg-slate-50 transition-colors">
+                Guías
+              </a>
             </nav>
 
             {/* Global Search & Favorites Trigger Buttons */}
@@ -285,11 +274,10 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
                 type="button"
                 onClick={() => setIsFavDrawerOpen(true)}
                 aria-label={`Mis Nombres Favoritos Guardados (${favorites.length})`}
-                className="gdn-chip relative border rounded-xl px-2.5 py-1.5 text-xs flex items-center gap-1.5 transition-all"
+                className="relative w-9 h-9 rounded-xl flex items-center justify-center text-slate-500 hover:text-violet-600 hover:bg-violet-50 transition-colors"
                 title="Mis Nombres Favoritos Guardados"
               >
-                <Bookmark className="w-3.5 h-3.5 text-violet-400 fill-violet-500/10" />
-                <span className="hidden md:inline font-semibold">Favoritos</span>
+                <Bookmark className="w-[18px] h-[18px]" />
                 <span className="sr-only">Favoritos</span>
                 {favorites.length > 0 && (
                   <span className="bg-pink-500 text-white text-[10px] font-bold px-1.5 py-0.2 rounded-full min-w-[18px] text-center">
@@ -302,19 +290,15 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
                 type="button"
                 onClick={() => setIsSearchOpen(true)}
                 aria-label="Buscar categorías y herramientas"
-                className="gdn-chip border rounded-xl px-3 py-1.5 text-xs flex items-center gap-2 transition-all"
+                className="w-9 h-9 rounded-xl flex items-center justify-center text-slate-500 hover:text-violet-600 hover:bg-violet-50 transition-colors"
               >
-                <Search className="w-3.5 h-3.5 text-violet-400" />
-                <span className="hidden md:inline">Buscar categorías...</span>
-                <span className="md:hidden">Buscar</span>
-                <kbd className="hidden md:inline-block bg-white/10 border border-white/10 rounded px-1.5 py-0.5 text-[10px] font-mono text-zinc-400">
-                  Ctrl K
-                </kbd>
+                <Search className="w-[18px] h-[18px]" />
+                <span className="sr-only">Buscar</span>
               </button>
 
               {/* Mobile menu button */}
               <button 
-                className="xl:hidden p-2 text-zinc-400 hover:text-zinc-100 transition-colors"
+                className="xl:hidden p-2 text-slate-500 hover:text-slate-900 transition-colors"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 aria-label={isMenuOpen ? "Cerrar menú principal" : "Abrir menú principal"}
                 aria-expanded={isMenuOpen}
@@ -337,7 +321,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
                 to="/"
                 onClick={() => setIsMenuOpen(false)}
                 className={`block px-4 py-2.5 rounded-xl text-base font-bold ${
-                  location.pathname === '/' ? 'bg-white/10 text-white' : 'text-zinc-400'
+                  location.pathname === '/' ? 'bg-violet-50 text-violet-700' : 'text-slate-500'
                 }`}
               >
                 🏠 Inicio
@@ -357,8 +341,8 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
                         onClick={() => setIsMenuOpen(false)}
                         className={`flex items-center justify-between gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium ${
                           location.pathname === link.path
-                            ? 'bg-violet-600/20 text-violet-300 font-bold'
-                            : 'text-zinc-300 hover:bg-white/5'
+                            ? 'bg-violet-50 text-violet-700 font-bold'
+                            : 'text-slate-700 hover:bg-slate-50'
                         }`}
                       >
                         <span className="min-w-0">{link.label}</span>
@@ -377,11 +361,11 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
         {children}
       </main>
 
-      <footer className="gdn-footer border-t mt-20 py-16">
+      <footer className="gdn-footer border-t mt-20 py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Link to="/" aria-label="GeneradorDeNombres.net - Inicio" className="inline-flex justify-center items-center gap-3 mb-6 group">
-            <div className="bg-violet-600 p-1.5 rounded-lg opacity-90 group-hover:opacity-100 transition-opacity">
-               <Flame className="w-4 h-4 text-white" aria-hidden="true" />
+            <div className="bg-gradient-to-br from-violet-600 to-violet-500 p-1.5 rounded-lg">
+               <Sparkles className="w-4 h-4 text-white" aria-hidden="true" />
             </div>
             <span className="text-xl font-bold font-heading text-white">GeneradorDeNombres.net</span>
           </Link>
