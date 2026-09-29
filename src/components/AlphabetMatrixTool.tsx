@@ -132,9 +132,9 @@ export default function AlphabetMatrixTool({ currentLetter = 'A' }: { currentLet
           <input
             type="text"
             value={searchTerm}
-            onChange={(e) = className="gdn-tool-input"> setSearchTerm(e.target.value)}
+            onChange={(e) => setSearchTerm(e.target.value)}
             placeholder={`Buscar nombres con ${selectedLetter}...`}
-            className="w-full pl-10 pr-4 py-2.5 bg-zinc-950 border border-white/10 rounded-xl text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-violet-500"
+            className="gdn-tool-input w-full pl-10 pr-4 py-2.5 bg-zinc-950 border border-white/10 rounded-xl text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-violet-500"
           />
         </div>
 
