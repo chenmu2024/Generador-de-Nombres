@@ -6,6 +6,7 @@ const keyLocation = `https://${host}/${apiKey}.txt`;
 
 const staticPages = [
   '/',
+  '/sobre-nosotros',
   '/politica-de-privacidad',
   '/terminos-y-condiciones',
   '/contacto'
