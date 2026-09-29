@@ -2235,7 +2235,7 @@ export default function CategoryPage({ initialPath }: { initialPath?: string } =
                     Nombres para Instagram Aesthetic, Cuentas Privadas y Marcas
                   </h2>
                   <p className="text-zinc-400 mt-2 max-w-2xl text-sm">
-                    Genera nombres de usuario (@handles) 100% válidos conforme a las normas de Instagram (solo letras, números, puntos y guiones bajos, máx 30 caracteres) y pruébalos en una maqueta de perfil en vivo.
+                    Genera nombres de usuario (@handles) con el formato habitual de Instagram (letras, números, puntos y guiones bajos, hasta 30 caracteres) y pruébalos en una maqueta de perfil.
                   </p>
                 </div>
               </div>
@@ -2783,7 +2783,7 @@ export default function CategoryPage({ initialPath }: { initialPath?: string } =
                     Creador de Nombres para Free Fire que Nadie Tenga
                   </h2>
                   <p className="text-zinc-400 mt-2 max-w-2xl text-sm">
-                    Combina símbolos raros Unicode, jeroglíficos egipcios, el logo de Verificado Ⓥ y espacios invisibles para garantizar un apodo 100% libre y exclusivo que nadie más tenga en tu servidor.
+                    Combina símbolos Unicode, jeroglíficos, el símbolo Ⓥ y espacios invisibles para crear variantes poco comunes. La disponibilidad final del apodo depende del servidor y debe comprobarse dentro del juego.
                   </p>
                 </div>
               </div>
@@ -4191,7 +4191,7 @@ export default function CategoryPage({ initialPath }: { initialPath?: string } =
       )}
 
       {/* Dedicated Nombres para Gatos Generator & Directory */}
-      {(location.pathname === '/nombres-gatos' || location.pathname === '/nombres-para-gatos') && (
+      {location.pathname === '/nombres-gatos' && (
         <div className="max-w-6xl mx-auto py-4 space-y-8">
           <div className="bg-[#121212] border border-amber-500/20 rounded-3xl p-6 md:p-8 shadow-2xl bg-gradient-to-br from-amber-950/20 via-[#121212] to-zinc-950">
             {/* Header */}
