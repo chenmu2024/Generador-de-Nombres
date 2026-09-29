@@ -313,3 +313,25 @@ body {
     padding: 20px !important;
   }
 }
+
+
+/* V2.1 Interaction Consistency */
+.gdn-tool-shell button:focus-visible,
+.gdn-tool-shell a:focus-visible {
+  outline: 2px solid var(--gdn-primary);
+  outline-offset: 2px;
+}
+
+.gdn-tool-shell button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (max-width: 640px) {
+  .gdn-tool-shell button:not([aria-label]) {
+    min-height: 42px;
+  }
+
+  .gdn-tool-shell .gdn-tool-tab {
+    min-height: 40px;
+  }
+}
