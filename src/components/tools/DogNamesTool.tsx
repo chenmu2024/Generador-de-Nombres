@@ -55,8 +55,8 @@ export default function DogNamesTool({
       <div>
       <label className="text-xs font-semibold text-zinc-400 block mb-2">Estilo / Personalidad de la Perrita:</label>
       <select aria-label="Seleccionar opción" value={dogPersonality}
-      onChange={(e) = className="gdn-tool-input"> setDogPersonality(e.target.value)}
-      className="w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-pink-500 text-sm font-semibold"
+      onChange={(e) => setDogPersonality(e.target.value)}
+      className="gdn-tool-input w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-pink-500 text-sm font-semibold"
       >
       {['Pequeña 🎀', 'Alegre 🎾', 'Princesa 👑', 'Guerrera ⚡', 'Dulce 🍯', 'Elegante 💎'].map(p => (
       <option key={p} value={p}>{p}</option>
@@ -69,9 +69,9 @@ export default function DogNamesTool({
       <input
       type="text"
       value={dogCustomName}
-      onChange={(e) = className="gdn-tool-input"> setDogCustomName(e.target.value)}
+      onChange={(e) => setDogCustomName(e.target.value)}
       placeholder="Luna, Kira, Chloe..."
-      className="w-full bg-zinc-800 border border-white/10 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-pink-500 text-sm font-bold"
+      className="gdn-tool-input w-full bg-zinc-800 border border-white/10 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-pink-500 text-sm font-bold"
       />
       </div>
       </div>
