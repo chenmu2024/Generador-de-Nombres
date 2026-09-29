@@ -43,9 +43,9 @@ export default function InstagramTool({ handleCopyTrending }: InstagramToolProps
               <input
                 type="text"
                 value={igInput}
-                onChange={(e) = className="gdn-tool-input"> setIgInput(e.target.value)}
+                onChange={(e) => setIgInput(e.target.value)}
                 placeholder="iam.sofia_"
-                className="w-full pl-10 pr-36 py-4 bg-zinc-800/80 border border-white/10 rounded-xl text-white placeholder-zinc-500 focus:outline-none focus:border-pink-500 font-mono text-lg tracking-wide"
+                className="gdn-tool-input w-full pl-10 pr-36 py-4 bg-zinc-800/80 border border-white/10 rounded-xl text-white placeholder-zinc-500 focus:outline-none focus:border-pink-500 font-mono text-lg tracking-wide"
               />
               <div className="absolute right-4 top-1/2 -translate-y-1/2">
                 {isIgValid ? (
