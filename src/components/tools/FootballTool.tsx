@@ -16,7 +16,7 @@ export default function FootballTool({ handleCopyTrending }: FootballToolProps) 
   const [teamCategoryTab, setTeamCategoryTab] = useState('Graciosos 🍺');
 
   return (
-    <div className="max-w-6xl mx-auto py-4 space-y-8">
+    <div className="gdn-tool-shell max-w-6xl mx-auto py-4 space-y-8">
       <div className="bg-[#121212] border border-amber-500/20 rounded-3xl p-8 shadow-2xl bg-gradient-to-br from-amber-950/20 via-[#121212] to-emerald-950/20">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
           <div>
@@ -39,7 +39,7 @@ export default function FootballTool({ handleCopyTrending }: FootballToolProps) 
               <div>
                 <label className="text-xs font-semibold text-zinc-400 block mb-2">Prefijo Deportivo / Estilo:</label>
                 <select aria-label="Seleccionar opción" value={teamPrefix}
-                  onChange={(e) => setTeamPrefix(e.target.value)}
+                  onChange={(e) = className="gdn-tool-input"> setTeamPrefix(e.target.value)}
                   className="w-full bg-zinc-800 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-amber-500 text-sm font-semibold"
                 >
                   {['Real', 'Atlético', 'Inter', 'Deportivo', 'Sporting', 'FC', 'Los', 'Club', 'Rayo', 'Vodka', 'Aston', 'Nottingham', 'Espartanos'].map(p => (
@@ -53,7 +53,7 @@ export default function FootballTool({ handleCopyTrending }: FootballToolProps) 
                 <input
                   type="text"
                   value={teamBase}
-                  onChange={(e) => setTeamBase(e.target.value)}
+                  onChange={(e) = className="gdn-tool-input"> setTeamBase(e.target.value)}
                   placeholder="Tapitas, Titan, Barrio..."
                   className="w-full bg-zinc-800 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-amber-500 text-sm font-bold"
                 />
@@ -115,7 +115,7 @@ export default function FootballTool({ handleCopyTrending }: FootballToolProps) 
               <input
                 type="text"
                 value={teamSlogan}
-                onChange={(e) => setTeamSlogan(e.target.value)}
+                onChange={(e) = className="gdn-tool-input"> setTeamSlogan(e.target.value)}
                 placeholder="Unidos por la Gloria..."
                 className="w-full bg-zinc-800 border border-white/10 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-amber-500 text-xs italic"
               />
@@ -139,7 +139,7 @@ export default function FootballTool({ handleCopyTrending }: FootballToolProps) 
           </div>
 
           {/* Preview Card */}
-          <div className="bg-gradient-to-b from-amber-950/40 via-zinc-950 to-zinc-950 border border-amber-500/30 rounded-2xl p-6 flex flex-col items-center justify-between text-center relative overflow-hidden shadow-xl">
+          <div className="gdn-tool-result bg-gradient-to-b from-amber-950/40 via-zinc-950 to-zinc-950 border border-amber-500/30 rounded-2xl p-6 flex flex-col items-center justify-between text-center relative overflow-hidden shadow-xl">
             <div className="w-full">
               <div className="w-20 h-20 mx-auto rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-4xl mb-3 shadow-lg shadow-amber-500/10">
                 {teamMascot}
