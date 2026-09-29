@@ -28,6 +28,7 @@ export const allLinks = [
   { path: '/nombres-con-e', label: 'Nombres con E' },
   { path: '/nombres-con-f', label: 'Nombres con F' },
   { path: '/nombres-con-m', label: 'Nombres con M' },
+  { path: '/nombres-con-en', label: 'Nombres con Ñ' },
   { path: '/nombres-con-y', label: 'Nombres con Y' },
   { path: '/nombres-con-z', label: 'Nombres con Z' },
   { path: '/nombres-de-dioses', label: 'Nombres de Dioses' },
