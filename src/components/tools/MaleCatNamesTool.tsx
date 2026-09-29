@@ -103,7 +103,7 @@ export default function MaleCatNamesTool({
       </div>
       
       {/* Live Male Cat Badge Preview */}
-      <div className="bg-gradient-to-b from-blue-950/50 via-zinc-950 to-zinc-950 border border-blue-500/30 rounded-2xl p-5 flex flex-col justify-between items-center text-center shadow-xl">
+      <div className="gdn-tool-result bg-gradient-to-b from-blue-950/50 via-zinc-950 to-zinc-950 border border-blue-500/30 rounded-2xl p-5 flex flex-col justify-between items-center text-center shadow-xl">
       <div>
       <div className="text-xs text-blue-400 font-bold uppercase tracking-widest mb-2">Placa Oficial de Gato Macho 🏷️</div>
       <div className="text-3xl font-extrabold text-blue-300 font-heading mb-2">
