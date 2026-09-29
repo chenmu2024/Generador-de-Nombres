@@ -315,6 +315,7 @@ export default function CategoryPage({
             title={location.pathname === '/' ? 'Generador de Nombres, Apodos y Símbolos' : data.h1}
             defaultName={data.defaultName || "Gamer"}
             customSymbols={data.customSymbols}
+            compact={location.pathname === '/'}
           />
         )}
 
