@@ -11,6 +11,11 @@ export default function Contact() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (formData.email && formData.message) {
+      const subject = encodeURIComponent(`[GeneradorDeNombres.net] ${formData.subject} - ${formData.name}`);
+      const body = encodeURIComponent(
+        `Nombre: ${formData.name}\nCorreo: ${formData.email}\nAsunto: ${formData.subject}\n\nMensaje:\n${formData.message}`
+      );
+      window.location.href = `mailto:soporte@generadordenombres.net?subject=${subject}&body=${body}`;
       setSubmitted(true);
     }
   };
@@ -90,15 +95,15 @@ export default function Contact() {
                 <div className="w-12 h-12 bg-emerald-500/20 text-emerald-400 rounded-full flex items-center justify-center mx-auto">
                   <CheckCircle className="w-6 h-6" />
                 </div>
-                <h3 className="text-xl font-bold text-white">¡Mensaje Enviado con Éxito!</h3>
+                <h3 className="text-xl font-bold text-white">Correo preparado</h3>
                 <p className="text-sm text-zinc-400 max-w-sm mx-auto">
-                  Gracias por comunicarte con GeneradorDeNombres.net. Hemos recibido tu consulta y te responderemos a la brevedad.
+                  Se ha abierto tu aplicación de correo con el mensaje preparado. El envío se completa cuando confirmas el correo desde tu aplicación.
                 </p>
                 <button
                   onClick={() => { setSubmitted(false); setFormData({ name: '', email: '', subject: 'Sugerencia', message: '' }); }}
                   className="px-4 py-2 bg-zinc-800 hover:bg-zinc-700 text-white rounded-xl text-xs font-semibold transition-colors"
                 >
-                  Enviar otro mensaje
+                  Preparar otro correo
                 </button>
               </div>
             ) : (
