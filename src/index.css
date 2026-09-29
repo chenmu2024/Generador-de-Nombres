@@ -243,3 +243,10 @@ body {
     --gdn-tool-control-height: 44px;
   }
 }
+
+
+/* V2.1 repeated result surfaces */
+.gdn-tool-shell [class*="bg-zinc-9"][class*="rounded-2xl"][class*="border"] {
+  border-radius: var(--gdn-tool-card-radius) !important;
+  box-shadow: none !important;
+}
