@@ -53,8 +53,8 @@ export default function FrenchNamesTool({
     <div>
     <label className="text-xs font-semibold text-zinc-400 block mb-2">Título / Prefijo de Cortesía:</label>
     <select aria-label="Seleccionar opción" value={frTitlePrefix}
-    onChange={(e) = className="gdn-tool-input"> setFrTitlePrefix(e.target.value)}
-    className="w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-sky-500 text-sm font-semibold"
+    onChange={(e) => setFrTitlePrefix(e.target.value)}
+    className="gdn-tool-input w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-sky-500 text-sm font-semibold"
     >
     {['Mademoiselle', 'Monsieur', 'Chérie', 'Fleur', 'Prince', 'Princesse', 'Madame'].map(p => (
     <option key={p} value={p}>{p}</option>
@@ -67,9 +67,9 @@ export default function FrenchNamesTool({
     <input
     type="text"
     value={frCustomName}
-    onChange={(e) = className="gdn-tool-input"> setFrCustomName(e.target.value)}
+    onChange={(e) => setFrCustomName(e.target.value)}
     placeholder="Amélie, Juliette, Louis..."
-    className="w-full bg-zinc-800 border border-white/10 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-sky-500 text-sm font-bold"
+    className="gdn-tool-input w-full bg-zinc-800 border border-white/10 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-sky-500 text-sm font-bold"
     />
     </div>
     </div>
