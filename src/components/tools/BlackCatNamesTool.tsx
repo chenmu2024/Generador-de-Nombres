@@ -110,8 +110,8 @@ export default function BlackCatNamesTool({
       <div>
       <label className="text-xs font-semibold text-zinc-400 block mb-2">Estilo / Vibe Místico:</label>
       <select aria-label="Seleccionar opción" value={blackCatVibe}
-      onChange={(e) = className="gdn-tool-input"> setBlackCatVibe(e.target.value)}
-      className="w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-purple-500 text-sm font-semibold"
+      onChange={(e) => setBlackCatVibe(e.target.value)}
+      className="gdn-tool-input w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-purple-500 text-sm font-semibold"
       >
       {['Místico 🔮', 'Panterita 🐈‍⬛', 'Magia / Bruja 🪄', 'Anime / Ghibli 🎬', 'Noche / Cosmos 🌑', 'Elegante / Dark 🖤'].map(v => (
       <option key={v} value={v}>{v}</option>
@@ -124,9 +124,9 @@ export default function BlackCatNamesTool({
       <input
       type="text"
       value={blackCatCustomName}
-      onChange={(e) = className="gdn-tool-input"> setBlackCatCustomName(e.target.value)}
+      onChange={(e) => setBlackCatCustomName(e.target.value)}
       placeholder="Salem, Sombra, Jiji..."
-      className="w-full bg-zinc-800 border border-white/10 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-purple-500 text-sm font-bold"
+      className="gdn-tool-input w-full bg-zinc-800 border border-white/10 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-purple-500 text-sm font-bold"
       />
       </div>
       </div>
