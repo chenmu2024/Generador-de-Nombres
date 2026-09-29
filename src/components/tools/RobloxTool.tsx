@@ -34,18 +34,18 @@ export default function RobloxTool({ handleCopyTrending }: RobloxToolProps) {
           </div>
         </div>
 
-        <div className="bg-zinc-900/90 border border-white/10 rounded-2xl p-6 relative z-10 space-y-6">
+        <div className="gdn-tool-result bg-zinc-900/90 border border-white/10 rounded-2xl p-6 relative z-10 space-y-6">
           <div>
             <label className="text-xs font-semibold text-zinc-400 block mb-2">Escribe tu candidato a Username de Roblox:</label>
-            <div className="relative">
+            <div className="gdn-validator-field relative">
               <input
                 type="text"
                 value={robloxInput}
                 onChange={(e) => setRobloxInput(e.target.value)}
                 placeholder="Ej. x_AestheticGirl_x"
-                className="gdn-tool-input w-full px-5 py-4 bg-zinc-800/80 border border-white/10 rounded-xl text-white placeholder-zinc-500 focus:outline-none focus:border-fuchsia-500 font-mono text-lg tracking-wide"
+                className="gdn-validator-input gdn-tool-input w-full px-5 py-4 bg-zinc-800/80 border border-white/10 rounded-xl text-white placeholder-zinc-500 focus:outline-none focus:border-fuchsia-500 font-mono text-lg tracking-wide"
               />
-              <div className="absolute right-4 top-1/2 -translate-y-1/2">
+              <div className="gdn-validator-status absolute right-4 top-1/2 -translate-y-1/2">
                 {isRobloxValid ? (
                   <span className="px-3 py-1 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded-full text-xs font-bold">
                     ✓ Válido en Roblox
