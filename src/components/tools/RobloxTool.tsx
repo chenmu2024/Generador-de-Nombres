@@ -41,9 +41,9 @@ export default function RobloxTool({ handleCopyTrending }: RobloxToolProps) {
               <input
                 type="text"
                 value={robloxInput}
-                onChange={(e) = className="gdn-tool-input"> setRobloxInput(e.target.value)}
+                onChange={(e) => setRobloxInput(e.target.value)}
                 placeholder="Ej. x_AestheticGirl_x"
-                className="w-full px-5 py-4 bg-zinc-800/80 border border-white/10 rounded-xl text-white placeholder-zinc-500 focus:outline-none focus:border-fuchsia-500 font-mono text-lg tracking-wide"
+                className="gdn-tool-input w-full px-5 py-4 bg-zinc-800/80 border border-white/10 rounded-xl text-white placeholder-zinc-500 focus:outline-none focus:border-fuchsia-500 font-mono text-lg tracking-wide"
               />
               <div className="absolute right-4 top-1/2 -translate-y-1/2">
                 {isRobloxValid ? (
