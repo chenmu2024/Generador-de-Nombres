@@ -25,7 +25,7 @@ export default function MaleCatNamesTool({
 
   return (
     <>
-      <div className="max-w-6xl mx-auto py-4 space-y-8">
+      <div className="gdn-tool-shell max-w-6xl mx-auto py-4 space-y-8">
       <div className="bg-[#121212] border border-blue-500/20 rounded-3xl p-6 md:p-8 shadow-2xl bg-gradient-to-br from-blue-950/30 via-[#121212] to-zinc-950">
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
@@ -54,7 +54,7 @@ export default function MaleCatNamesTool({
       <div>
       <label className="text-xs font-semibold text-zinc-400 block mb-2">Personalidad / Estilo:</label>
       <select aria-label="Seleccionar opción" value={maleCatPersonality}
-      onChange={(e) => setMaleCatPersonality(e.target.value)}
+      onChange={(e) = className="gdn-tool-input"> setMaleCatPersonality(e.target.value)}
       className="w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-blue-500 text-sm font-semibold"
       >
       {['Épico / Rey 👑', 'Juguetón / Travieso ⚡', 'Súper Corto ⚡', 'Cariñoso / Mochi 🍡', 'Mitología / Héroe 🏛️', 'Elegante / Sir 🎩'].map(p => (
@@ -68,7 +68,7 @@ export default function MaleCatNamesTool({
       <input
       type="text"
       value={maleCatCustomName}
-      onChange={(e) => setMaleCatCustomName(e.target.value)}
+      onChange={(e) = className="gdn-tool-input"> setMaleCatCustomName(e.target.value)}
       placeholder="Simba, Thor, Leo..."
       className="w-full bg-zinc-800 border border-white/10 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-blue-500 text-sm font-bold"
       />
@@ -150,7 +150,7 @@ export default function MaleCatNamesTool({
       <button
       key={tab}
       onClick={() => setMaleCatCategoryTab(tab)}
-      className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
+      className={`gdn-tool-tab px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
       maleCatCategoryTab === tab
       ? 'bg-blue-600 text-white shadow-md shadow-blue-500/20'
       : 'bg-zinc-800 text-zinc-400 hover:text-white'
