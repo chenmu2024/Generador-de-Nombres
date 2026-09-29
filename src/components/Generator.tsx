@@ -389,7 +389,7 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols 
                 <button
                   key={vibe.id}
                   onClick={() => setVibeFilter(vibe.id as any)}
-                  className={`shrink-0 px-3 py-1.5 rounded-xl border text-xs font-semibold transition-all ${
+                  className={`gdn-tool-tab shrink-0 px-3 py-1.5 rounded-xl border text-xs font-semibold transition-all ${
                     vibeFilter === vibe.id
                       ? 'bg-violet-600 text-white border-violet-400 shadow-md shadow-violet-500/20'
                       : vibe.color + ' border-white/5'
