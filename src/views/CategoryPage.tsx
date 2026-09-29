@@ -182,7 +182,7 @@ export default function CategoryPage({
       {/* Toast Notification */}
       {showToast && (
         <div
-          className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 flex items-center gap-2 bg-zinc-800 text-white px-6 py-3 rounded-full shadow-2xl border border-white/10 font-medium animate-in fade-in slide-in-from-bottom-5 duration-200"
+          className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 flex items-center gap-2 bg-slate-900 text-white px-5 py-3 rounded-full shadow-xl border border-slate-700 font-medium animate-in fade-in slide-in-from-bottom-5 duration-200"
           role="status"
           aria-live="polite"
         >
@@ -192,9 +192,9 @@ export default function CategoryPage({
       )}
 
       {/* Breadcrumb Navigation for Google & Users */}
-      <nav aria-label="Breadcrumb" className={`${location.pathname === '/' ? 'hidden' : 'flex'} items-center gap-2 text-xs text-zinc-400 max-w-4xl mx-auto px-1`} itemScope itemType="https://schema.org/BreadcrumbList">
+      <nav aria-label="Breadcrumb" className={`${location.pathname === '/' ? 'hidden' : 'flex'} items-center gap-2 text-xs text-slate-500 max-w-4xl mx-auto px-1`} itemScope itemType="https://schema.org/BreadcrumbList">
         <span itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-          <Link to="/" itemProp="item" className="hover:text-violet-300 transition-colors flex items-center gap-1">
+          <Link to="/" itemProp="item" className="hover:text-violet-700 transition-colors flex items-center gap-1">
             <Home className="w-3.5 h-3.5" aria-hidden="true" />
             <span itemProp="name">Inicio</span>
           </Link>
@@ -202,8 +202,8 @@ export default function CategoryPage({
         </span>
         {location.pathname !== '/' && (
           <React.Fragment key="breadcrumb-sub">
-            <ChevronRight className="w-3 h-3 text-zinc-600" aria-hidden="true" />
-            <span itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem" className="text-zinc-200 font-semibold truncate">
+            <ChevronRight className="w-3 h-3 text-slate-300" aria-hidden="true" />
+            <span itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem" className="text-slate-800 font-semibold truncate">
               <span itemProp="name">{data.h1}</span>
               <span itemProp="position" className="hidden">2</span>
             </span>
@@ -222,7 +222,7 @@ export default function CategoryPage({
         </p>
 
         {/* Table of Contents / Índice Rápido */}
-        <div className={`${location.pathname === '/' ? 'hidden' : 'gdn-surface-raised'} border p-3 sm:p-4 rounded-2xl max-w-2xl mx-auto text-left`}>
+        <div className={`${location.pathname === '/' ? 'hidden' : 'gdn-surface-raised'} border p-3 rounded-2xl max-w-2xl mx-auto text-left`}>
           <div className="gdn-section-label flex items-center gap-2 font-bold text-xs uppercase tracking-wider mb-2">
             <ListOrdered className="w-4 h-4 text-violet-400" /> Índice de Contenidos Rápido
           </div>
@@ -743,7 +743,7 @@ export default function CategoryPage({
               {/* Result Preview Box */}
               <div className="bg-[#0a0a0a] border border-white/10 rounded-xl p-4 flex flex-col sm:flex-row items-center justify-between gap-4">
                 <div>
-                  <span className="text-xs text-zinc-500 block mb-1">Vista previa en Free Fire:</span>
+                  <span className="text-xs text-slate-400 block mb-1">Vista previa en Free Fire:</span>
                   <span className="text-xl font-bold text-violet-300 tracking-wide break-all">
                     {ffTag ? `${ffTag}ㅤ${ffName}` : ffName}
                   </span>
@@ -1050,8 +1050,8 @@ export default function CategoryPage({
                     &larr;
                   </div>
                   <div>
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-zinc-500 block">Categoría Anterior</span>
-                    <span className="text-sm font-bold text-zinc-200 group-hover:text-violet-300 transition-colors">{pLink.label}</span>
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 block">Categoría Anterior</span>
+                    <span className="text-sm font-bold text-slate-800 group-hover:text-violet-700 transition-colors">{pLink.label}</span>
                   </div>
                 </Link>
               )}
@@ -1069,8 +1069,8 @@ export default function CategoryPage({
                     &rarr;
                   </div>
                   <div>
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-zinc-500 block">Siguiente Categoría</span>
-                    <span className="text-sm font-bold text-zinc-200 group-hover:text-violet-300 transition-colors">{nLink.label}</span>
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 block">Siguiente Categoría</span>
+                    <span className="text-sm font-bold text-slate-800 group-hover:text-violet-700 transition-colors">{nLink.label}</span>
                   </div>
                 </Link>
               )}
@@ -1083,7 +1083,7 @@ export default function CategoryPage({
       <section id="relacionados" className={`max-w-6xl mx-auto border-t border-slate-200 scroll-mt-24 ${location.pathname === '/' ? 'pt-10' : 'pt-16'}`}>
         <div className={`text-center ${location.pathname === '/' ? 'mb-6' : 'mb-10'}`}>
           <h2 className={`font-bold text-slate-900 font-heading ${location.pathname === '/' ? 'text-2xl md:text-3xl' : 'text-3xl md:text-4xl'}`}>Explora Todos Nuestros Generadores</h2>
-          <p className={`text-zinc-400 mt-2 max-w-2xl mx-auto ${location.pathname === '/' ? 'text-sm' : 'text-lg'}`}>Encuentra el nombre perfecto para cualquier plataforma o mascota</p>
+          <p className={`text-slate-500 mt-2 max-w-2xl mx-auto ${location.pathname === '/' ? 'text-sm' : 'text-base'}`}>Encuentra el nombre perfecto para cualquier plataforma o mascota</p>
           
           {/* Search Bar for Categories — internal pages only; global search already covers homepage */}
           {location.pathname !== '/' && (
@@ -1094,30 +1094,34 @@ export default function CategoryPage({
                 value={searchCategory}
                 onChange={(e) => setSearchCategory(e.target.value)}
                 placeholder="Buscar generador (ej. Roblox, Gatos...)"
-                className="w-full bg-zinc-900/80 border border-white/10 rounded-2xl pl-12 pr-4 py-3.5 text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-violet-500 transition-colors"
+                className="gdn-input w-full border rounded-2xl pl-12 pr-4 py-3.5 text-slate-900 placeholder-slate-400 focus:outline-none transition-colors"
               />
             </div>
           )}
         </div>
 
-        <div className={`grid grid-cols-1 sm:grid-cols-2 gap-3 ${location.pathname === '/' ? 'lg:grid-cols-4' : 'lg:grid-cols-3 lg:gap-6'}`}>
+        <div className={location.pathname === '/'
+          ? 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-slate-200 border border-slate-200 rounded-2xl overflow-hidden'
+          : 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5'}>
           {filteredLinks.map(link => (
-            <Link 
-              key={link.path} 
+            <Link
+              key={link.path}
               to={link.path}
-              className={`border border-white/5 hover:border-violet-500/30 hover:bg-white/[0.02] transition-all duration-300 group relative overflow-hidden ${location.pathname === '/' ? 'gdn-surface rounded-xl px-4 py-3 flex items-center gap-3 text-left' : 'bg-[#121212] p-8 rounded-3xl flex flex-col items-center text-center gap-4'}`}
+              className={`transition-all duration-200 group relative ${location.pathname === '/'
+                ? 'bg-white px-4 py-3.5 flex items-center gap-3 text-left hover:bg-violet-50'
+                : 'bg-white border border-slate-200 p-5 rounded-2xl flex items-center gap-4 text-left hover:border-violet-300 hover:shadow-sm'}`}
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-violet-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              <div className={`bg-zinc-800/50 text-violet-400 flex items-center justify-center group-hover:bg-violet-500/10 transition-all duration-300 relative z-10 ${location.pathname === '/' ? 'w-8 h-8 rounded-lg shrink-0' : 'w-14 h-14 rounded-2xl text-2xl group-hover:scale-110'}`}>
-                <Flame className={location.pathname === '/' ? 'w-4 h-4' : 'w-6 h-6'} />
+              <div className={`text-violet-600 flex items-center justify-center bg-violet-50 transition-all duration-200 shrink-0 ${location.pathname === '/' ? 'w-8 h-8 rounded-lg' : 'w-11 h-11 rounded-xl'}`}>
+                <Flame className={location.pathname === '/' ? 'w-4 h-4' : 'w-5 h-5'} />
               </div>
-              <h3 className={`font-bold text-zinc-300 group-hover:text-zinc-100 transition-colors relative z-10 font-heading ${location.pathname === '/' ? 'text-sm leading-tight' : 'text-xl'}`}>
+              <h3 className={`font-bold text-slate-800 group-hover:text-violet-700 transition-colors font-heading ${location.pathname === '/' ? 'text-sm leading-tight' : 'text-base'}`}>
                 {link.label}
               </h3>
+              <ChevronRight className="w-4 h-4 text-slate-300 group-hover:text-violet-500 ml-auto shrink-0" />
             </Link>
           ))}
           {filteredLinks.length === 0 && (
-            <div className="col-span-full text-center py-12 text-zinc-500">
+            <div className="col-span-full text-center py-12 text-slate-500">
               No se encontraron generadores que coincidan con "{searchCategory}".
             </div>
           )}

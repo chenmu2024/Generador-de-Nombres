@@ -851,3 +851,31 @@ body {
     font-size: 1.35rem !important;
   }
 }
+
+
+/* V4 Directory & Navigation Polish */
+.gdn-page-shell > nav[aria-label="Breadcrumb"] {
+  min-height: 24px;
+}
+
+.gdn-page-shell #relacionados {
+  border-color: var(--gdn-border) !important;
+}
+
+.gdn-page-shell #relacionados a {
+  text-decoration: none;
+}
+
+.gdn-page-shell input.gdn-input::placeholder {
+  color: var(--gdn-text-muted);
+}
+
+.gdn-page-shell .gdn-surface-raised {
+  box-shadow: 0 8px 24px rgba(17,24,39,0.035) !important;
+}
+
+@media (max-width: 640px) {
+  .gdn-page-shell #relacionados {
+    padding-top: 28px !important;
+  }
+}
