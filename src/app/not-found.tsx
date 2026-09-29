@@ -4,10 +4,10 @@ import { Link } from '../components/Link';
 export default function NotFound() {
   return (
     <div className="min-h-[70vh] flex items-center justify-center px-4 py-16">
-      <div className="text-center space-y-5 max-w-md bg-white border border-slate-200 p-8 rounded-3xl shadow-sm">
+      <div className="text-center space-y-5 max-w-md bg-zinc-900/60 border border-white/10 p-8 rounded-3xl">
         <span className="text-5xl font-black text-violet-400">404</span>
-        <h1 className="text-2xl font-bold text-slate-900">Página No Encontrada</h1>
-        <p className="text-sm text-slate-500">
+        <h1 className="text-2xl font-bold text-white">Página No Encontrada</h1>
+        <p className="text-sm text-zinc-400">
           La categoría o generador de nombres que buscas no existe o ha sido trasladado.
         </p>
         <div>

@@ -193,87 +193,90 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
       ).slice(0, 8);
 
   return (
-    <div className="gdn-shell min-h-screen text-slate-900 flex flex-col font-sans selection:bg-violet-200">
+    <div className="gdn-shell min-h-screen text-zinc-100 flex flex-col font-sans selection:bg-violet-500/30">
       <header className="gdn-header backdrop-blur-xl border-b sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16 xl:h-[72px] gap-3">
+          <div className="flex justify-between items-center h-16 gap-3">
             <Link to="/" aria-label="GeneradorDeNombres.net - Página de Inicio" className="flex items-center gap-2.5 group shrink-0">
-              <img
-                src="/favicon.svg"
-                alt=""
-                width={36}
-                height={36}
-                loading="eager"
-                fetchPriority="high"
-                decoding="async"
-                className="w-9 h-9 object-contain rounded-xl shadow-sm transition-transform group-hover:scale-[1.03]"
-                aria-hidden="true"
-              />
-              <span className="text-base lg:text-lg font-extrabold font-heading tracking-tight text-slate-900 hidden sm:inline">
-                GeneradorDeNombres<span className="text-violet-600">.net</span>
+              <div className="relative p-1.5 bg-zinc-900 border border-white/10 rounded-xl shadow-lg shadow-violet-500/20 group-hover:border-violet-500/50 group-hover:shadow-violet-500/40 transition-all overflow-hidden">
+                <img src="/favicon.svg" alt="GeneradorDeNombres Logo" width={24} height={24} loading="eager" fetchPriority="high" decoding="async" className="w-6 h-6 object-contain" />
+              </div>
+              <span className="text-lg font-extrabold font-heading tracking-tight text-white hidden sm:inline">
+                GeneradorDeNombres<span className="text-violet-400">.net</span>
               </span>
             </Link>
 
-            {/* Desktop Nav — V4 */}
-            <nav className="hidden xl:flex items-center gap-1">
+            {/* Desktop Nav */}
+            <nav className="gdn-nav hidden xl:flex items-center gap-1 p-1 border">
               <Link
                 to="/"
-                className={`px-3 py-2 rounded-xl text-sm font-semibold transition-colors ${location.pathname === '/' ? 'text-slate-950 bg-slate-100' : 'text-slate-500 hover:text-slate-900 hover:bg-slate-50'}`}
+                className={`px-3 py-1.5 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 ${
+                  location.pathname === '/'
+                    ? 'bg-white/10 text-white shadow-sm'
+                    : 'text-zinc-400 hover:text-zinc-100 hover:bg-white/5'
+                }`}
               >
-                Generador
+                Inicio
               </Link>
-              <div
-                className="relative"
-                onMouseEnter={() => setActiveDropdown('Categorías')}
-                onMouseLeave={() => setActiveDropdown(null)}
-                onBlur={(e) => {
-                  if (!e.currentTarget.contains(e.relatedTarget as Node)) setActiveDropdown(null);
-                }}
-              >
-                <button
-                  type="button"
-                  onClick={() => setActiveDropdown(prev => prev === 'Categorías' ? null : 'Categorías')}
-                  onFocus={() => setActiveDropdown('Categorías')}
-                  aria-haspopup="menu"
-                  aria-expanded={activeDropdown === 'Categorías'}
-                  className="flex items-center gap-1 px-3 py-2 rounded-xl text-sm font-medium text-slate-500 hover:text-slate-900 hover:bg-slate-50 transition-colors"
-                >
-                  Categorías
-                  <ChevronDown className={`w-3.5 h-3.5 transition-transform ${activeDropdown === 'Categorías' ? 'rotate-180' : ''}`} />
-                </button>
-                {activeDropdown === 'Categorías' && (
-                  <div className="absolute left-1/2 -translate-x-1/2 top-full pt-3 z-50">
-                    <div className="gdn-v4-mega-menu rounded-2xl p-4 grid grid-cols-3 gap-3">
-                      {navGroups.map((group) => (
-                        <div key={group.title} className="rounded-xl p-2">
-                          <div className="flex items-center gap-2 px-2 pb-2 text-xs font-bold text-slate-900">
-                            <group.icon className="w-4 h-4 text-violet-500" />
-                            {group.title}
-                          </div>
-                          <div className="space-y-0.5">
-                            {group.links.map((link) => (
-                              <Link
-                                key={link.path}
-                                to={link.path}
-                                onClick={() => setActiveDropdown(null)}
-                                className={`block rounded-lg px-2 py-1.5 text-xs transition-colors ${location.pathname === link.path ? 'bg-violet-50 text-violet-700 font-semibold' : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'}`}
-                              >
-                                {link.label}
-                              </Link>
-                            ))}
-                          </div>
+
+              {navGroups.map((group) => {
+                const isGroupActive = group.links.some(l => l.path === location.pathname);
+                return (
+                  <div
+                    key={group.title}
+                    className="relative"
+                    onMouseEnter={() => setActiveDropdown(group.title)}
+                    onMouseLeave={() => setActiveDropdown(null)}
+                    onBlur={(e) => {
+                      if (!e.currentTarget.contains(e.relatedTarget as Node)) {
+                        setActiveDropdown(null);
+                      }
+                    }}
+                  >
+                    <button
+                      type="button"
+                      onClick={() => setActiveDropdown(prev => prev === group.title ? null : group.title)}
+                      onFocus={() => setActiveDropdown(group.title)}
+                      aria-haspopup="menu"
+                      aria-expanded={activeDropdown === group.title}
+                      className={`flex items-center gap-1 px-3 py-1.5 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 ${
+                        isGroupActive
+                          ? 'bg-white/10 text-white shadow-sm'
+                          : 'text-zinc-400 hover:text-zinc-100 hover:bg-white/5'
+                      }`}
+                    >
+                      <group.icon className="w-3.5 h-3.5 opacity-70" />
+                      <span>{group.title}</span>
+                      <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === group.title ? 'rotate-180' : ''}`} />
+                    </button>
+
+                    {/* Dropdown Box */}
+                    {activeDropdown === group.title && (
+                      <div
+                        className="absolute left-0 top-full pt-2 w-64 z-50 animate-in fade-in zoom-in-95 duration-150"
+                      >
+                        <div className="gdn-surface border rounded-2xl p-2 backdrop-blur-2xl">
+                          {group.links.map((link) => (
+                            <Link
+                              key={link.path}
+                              to={link.path}
+                              onClick={() => setActiveDropdown(null)}
+                              className={`block px-3.5 py-2.5 rounded-xl transition-all ${
+                                location.pathname === link.path
+                                  ? 'bg-violet-600/20 text-violet-300 border border-violet-500/30'
+                                  : 'hover:bg-white/5 text-zinc-300 hover:text-white'
+                              }`}
+                            >
+                              <div className="text-sm font-bold">{link.label}</div>
+                              <div className="text-[11px] text-zinc-400">{link.desc}</div>
+                            </Link>
+                          ))}
                         </div>
-                      ))}
-                    </div>
+                      </div>
+                    )}
                   </div>
-                )}
-              </div>
-              <Link to="/#herramientas-populares" className="px-3 py-2 rounded-xl text-sm font-medium text-slate-500 hover:text-slate-900 hover:bg-slate-50 transition-colors">
-                Herramientas
-              </Link>
-              <a href="#articulos-guia" className="px-3 py-2 rounded-xl text-sm font-medium text-slate-500 hover:text-slate-900 hover:bg-slate-50 transition-colors">
-                Guías
-              </a>
+                );
+              })}
             </nav>
 
             {/* Global Search & Favorites Trigger Buttons */}
@@ -282,10 +285,11 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
                 type="button"
                 onClick={() => setIsFavDrawerOpen(true)}
                 aria-label={`Mis Nombres Favoritos Guardados (${favorites.length})`}
-                className="relative w-9 h-9 rounded-xl flex items-center justify-center text-slate-500 hover:text-violet-600 hover:bg-violet-50 transition-colors"
+                className="gdn-chip relative border rounded-xl px-2.5 py-1.5 text-xs flex items-center gap-1.5 transition-all"
                 title="Mis Nombres Favoritos Guardados"
               >
-                <Bookmark className="w-[18px] h-[18px]" />
+                <Bookmark className="w-3.5 h-3.5 text-violet-400 fill-violet-500/10" />
+                <span className="hidden md:inline font-semibold">Favoritos</span>
                 <span className="sr-only">Favoritos</span>
                 {favorites.length > 0 && (
                   <span className="bg-pink-500 text-white text-[10px] font-bold px-1.5 py-0.2 rounded-full min-w-[18px] text-center">
@@ -298,19 +302,19 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
                 type="button"
                 onClick={() => setIsSearchOpen(true)}
                 aria-label="Buscar categorías y herramientas"
-                className="w-9 h-9 rounded-xl flex items-center justify-center text-slate-500 hover:text-violet-600 hover:bg-violet-50 transition-colors"
+                className="gdn-chip border rounded-xl px-3 py-1.5 text-xs flex items-center gap-2 transition-all"
               >
-                <Search className="w-[18px] h-[18px]" />
-                <span className="sr-only">Buscar</span>
+                <Search className="w-3.5 h-3.5 text-violet-400" />
+                <span className="hidden md:inline">Buscar categorías...</span>
+                <span className="md:hidden">Buscar</span>
+                <kbd className="hidden md:inline-block bg-white/10 border border-white/10 rounded px-1.5 py-0.5 text-[10px] font-mono text-zinc-400">
+                  Ctrl K
+                </kbd>
               </button>
-
-              <span className="hidden xl:flex h-8 min-w-8 items-center justify-center rounded-[10px] bg-slate-100 px-2 text-xs font-semibold text-slate-700" aria-label="Idioma: Español">
-                ES
-              </span>
 
               {/* Mobile menu button */}
               <button 
-                className="xl:hidden p-2 text-slate-500 hover:text-slate-900 transition-colors"
+                className="xl:hidden p-2 text-zinc-400 hover:text-zinc-100 transition-colors"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 aria-label={isMenuOpen ? "Cerrar menú principal" : "Abrir menú principal"}
                 aria-expanded={isMenuOpen}
@@ -333,7 +337,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
                 to="/"
                 onClick={() => setIsMenuOpen(false)}
                 className={`block px-4 py-2.5 rounded-xl text-base font-bold ${
-                  location.pathname === '/' ? 'bg-violet-50 text-violet-700' : 'text-slate-500'
+                  location.pathname === '/' ? 'bg-white/10 text-white' : 'text-zinc-400'
                 }`}
               >
                 🏠 Inicio
@@ -353,8 +357,8 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
                         onClick={() => setIsMenuOpen(false)}
                         className={`flex items-center justify-between gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium ${
                           location.pathname === link.path
-                            ? 'bg-violet-50 text-violet-700 font-bold'
-                            : 'text-slate-700 hover:bg-slate-50'
+                            ? 'bg-violet-600/20 text-violet-300 font-bold'
+                            : 'text-zinc-300 hover:bg-white/5'
                         }`}
                       >
                         <span className="min-w-0">{link.label}</span>
@@ -373,11 +377,13 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
         {children}
       </main>
 
-      <footer className="gdn-footer border-t mt-20 py-14">
+      <footer className="gdn-footer border-t mt-20 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Link to="/" aria-label="GeneradorDeNombres.net - Inicio" className="inline-flex justify-center items-center gap-3 mb-6 group">
-            <img src="/favicon.svg" alt="" width={30} height={30} className="w-[30px] h-[30px] rounded-lg" aria-hidden="true" />
-            <span className="text-xl font-bold font-heading text-slate-900">GeneradorDeNombres.net</span>
+            <div className="bg-violet-600 p-1.5 rounded-lg opacity-90 group-hover:opacity-100 transition-opacity">
+               <Flame className="w-4 h-4 text-white" aria-hidden="true" />
+            </div>
+            <span className="text-xl font-bold font-heading text-white">GeneradorDeNombres.net</span>
           </Link>
           <p className="text-zinc-400 mb-8 max-w-xl mx-auto leading-relaxed text-sm">
             El generador de nombres, apodos y símbolos Unicode más completo. Crea apodos épicos y letras raras para Free Fire, Roblox, Instagram, mascotas y nombres de bebés.
@@ -486,7 +492,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
       {/* Global Quick Search Modal (Ctrl + K) */}
       {isSearchOpen && (
         <div
-          className="fixed inset-0 z-50 bg-slate-950/40 backdrop-blur-sm flex items-start justify-center pt-16 sm:pt-24 p-4 overflow-y-auto animate-in fade-in duration-200"
+          className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-start justify-center pt-16 sm:pt-24 p-4 overflow-y-auto animate-in fade-in duration-200"
           onClick={() => setIsSearchOpen(false)}
           role="dialog"
           aria-modal="true"
@@ -497,21 +503,21 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
             onClick={(e) => e.stopPropagation()}
           >
             {/* Search Header */}
-            <div className="p-4 border-b border-slate-200 flex items-center gap-3">
-              <Search className="w-5 h-5 text-violet-600" />
+            <div className="p-4 border-b border-white/10 flex items-center gap-3">
+              <Search className="w-5 h-5 text-violet-400" />
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Buscar generadores, categorías (Free Fire, Peluches, Gatos...)"
-                className="w-full bg-transparent text-slate-900 placeholder-slate-400 text-sm font-semibold focus:outline-none"
+                className="w-full bg-transparent text-white placeholder-zinc-500 text-sm font-semibold focus:outline-none"
                 autoFocus
               />
               <button
                 type="button"
                 onClick={() => setIsSearchOpen(false)}
                 aria-label="Cerrar modal de búsqueda"
-                className="text-slate-400 hover:text-slate-900 p-1.5 rounded-lg bg-slate-100 hover:bg-slate-200"
+                className="text-zinc-400 hover:text-white p-1 rounded-lg bg-zinc-800"
               >
                 <X className="w-4 h-4" />
                 <span className="sr-only">Cerrar</span>
@@ -520,14 +526,14 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
 
             {/* Quick Tags */}
             <div className="gdn-surface-raised px-4 py-2 border-b flex items-center gap-2 overflow-x-auto text-xs">
-              <span className="text-slate-400 font-semibold shrink-0">Popular:</span>
+              <span className="text-zinc-500 font-semibold shrink-0">Popular:</span>
               {[
-                { label: 'Free Fire', path: '/generador-free-fire' },
-                { label: 'Peluches', path: '/nombres-peluches' },
-                { label: 'Gatos', path: '/nombres-gatos-machos' },
-                { label: 'Perritas', path: '/nombres-perritas' },
-                { label: 'Niñas', path: '/nombres-de-nina' },
-                { label: 'Roblox', path: '/nombres-roblox' }
+                { label: '🔥 Free Fire', path: '/generador-free-fire' },
+                { label: '🧸 Peluches', path: '/nombres-peluches' },
+                { label: '🐱 Gatos', path: '/nombres-gatos-machos' },
+                { label: '🐶 Perritas', path: '/nombres-perritas' },
+                { label: '🌸 Niñas', path: '/nombres-de-nina' },
+                { label: '🎮 Roblox', path: '/nombres-roblox' }
               ].map((tag, idx) => (
                 <button
                   key={idx}
@@ -545,7 +551,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
             {/* Search Results List */}
             <div className="p-3 max-h-96 overflow-y-auto space-y-1">
               {filteredResults.length === 0 ? (
-                <div className="py-8 text-center text-xs text-slate-500">
+                <div className="py-8 text-center text-xs text-zinc-500">
                   No se encontraron categorías para "{searchQuery}". Pruebe con palabras como Free Fire, Gatos, Bebés o Tiendas.
                 </div>
               ) : (
@@ -554,23 +560,23 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
                     key={idx}
                     to={item.path}
                     onClick={() => setIsSearchOpen(false)}
-                    className="block p-3 rounded-xl hover:bg-violet-50 border border-transparent hover:border-violet-200 transition-all group"
+                    className="block p-3 rounded-xl hover:bg-violet-600/10 border border-transparent hover:border-violet-500/30 transition-all group"
                   >
                     <div className="flex items-center justify-between">
-                      <span className="font-bold text-slate-900 text-sm group-hover:text-violet-700 transition-colors flex items-center gap-2">
-                        <Sparkles className="w-3.5 h-3.5 text-violet-500" />
+                      <span className="font-bold text-white text-sm group-hover:text-violet-300 transition-colors flex items-center gap-2">
+                        <Sparkles className="w-3.5 h-3.5 text-violet-400" />
                         {item.h1 || item.title}
                       </span>
-                      <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-violet-500 group-hover:translate-x-1 transition-all" />
+                      <ArrowRight className="w-4 h-4 text-zinc-500 group-hover:text-violet-300 group-hover:translate-x-1 transition-all" />
                     </div>
-                    <p className="text-xs text-slate-500 mt-1 line-clamp-1">{item.desc}</p>
+                    <p className="text-xs text-zinc-400 mt-1 line-clamp-1">{item.desc}</p>
                   </Link>
                 ))
               )}
             </div>
 
             {/* Modal Footer */}
-            <div className="gdn-surface-raised p-3 text-[11px] text-slate-400 flex items-center justify-between border-t">
+            <div className="gdn-surface-raised p-3 text-[11px] text-zinc-500 flex items-center justify-between border-t">
               <span>Navegación Rápida de Herramientas & Generadores 2026</span>
               <span className="font-mono">ESC para cerrar</span>
             </div>
@@ -580,7 +586,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
       {/* Favorites Drawer Overlay */}
       {isFavDrawerOpen && (
         <div
-          className="fixed inset-0 z-50 bg-slate-950/40 backdrop-blur-sm flex justify-end animate-in fade-in duration-200"
+          className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex justify-end animate-in fade-in duration-200"
           onClick={() => setIsFavDrawerOpen(false)}
           role="dialog"
           aria-modal="true"
@@ -593,9 +599,9 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
             {/* Drawer Header */}
             <div className="gdn-surface-raised p-4 border-b flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <Bookmark className="w-5 h-5 text-violet-600 fill-violet-100" />
-                <h3 className="font-bold text-slate-900 text-base">Mis Nombres Favoritos</h3>
-                <span className="text-xs font-mono text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full">
+                <Bookmark className="w-5 h-5 text-violet-400 fill-violet-500/10" />
+                <h3 className="font-bold text-white text-base">Mis Nombres Favoritos</h3>
+                <span className="text-xs font-mono text-zinc-400 bg-white/10 px-2 py-0.5 rounded-full">
                   {favorites.length}
                 </span>
               </div>
@@ -603,7 +609,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
                 type="button"
                 onClick={() => setIsFavDrawerOpen(false)}
                 aria-label="Cerrar panel de favoritos"
-                className="p-1.5 rounded-lg text-slate-400 hover:text-slate-900 hover:bg-slate-100 transition-colors"
+                className="p-1 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors"
               >
                 <X className="w-5 h-5" />
                 <span className="sr-only">Cerrar</span>
@@ -627,7 +633,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
                   type="button"
                   onClick={clearAllFavorites}
                   aria-label="Vaciar toda la lista de favoritos"
-                  className="flex items-center gap-1 px-2.5 py-1.5 rounded-xl text-slate-500 hover:text-red-500 hover:bg-red-50 transition-colors"
+                  className="flex items-center gap-1 px-2.5 py-1.5 rounded-xl text-zinc-400 hover:text-red-400 hover:bg-red-500/10 transition-colors"
                 >
                   <Trash2 className="w-3.5 h-3.5" />
                   <span>Vaciar</span>
@@ -639,9 +645,9 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
             <div className="flex-1 p-4 overflow-y-auto space-y-2">
               {favorites.length === 0 ? (
                 <div className="py-16 text-center space-y-3">
-                  <Bookmark className="w-12 h-12 text-slate-300 mx-auto" />
-                  <p className="text-slate-500 text-sm font-medium">No tienes nombres guardados en tus favoritos.</p>
-                  <p className="text-xs text-slate-400 max-w-xs mx-auto">
+                  <Bookmark className="w-12 h-12 text-zinc-600 mx-auto" />
+                  <p className="text-zinc-400 text-sm font-medium">No tienes nombres guardados en tus favoritos.</p>
+                  <p className="text-xs text-zinc-500 max-w-xs mx-auto">
                     Haz clic en el icono de corazón ❤️ o marcador de cualquier nombre generado para guardarlo aquí y consultarlo cuando quieras.
                   </p>
                 </div>
@@ -651,7 +657,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
                     key={idx}
                     className="gdn-surface-raised border rounded-xl p-3 flex items-center justify-between gap-3 group hover:border-violet-500/30 transition-all"
                   >
-                    <span className="font-mono text-sm text-slate-900 font-bold tracking-wide break-all">
+                    <span className="font-mono text-sm text-zinc-100 font-bold tracking-wide break-all">
                       {favName}
                     </span>
                     <div className="flex items-center gap-1 shrink-0">
@@ -659,7 +665,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
                         type="button"
                         onClick={() => copyFavorite(favName)}
                         aria-label={copiedFavorite === favName ? `Nombre favorito ${favName} copiado` : `Copiar nombre favorito ${favName}`}
-                        className={`p-2.5 rounded-lg transition-colors ${copiedFavorite === favName ? 'text-emerald-400 bg-emerald-500/10' : 'text-slate-400 hover:text-violet-600 hover:bg-violet-50'}`}
+                        className={`p-2.5 rounded-lg transition-colors ${copiedFavorite === favName ? 'text-emerald-400 bg-emerald-500/10' : 'text-zinc-400 hover:text-violet-300 hover:bg-white/10'}`}
                         title={copiedFavorite === favName ? 'Copiado' : 'Copiar'}
                       >
                         {copiedFavorite === favName ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
@@ -669,7 +675,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
                         type="button"
                         onClick={() => removeFavorite(favName)}
                         aria-label={`Eliminar nombre favorito ${favName}`}
-                        className="p-2.5 rounded-lg text-slate-400 hover:text-red-500 hover:bg-red-50 transition-colors"
+                        className="p-2.5 rounded-lg text-zinc-500 hover:text-red-400 hover:bg-red-500/10 transition-colors"
                         title="Eliminar"
                       >
                         <Trash2 className="w-4 h-4" />
@@ -682,7 +688,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
             </div>
 
             {/* Drawer Footer */}
-            <div className="gdn-surface-raised p-4 border-t text-xs text-slate-400 text-center">
+            <div className="gdn-surface-raised p-4 border-t text-xs text-zinc-500 text-center">
               Guardados automáticamente en tu navegador local (LocalStorage).
             </div>
           </div>
