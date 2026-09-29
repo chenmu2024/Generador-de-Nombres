@@ -76,9 +76,9 @@ export default function RareNamesTool({
     <input
     type="text"
     value={rareFirstName}
-    onChange={(e) = className="gdn-tool-input"> setRareFirstName(e.target.value)}
+    onChange={(e) => setRareFirstName(e.target.value)}
     placeholder="Ej: Orion, Freya, Cassian, Zephyr"
-    className="w-full bg-zinc-900 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-purple-500 font-medium"
+    className="gdn-tool-input w-full bg-zinc-900 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-purple-500 font-medium"
     />
     </div>
     <div>
@@ -86,9 +86,9 @@ export default function RareNamesTool({
     <input
     type="text"
     value={rareSecondName}
-    onChange={(e) = className="gdn-tool-input"> setRareSecondName(e.target.value)}
+    onChange={(e) => setRareSecondName(e.target.value)}
     placeholder="Ej: Cassian, Astrid, Soren, Lyra"
-    className="w-full bg-zinc-900 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-purple-500 font-medium"
+    className="gdn-tool-input w-full bg-zinc-900 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-purple-500 font-medium"
     />
     </div>
     </div>
