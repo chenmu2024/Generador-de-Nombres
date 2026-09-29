@@ -198,9 +198,17 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16 gap-3">
             <Link to="/" aria-label="GeneradorDeNombres.net - Página de Inicio" className="flex items-center gap-2.5 group shrink-0">
-              <div className="relative p-1.5 bg-gradient-to-br from-violet-600 to-violet-500 border border-violet-500/20 rounded-xl shadow-sm transition-all overflow-hidden">
-                <img src="/favicon.svg" alt="GeneradorDeNombres Logo" width={24} height={24} loading="eager" fetchPriority="high" decoding="async" className="w-6 h-6 object-contain brightness-0 invert" />
-              </div>
+              <img
+                src="/favicon.svg"
+                alt=""
+                width={36}
+                height={36}
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
+                className="w-9 h-9 object-contain rounded-xl shadow-sm transition-transform group-hover:scale-[1.03]"
+                aria-hidden="true"
+              />
               <span className="text-base lg:text-lg font-extrabold font-heading tracking-tight text-slate-900 hidden sm:inline">
                 GeneradorDeNombres<span className="text-violet-600">.net</span>
               </span>
@@ -364,10 +372,8 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
       <footer className="gdn-footer border-t mt-20 py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Link to="/" aria-label="GeneradorDeNombres.net - Inicio" className="inline-flex justify-center items-center gap-3 mb-6 group">
-            <div className="bg-gradient-to-br from-violet-600 to-violet-500 p-1.5 rounded-lg">
-               <Sparkles className="w-4 h-4 text-white" aria-hidden="true" />
-            </div>
-            <span className="text-xl font-bold font-heading text-white">GeneradorDeNombres.net</span>
+            <img src="/favicon.svg" alt="" width={30} height={30} className="w-[30px] h-[30px] rounded-lg" aria-hidden="true" />
+            <span className="text-xl font-bold font-heading text-slate-900">GeneradorDeNombres.net</span>
           </Link>
           <p className="text-zinc-400 mb-8 max-w-xl mx-auto leading-relaxed text-sm">
             El generador de nombres, apodos y símbolos Unicode más completo. Crea apodos épicos y letras raras para Free Fire, Roblox, Instagram, mascotas y nombres de bebés.

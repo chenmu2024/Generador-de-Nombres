@@ -14,9 +14,7 @@ export const metadata: Metadata = {
   title: 'Generador de Nombres, Apodos y Símbolos para Juegos | GDN',
   description: 'El mejor generador y creador de nombres, apodos y símbolos para Free Fire, Roblox, Instagram y más.',
   icons: [
-    { rel: 'icon', url: '/favicon.svg', type: 'image/svg+xml' },
-    { rel: 'icon', url: '/favicon.png', type: 'image/png' },
-    { rel: 'apple-touch-icon', url: '/apple-touch-icon.png' }
+    { rel: 'icon', url: '/favicon.svg', type: 'image/svg+xml' }
   ],
   manifest: '/site.webmanifest',
 };
