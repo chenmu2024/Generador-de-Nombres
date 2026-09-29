@@ -7,7 +7,7 @@ export default function AnimeNamesTool({
   handleCopyTrending,
 }: {
   handleCopyTrending: (value: string) => void;
-} {
+}) {
   const [animeBaseName, setAnimeBaseName] = useState('Kuro');
   const [animeSuffix, setAnimeSuffix] = useState('-sama');
   const [animeArchetype, setAnimeArchetype] = useState<'shonen' | 'villain' | 'kawaii' | 'isekai' | 'ninja'>('shonen');
