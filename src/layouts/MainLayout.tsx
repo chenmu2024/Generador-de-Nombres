@@ -172,8 +172,8 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
       ).slice(0, 8);
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-zinc-100 flex flex-col font-sans selection:bg-violet-500/30">
-      <header className="bg-[#0a0a0a]/80 backdrop-blur-xl border-b border-white/5 sticky top-0 z-50">
+    <div className="gdn-shell min-h-screen text-zinc-100 flex flex-col font-sans selection:bg-violet-500/30">
+      <header className="gdn-header backdrop-blur-xl border-b sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16 gap-3">
             <Link to="/" aria-label="GeneradorDeNombres.net - Página de Inicio" className="flex items-center gap-2.5 group shrink-0">
@@ -186,7 +186,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
             </Link>
 
             {/* Desktop Nav */}
-            <nav className="hidden lg:flex items-center gap-1.5 bg-white/5 p-1 rounded-2xl border border-white/5">
+            <nav className="gdn-nav hidden lg:flex items-center gap-1 p-1 border">
               <Link
                 to="/"
                 className={`px-3 py-1.5 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 ${
@@ -224,7 +224,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
                       <div
                         className="absolute left-0 top-full pt-2 w-64 z-50 animate-in fade-in zoom-in-95 duration-150"
                       >
-                        <div className="bg-zinc-900 border border-white/10 rounded-2xl p-2 shadow-2xl backdrop-blur-2xl">
+                        <div className="gdn-surface border rounded-2xl p-2 backdrop-blur-2xl">
                           {group.links.map((link) => (
                             <Link
                               key={link.path}
@@ -254,7 +254,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
                 type="button"
                 onClick={() => setIsFavDrawerOpen(true)}
                 aria-label={`Mis Nombres Favoritos Guardados (${favorites.length})`}
-                className="relative bg-zinc-900 hover:bg-zinc-800 border border-white/10 rounded-xl px-2.5 py-1.5 text-xs text-zinc-300 flex items-center gap-1.5 transition-all hover:border-pink-500/40"
+                className="gdn-chip relative border rounded-xl px-2.5 py-1.5 text-xs flex items-center gap-1.5 transition-all"
                 title="Mis Nombres Favoritos Guardados"
               >
                 <Bookmark className="w-3.5 h-3.5 text-pink-400 fill-pink-500/20" />
@@ -271,7 +271,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
                 type="button"
                 onClick={() => setIsSearchOpen(true)}
                 aria-label="Buscar categorías y herramientas"
-                className="bg-zinc-900 hover:bg-zinc-800 border border-white/10 rounded-xl px-3 py-1.5 text-xs text-zinc-400 flex items-center gap-2 transition-all hover:border-violet-500/40"
+                className="gdn-chip border rounded-xl px-3 py-1.5 text-xs flex items-center gap-2 transition-all"
               >
                 <Search className="w-3.5 h-3.5 text-violet-400" />
                 <span className="hidden sm:inline">Buscar categorías...</span>
@@ -297,7 +297,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
         {/* Mobile Nav */}
         {isMenuOpen && (
           <div 
-            className="md:hidden border-t border-white/5 bg-[#0a0a0a] overflow-hidden max-h-[85vh] overflow-y-auto animate-in slide-in-from-top duration-200"
+            className="md:hidden border-t gdn-header overflow-hidden max-h-[85vh] overflow-y-auto animate-in slide-in-from-top duration-200"
           >
             <div className="px-4 pt-4 pb-6 space-y-4">
               <Link
@@ -344,10 +344,10 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
         {children}
       </main>
 
-      <footer className="bg-[#0a0a0a] border-t border-white/5 mt-20 py-16">
+      <footer className="gdn-footer border-t mt-20 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Link to="/" aria-label="GeneradorDeNombres.net - Inicio" className="inline-flex justify-center items-center gap-3 mb-6 group">
-            <div className="bg-gradient-to-br from-violet-500 to-fuchsia-500 p-1.5 rounded-lg opacity-80 group-hover:opacity-100 transition-opacity">
+            <div className="bg-violet-600 p-1.5 rounded-lg opacity-90 group-hover:opacity-100 transition-opacity">
                <Flame className="w-4 h-4 text-white" aria-hidden="true" />
             </div>
             <span className="text-xl font-bold font-heading text-white">GeneradorDeNombres.net</span>
