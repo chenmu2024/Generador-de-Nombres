@@ -7,7 +7,7 @@ export default function MaleNamesTool({
   handleCopyTrending,
 }: {
   handleCopyTrending: (value: string) => void;
-} {
+}) {
   const [maleFirstName, setMaleFirstName] = useState('Mateo');
   const [maleSecondName, setMaleSecondName] = useState('Gael');
   const [maleVibe, setMaleVibe] = useState<'moderno' | 'raro' | 'corto' | 'fuerte' | 'biblico'>('moderno');
