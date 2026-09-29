@@ -2169,10 +2169,10 @@ export default function CategoryPage({
       </nav>
 
       {/* Explore All Categories */}
-      <section id="relacionados" className="max-w-6xl mx-auto pt-16 border-t border-white/5 scroll-mt-24">
-        <div className="text-center mb-10">
-          <h2 className="text-3xl md:text-4xl font-bold text-zinc-100 font-heading">Explora Todos Nuestros Generadores</h2>
-          <p className="text-zinc-400 mt-3 text-lg max-w-2xl mx-auto">Encuentra el nombre perfecto para cualquier plataforma o mascota</p>
+      <section id="relacionados" className={`max-w-6xl mx-auto border-t border-white/5 scroll-mt-24 ${location.pathname === '/' ? 'pt-10' : 'pt-16'}`}>
+        <div className={`text-center ${location.pathname === '/' ? 'mb-6' : 'mb-10'}`}>
+          <h2 className={`font-bold text-zinc-100 font-heading ${location.pathname === '/' ? 'text-2xl md:text-3xl' : 'text-3xl md:text-4xl'}`}>Explora Todos Nuestros Generadores</h2>
+          <p className={`text-zinc-400 mt-2 max-w-2xl mx-auto ${location.pathname === '/' ? 'text-sm' : 'text-lg'}`}>Encuentra el nombre perfecto para cualquier plataforma o mascota</p>
           
           {/* Search Bar for Categories */}
           <div className="mt-8 max-w-md mx-auto relative">
@@ -2187,18 +2187,18 @@ export default function CategoryPage({
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className={`grid grid-cols-1 sm:grid-cols-2 gap-3 ${location.pathname === '/' ? 'lg:grid-cols-4' : 'lg:grid-cols-3 lg:gap-6'}`}>
           {filteredLinks.map(link => (
             <Link 
               key={link.path} 
               to={link.path}
-              className="bg-[#121212] p-8 rounded-3xl border border-white/5 hover:border-violet-500/30 hover:bg-white/[0.02] transition-all duration-300 group flex flex-col items-center text-center gap-4 relative overflow-hidden"
+              className={`border border-white/5 hover:border-violet-500/30 hover:bg-white/[0.02] transition-all duration-300 group relative overflow-hidden ${location.pathname === '/' ? 'gdn-surface rounded-xl px-4 py-3 flex items-center gap-3 text-left' : 'bg-[#121212] p-8 rounded-3xl flex flex-col items-center text-center gap-4'}`}
             >
               <div className="absolute inset-0 bg-gradient-to-br from-violet-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              <div className="w-14 h-14 bg-zinc-800/50 text-violet-400 rounded-2xl flex items-center justify-center text-2xl group-hover:scale-110 group-hover:bg-violet-500/10 transition-all duration-300 relative z-10">
-                <Flame className="w-6 h-6" />
+              <div className={`bg-zinc-800/50 text-violet-400 flex items-center justify-center group-hover:bg-violet-500/10 transition-all duration-300 relative z-10 ${location.pathname === '/' ? 'w-8 h-8 rounded-lg shrink-0' : 'w-14 h-14 rounded-2xl text-2xl group-hover:scale-110'}`}>
+                <Flame className={location.pathname === '/' ? 'w-4 h-4' : 'w-6 h-6'} />
               </div>
-              <h3 className="font-bold text-xl text-zinc-300 group-hover:text-zinc-100 transition-colors relative z-10 font-heading">
+              <h3 className={`font-bold text-zinc-300 group-hover:text-zinc-100 transition-colors relative z-10 font-heading ${location.pathname === '/' ? 'text-sm leading-tight' : 'text-xl'}`}>
                 {link.label}
               </h3>
             </Link>
