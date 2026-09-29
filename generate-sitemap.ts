@@ -2,8 +2,6 @@ import { seoData } from './src/data/seoData';
 import fs from 'fs';
 
 const baseUrl = 'https://generadordenombres.net';
-const today = new Date().toISOString().split('T')[0];
-
 const staticPages = [
   { path: '/', priority: '1.0', changefreq: 'daily', title: 'Generador de Nombres, Apodos y Símbolos' },
   { path: '/sobre-nosotros', priority: '0.4', changefreq: 'monthly', title: 'Sobre Nosotros y Misión' },
@@ -25,13 +23,12 @@ const urls = allPages.map(item => {
   const loc = item.path === '/' ? baseUrl + '/' : baseUrl + item.path;
   const imageXml = `
     <image:image>
-      <image:loc>${baseUrl}/assets/og-image.jpg</image:loc>
+      <image:loc>${baseUrl}/logo.webp</image:loc>
       <image:title>${item.title.replace(/&/g, '&amp;')}</image:title>
     </image:image>`;
 
   return `  <url>
     <loc>${loc}</loc>
-    <lastmod>${today}</lastmod>
     <changefreq>${item.changefreq}</changefreq>
     <priority>${item.priority}</priority>${imageXml}
   </url>`;
@@ -44,5 +41,5 @@ ${urls}
 </urlset>`;
 
 fs.writeFileSync('public/sitemap.xml', xml, 'utf8');
-console.log(`[SEO] sitemap.xml updated with ${allPages.length} URLs and Google Image extensions`);
+console.log(`[SEO] sitemap.xml updated with ${allPages.length} URLs with Google Image extensions`);
 
