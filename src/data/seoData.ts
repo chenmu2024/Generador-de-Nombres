@@ -1559,7 +1559,7 @@ export const seoData: Record<string, CategoryData> = {
       </ul>
     `,
     metaDescription: 'Copia caracteres invisibles Unicode para Free Fire: Hangul Filler U+3164, U+1160 y espacio ideográfico U+3000. Prueba cuál admite tu versión.',
-    keywords: 'espacio invisible free fire, letra invisible free fire, copiar espacio invisible ff, unicode u+3164 free fire, unicode u+3000 free fire, nombre invisible free fire',
+    keywords: 'espacio invisible free fire, espacios para nombres de free fire, letra invisible free fire, espacio en blanco free fire, copiar espacio invisible ff, unicode u+3000 free fire, nombre invisible free fire',
     defaultName: 'NOOB ㅤ KING',
     customSymbols: ["ㅤ", "ᅠ", " ", " ", " ", " ", "⚡", "👑", "☠︎", "Ⓥ", "亗", "×͜×", "🌸"],
     faqs: [
