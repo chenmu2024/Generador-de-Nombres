@@ -126,6 +126,8 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
       if (e.key === 'Escape') {
         setIsSearchOpen(false);
         setIsFavDrawerOpen(false);
+        setIsMenuOpen(false);
+        setActiveDropdown(null);
       }
     };
     window.addEventListener('keydown', handleKeyDown);
@@ -206,8 +208,18 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
                     className="relative"
                     onMouseEnter={() => setActiveDropdown(group.title)}
                     onMouseLeave={() => setActiveDropdown(null)}
+                    onBlur={(e) => {
+                      if (!e.currentTarget.contains(e.relatedTarget as Node)) {
+                        setActiveDropdown(null);
+                      }
+                    }}
                   >
                     <button
+                      type="button"
+                      onClick={() => setActiveDropdown(prev => prev === group.title ? null : group.title)}
+                      onFocus={() => setActiveDropdown(group.title)}
+                      aria-haspopup="menu"
+                      aria-expanded={activeDropdown === group.title}
                       className={`flex items-center gap-1 px-3 py-1.5 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 ${
                         isGroupActive
                           ? 'bg-white/10 text-white shadow-sm'
@@ -287,6 +299,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 aria-label={isMenuOpen ? "Cerrar menú principal" : "Abrir menú principal"}
                 aria-expanded={isMenuOpen}
+                aria-controls="mobile-primary-navigation"
               >
                 {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
@@ -296,8 +309,9 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
 
         {/* Mobile Nav */}
         {isMenuOpen && (
-          <div 
-            className="md:hidden border-t gdn-header overflow-hidden max-h-[85vh] overflow-y-auto animate-in slide-in-from-top duration-200"
+          <div
+            id="mobile-primary-navigation"
+            className="lg:hidden border-t gdn-header overflow-hidden max-h-[85vh] overflow-y-auto animate-in slide-in-from-top duration-200"
           >
             <div className="px-4 pt-4 pb-6 space-y-4">
               <Link
@@ -322,14 +336,14 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
                         key={link.path}
                         to={link.path}
                         onClick={() => setIsMenuOpen(false)}
-                        className={`flex items-center justify-between px-3.5 py-2 rounded-xl text-sm font-medium ${
+                        className={`flex items-center justify-between gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium ${
                           location.pathname === link.path
                             ? 'bg-violet-600/20 text-violet-300 font-bold'
                             : 'text-zinc-300 hover:bg-white/5'
                         }`}
                       >
-                        <span>{link.label}</span>
-                        <span className="text-[10px] text-zinc-500">{link.desc}</span>
+                        <span className="min-w-0">{link.label}</span>
+                        <span className="hidden sm:block text-[10px] text-zinc-500 text-right max-w-[55%] leading-tight">{link.desc}</span>
                       </Link>
                     ))}
                   </div>
@@ -461,6 +475,9 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
         <div
           className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-start justify-center pt-16 sm:pt-24 p-4 overflow-y-auto animate-in fade-in duration-200"
           onClick={() => setIsSearchOpen(false)}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Buscar categorías y herramientas"
         >
           <div
             className="gdn-surface border rounded-2xl max-w-2xl w-full overflow-hidden relative animate-in zoom-in-95 duration-200"
