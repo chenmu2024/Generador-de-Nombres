@@ -234,7 +234,7 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols 
   });
 
   return (
-    <div className="w-full max-w-4xl mx-auto bg-[#121212] rounded-[2rem] shadow-2xl shadow-black/50 overflow-hidden border border-white/10 relative">
+    <div className="gdn-surface w-full max-w-4xl mx-auto rounded-[1.25rem] overflow-hidden border relative">
       {/* Toast Notification */}
       {showToast && (
         <div
@@ -245,9 +245,9 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols 
         </div>
       )}
 
-      <div className="relative p-8 md:p-12 text-center overflow-hidden bg-gradient-to-br from-[#1a1525] to-[#121212] border-b border-white/5">
+      <div className="gdn-surface-raised relative p-7 md:p-10 text-center overflow-hidden border-b">
         {/* Decorative elements */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-30 pointer-events-none">
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10 pointer-events-none">
           <div className="absolute -top-12 -left-12 w-64 h-64 bg-violet-600 rounded-full blur-[100px]"></div>
           <div className="absolute top-12 -right-12 w-64 h-64 bg-fuchsia-600 rounded-full blur-[100px]"></div>
         </div>
@@ -266,7 +266,7 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols 
                 onChange={(e) => setInputText(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && handleGenerate()}
                 placeholder={`Escribe tu nombre (ej. ${defaultName})`}
-                className="flex-1 px-5 py-4 pr-24 text-lg bg-zinc-900/50 border-2 border-white/10 rounded-2xl focus:outline-none focus:border-violet-500 focus:bg-zinc-900 text-white placeholder-zinc-500 transition-all w-full"
+                className="gdn-input flex-1 px-5 py-4 pr-24 text-base md:text-lg border rounded-xl focus:outline-none placeholder-zinc-500 transition-all w-full"
               />
               <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-1">
                 {inputText && (
@@ -300,7 +300,7 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols 
             value={style}
             onChange={(e) => setStyle(e.target.value)}
             aria-label="Seleccionar estilo de letras y tipografía"
-            className="px-5 py-4 text-lg bg-zinc-900/50 border-2 border-white/10 rounded-2xl focus:outline-none focus:border-violet-500 text-white appearance-none cursor-pointer w-full md:w-auto min-w-[200px]"
+            className="gdn-input px-5 py-4 text-base md:text-lg border rounded-xl focus:outline-none appearance-none cursor-pointer w-full md:w-auto min-w-[200px]"
           >
             <option value="all">Todos los estilos</option>
             <option value="fancy">Letras Fancy (𝓔)</option>
@@ -346,7 +346,7 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols 
           <button
             onClick={handleGenerate}
             disabled={isGenerating}
-            className="px-8 py-4 bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-500 hover:to-fuchsia-500 disabled:opacity-50 text-white font-bold font-heading rounded-2xl flex items-center justify-center gap-2 transition-all active:scale-95 shadow-lg shadow-violet-500/25 hover:shadow-violet-500/40 min-w-[160px] w-full md:w-auto"
+            className="gdn-primary-button px-8 py-4 disabled:opacity-50 text-white font-bold font-heading rounded-xl flex items-center justify-center gap-2 transition-all active:scale-[0.98] min-w-[160px] w-full md:w-auto"
           >
             {isGenerating ? (
               <Loader2 className="w-5 h-5 animate-spin" />
@@ -366,7 +366,7 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols 
               <button
                 key={i}
                 onClick={() => appendSymbol(sym)}
-                className="px-4 py-3 bg-zinc-900/50 hover:bg-violet-500/20 hover:text-violet-300 border border-white/5 hover:border-violet-500/30 rounded-xl text-lg md:text-xl transition-all shadow-sm active:scale-95 text-zinc-300"
+                className="gdn-chip px-4 py-3 border rounded-xl text-lg md:text-xl transition-all active:scale-95"
               >
                 {sym}
               </button>
@@ -405,7 +405,7 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols 
               <div className="flex items-center gap-2">
                 <button
                   onClick={toggleSelectAll}
-                  className="px-3 py-1.5 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 rounded-xl text-xs font-semibold flex items-center gap-1.5 border border-white/5 transition-all"
+                  className="gdn-chip px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 border transition-all"
                 >
                   {selectedNames.length === displayedNames.length ? (
                     <>
@@ -437,7 +437,7 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols 
 
                 <button
                   onClick={exportSelectedTXT}
-                  className="px-3.5 py-1.5 bg-zinc-800 hover:bg-zinc-700 text-zinc-200 font-bold text-xs rounded-xl border border-white/10 transition-all flex items-center gap-1.5"
+                  className="gdn-chip px-3.5 py-1.5 font-bold text-xs rounded-xl border transition-all flex items-center gap-1.5"
                   title="Descargar lista como TXT"
                 >
                   <Download className="w-3.5 h-3.5 text-emerald-400" /> Descargar TXT
@@ -469,8 +469,8 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols 
                     onClick={() => copyToClipboard(name, index)}
                     className={`group flex items-center justify-between p-4 sm:p-5 rounded-2xl border transition-all cursor-pointer ${
                       isSelected
-                        ? 'border-violet-500 bg-violet-500/10 shadow-lg shadow-violet-500/10'
-                        : 'border-white/5 bg-zinc-900/30 hover:bg-violet-500/10 hover:border-violet-500/30'
+                        ? 'border-violet-500/70 bg-violet-500/10'
+                        : 'border-[#252B34] bg-[#151A21] hover:bg-[#191F27] hover:border-violet-500/30'
                     }`}
                   >
                     <div className="flex items-center gap-3 pr-2 min-w-0">
@@ -574,7 +574,7 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols 
               <div className="mt-4 flex items-center justify-center gap-3">
                 <button
                   onClick={() => setVisibleCount(prev => prev + 30)}
-                  className="px-6 py-2.5 bg-zinc-900 hover:bg-zinc-800 text-violet-400 hover:text-violet-300 border border-violet-500/30 hover:border-violet-500/50 font-bold text-xs rounded-xl transition-all shadow-sm flex items-center gap-2"
+                  className="gdn-chip px-6 py-2.5 font-bold text-xs rounded-xl border transition-all flex items-center gap-2"
                 >
                   <Sparkles className="w-4 h-4" /> Cargar Más Nombres (+30)
                 </button>
