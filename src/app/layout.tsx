@@ -4,7 +4,7 @@ import MainLayout from '../layouts/MainLayout';
 import ConsentAnalytics from '../components/ConsentAnalytics';
 
 export const viewport: Viewport = {
-  themeColor: '#0a0a0a',
+  themeColor: '#F6F7FB',
   width: 'device-width',
   initialScale: 1,
 };
@@ -27,8 +27,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es" className="dark">
-      <body className="bg-[#0a0a0a] text-zinc-100 antialiased selection:bg-violet-500/30 selection:text-violet-200">
+    <html lang="es">
+      <body className="bg-[#F6F7FB] text-slate-900 antialiased selection:bg-violet-200 selection:text-violet-900">
         <MainLayout>{children}</MainLayout>
         <ConsentAnalytics />
       </body>
