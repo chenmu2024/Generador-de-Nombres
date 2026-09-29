@@ -1104,3 +1104,19 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* V4 Tool Jump Navigation */
+.gdn-tool-jumpbar {
+  min-height: 32px;
+}
+
+@media (max-width: 640px) {
+  .gdn-tool-jumpbar {
+    gap: 2px;
+  }
+
+  .gdn-tool-jumpbar a {
+    padding-inline: 8px;
+  }
+}

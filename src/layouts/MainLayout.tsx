@@ -304,6 +304,10 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
                 <span className="sr-only">Buscar</span>
               </button>
 
+              <span className="hidden xl:flex h-8 min-w-8 items-center justify-center rounded-[10px] bg-slate-100 px-2 text-xs font-semibold text-slate-700" aria-label="Idioma: Español">
+                ES
+              </span>
+
               {/* Mobile menu button */}
               <button 
                 className="xl:hidden p-2 text-slate-500 hover:text-slate-900 transition-colors"

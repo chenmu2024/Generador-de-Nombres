@@ -3,7 +3,7 @@
 import React, { useState, type ReactNode } from 'react';
 import { useLocation } from '../utils/router';
 import { Link } from '../components/Link';
-import { ChevronRight, Flame, Shield, CheckCircle2, Search, Sparkles, Copy, ListOrdered, Home, Gamepad2, Instagram, Languages, PawPrint, Type, Store, Globe2, Box, Zap, BookOpen, CircleHelp, Link2 } from 'lucide-react';
+import { ChevronRight, Flame, Shield, CheckCircle2, Search, Sparkles, Copy, Home, Gamepad2, Instagram, Languages, PawPrint, Type, Store, Globe2, Box, Zap, BookOpen, CircleHelp, Link2 } from 'lucide-react';
 import Generator from '../components/Generator';
 import dynamic from 'next/dynamic';
 
@@ -221,28 +221,23 @@ export default function CategoryPage({
           {data.subtitle}
         </p>
 
-        {/* Table of Contents / Índice Rápido */}
-        <div className={`${location.pathname === '/' ? 'hidden' : 'gdn-surface-raised'} border p-3 rounded-2xl max-w-2xl mx-auto text-left`}>
-          <div className="gdn-section-label flex items-center gap-2 font-bold text-xs uppercase tracking-wider mb-2">
-            <ListOrdered className="w-4 h-4 text-violet-400" /> Índice de Contenidos Rápido
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
-            <a href="#generador" className="gdn-chip p-2 rounded-xl transition-all flex items-center justify-center gap-1.5 border font-medium">
-              <Zap className="w-3.5 h-3.5 text-violet-500" /> Generador
+        {/* Lightweight jump navigation */}
+        <nav aria-label="Atajos de la página" className="gdn-tool-jumpbar flex flex-wrap items-center justify-center gap-1.5 pt-1 text-xs">
+          <a href="#generador" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-slate-500 hover:text-violet-700 hover:bg-violet-50 transition-colors">
+            <Zap className="w-3.5 h-3.5 text-violet-500" /> Generador
+          </a>
+          <a href="#articulos-guia" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-slate-500 hover:text-violet-700 hover:bg-violet-50 transition-colors">
+            <BookOpen className="w-3.5 h-3.5 text-violet-500" /> Guía
+          </a>
+          {data.hasFaq && (
+            <a href="#preguntas-frecuentes" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-slate-500 hover:text-violet-700 hover:bg-violet-50 transition-colors">
+              <CircleHelp className="w-3.5 h-3.5 text-violet-500" /> Preguntas
             </a>
-            <a href="#articulos-guia" className="gdn-chip p-2 rounded-xl transition-all flex items-center justify-center gap-1.5 border font-medium">
-              <BookOpen className="w-3.5 h-3.5 text-violet-500" /> Guía
-            </a>
-            {data.hasFaq && (
-              <a href="#preguntas-frecuentes" className="gdn-chip p-2 rounded-xl transition-all flex items-center justify-center gap-1.5 border font-medium">
-                <CircleHelp className="w-3.5 h-3.5 text-violet-500" /> Preguntas
-              </a>
-            )}
-            <a href="#relacionados" className="gdn-chip p-2 rounded-xl transition-all flex items-center justify-center gap-1.5 border font-medium">
-              <Link2 className="w-3.5 h-3.5 text-violet-500" /> Más Nombres
-            </a>
-          </div>
-        </div>
+          )}
+          <a href="#relacionados" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-slate-500 hover:text-violet-700 hover:bg-violet-50 transition-colors">
+            <Link2 className="w-3.5 h-3.5 text-violet-500" /> Más Nombres
+          </a>
+        </nav>
       </div>
       )}
 
