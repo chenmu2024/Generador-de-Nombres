@@ -946,3 +946,46 @@ body {
   border-radius: 6px;
   padding: 0.08em 0.3em;
 }
+
+
+/* V4 Contrast Guards */
+.gdn-primary-button,
+.gdn-surface .gdn-primary-button,
+.gdn-surface-raised .gdn-primary-button,
+.gdn-tool-shell .gdn-primary-button,
+.gdn-tool-shell button.text-white {
+  color: #FFFFFF !important;
+}
+
+.gdn-surface .text-zinc-100,
+.gdn-surface .text-zinc-200,
+.gdn-surface .text-zinc-300,
+.gdn-surface-raised .text-zinc-100,
+.gdn-surface-raised .text-zinc-200,
+.gdn-surface-raised .text-zinc-300 {
+  color: var(--gdn-text) !important;
+}
+
+.gdn-gamer-card {
+  color: #F8FAFC !important;
+  background-image: linear-gradient(135deg, #09090B 0%, #18181B 52%, #000000 100%) !important;
+}
+
+.gdn-tool-shell .gdn-gamer-card .text-white,
+.gdn-tool-shell .gdn-gamer-card .text-zinc-100,
+.gdn-tool-shell .gdn-gamer-card .text-zinc-200 {
+  color: #FFFFFF !important;
+}
+
+.gdn-tool-shell .gdn-gamer-card .text-zinc-300 {
+  color: #D4D4D8 !important;
+}
+
+.gdn-tool-shell .gdn-gamer-card .text-zinc-400,
+.gdn-tool-shell .gdn-gamer-card .text-zinc-500 {
+  color: #A1A1AA !important;
+}
+
+.gdn-tool-shell .gdn-gamer-card .border-white\/10 {
+  border-color: rgba(255,255,255,0.10) !important;
+}

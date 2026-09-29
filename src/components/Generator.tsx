@@ -846,7 +846,7 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
             {/* Downloadable Card Element */}
             <div
               ref={gamerCardRef}
-              className="bg-gradient-to-br from-zinc-950 via-zinc-900 to-black border-2 border-violet-500/40 rounded-3xl p-6 relative overflow-hidden shadow-2xl"
+              className="gdn-gamer-card bg-gradient-to-br from-zinc-950 via-zinc-900 to-black border-2 border-violet-500/40 rounded-3xl p-6 relative overflow-hidden shadow-2xl"
             >
               {/* Background Decor */}
               <div className="absolute top-0 right-0 w-32 h-32 bg-violet-600/20 rounded-full blur-2xl"></div>
