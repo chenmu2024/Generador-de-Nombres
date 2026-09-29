@@ -76,9 +76,9 @@ export default function MaleNamesTool({
     <input
     type="text"
     value={maleFirstName}
-    onChange={(e) = className="gdn-tool-input"> setMaleFirstName(e.target.value)}
+    onChange={(e) => setMaleFirstName(e.target.value)}
     placeholder="Ej: Mateo, Leo, Liam, Enzo"
-    className="w-full bg-zinc-900 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500 font-medium"
+    className="gdn-tool-input w-full bg-zinc-900 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500 font-medium"
     />
     </div>
     <div>
@@ -86,9 +86,9 @@ export default function MaleNamesTool({
     <input
     type="text"
     value={maleSecondName}
-    onChange={(e) = className="gdn-tool-input"> setMaleSecondName(e.target.value)}
+    onChange={(e) => setMaleSecondName(e.target.value)}
     placeholder="Ej: Gael, Gabriel, Alexander, Thiago"
-    className="w-full bg-zinc-900 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500 font-medium"
+    className="gdn-tool-input w-full bg-zinc-900 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500 font-medium"
     />
     </div>
     </div>
