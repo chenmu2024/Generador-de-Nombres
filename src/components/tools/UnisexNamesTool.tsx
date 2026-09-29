@@ -24,7 +24,7 @@ export default function UnisexNamesTool({
   };
 
   return (
-    <div className="bg-gradient-to-br from-emerald-950/40 via-[#121212] to-teal-950/30 border border-emerald-500/30 rounded-3xl p-8 shadow-2xl relative overflow-hidden space-y-6">
+    <div className="gdn-tool-shell bg-gradient-to-br from-emerald-950/40 via-[#121212] to-teal-950/30 border border-emerald-500/30 rounded-3xl p-8 shadow-2xl relative overflow-hidden space-y-6">
     <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10">
     <div>
     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 text-xs font-semibold uppercase tracking-wider mb-3">
@@ -57,7 +57,7 @@ export default function UnisexNamesTool({
     <button
     key={tab.id}
     onClick={() => setUnisexVibe(tab.id as any)}
-    className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+    className={`gdn-tool-tab px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
     unisexVibe === tab.id
     ? 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-md'
     : 'text-zinc-400 hover:text-white'
@@ -76,7 +76,7 @@ export default function UnisexNamesTool({
     <input
     type="text"
     value={unisexFirstName}
-    onChange={(e) => setUnisexFirstName(e.target.value)}
+    onChange={(e) = className="gdn-tool-input"> setUnisexFirstName(e.target.value)}
     placeholder="Ej: Alex, René, Milan, Sasha"
     className="w-full bg-zinc-900 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-500 font-medium"
     />
@@ -86,7 +86,7 @@ export default function UnisexNamesTool({
     <input
     type="text"
     value={unisexSecondName}
-    onChange={(e) => setUnisexSecondName(e.target.value)}
+    onChange={(e) = className="gdn-tool-input"> setUnisexSecondName(e.target.value)}
     placeholder="Ej: Morgan, Sol, Sky, Ariel"
     className="w-full bg-zinc-900 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-500 font-medium"
     />
@@ -122,7 +122,7 @@ export default function UnisexNamesTool({
     const um2 = unisexMeaningsDb[u2.toLowerCase()] || { origin: 'Origen Universal', meaning: 'Luz, libertad y belleza' };
     
     return (
-    <div className="bg-zinc-900/90 p-5 rounded-2xl border border-emerald-500/30 space-y-4">
+    <div className="gdn-tool-result bg-zinc-900/90 p-5 rounded-2xl border border-emerald-500/30 space-y-4">
     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/10 pb-3">
     <div>
     <span className="text-[10px] font-bold text-emerald-400 uppercase tracking-wider block">Combinación Unisex Resultante</span>
