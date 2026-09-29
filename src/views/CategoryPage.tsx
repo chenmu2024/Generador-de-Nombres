@@ -1242,17 +1242,19 @@ export default function CategoryPage({
           <h2 className={`font-bold text-zinc-100 font-heading ${location.pathname === '/' ? 'text-2xl md:text-3xl' : 'text-3xl md:text-4xl'}`}>Explora Todos Nuestros Generadores</h2>
           <p className={`text-zinc-400 mt-2 max-w-2xl mx-auto ${location.pathname === '/' ? 'text-sm' : 'text-lg'}`}>Encuentra el nombre perfecto para cualquier plataforma o mascota</p>
           
-          {/* Search Bar for Categories */}
-          <div className="mt-8 max-w-md mx-auto relative">
-            <Search className="w-5 h-5 text-zinc-500 absolute left-4 top-1/2 -translate-y-1/2" />
-            <input
-              type="text"
-              value={searchCategory}
-              onChange={(e) => setSearchCategory(e.target.value)}
-              placeholder="Buscar generador (ej. Roblox, Gatos...)"
-              className="w-full bg-zinc-900/80 border border-white/10 rounded-2xl pl-12 pr-4 py-3.5 text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-violet-500 transition-colors"
-            />
-          </div>
+          {/* Search Bar for Categories — internal pages only; global search already covers homepage */}
+          {location.pathname !== '/' && (
+            <div className="mt-8 max-w-md mx-auto relative">
+              <Search className="w-5 h-5 text-zinc-500 absolute left-4 top-1/2 -translate-y-1/2" />
+              <input
+                type="text"
+                value={searchCategory}
+                onChange={(e) => setSearchCategory(e.target.value)}
+                placeholder="Buscar generador (ej. Roblox, Gatos...)"
+                className="w-full bg-zinc-900/80 border border-white/10 rounded-2xl pl-12 pr-4 py-3.5 text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-violet-500 transition-colors"
+              />
+            </div>
+          )}
         </div>
 
         <div className={`grid grid-cols-1 sm:grid-cols-2 gap-3 ${location.pathname === '/' ? 'lg:grid-cols-4' : 'lg:grid-cols-3 lg:gap-6'}`}>
