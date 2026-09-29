@@ -25,7 +25,7 @@ export default function KoreanNamesTool({
   };
 
   return (
-    <div className="max-w-6xl mx-auto py-4 space-y-8">
+    <div className="gdn-tool-shell max-w-6xl mx-auto py-4 space-y-8">
     <div className="bg-[#121212] border border-violet-500/20 rounded-3xl p-6 md:p-8 shadow-2xl">
     {/* Header */}
     <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
@@ -54,7 +54,7 @@ export default function KoreanNamesTool({
     <div>
     <label className="text-xs font-semibold text-zinc-400 block mb-2">Apellido Coreano:</label>
     <select aria-label="Seleccionar opción" value={krSelectedSurname}
-    onChange={(e) => setKrSelectedSurname(e.target.value)}
+    onChange={(e) = className="gdn-tool-input"> setKrSelectedSurname(e.target.value)}
     className="w-full bg-zinc-800 border border-white/10 rounded-xl px-3 py-2.5 text-white focus:outline-none focus:border-violet-500 text-sm font-semibold"
     >
     {['Kim (김)', 'Lee (이)', 'Park (박)', 'Choi (최)', 'Jung (정)', 'Kang (강)', 'Yoon (윤)', 'Jang (장)'].map(s => (
@@ -68,7 +68,7 @@ export default function KoreanNamesTool({
     <input
     type="text"
     value={krCustomName}
-    onChange={(e) => setKrCustomName(e.target.value)}
+    onChange={(e) = className="gdn-tool-input"> setKrCustomName(e.target.value)}
     placeholder="Min-Ji, Tae-Hyung..."
     className="w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-violet-500 text-sm font-bold"
     />
@@ -79,7 +79,7 @@ export default function KoreanNamesTool({
     <input
     type="text"
     value={krCustomHangul}
-    onChange={(e) => setKrCustomHangul(e.target.value)}
+    onChange={(e) = className="gdn-tool-input"> setKrCustomHangul(e.target.value)}
     placeholder="민지, 태형..."
     className="w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-violet-300 focus:outline-none focus:border-violet-500 text-sm font-mono font-bold"
     />
