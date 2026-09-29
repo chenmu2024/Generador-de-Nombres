@@ -492,3 +492,26 @@ body {
     z-index: 2;
   }
 }
+
+
+/* V2.2 Global Accessibility */
+.gdn-shell a:focus-visible,
+.gdn-shell button:focus-visible {
+  outline: 2px solid var(--gdn-primary);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -207,7 +207,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
             </Link>
 
             {/* Desktop Nav */}
-            <nav className="gdn-nav hidden lg:flex items-center gap-1 p-1 border">
+            <nav className="gdn-nav hidden xl:flex items-center gap-1 p-1 border">
               <Link
                 to="/"
                 className={`px-3 py-1.5 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 ${
@@ -289,7 +289,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
                 title="Mis Nombres Favoritos Guardados"
               >
                 <Bookmark className="w-3.5 h-3.5 text-violet-400 fill-violet-500/10" />
-                <span className="hidden sm:inline font-semibold">Favoritos</span>
+                <span className="hidden md:inline font-semibold">Favoritos</span>
                 <span className="sr-only">Favoritos</span>
                 {favorites.length > 0 && (
                   <span className="bg-pink-500 text-white text-[10px] font-bold px-1.5 py-0.2 rounded-full min-w-[18px] text-center">
@@ -305,16 +305,16 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
                 className="gdn-chip border rounded-xl px-3 py-1.5 text-xs flex items-center gap-2 transition-all"
               >
                 <Search className="w-3.5 h-3.5 text-violet-400" />
-                <span className="hidden sm:inline">Buscar categorías...</span>
-                <span className="sm:hidden">Buscar</span>
-                <kbd className="hidden sm:inline-block bg-white/10 border border-white/10 rounded px-1.5 py-0.5 text-[10px] font-mono text-zinc-400">
+                <span className="hidden md:inline">Buscar categorías...</span>
+                <span className="md:hidden">Buscar</span>
+                <kbd className="hidden md:inline-block bg-white/10 border border-white/10 rounded px-1.5 py-0.5 text-[10px] font-mono text-zinc-400">
                   Ctrl K
                 </kbd>
               </button>
 
               {/* Mobile menu button */}
               <button 
-                className="lg:hidden p-2 text-zinc-400 hover:text-zinc-100 transition-colors"
+                className="xl:hidden p-2 text-zinc-400 hover:text-zinc-100 transition-colors"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 aria-label={isMenuOpen ? "Cerrar menú principal" : "Abrir menú principal"}
                 aria-expanded={isMenuOpen}
@@ -330,7 +330,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
         {isMenuOpen && (
           <div
             id="mobile-primary-navigation"
-            className="lg:hidden border-t gdn-header overflow-hidden max-h-[85vh] overflow-y-auto animate-in slide-in-from-top duration-200"
+            className="xl:hidden border-t gdn-header overflow-hidden max-h-[85vh] overflow-y-auto animate-in slide-in-from-top duration-200"
           >
             <div className="px-4 pt-4 pb-6 space-y-4">
               <Link
