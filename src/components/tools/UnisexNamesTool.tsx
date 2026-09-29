@@ -76,9 +76,9 @@ export default function UnisexNamesTool({
     <input
     type="text"
     value={unisexFirstName}
-    onChange={(e) = className="gdn-tool-input"> setUnisexFirstName(e.target.value)}
+    onChange={(e) => setUnisexFirstName(e.target.value)}
     placeholder="Ej: Alex, René, Milan, Sasha"
-    className="w-full bg-zinc-900 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-500 font-medium"
+    className="gdn-tool-input w-full bg-zinc-900 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-500 font-medium"
     />
     </div>
     <div>
@@ -86,9 +86,9 @@ export default function UnisexNamesTool({
     <input
     type="text"
     value={unisexSecondName}
-    onChange={(e) = className="gdn-tool-input"> setUnisexSecondName(e.target.value)}
+    onChange={(e) => setUnisexSecondName(e.target.value)}
     placeholder="Ej: Morgan, Sol, Sky, Ariel"
-    className="w-full bg-zinc-900 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-500 font-medium"
+    className="gdn-tool-input w-full bg-zinc-900 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-500 font-medium"
     />
     </div>
     </div>
