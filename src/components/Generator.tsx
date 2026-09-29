@@ -378,7 +378,7 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
         </div>
 
         {generatedNames.length > 0 ? (
-          <div>
+          <div className="gdn-tool-result">
             {/* Vibe / Mood Quick Filters */}
             <div className="mb-5 flex items-center gap-2 overflow-x-auto pb-1 text-xs">
               <span className="text-zinc-500 font-bold shrink-0">Filtrar Estilo:</span>
@@ -591,7 +591,7 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
             )}
           </div>
         ) : (
-          <div className="text-center py-16 px-4 border-2 border-dashed border-white/10 rounded-3xl bg-zinc-900/20">
+          <div className="gdn-tool-result text-center py-12 px-4 border-2 border-dashed border-white/10 rounded-3xl bg-zinc-900/20">
             <Wand2 className="w-12 h-12 text-zinc-700 mx-auto mb-4" />
             <h3 className="text-xl font-medium text-zinc-300 font-heading">No hay resultados</h3>
             <p className="text-zinc-500 mt-2">Escribe un nombre y haz clic en Generar para ver resultados increíbles.</p>
