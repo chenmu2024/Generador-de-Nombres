@@ -318,7 +318,7 @@ export default function CategoryPage({
           {/* Trending 1-Click Copy Bar */}
           <div className="gdn-surface border p-4 sm:p-6 rounded-2xl max-w-4xl mx-auto">
             <div className="flex items-center justify-between mb-3 px-1">
-              <span className="text-xs font-bold text-cyan-300 uppercase tracking-wider flex items-center gap-1.5">
+              <span className="text-xs font-bold text-violet-300 uppercase tracking-wider flex items-center gap-1.5">
                 <Flame className="w-4 h-4 text-amber-400 animate-pulse" /> Apodos y Símbolos Tendencia de Hoy (Copiar en 1-Clic)
               </span>
               <span className="text-[10px] text-zinc-500 hidden sm:inline">Actualizado 2026</span>
@@ -1343,7 +1343,7 @@ export default function CategoryPage({
               {/* Interactive Validator & Generator */}
               <div className="bg-zinc-950/90 border border-cyan-500/20 rounded-2xl p-6 relative z-10 space-y-5">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/5 pb-4">
-                  <span className="text-xs font-bold text-amber-300 uppercase tracking-wider flex items-center gap-1.5">
+                  <span className="text-xs font-bold text-cyan-300 uppercase tracking-wider flex items-center gap-1.5">
                     <Sparkles className="w-4 h-4 text-cyan-400" /> Validador Oficial de Requisitos de Roblox
                   </span>
                   
@@ -1443,7 +1443,7 @@ export default function CategoryPage({
 
               {/* Ready-to-copy Game-Specific Presets Grid */}
               <div className="space-y-3 relative z-10">
-                <span className="text-xs font-bold text-violet-300 uppercase tracking-wider flex items-center gap-1.5">
+                <span className="text-xs font-bold text-cyan-300 uppercase tracking-wider flex items-center gap-1.5">
                   <Flame className="w-4 h-4 text-amber-400" /> Presets Populares por Juego de Roblox (Blox Fruits, Brookhaven, Y2K)
                 </span>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
@@ -1689,7 +1689,7 @@ export default function CategoryPage({
 
               {/* Ready-to-copy Exclusives Grid */}
               <div className="space-y-3 relative z-10">
-                <span className="text-xs font-bold text-violet-300 uppercase tracking-wider flex items-center gap-1.5">
+                <span className="text-xs font-bold text-amber-300 uppercase tracking-wider flex items-center gap-1.5">
                   <Sparkles className="w-4 h-4 text-amber-400" /> Plantillas de Nicks Rarísimos No Usados (Clic para Copiar)
                 </span>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
@@ -1710,7 +1710,7 @@ export default function CategoryPage({
                     >
                       <div className="flex items-center justify-between w-full">
                         <span className="text-amber-300 font-bold truncate">{item.label}</span>
-                        <Copy className="w-3.5 h-3.5 text-zinc-500 group-hover:text-violet-300 shrink-0" />
+                        <Copy className="w-3.5 h-3.5 text-zinc-500 group-hover:text-amber-300 shrink-0" />
                       </div>
                       <span className="text-[10px] text-zinc-500 font-normal">{item.desc}</span>
                     </button>
