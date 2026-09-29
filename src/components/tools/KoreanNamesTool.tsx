@@ -116,7 +116,7 @@ export default function KoreanNamesTool({
     </div>
     
     {/* Styled Output Preview */}
-    <div className="bg-gradient-to-b from-violet-950/40 via-zinc-950 to-zinc-950 border border-violet-500/30 rounded-2xl p-5 flex flex-col justify-between items-center text-center shadow-xl">
+    <div className="gdn-tool-result bg-gradient-to-b from-violet-950/40 via-zinc-950 to-zinc-950 border border-violet-500/30 rounded-2xl p-5 flex flex-col justify-between items-center text-center shadow-xl">
     <div>
     <div className="text-xs text-violet-400 font-bold uppercase tracking-widest mb-2">Identidad Idol / Dorama</div>
     <div className="text-4xl font-extrabold text-violet-300 font-mono mb-2">
