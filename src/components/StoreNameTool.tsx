@@ -85,8 +85,8 @@ export default function StoreNameTool() {
           <input
             type="text"
             value={customKeyword}
-            onChange={(e) = className="gdn-tool-input"> setCustomKeyword(e.target.value)}
-            className="w-full px-4 py-3 bg-zinc-950 border border-white/10 rounded-xl text-white font-medium focus:outline-none focus:border-amber-500"
+            onChange={(e) => setCustomKeyword(e.target.value)}
+            className="gdn-tool-input w-full px-4 py-3 bg-zinc-950 border border-white/10 rounded-xl text-white font-medium focus:outline-none focus:border-amber-500"
             placeholder="Ej. Ofertas, Novedades, Luna..."
           />
         </div>
