@@ -24,7 +24,7 @@ export default function RareNamesTool({
   };
 
   return (
-    <div className="bg-gradient-to-br from-purple-950/40 via-[#121212] to-indigo-950/30 border border-purple-500/30 rounded-3xl p-8 shadow-2xl relative overflow-hidden space-y-6">
+    <div className="gdn-tool-shell bg-gradient-to-br from-purple-950/40 via-[#121212] to-indigo-950/30 border border-purple-500/30 rounded-3xl p-8 shadow-2xl relative overflow-hidden space-y-6">
     <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10">
     <div>
     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300 text-xs font-semibold uppercase tracking-wider mb-3">
@@ -57,7 +57,7 @@ export default function RareNamesTool({
     <button
     key={tab.id}
     onClick={() => setRareVibe(tab.id as any)}
-    className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+    className={`gdn-tool-tab px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
     rareVibe === tab.id
     ? 'bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-md'
     : 'text-zinc-400 hover:text-white'
@@ -76,7 +76,7 @@ export default function RareNamesTool({
     <input
     type="text"
     value={rareFirstName}
-    onChange={(e) => setRareFirstName(e.target.value)}
+    onChange={(e) = className="gdn-tool-input"> setRareFirstName(e.target.value)}
     placeholder="Ej: Orion, Freya, Cassian, Zephyr"
     className="w-full bg-zinc-900 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-purple-500 font-medium"
     />
@@ -86,7 +86,7 @@ export default function RareNamesTool({
     <input
     type="text"
     value={rareSecondName}
-    onChange={(e) => setRareSecondName(e.target.value)}
+    onChange={(e) = className="gdn-tool-input"> setRareSecondName(e.target.value)}
     placeholder="Ej: Cassian, Astrid, Soren, Lyra"
     className="w-full bg-zinc-900 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-purple-500 font-medium"
     />
@@ -122,7 +122,7 @@ export default function RareNamesTool({
     const rm2 = rareMeaningsDb[r2.toLowerCase()] || { origin: 'Origen Místico', meaning: 'Fuerza singular, brillo y distinción' };
     
     return (
-    <div className="bg-zinc-900/90 p-5 rounded-2xl border border-purple-500/30 space-y-4">
+    <div className="gdn-tool-result bg-zinc-900/90 p-5 rounded-2xl border border-purple-500/30 space-y-4">
     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/10 pb-3">
     <div>
     <span className="text-[10px] font-bold text-purple-400 uppercase tracking-wider block">Combinación Exótica Resultante</span>
