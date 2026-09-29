@@ -169,7 +169,7 @@ export default function KoreanNamesTool({
     <button
     key={tab}
     onClick={() => setKrCategoryTab(tab)}
-    className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
+    className={`gdn-tool-tab px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
     krCategoryTab === tab
     ? 'bg-violet-600 text-white shadow-md shadow-violet-600/20'
     : 'bg-zinc-800 text-zinc-400 hover:text-white'
