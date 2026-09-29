@@ -3,96 +3,96 @@
 import React, { useState, type ReactNode } from 'react';
 import { useLocation } from '../utils/router';
 import { Link } from '../components/Link';
-import { ChevronRight, Flame, Shield, CheckCircle2, Search, Sparkles, Copy, ListOrdered, Home } from 'lucide-react';
+import { ChevronRight, Flame, Shield, CheckCircle2, Search, Sparkles, Copy, ListOrdered, Home, Gamepad2, Instagram, Languages, PawPrint, Type, Store, Globe2, Box, Zap, BookOpen, CircleHelp, Link2 } from 'lucide-react';
 import Generator from '../components/Generator';
 import dynamic from 'next/dynamic';
 
 const InvisibleSpaceTool = dynamic(() => import('../components/InvisibleSpaceTool'), {
   ssr: false,
-  loading: () => <div className="min-h-[520px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>
+  loading: () => <div className="min-h-[520px] w-full animate-pulse bg-slate-100 rounded-2xl border border-slate-200"></div>
 });
 const AlphabetMatrixTool = dynamic(() => import('../components/AlphabetMatrixTool'), {
   ssr: false,
-  loading: () => <div className="min-h-[600px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>
+  loading: () => <div className="min-h-[600px] w-full animate-pulse bg-slate-100 rounded-2xl border border-slate-200"></div>
 });
 const StoreNameTool = dynamic(() => import('../components/StoreNameTool'), {
   ssr: false,
-  loading: () => <div className="min-h-[550px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>
+  loading: () => <div className="min-h-[550px] w-full animate-pulse bg-slate-100 rounded-2xl border border-slate-200"></div>
 });
 const LazyRobloxTool = dynamic(() => import('../components/tools/RobloxTool'), {
   ssr: false,
-  loading: () => <div className="min-h-[400px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>
+  loading: () => <div className="min-h-[400px] w-full animate-pulse bg-slate-100 rounded-2xl border border-slate-200"></div>
 });
 const LazyInstagramTool = dynamic(() => import('../components/tools/InstagramTool'), {
   ssr: false,
-  loading: () => <div className="min-h-[400px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>
+  loading: () => <div className="min-h-[400px] w-full animate-pulse bg-slate-100 rounded-2xl border border-slate-200"></div>
 });
 const LazyFootballTool = dynamic(() => import('../components/tools/FootballTool'), {
   ssr: false,
-  loading: () => <div className="min-h-[400px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>
+  loading: () => <div className="min-h-[400px] w-full animate-pulse bg-slate-100 rounded-2xl border border-slate-200"></div>
 });
 
 const LazyPlushieTool = dynamic(() => import('../components/tools/PlushieTool'), {
   ssr: false,
-  loading: () => <div className="min-h-[640px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>
+  loading: () => <div className="min-h-[640px] w-full animate-pulse bg-slate-100 rounded-2xl border border-slate-200"></div>
 });
 
 const LazyJapaneseNamesTool = dynamic(() => import('../components/tools/JapaneseNamesTool'), {
   ssr: false,
-  loading: () => <div className="min-h-[560px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>
+  loading: () => <div className="min-h-[560px] w-full animate-pulse bg-slate-100 rounded-2xl border border-slate-200"></div>
 });
 
 const LazyKoreanNamesTool = dynamic(() => import('../components/tools/KoreanNamesTool'), {
   ssr: false,
-  loading: () => <div className="min-h-[560px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>
+  loading: () => <div className="min-h-[560px] w-full animate-pulse bg-slate-100 rounded-2xl border border-slate-200"></div>
 });
 
 const LazyFrenchNamesTool = dynamic(() => import('../components/tools/FrenchNamesTool'), {
   ssr: false,
-  loading: () => <div className="min-h-[560px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>
+  loading: () => <div className="min-h-[560px] w-full animate-pulse bg-slate-100 rounded-2xl border border-slate-200"></div>
 });
 
 const LazyMayaNamesTool = dynamic(() => import('../components/tools/MayaNamesTool'), {
   ssr: false,
-  loading: () => <div className="min-h-[560px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>
+  loading: () => <div className="min-h-[560px] w-full animate-pulse bg-slate-100 rounded-2xl border border-slate-200"></div>
 });
 
 const LazyDogNamesTool = dynamic(() => import('../components/tools/DogNamesTool'), {
   ssr: false,
-  loading: () => <div className="min-h-[560px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>
+  loading: () => <div className="min-h-[560px] w-full animate-pulse bg-slate-100 rounded-2xl border border-slate-200"></div>
 });
 const LazyCatNamesTool = dynamic(() => import('../components/tools/CatNamesTool'), {
   ssr: false,
-  loading: () => <div className="min-h-[560px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>
+  loading: () => <div className="min-h-[560px] w-full animate-pulse bg-slate-100 rounded-2xl border border-slate-200"></div>
 });
 const LazyBlackCatNamesTool = dynamic(() => import('../components/tools/BlackCatNamesTool'), {
   ssr: false,
-  loading: () => <div className="min-h-[560px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>
+  loading: () => <div className="min-h-[560px] w-full animate-pulse bg-slate-100 rounded-2xl border border-slate-200"></div>
 });
 const LazyMaleCatNamesTool = dynamic(() => import('../components/tools/MaleCatNamesTool'), {
   ssr: false,
-  loading: () => <div className="min-h-[560px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>
+  loading: () => <div className="min-h-[560px] w-full animate-pulse bg-slate-100 rounded-2xl border border-slate-200"></div>
 });
 
 const LazyRareNamesTool = dynamic(() => import('../components/tools/RareNamesTool'), {
   ssr: false,
-  loading: () => <div className="min-h-[520px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>
+  loading: () => <div className="min-h-[520px] w-full animate-pulse bg-slate-100 rounded-2xl border border-slate-200"></div>
 });
 const LazyUnisexNamesTool = dynamic(() => import('../components/tools/UnisexNamesTool'), {
   ssr: false,
-  loading: () => <div className="min-h-[520px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>
+  loading: () => <div className="min-h-[520px] w-full animate-pulse bg-slate-100 rounded-2xl border border-slate-200"></div>
 });
 const LazyMaleNamesTool = dynamic(() => import('../components/tools/MaleNamesTool'), {
   ssr: false,
-  loading: () => <div className="min-h-[520px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>
+  loading: () => <div className="min-h-[520px] w-full animate-pulse bg-slate-100 rounded-2xl border border-slate-200"></div>
 });
 const LazyFemaleNamesTool = dynamic(() => import('../components/tools/FemaleNamesTool'), {
   ssr: false,
-  loading: () => <div className="min-h-[520px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>
+  loading: () => <div className="min-h-[520px] w-full animate-pulse bg-slate-100 rounded-2xl border border-slate-200"></div>
 });
 const LazyAnimeNamesTool = dynamic(() => import('../components/tools/AnimeNamesTool'), {
   ssr: false,
-  loading: () => <div className="min-h-[520px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>
+  loading: () => <div className="min-h-[520px] w-full animate-pulse bg-slate-100 rounded-2xl border border-slate-200"></div>
 });
 import { allLinks } from '../data/allLinks';
 
@@ -228,18 +228,18 @@ export default function CategoryPage({
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
             <a href="#generador" className="gdn-chip p-2 rounded-xl transition-all flex items-center justify-center gap-1.5 border font-medium">
-              <span>⚡</span> Generador
+              <Zap className="w-3.5 h-3.5 text-violet-500" /> Generador
             </a>
             <a href="#articulos-guia" className="gdn-chip p-2 rounded-xl transition-all flex items-center justify-center gap-1.5 border font-medium">
-              <span>📖</span> Guía
+              <BookOpen className="w-3.5 h-3.5 text-violet-500" /> Guía
             </a>
             {data.hasFaq && (
               <a href="#preguntas-frecuentes" className="gdn-chip p-2 rounded-xl transition-all flex items-center justify-center gap-1.5 border font-medium">
-                <span>❓</span> Preguntas
+                <CircleHelp className="w-3.5 h-3.5 text-violet-500" /> Preguntas
               </a>
             )}
             <a href="#relacionados" className="gdn-chip p-2 rounded-xl transition-all flex items-center justify-center gap-1.5 border font-medium">
-              <span>🔗</span> Más Nombres
+              <Link2 className="w-3.5 h-3.5 text-violet-500" /> Más Nombres
             </a>
           </div>
         </div>
@@ -292,19 +292,24 @@ export default function CategoryPage({
             </div>
             <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-7 gap-3 md:gap-4">
               {[
-                { icon: '🔥', label: 'Free Fire', path: '/generador-free-fire' },
-                { icon: '◼', label: 'Roblox', path: '/nombres-roblox' },
-                { icon: '◎', label: 'Instagram', path: '/nombres-instagram' },
-                { icon: 'あ', label: 'Japoneses', path: '/nombres-japoneses' },
-                { icon: '한', label: 'Coreanos', path: '/nombres-coreanos' },
-                { icon: '🐾', label: 'Mascotas', path: '/nombres-gatos' },
-                { icon: 'A', label: 'Letras A-Z', path: '/nombres-por-letra' }
-              ].map((item) => (
-                <Link key={item.path} to={item.path} className="gdn-home-tool-tile min-h-[106px] p-3 sm:p-4 flex flex-col items-center justify-center text-center gap-2 transition-all">
-                  <span className="w-10 h-10 rounded-xl bg-violet-50 flex items-center justify-center text-lg font-bold text-violet-600">{item.icon}</span>
-                  <span className="text-xs sm:text-sm font-bold text-slate-900">{item.label}</span>
-                </Link>
-              ))}
+                { icon: Flame, label: 'Free Fire', path: '/generador-free-fire', iconClass: 'text-orange-500 bg-orange-50' },
+                { icon: Box, label: 'Roblox', path: '/nombres-roblox', iconClass: 'text-slate-800 bg-slate-100' },
+                { icon: Instagram, label: 'Instagram', path: '/nombres-instagram', iconClass: 'text-pink-600 bg-pink-50' },
+                { icon: Languages, label: 'Japoneses', path: '/nombres-japoneses', iconClass: 'text-rose-600 bg-rose-50' },
+                { icon: Globe2, label: 'Coreanos', path: '/nombres-coreanos', iconClass: 'text-cyan-600 bg-cyan-50' },
+                { icon: PawPrint, label: 'Mascotas', path: '/nombres-gatos', iconClass: 'text-amber-600 bg-amber-50' },
+                { icon: Type, label: 'Letras A-Z', path: '/nombres-por-letra', iconClass: 'text-violet-600 bg-violet-50' }
+              ].map((item) => {
+                const Icon = item.icon;
+                return (
+                  <Link key={item.path} to={item.path} className="gdn-home-tool-tile min-h-[106px] p-3 sm:p-4 flex flex-col items-center justify-center text-center gap-2 transition-all">
+                    <span className={`w-10 h-10 rounded-xl flex items-center justify-center ${item.iconClass}`}>
+                      <Icon className="w-5 h-5" strokeWidth={2} aria-hidden="true" />
+                    </span>
+                    <span className="text-xs sm:text-sm font-bold text-slate-900">{item.label}</span>
+                  </Link>
+                );
+              })}
             </div>
           </section>
 
@@ -315,22 +320,27 @@ export default function CategoryPage({
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
               {[
-                { icon: '🎮', title: 'Juegos', desc: 'Free Fire, Roblox, Minecraft y más', path: '/generador-free-fire', accent: 'text-violet-600 bg-violet-50' },
-                { icon: '◎', title: 'Redes Sociales', desc: 'Instagram, perfiles y nombres aesthetic', path: '/nombres-instagram', accent: 'text-pink-600 bg-pink-50' },
-                { icon: '🐾', title: 'Mascotas', desc: 'Perros, gatos y nombres adorables', path: '/nombres-gatos', accent: 'text-amber-600 bg-amber-50' },
-                { icon: '🌐', title: 'Culturas e idiomas', desc: 'Japoneses, coreanos, mayas y más', path: '/nombres-japoneses', accent: 'text-cyan-600 bg-cyan-50' },
-                { icon: '▣', title: 'Negocios', desc: 'Tiendas, marcas y proyectos', path: '/nombres-para-tiendas', accent: 'text-emerald-600 bg-emerald-50' },
-                { icon: '✦', title: 'Símbolos y letras', desc: 'A-Z, espacios invisibles y estilos', path: '/nombres-por-letra', accent: 'text-violet-600 bg-violet-50' }
-              ].map((item) => (
-                <Link key={item.title} to={item.path} className="gdn-home-category-card p-5 flex items-center gap-4 group transition-all">
-                  <span className={`w-11 h-11 rounded-[14px] flex items-center justify-center text-xl shrink-0 ${item.accent}`}>{item.icon}</span>
-                  <span className="min-w-0 flex-1">
-                    <span className="block text-sm font-bold text-slate-900">{item.title}</span>
-                    <span className="block text-xs text-slate-500 mt-1 leading-relaxed">{item.desc}</span>
-                  </span>
-                  <ChevronRight className="w-4 h-4 text-violet-500 group-hover:translate-x-0.5 transition-transform shrink-0" />
-                </Link>
-              ))}
+                { icon: Gamepad2, title: 'Juegos', desc: 'Free Fire, Roblox, Minecraft y más', path: '/generador-free-fire', accent: 'text-violet-600 bg-violet-50' },
+                { icon: Instagram, title: 'Redes Sociales', desc: 'Instagram, perfiles y nombres aesthetic', path: '/nombres-instagram', accent: 'text-pink-600 bg-pink-50' },
+                { icon: PawPrint, title: 'Mascotas', desc: 'Perros, gatos y nombres adorables', path: '/nombres-gatos', accent: 'text-amber-600 bg-amber-50' },
+                { icon: Globe2, title: 'Culturas e idiomas', desc: 'Japoneses, coreanos, mayas y más', path: '/nombres-japoneses', accent: 'text-cyan-600 bg-cyan-50' },
+                { icon: Store, title: 'Negocios', desc: 'Tiendas, marcas y proyectos', path: '/nombres-para-tiendas', accent: 'text-emerald-600 bg-emerald-50' },
+                { icon: Sparkles, title: 'Símbolos y letras', desc: 'A-Z, espacios invisibles y estilos', path: '/nombres-por-letra', accent: 'text-violet-600 bg-violet-50' }
+              ].map((item) => {
+                const Icon = item.icon;
+                return (
+                  <Link key={item.title} to={item.path} className="gdn-home-category-card p-5 flex items-center gap-4 group transition-all">
+                    <span className={`w-11 h-11 rounded-[14px] flex items-center justify-center shrink-0 ${item.accent}`}>
+                      <Icon className="w-5 h-5" strokeWidth={2} aria-hidden="true" />
+                    </span>
+                    <span className="min-w-0 flex-1">
+                      <span className="block text-sm font-bold text-slate-900">{item.title}</span>
+                      <span className="block text-xs text-slate-500 mt-1 leading-relaxed">{item.desc}</span>
+                    </span>
+                    <ChevronRight className="w-4 h-4 text-violet-500 group-hover:translate-x-0.5 transition-transform shrink-0" />
+                  </Link>
+                );
+              })}
             </div>
           </section>
         </div>
@@ -792,21 +802,21 @@ export default function CategoryPage({
 
       {/* Roblox Username Validator & Display Name Helper */}
       {(location.pathname === '/nombres-roblox') && (
-        <React.Suspense fallback={<div className="min-h-[400px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5 my-4" />}>
+        <React.Suspense fallback={<div className="min-h-[400px] w-full animate-pulse bg-slate-100 rounded-2xl border border-slate-200 my-4" />}>
           <LazyRobloxTool handleCopyTrending={handleCopyTrending} />
         </React.Suspense>
       )}
 
       {/* Instagram Username Validator & Bio Aesthetic Generator */}
       {(location.pathname === '/nombres-instagram') && (
-        <React.Suspense fallback={<div className="min-h-[400px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5 my-4" />}>
+        <React.Suspense fallback={<div className="min-h-[400px] w-full animate-pulse bg-slate-100 rounded-2xl border border-slate-200 my-4" />}>
           <LazyInstagramTool handleCopyTrending={handleCopyTrending} />
         </React.Suspense>
       )}
 
       {/* Football & Clan Customizer */}
       {(location.pathname === '/nombres-equipos-futbol') && (
-        <React.Suspense fallback={<div className="min-h-[400px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5 my-4" />}>
+        <React.Suspense fallback={<div className="min-h-[400px] w-full animate-pulse bg-slate-100 rounded-2xl border border-slate-200 my-4" />}>
           <LazyFootballTool handleCopyTrending={handleCopyTrending} />
         </React.Suspense>
       )}
