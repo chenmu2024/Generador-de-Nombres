@@ -105,7 +105,7 @@ export default function CatNamesTool({
       </div>
       
       {/* Live Cat Collar Tag Preview */}
-      <div className="bg-gradient-to-b from-amber-950/40 via-zinc-950 to-zinc-950 border border-amber-500/30 rounded-2xl p-5 flex flex-col justify-between items-center text-center shadow-xl">
+      <div className="gdn-tool-result bg-gradient-to-b from-amber-950/40 via-zinc-950 to-zinc-950 border border-amber-500/30 rounded-2xl p-5 flex flex-col justify-between items-center text-center shadow-xl">
       <div>
       <div className="text-xs text-amber-400 font-bold uppercase tracking-widest mb-2">Placa de Identificación Felina 🏷️</div>
       <div className="text-3xl font-extrabold text-amber-300 font-heading mb-2">
