@@ -116,6 +116,31 @@ export default function CategoryPage({
   const routerLocation = useLocation();
   const currentPath = initialPath || routerLocation.pathname || '/';
   const location = { pathname: currentPath };
+  const usesDedicatedGenerator =
+    location.pathname === '/espacios-invisible-ff' ||
+    location.pathname === '/nombres-por-letra' ||
+    location.pathname.startsWith('/nombres-con-') ||
+    location.pathname === '/nombres-para-tiendas' ||
+    location.pathname === '/nombres-roblox' ||
+    location.pathname === '/nombres-instagram' ||
+    location.pathname === '/nombres-equipos-futbol' ||
+    location.pathname === '/nombres-japoneses' ||
+    location.pathname === '/nombres-coreanos' ||
+    location.pathname === '/nombres-franceses' ||
+    location.pathname === '/nombres-mayas' ||
+    location.pathname === '/nombres-perritas' ||
+    location.pathname === '/nombres-perros-machos' ||
+    location.pathname === '/perritas-chihuahua' ||
+    location.pathname === '/nombres-gatos-negros' ||
+    location.pathname === '/nombres-gatos' ||
+    location.pathname === '/nombres-gatos-machos' ||
+    location.pathname === '/nombres-peluches' ||
+    location.pathname === '/nombres-raros' ||
+    location.pathname === '/nombres-unisex' ||
+    location.pathname === '/nombres-de-nino' ||
+    location.pathname === '/nombres-de-mujer' ||
+    location.pathname === '/nombres-de-nina' ||
+    location.pathname === '/nombres-anime';
   const [showToast, setShowToast] = useState(false);
   const [searchCategory, setSearchCategory] = useState(() => {
     if (typeof window !== 'undefined') {
@@ -285,11 +310,13 @@ export default function CategoryPage({
       </div>
 
       <div className={`max-w-6xl mx-auto ${location.pathname === '/' ? 'pt-0 pb-2' : 'py-6'}`}>
-        <Generator 
-          title={location.pathname === '/' ? 'Generador de Nombres, Apodos y Símbolos' : data.h1}
-          defaultName={data.defaultName || "Gamer"}
-          customSymbols={data.customSymbols}
-        />
+        {!usesDedicatedGenerator && (
+          <Generator 
+            title={location.pathname === '/' ? 'Generador de Nombres, Apodos y Símbolos' : data.h1}
+            defaultName={data.defaultName || "Gamer"}
+            customSymbols={data.customSymbols}
+          />
+        )}
 
         {location.pathname === '/espacios-invisible-ff' && (
           <div className="mt-8">
@@ -533,7 +560,7 @@ export default function CategoryPage({
       )}
 
       {/* Espacio Invisible Section & FF Pro Kit (Pestaña / Herramienta Exclusiva Free Fire) */}
-      {(location.pathname === '/nombres-free-fire' || location.pathname === '/generador-free-fire' || location.pathname === '/nombres-ff-unicos' || location.pathname === '/nombres-ff-mujeres' || location.pathname === '/nombres-clanes-ff' || location.pathname === '/nombres-roblox' || location.pathname === '/nombres-instagram' || location.pathname === '/nombres-anime' || location.pathname === '/nombres-de-mujer' || location.pathname === '/nombres-de-nina' || location.pathname === '/nombres-de-nino' || location.pathname === '/nombres-unisex' || location.pathname === '/nombres-raros' || location.pathname === '/nombres-por-letra' || location.pathname.startsWith('/nombres-con-') || location.pathname === '/') && (
+      {(location.pathname === '/nombres-free-fire' || location.pathname === '/generador-free-fire' || location.pathname === '/nombres-ff-unicos' || location.pathname === '/nombres-ff-mujeres' || location.pathname === '/nombres-clanes-ff' || location.pathname === '/nombres-anime' || location.pathname === '/nombres-de-mujer' || location.pathname === '/nombres-de-nina' || location.pathname === '/nombres-de-nino' || location.pathname === '/nombres-unisex' || location.pathname === '/nombres-raros') && (
         <div className="max-w-6xl mx-auto py-2 space-y-8">
           {/* A-Z Alphabet Directory Specialized Meaning Finder & Name Explorer */}
           {(location.pathname === '/nombres-por-letra' || location.pathname.startsWith('/nombres-con-')) && (
