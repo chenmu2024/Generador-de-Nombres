@@ -707,13 +707,13 @@ export default function CategoryPage({ initialPath }: { initialPath?: string } =
                   Ideas bonitas para perritas, perros machos, michis y gatos negros, chihuahuas diminutas y caballos imponentes.
                 </p>
                 <div className="flex flex-wrap gap-1.5 mb-6">
-                  <Link to="/nombres-para-perritas" className="text-xs font-semibold bg-zinc-800 hover:bg-amber-600/30 text-amber-300 px-2.5 py-1 rounded-lg transition-colors border border-white/5">Perritas Bonitas</Link>
+                  <Link to="/nombres-perritas" className="text-xs font-semibold bg-zinc-800 hover:bg-amber-600/30 text-amber-300 px-2.5 py-1 rounded-lg transition-colors border border-white/5">Perritas Bonitas</Link>
                   <Link to="/nombres-perros-machos" className="text-xs font-semibold bg-zinc-800 hover:bg-amber-600/30 text-amber-300 px-2.5 py-1 rounded-lg transition-colors border border-white/5">Perros Machos</Link>
                   <Link to="/nombres-gatos" className="text-xs font-semibold bg-zinc-800 hover:bg-amber-600/30 text-amber-300 px-2.5 py-1 rounded-lg transition-colors border border-white/5">Gatos</Link>
                   <Link to="/perritas-chihuahua" className="text-xs font-semibold bg-zinc-800 hover:bg-amber-600/30 text-amber-300 px-2.5 py-1 rounded-lg transition-colors border border-white/5">Chihuahuas</Link>
                 </div>
               </div>
-              <Link to="/nombres-para-perritas" className="text-xs font-bold text-amber-400 hover:text-amber-300 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+              <Link to="/nombres-perritas" className="text-xs font-bold text-amber-400 hover:text-amber-300 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
                 Ver Nombres de Mascotas <ChevronRight className="w-4 h-4" />
               </Link>
             </div>
