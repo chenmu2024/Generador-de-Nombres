@@ -1,6 +1,7 @@
 import { Suspense } from 'react';
 import type { Metadata } from 'next';
 import CategoryPage from '../views/CategoryPage';
+import SeoGuide from '../components/SeoGuide';
 import { seoData } from '../data/seoData';
 
 export const metadata: Metadata = {
@@ -90,7 +91,18 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(appSchema) }}
       />
       <Suspense fallback={<div className="min-h-screen bg-[#0a0a0a]" />}>
-        <CategoryPage initialPath="/" data={homeData} />
+        <CategoryPage
+          initialPath="/"
+          data={{
+            h1: homeData.h1,
+            subtitle: homeData.subtitle,
+            defaultName: homeData.defaultName,
+            customSymbols: homeData.customSymbols,
+            hasFaq: Boolean(homeData.faqs?.length),
+          }}
+        >
+          <SeoGuide data={homeData} currentPath="/" />
+        </CategoryPage>
       </Suspense>
     </>
   );
