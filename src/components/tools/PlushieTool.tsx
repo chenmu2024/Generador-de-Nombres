@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { Copy, Volume2, Printer, Sparkles, Download } from 'lucide-react';
+import { Copy, Volume2, Printer, Sparkles, Download, X } from 'lucide-react';
 
 export default function PlushieTool({
   handleCopyTrending,
