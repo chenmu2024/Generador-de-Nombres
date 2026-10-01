@@ -1,4 +1,5 @@
 import { seoData } from './src/data/seoData';
+import { getIndexableKeywordRecords } from './src/data/keywordMaster';
 import fs from 'fs';
 
 const baseUrl = 'https://generadordenombres.net';
@@ -10,16 +11,32 @@ const staticPages = [
   { path: '/contacto', priority: '0.5', changefreq: 'monthly', title: 'Contacto y Soporte Editorial' }
 ];
 
-const seoPaths = Object.values(seoData).filter(d => d.path !== '/').map(data => ({
-  path: data.path,
-  priority: '0.8',
-  changefreq: 'weekly',
-  title: data.h1 || data.title
-}));
+const seoByPath = new Map(
+  Object.values(seoData).map((data) => [data.path, data] as const),
+);
+
+const seoPaths = getIndexableKeywordRecords()
+  .filter((record) => record.targetUrl !== '/')
+  .map((record) => {
+    const data = seoByPath.get(record.targetUrl);
+
+    if (!data) {
+      throw new Error(
+        `[SEO] VERIFIED Keyword Master route missing from seoData: ${record.targetUrl}`,
+      );
+    }
+
+    return {
+      path: record.targetUrl,
+      priority: '0.8',
+      changefreq: 'weekly',
+      title: data.h1 || data.title,
+    };
+  });
 
 const allPages = [...staticPages, ...seoPaths];
 
-const urls = allPages.map(item => {
+const urls = allPages.map((item) => {
   const loc = item.path === '/' ? baseUrl + '/' : baseUrl + item.path;
   const imageXml = `
     <image:image>
@@ -41,5 +58,6 @@ ${urls}
 </urlset>`;
 
 fs.writeFileSync('public/sitemap.xml', xml, 'utf8');
-console.log(`[SEO] sitemap.xml updated with ${allPages.length} URLs with Google Image extensions`);
-
+console.log(
+  `[SEO] sitemap.xml updated with ${allPages.length} URLs; only VERIFIED/indexable keyword pages included.`,
+);
