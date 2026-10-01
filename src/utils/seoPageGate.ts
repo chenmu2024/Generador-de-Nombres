@@ -1,4 +1,5 @@
 import { keywordMaster, type KeywordMasterRecord } from '../data/keywordMaster';
+import { MIN_INDEXABLE_PAGE_SCORE } from './pageQualityScore';
 
 export type PageGateDecision = 'CREATE' | 'MERGE' | 'REJECT' | 'REVIEW';
 
@@ -14,6 +15,7 @@ export interface PageCandidate {
   existingTargetUrl?: string | null;
   hasUniqueToolValue?: boolean;
   hasUniqueDataValue?: boolean;
+  proposedQualityScore?: number | null; // 0-100
 }
 
 export interface PageGateResult {
@@ -70,6 +72,16 @@ export function evaluatePageCandidate(candidate: PageCandidate): PageGateResult 
     reasons.push('No existe todavía valor diferencial de herramienta o datos.');
   }
 
+  if (candidate.proposedQualityScore == null) {
+    reasons.push(
+      `Falta la puntuación de calidad de página (mínimo ${MIN_INDEXABLE_PAGE_SCORE}/100).`,
+    );
+  } else if (candidate.proposedQualityScore < MIN_INDEXABLE_PAGE_SCORE) {
+    reasons.push(
+      `La página obtiene ${candidate.proposedQualityScore}/100; necesita al menos ${MIN_INDEXABLE_PAGE_SCORE}/100 antes de indexarse.`,
+    );
+  }
+
   if (reasons.length > 0) {
     return {
       decision: 'REVIEW',
@@ -85,6 +97,7 @@ export function evaluatePageCandidate(candidate: PageCandidate): PageGateResult 
       'Intención independiente.',
       'Sin solapamiento grave detectado.',
       'Existe valor diferencial de herramienta o datos.',
+      `Calidad de página >= ${MIN_INDEXABLE_PAGE_SCORE}/100.`,
     ],
   };
 }
