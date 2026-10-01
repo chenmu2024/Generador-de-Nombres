@@ -1,35 +1,20 @@
 import type { CategoryData } from '../data/seoData';
 import { allLinks } from '../data/allLinks';
+import { getClusterRelatedPaths } from '../data/topicClusters';
 import FeedbackWidget from './FeedbackWidget';
-
-const topicalClusters = [
-  ['/nombres-free-fire', '/generador-free-fire', '/espacios-invisible-ff', '/nombres-ff-unicos', '/nombres-ff-mujeres', '/nombres-clanes-ff', '/nombres-anime'],
-  ['/nombres-roblox', '/nombres-instagram', '/nombres-anime', '/generador-free-fire', '/espacios-invisible-ff'],
-  ['/nombres-de-mujer', '/nombres-de-nina', '/nombres-de-nino', '/nombres-unisex', '/nombres-raros', '/nombres-por-letra'],
-  ['/nombres-japoneses', '/nombres-coreanos', '/nombres-chinos', '/nombres-rusos', '/nombres-griegos', '/nombres-italianos', '/nombres-franceses', '/nombres-turcos', '/nombres-ingles', '/nombres-mayas', '/nombres-de-dioses'],
-  ['/nombres-perritas', '/nombres-perros-machos', '/nombres-gatos', '/nombres-gatos-negros', '/nombres-gatos-machos', '/perritas-chihuahua', '/nombres-caballos'],
-  ['/nombres-por-letra', '/nombres-con-a', '/nombres-con-b', '/nombres-con-c', '/nombres-con-e', '/nombres-con-f', '/nombres-con-m', '/nombres-con-en', '/nombres-con-y', '/nombres-con-z'],
-  ['/nombres-equipos-futbol', '/nombres-para-tiendas', '/nombres-peluches'],
-];
 
 function getTopicalLinks(currentPath: string, data: CategoryData) {
   if (data.related?.length) {
     return data.related
-      .filter(link => link.path !== currentPath)
+      .filter((link) => link.path !== currentPath)
       .slice(0, 6)
-      .map(link => ({ path: link.path, label: link.title }));
+      .map((link) => ({ path: link.path, label: link.title }));
   }
 
-  const cluster = topicalClusters.find(paths => paths.includes(currentPath));
-  if (cluster) {
-    const clusterSet = new Set(cluster);
-    return allLinks
-      .filter(link => clusterSet.has(link.path) && link.path !== currentPath)
-      .slice(0, 6);
-  }
+  const relatedPaths = new Set(getClusterRelatedPaths(currentPath));
 
   return allLinks
-    .filter(link => link.path !== currentPath && link.path !== '/')
+    .filter((link) => relatedPaths.has(link.path))
     .slice(0, 6);
 }
 
@@ -66,7 +51,7 @@ export default function SeoGuide({ data, currentPath }: { data: CategoryData; cu
         <div className="gdn-surface rounded-2xl p-7 border">
           <h3 className="text-xl font-bold text-zinc-100 mb-6 font-heading">Más Generadores</h3>
           <div className="space-y-2">
-            {moreLinks.map(link => (
+            {moreLinks.map((link) => (
               <a
                 key={link.path}
                 href={link.path}
