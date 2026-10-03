@@ -1,5 +1,7 @@
 'use client';
 
+import { speakName as readNameAloud } from '../../utils/speech';
+
 import { useState } from 'react';
 import { Copy, Volume2 } from 'lucide-react';
 
@@ -13,15 +15,7 @@ export default function MayaNamesTool({
   const [myTotem, setMyTotem] = useState('Jaguar 🐆');
   const [mySelectedFrame, setMySelectedFrame] = useState('🗿 [Totem] • [Name] • 🪶 🗿');
 
-  const speakMaya = (text: string) => {
-    if ('speechSynthesis' in window) {
-      window.speechSynthesis.cancel();
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = 'es-MX';
-      utterance.rate = 0.85;
-      window.speechSynthesis.speak(utterance);
-    }
-  };
+  const speakMaya = (text: string) => readNameAloud(text, 'es-MX');
 
   return (
     <div className="gdn-tool-shell max-w-6xl mx-auto py-4 space-y-8">
@@ -36,7 +30,7 @@ export default function MayaNamesTool({
     <span>🗿</span> Generador y Creador de Nombres Mayas y Prehispánicos (con Audio)
     </h2>
     <p className="text-zinc-400 mt-1 text-sm">
-    Explora nombres sagrados conectados con la astronomía, deidades y tótems de la selva con pronunciación en audio.
+    Explora referencias culturales y propuestas de apodos. La lectura es sintetizada en español; no verifica la pronunciación en lenguas mayas. Los emoji son decorativos, no glifos mayas.
     </p>
     </div>
     </div>
@@ -51,8 +45,8 @@ export default function MayaNamesTool({
     <div className="space-y-4 md:col-span-2">
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
     <div>
-    <label className="text-xs font-semibold text-zinc-400 block mb-2">Tótem / Animal de Poder:</label>
-    <select aria-label="Seleccionar opción" value={myTotem}
+    <label htmlFor="mayanamestool-field-1" className="text-xs font-semibold text-zinc-400 block mb-2">Tótem / Animal de Poder:</label>
+    <select id="mayanamestool-field-1" aria-label="Seleccionar opción" value={myTotem}
     onChange={(e) => setMyTotem(e.target.value)}
     className="gdn-tool-input w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-emerald-500 text-sm font-semibold"
     >
@@ -63,8 +57,8 @@ export default function MayaNamesTool({
     </div>
     
     <div>
-    <label className="text-xs font-semibold text-zinc-400 block mb-2">Nombre Maya / Prehispánico:</label>
-    <input
+    <label htmlFor="mayanamestool-field-2" className="text-xs font-semibold text-zinc-400 block mb-2">Nombre Maya / Prehispánico:</label>
+    <input id="mayanamestool-field-2"
     type="text"
     value={myCustomName}
     onChange={(e) => setMyCustomName(e.target.value)}
@@ -75,7 +69,7 @@ export default function MayaNamesTool({
     </div>
     
     <div>
-    <label className="text-xs font-semibold text-zinc-400 block mb-2">Estilo de Marco Jeroglífico / Sagrado:</label>
+    <label className="text-xs font-semibold text-zinc-400 block mb-2">Estilo de Marco Decorativo:</label>
     <div className="flex flex-wrap gap-2">
     {[
     '🗿 [Totem] • [Name] • 🪶 🗿',
@@ -169,18 +163,18 @@ export default function MayaNamesTool({
     
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
     {[
-    { name: 'Ixchel', mean: 'Diosa maya de la luna, la medicina, el tejido y el amor divino', symbol: '🌙 Luna Sagrada', category: 'Deidades ☀️' },
-    { name: 'Itza', mean: 'Regalo de Dios / Magia nacida de las aguas cristalinas', symbol: '💧 Agua Pura', category: 'Niñas 🌸' },
-    { name: 'Yaretzi', mean: 'Siempre serás amada por los dioses y tu pueblo', symbol: '💖 Amor Eterno', category: 'Niñas 🌸' },
-    { name: 'Kinich', mean: 'Rostro del sol / Dios solar de la energía y luz radiante', symbol: '☀️ Sol Radiante', category: 'Deidades ☀️' },
-    { name: 'Balam', mean: 'Jaguar protector de la selva y las montañas sagradas', symbol: '🐆 Jaguar', category: 'Naturaleza 🐆' },
-    { name: 'Nicté', mean: 'Flor sagrada de mayo, pureza y delicadeza', symbol: '🌸 Flor Maya', category: 'Niñas 🌸' },
-    { name: 'Zazil', mean: 'Luz clara, transparencia y resplandor del amanecer', symbol: '✨ Luz Clara', category: 'Elegantes 💎' },
-    { name: 'Canek', mean: 'Serpiente negra de fuego y rey guerrero maya', symbol: '🐍 Serpiente', category: 'Niños ⚡' },
-    { name: 'Amaité', mean: 'Rostro del cielo infinito y brisa sagrada', symbol: '☁️ Cielo Infinito', category: 'Elegantes 💎' },
-    { name: 'K\'uk\'ulkan', mean: 'Serpiente emplumada sagrada y viento divino', symbol: '🪶 Quetzal Sagrado', category: 'Deidades ☀️' },
-    { name: 'Kaknab', mean: 'Mar infinito y gran océano de aguas profundas', symbol: '🌊 Gran Océano', category: 'Naturaleza 🐆' },
-    { name: 'Yaxkin', mean: 'Sol verde, renacer de la tierra y nuevo amanecer', symbol: '🌅 Nuevo Sol', category: 'Niños ⚡' }
+    { name: 'Ixchel', mean: 'Referencia a una deidad maya; no equivale a una etimología literal', symbol: '🌙 Luna Sagrada', category: 'Deidades ☀️' },
+    { name: 'Itza', mean: 'Origen y significado pendientes de verificación; no se presenta como traducción maya confirmada', symbol: '💧 Agua Pura', category: 'Niñas 🌸' },
+    { name: 'Yaretzi', mean: 'Origen y significado pendientes de verificación; no se presenta como traducción maya confirmada', symbol: '💖 Amor Eterno', category: 'Niñas 🌸' },
+    { name: 'Kinich', mean: 'Origen y significado pendientes de verificación; no se presenta como traducción maya confirmada', symbol: '☀️ Sol Radiante', category: 'Deidades ☀️' },
+    { name: 'Balam', mean: 'Jaguar; las asociaciones poéticas no son una traducción literal', symbol: '🐆 Jaguar', category: 'Naturaleza 🐆' },
+    { name: 'Nicté', mean: 'Origen y significado pendientes de verificación; no se presenta como traducción maya confirmada', symbol: '🌸 Flor Maya', category: 'Niñas 🌸' },
+    { name: 'Zazil', mean: 'Origen y significado pendientes de verificación; no se presenta como traducción maya confirmada', symbol: '✨ Luz Clara', category: 'Elegantes 💎' },
+    { name: 'Canek', mean: 'Origen y significado pendientes de verificación; no se presenta como traducción maya confirmada', symbol: '🐍 Serpiente', category: 'Niños ⚡' },
+    { name: 'Amaité', mean: 'Origen y significado pendientes de verificación; no se presenta como traducción maya confirmada', symbol: '☁️ Cielo Infinito', category: 'Elegantes 💎' },
+    { name: 'K\'uk\'ulkan', mean: 'Origen y significado pendientes de verificación; no se presenta como traducción maya confirmada', symbol: '🪶 Quetzal Sagrado', category: 'Deidades ☀️' },
+    { name: 'Kaknab', mean: 'Origen y significado pendientes de verificación; no se presenta como traducción maya confirmada', symbol: '🌊 Gran Océano', category: 'Naturaleza 🐆' },
+    { name: 'Yaxkin', mean: 'Origen y significado pendientes de verificación; no se presenta como traducción maya confirmada', symbol: '🌅 Nuevo Sol', category: 'Niños ⚡' }
     ].filter(item => myCategoryTab === 'Todos 🗿' || item.category === myCategoryTab).map((item, idx) => (
     <div key={idx} className="bg-zinc-900/80 border border-white/5 hover:border-emerald-500/30 rounded-2xl p-5 flex flex-col justify-between gap-3 transition-all group">
     <div>

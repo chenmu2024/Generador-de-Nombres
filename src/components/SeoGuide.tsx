@@ -69,7 +69,7 @@ export default function SeoGuide({ data, currentPath }: { data: CategoryData; cu
           </div>
         </div>
 
-        <FeedbackWidget />
+        <FeedbackWidget path={currentPath} />
 
         <div className="gdn-surface-raised rounded-2xl p-6 border space-y-3 text-xs text-zinc-400">
           <div className="flex items-center gap-2 text-violet-400 font-bold text-sm">
@@ -77,15 +77,15 @@ export default function SeoGuide({ data, currentPath }: { data: CategoryData; cu
             <span>Metodología y revisión editorial</span>
           </div>
           <p className="leading-relaxed">
-            Revisamos periódicamente los caracteres, símbolos y ejemplos incluidos en nuestras herramientas. La compatibilidad puede variar según la plataforma, el dispositivo y futuras actualizaciones de cada servicio.
+            Las selecciones son orientativas. Los significados y orígenes requieren consultar fuentes específicas; no todos los ejemplos han sido verificados etimológicamente. La compatibilidad puede variar según la plataforma, el dispositivo y futuras actualizaciones de cada servicio.
           </p>
           <div className="pt-2.5 border-t border-white/5 space-y-1.5 text-[11px] text-zinc-400">
             <div className="flex items-center justify-between">
-              <span className="text-zinc-500">Última revisión:</span>
-              <span className="font-semibold text-zinc-300">Septiembre 2026</span>
+              <span className="text-zinc-400">Revisión funcional:</span>
+              <span className="font-semibold text-zinc-300">3 de octubre de 2026</span>
             </div>
             <div className="flex items-center justify-between">
-              <span className="text-zinc-500">Compatibilidad:</span>
+              <span className="text-zinc-400">Compatibilidad:</span>
               <span className="font-semibold text-emerald-400">Compatibilidad variable por plataforma</span>
             </div>
             <div className="flex items-center justify-between pt-1">

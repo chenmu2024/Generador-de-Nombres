@@ -5,6 +5,9 @@ import { Link } from '../components/Link';
 import { useLocation, useNavigate } from '../utils/router';
 import { Flame, Menu, X, ChevronDown, Gamepad2, Users, Heart, Type, Globe, Briefcase, Search, Sparkles, ArrowRight, Bookmark, Copy, Trash2, Check, ExternalLink, ShieldAlert } from 'lucide-react';
 import { allLinks } from '../data/allLinks';
+import { copyText } from '../utils/clipboard';
+import { readFavorites, writeStorage } from '../utils/browserStorage';
+import { useDialog } from '../components/useDialog';
 import CookieBanner from '../components/CookieBanner';
 
 const navGroups = [
@@ -99,22 +102,14 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
   const [copiedFavorite, setCopiedFavorite] = useState<string | null>(null);
 
   // Load favorites from LocalStorage
-  const loadFavorites = () => {
-    try {
-      const stored = localStorage.getItem('gdn_favorites');
-      if (stored) {
-        setFavorites(JSON.parse(stored));
-      }
-    } catch (e) {
-      console.error(e);
-    }
-  };
+  const loadFavorites = () => setFavorites(readFavorites());
 
   useEffect(() => {
     loadFavorites();
     const handleFavUpdate = () => loadFavorites();
     window.addEventListener('gdn_favorites_updated', handleFavUpdate);
-    return () => window.removeEventListener('gdn_favorites_updated', handleFavUpdate);
+    window.addEventListener('storage', handleFavUpdate);
+    return () => { window.removeEventListener('gdn_favorites_updated', handleFavUpdate); window.removeEventListener('storage', handleFavUpdate); };
   }, []);
 
   // Global Ctrl + K listener
@@ -150,30 +145,47 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
   const removeFavorite = (nameToRemove: string) => {
     const updated = favorites.filter(f => f !== nameToRemove);
     setFavorites(updated);
-    localStorage.setItem('gdn_favorites', JSON.stringify(updated));
+    writeStorage('gdn_favorites', JSON.stringify(updated));
     window.dispatchEvent(new Event('gdn_favorites_updated'));
   };
 
   const clearAllFavorites = () => {
     setFavorites([]);
-    localStorage.removeItem('gdn_favorites');
+    writeStorage('gdn_favorites', '[]');
     window.dispatchEvent(new Event('gdn_favorites_updated'));
   };
 
-  const copyAllFavorites = () => {
+  const copyAllFavorites = async () => {
     if (favorites.length === 0) return;
-    navigator.clipboard.writeText(favorites.join('\n'));
+    if (!await copyText(favorites.join('\n'))) return;
     setFavCopied(true);
     setTimeout(() => setFavCopied(false), 2000);
   };
 
-  const copyFavorite = (name: string) => {
-    navigator.clipboard.writeText(name);
+  const copyFavorite = async (name: string) => {
+    if (!await copyText(name)) return;
     setCopiedFavorite(name);
     setTimeout(() => {
       setCopiedFavorite(current => current === name ? null : current);
     }, 1600);
   };
+
+  const [audioError, setAudioError] = useState<string | null>(null);
+  useEffect(() => {
+    const failed = (event: Event) => setAudioError((event as CustomEvent<string>).detail);
+    window.addEventListener("gdn-audio-error", failed);
+    return () => window.removeEventListener("gdn-audio-error", failed);
+  }, []);
+  const [manualCopy, setManualCopy] = useState<string | null>(null);
+  const manualDialogRef = useDialog(manualCopy !== null, () => setManualCopy(null));
+  const menuDialogRef = useDialog(isMenuOpen, () => setIsMenuOpen(false));
+  const searchDialogRef = useDialog(isSearchOpen, () => setIsSearchOpen(false));
+  const favoritesDialogRef = useDialog(isFavDrawerOpen, () => setIsFavDrawerOpen(false));
+  useEffect(() => {
+    const failed = (event: Event) => setManualCopy((event as CustomEvent<string>).detail);
+    window.addEventListener('gdn-copy-error', failed);
+    return () => window.removeEventListener('gdn-copy-error', failed);
+  }, []);
 
   // Filter categories and pages for quick search
   const searchablePages = allLinks.map(page => ({
@@ -194,6 +206,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
 
   return (
     <div className="gdn-shell min-h-screen text-zinc-100 flex flex-col font-sans selection:bg-violet-500/30">
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:p-4 focus:bg-zinc-900">Saltar al contenido</a>
       <header className="gdn-header backdrop-blur-xl border-b sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16 gap-3">
@@ -210,7 +223,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
             <nav className="gdn-nav hidden xl:flex items-center gap-1 p-1 border">
               <Link
                 to="/"
-                className={`px-3 py-1.5 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 ${
+                className={`px-2.5 py-1.5 rounded-xl text-xs font-medium transition-all duration-300 ${
                   location.pathname === '/'
                     ? 'bg-white/10 text-white shadow-sm'
                     : 'text-zinc-400 hover:text-zinc-100 hover:bg-white/5'
@@ -239,7 +252,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
                       onFocus={() => setActiveDropdown(group.title)}
                       aria-haspopup="menu"
                       aria-expanded={activeDropdown === group.title}
-                      className={`flex items-center gap-1 px-3 py-1.5 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 ${
+                      className={`flex items-center gap-1 px-2.5 py-1.5 rounded-xl text-xs font-medium transition-all duration-300 ${
                         isGroupActive
                           ? 'bg-white/10 text-white shadow-sm'
                           : 'text-zinc-400 hover:text-zinc-100 hover:bg-white/5'
@@ -305,8 +318,8 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
                 className="gdn-chip border rounded-xl px-3 py-1.5 text-xs flex items-center gap-2 transition-all"
               >
                 <Search className="w-3.5 h-3.5 text-violet-400" />
-                <span className="hidden md:inline">Buscar categorías...</span>
-                <span className="md:hidden">Buscar</span>
+                <span className="hidden 2xl:inline">Buscar categorías...</span>
+                <span className="2xl:hidden">Buscar</span>
                 <kbd className="hidden md:inline-block bg-white/10 border border-white/10 rounded px-1.5 py-0.5 text-[10px] font-mono text-zinc-400">
                   Ctrl K
                 </kbd>
@@ -329,10 +342,10 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
         {/* Mobile Nav */}
         {isMenuOpen && (
           <div
-            id="mobile-primary-navigation"
+            id="mobile-primary-navigation" ref={menuDialogRef} role="dialog" aria-modal="true" aria-label="Menú principal" tabIndex={-1}
             className="xl:hidden border-t gdn-header overflow-hidden max-h-[85vh] overflow-y-auto animate-in slide-in-from-top duration-200"
           >
-            <div className="px-4 pt-4 pb-6 space-y-4">
+            <div className="px-4 pt-4 pb-6 space-y-4"><button onClick={() => setIsMenuOpen(false)} className="gdn-chip p-3 rounded-xl border">Cerrar menú</button>
               <Link
                 to="/"
                 onClick={() => setIsMenuOpen(false)}
@@ -373,7 +386,8 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
         )}
       </header>
 
-      <main className="flex-grow min-h-screen">
+      <CookieBanner />
+      <main id="main-content" tabIndex={-1} className="flex-grow min-h-screen">
         {children}
       </main>
 
@@ -458,9 +472,10 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
             </div>
           </div>
           
-          <nav aria-label="Enlaces legales y de contacto" className="mt-12 pt-8 border-t border-white/5 flex flex-wrap justify-center gap-8 text-sm text-zinc-600">
+          <nav aria-label="Enlaces legales y de contacto" className="mt-12 pt-8 border-t border-white/5 flex flex-wrap justify-center gap-8 text-sm text-zinc-400">
             <Link to="/sobre-nosotros" className="hover:text-zinc-300 transition-colors">Sobre Nosotros</Link>
             <Link to="/politica-de-privacidad" className="hover:text-zinc-300 transition-colors">Política de Privacidad</Link>
+            <button onClick={() => window.dispatchEvent(new Event("gdn-privacy-settings"))} className="hover:text-zinc-300">Preferencias de privacidad</button>
             <Link to="/terminos-y-condiciones" className="hover:text-zinc-300 transition-colors">Términos y Condiciones</Link>
             <a href="/sitemap.xml" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-300 transition-colors">Mapa del Sitio XML</a>
             <Link to="/contacto" className="hover:text-zinc-300 transition-colors">Contacto y Soporte</Link>
@@ -475,19 +490,27 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
             <p className="text-[11px] text-zinc-400 leading-relaxed">
               <strong>GeneradorDeNombres.net</strong> es una plataforma y herramienta independiente de utilidades tipográficas, generación de texto Unicode y apoyo comunitario. Este sitio web <strong>NO</strong> está afiliado, patrocinado, respaldado ni asociado oficialmente con Garena International I Private Limited, Sea Group, Roblox Corporation, Meta Platforms Inc., ni ninguna de sus empresas matrices o subsidiarias.
             </p>
-            <p className="text-[11px] text-zinc-500 leading-relaxed">
+            <p className="text-[11px] text-zinc-400 leading-relaxed">
               Las marcas comerciales, nombres de productos y logotipos como <em>"Free Fire"</em>, <em>"Roblox"</em>, <em>"Instagram"</em> y otros citados en este sitio pertenecen en su totalidad a sus respectivos propietarios legales. Su mención en este portal se realiza con fines estrictamente identificativos e informativos bajo el principio de <strong>Uso Legítimo Nominativo</strong> para señalar la compatibilidad de caracteres, fuentes y nombres generados.
             </p>
           </div>
 
-          <p className="text-zinc-700 text-sm mt-8">
+          <p className="text-zinc-400 text-sm mt-8">
             © {new Date().getFullYear()} generadordenombres.net. Todos los derechos reservados.
           </p>
         </div>
       </footer>
 
+      {audioError && <div role="status" className="fixed bottom-4 left-4 right-4 z-[100] gdn-surface p-4 rounded-xl border">{audioError}<button className="ml-4 underline" onClick={() => setAudioError(null)}>Cerrar</button></div>}
       {/* Cookie Consent Banner for AdSense / GDPR */}
-      <CookieBanner />
+      {manualCopy !== null && <div ref={manualDialogRef} role="dialog" aria-modal="true" aria-label="Copiar manualmente" tabIndex={-1} className="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center p-4">
+        <div className="gdn-surface p-6 rounded-2xl border w-full max-w-lg space-y-4">
+          <h2 className="text-xl font-bold">Copiar manualmente</h2>
+          <p>No se pudo acceder al portapapeles. Selecciona el texto y cópialo con el menú del dispositivo o Ctrl/Cmd+C.</p>
+          <textarea aria-label="Texto para copiar" className="gdn-input w-full p-3 border rounded-xl" readOnly value={manualCopy} onFocus={event => event.target.select()} />
+          <button onClick={() => setManualCopy(null)} className="gdn-primary-button p-3 rounded-xl">Cerrar</button>
+        </div>
+      </div>}
 
       {/* Global Quick Search Modal (Ctrl + K) */}
       {isSearchOpen && (
@@ -496,7 +519,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
           onClick={() => setIsSearchOpen(false)}
           role="dialog"
           aria-modal="true"
-          aria-label="Buscar categorías y herramientas"
+          aria-label="Buscar categorías y herramientas" ref={searchDialogRef} tabIndex={-1}
         >
           <div
             className="gdn-surface border rounded-2xl max-w-2xl w-full overflow-hidden relative animate-in zoom-in-95 duration-200"
@@ -509,6 +532,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
+                aria-label="Buscar generadores y categorías"
                 placeholder="Buscar generadores, categorías (Free Fire, Peluches, Gatos...)"
                 className="w-full bg-transparent text-white placeholder-zinc-500 text-sm font-semibold focus:outline-none"
                 autoFocus
@@ -590,7 +614,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
           onClick={() => setIsFavDrawerOpen(false)}
           role="dialog"
           aria-modal="true"
-          aria-label="Mis nombres favoritos"
+          aria-label="Mis nombres favoritos" ref={favoritesDialogRef} tabIndex={-1}
         >
           <div
             className="gdn-surface border-l w-full max-w-md h-full flex flex-col overflow-hidden animate-in slide-in-from-right duration-250"

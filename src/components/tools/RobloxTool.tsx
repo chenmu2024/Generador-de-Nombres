@@ -29,16 +29,16 @@ export default function RobloxTool({ handleCopyTrending }: RobloxToolProps) {
               Comprobador de Validez de Username en Roblox
             </h2>
             <p className="text-zinc-400 mt-2 max-w-2xl">
-              Verifica si tu propuesta de usuario cumple con las reglas oficiales de Roblox antes de crear tu cuenta.
+              Verifica si tu propuesta de usuario cumple con las reglas oficiales de Roblox como comprobación de formato. La disponibilidad y moderación se comprueban en Roblox.
             </p>
           </div>
         </div>
 
         <div className="gdn-tool-result bg-zinc-900/90 border border-white/10 rounded-2xl p-6 relative z-10 space-y-6">
           <div>
-            <label className="text-xs font-semibold text-zinc-400 block mb-2">Escribe tu candidato a Username de Roblox:</label>
+            <label htmlFor="robloxtool-field-1" className="text-xs font-semibold text-zinc-400 block mb-2">Escribe tu candidato a Username de Roblox:</label>
             <div className="gdn-validator-field relative">
-              <input
+              <input id="robloxtool-field-1"
                 type="text"
                 value={robloxInput}
                 onChange={(e) => setRobloxInput(e.target.value)}
@@ -48,7 +48,7 @@ export default function RobloxTool({ handleCopyTrending }: RobloxToolProps) {
               <div className="gdn-validator-status absolute right-4 top-1/2 -translate-y-1/2">
                 {isRobloxValid ? (
                   <span className="px-3 py-1 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded-full text-xs font-bold">
-                    ✓ Válido en Roblox
+                    ✓ Formato básico válido
                   </span>
                 ) : (
                   <span className="px-3 py-1 bg-amber-500/20 text-amber-400 border border-amber-500/30 rounded-full text-xs font-bold">
@@ -121,13 +121,13 @@ export default function RobloxTool({ handleCopyTrending }: RobloxToolProps) {
       <div className="bg-[#121212] border border-fuchsia-500/20 rounded-3xl p-8 shadow-2xl relative overflow-hidden">
         <div className="mb-6">
           <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-fuchsia-500/10 border border-fuchsia-500/20 text-fuchsia-300 text-xs font-semibold uppercase tracking-wider mb-2">
-            ✨ 100% Permitido en Roblox
+            ✨ Ideas para comprobar en Roblox
           </span>
           <h2 className="text-2xl md:text-3xl font-bold text-white font-heading">
             Generador de Display Name Aesthetic para Roblox
           </h2>
           <p className="text-zinc-400 mt-1 text-sm">
-            A diferencia del Username, tu <strong>Display Name</strong> sí admite espacios, emojis y fuentes especiales.
+            A diferencia del Username, tu <strong>Display Name</strong> tiene reglas propias de formato y moderación. Estos ejemplos decorativos pueden ser rechazados; compruébalos en Roblox antes de usarlos.
           </p>
         </div>
 

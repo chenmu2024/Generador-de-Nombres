@@ -1,5 +1,7 @@
 'use client';
 
+import { speakName as readNameAloud } from '../../utils/speech';
+
 import { useState } from 'react';
 import { Copy, Flame, Sparkles, Volume2 } from 'lucide-react';
 
@@ -12,16 +14,7 @@ export default function RareNamesTool({
   const [rareSecondName, setRareSecondName] = useState('Cassian');
   const [rareVibe, setRareVibe] = useState<'mitologia' | 'espacial' | 'antiguo' | 'fantasia'>('mitologia');
 
-  const speakName = (text: string) => {
-    if ('speechSynthesis' in window) {
-      window.speechSynthesis.cancel();
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = 'es-ES';
-      utterance.pitch = 1.2;
-      utterance.rate = 0.85;
-      window.speechSynthesis.speak(utterance);
-    }
-  };
+  const speakName = (text: string) => readNameAloud(text, 'es-ES');
 
   return (
     <div className="gdn-tool-shell bg-gradient-to-br from-purple-950/40 via-[#121212] to-indigo-950/30 border border-purple-500/30 rounded-3xl p-8 shadow-2xl relative overflow-hidden space-y-6">
@@ -34,7 +27,7 @@ export default function RareNamesTool({
     Nombres Raros (Únicos, Poco Comunes y Fascinantes)
     </h2>
     <p className="text-zinc-400 mt-2 max-w-2xl text-sm">
-    Explora nombres extravagantes, mitológicos y cósmicos. Combina dos nombres exóticos, descubre su etimología antigua y escucha la pronunciación en audio real.
+    Explora nombres extravagantes, mitológicos y cósmicos. Combina dos nombres exóticos, descubre su etimología antigua y escucha la lectura sintetizada del dispositivo.
     </p>
     </div>
     </div>
@@ -72,8 +65,8 @@ export default function RareNamesTool({
     {/* Inputs Row */}
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
     <div>
-    <label className="text-[11px] text-zinc-400 font-bold uppercase block mb-1">1. Primer Nombre Raro / Base</label>
-    <input
+    <label htmlFor="rarenamestool-field-1" className="text-[11px] text-zinc-400 font-bold uppercase block mb-1">1. Primer Nombre Raro / Base</label>
+    <input id="rarenamestool-field-1"
     type="text"
     value={rareFirstName}
     onChange={(e) => setRareFirstName(e.target.value)}
@@ -82,8 +75,8 @@ export default function RareNamesTool({
     />
     </div>
     <div>
-    <label className="text-[11px] text-zinc-400 font-bold uppercase block mb-1">2. Segundo Nombre / Apellido Raro</label>
-    <input
+    <label htmlFor="rarenamestool-field-2" className="text-[11px] text-zinc-400 font-bold uppercase block mb-1">2. Segundo Nombre / Apellido Raro</label>
+    <input id="rarenamestool-field-2"
     type="text"
     value={rareSecondName}
     onChange={(e) => setRareSecondName(e.target.value)}

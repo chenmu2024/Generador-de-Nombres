@@ -24,7 +24,7 @@ export default function PrivacyPolicy() {
             Política de Privacidad y Cookies
           </h1>
           <p className="text-zinc-400 max-w-xl mx-auto text-sm">
-            Última actualización: Agosto de 2026. Transparencia total sobre el uso de cookies y protección de privacidad.
+            Última actualización: 3 de octubre de 2026. Información sobre almacenamiento local y servicios opcionales.
           </p>
         </div>
 
@@ -35,23 +35,17 @@ export default function PrivacyPolicy() {
               1. Responsable del Tratamiento de Datos
             </h2>
             <p>
-              En <strong>GeneradorDeNombres.net</strong> nos tomamos muy en serio la privacidad de nuestros visitantes. Esta política describe los tipos de información personal que recibimos y recopilamos, así como la forma en que la utilizamos y protegemos en cumplimiento de las normativas de protección de datos (RGPD y CCPA).
+              En <strong>GeneradorDeNombres.net</strong> nos tomamos muy en serio la privacidad de nuestros visitantes. Esta política describe los tipos de información personal que recibimos y recopilamos, así como el uso de almacenamiento local y servicios opcionales de medición.
             </p>
           </section>
 
           <section className="space-y-3">
             <h2 className="text-xl font-bold text-white flex items-center gap-2">
               <Eye className="w-5 h-5 text-emerald-400" />
-              2. Cookies de Publicidad y servicios publicitarios, si se habilitan
+              2. Almacenamiento local y preferencias
             </h2>
-            <p>
-              Nuestra plataforma utiliza proveedores de terceros, incluido <strong>servicios publicitarios, si se habilitan</strong>, para mostrar anuncios publicitarios relevantes cuando visitas nuestro sitio web:
-            </p>
-            <ul className="list-disc list-inside space-y-1 pl-2 text-zinc-400">
-              <li>Google utiliza cookies (como la cookie de DART) para mostrar anuncios basados en las visitas previas del usuario a este u otros sitios de Internet.</li>
-              <li>Los usuarios pueden inhabilitar el uso de la cookie de DART o personalizar los anuncios mediante la configuración de anuncios de Google en <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" className="text-violet-400 underline">google.com/settings/ads</a>.</li>
-              <li>Puedes gestionar tus preferencias de privacidad y consentimiento de cookies en cualquier momento a través del banner de configuración de cookies en nuestro sitio.</li>
-            </ul>
+            <p>La elección de privacidad, los favoritos y las valoraciones se guardan en este navegador. Si el almacenamiento no está disponible, se conservan solo durante la sesión. Los nombres escritos se procesan localmente y no se envían como eventos de analítica.</p>
+            <p>Puedes eliminar los favoritos desde su panel o borrar los datos del sitio en tu navegador. Cambia la elección de analítica desde “Preferencias de privacidad” en el pie de página. La versión actual no carga un servicio publicitario.</p>
           </section>
 
           <section className="space-y-3">
@@ -60,7 +54,7 @@ export default function PrivacyPolicy() {
               3. Archivos de Registro y Telemetría
             </h2>
             <p>
-              Al igual que la mayoría de los sitios web, recopilamos información no identificable almacenada en archivos de registro del servidor. Esta información incluye direcciones IP, tipo de navegador, proveedor de servicios de Internet (ISP), páginas de entrada y salida, y fecha/hora con el único objetivo de analizar tendencias y administrar el sitio.
+              Vercel Web Analytics y Speed Insights solo se cargan tras aceptar la medición opcional. Permiten medir visitas y rendimiento. No enviamos el contenido de nombres, favoritos ni mensajes. El proveedor de alojamiento puede mantener registros operativos separados. Consulta las políticas de <a href="https://vercel.com/docs/analytics/privacy-policy" className="underline">Web Analytics</a> y <a href="https://vercel.com/docs/speed-insights/privacy-policy" className="underline">Speed Insights</a>.
             </p>
           </section>
 
@@ -70,7 +64,7 @@ export default function PrivacyPolicy() {
               4. Tus Derechos de Privacidad (RGPD / CCPA)
             </h2>
             <p>
-              Como usuario, tienes derecho a solicitar acceso, rectificación, portabilidad o supresión de cualquier dato relativo a tu interacción con el sitio web. Dado que no requerimos registro ni creamos cuentas de usuario, no almacenamos datos personales identificables en nuestras bases de datos.
+              Como usuario, tienes derecho a solicitar acceso, rectificación, portabilidad o supresión de cualquier dato relativo a tu interacción con el sitio web. No hay cuentas de usuario en esta herramienta. El formulario de contacto abre tu aplicación de correo: el nombre, dirección y mensaje solo llegan al equipo si envías ese correo. Para consultas o solicitudes relativas a datos que hayas enviado, utiliza la página de contacto.
             </p>
           </section>
 

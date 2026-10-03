@@ -1,5 +1,7 @@
 'use client';
 
+import { speakName as readNameAloud } from '../../utils/speech';
+
 import { useState } from 'react';
 import { Copy, Volume2 } from 'lucide-react';
 
@@ -14,15 +16,7 @@ export default function KoreanNamesTool({
   const [krSelectedSurname, setKrSelectedSurname] = useState('Kim (김)');
   const [krSelectedFrame, setKrSelectedFrame] = useState('✨ [Surname] [Name] ([Hangul]) ✨');
 
-  const speakKorean = (text: string) => {
-    if ('speechSynthesis' in window) {
-      window.speechSynthesis.cancel();
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = 'ko-KR';
-      utterance.rate = 0.85;
-      window.speechSynthesis.speak(utterance);
-    }
-  };
+  const speakKorean = (text: string) => readNameAloud(text, 'ko-KR');
 
   return (
     <div className="gdn-tool-shell max-w-6xl mx-auto py-4 space-y-8">
@@ -37,7 +31,7 @@ export default function KoreanNamesTool({
     <span>🇰🇷</span> Generador y Creador de Nombres Coreanos (con Audio)
     </h2>
     <p className="text-zinc-400 mt-1 text-sm">
-    Explora nombres en Hangul, romanización oficial, pronunciación nativa en audio y creador de apodos Idol.
+    Explora nombres en Hangul, romanización convencional y lectura sintetizada, si hay una voz coreana disponible y creador de apodos Idol.
     </p>
     </div>
     </div>
@@ -52,8 +46,8 @@ export default function KoreanNamesTool({
     <div className="space-y-4 md:col-span-2">
     <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
     <div>
-    <label className="text-xs font-semibold text-zinc-400 block mb-2">Apellido Coreano:</label>
-    <select aria-label="Seleccionar opción" value={krSelectedSurname}
+    <label htmlFor="koreannamestool-field-1" className="text-xs font-semibold text-zinc-400 block mb-2">Apellido Coreano:</label>
+    <select id="koreannamestool-field-1" aria-label="Seleccionar opción" value={krSelectedSurname}
     onChange={(e) => setKrSelectedSurname(e.target.value)}
     className="gdn-tool-input w-full bg-zinc-800 border border-white/10 rounded-xl px-3 py-2.5 text-white focus:outline-none focus:border-violet-500 text-sm font-semibold"
     >
@@ -64,8 +58,8 @@ export default function KoreanNamesTool({
     </div>
     
     <div>
-    <label className="text-xs font-semibold text-zinc-400 block mb-2">Nombre / Romaji:</label>
-    <input
+    <label htmlFor="koreannamestool-field-2" className="text-xs font-semibold text-zinc-400 block mb-2">Nombre / Romanización:</label>
+    <input id="koreannamestool-field-2"
     type="text"
     value={krCustomName}
     onChange={(e) => setKrCustomName(e.target.value)}
@@ -75,8 +69,8 @@ export default function KoreanNamesTool({
     </div>
     
     <div>
-    <label className="text-xs font-semibold text-zinc-400 block mb-2">Hangul (한글):</label>
-    <input
+    <label htmlFor="koreannamestool-field-3" className="text-xs font-semibold text-zinc-400 block mb-2">Hangul (한글):</label>
+    <input id="koreannamestool-field-3"
     type="text"
     value={krCustomHangul}
     onChange={(e) => setKrCustomHangul(e.target.value)}
@@ -161,7 +155,7 @@ export default function KoreanNamesTool({
     <h3 className="text-xl font-bold text-white font-heading flex items-center gap-2">
     <span>📚</span> Nombres Coreanos Famosos con Significado
     </h3>
-    <p className="text-xs text-zinc-400 mt-1">Filtra por categorías y escucha la voz nativa en coreano.</p>
+    <p className="text-xs text-zinc-400 mt-1">Filtra por categorías y escucha una lectura sintetizada si el dispositivo tiene una voz coreana.</p>
     </div>
     
     <div className="flex flex-wrap gap-2">
@@ -183,18 +177,18 @@ export default function KoreanNamesTool({
     
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
     {[
-    { hangul: '지은', name: 'Ji-Eun', mean: 'Sabiduría profunda y amabilidad', vibe: '✨ Estilo IU', category: 'Niñas 🌸' },
-    { hangul: '수아', name: 'Soo-Ah', mean: 'Agua pura y elegancia hermosa', vibe: '🌸 Protagonista Dorama', category: 'K-Drama 🎬' },
-    { hangul: '민지', name: 'Min-Ji', mean: 'Inteligencia y brillo radiante', vibe: '💖 Estilo NewJeans', category: 'Niñas 🌸' },
-    { hangul: '은지', name: 'Eun-Ji', mean: 'Gracia divina y amabilidad humana', vibe: '🌿 K-Pop Idol', category: 'Niñas 🌸' },
-    { hangul: '태형', name: 'Tae-Hyung', mean: 'Gran éxito y prosperidad', vibe: '🌟 Estilo BTS V', category: 'K-Pop Idols 🎤' },
-    { hangul: '정국', name: 'Jung-Kook', mean: 'Pilar fuerte y noble de la nación', vibe: '🔥 Estilo BTS JK', category: 'K-Pop Idols 🎤' },
-    { hangul: '민호', name: 'Min-Ho', mean: 'Valentía brillante y liderazgo', vibe: '🎬 Estilo Lee Min-ho', category: 'K-Drama 🎬' },
-    { hangul: '서윤', name: 'Seo-Yoon', mean: 'Bendición presagiada y luz pura', vibe: '✨ Clásico Elegante', category: 'Niñas 🌸' },
-    { hangul: '도윤', name: 'Do-Yoon', mean: 'Camino justo y consentimiento', vibe: '⚡ Tendencia Masculina', category: 'Niños ⚡' },
-    { hangul: '현우', name: 'Hyun-Woo', mean: 'Sabio, virtuoso y divino', vibe: '🌟 Actor de Dorama', category: 'K-Drama 🎬' },
-    { hangul: '지수', name: 'Ji-Soo', mean: 'Sabiduría y belleza de río', vibe: '💖 BLACKPINK Jisoo', category: 'K-Pop Idols 🎤' },
-    { hangul: '지민', name: 'Ji-Min', mean: 'Inteligencia brillante y suave', vibe: '✨ BTS Jimin', category: 'K-Pop Idols 🎤' }
+    { hangul: '지은', name: 'Ji-Eun', vibe: '✨ Estilo IU', category: 'Niñas 🌸' },
+    { hangul: '수아', name: 'Soo-Ah', vibe: '🌸 Protagonista Dorama', category: 'K-Drama 🎬' },
+    { hangul: '민지', name: 'Min-Ji', vibe: '💖 Estilo NewJeans', category: 'Niñas 🌸' },
+    { hangul: '은지', name: 'Eun-Ji', vibe: '🌿 K-Pop Idol', category: 'Niñas 🌸' },
+    { hangul: '태형', name: 'Tae-Hyung', vibe: '🌟 Estilo BTS V', category: 'K-Pop Idols 🎤' },
+    { hangul: '정국', name: 'Jung-Kook', vibe: '🔥 Estilo BTS JK', category: 'K-Pop Idols 🎤' },
+    { hangul: '민호', name: 'Min-Ho', vibe: '🎬 Estilo Lee Min-ho', category: 'K-Drama 🎬' },
+    { hangul: '서윤', name: 'Seo-Yoon', vibe: '✨ Clásico Elegante', category: 'Niñas 🌸' },
+    { hangul: '도윤', name: 'Do-Yoon', vibe: '⚡ Tendencia Masculina', category: 'Niños ⚡' },
+    { hangul: '현우', name: 'Hyun-Woo', vibe: '🌟 Actor de Dorama', category: 'K-Drama 🎬' },
+    { hangul: '지수', name: 'Ji-Soo', vibe: '💖 BLACKPINK Jisoo', category: 'K-Pop Idols 🎤' },
+    { hangul: '지민', name: 'Ji-Min', vibe: '✨ BTS Jimin', category: 'K-Pop Idols 🎤' }
     ].filter(item => krCategoryTab === 'Todos 🇰🇷' || item.category === krCategoryTab).map((item, idx) => (
     <div key={idx} className="bg-zinc-900/80 border border-white/5 hover:border-violet-500/30 rounded-2xl p-5 flex flex-col justify-between gap-3 transition-all group">
     <div>
@@ -203,7 +197,7 @@ export default function KoreanNamesTool({
     <span className="text-[10px] bg-violet-500/10 text-violet-300 px-2.5 py-0.5 rounded-full border border-violet-500/20">{item.vibe}</span>
     </div>
     <h3 className="font-bold text-white text-lg font-heading group-hover:text-violet-300 transition-colors">{item.name}</h3>
-    <p className="text-xs text-zinc-400 mt-1">{item.mean}</p>
+    <p className="text-xs text-zinc-400 mt-1">El significado depende de los hanja elegidos; el Hangul por sí solo no lo determina.</p>
     </div>
     
     <div className="space-y-1.5 pt-2 border-t border-white/5">

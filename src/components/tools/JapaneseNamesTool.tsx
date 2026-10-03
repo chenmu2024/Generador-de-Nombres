@@ -1,5 +1,7 @@
 'use client';
 
+import { speakName as readNameAloud } from '../../utils/speech';
+
 import { useState } from 'react';
 import { Copy, Volume2 } from 'lucide-react';
 
@@ -13,15 +15,7 @@ export default function JapaneseNamesTool({
   const [jpCustomKanji, setJpCustomKanji] = useState('桜');
   const [jpSelectedFrame, setJpSelectedFrame] = useState('🌸 [Name] 🌸');
 
-  const speakJapanese = (text: string) => {
-    if ('speechSynthesis' in window) {
-      window.speechSynthesis.cancel();
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = 'ja-JP';
-      utterance.rate = 0.85;
-      window.speechSynthesis.speak(utterance);
-    }
-  };
+  const speakJapanese = (text: string) => readNameAloud(text, 'ja-JP');
 
   return (
     <div className="gdn-tool-shell max-w-6xl mx-auto py-4 space-y-8">
@@ -36,7 +30,7 @@ export default function JapaneseNamesTool({
     <span>🌸</span> Generador de Nombres y Apodos Japoneses (con Audio)
     </h2>
     <p className="text-zinc-400 mt-1 text-sm">
-    Explora nombres con Kanji, pronunciación en audio real, significados y creador de apodos estilo Anime / Gamer.
+    Explora nombres con Kanji, lectura sintetizada del dispositivo, significados y creador de apodos estilo Anime / Gamer.
     </p>
     </div>
     </div>
@@ -51,8 +45,8 @@ export default function JapaneseNamesTool({
     <div className="space-y-4 md:col-span-2">
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
     <div>
-    <label className="text-xs font-semibold text-zinc-400 block mb-2">Nombre Japones / Romaji:</label>
-    <input
+    <label htmlFor="japanesenamestool-field-1" className="text-xs font-semibold text-zinc-400 block mb-2">Nombre Japones / Romaji:</label>
+    <input id="japanesenamestool-field-1"
     type="text"
     value={jpCustomName}
     onChange={(e) => setJpCustomName(e.target.value)}
@@ -61,8 +55,8 @@ export default function JapaneseNamesTool({
     />
     </div>
     <div>
-    <label className="text-xs font-semibold text-zinc-400 block mb-2">Caracter Kanji (Opcional):</label>
-    <input
+    <label htmlFor="japanesenamestool-field-2" className="text-xs font-semibold text-zinc-400 block mb-2">Escritura japonesa (Opcional):</label>
+    <input id="japanesenamestool-field-2"
     type="text"
     value={jpCustomKanji}
     onChange={(e) => setJpCustomKanji(e.target.value)}
@@ -167,22 +161,22 @@ export default function JapaneseNamesTool({
     
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
     {[
-    { kanji: '桜', name: 'Sakura', romaji: 'Sáh-koo-rah', meaning: 'Flor de cerezo y primavera', tag: '🌸 Niñas', category: 'Niñas 🌸' },
-    { kanji: '日向', name: 'Hinata', romaji: 'Hee-nah-tah', meaning: 'Lugar soleado y cálido', tag: '☀️ Anime', category: 'Anime 🎮' },
-    { kanji: '雪', name: 'Yuki', romaji: 'Yoo-kee', meaning: 'Nieve blanca y pureza', tag: '❄️ Niñas', category: 'Niñas 🌸' },
-    { kanji: '蓮', name: 'Ren', romaji: 'Ren', meaning: 'Flor de loto sagrado y fortaleza', tag: '🪷 Niños', category: 'Niños ⚡' },
-    { kanji: '葵', name: 'Aoi', romaji: 'Ah-oh-ee', meaning: 'Flor de malva y azul cobalto', tag: '💙 Niñas', category: 'Niñas 🌸' },
-    { kanji: '空', name: 'Sora', romaji: 'Soh-rah', meaning: 'Cielo infinito y libertad', tag: '☁️ Naturaleza', category: 'Naturaleza 🌿' },
-    { kanji: '心愛', name: 'Kokoa', romaji: 'Koh-koh-ah', meaning: 'Corazón lleno de amor divino', tag: '💖 Niñas', category: 'Niñas 🌸' },
+    { kanji: '桜', name: 'Sakura', romaji: 'Sáh-koo-rah', meaning: 'Cerezo (桜)', tag: '🌸 Niñas', category: 'Niñas 🌸' },
+    { kanji: '日向', name: 'Hinata', romaji: 'Hee-nah-tah', meaning: 'Lugar orientado al sol (日向)', tag: '☀️ Anime', category: 'Anime 🎮' },
+    { kanji: '雪', name: 'Yuki', romaji: 'Yoo-kee', meaning: 'Nieve (雪)', tag: '❄️ Niñas', category: 'Niñas 🌸' },
+    { kanji: '蓮', name: 'Ren', romaji: 'Ren', meaning: 'Loto (蓮)', tag: '🪷 Niños', category: 'Niños ⚡' },
+    { kanji: '葵', name: 'Aoi', romaji: 'Ah-oh-ee', meaning: 'Malva (葵); no equivale al color azul', tag: '💙 Niñas', category: 'Niñas 🌸' },
+    { kanji: '空', name: 'Sora', romaji: 'Soh-rah', meaning: 'Cielo (空)', tag: '☁️ Naturaleza', category: 'Naturaleza 🌿' },
+    { kanji: '心愛', name: 'Kokoa', romaji: 'Koh-koh-ah', meaning: 'Caracteres de corazón (心) y amor (愛)', tag: '💖 Niñas', category: 'Niñas 🌸' },
     { kanji: '健太', name: 'Kenta', romaji: 'Ken-tah', meaning: 'Fuerte, sano y vigoroso', tag: '⚡ Niños', category: 'Niños ⚡' },
-    { kanji: '炭治郎', name: 'Tanjiro', romaji: 'Tahn-jee-roh', meaning: 'Hijo mayor del carbón (Kimetsu)', tag: '⚔️ Anime', category: 'Anime 🎮' },
-    { kanji: '禰豆子', name: 'Nezuko', romaji: 'Neh-zoo-koh', meaning: 'Flor de nieve en la colina', tag: '🌸 Anime', category: 'Anime 🎮' },
-    { kanji: '五条', name: 'Gojo', romaji: 'Goh-joh', meaning: 'Cinco leyes de la alta nobleza', tag: '✨ Anime', category: 'Anime 🎮' },
-    { kanji: '明', name: 'Akira', romaji: 'Ah-kee-rah', meaning: 'Mente clara, brillante e inteligente', tag: '💡 Niños', category: 'Niños ⚡' },
-    { kanji: '楓', name: 'Kaede', romaji: 'Kah-eh-deh', meaning: 'Hoja de arce de otoño', tag: '🍁 Naturaleza', category: 'Naturaleza 🌿' },
-    { kanji: '椿', name: 'Tsubaki', romaji: 'Tsoo-bah-kee', meaning: 'Flor de camelia invernal', tag: '🌺 Naturaleza', category: 'Naturaleza 🌿' },
-    { kanji: 'リヴァイ', name: 'Levi', romaji: 'Reh-vee', meaning: 'Unión y liderazgo supremo', tag: '🗡️ Anime', category: 'Anime 🎮' },
-    { kanji: '花', name: 'Hana', romaji: 'Hah-nah', meaning: 'Flor radiante de jardín', tag: '🌸 Niñas', category: 'Niñas 🌸' }
+    { kanji: '炭治郎', name: 'Tanjiro', romaji: 'Tahn-jee-roh', meaning: 'Nombre de un personaje de Kimetsu no Yaiba; no es una traducción literal', tag: '⚔️ Anime', category: 'Anime 🎮' },
+    { kanji: '禰豆子', name: 'Nezuko', romaji: 'Neh-zoo-koh', meaning: 'Nombre de un personaje de Kimetsu no Yaiba; etimología no verificada', tag: '🌸 Anime', category: 'Anime 🎮' },
+    { kanji: '五条', name: 'Gojo', romaji: 'Goh-joh', meaning: 'Apellido de un personaje de anime; etimología no verificada', tag: '✨ Anime', category: 'Anime 🎮' },
+    { kanji: '明', name: 'Akira', romaji: 'Ah-kee-rah', meaning: 'Brillante / claro (明)', tag: '💡 Niños', category: 'Niños ⚡' },
+    { kanji: '楓', name: 'Kaede', romaji: 'Kah-eh-deh', meaning: 'Arce (楓)', tag: '🍁 Naturaleza', category: 'Naturaleza 🌿' },
+    { kanji: '椿', name: 'Tsubaki', romaji: 'Tsoo-bah-kee', meaning: 'Camelia (椿)', tag: '🌺 Naturaleza', category: 'Naturaleza 🌿' },
+    { kanji: 'リヴァイ', name: 'Levi', romaji: 'Reh-vee', meaning: 'Nombre de personaje escrito en katakana; no es un nombre de origen japonés', tag: '🗡️ Anime', category: 'Anime 🎮' },
+    { kanji: '花', name: 'Hana', romaji: 'Hah-nah', meaning: 'Flor (花)', tag: '🌸 Niñas', category: 'Niñas 🌸' }
     ].filter(item => jpCategoryTab === 'Todos 🌸' || item.category === jpCategoryTab).map((item, idx) => (
     <div key={idx} className="bg-zinc-900/80 border border-white/5 hover:border-rose-500/30 rounded-2xl p-5 flex flex-col justify-between gap-3 transition-all group">
     <div>
@@ -191,14 +185,14 @@ export default function JapaneseNamesTool({
     <span className="text-[10px] bg-rose-500/10 text-rose-300 px-2 py-0.5 rounded-full border border-rose-500/20">{item.tag}</span>
     </div>
     <h3 className="font-bold text-white text-lg font-heading group-hover:text-rose-300 transition-colors">{item.name}</h3>
-    <div className="text-xs text-rose-300/80 italic mb-1">Pronunciación: {item.romaji}</div>
+    <div className="text-xs text-rose-300/80 italic mb-1">Guía aproximada: {item.romaji}</div>
     <p className="text-xs text-zinc-400 leading-relaxed">{item.meaning}</p>
     </div>
     
     <div className="space-y-1.5 pt-2 border-t border-white/5">
     <div className="grid grid-cols-2 gap-1.5">
     <button
-    onClick={() => speakJapanese(item.name)}
+    onClick={() => speakJapanese(item.kanji)}
     className="py-1.5 bg-zinc-800 hover:bg-zinc-700 text-rose-300 rounded-xl text-[11px] font-semibold border border-white/5 transition-all flex items-center justify-center gap-1"
     title="Escuchar audio"
     >

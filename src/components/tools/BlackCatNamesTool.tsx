@@ -1,5 +1,7 @@
 'use client';
 
+import { speakName as readNameAloud } from '../../utils/speech';
+
 import { useState } from 'react';
 import { Copy, Volume2 } from 'lucide-react';
 
@@ -13,16 +15,7 @@ export default function BlackCatNamesTool({
   const [blackCatVibe, setBlackCatVibe] = useState('Místico 🔮');
   const [blackCatSelectedFrame, setBlackCatSelectedFrame] = useState('🐈‍⬛ [Name] • Salem 🔮');
 
-  const speakBlackCatName = (text: string) => {
-    if ('speechSynthesis' in window) {
-      window.speechSynthesis.cancel();
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = 'es-ES';
-      utterance.pitch = 0.8;
-      utterance.rate = 0.85;
-      window.speechSynthesis.speak(utterance);
-    }
-  };
+  const speakBlackCatName = (text: string) => readNameAloud(text, 'es-ES');
 
   return (
     <>
@@ -108,8 +101,8 @@ export default function BlackCatNamesTool({
       <div className="space-y-4 md:col-span-2">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
       <div>
-      <label className="text-xs font-semibold text-zinc-400 block mb-2">Estilo / Vibe Místico:</label>
-      <select aria-label="Seleccionar opción" value={blackCatVibe}
+      <label htmlFor="blackcatnamestool-field-1" className="text-xs font-semibold text-zinc-400 block mb-2">Estilo / Vibe Místico:</label>
+      <select id="blackcatnamestool-field-1" aria-label="Seleccionar opción" value={blackCatVibe}
       onChange={(e) => setBlackCatVibe(e.target.value)}
       className="gdn-tool-input w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-purple-500 text-sm font-semibold"
       >
@@ -120,8 +113,8 @@ export default function BlackCatNamesTool({
       </div>
       
       <div>
-      <label className="text-xs font-semibold text-zinc-400 block mb-2">Nombre de la Panterita:</label>
-      <input
+      <label htmlFor="blackcatnamestool-field-2" className="text-xs font-semibold text-zinc-400 block mb-2">Nombre de la Panterita:</label>
+      <input id="blackcatnamestool-field-2"
       type="text"
       value={blackCatCustomName}
       onChange={(e) => setBlackCatCustomName(e.target.value)}

@@ -1,5 +1,7 @@
 'use client';
 
+import { graphemes, visibleLength } from '../utils/text';
+import { copyText } from '../utils/clipboard';
 import React, { useState } from 'react';
 import { Copy, CheckCircle2, Sparkles, HelpCircle, Shield, Smartphone, ChevronDown, Crosshair, RefreshCw, Type } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
@@ -25,7 +27,7 @@ export default function InvisibleSpaceTool() {
   // Font conversion mapping helper
   const transformText = (text: string, style: typeof selectedFont) => {
     if (style === 'spaced') {
-      return text.split('').join(' ');
+      return graphemes(text).join(' ');
     }
     if (style === 'smallcaps') {
       const smallCapsMap: Record<string, string> = {
@@ -34,7 +36,7 @@ export default function InvisibleSpaceTool() {
         A: 'ᴀ', B: 'ʙ', C: 'ᴄ', D: 'ᴅ', E: 'ᴇ', F: 'ғ', G: 'ɢ', H: 'ʜ', I: 'ɪ', J: 'ᴊ', K: 'ᴋ', L: 'ʟ', M: 'ᴍ',
         N: 'ɴ', O: 'ᴏ', P: 'ᴘ', Q: 'ǫ', R: 'ʀ', S: 's', T: 'ᴛ', U: 'ᴜ', V: 'ᴠ', W: 'ᴡ', X: 'x', Y: 'ʏ', Z: 'ᴢ'
       };
-      return text.split('').map(c => smallCapsMap[c] || c).join('');
+      return graphemes(text).map(c => smallCapsMap[c] || c).join('');
     }
     if (style === 'cursive') {
       const cursiveMap: Record<string, string> = {
@@ -43,16 +45,16 @@ export default function InvisibleSpaceTool() {
         A: '𝒜', B: 'ℬ', C: '𝒞', D: '𝒟', E: 'ℰ', F: 'ℱ', G: '𝒢', H: 'ℋ', I: 'ℐ', J: '𝒥', K: '𝒦', L: 'ℒ', M: 'ℳ',
         N: '𝒩', O: '𝒪', P: '𝒫', Q: '𝒬', R: 'ℛ', S: '𝒮', T: '𝒯', U: '𝒰', V: '𝒱', W: '𝒲', X: '𝒳', Y: '𝒴', Z: '𝒵'
       };
-      return text.split('').map(c => cursiveMap[c] || c).join('');
+      return graphemes(text).map(c => cursiveMap[c] || c).join('');
     }
     if (style === 'gothic') {
       const gothicMap: Record<string, string> = {
         a: '𝔞', b: '𝔟', c: '𝔠', d: '𝔡', e: '𝔢', f: '𝔣', g: '𝔤', h: '𝔥', i: '𝔦', j: '𝔧', k: '𝔨', l: '𝔩', m: '𝔪',
-        n: '𝔫', o: '𝔬', p: '𝔟', q: '𝔮', r: '𝔯', s: '𝔰', t: '𝔱', u: '𝔲', v: '𝔳', w: '𝔮', x: '𝔵', y: '𝔶', z: '𝔷',
-        A: '𝔄', B: '𝔅', C: 'ℭ', D: '𝔇', E: '𝔈', F: '𝔉', G: '𝔍', H: 'ℌ', I: 'ℑ', J: '𝔍', K: '𝔎', L: '𝔏', M: '𝔐',
+        n: '𝔫', o: '𝔬', p: '𝔭', q: '𝔮', r: '𝔯', s: '𝔰', t: '𝔱', u: '𝔲', v: '𝔳', w: '𝔴', x: '𝔵', y: '𝔶', z: '𝔷',
+        A: '𝔄', B: '𝔅', C: 'ℭ', D: '𝔇', E: '𝔈', F: '𝔉', G: '𝔊', H: 'ℌ', I: 'ℑ', J: '𝔍', K: '𝔎', L: '𝔏', M: '𝔐',
         N: '𝔑', O: '𝔒', P: '𝔓', Q: '𝔔', R: 'ℜ', S: '𝔖', T: '𝔗', U: '𝔘', V: '𝔙', W: '𝔚', X: '𝔛', Y: '𝔜', Z: 'ℨ'
       };
-      return text.split('').map(c => gothicMap[c] || c).join('');
+      return graphemes(text).map(c => gothicMap[c] || c).join('');
     }
     return text;
   };
@@ -60,8 +62,8 @@ export default function InvisibleSpaceTool() {
   const formattedCustomText = transformText(customText, selectedFont);
   const combinedNick = tagText ? `${tagText}${separator}${formattedCustomText}` : formattedCustomText;
 
-  const copyToClipboard = (text: string, index: number) => {
-    navigator.clipboard.writeText(text);
+  const copyToClipboard = async (text: string, index: number) => {
+    if (!await copyText(text)) return;
     setCopiedIndex(index);
     setShowToast(true);
     setTimeout(() => {
@@ -226,8 +228,8 @@ export default function InvisibleSpaceTool() {
         {/* Inputs & Separator Selector */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div>
-            <label className="block text-xs font-bold text-zinc-400 uppercase tracking-wider mb-2">1. Tag o Clan</label>
-            <input
+            <label htmlFor="invisiblespacetool-field-1" className="block text-xs font-bold text-zinc-400 uppercase tracking-wider mb-2">1. Tag o Clan</label>
+            <input id="invisiblespacetool-field-1"
               type="text"
               value={tagText}
               onChange={(e) => setTagText(e.target.value)}
@@ -236,8 +238,8 @@ export default function InvisibleSpaceTool() {
             />
           </div>
           <div>
-            <label className="block text-xs font-bold text-zinc-400 uppercase tracking-wider mb-2">2. Tipo de Separador</label>
-            <select
+            <label htmlFor="invisiblespacetool-field-2" className="block text-xs font-bold text-zinc-400 uppercase tracking-wider mb-2">2. Tipo de Separador</label>
+            <select id="invisiblespacetool-field-2"
               value={separator}
               onChange={(e) => setSeparator(e.target.value)}
               aria-label="Tipo de Separador para Espacio Invisible"
@@ -253,8 +255,8 @@ export default function InvisibleSpaceTool() {
             </select>
           </div>
           <div>
-            <label className="block text-xs font-bold text-zinc-400 uppercase tracking-wider mb-2">3. Tu Apodo</label>
-            <input
+            <label htmlFor="invisiblespacetool-field-3" className="block text-xs font-bold text-zinc-400 uppercase tracking-wider mb-2">3. Tu Apodo</label>
+            <input id="invisiblespacetool-field-3"
               type="text"
               value={customText}
               onChange={(e) => setCustomText(e.target.value)}
@@ -321,8 +323,8 @@ export default function InvisibleSpaceTool() {
             <div className="text-2xl font-black text-white font-mono tracking-wide break-all">
               {combinedNick}
             </div>
-            <span className={`text-[11px] font-medium mt-1 block ${combinedNick.length <= 12 ? 'text-emerald-400' : 'text-red-400'}`}>
-              Longitud: {combinedNick.length}/12 caracteres {combinedNick.length <= 12 ? '✅ Compatible con Free Fire' : '⚠️ Supera el límite máximo de 12'}
+            <span className={`text-[11px] font-medium mt-1 block ${visibleLength(combinedNick) <= 12 ? 'text-emerald-400' : 'text-red-400'}`}>
+              Longitud: {visibleLength(combinedNick)}/12 caracteres {visibleLength(combinedNick) <= 12 ? 'Comprueba la compatibilidad en Free Fire' : 'Más de 12 caracteres visibles'}
             </span>
           </div>
           <button

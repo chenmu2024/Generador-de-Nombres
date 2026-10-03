@@ -15,9 +15,9 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: 'https://generadordenombres.net/logo.webp',
-        width: 512,
-        height: 512,
+        url: 'https://generadordenombres.net/opengraph-image',
+        width: 1200,
+        height: 630,
         alt: 'GeneradorDeNombres Logo',
       },
     ],

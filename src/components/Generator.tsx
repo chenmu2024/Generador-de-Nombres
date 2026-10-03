@@ -1,5 +1,10 @@
 'use client';
 
+import { visibleLength, trimName, filterNicknames } from '../utils/text';
+import { copyText } from '../utils/clipboard';
+import { readFavorites, writeStorage } from '../utils/browserStorage';
+import { useDialog } from './useDialog';
+
 import React, { useState, useRef, useEffect } from 'react';
 import { Copy, Wand2, X, CheckCircle2, Dices, Loader2, Download, Sparkles, CheckSquare, Square, Trophy, Shield, Flame, Image, Share2, Scissors, Zap, Crown, Bookmark, Heart } from 'lucide-react';
 import { generateFancyNicknames, popularSymbols } from '../utils/nameLogic';
@@ -15,21 +20,17 @@ const randomNames = ["Ninja", "Shadow", "Killer", "Pro", "Ghost", "Sniper", "Kin
 
 // Rarity calculation helper
 function getRarityTier(name: string) {
-  if (/[꧁꧂☠️⚔️👑⚡🔥☣️🖤]/.test(name) || name.length > 14) {
+  if (/꧁|꧂|☠|⚔|👑|⚡|🔥|☣|🖤/u.test(name) || visibleLength(name) > 14) {
     return { label: 'MÍTICO 👑', bg: 'bg-amber-500/10 text-amber-300 border-amber-500/30' };
   }
-  if (/[✿♡✧★✦☆]/.test(name) || name.length > 10) {
+  if (/[✿♡✧★✦☆]/.test(name) || visibleLength(name) > 10) {
     return { label: 'LEGENDARIO 💎', bg: 'bg-violet-500/10 text-violet-300 border-violet-500/30' };
   }
   return { label: 'ÉPICO ⚡', bg: 'bg-emerald-500/10 text-emerald-300 border-emerald-500/30' };
 }
 
 // Auto-trim helper for Free Fire limit (<= 12 chars)
-function autoTrimFF(name: string): string {
-  if (name.length <= 12) return name;
-  // If wrapped with symbols like "꧁...꧂" or "⚡...⚡"
-  return name.slice(0, 12);
-}
+function autoTrimFF(name: string): string { return trimName(name); }
 
 export default function Generator({ title, defaultName = 'Gamer', customSymbols, compact = false }: GeneratorProps) {
   const [inputText, setInputText] = useState('');
@@ -56,26 +57,28 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
   const [favorites, setFavorites] = useState<string[]>([]);
 
   useEffect(() => {
-    try {
-      const stored = localStorage.getItem('gdn_favorites');
-      if (stored) setFavorites(JSON.parse(stored));
-    } catch(e) {
-      console.error(e);
-    }
+    const sync = () => setFavorites(readFavorites());
+    sync();
+    window.addEventListener('gdn_favorites_updated', sync);
+    window.addEventListener('storage', sync);
+    return () => {
+      window.removeEventListener('gdn_favorites_updated', sync);
+      window.removeEventListener('storage', sync);
+    };
   }, []);
 
   const toggleFavorite = (nameToFav: string, e: React.MouseEvent) => {
     e.stopPropagation();
     let updated: string[];
-    if (favorites.includes(nameToFav)) {
-      updated = favorites.filter(f => f !== nameToFav);
+    if (readFavorites().includes(nameToFav)) {
+      updated = readFavorites().filter(f => f !== nameToFav);
       setToastMessage('Eliminado de favoritos');
     } else {
-      updated = [nameToFav, ...favorites];
+      updated = [nameToFav, ...readFavorites()];
       setToastMessage('❤️ ¡Guardado en favoritos!');
     }
     setFavorites(updated);
-    localStorage.setItem('gdn_favorites', JSON.stringify(updated));
+    if (!writeStorage('gdn_favorites', JSON.stringify(updated))) setToastMessage('Guardado solo durante esta sesión: almacenamiento no disponible.');
     window.dispatchEvent(new Event('gdn_favorites_updated'));
     setShowToast(true);
     setTimeout(() => setShowToast(false), 1800);
@@ -85,25 +88,32 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
   const [isExportingCard, setIsExportingCard] = useState(false);
   const gamerCardRef = useRef<HTMLDivElement>(null);
 
+  const spinnerDialogRef = useDialog(isSpinnerOpen, () => setIsSpinnerOpen(false));
+  const cardDialogRef = useDialog(!!cardModalName, () => setCardModalName(null));
+  const spinTimer = useRef<ReturnType<typeof setInterval> | null>(null);
+  useEffect(() => {
+    if (!isSpinnerOpen) { if (spinTimer.current) clearInterval(spinTimer.current); setIsSpinning(false); }
+  }, [isSpinnerOpen]);
+  useEffect(() => () => { if (spinTimer.current) clearInterval(spinTimer.current); }, []);
+
   const symbolsToUse = customSymbols || popularSymbols;
 
   React.useEffect(() => {
     // Generate names when the component mounts or category changes, now also updates live as user types
-    const names = generateFancyNicknames(inputText || defaultName, style, customSymbols);
+    const names = generateFancyNicknames(inputText.trim() || defaultName, style, customSymbols);
     setGeneratedNames(names);
     setSelectedNames([]);
+    setVisibleCount(24);
+    setCopiedIndex(null);
   }, [inputText, defaultName, style, customSymbols]);
 
   const handleGenerate = () => {
-    setIsGenerating(true);
-    setTimeout(() => {
       const textToGenerate = inputText.trim() || defaultName;
       const names = generateFancyNicknames(textToGenerate, style, customSymbols);
       setGeneratedNames(names);
       setSelectedNames([]);
       setCopiedIndex(null);
-      setIsGenerating(false);
-    }, 400);
+      setVisibleCount(24);
   };
 
   const handleRandomize = () => {
@@ -114,8 +124,8 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
     setCopiedIndex(null);
   };
 
-  const copyToClipboard = (text: string, index: number | null, customMsg?: string) => {
-    navigator.clipboard.writeText(text);
+  const copyToClipboard = async (text: string, index: number | null, customMsg?: string) => {
+    if (!await copyText(text)) return;
     setCopiedIndex(index);
     setToastMessage(customMsg || '¡Copiado al portapapeles!');
     setShowToast(true);
@@ -141,10 +151,10 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
   };
 
   const toggleSelectAll = () => {
-    if (selectedNames.length === generatedNames.length) {
+    if (selectedNames.length === displayedNames.length) {
       setSelectedNames([]);
     } else {
-      setSelectedNames([...generatedNames]);
+      setSelectedNames([...displayedNames]);
     }
   };
 
@@ -155,7 +165,7 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
   };
 
   const exportSelectedTXT = () => {
-    const listToExport = selectedNames.length > 0 ? selectedNames : generatedNames;
+    const listToExport = selectedNames.length > 0 ? selectedNames : displayedNames;
     if (listToExport.length === 0) return;
     
     const blob = new Blob([listToExport.join('\n')], { type: 'text/plain;charset=utf-8' });
@@ -163,23 +173,25 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
     const link = document.createElement('a');
     link.href = url;
     link.download = `Nombres_${title.replace(/\s+/g, '_')}_2026.txt`;
+    document.body.appendChild(link);
     link.click();
-    URL.revokeObjectURL(url);
+    link.remove();
+    window.setTimeout(() => URL.revokeObjectURL(url), 1000);
   };
 
   // Roulette Spin logic
   const startSpin = () => {
-    if (generatedNames.length === 0) return;
+    if (displayedNames.length === 0 || isSpinning) return;
     setIsSpinning(true);
     setSpinnerResult(null);
 
     let counter = 0;
-    const interval = setInterval(() => {
-      const randomIndex = Math.floor(Math.random() * generatedNames.length);
-      setSpinnerResult(generatedNames[randomIndex]);
+    spinTimer.current = setInterval(() => {
+      const randomIndex = Math.floor(Math.random() * displayedNames.length);
+      setSpinnerResult(displayedNames[randomIndex]);
       counter++;
       if (counter > 25) {
-        clearInterval(interval);
+        if (spinTimer.current) clearInterval(spinTimer.current);
         setIsSpinning(false);
       }
     }, 80);
@@ -208,37 +220,71 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
     try {
       setIsExportingCard(true);
       const html2canvas = (await import('html2canvas')).default;
+      // html2canvas cannot parse Tailwind's modern color syntax. Convert the
+      // cloned card to equivalent RGBA values without changing the live page.
+      const colorCanvas = document.createElement('canvas');
+      colorCanvas.width = colorCanvas.height = 1;
+      const colorContext = colorCanvas.getContext('2d');
+      if (!colorContext) throw new Error('Canvas unavailable');
+      const rgba = (color: string) => {
+        colorContext.clearRect(0, 0, 1, 1);
+        colorContext.fillStyle = color;
+        colorContext.fillRect(0, 0, 1, 1);
+        const [r, g, b, a] = colorContext.getImageData(0, 0, 1, 1).data;
+        return `rgba(${r}, ${g}, ${b}, ${a / 255})`;
+      };
       const canvas = await html2canvas(gamerCardRef.current, {
         scale: 2,
         useCORS: true,
         backgroundColor: '#09090b',
+        onclone: (document, card) => {
+          for (const element of [document.documentElement, document.body, card, ...Array.from(card.querySelectorAll<HTMLElement>('*'))]) {
+            const styles = document.defaultView!.getComputedStyle(element);
+            const colors = ['color', 'background-color', 'border-top-color', 'border-right-color', 'border-bottom-color', 'border-left-color', 'outline-color', 'text-decoration-color', '-webkit-text-stroke-color'];
+            const values = colors.map(property => [property, rgba(styles.getPropertyValue(property))]);
+            const background = styles.backgroundImage.replace(/(?:oklch|oklab|color)\([^)]*\)/g, rgba);
+            for (const [property, value] of values) element.style.setProperty(property, value);
+            element.style.backgroundImage = background;
+            element.style.boxShadow = 'none';
+            element.style.textShadow = 'none';
+          }
+        },
       });
-      const image = canvas.toDataURL('image/png');
+      const blob = await new Promise<Blob>((resolve, reject) => {
+        canvas.toBlob(value => value ? resolve(value) : reject(new Error('Image unavailable')), 'image/png');
+      });
+      const image = URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.href = image;
       link.download = `Tarjeta_Gamer_${cardModalName || 'Nick'}.png`;
+      document.body.appendChild(link);
       link.click();
+      link.remove();
+      window.setTimeout(() => URL.revokeObjectURL(image), 1000);
     } catch (err) {
-      console.error('Error al exportar Tarjeta Gamer:', err);
+      console.error('Unable to export gamer card', err);
+      setToastMessage('No se pudo guardar la imagen. Inténtalo de nuevo.');
+      setShowToast(true);
     } finally {
       setIsExportingCard(false);
     }
   };
 
   // Filter generated names according to Vibe
-  const displayedNames = generatedNames.filter(name => {
-    if (vibeFilter === 'short') return name.length <= 12;
-    if (vibeFilter === 'epico') return /[꧁꧂⚔️👑⚡🔥]/.test(name) || name.includes('Pro') || name.includes('King');
-    if (vibeFilter === 'aesthetic') return /[✿♡✧★✦☆]/.test(name) || name.includes('ë') || name.includes('𝓔');
-    if (vibeFilter === 'toxic') return /[☠️☣️🖤😈✞]/.test(name) || name.includes('Killer') || name.includes('Shadow');
-    return true;
-  });
+  const displayedNames = filterNicknames(generatedNames, vibeFilter);
+  useEffect(() => {
+    setSelectedNames([]);
+    setVisibleCount(24);
+    setCopiedIndex(null);
+    setIsSpinnerOpen(false);
+    setSpinnerResult(null);
+  }, [vibeFilter, generatedNames]);
 
   return (
     <div className="gdn-tool-shell gdn-surface w-full max-w-4xl mx-auto rounded-[1.25rem] overflow-hidden border relative">
       {/* Toast Notification */}
       {showToast && (
-        <div
+        <div role="status" aria-live="polite"
           className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 flex items-center gap-2 bg-zinc-800 text-white px-6 py-3 rounded-full shadow-2xl border border-white/10 font-medium text-sm animate-in fade-in slide-in-from-bottom-5 duration-200"
         >
           <CheckCircle2 className="w-5 h-5 text-emerald-400" />
@@ -263,6 +309,8 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
           <div className="flex-1 w-full">
             <div className="flex-1 flex relative w-full group">
               <input
+                aria-label="Nombre o palabra para personalizar"
+                maxLength={120}
                 ref={inputRef}
                 type="text"
                 value={inputText}
@@ -294,8 +342,8 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
               </div>
             </div>
             <div className="text-right mt-2 px-2">
-              <span className={`text-xs font-medium ${inputText.length > 12 ? 'text-amber-500' : 'text-zinc-500'}`}>
-                {inputText.length} caracteres {inputText.length > 12 ? '(Excede límite de Free Fire)' : ''}
+              <span className={`text-xs font-medium ${visibleLength(inputText) > 12 ? 'text-amber-500' : 'text-zinc-400'}`}>
+                {visibleLength(inputText)} caracteres {visibleLength(inputText) > 12 ? '(Más de 12 caracteres visibles)' : ''}
               </span>
             </div>
           </div>
@@ -361,9 +409,9 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
         </div>
 
         <div>
-          <h3 className="text-sm font-semibold text-zinc-400 uppercase tracking-wider mb-4 flex items-center gap-2">
-            Símbolos Rápidos <span className="text-xs font-normal normal-case text-zinc-600">(Clic para agregar)</span>
-          </h3>
+          <h2 className="text-sm font-semibold text-zinc-400 uppercase tracking-wider mb-4 flex items-center gap-2">
+            Símbolos Rápidos <span className="text-xs font-normal normal-case text-zinc-400">(Clic para agregar)</span>
+          </h2>
           <div className="flex flex-wrap gap-2 md:gap-3">
             {symbolsToUse.map((sym, i) => (
               <button
@@ -381,17 +429,18 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
           <div className="gdn-tool-result">
             {/* Vibe / Mood Quick Filters */}
             <div className="mb-5 flex items-center gap-2 overflow-x-auto pb-1 text-xs">
-              <span className="text-zinc-500 font-bold shrink-0">Filtrar Estilo:</span>
+              <span className="text-zinc-400 font-bold shrink-0">Filtrar Estilo:</span>
               {[
                 { id: 'all', label: '🌟 Todos', color: 'bg-white/10 hover:bg-white/20 text-white' },
                 { id: 'epico', label: '⚔️ Épico / Pro', color: 'bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border-amber-500/30' },
                 { id: 'aesthetic', label: '🌸 Aesthetic', color: 'bg-pink-500/10 hover:bg-pink-500/20 text-pink-300 border-pink-500/30' },
-                { id: 'short', label: '⚡ Cortos (≤12 FF)', color: 'bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-300 border-emerald-500/30' },
+                { id: 'short', label: '⚡ Cortos (≤12)', color: 'bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-300 border-emerald-500/30' },
                 { id: 'toxic', label: '☠️ Tóxico', color: 'bg-violet-500/10 hover:bg-violet-500/20 text-violet-300 border-violet-500/30' },
               ].map((vibe) => (
                 <button
                   key={vibe.id}
-                  onClick={() => setVibeFilter(vibe.id as any)}
+                  aria-pressed={vibeFilter === vibe.id}
+                  onClick={() => setVibeFilter(vibe.id as typeof vibeFilter)}
                   className={`gdn-tool-tab shrink-0 px-3 py-1.5 rounded-xl border text-xs font-semibold transition-all ${
                     vibeFilter === vibe.id
                       ? 'bg-violet-600 text-white border-violet-400 shadow-md shadow-violet-500/20'
@@ -407,6 +456,7 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
             <div className="flex flex-wrap items-center justify-between gap-3 mb-6 border-b border-white/5 pb-4">
               <div className="flex items-center gap-2">
                 <button
+                  disabled={displayedNames.length === 0}
                   onClick={toggleSelectAll}
                   className="gdn-chip px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 border transition-all"
                 >
@@ -439,6 +489,7 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
                 )}
 
                 <button
+                  disabled={displayedNames.length === 0}
                   onClick={exportSelectedTXT}
                   className="gdn-chip px-3.5 py-1.5 font-bold text-xs rounded-xl border transition-all flex items-center gap-1.5"
                   title="Descargar lista como TXT"
@@ -461,16 +512,16 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
             <div 
               className="grid grid-cols-1 md:grid-cols-2 gap-4 max-h-[520px] overflow-y-auto pr-2 custom-scrollbar"
             >
+              {displayedNames.length === 0 && <p role="status" className="p-6 text-zinc-300">No hay resultados con este filtro. Prueba otro estilo o nombre.</p>}
               {displayedNames.slice(0, visibleCount).map((name, index) => {
                 const isSelected = selectedNames.includes(name);
                 const rarity = getRarityTier(name);
-                const isExceedFF = name.length > 12;
+                const isExceedFF = visibleLength(name) > 12;
 
                 return (
                   <div
                     key={index}
-                    onClick={() => copyToClipboard(name, index)}
-                    className={`group flex items-center justify-between p-4 sm:p-5 rounded-2xl border transition-all cursor-pointer ${
+                    className={`group flex flex-col sm:flex-row items-stretch sm:items-center gap-3 justify-between p-4 sm:p-5 rounded-2xl border transition-all ${
                       isSelected
                         ? 'border-violet-500/70 bg-violet-500/10'
                         : 'border-[#252B34] bg-[#151A21] hover:bg-[#191F27] hover:border-violet-500/30'
@@ -478,6 +529,9 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
                   >
                     <div className="flex items-center gap-3 pr-2 min-w-0">
                       <button
+                        role="checkbox"
+                        aria-checked={isSelected}
+                        aria-label={`Seleccionar ${name}`}
                         onClick={(e) => toggleSelectName(name, e)}
                         className="p-1 text-zinc-500 hover:text-violet-400 transition-colors shrink-0"
                         title="Seleccionar para copiar en lote"
@@ -495,8 +549,8 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
                           <span className={`text-[10px] font-extrabold px-2 py-0.5 rounded-md border ${rarity.bg}`}>
                             {rarity.label}
                           </span>
-                          <span className={`text-[10px] font-semibold tracking-wide ${isExceedFF ? 'text-amber-400' : 'text-zinc-500'}`}>
-                            {name.length} CARACTERES {isExceedFF && '(>12 FF)'}
+                          <span className={`text-[10px] font-semibold tracking-wide ${isExceedFF ? 'text-amber-400' : 'text-zinc-400'}`}>
+                            {visibleLength(name)} CARACTERES {isExceedFF && '(>12 visibles)'}
                           </span>
 
                           {isExceedFF && (
@@ -504,7 +558,7 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
                               onClick={(e) => {
                                 e.stopPropagation();
                                 const trimmed = autoTrimFF(name);
-                                copyToClipboard(trimmed, index, '¡Nombre recortado ≤12 FF copiado!');
+                                copyToClipboard(trimmed, index, '¡Nombre recortado ≤12 caracteres visibles copiado!');
                               }}
                               className="text-[10px] bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 px-1.5 py-0.5 rounded flex items-center gap-1 border border-amber-500/30 transition-all"
                               title="Recortar automáticamente a 12 caracteres"
@@ -516,7 +570,7 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-1.5 shrink-0">
+                    <div className="flex items-center justify-end gap-1.5 shrink-0">
                       <button
                         type="button"
                         onClick={(e) => toggleFavorite(name, e)}
@@ -547,6 +601,7 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
                       <button
                         type="button"
                         aria-label={copiedIndex === index ? `Nombre ${name} copiado` : `Copiar nombre ${name}`}
+                        onClick={() => copyToClipboard(name, index)}
                         title={`Copiar ${name}`}
                         className={`flex-shrink-0 flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-medium transition-colors border ${
                           copiedIndex === index 
@@ -632,6 +687,7 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
       {isSpinnerOpen && (
         <div
           className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 animate-in fade-in duration-200"
+          ref={spinnerDialogRef} role="dialog" aria-modal="true" aria-label="Ruleta de nombres" tabIndex={-1}
           onClick={() => setIsSpinnerOpen(false)}
         >
           <div
@@ -707,6 +763,7 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
       {cardModalName && (
         <div
           className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 animate-in fade-in duration-200"
+          ref={cardDialogRef} role="dialog" aria-modal="true" aria-label="Tarjeta Gamer" tabIndex={-1}
           onClick={() => setCardModalName(null)}
         >
           <div
@@ -728,7 +785,7 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
                 Tarjeta Gamer ID
               </span>
               <h3 className="text-xl font-bold text-white font-heading mt-2">Ficha de Identidad Gamer</h3>
-              <p className="text-xs text-zinc-400 mt-1">Guarda tu imagen oficial para redes sociales y clanes</p>
+              <p className="text-xs text-zinc-400 mt-1">Guarda tu imagen personal para redes sociales y clanes</p>
             </div>
 
             {/* Downloadable Card Element */}
@@ -744,38 +801,38 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
                 <div className="flex items-center gap-2">
                   <Shield className="w-6 h-6 text-amber-400" />
                   <div>
-                    <h4 className="text-xs font-black text-white uppercase tracking-wider">Pase de Combate 2026</h4>
-                    <p className="text-[10px] text-zinc-400">Verificado para Free Fire / PUBG</p>
+                    <h4 className="text-xs font-black text-white uppercase tracking-wider">Tarjeta Gamer</h4>
+                    <p className="text-[10px] text-zinc-400">Diseño independiente para compartir</p>
                   </div>
                 </div>
                 <Crown className="w-5 h-5 text-amber-400" />
               </div>
 
               <div className="relative z-10 text-center py-4 bg-zinc-900/80 border border-white/10 rounded-2xl mb-5 shadow-inner">
-                <span className="text-xs text-zinc-400 uppercase tracking-widest block mb-1">Apodo Oficial</span>
-                <div className="text-2xl sm:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-violet-300 via-fuchsia-300 to-amber-300 break-all px-2">
+                <span className="text-xs text-zinc-400 uppercase tracking-widest block mb-1">Apodo Personal</span>
+                <div className="text-2xl sm:text-3xl font-black text-violet-300 break-all px-2">
                   {cardModalName}
                 </div>
               </div>
 
               <div className="relative z-10 grid grid-cols-2 gap-3 text-left mb-4">
                 <div className="bg-zinc-900/60 p-3 rounded-xl border border-white/5">
-                  <span className="text-[10px] text-zinc-500 block uppercase">Rango Oficial</span>
+                  <span className="text-[10px] text-zinc-500 block uppercase">Estilo de Tarjeta</span>
                   <span className="text-xs font-black text-amber-300 flex items-center gap-1 mt-0.5">
                     <Flame className="w-3.5 h-3.5 text-amber-400" /> Gran Maestro
                   </span>
                 </div>
                 <div className="bg-zinc-900/60 p-3 rounded-xl border border-white/5">
-                  <span className="text-[10px] text-zinc-500 block uppercase">Límite FF</span>
-                  <span className={`text-xs font-black flex items-center gap-1 mt-0.5 ${cardModalName.length <= 12 ? 'text-emerald-400' : 'text-amber-400'}`}>
-                    <Zap className="w-3.5 h-3.5" /> {cardModalName.length} / 12 Chars
+                  <span className="text-[10px] text-zinc-500 block uppercase">Caracteres visibles</span>
+                  <span className={`text-xs font-black flex items-center gap-1 mt-0.5 ${visibleLength(cardModalName) <= 12 ? 'text-emerald-400' : 'text-amber-400'}`}>
+                    <Zap className="w-3.5 h-3.5" /> {visibleLength(cardModalName)} caracteres
                   </span>
                 </div>
               </div>
 
               <div className="relative z-10 flex items-center justify-between text-[10px] text-zinc-500 pt-2 border-t border-white/5">
                 <span>generadordenombres.net / 2026</span>
-                <span className="font-mono text-violet-400">ID: #{Math.floor(100000 + Math.random() * 900000)}</span>
+                <span className="font-mono text-violet-400">Diseño independiente</span>
               </div>
             </div>
 

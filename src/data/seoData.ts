@@ -50,11 +50,11 @@ export const seoData: Record<string, CategoryData> = {
       },
       {
         question: "¿Dónde puedo usar los nombres generados?",
-        answer: "Los nombres y letras generadas utilizan caracteres Unicode estándar, lo que significa que puedes usarlos en casi cualquier plataforma: Free Fire, Roblox, PUBG, Instagram, TikTok, WhatsApp, Facebook, Twitter, Discord, etc."
+        answer: "Los nombres y letras generadas utilizan caracteres Unicode estándar, lo que significa que puedes probarlos en Free Fire, Roblox, PUBG, Instagram, TikTok, WhatsApp, Facebook, Twitter, Discord, etc. Cada plataforma decide qué caracteres acepta."
       },
       {
         question: "¿Cómo copio un nombre o apodo?",
-        answer: "Simplemente haz clic (o toca en móviles) sobre el nombre o símbolo que te guste. Se copiará automáticamente al portapapeles y podrás pegarlo donde desees."
+        answer: "Simplemente haz clic (o toca en móviles) en el botón Copiar junto al nombre o sobre el símbolo que te guste. Se copiará automáticamente al portapapeles y podrás pegarlo donde desees."
       }
     ]
   },
@@ -224,7 +224,7 @@ export const seoData: Record<string, CategoryData> = {
     faqs: [
       {
         question: "¿Cómo cambiar tu Display Name en Roblox totalmente gratis?",
-        answer: "Abre la app o web de Roblox, entra a 'Configuración' -> 'Información de la Cuenta' -> 'Nombre de Visualización' (Display Name). Haz clic en el ícono del lápiz, escribe tu nuevo nombre aesthetic con símbolos o letras bonitas y guarda los cambios. ¡Puedes cambiarlo gratis cada 7 días!"
+        answer: "Abre la app o web de Roblox, entra a 'Configuración' -> 'Información de la Cuenta' -> 'Nombre de Visualización' (Display Name). Haz clic en el ícono del lápiz, escribe tu nuevo nombre aesthetic y comprueba que Roblox acepte sus caracteres antes de guardar los cambios. ¡Puedes cambiarlo gratis cada 7 días!"
       },
       {
         question: "¿Cuánto cuesta cambiar el Username (@usuario) principal de Roblox?",
@@ -245,7 +245,7 @@ export const seoData: Record<string, CategoryData> = {
     path: '/nombres-instagram',
     title: 'Nombres para Instagram Aesthetic - Generador | GDN',
     h1: 'Generador y Creador de Nombres para Instagram',
-    subtitle: 'Encuentra usernames (@usuario) únicos y disponibles, letras bonitas y nombres de perfil aesthetic para cuentas personales, marcas, moda y creadores de contenido.',
+    subtitle: 'Explora ideas de usernames (@usuario), letras bonitas y nombres de perfil aesthetic para cuentas personales, marcas, moda y creadores de contenido. Comprueba la disponibilidad en Instagram.',
     seoText: `
       <h2>Los Mejores Nombres para Instagram en 2026 (Aesthetic, Marcas y Personales)</h2>
       <p>Crear un <strong>nombre de usuario memorable para Instagram</strong> es la decisión estratégica más importante para construir tu marca personal o comercial. Tu perfil de Instagram maneja dos campos distintos con reglas diferentes: tu <strong>Nombre de Usuario único (@username)</strong> y tu <strong>Nombre de Perfil (Display Name)</strong>.</p>
@@ -558,7 +558,7 @@ export const seoData: Record<string, CategoryData> = {
       },
       {
         question: "¿Cómo escuchar la pronunciación en audio de cada nombre japonés?",
-        answer: "En nuestro generador interactivo arriba puedes ingresar cualquier nombre japonés o selección de ideogramas y presionar el ícono del altavoz para escuchar su pronunciación en voz real."
+        answer: "En nuestro generador interactivo arriba puedes ingresar cualquier nombre japonés o selección de ideogramas y presionar el ícono del altavoz para escuchar su pronunciación en voz sintetizada del dispositivo."
       }
     ]
   },
@@ -684,11 +684,12 @@ export const seoData: Record<string, CategoryData> = {
       <h2>Los Mejores Nombres Coreanos, su Escritura en Hangul y Significado Profundo (2026)</h2>
       <p>Gracias al impacto global de la Ola Coreana (<em>Hallyu</em>), impulsada por gigantes del K-Pop (BTS, BLACKPINK, NewJeans, TWICE, Stray Kids) y producciones de K-Dramas (doramas de Netflix), los <strong>nombres coreanos</strong> se han convertido en un referente de estética, modernidad y elegancia. Elegir un nombre coreano es perfecto tanto para crear un perfil aesthetic en TikTok, Instagram, Discord o Roblox, como para bautizar a personajes de novelas, usuarios de Free Fire o mascotas.</p>
 
+      <p>Las romanizaciones personales pueden variar. Consulta las <a href="https://www.korean.go.kr/front_eng/roman/roman_01.do" target="_blank" rel="noopener noreferrer">reglas del Instituto Nacional de la Lengua Coreana</a>. Las lecturas son síntesis del dispositivo, no grabaciones nativas.</p>
       <h3>Categorías Principales de Nombres Coreanos</h3>
       <p>Explora la selección de nombres según su estética cultural y sus referentes en la industria del entretenimiento:</p>
       <ul>
-        <li><strong>Nombres Coreanos para Niñas (Estilo Idol e Influencer):</strong> <em>Ji-Eun (지은), Min-Ji (민지), Soo-Ah (수아), Eun-Ji (은지), Chae-Young (채영), Ha-Eun (하은), Yuna (유나)</em> y <em>Ji-Soo (지수)</em>. Representan gracia divina, sabiduría, pureza de agua y brillo estelar.</li>
-        <li><strong>Nombres Coreanos para Niños (Masculinos y Actores):</strong> <em>Tae-Hyung (태형), Jung-Kook (정국), Min-Ho (민호), Woo-Bin (우빈), Hyun-Woo (현우), Seo-Jun (서준), Eun-Woo (은우)</em> y <em>Sun-Woo (선우)</em>. Evocan pilar fuerte de la nación, gran prosperidad, heroísmo y elegancia noble.</li>
+        <li><strong>Nombres Coreanos para Niñas (Estilo Idol e Influencer):</strong> <em>Ji-Eun (지은), Min-Ji (민지), Soo-Ah (수아), Eun-Ji (은지), Chae-Young (채영), Ha-Eun (하은), Yuna (유나)</em> y <em>Ji-Soo (지수)</em>. El significado requiere conocer los hanja concretos de cada persona.</li>
+        <li><strong>Nombres Coreanos para Niños (Masculinos y Actores):</strong> <em>Tae-Hyung (태형), Jung-Kook (정국), Min-Ho (민호), Woo-Bin (우빈), Hyun-Woo (현우), Seo-Jun (서준), Eun-Woo (은우)</em> y <em>Sun-Woo (선우)</em>. Estas escrituras en Hangul no fijan un significado único.</li>
         <li><strong>Apellidos Coreanos Tradicionales y Combinaciones:</strong> <em>Kim (김), Lee (이), Park (박), Choi (최), Jung (정), Kang (강)</em> y <em>Yoon (윤)</em>. Combinados con nombres de dos sílabas para formar identificadores auténticos de tres sílabas.</li>
       </ul>
 
@@ -709,49 +710,49 @@ export const seoData: Record<string, CategoryData> = {
               <td class="py-3 px-4 font-bold text-indigo-400">Ji-Eun</td>
               <td class="py-3 px-4 font-bold text-pink-300">지은</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Femenino</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Sabiduría profunda, amabilidad pura y gracia sincera.</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Depende de los hanja elegidos; no se deduce únicamente del Hangul.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">IU (Lee Ji-eun) / Ji-Eun Rose</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Tae-Hyung</td>
               <td class="py-3 px-4 font-bold text-pink-300">태형</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Masculino</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Gran prosperidad, éxito indomable y brillo exaltado.</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Depende de los hanja elegidos; no se deduce únicamente del Hangul.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">V (BTS) / Kim Tae-Hyung</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Min-Ji</td>
               <td class="py-3 px-4 font-bold text-pink-300">민지</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Femenino</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Inteligencia brillante, agudeza y claridad radiante.</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Depende de los hanja elegidos; no se deduce únicamente del Hangul.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Minji (NewJeans) / Min-Ji Sky</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Jung-Kook</td>
               <td class="py-3 px-4 font-bold text-pink-300">정국</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Masculino</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Pilar fuerte y honorable de la nación soberana.</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Depende de los hanja elegidos; no se deduce únicamente del Hangul.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Jungkook (BTS) / Jeon Jung-Kook</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Soo-Ah</td>
               <td class="py-3 px-4 font-bold text-pink-300">수아</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Femenino</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Agua pura e inmaculada, elegancia y hermosura refinada.</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Depende de los hanja elegidos; no se deduce únicamente del Hangul.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Soo-Ah Valentina</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Min-Ho</td>
               <td class="py-3 px-4 font-bold text-pink-300">민호</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Masculino</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Brillo heroico, gran valentía y luminosidad.</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Depende de los hanja elegidos; no se deduce únicamente del Hangul.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Lee Min-ho / Min-Ho Alexander</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Chae-Young</td>
               <td class="py-3 px-4 font-bold text-pink-300">채영</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Femenino</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Gloria colorida, honor radiante y prosperidad eterna.</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Depende de los hanja elegidos; no se deduce únicamente del Hangul.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Rosé (BLACKPINK) / Chae-Young Sofía</td>
             </tr>
           </tbody>
@@ -762,7 +763,7 @@ export const seoData: Record<string, CategoryData> = {
       <ol>
         <li><strong>Estructura la Combinación de 3 Sílabas:</strong> Antepone un apellido familiar de una sola sílaba (ej. <em>Kim, Lee, Park, Choi</em>) seguido del nombre de dos sílabas (ej. <em>Min-Ji, Tae-Hyung, Soo-Ah</em>).</li>
         <li><strong>Aprovecha la Escritura en Hangul:</strong> Los bloques silábicos en Hangul (지, 은, 태, 형) brindan una estética visual única e inconfundible para perfiles sociales y avatares.</li>
-        <li><strong>Escucha la Pronunciación en Voz Real:</strong> Comprueba la eufonía de cada nombre reproduciendo el audio en tiempo real desde el reproductor interactivo de nuestro generador arriba.</li>
+        <li><strong>Escucha la Lectura Sintetizada:</strong> Comprueba la eufonía de cada nombre reproduciendo el audio en tiempo real desde el reproductor interactivo de nuestro generador arriba.</li>
       </ol>
     `,
     metaDescription: 'Descubre nombres coreanos de mujer, doramas y K-Pop. Incluye escritura en Hangul, significados poéticos y audio de pronunciación.',
@@ -784,7 +785,7 @@ export const seoData: Record<string, CategoryData> = {
       },
       {
         question: "¿Cómo escuchar la pronunciación auténtica en coreano (Hangul)?",
-        answer: "En el generador interactivo superior puedes ingresar cualquier nombre o palabra en Hangul o Romanizado y hacer clic en el ícono del altavoz (🔊) para reproducir su voz nativa en tiempo real."
+        answer: "En el generador interactivo superior puedes ingresar cualquier nombre o palabra en Hangul o Romanizado y hacer clic en el ícono del altavoz (🔊) para solicitar una lectura sintetizada; necesita una voz coreana instalada y la lectura no sustituye a una grabación humana."
       }
     ]
   },
@@ -793,11 +794,12 @@ export const seoData: Record<string, CategoryData> = {
     path: '/nombres-franceses',
     title: 'Nombres Franceses para Niña y Niño Elegantes | GDN',
     h1: 'Generador de Nombres Franceses: Elegantes, Románticos y Fonética',
-    subtitle: 'Descubre los nombres franceses más refinados, poéticos y melódicos para niña, niño, mascotas y perfiles aesthetic. Incluye pronunciación fonética, significados profundos y audio real.',
+    subtitle: 'Descubre los nombres franceses más refinados, poéticos y melódicos para niña, niño, mascotas y perfiles aesthetic. Incluye pronunciación fonética, significados profundos y audio sintetizado del dispositivo.',
     seoText: `
       <h2>Los Mejores Nombres Franceses Elegantes, Románticos y su Pronunciación (2026)</h2>
       <p>El francés es reconocido mundialmente como el idioma del amor, la alta cultura, la moda parisina y el arte. Los <strong>nombres franceses</strong> destacan por sus melodiosas terminaciones vocálicas, sus acentos característicos (<em>é, è, ë, î</em>), su elegancia innata y sus significados vinculados con la nobleza, las flores y la luz. Son la opción perfecta para nombrar a una bebé o un niño, personajes literarios o de rol, así como para crear perfiles aesthetic en Instagram, TikTok o apodos refinados para videojuegos.</p>
 
+      <p>Referencia: <a href="https://www.behindthename.com/name/antoine" target="_blank" rel="noopener noreferrer">Antoine en Behind the Name</a>. Las asociaciones poéticas no son traducciones literales.</p>
       <h3>Categorías Principales de Nombres Franceses</h3>
       <p>Explora la selección de nombres según su sonoridad y prestigio cultural:</p>
       <ul>
@@ -858,7 +860,7 @@ export const seoData: Record<string, CategoryData> = {
               <td class="py-3 px-4 font-bold text-indigo-400">Antoine</td>
               <td class="py-3 px-4 text-pink-300 font-mono">Ahn-twahn</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Masculino</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Digno de alabanza, de valor inestimable y noble presencia.</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Forma francesa de Antonius; su etimología es incierta.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Antoine Gael</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
@@ -879,7 +881,7 @@ export const seoData: Record<string, CategoryData> = {
         <li><strong>Personaliza Apodos con Títulos de Cortesía:</strong> Para perfiles aesthetic en TikTok, Instagram o videojuegos, combina palabras como <em>Chérie, Fleur, Mademoiselle</em> o <em>Monsieur</em> con símbolos elegantes (⚜️, 🌹, 💎) usando el generador interactivo arriba.</li>
       </ol>
     `,
-    metaDescription: 'Lista de nombres franceses bonitos y elegantes para niña y niño. Descubre significados románticos y pronunciación en audio con voz real.',
+    metaDescription: 'Lista de nombres franceses bonitos y elegantes para niña y niño. Descubre significados románticos y pronunciación en audio con voz sintetizada del dispositivo.',
     keywords: 'nombres franceses, nombres franceses para niña, nombres franceses para niño, nombres elegantes franceses, nombres franceses masculinos, fonetica francesa, nombres franceses bonitos, nombres franceses romanticos',
     defaultName: 'Amélie',
     customSymbols: ["❤️", "⚜️", "🥐", "🥖", "🍷", "🧀", "🎨", "🗼", "🌹", "💋", "💌", "🕊️", "✨", "🥂", "👑", "💎", "🍾", "🎀", "✦", "📜", "⚡"],
@@ -894,7 +896,7 @@ export const seoData: Record<string, CategoryData> = {
       },
       {
         question: "¿Cómo funciona la guía fonética y pronunciación en francés?",
-        answer: "El francés suele suavizar o mantener mudas las consonantes finales y enfatizar la vocal final. En nuestro reproductor superior puedes hacer clic en el botón de audio para escuchar la locución nativa de cualquier nombre."
+        answer: "El francés suele suavizar o mantener mudas las consonantes finales y enfatizar la vocal final. En nuestro reproductor superior puedes hacer clic en el botón de audio para escuchar la lectura sintetizada del dispositivo de cualquier nombre."
       },
       {
         question: "¿Puedo añadir títulos de cortesía como Mademoiselle o Monsieur en el generador?",
@@ -910,13 +912,13 @@ export const seoData: Record<string, CategoryData> = {
     subtitle: 'Descubre los nombres mayas y prehispánicos más sagrados, hermosos e imponentes para niña, niño, deidades y apodos de videojuegos. Incluye significados profundos, etimología astral y audio de pronunciación.',
     seoText: `
       <h2>Los Mejores Nombres Mayas Auténticos, su Significado y Mitología Sagrada (2026)</h2>
-      <p>La civilización maya es una de las culturas místicas y sabias más fascinantes de la historia de la humanidad. Sus <strong>nombres mayas y prehispánicos</strong> destacan por su profunda veneración hacia los elementos cósmicos, la astronomía, las selvas sagradas, los animales de poder (como el jaguar y el quetzal) y sus deidades tutelares (Ixchel, Kinich Ahau, K'uk'ulkan, Chaac). Elegir un nombre maya o náhuatl otorga una identidad única repleta de fuerza espiritual, belleza natural y gran distinción tanto para bebés como para personajes literarios o perfiles en redes sociales y videojuegos.</p>
+      <p>La civilización maya es una de las culturas místicas y sabias más fascinantes de la historia de la humanidad. Sus <strong>nombres mayas y prehispánicos</strong> destacan por su profunda veneración hacia los elementos cósmicos, la astronomía, las selvas sagradas, los animales de poder (como el jaguar y el quetzal) y sus deidades tutelares (Ixchel, Kinich Ahau, K'uk'ulkan, Chaac). Maya y náhuatl son lenguas distintas. No deben confundirse ni atribuir un origen maya a un nombre sin una fuente lingüística. Consulta el <a href="https://codicemayademexico.inah.gob.mx/" target="_blank" rel="noopener noreferrer">Códice Maya de México del INAH</a> para conocer la escritura maya; los emoji del generador son decorativos.</p>
 
       <h3>Categorías Principales de Nombres Mayas y Prehispánicos</h3>
       <p>Explora nuestra selección de nombres indígenas autóctonos agrupados por sus atributos y raíces sagradas:</p>
       <ul>
-        <li><strong>Nombres Mayas para Niñas (Espirituales y Hermosos):</strong> <em>Ixchel, Itza, Yaretzi, Nicté, Zazil, Amaité, Anan, Chantico, Xochitl, Alitzel</em> y <em>Yajaira</em>. Representan la luna, el amor maternal, las flores de mayo, la luz clara del alba y la magia de las aguas.</li>
-        <li><strong>Nombres Mayas para Niños (Guerreros, Sol y Naturaleza):</strong> <em>Balam, Kinich, Canek, Kaknab, Yaxkin, Akbal, Itzamná, Xbalanqué, Yum Kax, K'uk'ulkan</em> y <em>Chilam</em>. Evocan al jaguar protector de la selva, al sol radiante, la serpiente emplumada y al fiero guerrero de fuego.</li>
+        <li><strong>Nombres Mayas para Niñas (Espirituales y Hermosos):</strong> <em>Ixchel</em>. La asociación de Ixchel con la tradición maya no confirma todas las traducciones difundidas en internet.</li>
+        <li><strong>Nombres Mayas para Niños (Guerreros, Sol y Naturaleza):</strong> <em>Balam, Kinich, Canek, Kaknab, Yaxkin, Akbal, Itzamná, Xbalanqué, Yum Kax, K'uk'ulkan</em> y <em>Chilam</em>. Evocan al jaguar protector de la selva, al sol radiante, la serpiente emplumada y referentes mitológicos; su uso como nombres personales requiere revisión.</li>
         <li><strong>Nombres de Animales de Poder y Astros:</strong> <em>Balam</em> (jaguar), <em>K'uk'</em> (quetzal), <em>Kan</em> (serpiente sagrada), <em>K'in</em> (sol) y <em>U</em> (luna). Ideales para avatares, mascotas y nicks aesthetic.</li>
       </ul>
 
@@ -925,7 +927,7 @@ export const seoData: Record<string, CategoryData> = {
         <table class="min-w-full text-left border-collapse rounded-2xl overflow-hidden border border-white/10 bg-zinc-900/60">
           <thead>
             <tr class="bg-indigo-950/60 text-indigo-200 border-b border-white/10">
-              <th class="py-3.5 px-4 font-bold">Nombre Maya</th>
+              <th class="py-3.5 px-4 font-bold">Nombre / Propuesta</th>
               <th class="py-3.5 px-4 font-bold">Género</th>
               <th class="py-3.5 px-4 font-bold">Simbolismo / Elemento</th>
               <th class="py-3.5 px-4 font-bold">Significado Profundo</th>
@@ -937,49 +939,49 @@ export const seoData: Record<string, CategoryData> = {
               <td class="py-3 px-4 font-bold text-indigo-400">Ixchel</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Femenino</td>
               <td class="py-3 px-4 text-zinc-300">Diosa Mayor de la Luna</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Diosa de la medicina, el tejido, los ciclos lunares y la fertilidad.</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Interpretación pendiente de verificación lingüística; no es una traducción confirmada.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Ixchel Sofía</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Balam</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Unisex</td>
               <td class="py-3 px-4 text-zinc-300">Animal Sagrado (Jaguar)</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Jaguar protector, guardián fiero y silencioso de la selva sagrada.</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Interpretación pendiente de verificación lingüística; no es una traducción confirmada.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Balam Gael</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Itza</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Unisex</td>
-              <td class="py-3 px-4 text-zinc-300">Aguas Místicas</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Magia nacida de las aguas cristalinas y regalo bendecido de Dios.</td>
+              <td class="py-3 px-4 text-zinc-300">Referencia cultural por verificar</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Interpretación pendiente de verificación lingüística; no es una traducción confirmada.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Itza Rose</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Kinich</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Masculino</td>
               <td class="py-3 px-4 text-zinc-300">Dios Solar (Kinich Ahau)</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Rostro del sol resplandeciente, energía solar y calor de vida.</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Interpretación pendiente de verificación lingüística; no es una traducción confirmada.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Kinich Alexander</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Nicté</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Femenino</td>
               <td class="py-3 px-4 text-zinc-300">Flor de Mayo</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Flor hermosa de primavera, símbolo de pureza, gracia y ternura.</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Interpretación pendiente de verificación lingüística; no es una traducción confirmada.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Nicté Valentina</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Canek</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Masculino</td>
-              <td class="py-3 px-4 text-zinc-300">Serpiente de Fuego</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Serpiente negra de fuego, guerrero supremo, astuto e indomable.</td>
+              <td class="py-3 px-4 text-zinc-300">Nombre histórico</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Interpretación pendiente de verificación lingüística; no es una traducción confirmada.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Canek Mateo</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Yaretzi</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Femenino</td>
-              <td class="py-3 px-4 text-zinc-300">Amor Prehispánico</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Siempre serás amada por los dioses, la naturaleza y tu pueblo.</td>
+              <td class="py-3 px-4 text-zinc-300">Origen por verificar</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Interpretación pendiente de verificación lingüística; no es una traducción confirmada.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Yaretzi Sky</td>
             </tr>
           </tbody>
@@ -990,7 +992,7 @@ export const seoData: Record<string, CategoryData> = {
       <ol>
         <li><strong>Conoce el Elemento Sagrado:</strong> Asocia el nombre con su simbolismo natural (agua en Itza, flor en Nicté, jaguar en Balam, luna en Ixchel).</li>
         <li><strong>Combínalo con un Segundo Nombre Armónico:</strong> Para bebés, la fusión de un nombre maya profundo con un segundo nombre lírico (ej. <em>Ixchel Sofía, Balam Gael, Nicté Valentina</em>) crea un conjunto de gran eufonía.</li>
-        <li><strong>Utiliza Símbolos Prehispánicos para Nicks y Avatares:</strong> Enriquece tus perfiles en Free Fire, Roblox o redes sociales añadiendo glifos o jeroglíficos estilizados (☀️, 🐆, 🪶, 🗿, 🐍) con nuestro generador arriba.</li>
+        <li><strong>Utiliza Símbolos Prehispánicos para Nicks y Avatares:</strong> Enriquece tus perfiles en Free Fire, Roblox o redes sociales añadiendo emoji decorativos (☀️, 🐆, 🪶, 🗿, 🐍) con nuestro generador arriba.</li>
       </ol>
     `,
     metaDescription: 'Lista de nombres mayas y prehispánicos para niña y niño. Descubre significados de deidades, la naturaleza y audio de pronunciación.',
@@ -1000,11 +1002,11 @@ export const seoData: Record<string, CategoryData> = {
     faqs: [
       {
         question: "¿Qué representan los elementos de la naturaleza en los nombres mayas?",
-        answer: "Para la civilización maya, la naturaleza y el ser humano estaban estrechamente conectados. Nombres vinculados al agua (Ha), las flores (Nicté), las aguas sagradas (Itza) o los jaguares (Balam) buscaban transmitir la fuerza y virtudes de ese elemento a la persona."
+        answer: "Para la civilización maya, la naturaleza y el ser humano estaban estrechamente conectados. Las asociaciones simbólicas no deben confundirse con traducciones literales ni con un registro de nombres personales."
       },
       {
         question: "¿Cuáles son los nombres mayas más populares para niña y niño?",
-        answer: "En opciones femeninas destacan Ixchel (diosa lunar), Itza, Nicté, Yaretzi, Zazil y Alitzel. En opciones masculinas encabezan las listas Balam (jaguar), Kinich (sol), Canek (serpiente de fuego), Kaknab y Yaxkin."
+        answer: "La selección incluye referencias como Ixchel y Balam. No contamos con estadísticas que acrediten su popularidad; el origen y las etimologías de las demás propuestas requieren verificación."
       },
       {
         question: "¿Puedo usar un nombre maya como nick para videojuegos o redes sociales?",
@@ -1012,7 +1014,7 @@ export const seoData: Record<string, CategoryData> = {
       },
       {
         question: "¿Cómo escuchar la pronunciación en audio de cada nombre maya?",
-        answer: "En el generador interactivo arriba puedes ingresar cualquier nombre maya o combinación y presionar el altavoz para escuchar su pronunciación en voz real."
+        answer: "En el generador interactivo arriba puedes ingresar cualquier nombre maya o combinación y presionar el altavoz para solicitar una lectura sintetizada en español. No es una grabación nativa ni confirma la pronunciación en una lengua maya."
       }
     ]
   },
@@ -1482,10 +1484,10 @@ export const seoData: Record<string, CategoryData> = {
     h1: 'Generador y Creador de Nombres para Free Fire',
     subtitle: 'La herramienta #1 para transformar tu apodo en letras raras, símbolos de armas, coronas y estilos insanos para FF.',
     seoText: `
-      <h2>El Generador Oficial de Nombres para Free Fire (FF)</h2>
+      <h2>El Generador de Nombres para Free Fire (FF)</h2>
       <p>Bienvenido al creador de nombres para Free Fire más rápido e intuitivo. Diseñado específicamente para jugadores de Free Fire, PUBG, Call of Duty Mobile y Roblox, nuestro algoritmo convierte cualquier palabra simple en una combinación insana llena de estilo.</p>
       <h3>Símbolos e Insignias Soportados</h3>
-      <p>Usa símbolos comprobados como alas (꧁༺ ༻꧂), coronas (👑), rayos (⚡), cruces (☠︎), caras (ツ, ×͜×) y armas (🔫, ⚔️) aceptados directamente en el servidor oficial de Garena Free Fire.</p>
+      <p>Prueba símbolos como alas (꧁༺ ༻꧂), coronas (👑), rayos (⚡), cruces (☠︎), caras (ツ, ×͜×) y armas (🔫, ⚔️) para probar en Garena Free Fire; la aceptación depende de la versión y del dispositivo.</p>
     `,
     metaDescription: 'Creador y generador de nombres para Free Fire gratis. Personaliza tu apodo con letras raras, fuentes elegantes y símbolos especiales en 1 clic.',
     keywords: 'generador de nombres para free fire, creador de nombres para free fire, crear nombres para free fire, nombres para free fire',
@@ -1581,7 +1583,7 @@ export const seoData: Record<string, CategoryData> = {
       },
       {
         question: "¿Cuántos caracteres ocupa el espacio invisible?",
-        answer: "Cada espacio invisible equivale exactamente a 1 carácter dentro del límite de 12 caracteres máximos de Free Fire. Nuestro simulador te indica en tiempo real la longitud exacta."
+        answer: "Nuestro simulador cuenta caracteres visibles, incluidos los espacios invisibles. Este conteo no garantiza el límite de 12 caracteres ni la aceptación en Free Fire: compruébalo en tu versión del juego."
       }
     ]
   },
@@ -2622,7 +2624,7 @@ export const seoData: Record<string, CategoryData> = {
         <li><strong>Comprueba la Pronunciación en Voz Alta:</strong> Utiliza la herramienta interactiva de audio para escuchar la sonoridad del nombre y su combinación antes de decidir.</li>
       </ol>
     `,
-    metaDescription: 'Lista completa de nombres con A para hombres, mujeres y bebés. Descubre significados, etimologías y audio de pronunciación en voz real.',
+    metaDescription: 'Lista completa de nombres con A para hombres, mujeres y bebés. Descubre significados, etimologías y audio de pronunciación en voz sintetizada del dispositivo.',
     keywords: 'nombres con a, nombres con a de hombre, nombres con a de mujer, nombres con la letra a, nombres con a para bebes, nombres bonitos con a, nombres raros con a',
     defaultName: 'Alexander',
     customSymbols: ["🅰️", "✨", "⭐", "👑", "💎", "⚡", "📜", "🌸", "🛡️", "✦"],
@@ -2641,7 +2643,7 @@ export const seoData: Record<string, CategoryData> = {
       },
       {
         question: "¿Puedo escuchar la pronunciación en audio de los nombres con A?",
-        answer: "Sí, en nuestro generador interactivo arriba puedes presionar el ícono del altavoz en cualquier nombre o combinación para escuchar su pronunciación en voz real en español."
+        answer: "Sí, en nuestro generador interactivo arriba puedes presionar el ícono del altavoz en cualquier nombre o combinación para escuchar su pronunciación en voz sintetizada del dispositivo en español."
       }
     ]
   },
@@ -2655,7 +2657,7 @@ export const seoData: Record<string, CategoryData> = {
       <h2>Nombres con la Letra B y su Significado</h2>
       <p>Nombres con gran personalidad como Bruno, Bella, Benjamín, Bianca, Balthazar y Bárbara.</p>
     `,
-    metaDescription: 'Directorio de nombres con B para niños, niñas y mascotas. Encuentra significados, origenes y audios de pronunciación con voz real.',
+    metaDescription: 'Directorio de nombres con B para niños, niñas y mascotas. Encuentra significados, origenes y audios de pronunciación con voz sintetizada del dispositivo.',
     keywords: 'nombres con b, nombres con b de hombre, nombres con b de mujer',
     defaultName: 'Bruno',
     customSymbols: ["🅱️", "✨", "🧸"],
@@ -2685,7 +2687,7 @@ export const seoData: Record<string, CategoryData> = {
       <h2>Los Mejores Nombres con E</h2>
       <p>Nombres vibrantes como Emanuel, Elena, Enzo, Emma, Esteban y Eva.</p>
     `,
-    metaDescription: 'Lista de nombres con E de hombre, mujer y bebés. Encuentra origenes, significados y audios de pronunciación clara en voz real.',
+    metaDescription: 'Lista de nombres con E de hombre, mujer y bebés. Encuentra origenes, significados y audios de pronunciación clara en voz sintetizada del dispositivo.',
     keywords: 'nombres con e, nombres con e de hombre, nombres con e de mujer',
     defaultName: 'Enzo',
     customSymbols: ["Ⓔ", "✨", "🌟"],
@@ -2800,7 +2802,7 @@ export const seoData: Record<string, CategoryData> = {
       },
       {
         question: "¿Puedo escuchar la pronunciación en audio de cada nombre con F?",
-        answer: "Sí, en nuestro generador interactivo puedes hacer clic en el ícono del altavoz en cualquier nombre o combinación compuesta para escuchar su pronunciación en voz real en español."
+        answer: "Sí, en nuestro generador interactivo puedes hacer clic en el ícono del altavoz en cualquier nombre o combinación compuesta para escuchar su pronunciación en voz sintetizada del dispositivo en español."
       }
     ]
   },
@@ -2892,7 +2894,7 @@ export const seoData: Record<string, CategoryData> = {
       <ol>
         <li><strong>Aprovecha la Melodía Vocal Abierta:</strong> La M inicial combina excelentemente con casi cualquier combinación de vocales, ofreciendo un ritmo armonioso en nombres compuestos como <em>Mateo Alexander, Mia Valentina, Martín Gael</em>.</li>
         <li><strong>Coordina con Apellidos Fuertes o Cortos:</strong> Si tu apellido es breve (ej. <em>Sanz, Cruz, Gil</em>), un primer nombre con M melódico y de tres sílabas como <em>Micaela, Mauricio</em> o <em>Miranda</em> genera una sonoridad majestuosa.</li>
-        <li><strong>Verifica la Pronunciación Interactiva:</strong> Escucha cómo suena el nombre en voz real en español utilizando el reproductor de audio de nuestro generador interactivo arriba.</li>
+        <li><strong>Verifica la Pronunciación Interactiva:</strong> Escucha cómo suena el nombre en voz sintetizada del dispositivo en español utilizando el reproductor de audio de nuestro generador interactivo arriba.</li>
       </ol>
     `,
     metaDescription: 'Lista completa de nombres con M para mujer, hombre y bebés. Descubre significados profundos, etimología y audio de pronunciación.',
@@ -2914,7 +2916,7 @@ export const seoData: Record<string, CategoryData> = {
       },
       {
         question: "¿Puedo escuchar el audio con la pronunciación de cada nombre con M?",
-        answer: "Sí, en nuestro generador interactivo arriba puedes presionar el ícono del altavoz en cualquier nombre o combinación compuesta para escuchar la pronunciación en voz real en español."
+        answer: "Sí, en nuestro generador interactivo arriba puedes presionar el ícono del altavoz en cualquier nombre o combinación compuesta para escuchar la pronunciación en voz sintetizada del dispositivo en español."
       }
     ]
   },
@@ -2931,9 +2933,9 @@ export const seoData: Record<string, CategoryData> = {
       <h3>Categorías Principales de Nombres con la Letra Ñ</h3>
       <p>Explora las variedades de nombres que integran la eñe según sus raíces históricas, culturales y estilo:</p>
       <ul>
-        <li><strong>Nombres Masculinos Tradicionales e Hispanos:</strong> <em>Iñigo, Beñat, Nuño, Iñaki, Toño, Faraón, Begoño, Ñeembucú, Bardo, Ñeco</em> y <em>Señorino</em>. Destacan por su firmeza histórica y raigambre solar.</li>
-        <li><strong>Nombres Femeninos con Ñ Auténticos:</strong> <em>Begoña, Ñusta, Cariño, Iñes, Bego, España, Doña, Begoñe</em> y <em>Brianna-Iñe</em>. Representan realeza, santuario, afecto puro y belleza autóctona.</li>
-        <li><strong>Nombres de Raíz Indígena y Étnica (Quechua / Guaraní):</strong> <em>Ñusta</em> (princesa real inca), <em>Ñandú, Ñeembucú, Ñamandu, Ñawpa</em> y <em>Ñumi</em>. Altamente valorados para marcas con identidad y referentes de distinción.</li>
+        <li><strong>Nombres Masculinos Tradicionales e Hispanos:</strong> <em>Iñigo, Beñat, Nuño e Iñaki</em> contienen la letra Ñ, aunque no empiezan por ella. <em>Toño</em> es una forma familiar de Antonio.</li>
+        <li><strong>Nombres Femeninos con Ñ:</strong> <em>Begoña</em> es un nombre documentado de uso español y vasco. No todas las palabras con Ñ son nombres personales.</li>
+        <li><strong>Vocabulario Cultural:</strong> <em>Ñusta</em> es un término quechua para una princesa de los antiguos incas. Su definición histórica no demuestra por sí sola su uso como nombre de pila.</li>
       </ul>
 
       <h3>Tabla Comparativa: Origen, Etimología y Significado de Nombres con Ñ</h3>
@@ -2952,50 +2954,50 @@ export const seoData: Record<string, CategoryData> = {
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Iñigo</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Masculino</td>
-              <td class="py-3 px-4 text-zinc-300">Vasco / Latín (Eneko)</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Proveniente del lugar del fuego, guerrero apasionado.</td>
+              <td class="py-3 px-4 text-zinc-300">Español / Vasco (Eneko)</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Forma española de Eneko; no equivale a «guerrero apasionado».</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Iñigo Gael</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Begoña</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Femenino</td>
               <td class="py-3 px-4 text-zinc-300">Vasco (Begoña)</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Lugar sobre la colina dominante o santuario sagrado elevado.</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Relacionado con Nuestra Señora de Begoña y el lugar de Begoña en Bilbao.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Begoña Sofía</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Ñusta</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Femenino</td>
               <td class="py-3 px-4 text-zinc-300">Quechua / Inca</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Princesa imperial de linaje noble y virgen del sol celestial.</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Término histórico para una princesa de los antiguos incas; no se presenta como nombre de pila verificado.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Ñusta Valentina</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Beñat</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Masculino</td>
               <td class="py-3 px-4 text-zinc-300">Vasco (Bernard)</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Fuerte y valiente como un oso guerrero de las montañas.</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Forma vasca de Bernardo.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Beñat Alexander</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Nuño</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Masculino</td>
               <td class="py-3 px-4 text-zinc-300">Español Antiguo / Latín</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Noveno hijo nacido, sabio, justo, protector y respetado.</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Forma española de Nuno; su etimología no permite atribuir rasgos personales.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Nuño Mateo</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Iñaki</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Masculino</td>
               <td class="py-3 px-4 text-zinc-300">Vasco (Ignacio)</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Fuego ardiente, resplandeciente, apasionado y constante.</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Forma vasca de Ignacio; la asociación con el fuego no es una etimología segura.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Iñaki Thiago</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Cariño</td>
-              <td class="py-3 px-4 font-mono text-zinc-400">Unisex</td>
+              <td class="py-3 px-4 font-mono text-zinc-400">Apodo afectuoso</td>
               <td class="py-3 px-4 text-zinc-300">Español Castellano</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Afecto sincero, dulzura interior, gracia y ternura pura.</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Palabra afectuosa para un apodo; no se presenta como nombre personal documentado.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Cariño Rose</td>
             </tr>
           </tbody>
@@ -3006,8 +3008,9 @@ export const seoData: Record<string, CategoryData> = {
       <ol>
         <li><strong>Valora el Significado Cultural e Hispano:</strong> Los nombres con la eñe destacan por una sonoridad atemporal imposible de replicar en otros idiomas. Elegir opciones como <em>Iñigo, Begoña</em> o <em>Ñusta</em> resalta la herencia autóctona.</li>
         <li><strong>Combina con Nombres Secundarios Ligeros:</strong> Debido a la sonoridad distintiva de la letra Ñ, acompáñala de un segundo nombre breve y melódico (como <em>Gael, Sofía, Mateo, Rose</em>) para crear un ritmo armónico.</li>
-        <li><strong>Verifica la Fonética en Audio Real:</strong> Utiliza el reproductor de voz arriba para validar la pronunciación natural en español antes de tomar la decisión final.</li>
+        <li><strong>Consulta la Pronunciación:</strong> La voz del dispositivo ofrece una lectura aproximada; consulta hablantes y fuentes lingüísticas para confirmar la pronunciación.</li>
       </ol>
+      <p>Fuentes consultadas: <a href="https://www.behindthename.com/name/i10n14igo">Íñigo</a>, <a href="https://www.behindthename.com/name/begon14a">Begoña</a>, <a href="https://www.behindthename.com/name/ben14at">Beñat</a>, <a href="https://www.behindthename.com/name/nun14o">Nuño</a>, <a href="https://www.behindthename.com/name/in14aki">Iñaki</a> y <a href="https://dle.rae.es/%C3%B1usta">ñusta (RAE)</a>. Las combinaciones son propuestas creativas.</p>
     `,
     metaDescription: 'Lista completa de nombres con la letra Ñ para hombres, mujeres y bebés. Descubre etimologías, significados y audio de pronunciación.',
     keywords: 'nombres con ñ, nombres con ñ de mujer, nombres con ñ de hombre, nombres con la letra ñ, nombres tradicionales con ñ, nombres incas con ñ, nombres vascos con ñ',
@@ -3016,11 +3019,11 @@ export const seoData: Record<string, CategoryData> = {
     faqs: [
       {
         question: "¿Existen nombres que empiecen directamente por la letra Ñ?",
-        answer: "Sí. Aunque en el castellano estándar son menos frecuentes como inicial directa, abundan en lenguas originarias de América como el Quechua (Ñusta, Ñawpa) y el Guaraní (Ñandú, Ñeembucú, Ñamandu)."
+        answer: "Los nombres de pila documentados que empiezan por Ñ son poco frecuentes. Este directorio muestra nombres que contienen Ñ. Palabras, títulos culturales y topónimos no deben confundirse con nombres personales."
       },
       {
         question: "¿Cuáles son los nombres con la letra Ñ más emblemáticos e hispanos?",
-        answer: "Entre las opciones masculinas destacan Iñigo, Beñat, Nuño e Iñaki. En opciones femeninas sobresalen Begoña, Ñusta, Cariño e Iñes."
+        answer: "Entre las opciones masculinas están Iñigo, Beñat, Nuño e Iñaki. Begoña es una opción femenina documentada. Contienen Ñ, pero sus iniciales son otras letras."
       },
       {
         question: "¿Cómo combinar armoniosamente un nombre con Ñ con un segundo nombre?",
@@ -3028,7 +3031,7 @@ export const seoData: Record<string, CategoryData> = {
       },
       {
         question: "¿Puedo escuchar el audio de la pronunciación de nombres con Ñ?",
-        answer: "Sí, en nuestro generador interactivo arriba puedes seleccionar la letra Ñ en la barra de iniciales A-Z y hacer clic en el botón del altavoz para escuchar la voz real en español."
+        answer: "Puedes seleccionar Ñ y pulsar el altavoz para una lectura aproximada con la voz española disponible en tu dispositivo. No es una grabación de un hablante ni una verificación lingüística."
       }
     ]
   },
@@ -3157,7 +3160,7 @@ export const seoData: Record<string, CategoryData> = {
       },
       {
         question: "¿Puedo escuchar la pronunciación en audio de cada nombre con Z?",
-        answer: "Sí, en nuestro generador A-Z interactivo arriba puedes ingresar cualquier nombre con Z o combinación compuesta y hacer clic en el ícono del altavoz para escuchar su locución en voz real en español."
+        answer: "Sí, en nuestro generador A-Z interactivo arriba puedes ingresar cualquier nombre con Z o combinación compuesta y hacer clic en el ícono del altavoz para escuchar su locución en voz sintetizada del dispositivo en español."
       }
     ]
   },
@@ -3271,7 +3274,7 @@ export const seoData: Record<string, CategoryData> = {
       },
       {
         question: "¿Puedo escuchar cómo se pronuncia cada nombre mitológico?",
-        answer: "Sí, en nuestro generador interactivo puedes hacer clic en el ícono del altavoz junto a cualquier nombre de dios o combinación para escuchar la pronunciación en voz real en español."
+        answer: "Sí, en nuestro generador interactivo puedes hacer clic en el ícono del altavoz junto a cualquier nombre de dios o combinación para escuchar la pronunciación en voz sintetizada del dispositivo en español."
       }
     ]
   },
@@ -3385,7 +3388,7 @@ export const seoData: Record<string, CategoryData> = {
       },
       {
         question: "¿Puedo escuchar la pronunciación en audio de cada nombre italiano?",
-        answer: "Sí, en nuestro generador interactivo arriba puedes ingresar cualquier nombre italiano o combinación compuesta y hacer clic en el altavoz para escuchar la voz real en español."
+        answer: "Sí, en nuestro generador interactivo arriba puedes ingresar cualquier nombre italiano o combinación compuesta y hacer clic en el altavoz para escuchar la voz sintetizada del dispositivo en español."
       }
     ]
   },

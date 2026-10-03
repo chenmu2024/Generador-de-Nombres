@@ -1,5 +1,7 @@
 'use client';
 
+import { speakName as readNameAloud } from '../../utils/speech';
+
 import { useEffect, useRef, useState } from 'react';
 import { Copy, Volume2, Printer, Sparkles, Download, X } from 'lucide-react';
 
@@ -76,16 +78,7 @@ export default function PlushieTool({
     });
   };
 
-  const speakPlushieName = (text: string) => {
-    if ('speechSynthesis' in window) {
-      window.speechSynthesis.cancel();
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = 'es-ES';
-      utterance.pitch = 1.2;
-      utterance.rate = 0.85;
-      window.speechSynthesis.speak(utterance);
-    }
-  };
+  const speakPlushieName = (text: string) => readNameAloud(text, 'es-ES');
 
   return (
     <>
@@ -162,8 +155,8 @@ export default function PlushieTool({
       </div>
       
       <div>
-      <label className="text-xs font-semibold text-zinc-400 block mb-1">Especie / Tipo de Peluche:</label>
-      <select aria-label="Seleccionar opción" value={plushieType}
+      <label htmlFor="plushietool-field-1" className="text-xs font-semibold text-zinc-400 block mb-1">Especie / Tipo de Peluche:</label>
+      <select id="plushietool-field-1" aria-label="Seleccionar opción" value={plushieType}
       onChange={(e) => setPlushieType(e.target.value)}
       className="gdn-tool-input w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-pink-500 text-sm font-semibold"
       >
@@ -174,8 +167,8 @@ export default function PlushieTool({
       </div>
       
       <div>
-      <label className="text-xs font-semibold text-zinc-400 block mb-1">Adoptante Oficial:</label>
-      <input
+      <label htmlFor="plushietool-field-2" className="text-xs font-semibold text-zinc-400 block mb-1">Adoptante Oficial:</label>
+      <input id="plushietool-field-2"
       type="text"
       value={plushieOwner}
       onChange={(e) => setPlushieOwner(e.target.value)}
@@ -185,8 +178,8 @@ export default function PlushieTool({
       </div>
       
       <div>
-      <label className="text-xs font-semibold text-zinc-400 block mb-1">Súper Poder / Gusto Especial:</label>
-      <input
+      <label htmlFor="plushietool-field-3" className="text-xs font-semibold text-zinc-400 block mb-1">Súper Poder / Gusto Especial:</label>
+      <input id="plushietool-field-3"
       type="text"
       value={plushieTrait}
       onChange={(e) => setPlushieTrait(e.target.value)}
@@ -196,8 +189,8 @@ export default function PlushieTool({
       </div>
       
       <div>
-      <label className="text-xs font-semibold text-zinc-400 block mb-1">Promesa de Adopción:</label>
-      <input
+      <label htmlFor="plushietool-field-4" className="text-xs font-semibold text-zinc-400 block mb-1">Promesa de Adopción:</label>
+      <input id="plushietool-field-4"
       type="text"
       value={plushiePromise}
       onChange={(e) => setPlushiePromise(e.target.value)}
@@ -312,8 +305,8 @@ export default function PlushieTool({
       
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-5">
       <div>
-      <label className="text-xs font-semibold text-zinc-400 block mb-1">Palabra 1 (Ej. Mochi / Algodón):</label>
-      <input
+      <label htmlFor="plushietool-field-5" className="text-xs font-semibold text-zinc-400 block mb-1">Palabra 1 (Ej. Mochi / Algodón):</label>
+      <input id="plushietool-field-5"
       type="text"
       value={plushieWord1}
       onChange={(e) => setPlushieWord1(e.target.value)}
@@ -322,8 +315,8 @@ export default function PlushieTool({
       />
       </div>
       <div>
-      <label className="text-xs font-semibold text-zinc-400 block mb-1">Palabra 2 (Ej. Copito / Panda):</label>
-      <input
+      <label htmlFor="plushietool-field-6" className="text-xs font-semibold text-zinc-400 block mb-1">Palabra 2 (Ej. Copito / Panda):</label>
+      <input id="plushietool-field-6"
       type="text"
       value={plushieWord2}
       onChange={(e) => setPlushieWord2(e.target.value)}

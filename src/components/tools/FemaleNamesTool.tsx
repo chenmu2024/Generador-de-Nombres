@@ -1,5 +1,7 @@
 'use client';
 
+import { speakName as readNameAloud } from '../../utils/speech';
+
 import { useState } from 'react';
 import { Copy, Flame, Sparkles, Volume2 } from 'lucide-react';
 
@@ -14,16 +16,7 @@ export default function FemaleNamesTool({
   const [femaleSecondName, setFemaleSecondName] = useState('Valentina');
   const [femaleVibe, setFemaleVibe] = useState<'elegante' | 'corto' | 'biblico' | 'moderno' | 'internacional'>('elegante');
 
-  const speakName = (text: string) => {
-    if ('speechSynthesis' in window) {
-      window.speechSynthesis.cancel();
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = 'es-ES';
-      utterance.pitch = 1.2;
-      utterance.rate = 0.85;
-      window.speechSynthesis.speak(utterance);
-    }
-  };
+  const speakName = (text: string) => readNameAloud(text, 'es-ES');
 
   return (
     <div className="gdn-tool-shell bg-gradient-to-br from-pink-950/40 via-[#121212] to-amber-950/30 border border-pink-500/30 rounded-3xl p-8 shadow-2xl relative overflow-hidden space-y-6">
@@ -78,8 +71,8 @@ export default function FemaleNamesTool({
     {/* Inputs Row */}
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
     <div>
-    <label className="text-[11px] text-zinc-400 font-bold uppercase block mb-1">1. Primer Nombre</label>
-    <input
+    <label htmlFor="femalenamestool-field-1" className="text-[11px] text-zinc-400 font-bold uppercase block mb-1">1. Primer Nombre</label>
+    <input id="femalenamestool-field-1"
     type="text"
     value={femaleFirstName}
     onChange={(e) => setFemaleFirstName(e.target.value)}
@@ -88,8 +81,8 @@ export default function FemaleNamesTool({
     />
     </div>
     <div>
-    <label className="text-[11px] text-zinc-400 font-bold uppercase block mb-1">2. Segundo Nombre (Compuesto)</label>
-    <input
+    <label htmlFor="femalenamestool-field-2" className="text-[11px] text-zinc-400 font-bold uppercase block mb-1">2. Segundo Nombre (Compuesto)</label>
+    <input id="femalenamestool-field-2"
     type="text"
     value={femaleSecondName}
     onChange={(e) => setFemaleSecondName(e.target.value)}
