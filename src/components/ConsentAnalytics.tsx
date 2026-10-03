@@ -1,5 +1,8 @@
 'use client';
 
+import { privacyEvent } from '../utils/telemetry';
+import { readStorage } from '../utils/browserStorage';
+
 import { useEffect, useState } from 'react';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
@@ -9,7 +12,7 @@ export default function ConsentAnalytics() {
 
   useEffect(() => {
     const syncConsent = () => {
-      setAccepted(localStorage.getItem('cookie_consent_choice') === 'accepted');
+      setAccepted(readStorage('cookie_consent_choice') === 'accepted');
     };
 
     syncConsent();
@@ -26,8 +29,8 @@ export default function ConsentAnalytics() {
 
   return (
     <>
-      <SpeedInsights />
-      <Analytics />
+      <SpeedInsights beforeSend={privacyEvent} />
+      <Analytics beforeSend={privacyEvent} />
     </>
   );
 }

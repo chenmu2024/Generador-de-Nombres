@@ -2,10 +2,12 @@
 
 import React, { useState } from 'react';
 import { Link } from '../components/Link';
+import { copyText } from '../utils/clipboard';
 import { Mail, MessageSquare, Send, CheckCircle, ArrowLeft, HelpCircle, Clock, ShieldCheck } from 'lucide-react';
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
+  const [emailCopied, setEmailCopied] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', subject: 'Sugerencia', message: '' });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -54,6 +56,8 @@ export default function Contact() {
                 <div>
                   <h3 className="font-bold text-white text-sm">Correo Electrónico</h3>
                   <p className="text-xs text-zinc-400">soporte@generadordenombres.net</p>
+                  <button type="button" className="text-xs text-violet-300 underline mt-2" onClick={async () => setEmailCopied(await copyText('soporte@generadordenombres.net'))}>Copiar correo</button>
+                  {emailCopied && <p role="status" className="text-xs text-emerald-300">Correo copiado</p>}
                 </div>
               </div>
 
@@ -63,7 +67,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="font-bold text-white text-sm">Tiempo de Respuesta</h3>
-                  <p className="text-xs text-zinc-400">24 a 48 horas laborables</p>
+                  <p className="text-xs text-zinc-400">Según la disponibilidad del equipo</p>
                 </div>
               </div>
 
@@ -72,8 +76,8 @@ export default function Contact() {
                   <ShieldCheck className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-white text-sm">Privacidad Garantizada</h3>
-                  <p className="text-xs text-zinc-400">Tus datos nunca se comparten</p>
+                  <h3 className="font-bold text-white text-sm">Envío desde tu correo</h3>
+                  <p className="text-xs text-zinc-400">Revisa el mensaje antes de enviarlo</p>
                 </div>
               </div>
             </div>
@@ -97,20 +101,22 @@ export default function Contact() {
                 </div>
                 <h3 className="text-xl font-bold text-white">Correo preparado</h3>
                 <p className="text-sm text-zinc-400 max-w-sm mx-auto">
-                  Se ha abierto tu aplicación de correo con el mensaje preparado. El envío se completa cuando confirmas el correo desde tu aplicación.
+                  Intentamos abrir tu aplicación de correo con el mensaje preparado. Si no se abre, puedes copiar el mensaje y escribir a soporte@generadordenombres.net. El envío se completa cuando confirmas el correo desde tu aplicación.
                 </p>
                 <button
-                  onClick={() => { setSubmitted(false); setFormData({ name: '', email: '', subject: 'Sugerencia', message: '' }); }}
+                  onClick={() => { setSubmitted(false); }}
                   className="px-4 py-2 bg-zinc-800 hover:bg-zinc-700 text-white rounded-xl text-xs font-semibold transition-colors"
                 >
-                  Preparar otro correo
+                  Volver al mensaje
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <>
+              <p className="text-sm text-zinc-400">Este formulario abre tu aplicación de correo; debes enviar el mensaje allí. Si no se abre, escribe a soporte@generadordenombres.net. El texto se conserva en esta página.</p>
+                <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <label className="block text-xs font-semibold text-zinc-300 mb-1">Nombre o Apodo</label>
-                  <input
+                  <label htmlFor="contact-field-1" className="block text-xs font-semibold text-zinc-300 mb-1">Nombre o Apodo</label>
+                  <input id="contact-field-1"
                     type="text"
                     required
                     value={formData.name}
@@ -121,8 +127,8 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-zinc-300 mb-1">Correo Electrónico</label>
-                  <input
+                  <label htmlFor="contact-field-2" className="block text-xs font-semibold text-zinc-300 mb-1">Correo Electrónico</label>
+                  <input id="contact-field-2"
                     type="email"
                     required
                     value={formData.email}
@@ -133,8 +139,8 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-zinc-300 mb-1">Asunto</label>
-                  <select
+                  <label htmlFor="contact-field-3" className="block text-xs font-semibold text-zinc-300 mb-1">Asunto</label>
+                  <select id="contact-field-3"
                     value={formData.subject}
                     onChange={e => setFormData({ ...formData, subject: e.target.value })}
                     className="w-full px-3.5 py-2.5 bg-zinc-950 border border-white/10 rounded-xl text-sm text-white focus:outline-none focus:border-violet-500"
@@ -147,8 +153,8 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-zinc-300 mb-1">Mensaje</label>
-                  <textarea
+                  <label htmlFor="contact-field-4" className="block text-xs font-semibold text-zinc-300 mb-1">Mensaje</label>
+                  <textarea id="contact-field-4"
                     rows={4}
                     required
                     value={formData.message}
@@ -163,9 +169,10 @@ export default function Contact() {
                   className="w-full py-3 bg-violet-600 hover:bg-violet-500 text-white font-bold rounded-xl text-sm flex items-center justify-center gap-2 transition-colors cursor-pointer shadow-lg shadow-violet-600/20"
                 >
                   <Send className="w-4 h-4" />
-                  Enviar Mensaje
+                  Preparar correo
                 </button>
               </form>
+              </>
             )}
           </div>
         </div>

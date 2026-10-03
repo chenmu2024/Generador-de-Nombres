@@ -50,11 +50,11 @@ export const seoData: Record<string, CategoryData> = {
       },
       {
         question: "¿Dónde puedo usar los nombres generados?",
-        answer: "Los nombres y letras generadas utilizan caracteres Unicode estándar, lo que significa que puedes usarlos en casi cualquier plataforma: Free Fire, Roblox, PUBG, Instagram, TikTok, WhatsApp, Facebook, Twitter, Discord, etc."
+        answer: "Los nombres y letras generadas utilizan caracteres Unicode estándar, lo que significa que puedes probarlos en Free Fire, Roblox, PUBG, Instagram, TikTok, WhatsApp, Facebook, Twitter, Discord, etc. Cada plataforma decide qué caracteres acepta."
       },
       {
         question: "¿Cómo copio un nombre o apodo?",
-        answer: "Simplemente haz clic (o toca en móviles) sobre el nombre o símbolo que te guste. Se copiará automáticamente al portapapeles y podrás pegarlo donde desees."
+        answer: "Simplemente haz clic (o toca en móviles) en el botón Copiar junto al nombre o sobre el símbolo que te guste. Se copiará automáticamente al portapapeles y podrás pegarlo donde desees."
       }
     ]
   },
@@ -224,7 +224,7 @@ export const seoData: Record<string, CategoryData> = {
     faqs: [
       {
         question: "¿Cómo cambiar tu Display Name en Roblox totalmente gratis?",
-        answer: "Abre la app o web de Roblox, entra a 'Configuración' -> 'Información de la Cuenta' -> 'Nombre de Visualización' (Display Name). Haz clic en el ícono del lápiz, escribe tu nuevo nombre aesthetic con símbolos o letras bonitas y guarda los cambios. ¡Puedes cambiarlo gratis cada 7 días!"
+        answer: "Abre la app o web de Roblox, entra a 'Configuración' -> 'Información de la Cuenta' -> 'Nombre de Visualización' (Display Name). Haz clic en el ícono del lápiz, escribe tu nuevo nombre aesthetic y comprueba que Roblox acepte sus caracteres antes de guardar los cambios. ¡Puedes cambiarlo gratis cada 7 días!"
       },
       {
         question: "¿Cuánto cuesta cambiar el Username (@usuario) principal de Roblox?",
@@ -245,7 +245,7 @@ export const seoData: Record<string, CategoryData> = {
     path: '/nombres-instagram',
     title: 'Nombres para Instagram Aesthetic - Generador | GDN',
     h1: 'Generador y Creador de Nombres para Instagram',
-    subtitle: 'Encuentra usernames (@usuario) únicos y disponibles, letras bonitas y nombres de perfil aesthetic para cuentas personales, marcas, moda y creadores de contenido.',
+    subtitle: 'Explora ideas de usernames (@usuario), letras bonitas y nombres de perfil aesthetic para cuentas personales, marcas, moda y creadores de contenido. Comprueba la disponibilidad en Instagram.',
     seoText: `
       <h2>Los Mejores Nombres para Instagram en 2026 (Aesthetic, Marcas y Personales)</h2>
       <p>Crear un <strong>nombre de usuario memorable para Instagram</strong> es la decisión estratégica más importante para construir tu marca personal o comercial. Tu perfil de Instagram maneja dos campos distintos con reglas diferentes: tu <strong>Nombre de Usuario único (@username)</strong> y tu <strong>Nombre de Perfil (Display Name)</strong>.</p>
@@ -1482,10 +1482,10 @@ export const seoData: Record<string, CategoryData> = {
     h1: 'Generador y Creador de Nombres para Free Fire',
     subtitle: 'La herramienta #1 para transformar tu apodo en letras raras, símbolos de armas, coronas y estilos insanos para FF.',
     seoText: `
-      <h2>El Generador Oficial de Nombres para Free Fire (FF)</h2>
+      <h2>El Generador de Nombres para Free Fire (FF)</h2>
       <p>Bienvenido al creador de nombres para Free Fire más rápido e intuitivo. Diseñado específicamente para jugadores de Free Fire, PUBG, Call of Duty Mobile y Roblox, nuestro algoritmo convierte cualquier palabra simple en una combinación insana llena de estilo.</p>
       <h3>Símbolos e Insignias Soportados</h3>
-      <p>Usa símbolos comprobados como alas (꧁༺ ༻꧂), coronas (👑), rayos (⚡), cruces (☠︎), caras (ツ, ×͜×) y armas (🔫, ⚔️) aceptados directamente en el servidor oficial de Garena Free Fire.</p>
+      <p>Prueba símbolos como alas (꧁༺ ༻꧂), coronas (👑), rayos (⚡), cruces (☠︎), caras (ツ, ×͜×) y armas (🔫, ⚔️) para probar en Garena Free Fire; la aceptación depende de la versión y del dispositivo.</p>
     `,
     metaDescription: 'Creador y generador de nombres para Free Fire gratis. Personaliza tu apodo con letras raras, fuentes elegantes y símbolos especiales en 1 clic.',
     keywords: 'generador de nombres para free fire, creador de nombres para free fire, crear nombres para free fire, nombres para free fire',
@@ -1581,7 +1581,7 @@ export const seoData: Record<string, CategoryData> = {
       },
       {
         question: "¿Cuántos caracteres ocupa el espacio invisible?",
-        answer: "Cada espacio invisible equivale exactamente a 1 carácter dentro del límite de 12 caracteres máximos de Free Fire. Nuestro simulador te indica en tiempo real la longitud exacta."
+        answer: "Nuestro simulador cuenta caracteres visibles, incluidos los espacios invisibles. Este conteo no garantiza el límite de 12 caracteres ni la aceptación en Free Fire: compruébalo en tu versión del juego."
       }
     ]
   },
@@ -2931,9 +2931,9 @@ export const seoData: Record<string, CategoryData> = {
       <h3>Categorías Principales de Nombres con la Letra Ñ</h3>
       <p>Explora las variedades de nombres que integran la eñe según sus raíces históricas, culturales y estilo:</p>
       <ul>
-        <li><strong>Nombres Masculinos Tradicionales e Hispanos:</strong> <em>Iñigo, Beñat, Nuño, Iñaki, Toño, Faraón, Begoño, Ñeembucú, Bardo, Ñeco</em> y <em>Señorino</em>. Destacan por su firmeza histórica y raigambre solar.</li>
-        <li><strong>Nombres Femeninos con Ñ Auténticos:</strong> <em>Begoña, Ñusta, Cariño, Iñes, Bego, España, Doña, Begoñe</em> y <em>Brianna-Iñe</em>. Representan realeza, santuario, afecto puro y belleza autóctona.</li>
-        <li><strong>Nombres de Raíz Indígena y Étnica (Quechua / Guaraní):</strong> <em>Ñusta</em> (princesa real inca), <em>Ñandú, Ñeembucú, Ñamandu, Ñawpa</em> y <em>Ñumi</em>. Altamente valorados para marcas con identidad y referentes de distinción.</li>
+        <li><strong>Nombres Masculinos Tradicionales e Hispanos:</strong> <em>Iñigo, Beñat, Nuño e Iñaki</em> contienen la letra Ñ, aunque no empiezan por ella. <em>Toño</em> es una forma familiar de Antonio.</li>
+        <li><strong>Nombres Femeninos con Ñ:</strong> <em>Begoña</em> es un nombre documentado de uso español y vasco. No todas las palabras con Ñ son nombres personales.</li>
+        <li><strong>Vocabulario Cultural:</strong> <em>Ñusta</em> es un término quechua para una princesa de los antiguos incas. Su definición histórica no demuestra por sí sola su uso como nombre de pila.</li>
       </ul>
 
       <h3>Tabla Comparativa: Origen, Etimología y Significado de Nombres con Ñ</h3>
@@ -2952,50 +2952,50 @@ export const seoData: Record<string, CategoryData> = {
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Iñigo</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Masculino</td>
-              <td class="py-3 px-4 text-zinc-300">Vasco / Latín (Eneko)</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Proveniente del lugar del fuego, guerrero apasionado.</td>
+              <td class="py-3 px-4 text-zinc-300">Español / Vasco (Eneko)</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Forma española de Eneko; no equivale a «guerrero apasionado».</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Iñigo Gael</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Begoña</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Femenino</td>
               <td class="py-3 px-4 text-zinc-300">Vasco (Begoña)</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Lugar sobre la colina dominante o santuario sagrado elevado.</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Relacionado con Nuestra Señora de Begoña y el lugar de Begoña en Bilbao.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Begoña Sofía</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Ñusta</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Femenino</td>
               <td class="py-3 px-4 text-zinc-300">Quechua / Inca</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Princesa imperial de linaje noble y virgen del sol celestial.</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Término histórico para una princesa de los antiguos incas; no se presenta como nombre de pila verificado.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Ñusta Valentina</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Beñat</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Masculino</td>
               <td class="py-3 px-4 text-zinc-300">Vasco (Bernard)</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Fuerte y valiente como un oso guerrero de las montañas.</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Forma vasca de Bernardo.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Beñat Alexander</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Nuño</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Masculino</td>
               <td class="py-3 px-4 text-zinc-300">Español Antiguo / Latín</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Noveno hijo nacido, sabio, justo, protector y respetado.</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Forma española de Nuno; su etimología no permite atribuir rasgos personales.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Nuño Mateo</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Iñaki</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Masculino</td>
               <td class="py-3 px-4 text-zinc-300">Vasco (Ignacio)</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Fuego ardiente, resplandeciente, apasionado y constante.</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Forma vasca de Ignacio; la asociación con el fuego no es una etimología segura.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Iñaki Thiago</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Cariño</td>
-              <td class="py-3 px-4 font-mono text-zinc-400">Unisex</td>
+              <td class="py-3 px-4 font-mono text-zinc-400">Apodo afectuoso</td>
               <td class="py-3 px-4 text-zinc-300">Español Castellano</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Afecto sincero, dulzura interior, gracia y ternura pura.</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Palabra afectuosa para un apodo; no se presenta como nombre personal documentado.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Cariño Rose</td>
             </tr>
           </tbody>
@@ -3006,8 +3006,9 @@ export const seoData: Record<string, CategoryData> = {
       <ol>
         <li><strong>Valora el Significado Cultural e Hispano:</strong> Los nombres con la eñe destacan por una sonoridad atemporal imposible de replicar en otros idiomas. Elegir opciones como <em>Iñigo, Begoña</em> o <em>Ñusta</em> resalta la herencia autóctona.</li>
         <li><strong>Combina con Nombres Secundarios Ligeros:</strong> Debido a la sonoridad distintiva de la letra Ñ, acompáñala de un segundo nombre breve y melódico (como <em>Gael, Sofía, Mateo, Rose</em>) para crear un ritmo armónico.</li>
-        <li><strong>Verifica la Fonética en Audio Real:</strong> Utiliza el reproductor de voz arriba para validar la pronunciación natural en español antes de tomar la decisión final.</li>
+        <li><strong>Consulta la Pronunciación:</strong> La voz del dispositivo ofrece una lectura aproximada; consulta hablantes y fuentes lingüísticas para confirmar la pronunciación.</li>
       </ol>
+      <p>Fuentes consultadas: <a href="https://www.behindthename.com/name/i10n14igo">Íñigo</a>, <a href="https://www.behindthename.com/name/begon14a">Begoña</a>, <a href="https://www.behindthename.com/name/ben14at">Beñat</a>, <a href="https://www.behindthename.com/name/nun14o">Nuño</a>, <a href="https://www.behindthename.com/name/in14aki">Iñaki</a> y <a href="https://dle.rae.es/%C3%B1usta">ñusta (RAE)</a>. Las combinaciones son propuestas creativas.</p>
     `,
     metaDescription: 'Lista completa de nombres con la letra Ñ para hombres, mujeres y bebés. Descubre etimologías, significados y audio de pronunciación.',
     keywords: 'nombres con ñ, nombres con ñ de mujer, nombres con ñ de hombre, nombres con la letra ñ, nombres tradicionales con ñ, nombres incas con ñ, nombres vascos con ñ',
@@ -3016,11 +3017,11 @@ export const seoData: Record<string, CategoryData> = {
     faqs: [
       {
         question: "¿Existen nombres que empiecen directamente por la letra Ñ?",
-        answer: "Sí. Aunque en el castellano estándar son menos frecuentes como inicial directa, abundan en lenguas originarias de América como el Quechua (Ñusta, Ñawpa) y el Guaraní (Ñandú, Ñeembucú, Ñamandu)."
+        answer: "Los nombres de pila documentados que empiezan por Ñ son poco frecuentes. Este directorio muestra nombres que contienen Ñ. Palabras, títulos culturales y topónimos no deben confundirse con nombres personales."
       },
       {
         question: "¿Cuáles son los nombres con la letra Ñ más emblemáticos e hispanos?",
-        answer: "Entre las opciones masculinas destacan Iñigo, Beñat, Nuño e Iñaki. En opciones femeninas sobresalen Begoña, Ñusta, Cariño e Iñes."
+        answer: "Entre las opciones masculinas están Iñigo, Beñat, Nuño e Iñaki. Begoña es una opción femenina documentada. Contienen Ñ, pero sus iniciales son otras letras."
       },
       {
         question: "¿Cómo combinar armoniosamente un nombre con Ñ con un segundo nombre?",
@@ -3028,7 +3029,7 @@ export const seoData: Record<string, CategoryData> = {
       },
       {
         question: "¿Puedo escuchar el audio de la pronunciación de nombres con Ñ?",
-        answer: "Sí, en nuestro generador interactivo arriba puedes seleccionar la letra Ñ en la barra de iniciales A-Z y hacer clic en el botón del altavoz para escuchar la voz real en español."
+        answer: "Puedes seleccionar Ñ y pulsar el altavoz para una lectura aproximada con la voz española disponible en tu dispositivo. No es una grabación de un hablante ni una verificación lingüística."
       }
     ]
   },

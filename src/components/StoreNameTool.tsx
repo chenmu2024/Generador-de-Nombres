@@ -1,5 +1,6 @@
 'use client';
 
+import { copyText } from '../utils/clipboard';
 import React, { useState } from 'react';
 import { ShoppingBag, Sparkles, Copy, CheckCircle2, Store, RefreshCw, Wand2 } from 'lucide-react';
 
@@ -38,8 +39,8 @@ export default function StoreNameTool() {
     `${customKeyword} & Co. Market`
   ];
 
-  const handleCopy = (name: string) => {
-    navigator.clipboard.writeText(name);
+  const handleCopy = async (name: string) => {
+    if (!await copyText(name)) return;
     setCopiedName(name);
     setTimeout(() => setCopiedName(null), 2000);
   };
@@ -79,10 +80,10 @@ export default function StoreNameTool() {
       {/* Custom Keyword Input */}
       <div className="bg-zinc-900/90 border border-white/10 rounded-2xl p-6 flex flex-col sm:flex-row items-center gap-4">
         <div className="flex-1 w-full">
-          <label className="block text-xs font-bold text-amber-400 uppercase tracking-wider mb-1">
+          <label htmlFor="storenametool-field-1" className="block text-xs font-bold text-amber-400 uppercase tracking-wider mb-1">
             Palabra clave o Nombre Principal
           </label>
-          <input
+          <input id="storenametool-field-1"
             type="text"
             value={customKeyword}
             onChange={(e) => setCustomKeyword(e.target.value)}

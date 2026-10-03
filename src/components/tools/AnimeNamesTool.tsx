@@ -1,5 +1,7 @@
 'use client';
 
+import { speakName as readNameAloud } from '../../utils/speech';
+
 import { useState } from 'react';
 import { Copy, Flame, Sparkles, Volume2 } from 'lucide-react';
 
@@ -12,16 +14,7 @@ export default function AnimeNamesTool({
   const [animeSuffix, setAnimeSuffix] = useState('-sama');
   const [animeArchetype, setAnimeArchetype] = useState<'shonen' | 'villain' | 'kawaii' | 'isekai' | 'ninja'>('shonen');
 
-  const speakName = (text: string) => {
-    if ('speechSynthesis' in window) {
-      window.speechSynthesis.cancel();
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = 'es-ES';
-      utterance.pitch = 1.2;
-      utterance.rate = 0.85;
-      window.speechSynthesis.speak(utterance);
-    }
-  };
+  const speakName = (text: string) => readNameAloud(text, 'es-ES');
 
   return (
     <div className="gdn-tool-shell bg-gradient-to-br from-red-950/40 via-[#121212] to-violet-950/30 border border-red-500/30 rounded-3xl p-8 shadow-2xl relative overflow-hidden space-y-6">
@@ -73,8 +66,8 @@ export default function AnimeNamesTool({
     {/* Inputs Row */}
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
     <div>
-    <label className="text-[11px] text-zinc-400 font-bold uppercase block mb-1">1. Nombre o Apodo Base</label>
-    <input
+    <label htmlFor="animenamestool-field-1" className="text-[11px] text-zinc-400 font-bold uppercase block mb-1">1. Nombre o Apodo Base</label>
+    <input id="animenamestool-field-1"
     type="text"
     value={animeBaseName}
     onChange={(e) => setAnimeBaseName(e.target.value)}
@@ -83,8 +76,8 @@ export default function AnimeNamesTool({
     />
     </div>
     <div>
-    <label className="text-[11px] text-zinc-400 font-bold uppercase block mb-1">2. Sufijo Honorífico Japonés</label>
-    <select aria-label="Seleccionar opción" value={animeSuffix}
+    <label htmlFor="animenamestool-field-2" className="text-[11px] text-zinc-400 font-bold uppercase block mb-1">2. Sufijo Honorífico Japonés</label>
+    <select id="animenamestool-field-2" aria-label="Seleccionar opción" value={animeSuffix}
     onChange={(e) => setAnimeSuffix(e.target.value)}
     className="gdn-tool-input w-full bg-zinc-900 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-red-500 font-mono"
     >
@@ -158,7 +151,7 @@ export default function AnimeNamesTool({
     <button
     onClick={() => speakName(full)}
     className="p-1.5 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 rounded-lg transition-colors"
-    title="Escuchar la pronunciación"
+    title="Lectura aproximada con la voz del dispositivo" aria-label="Escuchar lectura aproximada"
     >
     <Volume2 className="w-3.5 h-3.5" />
     </button>

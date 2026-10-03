@@ -1,6 +1,12 @@
 {
   "redirects": [
     {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "generador-de-nombres.vercel.app" }],
+      "destination": "https://generadordenombres.net/:path*",
+      "permanent": true
+    },
+    {
       "source": "/nombres-perritas-chihuahua",
       "destination": "/perritas-chihuahua",
       "permanent": true

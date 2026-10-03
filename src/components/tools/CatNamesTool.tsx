@@ -1,5 +1,7 @@
 'use client';
 
+import { speakName as readNameAloud } from '../../utils/speech';
+
 import { useState } from 'react';
 import { Copy, Volume2 } from 'lucide-react';
 
@@ -13,15 +15,7 @@ export default function CatNamesTool({
   const [catBreedType, setCatBreedType] = useState('Gato Naranjita 🍊');
   const [catSelectedFrame, setCatSelectedFrame] = useState('🐾 [Name] • Michi 🐾');
 
-  const speakCatName = (text: string) => {
-    if ('speechSynthesis' in window) {
-      window.speechSynthesis.cancel();
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = 'es-ES';
-      utterance.rate = 0.9;
-      window.speechSynthesis.speak(utterance);
-    }
-  };
+  const speakCatName = (text: string) => readNameAloud(text, 'es-ES');
 
   return (
     <>
@@ -52,8 +46,8 @@ export default function CatNamesTool({
       <div className="space-y-4 md:col-span-2">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
       <div>
-      <label className="text-xs font-semibold text-zinc-400 block mb-2">Pelaje / Estilo del Gato:</label>
-      <select aria-label="Seleccionar opción" value={catBreedType}
+      <label htmlFor="catnamestool-field-1" className="text-xs font-semibold text-zinc-400 block mb-2">Pelaje / Estilo del Gato:</label>
+      <select id="catnamestool-field-1" aria-label="Seleccionar opción" value={catBreedType}
       onChange={(e) => setCatBreedType(e.target.value)}
       className="gdn-tool-input w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-amber-500 text-sm font-semibold"
       >
@@ -64,8 +58,8 @@ export default function CatNamesTool({
       </div>
       
       <div>
-      <label className="text-xs font-semibold text-zinc-400 block mb-2">Nombre del Gato / Gatita:</label>
-      <input
+      <label htmlFor="catnamestool-field-2" className="text-xs font-semibold text-zinc-400 block mb-2">Nombre del Gato / Gatita:</label>
+      <input id="catnamestool-field-2"
       type="text"
       value={catCustomName}
       onChange={(e) => setCatCustomName(e.target.value)}

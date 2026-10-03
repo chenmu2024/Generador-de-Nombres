@@ -1,5 +1,7 @@
 'use client';
 
+import { speakName as readNameAloud } from '../../utils/speech';
+
 import { useState } from 'react';
 import { Copy, Volume2 } from 'lucide-react';
 
@@ -13,15 +15,7 @@ export default function DogNamesTool({
   const [dogPersonality, setDogPersonality] = useState('Tierna 💖');
   const [dogSelectedFrame, setDogSelectedFrame] = useState('🌸 [Name] 🌸');
 
-  const speakDogName = (text: string) => {
-    if ('speechSynthesis' in window) {
-      window.speechSynthesis.cancel();
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = 'es-ES';
-      utterance.rate = 0.9;
-      window.speechSynthesis.speak(utterance);
-    }
-  };
+  const speakDogName = (text: string) => readNameAloud(text, 'es-ES');
   const [dogLetter, setDogLetter] = useState('A');
 
   return (
@@ -53,8 +47,8 @@ export default function DogNamesTool({
       <div className="space-y-4 md:col-span-2">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
       <div>
-      <label className="text-xs font-semibold text-zinc-400 block mb-2">Estilo / Personalidad de la Perrita:</label>
-      <select aria-label="Seleccionar opción" value={dogPersonality}
+      <label htmlFor="dognamestool-field-1" className="text-xs font-semibold text-zinc-400 block mb-2">Estilo / Personalidad de la Perrita:</label>
+      <select id="dognamestool-field-1" aria-label="Seleccionar opción" value={dogPersonality}
       onChange={(e) => setDogPersonality(e.target.value)}
       className="gdn-tool-input w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-pink-500 text-sm font-semibold"
       >
@@ -65,8 +59,8 @@ export default function DogNamesTool({
       </div>
       
       <div>
-      <label className="text-xs font-semibold text-zinc-400 block mb-2">Nombre de la Perrita:</label>
-      <input
+      <label htmlFor="dognamestool-field-2" className="text-xs font-semibold text-zinc-400 block mb-2">Nombre de la Perrita:</label>
+      <input id="dognamestool-field-2"
       type="text"
       value={dogCustomName}
       onChange={(e) => setDogCustomName(e.target.value)}

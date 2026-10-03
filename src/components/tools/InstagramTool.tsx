@@ -1,5 +1,6 @@
 'use client';
 
+import { instagramSuggestions } from '../../utils/text';
 import React, { useState } from 'react';
 import { Copy } from 'lucide-react';
 
@@ -29,7 +30,7 @@ export default function InstagramTool({ handleCopyTrending }: InstagramToolProps
               Comprobador de Nombre de Usuario para Instagram
             </h2>
             <p className="text-zinc-400 mt-2 max-w-2xl">
-              Verifica que tu propuesta de @usuario cumpla con las políticas oficiales de Instagram para evitar rechazos.
+              Verifica que tu propuesta de @usuario tenga un formato básico válido. La disponibilidad y aceptación se comprueban en Instagram.
             </p>
           </div>
         </div>
@@ -37,10 +38,12 @@ export default function InstagramTool({ handleCopyTrending }: InstagramToolProps
         {/* Live Validator Box */}
         <div className="gdn-tool-result bg-zinc-900/90 border border-white/10 rounded-2xl p-6 relative z-10 space-y-6">
           <div>
-            <label className="text-xs font-semibold text-zinc-400 block mb-2">Escribe tu candidato a Username de IG (@usuario):</label>
+            <label htmlFor="instagram-username" className="text-xs font-semibold text-zinc-400 block mb-2">Escribe tu candidato a Username de IG (@usuario):</label>
             <div className="gdn-validator-field relative">
               <span className="absolute left-4 top-1/2 -translate-y-1/2 text-pink-400 font-bold text-lg font-mono">@</span>
               <input
+                id="instagram-username"
+                maxLength={120}
                 type="text"
                 value={igInput}
                 onChange={(e) => setIgInput(e.target.value)}
@@ -79,15 +82,10 @@ export default function InstagramTool({ handleCopyTrending }: InstagramToolProps
 
           {/* Quick Variations */}
           <div className="pt-4 border-t border-white/5">
-            <span className="text-xs font-semibold text-zinc-400 block mb-3">Variaciones recomendadas para encontrar tu @ disponible:</span>
+            <span className="text-xs font-semibold text-zinc-400 block mb-3">Variaciones recomendadas para comprobar en Instagram:</span>
+            {!isIgValid && <p role="status" className="text-xs text-zinc-400 mb-3">Escribe un usuario con formato válido para ver sugerencias.</p>}
             <div className="flex flex-wrap gap-2">
-              {[
-                `iam.${igInput || 'sofia'}`,
-                `${igInput || 'sofia'}.official`,
-                `real.${igInput || 'sofia'}`,
-                `the.${igInput || 'sofia'}_`,
-                `${igInput || 'sofia'}.ph`
-              ].map((varName, idx) => (
+              {instagramSuggestions(igInput).map((varName, idx) => (
                 <button
                   key={idx}
                   onClick={() => handleCopyTrending(varName)}

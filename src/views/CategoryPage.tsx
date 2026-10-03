@@ -1,5 +1,10 @@
 'use client';
 
+import NameIdeasTool from '../components/NameIdeasTool';
+import { nameIdeas } from '../data/nameIdeas';
+import { visibleLength } from '../utils/text';
+import { copyText } from '../utils/clipboard';
+
 import React, { useState, type ReactNode } from 'react';
 import { useLocation } from '../utils/router';
 import { Link } from '../components/Link';
@@ -8,90 +13,70 @@ import Generator from '../components/Generator';
 import dynamic from 'next/dynamic';
 
 const InvisibleSpaceTool = dynamic(() => import('../components/InvisibleSpaceTool'), {
-  ssr: false,
   loading: () => <div className="min-h-[520px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>
 });
 const AlphabetMatrixTool = dynamic(() => import('../components/AlphabetMatrixTool'), {
-  ssr: false,
   loading: () => <div className="min-h-[600px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>
 });
 const StoreNameTool = dynamic(() => import('../components/StoreNameTool'), {
-  ssr: false,
   loading: () => <div className="min-h-[550px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>
 });
 const LazyRobloxTool = dynamic(() => import('../components/tools/RobloxTool'), {
-  ssr: false,
   loading: () => <div className="min-h-[400px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>
 });
 const LazyInstagramTool = dynamic(() => import('../components/tools/InstagramTool'), {
-  ssr: false,
   loading: () => <div className="min-h-[400px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>
 });
 const LazyFootballTool = dynamic(() => import('../components/tools/FootballTool'), {
-  ssr: false,
   loading: () => <div className="min-h-[400px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>
 });
 
 const LazyPlushieTool = dynamic(() => import('../components/tools/PlushieTool'), {
-  ssr: false,
   loading: () => <div className="min-h-[640px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>
 });
 
 const LazyJapaneseNamesTool = dynamic(() => import('../components/tools/JapaneseNamesTool'), {
-  ssr: false,
   loading: () => <div className="min-h-[560px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>
 });
 
 const LazyKoreanNamesTool = dynamic(() => import('../components/tools/KoreanNamesTool'), {
-  ssr: false,
   loading: () => <div className="min-h-[560px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>
 });
 
 const LazyFrenchNamesTool = dynamic(() => import('../components/tools/FrenchNamesTool'), {
-  ssr: false,
   loading: () => <div className="min-h-[560px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>
 });
 
 const LazyMayaNamesTool = dynamic(() => import('../components/tools/MayaNamesTool'), {
-  ssr: false,
   loading: () => <div className="min-h-[560px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>
 });
 
 const LazyDogNamesTool = dynamic(() => import('../components/tools/DogNamesTool'), {
-  ssr: false,
   loading: () => <div className="min-h-[560px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>
 });
 const LazyCatNamesTool = dynamic(() => import('../components/tools/CatNamesTool'), {
-  ssr: false,
   loading: () => <div className="min-h-[560px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>
 });
 const LazyBlackCatNamesTool = dynamic(() => import('../components/tools/BlackCatNamesTool'), {
-  ssr: false,
   loading: () => <div className="min-h-[560px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>
 });
 const LazyMaleCatNamesTool = dynamic(() => import('../components/tools/MaleCatNamesTool'), {
-  ssr: false,
   loading: () => <div className="min-h-[560px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>
 });
 
 const LazyRareNamesTool = dynamic(() => import('../components/tools/RareNamesTool'), {
-  ssr: false,
   loading: () => <div className="min-h-[520px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>
 });
 const LazyUnisexNamesTool = dynamic(() => import('../components/tools/UnisexNamesTool'), {
-  ssr: false,
   loading: () => <div className="min-h-[520px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>
 });
 const LazyMaleNamesTool = dynamic(() => import('../components/tools/MaleNamesTool'), {
-  ssr: false,
   loading: () => <div className="min-h-[520px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>
 });
 const LazyFemaleNamesTool = dynamic(() => import('../components/tools/FemaleNamesTool'), {
-  ssr: false,
   loading: () => <div className="min-h-[520px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>
 });
 const LazyAnimeNamesTool = dynamic(() => import('../components/tools/AnimeNamesTool'), {
-  ssr: false,
   loading: () => <div className="min-h-[520px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>
 });
 import { allLinks } from '../data/allLinks';
@@ -117,6 +102,7 @@ export default function CategoryPage({
   const currentPath = initialPath || routerLocation.pathname || '/';
   const location = { pathname: currentPath };
   const usesDedicatedGenerator =
+    !!nameIdeas[currentPath] ||
     location.pathname === '/espacios-invisible-ff' ||
     location.pathname === '/nombres-por-letra' ||
     location.pathname.startsWith('/nombres-con-') ||
@@ -156,8 +142,8 @@ export default function CategoryPage({
   const [ffClanName, setFfClanName] = useState('MAFIA');
   const [ffClanSymbol, setFfClanSymbol] = useState('⚡');
 
-  const handleCopyTrending = (name: string) => {
-    navigator.clipboard.writeText(name);
+  const handleCopyTrending = async (name: string) => {
+    if (!await copyText(name)) return;
     setShowToast(true);
     setTimeout(() => setShowToast(false), 2000);
   };
@@ -177,7 +163,7 @@ export default function CategoryPage({
 
 
   return (
-    <main className="gdn-page-shell py-8 md:py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12 md:space-y-16 relative">
+    <div className="gdn-page-shell py-8 md:py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12 md:space-y-16 relative">
       
       {/* Toast Notification */}
       {showToast && (
@@ -244,6 +230,10 @@ export default function CategoryPage({
         </div>
       </div>
 
+      {currentPath === '/' && <nav aria-label="Elegir tipo de nombre" className="flex flex-wrap justify-center gap-3">
+        {[['Juegos', '/generador-free-fire'], ['Personas', '/nombres-de-nina'], ['Mascotas', '/nombres-gatos'], ['Tiendas', '/nombres-para-tiendas']].map(([label, path]) => <Link key={path} to={path} className="gdn-chip border rounded-xl px-4 py-3">{label}</Link>)}
+      </nav>}
+      {nameIdeas[currentPath] && <NameIdeasTool key={currentPath} path={currentPath} onCopy={handleCopyTrending} />}
       <div className={`max-w-6xl mx-auto ${location.pathname === '/' ? 'pt-0 pb-2' : 'py-6'}`}>
         {!usesDedicatedGenerator && (
           <Generator 
@@ -262,7 +252,7 @@ export default function CategoryPage({
 
         {(location.pathname === '/nombres-por-letra' || location.pathname.startsWith('/nombres-con-')) && (
           <div className="mt-3 md:mt-5">
-            <AlphabetMatrixTool />
+            <AlphabetMatrixTool key={currentPath} currentLetter={currentPath === "/nombres-con-en" ? "Ñ" : currentPath.startsWith("/nombres-con-") ? currentPath.split("-").pop() : "A"} />
           </div>
         )}
 
@@ -287,7 +277,7 @@ export default function CategoryPage({
           <div className="gdn-home-trends gdn-surface border p-4 sm:p-5 rounded-2xl max-w-4xl mx-auto">
             <div className="flex items-center justify-between mb-3 px-1">
               <span className="text-xs font-bold text-violet-300 uppercase tracking-wider flex items-center gap-1.5">
-                <Flame className="w-4 h-4 text-amber-400" /> Apodos y Símbolos Tendencia de Hoy
+                <Flame className="w-4 h-4 text-amber-400" /> Selección de Apodos y Símbolos
               </span>
               <span className="text-[10px] text-zinc-500 hidden sm:inline">Copiar en 1 clic</span>
             </div>
@@ -472,7 +462,7 @@ export default function CategoryPage({
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-3xl">💼</span>
                   <span className="gdn-chip text-[10px] font-bold border px-3 py-1 rounded-full uppercase">
-                    Brazaletes & Marcas
+                    Negocios & Marcas
                   </span>
                 </div>
                 <h3 className="text-xl font-bold text-white font-heading mb-2 group-hover:text-violet-300 transition-colors">
@@ -487,7 +477,7 @@ export default function CategoryPage({
                   <Link to="/nombres-peluches" className="gdn-chip text-xs font-semibold px-2.5 py-1 rounded-lg transition-colors border">Peluches</Link>
                 </div>
               </div>
-              <Link to="/nombres-equipos-futbol" className="text-xs font-bold text-violet-400 hover:text-violet-300 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+              <Link to="/nombres-para-tiendas" className="text-xs font-bold text-violet-400 hover:text-violet-300 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
                 Crear Nombres de Marca <ChevronRight className="w-4 h-4" />
               </Link>
             </div>
@@ -853,11 +843,11 @@ export default function CategoryPage({
                   ⚡ Genera tu Nombre con Espacio Invisible Integrado
                 </h3>
                 <span className={`text-xs font-mono font-bold px-2.5 py-1 rounded-lg border ${
-                  ((ffTag ? `${ffTag}ㅤ${ffName}` : ffName).length <= 12)
+                  (visibleLength(ffTag ? `${ffTag}ㅤ${ffName}` : ffName) <= 12)
                     ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20'
                     : 'bg-red-500/10 text-red-400 border-red-500/20'
                 }`}>
-                  {(ffTag ? `${ffTag}ㅤ${ffName}` : ffName).length}/12 Caracteres {((ffTag ? `${ffTag}ㅤ${ffName}` : ffName).length <= 12) ? '✅ VÁLIDO FF' : '⚠️ EXCEDE LÍMITE FF'}
+                  {visibleLength(ffTag ? `${ffTag}ㅤ${ffName}` : ffName)}/12 Caracteres {(visibleLength(ffTag ? `${ffTag}ㅤ${ffName}` : ffName) <= 12) ? '≤12 caracteres visibles' : 'Más de 12 caracteres visibles'}
                 </span>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -1284,6 +1274,6 @@ export default function CategoryPage({
       </section>
 
 
-    </main>
+    </div>
   );
 }

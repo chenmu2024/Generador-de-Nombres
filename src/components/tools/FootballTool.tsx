@@ -37,8 +37,8 @@ export default function FootballTool({ handleCopyTrending }: FootballToolProps) 
           <div className="space-y-4 lg:col-span-2">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="text-xs font-semibold text-zinc-400 block mb-2">Prefijo Deportivo / Estilo:</label>
-                <select aria-label="Seleccionar opción" value={teamPrefix}
+                <label htmlFor="footballtool-field-1" className="text-xs font-semibold text-zinc-400 block mb-2">Prefijo Deportivo / Estilo:</label>
+                <select id="footballtool-field-1" aria-label="Seleccionar opción" value={teamPrefix}
                   onChange={(e) => setTeamPrefix(e.target.value)}
                   className="gdn-tool-input w-full bg-zinc-800 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-amber-500 text-sm font-semibold"
                 >
@@ -49,8 +49,8 @@ export default function FootballTool({ handleCopyTrending }: FootballToolProps) 
               </div>
 
               <div>
-                <label className="text-xs font-semibold text-zinc-400 block mb-2">Nombre / Barrio / Cerveza:</label>
-                <input
+                <label htmlFor="footballtool-field-2" className="text-xs font-semibold text-zinc-400 block mb-2">Nombre / Barrio / Cerveza:</label>
+                <input id="footballtool-field-2"
                   type="text"
                   value={teamBase}
                   onChange={(e) => setTeamBase(e.target.value)}
@@ -111,8 +111,8 @@ export default function FootballTool({ handleCopyTrending }: FootballToolProps) 
 
             {/* Slogan */}
             <div>
-              <label className="text-xs font-semibold text-zinc-400 block mb-2">Eslogan del Equipo:</label>
-              <input
+              <label htmlFor="footballtool-field-3" className="text-xs font-semibold text-zinc-400 block mb-2">Eslogan del Equipo:</label>
+              <input id="footballtool-field-3"
                 type="text"
                 value={teamSlogan}
                 onChange={(e) => setTeamSlogan(e.target.value)}

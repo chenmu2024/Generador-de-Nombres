@@ -327,12 +327,13 @@ body {
 }
 
 @media (max-width: 640px) {
-  .gdn-tool-shell button:not([aria-label]) {
-    min-height: 42px;
+  .gdn-tool-shell button {
+    min-height: 44px;
+    min-width: 44px;
   }
 
   .gdn-tool-shell .gdn-tool-tab {
-    min-height: 40px;
+    min-height: 44px;
   }
 }
 

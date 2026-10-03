@@ -1,5 +1,7 @@
 'use client';
 
+import { speakName as readNameAloud } from '../../utils/speech';
+
 import { useState } from 'react';
 import { Copy, Volume2 } from 'lucide-react';
 
@@ -14,15 +16,7 @@ export default function KoreanNamesTool({
   const [krSelectedSurname, setKrSelectedSurname] = useState('Kim (김)');
   const [krSelectedFrame, setKrSelectedFrame] = useState('✨ [Surname] [Name] ([Hangul]) ✨');
 
-  const speakKorean = (text: string) => {
-    if ('speechSynthesis' in window) {
-      window.speechSynthesis.cancel();
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = 'ko-KR';
-      utterance.rate = 0.85;
-      window.speechSynthesis.speak(utterance);
-    }
-  };
+  const speakKorean = (text: string) => readNameAloud(text, 'ko-KR');
 
   return (
     <div className="gdn-tool-shell max-w-6xl mx-auto py-4 space-y-8">
@@ -52,8 +46,8 @@ export default function KoreanNamesTool({
     <div className="space-y-4 md:col-span-2">
     <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
     <div>
-    <label className="text-xs font-semibold text-zinc-400 block mb-2">Apellido Coreano:</label>
-    <select aria-label="Seleccionar opción" value={krSelectedSurname}
+    <label htmlFor="koreannamestool-field-1" className="text-xs font-semibold text-zinc-400 block mb-2">Apellido Coreano:</label>
+    <select id="koreannamestool-field-1" aria-label="Seleccionar opción" value={krSelectedSurname}
     onChange={(e) => setKrSelectedSurname(e.target.value)}
     className="gdn-tool-input w-full bg-zinc-800 border border-white/10 rounded-xl px-3 py-2.5 text-white focus:outline-none focus:border-violet-500 text-sm font-semibold"
     >
@@ -64,8 +58,8 @@ export default function KoreanNamesTool({
     </div>
     
     <div>
-    <label className="text-xs font-semibold text-zinc-400 block mb-2">Nombre / Romaji:</label>
-    <input
+    <label htmlFor="koreannamestool-field-2" className="text-xs font-semibold text-zinc-400 block mb-2">Nombre / Romaji:</label>
+    <input id="koreannamestool-field-2"
     type="text"
     value={krCustomName}
     onChange={(e) => setKrCustomName(e.target.value)}
@@ -75,8 +69,8 @@ export default function KoreanNamesTool({
     </div>
     
     <div>
-    <label className="text-xs font-semibold text-zinc-400 block mb-2">Hangul (한글):</label>
-    <input
+    <label htmlFor="koreannamestool-field-3" className="text-xs font-semibold text-zinc-400 block mb-2">Hangul (한글):</label>
+    <input id="koreannamestool-field-3"
     type="text"
     value={krCustomHangul}
     onChange={(e) => setKrCustomHangul(e.target.value)}

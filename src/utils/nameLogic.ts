@@ -48,7 +48,7 @@ export const popularSymbols = [
 ];
 
 export function generateFancyNicknames(inputText: string, style?: string, customSymbols?: string[]): string[] {
-  if (!inputText) inputText = "Gamer";
+  inputText = inputText.trim() || "Gamer";
   let plainResults: string[] = [];
   let decoratedResults: string[] = [];
   

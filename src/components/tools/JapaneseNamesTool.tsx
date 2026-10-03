@@ -1,5 +1,7 @@
 'use client';
 
+import { speakName as readNameAloud } from '../../utils/speech';
+
 import { useState } from 'react';
 import { Copy, Volume2 } from 'lucide-react';
 
@@ -13,15 +15,7 @@ export default function JapaneseNamesTool({
   const [jpCustomKanji, setJpCustomKanji] = useState('桜');
   const [jpSelectedFrame, setJpSelectedFrame] = useState('🌸 [Name] 🌸');
 
-  const speakJapanese = (text: string) => {
-    if ('speechSynthesis' in window) {
-      window.speechSynthesis.cancel();
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = 'ja-JP';
-      utterance.rate = 0.85;
-      window.speechSynthesis.speak(utterance);
-    }
-  };
+  const speakJapanese = (text: string) => readNameAloud(text, 'ja-JP');
 
   return (
     <div className="gdn-tool-shell max-w-6xl mx-auto py-4 space-y-8">
@@ -51,8 +45,8 @@ export default function JapaneseNamesTool({
     <div className="space-y-4 md:col-span-2">
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
     <div>
-    <label className="text-xs font-semibold text-zinc-400 block mb-2">Nombre Japones / Romaji:</label>
-    <input
+    <label htmlFor="japanesenamestool-field-1" className="text-xs font-semibold text-zinc-400 block mb-2">Nombre Japones / Romaji:</label>
+    <input id="japanesenamestool-field-1"
     type="text"
     value={jpCustomName}
     onChange={(e) => setJpCustomName(e.target.value)}
@@ -61,8 +55,8 @@ export default function JapaneseNamesTool({
     />
     </div>
     <div>
-    <label className="text-xs font-semibold text-zinc-400 block mb-2">Caracter Kanji (Opcional):</label>
-    <input
+    <label htmlFor="japanesenamestool-field-2" className="text-xs font-semibold text-zinc-400 block mb-2">Caracter Kanji (Opcional):</label>
+    <input id="japanesenamestool-field-2"
     type="text"
     value={jpCustomKanji}
     onChange={(e) => setJpCustomKanji(e.target.value)}
