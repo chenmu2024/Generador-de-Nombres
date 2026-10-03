@@ -12,11 +12,13 @@ export default function CookieBanner() {
   const [bannerHeight, setBannerHeight] = useState(0);
 
   useEffect(() => {
-    const reopen = () => { setIsVisible(true); requestAnimationFrame(() => bannerRef.current?.focus({ preventScroll: true })); };
+    const focusBanner = () => requestAnimationFrame(() => bannerRef.current?.focus({ preventScroll: true }));
+    const reopen = () => { setIsVisible(true); focusBanner(); };
     window.addEventListener('gdn-privacy-settings', reopen);
     const consent = readStorage('cookie_consent_choice');
     if (!consent) {
       setIsVisible(true);
+      focusBanner();
     }
     return () => window.removeEventListener('gdn-privacy-settings', reopen);
   }, []);
@@ -93,3 +95,4 @@ export default function CookieBanner() {
     </>
   );
 }
+
