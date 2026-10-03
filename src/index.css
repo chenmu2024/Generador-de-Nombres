@@ -150,11 +150,31 @@ body {
 .gdn-reading h3,
 .gdn-reading h4 {
   color: var(--gdn-text);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.gdn-reading h2 {
+  font-size: clamp(1.45rem, 2vw, 1.75rem);
+  line-height: 1.2;
+  margin: 0 0 1rem;
+}
+
+.gdn-reading h3 {
+  font-size: 1.2rem;
+  line-height: 1.35;
+  margin: 1.75rem 0 0.6rem;
 }
 
 .gdn-reading p,
 .gdn-reading li {
   color: #B3BCC8;
+  line-height: 1.75;
+}
+
+.gdn-reading p {
+  margin: 0 0 1rem;
 }
 
 .gdn-reading a {

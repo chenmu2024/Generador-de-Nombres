@@ -2,6 +2,7 @@ import type { CategoryData } from '../data/seoData';
 import { allLinks } from '../data/allLinks';
 import { getClusterRelatedPaths } from '../data/topicClusters';
 import FeedbackWidget from './FeedbackWidget';
+import { ChevronDown } from 'lucide-react';
 
 function getTopicalLinks(currentPath: string, data: CategoryData) {
   if (data.related?.length) {
@@ -22,34 +23,37 @@ export default function SeoGuide({ data, currentPath }: { data: CategoryData; cu
   const moreLinks = getTopicalLinks(currentPath, data);
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 max-w-6xl mx-auto">
-      <article id="articulos-guia" className="gdn-reading lg:col-span-8 rounded-2xl border p-7 md:p-10 prose prose-invert prose-zinc prose-lg max-w-none prose-headings:font-heading prose-a:text-violet-400 hover:prose-a:text-violet-300 prose-strong:text-white scroll-mt-24">
+    <div className="grid grid-cols-1 lg:grid-cols-12 items-start gap-8 lg:gap-10 max-w-6xl mx-auto">
+      <article id="articulos-guia" className="gdn-reading lg:col-span-7 rounded-2xl border p-6 md:p-8 prose prose-invert prose-zinc prose-base max-w-[72ch] prose-headings:font-heading prose-headings:tracking-tight prose-h2:text-2xl md:prose-h2:text-3xl prose-h3:text-xl md:prose-h3:text-2xl prose-a:text-violet-400 hover:prose-a:text-violet-300 prose-strong:text-white scroll-mt-24">
         <div dangerouslySetInnerHTML={{ __html: data.seoText }} />
       </article>
 
-      <div className="lg:col-span-4 space-y-8">
+      <div className="lg:col-span-5 space-y-6 lg:sticky lg:top-24">
         {data.faqs && data.faqs.length > 0 && (
-          <section id="preguntas-frecuentes" className="gdn-surface rounded-2xl p-7 text-white border relative overflow-hidden scroll-mt-24" itemScope itemType="https://schema.org/FAQPage">
+          <section id="preguntas-frecuentes" className="gdn-surface rounded-2xl p-6 text-white border relative overflow-hidden scroll-mt-24" itemScope itemType="https://schema.org/FAQPage">
             <div className="absolute top-0 right-0 w-28 h-28 bg-violet-500/10 rounded-full blur-3xl -mr-10 -mt-10 pointer-events-none"></div>
-            <div className="flex items-center gap-3 mb-8 relative z-10">
+            <div className="flex items-center gap-3 mb-5 relative z-10">
               <div className="bg-violet-500/20 p-2 rounded-xl text-violet-300" aria-hidden="true">?</div>
-              <h3 className="text-2xl font-bold font-heading">Preguntas Frecuentes</h3>
+              <h3 className="text-xl font-bold font-heading">Preguntas Frecuentes</h3>
             </div>
-            <div className="space-y-6 relative z-10">
+            <div className="relative z-10">
               {data.faqs.map((faq, index) => (
-                <div key={index} className="space-y-2 border-b border-white/10 pb-5 last:border-0 last:pb-0" itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <h4 className="font-semibold text-lg text-zinc-100" itemProp="name">{faq.question}</h4>
-                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+                <details key={index} open={index === 0} className="group border-b border-white/10 last:border-0" itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-4 text-base font-semibold leading-snug text-zinc-100 [&::-webkit-details-marker]:hidden">
+                    <span itemProp="name">{faq.question}</span>
+                    <ChevronDown className="h-4 w-4 shrink-0 text-violet-300 transition-transform group-open:rotate-180" aria-hidden="true" />
+                  </summary>
+                  <div className="pb-4" itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
                     <p className="text-zinc-400 text-sm leading-relaxed" itemProp="text">{faq.answer}</p>
                   </div>
-                </div>
+                </details>
               ))}
             </div>
           </section>
         )}
 
-        <div className="gdn-surface rounded-2xl p-7 border">
-          <h3 className="text-xl font-bold text-zinc-100 mb-6 font-heading">Más Generadores</h3>
+        <div className="gdn-surface rounded-2xl p-6 border">
+          <h3 className="text-lg font-bold text-zinc-100 mb-4 font-heading">Más Generadores</h3>
           <div className="space-y-2">
             {moreLinks.map((link) => (
               <a
