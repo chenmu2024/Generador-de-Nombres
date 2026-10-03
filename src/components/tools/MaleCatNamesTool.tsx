@@ -47,7 +47,7 @@ export default function MaleCatNamesTool({
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
       <div>
       <label htmlFor="malecatnamestool-field-1" className="text-xs font-semibold text-zinc-400 block mb-2">Personalidad / Estilo:</label>
-      <select id="malecatnamestool-field-1" aria-label="Seleccionar opción" value={maleCatPersonality}
+      <select id="malecatnamestool-field-1" value={maleCatPersonality}
       onChange={(e) => setMaleCatPersonality(e.target.value)}
       className="gdn-tool-input w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-blue-500 text-sm font-semibold"
       >

@@ -3,6 +3,7 @@
 import { speakName as readNameAloud } from '../../utils/speech';
 
 import { useState } from 'react';
+import { getCompoundSuggestions, lookupNameMeaning } from '../../data/compoundNames';
 import { Copy, Flame, Sparkles, Volume2 } from 'lucide-react';
 
 export default function MaleNamesTool({
@@ -17,7 +18,7 @@ export default function MaleNamesTool({
   const speakName = (text: string) => readNameAloud(text, 'es-ES');
 
   return (
-    <div className="gdn-tool-shell bg-gradient-to-br from-blue-950/40 via-[#121212] to-cyan-950/30 border border-blue-500/30 rounded-3xl p-8 shadow-2xl relative overflow-hidden space-y-6">
+    <div className="gdn-tool-shell bg-gradient-to-br from-blue-950/40 via-[#121212] to-cyan-950/30 border border-blue-500/30 rounded-3xl p-4 sm:p-8 shadow-2xl relative overflow-hidden space-y-6">
     <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10">
     <div>
     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-300 text-xs font-semibold uppercase tracking-wider mb-3">
@@ -33,14 +34,14 @@ export default function MaleNamesTool({
     </div>
     
     {/* Interactive Male Compound Name Builder & Meaning Explorer */}
-    <div className="bg-zinc-950/90 border border-blue-500/20 rounded-2xl p-6 relative z-10 space-y-5">
+    <div className="bg-zinc-950/90 border border-blue-500/20 rounded-2xl p-4 sm:p-6 relative z-10 space-y-5">
     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/5 pb-4">
     <span className="text-xs font-bold text-blue-300 uppercase tracking-wider flex items-center gap-1.5">
     <Sparkles className="w-4 h-4 text-blue-400" /> Explorador por Estilo Masculino & Combinación
     </span>
     
     {/* Male Vibe Tabs */}
-    <div className="flex flex-wrap gap-1.5 bg-zinc-900 p-1 rounded-xl border border-white/10">
+    <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-1.5 bg-zinc-900 p-1 rounded-xl border border-white/10">
     {[
     { id: 'moderno', label: '🚀 Moderno / Chic' },
     { id: 'raro', label: '👑 Raro & Fuerte' },
@@ -49,8 +50,9 @@ export default function MaleNamesTool({
     ].map(tab => (
     <button
     key={tab.id}
+    aria-pressed={maleVibe === tab.id}
     onClick={() => setMaleVibe(tab.id as any)}
-    className={`gdn-tool-tab px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+    className={`gdn-tool-tab min-h-11 px-2 sm:px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
     maleVibe === tab.id
     ? 'bg-gradient-to-r from-blue-600 to-cyan-600 text-white shadow-md'
     : 'text-zinc-400 hover:text-white'
@@ -67,6 +69,7 @@ export default function MaleNamesTool({
     <div>
     <label htmlFor="malenamestool-field-1" className="text-[11px] text-zinc-400 font-bold uppercase block mb-1">1. Primer Nombre Masculino</label>
     <input id="malenamestool-field-1"
+    maxLength={80}
     type="text"
     value={maleFirstName}
     onChange={(e) => setMaleFirstName(e.target.value)}
@@ -77,6 +80,7 @@ export default function MaleNamesTool({
     <div>
     <label htmlFor="malenamestool-field-2" className="text-[11px] text-zinc-400 font-bold uppercase block mb-1">2. Segundo Nombre Masculino</label>
     <input id="malenamestool-field-2"
+    maxLength={80}
     type="text"
     value={maleSecondName}
     onChange={(e) => setMaleSecondName(e.target.value)}
@@ -92,27 +96,8 @@ export default function MaleNamesTool({
     const m2Name = maleSecondName.trim() || 'Gael';
     const combinedMale = `${m1Name} ${m2Name}`;
     
-    const maleMeaningsDb: Record<string, { origin: string; meaning: string }> = {
-    mateo: { origin: 'Hebreo (Mattityahu)', meaning: 'Regalo de Dios y bendición divina' },
-    gael: { origin: 'Celta', meaning: 'Hombre generoso, protector y magnánimo' },
-    leo: { origin: 'Latín (Leo)', meaning: 'Fuerte, valiente y fiero como un león (3 letras)' },
-    liam: { origin: 'Irlandés / Germánico', meaning: 'Protector resuelto y guerrero de voluntad firme' },
-    enzo: { origin: 'Germánico / Italiano', meaning: 'Príncipe o amo de su hogar' },
-    oliver: { origin: 'Latín (Olivarius)', meaning: 'Olivo de la paz y la dignidad' },
-    thiago: { origin: 'Hebreo / Portugués', meaning: 'Sostenido por Dios o que va tras sus huellas' },
-    milan: { origin: 'Eslavo', meaning: 'Amado, gracioso y lleno de bondad' },
-    bastian: { origin: 'Griego (Sebastós)', meaning: 'Venerable, augusto y digno de respeto' },
-    gabriel: { origin: 'Hebreo', meaning: 'Fuerza de Dios y héroe divino' },
-    lucas: { origin: 'Griego / Latín', meaning: 'El que resplandece con luz propia' },
-    ian: { origin: 'Escocés / Hebreo', meaning: 'Dios es misericordioso (3 letras)' },
-    dante: { origin: 'Latín', meaning: 'Resistente, constante y duradero' },
-    ezra: { origin: 'Hebreo', meaning: 'Ayuda divina y fuerza sanadora' },
-    kai: { origin: 'Hawaiano / Japonés', meaning: 'Océano o mar libre (3 letras)' },
-    alexander: { origin: 'Griego', meaning: 'Defensor de los hombres y protector' }
-    };
-    
-    const mean1 = maleMeaningsDb[m1Name.toLowerCase()] || { origin: 'Origen Antiguo', meaning: 'Fortaleza, honor y valentía' };
-    const mean2 = maleMeaningsDb[m2Name.toLowerCase()] || { origin: 'Origen Ilustre', meaning: 'Nobleza, liderazgo y sabiduría' };
+    const mean1 = lookupNameMeaning(m1Name);
+    const mean2 = lookupNameMeaning(m2Name);
     
     return (
     <div className="gdn-tool-result bg-zinc-900/90 p-5 rounded-2xl border border-blue-500/30 space-y-4">
@@ -142,11 +127,13 @@ export default function MaleNamesTool({
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
     <div className="bg-zinc-950/80 p-3 rounded-xl border border-white/5 space-y-1">
     <span className="text-blue-300 font-bold">1. {m1Name} ({mean1.origin})</span>
-    <p className="text-zinc-400">"{mean1.meaning}"</p>
+    <p className="text-zinc-400">{mean1.meaning}</p>
+    {mean1.source && <a href={mean1.source} target="_blank" rel="noopener noreferrer" className="text-violet-300 underline">Fuente del significado</a>}
     </div>
     <div className="bg-zinc-950/80 p-3 rounded-xl border border-white/5 space-y-1">
     <span className="text-blue-300 font-bold">2. {m2Name} ({mean2.origin})</span>
-    <p className="text-zinc-400">"{mean2.meaning}"</p>
+    <p className="text-zinc-400">{mean2.meaning}</p>
+    {mean2.source && <a href={mean2.source} target="_blank" rel="noopener noreferrer" className="text-violet-300 underline">Fuente del significado</a>}
     </div>
     </div>
     
@@ -181,19 +168,11 @@ export default function MaleNamesTool({
     {/* Ready-to-copy Curated Male Names Grid */}
     <div className="space-y-3 relative z-10">
     <span className="text-xs font-bold text-blue-300 uppercase tracking-wider flex items-center gap-1.5">
-    <Flame className="w-4 h-4 text-amber-400" /> Nombres de Niños Populares y Raros en 2026 (Clic para Copiar)
+    <Flame className="w-4 h-4 text-amber-400" /> Nombres de Niños Seleccionados por Estilo (Clic para Copiar)
     </span>
+    <p className="text-xs text-zinc-400" role="status">El estilo filtra las sugerencias; no cambia los nombres que escribes. La longitud corresponde al primer nombre. Selección editorial, no ranking de popularidad.</p>
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
-    {[
-    { label: 'Mateo Gael', val: 'Mateo Gael', desc: 'Regalo y Protector' },
-    { label: 'Leo Alexander', val: 'Leo Alexander', desc: 'León Defensor' },
-    { label: 'Liam Gabriel', val: 'Liam Gabriel', desc: 'Protector y Fuerza' },
-    { label: 'Enzo Thiago', val: 'Enzo Thiago', desc: 'Príncipe Sostenido' },
-    { label: 'Oliver Mateo', val: 'Oliver Mateo', desc: 'Olivo y Bendición' },
-    { label: 'Lucas David', val: 'Lucas David', desc: 'Luz y Amado' },
-    { label: 'Ian Bastian', val: 'Ian Bastian', desc: 'Misericordioso y Venerable' },
-    { label: 'Milan Dante', val: 'Milan Dante', desc: 'Amado y Duradero' }
-    ].map((item, idx) => (
+    {getCompoundSuggestions('male', maleVibe).map((item, idx) => (
     <button
     key={idx}
     onClick={() => handleCopyTrending(item.val)}

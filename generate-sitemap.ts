@@ -1,4 +1,5 @@
 import { seoData } from './src/data/seoData';
+import { editorialProfiles } from './src/data/editorialProfiles';
 import { getIndexableKeywordRecords } from './src/data/keywordMaster';
 import fs from 'fs';
 
@@ -38,6 +39,8 @@ const allPages = [...staticPages, ...seoPaths];
 
 const urls = allPages.map((item) => {
   const loc = item.path === '/' ? baseUrl + '/' : baseUrl + item.path;
+  const updated = editorialProfiles[item.path]?.updated || (item.path === '/sobre-nosotros' ? '2026-10-04' : undefined);
+  const lastmod = updated ? `\n    <lastmod>${updated}</lastmod>` : '';
   const imageXml = `
     <image:image>
       <image:loc>${baseUrl}/logo.webp</image:loc>
@@ -45,9 +48,8 @@ const urls = allPages.map((item) => {
     </image:image>`;
 
   return `  <url>
-    <loc>${loc}</loc>
-    <changefreq>${item.changefreq}</changefreq>
-    <priority>${item.priority}</priority>${imageXml}
+    <loc>${loc}</loc>${lastmod}
+${imageXml}
   </url>`;
 }).join('\n');
 

@@ -49,7 +49,7 @@ export default function TermsOfService() {
             </p>
           </section>
 
-          <section className="space-y-3">
+          <section id="aviso-legal" className="space-y-3 scroll-mt-24">
             <h2 className="text-xl font-bold text-white flex items-center gap-2">
               <ShieldAlert className="w-5 h-5 text-amber-400" />
               3. Deslinde Legal de Marcas Registradas de Terceros (Nominative Fair Use)

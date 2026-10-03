@@ -5,7 +5,7 @@ import { copyText } from '../utils/clipboard';
 import { readFavorites, writeStorage } from '../utils/browserStorage';
 import { useDialog } from './useDialog';
 
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useMemo } from 'react';
 import { Copy, Wand2, X, CheckCircle2, Dices, Loader2, Download, Sparkles, CheckSquare, Square, Trophy, Shield, Flame, Image, Share2, Scissors, Zap, Crown, Bookmark, Heart } from 'lucide-react';
 import { generateFancyNicknames, popularSymbols } from '../utils/nameLogic';
 
@@ -271,7 +271,7 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
   };
 
   // Filter generated names according to Vibe
-  const displayedNames = filterNicknames(generatedNames, vibeFilter);
+  const displayedNames = useMemo(() => filterNicknames(generatedNames, vibeFilter), [generatedNames, vibeFilter]);
   useEffect(() => {
     setSelectedNames([]);
     setVisibleCount(24);
@@ -510,7 +510,7 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
             </div>
 
             <div 
-              className="grid grid-cols-1 md:grid-cols-2 gap-4 max-h-[520px] overflow-y-auto pr-2 custom-scrollbar"
+              className="grid grid-cols-1 md:grid-cols-2 gap-4 md:max-h-[520px] md:overflow-y-auto md:pr-2 custom-scrollbar"
             >
               {displayedNames.length === 0 && <p role="status" className="p-6 text-zinc-300">No hay resultados con este filtro. Prueba otro estilo o nombre.</p>}
               {displayedNames.slice(0, visibleCount).map((name, index) => {
@@ -637,10 +637,10 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
                   <Sparkles className="w-4 h-4" /> Cargar Más Nombres (+30)
                 </button>
                 <button
-                  onClick={() => setVisibleCount(displayedNames.length)}
+                  onClick={() => setVisibleCount(prev => Math.min(prev + 100, displayedNames.length))}
                   className="px-4 py-2.5 bg-zinc-900/60 hover:bg-zinc-800 text-zinc-400 hover:text-zinc-200 border border-white/5 font-medium text-xs rounded-xl transition-all"
                 >
-                  Mostrar Todos ({displayedNames.length})
+                  Cargar 100 Más
                 </button>
               </div>
             )}
@@ -686,12 +686,12 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
       {/* Lucky Spinner Modal (Ruleta de la Suerte) */}
       {isSpinnerOpen && (
         <div
-          className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 animate-in fade-in duration-200"
+          className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto animate-in fade-in duration-200"
           ref={spinnerDialogRef} role="dialog" aria-modal="true" aria-label="Ruleta de nombres" tabIndex={-1}
           onClick={() => setIsSpinnerOpen(false)}
         >
           <div
-            className="bg-zinc-900 border border-amber-500/30 rounded-3xl p-8 max-w-lg w-full text-center shadow-2xl relative overflow-hidden animate-in zoom-in-95 duration-200"
+            className="bg-zinc-900 border border-amber-500/30 rounded-3xl p-8 max-w-lg w-full max-h-[calc(100dvh-2rem)] overflow-y-auto text-center shadow-2xl relative animate-in zoom-in-95 duration-200"
             onClick={(e) => e.stopPropagation()}
           >
             <button
@@ -762,12 +762,12 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
       {/* Gamer Badge Card Modal */}
       {cardModalName && (
         <div
-          className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 animate-in fade-in duration-200"
+          className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto animate-in fade-in duration-200"
           ref={cardDialogRef} role="dialog" aria-modal="true" aria-label="Tarjeta Gamer" tabIndex={-1}
           onClick={() => setCardModalName(null)}
         >
           <div
-            className="bg-zinc-900 border border-violet-500/30 rounded-3xl p-6 sm:p-8 max-w-md w-full shadow-2xl relative animate-in zoom-in-95 duration-200"
+            className="bg-zinc-900 border border-violet-500/30 rounded-3xl p-6 sm:p-8 max-w-md w-full max-h-[calc(100dvh-2rem)] overflow-y-auto shadow-2xl relative animate-in zoom-in-95 duration-200"
             onClick={(e) => e.stopPropagation()}
           >
             <button

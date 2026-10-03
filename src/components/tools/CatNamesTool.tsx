@@ -47,7 +47,7 @@ export default function CatNamesTool({
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
       <div>
       <label htmlFor="catnamestool-field-1" className="text-xs font-semibold text-zinc-400 block mb-2">Pelaje / Estilo del Gato:</label>
-      <select id="catnamestool-field-1" aria-label="Seleccionar opción" value={catBreedType}
+      <select id="catnamestool-field-1" value={catBreedType}
       onChange={(e) => setCatBreedType(e.target.value)}
       className="gdn-tool-input w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-amber-500 text-sm font-semibold"
       >

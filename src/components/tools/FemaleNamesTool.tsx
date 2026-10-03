@@ -3,6 +3,7 @@
 import { speakName as readNameAloud } from '../../utils/speech';
 
 import { useState } from 'react';
+import { getCompoundSuggestions, lookupNameMeaning } from '../../data/compoundNames';
 import { Copy, Flame, Sparkles, Volume2 } from 'lucide-react';
 
 export default function FemaleNamesTool({
@@ -14,12 +15,12 @@ export default function FemaleNamesTool({
 }) {
   const [femaleFirstName, setFemaleFirstName] = useState('Sofía');
   const [femaleSecondName, setFemaleSecondName] = useState('Valentina');
-  const [femaleVibe, setFemaleVibe] = useState<'elegante' | 'corto' | 'biblico' | 'moderno' | 'internacional'>('elegante');
+  const [femaleVibe, setFemaleVibe] = useState<'elegante' | 'corto' | 'biblico' | 'moderno' | 'internacional'>(currentPath === '/nombres-de-nina' ? 'corto' : 'elegante');
 
   const speakName = (text: string) => readNameAloud(text, 'es-ES');
 
   return (
-    <div className="gdn-tool-shell bg-gradient-to-br from-pink-950/40 via-[#121212] to-amber-950/30 border border-pink-500/30 rounded-3xl p-8 shadow-2xl relative overflow-hidden space-y-6">
+    <div className="gdn-tool-shell bg-gradient-to-br from-pink-950/40 via-[#121212] to-amber-950/30 border border-pink-500/30 rounded-3xl p-4 sm:p-8 shadow-2xl relative overflow-hidden space-y-6">
     <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10">
     <div>
     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-500/10 border border-pink-500/20 text-pink-300 text-xs font-semibold uppercase tracking-wider mb-3">
@@ -32,21 +33,21 @@ export default function FemaleNamesTool({
     </h2>
     <p className="text-zinc-400 mt-2 max-w-2xl text-sm">
     {currentPath === '/nombres-de-nina'
-    ? 'Descubre nombres de niñas raros pero hermosos, de 3 y 4 letras, combina dos nombres dulces, revisa su etimología y escucha la pronunciación en voz real.'
+    ? 'Descubre nombres de niñas raros pero hermosos, de 3 y 4 letras, combina dos nombres dulces, revisa su etimología y escucha la pronunciación en voz sintetizada del dispositivo.'
     : 'Combina dos nombres bonitos, explora su origen histórico y significado profundo, escucha la pronunciación en audio y genera versiones decoradas para perfiles.'}
     </p>
     </div>
     </div>
     
     {/* Interactive Compound Name Builder & Meaning Explorer */}
-    <div className="bg-zinc-950/90 border border-pink-500/20 rounded-2xl p-6 relative z-10 space-y-5">
+    <div className="bg-zinc-950/90 border border-pink-500/20 rounded-2xl p-4 sm:p-6 relative z-10 space-y-5">
     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/5 pb-4">
     <span className="text-xs font-bold text-pink-300 uppercase tracking-wider flex items-center gap-1.5">
     <Sparkles className="w-4 h-4 text-pink-400" /> Explorador por Estilo & Combinación Compuesta
     </span>
     
     {/* Vibe Tabs */}
-    <div className="flex flex-wrap gap-1.5 bg-zinc-900 p-1 rounded-xl border border-white/10">
+    <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-1.5 bg-zinc-900 p-1 rounded-xl border border-white/10">
     {[
     { id: 'elegante', label: '👑 Elegante' },
     { id: 'corto', label: '🌿 Corto (3-4 Letras)' },
@@ -55,8 +56,9 @@ export default function FemaleNamesTool({
     ].map(tab => (
     <button
     key={tab.id}
+    aria-pressed={femaleVibe === tab.id}
     onClick={() => setFemaleVibe(tab.id as any)}
-    className={`gdn-tool-tab px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+    className={`gdn-tool-tab min-h-11 px-2 sm:px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
     femaleVibe === tab.id
     ? 'bg-gradient-to-r from-pink-600 to-amber-600 text-white shadow-md'
     : 'text-zinc-400 hover:text-white'
@@ -73,6 +75,7 @@ export default function FemaleNamesTool({
     <div>
     <label htmlFor="femalenamestool-field-1" className="text-[11px] text-zinc-400 font-bold uppercase block mb-1">1. Primer Nombre</label>
     <input id="femalenamestool-field-1"
+    maxLength={80}
     type="text"
     value={femaleFirstName}
     onChange={(e) => setFemaleFirstName(e.target.value)}
@@ -83,6 +86,7 @@ export default function FemaleNamesTool({
     <div>
     <label htmlFor="femalenamestool-field-2" className="text-[11px] text-zinc-400 font-bold uppercase block mb-1">2. Segundo Nombre (Compuesto)</label>
     <input id="femalenamestool-field-2"
+    maxLength={80}
     type="text"
     value={femaleSecondName}
     onChange={(e) => setFemaleSecondName(e.target.value)}
@@ -98,32 +102,8 @@ export default function FemaleNamesTool({
     const p2 = femaleSecondName.trim() || (currentPath === '/nombres-de-nina' ? 'Lucía' : 'Valentina');
     const combined = `${p1} ${p2}`;
     
-    const meaningsDatabase: Record<string, { origin: string; meaning: string }> = {
-    sofia: { origin: 'Griego', meaning: 'Sabiduría pura y divina' },
-    valentina: { origin: 'Latín', meaning: 'Valiente, fuerte y saludable' },
-    emma: { origin: 'Germánico', meaning: 'Universal, poderosa y completa' },
-    isabella: { origin: 'Hebreo', meaning: 'Consagrada a Dios y llena de gracia' },
-    aitana: { origin: 'Vasco / Ibérico', meaning: 'Fuerza de la montaña o gloria' },
-    mia: { origin: 'Escandinavo / Hebreo', meaning: 'La elegida, amada por Dios (3 letras)' },
-    zoe: { origin: 'Griego', meaning: 'Vida, vitalidad y energía eterna (3 letras)' },
-    iris: { origin: 'Griego', meaning: 'Diosa del arcoíris y mensajera de luz (4 letras)' },
-    lia: { origin: 'Hebreo', meaning: 'Portadora de buenas noticias y leal (3 letras)' },
-    chloe: { origin: 'Griego', meaning: 'Brote verde floreciente y juventud (5 letras)' },
-    lyra: { origin: 'Griego', meaning: 'Constelación celestial de la lira (4 letras)' },
-    ona: { origin: 'Catalán', meaning: 'Ola de mar, gracia y serenidad (3 letras)' },
-    nayra: { origin: 'Guanche', meaning: 'Guerrera de ojos grandes y resplandecientes' },
-    gala: { origin: 'Latín', meaning: 'Hermosa, festiva y elegante (4 letras)' },
-    yara: { origin: 'Tupí-Guaraní', meaning: 'Señora de las aguas y reina de la naturaleza (4 letras)' },
-    aria: { origin: 'Italiano', meaning: 'Melodía noble y aire puro (4 letras)' },
-    alana: { origin: 'Celta', meaning: 'Armoniosa, noble y preciosa (5 letras)' },
-    lucia: { origin: 'Latín', meaning: 'Nacida en la primera luz de la mañana' },
-    elena: { origin: 'Griego', meaning: 'Resplandeciente como la luz del sol' },
-    camila: { origin: 'Latín', meaning: 'Aquella que ofrece sacrificios y nobleza' },
-    victoria: { origin: 'Latín', meaning: 'Triunfadora y victoriosa en la vida' }
-    };
-    
-    const m1 = meaningsDatabase[p1.toLowerCase()] || { origin: 'Origen Antiguo', meaning: 'Luz, belleza y fortaleza' };
-    const m2 = meaningsDatabase[p2.toLowerCase()] || { origin: 'Origen Noble', meaning: 'Gracia, nobleza y virtud' };
+    const m1 = lookupNameMeaning(p1);
+    const m2 = lookupNameMeaning(p2);
     
     return (
     <div className="gdn-tool-result bg-zinc-900/90 p-5 rounded-2xl border border-pink-500/30 space-y-4">
@@ -153,11 +133,13 @@ export default function FemaleNamesTool({
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
     <div className="bg-zinc-950/80 p-3 rounded-xl border border-white/5 space-y-1">
     <span className="text-pink-300 font-bold">1. {p1} ({m1.origin})</span>
-    <p className="text-zinc-400">"{m1.meaning}"</p>
+    <p className="text-zinc-400">{m1.meaning}</p>
+    {m1.source && <a href={m1.source} target="_blank" rel="noopener noreferrer" className="text-violet-300 underline">Fuente del significado</a>}
     </div>
     <div className="bg-zinc-950/80 p-3 rounded-xl border border-white/5 space-y-1">
     <span className="text-pink-300 font-bold">2. {p2} ({m2.origin})</span>
-    <p className="text-zinc-400">"{m2.meaning}"</p>
+    <p className="text-zinc-400">{m2.meaning}</p>
+    {m2.source && <a href={m2.source} target="_blank" rel="noopener noreferrer" className="text-violet-300 underline">Fuente del significado</a>}
     </div>
     </div>
     
@@ -192,28 +174,11 @@ export default function FemaleNamesTool({
     {/* Ready-to-copy Curated Female / Girl Names Grid */}
     <div className="space-y-3 relative z-10">
     <span className="text-xs font-bold text-pink-300 uppercase tracking-wider flex items-center gap-1.5">
-    <Flame className="w-4 h-4 text-amber-400" /> {currentPath === '/nombres-de-nina' ? 'Nombres de Niña No Comunes y Cortos Destacados' : 'Nombres de Mujer y Niña Populares en 2026'} (Clic para Copiar)
+    <Flame className="w-4 h-4 text-amber-400" /> {currentPath === '/nombres-de-nina' ? 'Nombres de Niña No Comunes y Cortos Destacados' : 'Nombres de Mujer y Niña Seleccionados'} (Clic para Copiar)
     </span>
+    <p className="text-xs text-zinc-400" role="status">El estilo filtra las sugerencias; no cambia los nombres que escribes. La longitud corresponde al primer nombre. Selección editorial, no ranking de popularidad.</p>
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
-    {(currentPath === '/nombres-de-nina' ? [
-    { label: 'Zoe Valentina', val: 'Zoe Valentina', desc: '3 Letras | Vida y Fuerza' },
-    { label: 'Mia Aitana', val: 'Mia Aitana', desc: '3 Letras | Amada y Montaña' },
-    { label: 'Iris Lucía', val: 'Iris Lucía', desc: '4 Letras | Arcoíris y Luz' },
-    { label: 'Lia Isabel', val: 'Lia Isabel', desc: '3 Letras | Leal y Divina' },
-    { label: 'Chloe Marcela', val: 'Chloe Marcela', desc: '5 Letras | Floreciente' },
-    { label: 'Lyra Elena', val: 'Lyra Elena', desc: '4 Letras | Constelación' },
-    { label: 'Ona Sofía', val: 'Ona Sofía', desc: '3 Letras | Ola de Mar' },
-    { label: 'Nayra Victoria', val: 'Nayra Victoria', desc: '5 Letras | Ojos Brillantes' }
-    ] : [
-    { label: 'Sofía Valentina', val: 'Sofía Valentina', desc: 'Sabiduría y Fuerza' },
-    { label: 'Emma Isabella', val: 'Emma Isabella', desc: 'Poderosa y Divina' },
-    { label: 'Aitana Lucía', val: 'Aitana Lucía', desc: 'Luz de la Montaña' },
-    { label: 'Mia Elena', val: 'Mia Elena', desc: 'Amada y Resplandeciente' },
-    { label: 'Camila Victoria', val: 'Camila Victoria', desc: 'Nobleza Victoriosa' },
-    { label: 'Zoe Regina', val: 'Zoe Regina', desc: 'Vida y Reina' },
-    { label: 'Valeria Nicole', val: 'Valeria Nicole', desc: 'Valiente y Victoriosa' },
-    { label: 'Chloe Marcela', val: 'Chloe Marcela', desc: 'Floreciente y Fuerte' }
-    ]).map((item, idx) => (
+    {getCompoundSuggestions('female', femaleVibe).map((item, idx) => (
     <button
     key={idx}
     onClick={() => handleCopyTrending(item.val)}

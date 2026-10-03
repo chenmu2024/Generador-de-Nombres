@@ -32,3 +32,6 @@ export function instagramSuggestions(name: string): string[] {
   if (!isInstagramUsername(base)) return [];
   return [...new Set([`iam.${base}`, `${base}.official`, `real.${base}`, `the.${base}_`, `${base}.ph`, base])].filter(isInstagramUsername);
 }
+export function normalizeSearch(value: string): string {
+  return value.normalize('NFD').replace(/\p{M}/gu, '').toLocaleLowerCase('es').trim();
+}

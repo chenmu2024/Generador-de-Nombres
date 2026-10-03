@@ -3,6 +3,7 @@
 import { speakName as readNameAloud } from '../../utils/speech';
 
 import { useState } from 'react';
+import { getCompoundSuggestions, lookupNameMeaning } from '../../data/compoundNames';
 import { Copy, Flame, Sparkles, Volume2 } from 'lucide-react';
 
 export default function RareNamesTool({
@@ -17,7 +18,7 @@ export default function RareNamesTool({
   const speakName = (text: string) => readNameAloud(text, 'es-ES');
 
   return (
-    <div className="gdn-tool-shell bg-gradient-to-br from-purple-950/40 via-[#121212] to-indigo-950/30 border border-purple-500/30 rounded-3xl p-8 shadow-2xl relative overflow-hidden space-y-6">
+    <div className="gdn-tool-shell bg-gradient-to-br from-purple-950/40 via-[#121212] to-indigo-950/30 border border-purple-500/30 rounded-3xl p-4 sm:p-8 shadow-2xl relative overflow-hidden space-y-6">
     <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10">
     <div>
     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300 text-xs font-semibold uppercase tracking-wider mb-3">
@@ -33,14 +34,14 @@ export default function RareNamesTool({
     </div>
     
     {/* Interactive Rare Name Builder & Meaning Explorer */}
-    <div className="bg-zinc-950/90 border border-purple-500/20 rounded-2xl p-6 relative z-10 space-y-5">
+    <div className="bg-zinc-950/90 border border-purple-500/20 rounded-2xl p-4 sm:p-6 relative z-10 space-y-5">
     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/5 pb-4">
     <span className="text-xs font-bold text-purple-300 uppercase tracking-wider flex items-center gap-1.5">
     <Sparkles className="w-4 h-4 text-purple-400" /> Explorador por Categoría de Rareza & Creador
     </span>
     
     {/* Rare Vibe Tabs */}
-    <div className="flex flex-wrap gap-1.5 bg-zinc-900 p-1 rounded-xl border border-white/10">
+    <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-1.5 bg-zinc-900 p-1 rounded-xl border border-white/10">
     {[
     { id: 'mitologia', label: '🔮 Mitología / Leyendas' },
     { id: 'espacial', label: '🌌 Astrología / Cosmos' },
@@ -49,8 +50,9 @@ export default function RareNamesTool({
     ].map(tab => (
     <button
     key={tab.id}
+    aria-pressed={rareVibe === tab.id}
     onClick={() => setRareVibe(tab.id as any)}
-    className={`gdn-tool-tab px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+    className={`gdn-tool-tab min-h-11 px-2 sm:px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
     rareVibe === tab.id
     ? 'bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-md'
     : 'text-zinc-400 hover:text-white'
@@ -67,6 +69,7 @@ export default function RareNamesTool({
     <div>
     <label htmlFor="rarenamestool-field-1" className="text-[11px] text-zinc-400 font-bold uppercase block mb-1">1. Primer Nombre Raro / Base</label>
     <input id="rarenamestool-field-1"
+    maxLength={80}
     type="text"
     value={rareFirstName}
     onChange={(e) => setRareFirstName(e.target.value)}
@@ -77,6 +80,7 @@ export default function RareNamesTool({
     <div>
     <label htmlFor="rarenamestool-field-2" className="text-[11px] text-zinc-400 font-bold uppercase block mb-1">2. Segundo Nombre / Apellido Raro</label>
     <input id="rarenamestool-field-2"
+    maxLength={80}
     type="text"
     value={rareSecondName}
     onChange={(e) => setRareSecondName(e.target.value)}
@@ -92,27 +96,8 @@ export default function RareNamesTool({
     const r2 = rareSecondName.trim() || 'Cassian';
     const combinedRare = `${r1} ${r2}`;
     
-    const rareMeaningsDb: Record<string, { origin: string; meaning: string }> = {
-    orion: { origin: 'Mitología Griega', meaning: 'Constelación del gran cazador estelar e hijo del fuego' },
-    cassian: { origin: 'Latín (Cassianus)', meaning: 'Perteneciente a la noble casa de Cassius, valiente e íntegro' },
-    freya: { origin: 'Mitología Nórdica', meaning: 'Diosa del amor, la belleza, la magia y la fuerza femenina' },
-    zephyr: { origin: 'Griego (Zephyros)', meaning: 'Viento del oeste, suave, renovador y libre' },
-    astrid: { origin: 'Nórdico Antiguo', meaning: 'Hermosa como los dioses o de belleza divina' },
-    lyra: { origin: 'Griego / Astrología', meaning: 'Constelación de la lira celestial que emite música divina' },
-    selene: { origin: 'Mitología Griega', meaning: 'Diosa de la luna radiante y resplandor nocturno' },
-    caelia: { origin: 'Latín', meaning: 'Perteneciente al cielo o venida del firmamento' },
-    kenzo: { origin: 'Japonés', meaning: 'Fuerte, saludable, sabio y de espíritu firme' },
-    dante: { origin: 'Latín (Durante)', meaning: 'Resistente, constante, duradero e inmortal' },
-    soren: { origin: 'Escandinavo / Latín', meaning: 'Severo, digno de respeto y protector' },
-    elion: { origin: 'Hebreo / Celta', meaning: 'El altísimo o guardián de las colinas de luz' },
-    aurelia: { origin: 'Latín (Aurelius)', meaning: 'Resplandeciente como el oro puro' },
-    cyrus: { origin: 'Persa Antiguo', meaning: 'Sol victorioso, señor y gran líder' },
-    darian: { origin: 'Persa / Griego', meaning: 'Regalo precioso y poseedor del bien' },
-    kael: { origin: 'Gaelico / Celta', meaning: 'Guerrero esbelto y protector de las tierras altas' }
-    };
-    
-    const rm1 = rareMeaningsDb[r1.toLowerCase()] || { origin: 'Origen Exótico', meaning: 'Misterio, magnetismo y personalidad inolvidable' };
-    const rm2 = rareMeaningsDb[r2.toLowerCase()] || { origin: 'Origen Místico', meaning: 'Fuerza singular, brillo y distinción' };
+    const rm1 = lookupNameMeaning(r1);
+    const rm2 = lookupNameMeaning(r2);
     
     return (
     <div className="gdn-tool-result bg-zinc-900/90 p-5 rounded-2xl border border-purple-500/30 space-y-4">
@@ -142,11 +127,13 @@ export default function RareNamesTool({
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
     <div className="bg-zinc-950/80 p-3 rounded-xl border border-white/5 space-y-1">
     <span className="text-purple-300 font-bold">1. {r1} ({rm1.origin})</span>
-    <p className="text-zinc-400">"{rm1.meaning}"</p>
+    <p className="text-zinc-400">{rm1.meaning}</p>
+    {rm1.source && <a href={rm1.source} target="_blank" rel="noopener noreferrer" className="text-violet-300 underline">Fuente del significado</a>}
     </div>
     <div className="bg-zinc-950/80 p-3 rounded-xl border border-white/5 space-y-1">
     <span className="text-purple-300 font-bold">2. {r2} ({rm2.origin})</span>
-    <p className="text-zinc-400">"{rm2.meaning}"</p>
+    <p className="text-zinc-400">{rm2.meaning}</p>
+    {rm2.source && <a href={rm2.source} target="_blank" rel="noopener noreferrer" className="text-violet-300 underline">Fuente del significado</a>}
     </div>
     </div>
     
@@ -181,19 +168,11 @@ export default function RareNamesTool({
     {/* Ready-to-copy Curated Rare Names Grid */}
     <div className="space-y-3 relative z-10">
     <span className="text-xs font-bold text-purple-300 uppercase tracking-wider flex items-center gap-1.5">
-    <Flame className="w-4 h-4 text-amber-400" /> Nombres Raros y Exóticos Populares en 2026 (Clic para Copiar)
+    <Flame className="w-4 h-4 text-amber-400" /> Nombres Raros y Exóticos Seleccionados (Clic para Copiar)
     </span>
+    <p className="text-xs text-zinc-400" role="status">El estilo filtra las sugerencias; no cambia los nombres que escribes. La longitud corresponde al primer nombre. Selección editorial, no ranking de popularidad.</p>
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
-    {[
-    { label: 'Orion Cassian', val: 'Orion Cassian', desc: 'Cazador Estelar e Íntegro' },
-    { label: 'Freya Astrid', val: 'Freya Astrid', desc: 'Diosa Nórdica de Belleza Divina' },
-    { label: 'Zephyr Soren', val: 'Zephyr Soren', desc: 'Viento del Oeste y Digno' },
-    { label: 'Lyra Selene', val: 'Lyra Selene', desc: 'Lira Celestial y Luna Radiante' },
-    { label: 'Dante Cyrus', val: 'Dante Cyrus', desc: 'Inmortal y Sol Victorioso' },
-    { label: 'Aurelia Caelia', val: 'Aurelia Caelia', desc: 'Dorada y Perteneciente al Cielo' },
-    { label: 'Kael Elion', val: 'Kael Elion', desc: 'Guerrero Celta y Guardián de Luz' },
-    { label: 'Kenzo Darian', val: 'Kenzo Darian', desc: 'Espíritu Firme y Regalo Precioso' }
-    ].map((item, idx) => (
+    {getCompoundSuggestions('rare', rareVibe).map((item, idx) => (
     <button
     key={idx}
     onClick={() => handleCopyTrending(item.val)}

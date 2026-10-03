@@ -48,7 +48,7 @@ export default function DogNamesTool({
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
       <div>
       <label htmlFor="dognamestool-field-1" className="text-xs font-semibold text-zinc-400 block mb-2">Estilo / Personalidad de la Perrita:</label>
-      <select id="dognamestool-field-1" aria-label="Seleccionar opción" value={dogPersonality}
+      <select id="dognamestool-field-1" value={dogPersonality}
       onChange={(e) => setDogPersonality(e.target.value)}
       className="gdn-tool-input w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-pink-500 text-sm font-semibold"
       >
