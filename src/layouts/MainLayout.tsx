@@ -386,7 +386,6 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
         )}
       </header>
 
-      <CookieBanner />
       <main id="main-content" tabIndex={-1} className="flex-grow min-h-screen">
         {children}
       </main>
@@ -500,6 +499,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
           </p>
         </div>
       </footer>
+      <CookieBanner />
 
       {audioError && <div role="status" className="fixed bottom-4 left-4 right-4 z-[100] gdn-surface p-4 rounded-xl border">{audioError}<button className="ml-4 underline" onClick={() => setAudioError(null)}>Cerrar</button></div>}
       {/* Cookie Consent Banner for AdSense / GDPR */}
