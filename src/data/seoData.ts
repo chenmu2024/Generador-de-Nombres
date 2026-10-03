@@ -69,7 +69,7 @@ export const seoData: Record<string, CategoryData> = {
       <p>Destacar en Free Fire (FF) empieza antes de caer del avión: tu nickname o apodo es tu carta de presentación ante tus rivales y tu escuadra. Ya sea que busques un <strong>nombre insano que dé miedo</strong>, un nombre con <strong>espacio invisible Unicode (U+3164)</strong>, el icono <strong>V de Verificado (Ⓥ)</strong>, o combinaciones para <strong>dúos dinámicos y clanes nivel 10</strong>, nuestro generador crea variantes adaptadas a nombres cortos; los límites y caracteres admitidos pueden cambiar según la versión del juego.</p>
       
       <h3>Guía Rápida: Estilos de Nombres para Free Fire Más Buscados</h3>
-      <p>A continuación te mostramos las combinaciones más populares clasificadas por estilo e intención en partida:</p>
+      <p>A continuación te mostramos combinaciones de esta selección editorial clasificadas por estilo e intención en partida:</p>
       
       <div class="overflow-x-auto not-prose mb-8 mt-4">
         <table class="min-w-full text-left border-collapse rounded-2xl overflow-hidden border border-white/10 bg-zinc-900/60">
@@ -122,7 +122,7 @@ export const seoData: Record<string, CategoryData> = {
       <h3>Reglas Oficiales de Longitud de Nombres en Free Fire</h3>
       <ul>
         <li><strong>Longitud del apodo:</strong> Comprueba el límite que muestra tu versión de Free Fire antes de confirmar, ya que las reglas pueden cambiar.</li>
-        <li><strong>Símbolos Permitidos:</strong> Caracteres Unicode especiales (꧁, ꧂, ⚡, ☠︎, 👑, ✿, ☬, ⚔️, ☯︎, ★, ♥, ✨, 🔥, ツ, ×͜×, Ⓥ, ╰‿╯).</li>
+        <li><strong>Símbolos para probar:</strong> Caracteres Unicode especiales (꧁, ꧂, ⚡, ☠︎, 👑, ✿, ☬, ⚔️, ☯︎, ★, ♥, ✨, 🔥, ツ, ×͜×, Ⓥ, ╰‿╯).</li>
         <li><strong>Cambio de nombre:</strong> El coste y los métodos disponibles pueden variar; confirma siempre lo que muestra tu cuenta dentro del juego.</li>
       </ul>
     `,
@@ -166,7 +166,7 @@ export const seoData: Record<string, CategoryData> = {
       <h3>Diferencia entre Username y Display Name en Roblox</h3>
       <ul>
         <li><strong>Username (@usuario):</strong> Es el nombre de inicio de sesión único de tu cuenta. Solo permite letras (A-Z), números (0-9) y un único guión bajo (<code>_</code>). No admite espacios ni símbolos especiales.</li>
-        <li><strong>Display Name (Nombre de Pantalla):</strong> Es el nombre visible sobre tu avatar en los juegos. Se puede cambiar completamente <strong>GRATIS cada 7 días</strong> y admite fuentes tipográficas bonitas, símbolos aesthetic (✿, ✨, ⚡, 👑, 𓆩𓆪) y espacios.</li>
+        <li><strong>Display Name (Nombre de Pantalla):</strong> Es el nombre visible sobre tu avatar. Tiene reglas distintas al Username; el generador no comprueba su aceptación. Consulta las <a href="https://en.help.roblox.com/hc/en-us/articles/4401938870292-Changing-Your-Display-Name" target="_blank" rel="noopener noreferrer">condiciones oficiales de Roblox</a> antes de cambiarlo.</li>
       </ul>
 
       <h3>Tabla de Ideas de Nombres por Juego de Roblox</h3>
@@ -224,19 +224,19 @@ export const seoData: Record<string, CategoryData> = {
     faqs: [
       {
         question: "¿Cómo cambiar tu Display Name en Roblox totalmente gratis?",
-        answer: "Abre la app o web de Roblox, entra a 'Configuración' -> 'Información de la Cuenta' -> 'Nombre de Visualización' (Display Name). Haz clic en el ícono del lápiz, escribe tu nuevo nombre aesthetic y comprueba que Roblox acepte sus caracteres antes de guardar los cambios. ¡Puedes cambiarlo gratis cada 7 días!"
+        answer: "Entra en la configuración de tu cuenta y busca el nombre de visualización. Revisa las condiciones y el plazo que Roblox indique antes de guardar. La disponibilidad y la moderación se comprueban en Roblox."
       },
       {
         question: "¿Cuánto cuesta cambiar el Username (@usuario) principal de Roblox?",
-        answer: "Cambiar tu Username oficial de inicio de sesión cuesta 1,000 Robux. Por esta razón, la mayoría de jugadores prefieren personalizar gratis su Display Name."
+        answer: "La web no cobra por generar propuestas. Si cambias el Username dentro de Roblox, revisa el coste mostrado por la plataforma antes de confirmar."
       },
       {
         question: "¿Por qué Roblox dice que mi nombre de usuario no está disponible?",
-        answer: "Esto ocurre si el nombre ya pertenece a otro jugador, si incluye caracteres no permitidos (como espacios o símbolos ★), si tiene menos de 3 o más de 20 letras, o si fue filtrado por el sistema de seguridad de Roblox."
+        answer: "Puede deberse a disponibilidad, formato o moderación. Nuestro validador comprueba formato básico; Roblox decide si acepta el nombre."
       },
       {
         question: "¿Se pueden poner símbolos especiales en el Username principal?",
-        answer: "No. El Username de cuenta solo permite letras en inglés, números y un guión bajo (_). Sin embargo, en el Display Name SÍ puedes usar símbolos decorativos, emojis y fuentes tipográficas elegantes."
+        answer: "No uses un resultado decorado como garantía de compatibilidad. El Username y el Display Name tienen reglas distintas; consulta el soporte oficial de Roblox y prueba el texto en el campo correspondiente."
       }
     ]
   },
@@ -311,7 +311,7 @@ export const seoData: Record<string, CategoryData> = {
     faqs: [
       {
         question: "¿Por qué Instagram me dice que mi nombre de usuario no está disponible?",
-        answer: "Esto significa que otra persona ya registró exactamente ese @username, o que el nombre contiene caracteres no válidos (como espacios, emojis, guiones o símbolos ★), o que viola las normas comunitarias de Instagram."
+        answer: "El nombre puede estar ocupado, reservado o incumplir las reglas del campo. Una propuesta de nuestro generador no comprueba disponibilidad ni moderación en Instagram."
       },
       {
         question: "¿Cómo poner letras bonitas o tipografías especiales en la bio de Instagram?",
@@ -319,7 +319,7 @@ export const seoData: Record<string, CategoryData> = {
       },
       {
         question: "¿Cada cuánto tiempo puedo cambiar mi @username en Instagram?",
-        answer: "Puedes cambiar tu nombre de usuario en cualquier momento. Si te arrepientes, Instagram te permite volver a tu nombre anterior durante un plazo de 14 días (siempre que nadie más lo haya tomado en ese lapso)."
+        answer: "Los cambios y la posibilidad de recuperar un nombre anterior dependen de las condiciones que Instagram muestre en tu cuenta. Compruébalas antes de guardar."
       },
       {
         question: "¿Qué trucos puedo usar si mi nombre deseado ya está ocupado en Instagram?",
@@ -436,7 +436,7 @@ export const seoData: Record<string, CategoryData> = {
       },
       {
         question: "¿Cuáles son los nombres más graciosos y cerveceros para equipos de fútbol 5?",
-        answer: "Entre los más populares destacan Vodka Juniors, Aston Birra, Real Cohólicos, Inter de Mitad, Nottingham Miedo, Bayer Neverkusen, Deportivo Tapita, Alcohol Club y Celta de Vino."
+        answer: "Entre las propuestas editoriales están Vodka Juniors, Aston Birra, Real Cohólicos, Inter de Mitad, Nottingham Miedo, Bayer Neverkusen, Deportivo Tapita, Alcohol Club y Celta de Vino."
       },
       {
         question: "¿Qué nombres transmiten mayor fuerza para equipos femeninos?",
@@ -453,7 +453,7 @@ export const seoData: Record<string, CategoryData> = {
     path: '/nombres-japoneses',
     title: 'Nombres Japoneses de Mujer y Niño con Kanjis | GDN',
     h1: 'Generador de Nombres Japoneses: Kanji, Romaji y Anime',
-    subtitle: 'Descubre los nombres japoneses más hermosos, poéticos e imponentes para niña, niño, anime y apodos aesthetic. Incluye ideogramas Kanji, Romaji, significados y audio de pronunciación.',
+    subtitle: "Descubre los nombres japoneses más hermosos, poéticos e imponentes para niña, niño, anime y apodos aesthetic. Incluye caracteres Kanji, Romaji, significados y audio de pronunciación.",
     seoText: `
       <h2>Los Mejores Nombres Japoneses Hermosos y su Significado Profundo (2026)</h2>
       <p>La cultura tradicional de Japón, la estética otaku, la mitología nipona y el universo del anime/manga han popularizado los <strong>nombres japoneses</strong> en todo el mundo. Destacan por la belleza de sus ideogramas (<em>Kanji</em>), su elegante sonoridad (<em>Romaji</em>) y sus significados profundamente vinculados con los elementos naturales (el sol, la nieve, las flores de cerezo, el viento y los mares), las estaciones del año y los valores morales y espirituales.</p>
@@ -474,7 +474,7 @@ export const seoData: Record<string, CategoryData> = {
               <th class="py-3.5 px-4 font-bold">Romaji</th>
               <th class="py-3.5 px-4 font-bold">Kanji</th>
               <th class="py-3.5 px-4 font-bold">Género</th>
-              <th class="py-3.5 px-4 font-bold">Significado Profundo</th>
+              <th class="py-3.5 px-4 font-bold">Significado y estado de revisión</th>
               <th class="py-3.5 px-4 font-bold">Combinación Recomendada</th>
             </tr>
           </thead>
@@ -483,49 +483,49 @@ export const seoData: Record<string, CategoryData> = {
               <td class="py-3 px-4 font-bold text-indigo-400">Sakura</td>
               <td class="py-3 px-4 font-bold text-pink-300">桜</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Femenino</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Flor de cerezo, belleza efímera y renacer primaveral.</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Sakura Rose</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Ren</td>
               <td class="py-3 px-4 font-bold text-pink-300">蓮</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Unisex</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Flor de loto sagrado, pureza espiritual e inquebrantable.</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Ren Alexander</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Yuki</td>
               <td class="py-3 px-4 font-bold text-pink-300">雪 / 幸</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Unisex</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Nieve pura e inmaculada o felicidad radiante.</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Yuki Sky</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Haruto</td>
               <td class="py-3 px-4 font-bold text-pink-300">陽翔</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Masculino</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Sol volando alto hacia el firmamento brillante.</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Haruto Gael</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Hinata</td>
               <td class="py-3 px-4 font-bold text-pink-300">日向</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Unisex</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Lugar orientado al sol resplandeciente y girasol.</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Hinata Sofía</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Kaito</td>
               <td class="py-3 px-4 font-bold text-pink-300">海翔</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Masculino</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Vuelo sobre el gran océano azul y libre.</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Kaito Mateo</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Akira</td>
               <td class="py-3 px-4 font-bold text-pink-300">明 / 晶</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Unisex</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Brillante, claro, sabio e inteligente como el cristal.</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Akira Sol</td>
             </tr>
           </tbody>
@@ -536,10 +536,10 @@ export const seoData: Record<string, CategoryData> = {
       <ol>
         <li><strong>Comprende el Significado del Kanji:</strong> El mismo sonido en Romaji puede cambiar de significado según el ideograma Kanji elegido (por ejemplo, <em>Yuki</em> como nieve 雪 o felicidad 幸).</li>
         <li><strong>Equilibra la Sonoridad con Apellidos Hispanos o Internacionales:</strong> Si buscas un nombre para bebé, opta por opciones de pronunciación natural en español como <em>Kenzo, Ren, Akira, Sakura, Mei</em> o <em>Kaito</em>.</li>
-        <li><strong>Incorporate Símbolos Estéticos para Nicks:</strong> Para avatares, anime o videojuegos (Genshin Impact, Roblox, Free Fire), personaliza el nombre con kanjis suplementarios (🌸, ⛩️, 陰陽) usando el generador arriba.</li>
+        <li><strong>Incorporate Símbolos Estéticos para Nicks:</strong> Para avatares, anime o videojuegos (Genshin Impact, Roblox, Free Fire), personaliza el nombre con símbolos decorativos (🌸, ⛩️); los emojis no son kanji usando el generador arriba.</li>
       </ol>
     `,
-    metaDescription: 'Lista completa de nombres japoneses para niña, niño y anime. Con ideogramas Kanji, significados profundos y audio de pronunciación.',
+    metaDescription: "Lista completa de nombres japoneses para niña, niño y anime. Con caracteres Kanji, significados profundos y audio de pronunciación.",
     keywords: 'nombres japoneses, nombres japoneses para niña, nombres japoneses para niño, nombres de anime, nombres japoneses con significado, nombres en kanji, nombres japoneses masculinos, nombres japoneses femeninos',
     defaultName: 'Sakura',
     customSymbols: ["桜", "月", "雪", "愛", "光", "花", "星", "海", "空", "水", "風", "火", "心", "魂", "神", "🌸", "💮", "🎎", "🎏", "🎐", "🎋", "⛩️", "☯️", "🦊", "✦", "📜", "⚡"],
@@ -549,8 +549,8 @@ export const seoData: Record<string, CategoryData> = {
         answer: "Un mismo nombre expresado en letras romanas (Romaji) puede escribirse con distintos ideogramas (Kanji). Por ejemplo, Yuki puede significar 'nieve' (雪) o 'felicidad' (幸) según los caracteres seleccionados."
       },
       {
-        question: "¿Cuáles son los nombres japoneses más populares para niña y niño?",
-        answer: "Para niña destacan Sakura (flor de cerezo), Yuki (nieve/felicidad), Aoi (malva azul) y Hinata (lugar al sol). Para niño encabezan las listas Ren (loto), Haruto (sol que vuela), Kaito (vuelo oceánico) y Kenzo (fuerza y salud)."
+        question: "¿Cuáles son algunos nombres japoneses  para niña y niño?",
+        answer: "Sakura, Yuki, Aoi, Hinata y Ren son ejemplos de esta selección editorial. No son un ranking de nacimientos; el significado necesita la escritura concreta y una fuente para esa forma."
       },
       {
         question: "¿Puedo usar estos nombres para avatares de anime o nicks de videojuegos?",
@@ -587,7 +587,7 @@ export const seoData: Record<string, CategoryData> = {
             <tr class="bg-indigo-950/60 text-indigo-200 border-b border-white/10">
               <th class="py-3.5 px-4 font-bold">Nombre para Perrita</th>
               <th class="py-3.5 px-4 font-bold">Estilo / Raza</th>
-              <th class="py-3.5 px-4 font-bold">Significado / Atributo</th>
+              <th class="py-3.5 px-4 font-bold">Inspiración creativa (no etimología)</th>
               <th class="py-3.5 px-4 font-bold">Placa / Apodo Recomendado</th>
             </tr>
           </thead>
@@ -646,7 +646,7 @@ export const seoData: Record<string, CategoryData> = {
 
       <h3>Consejos Clave de Adiestramiento Canino para Aprender su Nombre</h3>
       <ol>
-        <li><strong>Pronunciación Clara y Tono Alegre:</strong> Usa el reproductor de audio interactivo arriba para escuchar la pronunciación clara con tono afectuoso y entonación hacia arriba.</li>
+        <li><strong>Pronunciación Clara y Tono Alegre:</strong> Usa el reproductor de audio interactivo arriba para comparar una lectura sintetizada aproximada.</li>
         <li><strong>Diferencia el Nombre de Comandos:</strong> Evita utilizar nombres que se parezcan fonéticamente a órdenes de mando habituales (como "No", "Sit", "Toma" o "Ven").</li>
         <li><strong>Refuerzo Positivo Inmediato:</strong> Premia con un bocadito, una golosina o muestra de afecto cada vez que tu cachorra te mire o se acerque al pronunciar su nombre.</li>
       </ol>
@@ -661,8 +661,8 @@ export const seoData: Record<string, CategoryData> = {
         answer: "Los nombres de dos sílabas son una opción práctica porque suelen ser rápidos de pronunciar y repetir. No es una regla estricta: lo más importante es usar el nombre de forma consistente."
       },
       {
-        question: "¿Cuáles son los nombres de perrita más elegidos en 2026?",
-        answer: "Entre los favoritos encabezan Luna, Kira, Nala, Maya, Lola, Bella, Sasha, Chloe, Pipa, Mimi, Daisy y Molly."
+        question: "¿Cuáles son algunos nombres de perrita ?",
+        answer: "Esta es una selección editorial, no un ranking de popularidad. Puedes comparar Luna, Kira, Nala, Maya, Lola, Bella, Sasha, Chloe, Pipa, Mimi, Daisy y Molly."
       },
       {
         question: "¿Cómo elegir un nombre adecuado según la raza y tamaño?",
@@ -679,7 +679,7 @@ export const seoData: Record<string, CategoryData> = {
     path: '/nombres-coreanos',
     title: 'Nombres Coreanos de Mujer y K-Pop con Hangul | GDN',
     h1: 'Generador de Nombres Coreanos: K-Pop, Doramas y Hangul',
-    subtitle: 'Descubre los nombres coreanos más populares, poéticos e icónicos para niña, niño, Idols de K-Pop y doramas. Incluye escritura en Hangul, romanización, significados y audio de pronunciación.',
+    subtitle: "Descubre los nombres coreanos seleccionados, poéticos e icónicos para niña, niño, Idols de K-Pop y doramas. Incluye escritura en Hangul, romanización, significados y audio de pronunciación.",
     seoText: `
       <h2>Los Mejores Nombres Coreanos, su Escritura en Hangul y Significado Profundo (2026)</h2>
       <p>Gracias al impacto global de la Ola Coreana (<em>Hallyu</em>), impulsada por gigantes del K-Pop (BTS, BLACKPINK, NewJeans, TWICE, Stray Kids) y producciones de K-Dramas (doramas de Netflix), los <strong>nombres coreanos</strong> se han convertido en un referente de estética, modernidad y elegancia. Elegir un nombre coreano es perfecto tanto para crear un perfil aesthetic en TikTok, Instagram, Discord o Roblox, como para bautizar a personajes de novelas, usuarios de Free Fire o mascotas.</p>
@@ -701,7 +701,7 @@ export const seoData: Record<string, CategoryData> = {
               <th class="py-3.5 px-4 font-bold">Romanización</th>
               <th class="py-3.5 px-4 font-bold">Hangul</th>
               <th class="py-3.5 px-4 font-bold">Género</th>
-              <th class="py-3.5 px-4 font-bold">Significado Profundo</th>
+              <th class="py-3.5 px-4 font-bold">Significado y estado de revisión</th>
               <th class="py-3.5 px-4 font-bold">Referente / Combinación</th>
             </tr>
           </thead>
@@ -710,49 +710,49 @@ export const seoData: Record<string, CategoryData> = {
               <td class="py-3 px-4 font-bold text-indigo-400">Ji-Eun</td>
               <td class="py-3 px-4 font-bold text-pink-300">지은</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Femenino</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Depende de los hanja elegidos; no se deduce únicamente del Hangul.</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">IU (Lee Ji-eun) / Ji-Eun Rose</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Tae-Hyung</td>
               <td class="py-3 px-4 font-bold text-pink-300">태형</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Masculino</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Depende de los hanja elegidos; no se deduce únicamente del Hangul.</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">V (BTS) / Kim Tae-Hyung</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Min-Ji</td>
               <td class="py-3 px-4 font-bold text-pink-300">민지</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Femenino</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Depende de los hanja elegidos; no se deduce únicamente del Hangul.</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Minji (NewJeans) / Min-Ji Sky</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Jung-Kook</td>
               <td class="py-3 px-4 font-bold text-pink-300">정국</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Masculino</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Depende de los hanja elegidos; no se deduce únicamente del Hangul.</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Jungkook (BTS) / Jeon Jung-Kook</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Soo-Ah</td>
               <td class="py-3 px-4 font-bold text-pink-300">수아</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Femenino</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Depende de los hanja elegidos; no se deduce únicamente del Hangul.</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Soo-Ah Valentina</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Min-Ho</td>
               <td class="py-3 px-4 font-bold text-pink-300">민호</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Masculino</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Depende de los hanja elegidos; no se deduce únicamente del Hangul.</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Lee Min-ho / Min-Ho Alexander</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Chae-Young</td>
               <td class="py-3 px-4 font-bold text-pink-300">채영</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Femenino</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Depende de los hanja elegidos; no se deduce únicamente del Hangul.</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Rosé (BLACKPINK) / Chae-Young Sofía</td>
             </tr>
           </tbody>
@@ -776,8 +776,8 @@ export const seoData: Record<string, CategoryData> = {
         answer: "Suelen constar de 3 sílabas en total: primero el apellido familiar (de 1 sílaba como Kim, Lee, Park, Choi) seguido del nombre propio (generalmente de 2 sílabas como Ji-Eun, Min-Ji o Tae-Hyung)."
       },
       {
-        question: "¿Cuáles son los nombres coreanos más populares en K-Pop y Doramas?",
-        answer: "En opciones femeninas destacan Ji-Eun, Min-Ji, Soo-Ah, Eun-Ji, Chae-Young, Ha-Eun y Yuna. En opciones masculinas lideran Tae-Hyung, Jung-Kook, Min-Ho, Woo-Bin, Seo-Jun y Eun-Woo."
+        question: "¿Cuáles son algunos nombres coreanos  en K-Pop y Doramas?",
+        answer: "Esta es una selección editorial, no un ranking de popularidad. En opciones femeninas destacan Ji-Eun, Min-Ji, Soo-Ah, Eun-Ji, Chae-Young, Ha-Eun y Yuna. En opciones masculinas se incluyen Tae-Hyung, Jung-Kook, Min-Ho, Woo-Bin, Seo-Jun y Eun-Woo."
       },
       {
         question: "¿Puedo usar estos nombres para cuentas aesthetic de TikTok, Instagram, Roblox o Free Fire?",
@@ -816,7 +816,7 @@ export const seoData: Record<string, CategoryData> = {
               <th class="py-3.5 px-4 font-bold">Nombre Francés</th>
               <th class="py-3.5 px-4 font-bold">Guía Fonética</th>
               <th class="py-3.5 px-4 font-bold">Género</th>
-              <th class="py-3.5 px-4 font-bold">Significado Profundo</th>
+              <th class="py-3.5 px-4 font-bold">Significado y estado de revisión</th>
               <th class="py-3.5 px-4 font-bold">Combinación Recomendada</th>
             </tr>
           </thead>
@@ -825,49 +825,49 @@ export const seoData: Record<string, CategoryData> = {
               <td class="py-3 px-4 font-bold text-indigo-400">Amélie</td>
               <td class="py-3 px-4 text-pink-300 font-mono">Ah-meh-lee</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Femenino</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Trabajadora dulce, dedicada, noble y llena de simpatía.</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Amélie Rose</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Gabriel</td>
               <td class="py-3 px-4 text-pink-300 font-mono">Gah-bree-ell</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Masculino</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Fuerza divina de Dios, mensajero celestial y protector.</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Gabriel Alexander</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Juliette</td>
               <td class="py-3 px-4 text-pink-300 font-mono">Zhoo-lee-ett</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Femenino</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Joven, llena de gracia eterna, poesía y romanticismo.</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Juliette Sofía</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Louis</td>
               <td class="py-3 px-4 text-pink-300 font-mono">Loo-ee</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Masculino</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Famoso guerrero en la batalla, rey ilustre y digno.</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Louis Mateo</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Chloé</td>
               <td class="py-3 px-4 text-pink-300 font-mono">Kloh-eh</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Femenino</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Brote verde fresco, flor primaveral que florece radiante.</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Brote verde. <a href="https://www.behindthename.com/name/chloe" target="_blank" rel="noopener noreferrer">Fuente de Chloé</a></td>
               <td class="py-3 px-4 font-mono text-indigo-300">Chloé Valentina</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Antoine</td>
               <td class="py-3 px-4 text-pink-300 font-mono">Ahn-twahn</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Masculino</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Forma francesa de Antonius; su etimología es incierta.</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Antoine Gael</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Céleste</td>
               <td class="py-3 px-4 text-pink-300 font-mono">Seh-lest</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Femenino</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Perteneciente al cielo divino, estelar y purísima.</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Céleste Marie</td>
             </tr>
           </tbody>
@@ -888,11 +888,11 @@ export const seoData: Record<string, CategoryData> = {
     faqs: [
       {
         question: "¿Por qué los nombres franceses son considerados románticos y elegantes?",
-        answer: "Debido a su suave acentuación oxítona (en la última sílaba), el uso característico de vocales dulces y acentos (é, è, ë) y su arraigada tradición literaria y cortesana."
+        answer: "Romántico y elegante son valoraciones de estilo. Compara la escritura, el ritmo y la pronunciación de las opciones con tus apellidos; no todos los nombres franceses se pronuncian igual."
       },
       {
-        question: "¿Cuáles son los nombres franceses más elegidos para niña y niño en 2026?",
-        answer: "En opciones femeninas destacan Amélie, Juliette, Chloé, Éloïse, Céleste, Camille, Sophie y Charlotte. En opciones masculinas lideran Gabriel, Antoine, Louis, Étienne, Julien, Alexandre y Adrien."
+        question: "¿Cuáles son algunos nombres franceses  para niña y niño?",
+        answer: "Esta es una selección editorial, no un ranking de popularidad. En opciones femeninas destacan Amélie, Juliette, Chloé, Éloïse, Céleste, Camille, Sophie y Charlotte. En opciones masculinas se incluyen Gabriel, Antoine, Louis, Étienne, Julien, Alexandre y Adrien."
       },
       {
         question: "¿Cómo funciona la guía fonética y pronunciación en francés?",
@@ -930,7 +930,7 @@ export const seoData: Record<string, CategoryData> = {
               <th class="py-3.5 px-4 font-bold">Nombre / Propuesta</th>
               <th class="py-3.5 px-4 font-bold">Género</th>
               <th class="py-3.5 px-4 font-bold">Simbolismo / Elemento</th>
-              <th class="py-3.5 px-4 font-bold">Significado Profundo</th>
+              <th class="py-3.5 px-4 font-bold">Significado y estado de revisión</th>
               <th class="py-3.5 px-4 font-bold">Combinación Recomendada</th>
             </tr>
           </thead>
@@ -939,49 +939,49 @@ export const seoData: Record<string, CategoryData> = {
               <td class="py-3 px-4 font-bold text-indigo-400">Ixchel</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Femenino</td>
               <td class="py-3 px-4 text-zinc-300">Diosa Mayor de la Luna</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Interpretación pendiente de verificación lingüística; no es una traducción confirmada.</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Ixchel Sofía</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Balam</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Unisex</td>
               <td class="py-3 px-4 text-zinc-300">Animal Sagrado (Jaguar)</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Interpretación pendiente de verificación lingüística; no es una traducción confirmada.</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Balam Gael</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Itza</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Unisex</td>
               <td class="py-3 px-4 text-zinc-300">Referencia cultural por verificar</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Interpretación pendiente de verificación lingüística; no es una traducción confirmada.</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Itza Rose</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Kinich</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Masculino</td>
               <td class="py-3 px-4 text-zinc-300">Dios Solar (Kinich Ahau)</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Interpretación pendiente de verificación lingüística; no es una traducción confirmada.</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Kinich Alexander</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Nicté</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Femenino</td>
               <td class="py-3 px-4 text-zinc-300">Flor de Mayo</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Interpretación pendiente de verificación lingüística; no es una traducción confirmada.</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Nicté Valentina</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Canek</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Masculino</td>
               <td class="py-3 px-4 text-zinc-300">Nombre histórico</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Interpretación pendiente de verificación lingüística; no es una traducción confirmada.</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Canek Mateo</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Yaretzi</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Femenino</td>
               <td class="py-3 px-4 text-zinc-300">Origen por verificar</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Interpretación pendiente de verificación lingüística; no es una traducción confirmada.</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Yaretzi Sky</td>
             </tr>
           </tbody>
@@ -1005,8 +1005,8 @@ export const seoData: Record<string, CategoryData> = {
         answer: "Para la civilización maya, la naturaleza y el ser humano estaban estrechamente conectados. Las asociaciones simbólicas no deben confundirse con traducciones literales ni con un registro de nombres personales."
       },
       {
-        question: "¿Cuáles son los nombres mayas más populares para niña y niño?",
-        answer: "La selección incluye referencias como Ixchel y Balam. No contamos con estadísticas que acrediten su popularidad; el origen y las etimologías de las demás propuestas requieren verificación."
+        question: "¿Cuáles son algunos nombres mayas  para niña y niño?",
+        answer: "Esta es una selección editorial, no un ranking de popularidad. La selección incluye referencias como Ixchel y Balam. No contamos con estadísticas que acrediten su popularidad; el origen y las etimologías de las demás propuestas requieren verificación."
       },
       {
         question: "¿Puedo usar un nombre maya como nick para videojuegos o redes sociales?",
@@ -1045,7 +1045,7 @@ export const seoData: Record<string, CategoryData> = {
               <th class="py-3.5 px-4 font-bold">Nombre para Gato</th>
               <th class="py-3.5 px-4 font-bold">Estilo / Pelaje</th>
               <th class="py-3.5 px-4 font-bold">Género</th>
-              <th class="py-3.5 px-4 font-bold">Significado / Atributo</th>
+              <th class="py-3.5 px-4 font-bold">Inspiración creativa (no etimología)</th>
               <th class="py-3.5 px-4 font-bold">Placa / Apodo Recomendado</th>
             </tr>
           </thead>
@@ -1123,12 +1123,12 @@ export const seoData: Record<string, CategoryData> = {
     customSymbols: ["🐾", "🐱", "🐈", "🐟", "🧶", "🐁", "🥛", "😻", "😽", "😺", "😸", "💖", "✨", "🍊", "🐈‍⬛", "👑", "✦", "📜", "⚡"],
     faqs: [
       {
-        question: "¿Por qué los gatos responden mejor a nombres con consonantes 's', 'm' y vocales 'i' u 'o'?",
-        answer: "El oído felino capta con enorme facilidad las altas frecuencias acústicas. Nombres cortos de dos sílabas como Mochi, Mishi, Kira, Salem, Felix o Simba estimulan su sistema auditivo de forma agradable."
+        question: "¿Qué debo considerar al pronunciar el nombre de mi gato?",
+        answer: "No aportamos evidencia de que esas letras hagan que un gato responda mejor. Elige un nombre fácil de repetir y observa cómo responde tu animal; no atribuimos una ventaja auditiva a estas propuestas."
       },
       {
-        question: "¿Cuáles son los nombres de gato más populares en 2026?",
-        answer: "En machos lideran Mochi, Simba, Salem, Felix, Milo, Oliver y Thor. En hembras encabezan las listas Luna, Kira, Nieve, Mishi, Chloe, Mia y Bella."
+        question: "¿Cuáles son algunos nombres de gato ?",
+        answer: "Esta es una selección editorial, no un ranking de popularidad. Puedes comparar Mochi, Simba, Salem, Felix, Milo, Oliver y Thor. En hembras se incluyen Luna, Kira, Nieve, Mishi, Chloe, Mia y Bella."
       },
       {
         question: "¿Cómo saber qué nombre elegir según el color del gato?",
@@ -1166,7 +1166,7 @@ export const seoData: Record<string, CategoryData> = {
               <th class="py-3.5 px-4 font-bold">Nombre para Gato Negro</th>
               <th class="py-3.5 px-4 font-bold">Estilo / Temática</th>
               <th class="py-3.5 px-4 font-bold">Género</th>
-              <th class="py-3.5 px-4 font-bold">Significado Profundo</th>
+              <th class="py-3.5 px-4 font-bold">Inspiración creativa (no etimología)</th>
               <th class="py-3.5 px-4 font-bold">Placa / Apodo Recomendado</th>
             </tr>
           </thead>
@@ -1245,7 +1245,7 @@ export const seoData: Record<string, CategoryData> = {
     faqs: [
       {
         question: "¿Es cierto que los gatos negros traen buena suerte?",
-        answer: "¡Totalmente! En Gran Bretaña, Japón, Escocia y la antigua civilización egipcia, tener o cruzarse con un gato negro es considerado un símbolo supremo de prosperidad, protección espiritual y buena fortuna para el hogar."
+        answer: "Las creencias sobre gatos negros varían entre culturas y son tradiciones, no garantías de suerte. El color del pelaje no determina la fortuna del hogar."
       },
       {
         question: "¿Cuáles son los nombres más famosos para gatos negros masculinos y femeninos?",
@@ -1253,7 +1253,7 @@ export const seoData: Record<string, CategoryData> = {
       },
       {
         question: "¿Por qué los nombres místicos y de la noche son tan populares para las panteritas?",
-        answer: "Porque resaltan el aura misteriosa, el andar silencioso y el brillante pelaje negro azabache de estos felinos, evocando astros, gemas preciosas y leyendas de magia."
+        answer: "Esta es una selección editorial, no un ranking de popularidad. Porque resaltan el aura misteriosa, el andar silencioso y el brillante pelaje negro azabache de estos felinos, evocando astros, gemas preciosas y leyendas de magia."
       },
       {
         question: "¿Cómo funciona el generador interactivo y creador de placas?",
@@ -1287,7 +1287,7 @@ export const seoData: Record<string, CategoryData> = {
             <tr class="bg-indigo-950/60 text-indigo-200 border-b border-white/10">
               <th class="py-3.5 px-4 font-bold">Nombre para Gato Macho</th>
               <th class="py-3.5 px-4 font-bold">Estilo / Carácter</th>
-              <th class="py-3.5 px-4 font-bold">Significado / Atributo</th>
+              <th class="py-3.5 px-4 font-bold">Inspiración creativa (no etimología)</th>
               <th class="py-3.5 px-4 font-bold">Placa / Apodo Recomendado</th>
             </tr>
           </thead>
@@ -1396,7 +1396,7 @@ export const seoData: Record<string, CategoryData> = {
               <th class="py-3.5 px-4 font-bold">Nombre del Peluche</th>
               <th class="py-3.5 px-4 font-bold">Tipo / Textura</th>
               <th class="py-3.5 px-4 font-bold">Estilo de Nombre</th>
-              <th class="py-3.5 px-4 font-bold">Significado / Vibe</th>
+              <th class="py-3.5 px-4 font-bold">Inspiración creativa (no etimología)</th>
               <th class="py-3.5 px-4 font-bold">Promesa de Adopción Oficial</th>
             </tr>
           </thead>
@@ -1464,16 +1464,16 @@ export const seoData: Record<string, CategoryData> = {
         answer: "Puedes inspirarte en tu postre favorito (Boba, Mochi, Muffin, Cannoli), en una característica de su apariencia o textura (Copito, Canela, Nube, Algodón) o agregar un título cariñoso de distinción como Sr. Abrazos o Princesa Pelusa."
       },
       {
-        question: "¿Cuáles son los nombres más populares para peluches y Squishmallows en 2026?",
-        answer: "Entre los nombres más queridos destacan Mochi, Algodón, Boba, Marshmallow, Teddy, Sr. Abrazos, Copito, Sparkle, Dumpling, Cannoli, Nube y Sakura."
+        question: "¿Cuáles son algunos nombres  para peluches y Squishmallows?",
+        answer: "Esta es una selección editorial, no un ranking de popularidad. Puedes comparar Mochi, Algodón, Boba, Marshmallow, Teddy, Sr. Abrazos, Copito, Sparkle, Dumpling, Cannoli, Nube y Sakura."
       },
       {
         question: "¿Cómo funciona el Certificado / Acta de Adopción de Peluches interactivo?",
-        answer: "Simplemente escribe el nombre del peluche, la especie o tipo de muñeco, tu nombre como adoptante oficial y su súper poder o promesa. Podrás personalizar el estilo con temas de colores pastel (Rosa, Azul Celeste, Dorado, Violeta) y copiar o guardar la ficha en 1 clic."
+        answer: "La ficha es un recuerdo de juego: escribe los datos, elige la decoración y copia el texto preparado. No es un documento oficial ni una adopción con efectos legales."
       },
       {
-        question: "¿Puedo escuchar cómo suena el nombre de mi peluche con voz humana?",
-        answer: "¡Sí! Nuestra herramienta incluye un simulador de audio integrado para escuchar la articulación clara y cariñosa del nombre seleccionado."
+        question: "¿Puedo escuchar una lectura del nombre de mi peluche?",
+        answer: "Puedes solicitar una lectura sintetizada con la voz disponible en tu dispositivo. No es una grabación humana ni una comprobación lingüística."
       }
     ]
   },
@@ -1575,11 +1575,11 @@ export const seoData: Record<string, CategoryData> = {
       },
       {
         question: "¿Cómo poner un nombre 100% invisible o transparente en Free Fire?",
-        answer: "Simplemente copia la opción 'Espacio Invisible Triple' de nuestra herramienta y pégalo directamente en el cuadro de cambio de nick. Al no tener letras visibles, tu perfil aparecerá completamente transparente en el Kill Feed."
+        answer: "Puedes copiar un carácter invisible para probarlo en el campo de apodo. No garantizamos un perfil totalmente transparente: Free Fire puede rechazarlo, normalizarlo o mostrarlo de otra forma."
       },
       {
         question: "¿Funciona también para cambiar el nombre de un Clan en Free Fire?",
-        answer: "Sí, el espacio invisible sirve exactamente igual para nombres de Clanes, nombres de Mascotas (Pets), biografías de perfil, firmas e incluso en chats de WhatsApp y biografías de Instagram."
+        answer: "La compatibilidad depende de cada campo, aplicación y versión. Prueba el carácter en el nombre de clan o perfil antes de confirmar; su aceptación en un campo no garantiza otros usos."
       },
       {
         question: "¿Cuántos caracteres ocupa el espacio invisible?",
@@ -1657,11 +1657,11 @@ export const seoData: Record<string, CategoryData> = {
       },
       {
         question: "¿Por qué los nombres de 3 letras son los más cotizados en Free Fire?",
-        answer: "Los nombres cortos de 3 letras (como ZEX, VTX, KYR) son muy codiciados porque son fáciles de recordar en el Kill Feed, lucen profesionales y la mayoría fueron registrados en los primeros años del juego. Usando espacios invisibles o símbolos raros alrededor de 3 letras puedes crear uno único disponible."
+        answer: "Un apodo de 3 letras es breve y fácil de comparar. Decorarlo crea variantes visuales, pero no acredita rareza estadística ni disponibilidad dentro de Free Fire."
       },
       {
         question: "¿Qué símbolos raros puedo usar para que nadie me copie el apodo?",
-        answer: "Los símbolos menos saturados en 2026 son las runas jeroglíficas (𓆩 y 𓆪), la corona oriental (亗), la carita traviesa (╰‿╯), la V encircled (Ⓥ) y la katana oriental (乄)."
+        answer: "Puedes probar símbolos como 亗, Ⓥ o 𓆩𓆪. No tenemos estadísticas de uso ni un método que impida copiar un apodo; comprueba compatibilidad y disponibilidad en el juego."
       },
       {
         question: "¿Qué pasa si uso un símbolo no compatible con mi celular?",
@@ -1760,11 +1760,11 @@ export const seoData: Record<string, CategoryData> = {
     faqs: [
       {
         question: "¿Cómo poner la sigla o Tag del clan a los nombres de los miembros?",
-        answer: "Pide a los integrantes que agreguen las 2 o 3 letras de la sigla seguidas de un punto central (•) o un espacio invisible antes de su apodo. Ejemplo: 'VX • ㅤ INSANO'. Recuerda que el nick total no debe superar los 12 caracteres."
+        answer: "Combina una sigla breve con el apodo y comprueba el texto completo en el campo del juego. El contador de la web es orientativo y no garantiza un límite fijo ni aceptación."
       },
       {
         question: "¿Cuánto cuesta cambiar el nombre a un Clan existente en Free Fire?",
-        answer: "Cambiar el nombre oficial de un clan cuesta 500 Diamantes en la interfaz de gestión del clan (solamente el Líder o los Decanos tienen el permiso de realizar esta acción)."
+        answer: "Consulta el precio y los permisos vigentes en la gestión de tu clan dentro de Free Fire antes de confirmar un cambio."
       },
       {
         question: "¿Cómo hacer que mi clan se vea profesional para torneos?",
@@ -1772,7 +1772,7 @@ export const seoData: Record<string, CategoryData> = {
       },
       {
         question: "¿Cómo separar el Tag del clan con espacio invisible?",
-        answer: "Usa el espacio transparente Unicode (U+3000) que puedes copiar desde nuestra herramienta de Espacio Invisible. Pégalo entre el Tag de tu clan y el nombre del jugador para lograr un diseño espaciado elegante."
+        answer: "Puedes copiar un espacio Unicode para probar una separación visual entre el tag y el apodo. Cada versión y campo del juego determina si lo acepta."
       }
     ]
   },
@@ -1863,7 +1863,7 @@ export const seoData: Record<string, CategoryData> = {
     path: '/nombres-de-mujer',
     title: 'Nombres de Mujer - Bonitos, Elegantes y Raros | GDN',
     h1: 'Nombres de Mujer: Lista de Nombres Bonitos, Elegantes y con Significado',
-    subtitle: 'Explora y genera miles de nombres de mujer ordenados por estilo (elegantes, bíblicos, cortos, modernos), origen y combinaciones compuestas con audio de pronunciación.',
+    subtitle: "Explora y genera una selección de nombres de mujer ordenados por estilo (elegantes, bíblicos, cortos, modernos), origen y combinaciones compuestas con audio de pronunciación.",
     seoText: `
       <h2>Los Nombres de Mujer más Bonitos, Elegantes y Significativos para 2026</h2>
       <p>Elegir un <strong>nombre de mujer</strong> es una decisión fundamental cargada de emoción, historia y personalidad. Ya sea que estés buscando el nombre perfecto para tu futura hija, investigando combinaciones de nombres compuestos con apellidos, o seleccionando el apodo ideal para tu perfil en redes sociales y juegos, nuestra guía interactiva te ofrece los nombres femeninos más hermosos en español e internacionales.</p>
@@ -1884,45 +1884,45 @@ export const seoData: Record<string, CategoryData> = {
             <tr class="bg-pink-950/60 text-pink-200 border-b border-white/10">
               <th class="py-3.5 px-4 font-bold">Nombre Femenino</th>
               <th class="py-3.5 px-4 font-bold">Origen Etimológico</th>
-              <th class="py-3.5 px-4 font-bold">Significado Profundo</th>
+              <th class="py-3.5 px-4 font-bold">Significado y estado de revisión</th>
               <th class="py-3.5 px-4 font-bold">Mejor Combinación Compuesta</th>
             </tr>
           </thead>
           <tbody class="text-zinc-300 divide-y divide-white/5">
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-pink-400">Sofía</td>
-              <td class="py-3 px-4 text-zinc-300">Griego (Σοφία)</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Sabiduría divina y entendimiento puro.</td>
+              <td class="py-3 px-4 text-zinc-300">Griego</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Sabiduría. <a href="https://www.behindthename.com/name/sophia" target="_blank" rel="noopener noreferrer">Fuente de Sofía</a></td>
               <td class="py-3 px-4 font-mono text-pink-300">Sofía Valentina</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-pink-400">Valentina</td>
-              <td class="py-3 px-4 text-zinc-300">Latín (Valens)</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Valiente, llena de salud y gran fortaleza.</td>
+              <td class="py-3 px-4 text-zinc-300">Latín</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Forma femenina de Valentinus, derivado de Valens: fuerte, vigoroso o saludable. <a href="https://www.behindthename.com/name/valentine-1" target="_blank" rel="noopener noreferrer">Fuente de Valentina</a></td>
               <td class="py-3 px-4 font-mono text-pink-300">Emma Valentina</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-pink-400">Isabella</td>
-              <td class="py-3 px-4 text-zinc-300">Hebreo / Italiano</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Promesa sagrada de Dios y belleza resplandeciente.</td>
+              <td class="py-3 px-4 text-zinc-300">Pendiente de verificación</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-pink-300">Isabella Lucía</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-pink-400">Aitana</td>
-              <td class="py-3 px-4 text-zinc-300">Vasco / Ibérico</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Fuerza de la cumbre o gloria de la montaña.</td>
+              <td class="py-3 px-4 text-zinc-300">Pendiente de verificación</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-pink-300">Aitana María</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-pink-400">Emma</td>
-              <td class="py-3 px-4 text-zinc-300">Germánico (Erman)</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Universal, poderosa y completa en sí misma.</td>
+              <td class="py-3 px-4 text-zinc-300">Pendiente de verificación</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-pink-300">Emma Victoria</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-pink-400">Lucía</td>
-              <td class="py-3 px-4 text-zinc-300">Latín (Lux)</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Nacida de la luz o la que porta la luz.</td>
+              <td class="py-3 px-4 text-zinc-300">Pendiente de verificación</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-pink-300">Lucía Isabel</td>
             </tr>
           </tbody>
@@ -1946,8 +1946,8 @@ export const seoData: Record<string, CategoryData> = {
         answer: "Es recomendable combinar un primer nombre corto (2 sílabas) con un segundo nombre más largo o clásico. Por ejemplo: Sofía Valentina, Emma Victoria o Lucía Isabel. Asegúrate de probar la sonoridad en voz alta con nuestra herramienta de audio."
       },
       {
-        question: "¿Cuáles son los nombres de mujer más populares y bonitos para 2026?",
-        answer: "Los nombres femeninos más populares en la actualidad son Sofía, Valentina, Isabella, Aitana, Emma, Lucía, Camila, Mia y Chloe, destacados por su elegancia internacional y significado profundo."
+        question: "¿Cuáles son algunos nombres de mujer  y bonitos?",
+        answer: "Esta es una selección editorial, no un ranking de popularidad. Sofía, Valentina, Isabella, Aitana, Emma, Lucía, Camila, Mia y Chloe son ejemplos de nuestra selección editorial. La popularidad varía según el país y el año; esta lista no es un ranking estadístico."
       },
       {
         question: "¿Qué nombres de mujer significan 'luz' o 'fuerza'?",
@@ -1955,7 +1955,7 @@ export const seoData: Record<string, CategoryData> = {
       },
       {
         question: "¿Es útil escuchar la pronunciación de un nombre antes de decidirlo?",
-        answer: "Sí, la sonoridad es clave al elegir un nombre. Nuestra plataforma incluye un reproductor de voz en tiempo real para que escuches la acentuación exacta en español."
+        answer: "Sí, la sonoridad es clave al elegir un nombre. Nuestra plataforma incluye un reproductor de voz en tiempo real para que escuches la lectura aproximada en español."
       }
     ]
   },
@@ -1964,13 +1964,13 @@ export const seoData: Record<string, CategoryData> = {
     path: '/nombres-de-nina',
     title: 'Nombres de Niña No Comunes y Cortos | GDN',
     h1: 'Nombres de Niña (No Comunes, Cortos y Preciosos)',
-    subtitle: 'La guía interactiva con más de 300 nombres para niñas raros, cortos (3 y 4 letras), con significado profundo, combinaciones compuestas y audio de pronunciación.',
+    subtitle: 'La guía interactiva de nombres para niñas raros, cortos (3 y 4 letras), con referencias de significado, combinaciones compuestas y audio sintetizado del dispositivo.',
     seoText: `
       <h2>Los Mejores Nombres de Niña No Comunes, Cortos, Preciosos y con Significado (2026)</h2>
-      <p>Buscar un <strong>nombre de niña no común, corto y precioso</strong> para tu futura hija o para un personaje especial implica encontrar el equilibrio perfecto entre singularidad, dulzura, eufonía y fácil pronunciación. Hoy en día, la tendencia principal en nombres femeninos se inclina por nombres breves (de 3 a 4 letras) que resulten memorables y elegantes en cualquier idioma.</p>
+      <p>Buscar un <strong>nombre de niña no común, corto y precioso</strong> para tu futura hija o para un personaje especial implica encontrar el equilibrio perfecto entre singularidad, dulzura, eufonía y fácil pronunciación. Esta selección editorial incluye nombres breves de 3 a 4 letras para que puedas comparar su escritura y pronunciación.</p>
 
       <h3>Tendencias en Nombres de Niña Raros y Preciosos</h3>
-      <p>A continuación exploramos las categorías principales que dominan las búsquedas de nombres femeninos únicos:</p>
+      <p>A continuación exploramos categorías para comparar nombres femeninos únicos:</p>
       <ul>
         <li><strong>Nombres Cortos de 3 y 4 Letras:</strong> Sencillos, modernos e ideales para combinar con apellidos largos. Ejemplos: <em>Zoe, Mia, Iris, Lia, Ona, Gala, Yara, Lyra, Iria, Aria, Mila</em>.</li>
         <li><strong>Nombres Raros pero Elegantes:</strong> Opciones poco comunes con raíces históricas o mitológicas que aportan distinción como <em>Nayra, Alana, Sira, Adara, Chloe, Aitana, Freya, Ayla</em> y <em>Kira</em>.</li>
@@ -1985,7 +1985,7 @@ export const seoData: Record<string, CategoryData> = {
               <th class="py-3.5 px-4 font-bold">Nombre de Niña</th>
               <th class="py-3.5 px-4 font-bold">Nº de Letras</th>
               <th class="py-3.5 px-4 font-bold">Origen Etimológico</th>
-              <th class="py-3.5 px-4 font-bold">Significado Profundo</th>
+              <th class="py-3.5 px-4 font-bold">Significado y estado de revisión</th>
               <th class="py-3.5 px-4 font-bold">Combinación Compuesta</th>
             </tr>
           </thead>
@@ -1993,50 +1993,44 @@ export const seoData: Record<string, CategoryData> = {
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-pink-400">Zoe</td>
               <td class="py-3 px-4 font-mono text-zinc-400">3 letras</td>
-              <td class="py-3 px-4 text-zinc-300">Griego (Zωή)</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Vida, vitalidad y energía eterna.</td>
+              <td class="py-3 px-4 text-zinc-300">Griego</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Vida. <a href="https://www.behindthename.com/name/zoe" target="_blank" rel="noopener noreferrer">Fuente de Zoe</a></td>
               <td class="py-3 px-4 font-mono text-pink-300">Zoe Valentina</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-pink-400">Mia</td>
               <td class="py-3 px-4 font-mono text-zinc-400">3 letras</td>
-              <td class="py-3 px-4 text-zinc-300">Escandinavo / Hebreo</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">La elegida, amada y virtuosa.</td>
+              <td class="py-3 px-4 text-zinc-300">Forma corta de Maria</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Diminutivo de Maria; coincide con la palabra italiana mia (mía). <a href="https://www.behindthename.com/name/mia" target="_blank" rel="noopener noreferrer">Fuente de Mia</a></td>
               <td class="py-3 px-4 font-mono text-pink-300">Mia Isabella</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-pink-400">Iris</td>
               <td class="py-3 px-4 font-mono text-zinc-400">4 letras</td>
-              <td class="py-3 px-4 text-zinc-300">Griego (Iρις)</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Diosa del arcoíris, mensajera de luz.</td>
+              <td class="py-3 px-4 text-zinc-300">Griego</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Arcoíris; también es el nombre de una diosa griega. <a href="https://www.behindthename.com/name/iris" target="_blank" rel="noopener noreferrer">Fuente de Iris</a></td>
               <td class="py-3 px-4 font-mono text-pink-300">Iris Victoria</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-pink-400">Aria</td>
               <td class="py-3 px-4 font-mono text-zinc-400">4 letras</td>
-              <td class="py-3 px-4 text-zinc-300">Italiano / Hebreo</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Melodía pura, aire fresco y nobleza.</td>
+              <td class="py-3 px-4 text-zinc-300">Italiano (palabra)</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Canción o melodía; literalmente aire. <a href="https://www.behindthename.com/name/aria-1" target="_blank" rel="noopener noreferrer">Fuente de Aria</a></td>
               <td class="py-3 px-4 font-mono text-pink-300">Aria Sofía</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-pink-400">Lia</td>
               <td class="py-3 px-4 font-mono text-zinc-400">3 letras</td>
-              <td class="py-3 px-4 text-zinc-300">Hebreo (Le'ah)</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Portadora de buenas noticias y leal.</td>
+              <td class="py-3 px-4 text-zinc-300">Variante de Leah</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Forma de Leah usada en italiano, portugués, georgiano y griego. <a href="https://www.behindthename.com/name/lia-1" target="_blank" rel="noopener noreferrer">Fuente de Lia</a></td>
               <td class="py-3 px-4 font-mono text-pink-300">Lia Elena</td>
             </tr>
-            <tr class="hover:bg-white/5 transition-colors">
-              <td class="py-3 px-4 font-bold text-pink-400">Chloe</td>
-              <td class="py-3 px-4 font-mono text-zinc-400">5 letras</td>
-              <td class="py-3 px-4 text-zinc-300">Griego (Χλόη)</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Brote verde floreciente y juventud.</td>
-              <td class="py-3 px-4 font-mono text-pink-300">Chloe Lucía</td>
-            </tr>
+
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-pink-400">Lyra</td>
               <td class="py-3 px-4 font-mono text-zinc-400">4 letras</td>
-              <td class="py-3 px-4 text-zinc-300">Griego / Latín</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Constelación celestial y lirismo poético.</td>
+              <td class="py-3 px-4 text-zinc-300">Astronomía</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Nombre de la constelación de la Lira. <a href="https://www.behindthename.com/name/lyra" target="_blank" rel="noopener noreferrer">Fuente de Lyra</a></td>
               <td class="py-3 px-4 font-mono text-pink-300">Lyra Beatriz</td>
             </tr>
           </tbody>
@@ -2057,19 +2051,19 @@ export const seoData: Record<string, CategoryData> = {
     faqs: [
       {
         question: "¿Por qué son tan populares los nombres cortos de niña de 3 o 4 letras?",
-        answer: "Los nombres cortos como Mia, Zoe, Lia, Iris, Aria u Ona son modernos, fáciles de memorizar, combinan sin esfuerzo con apellidos largos y tienen una sonoridad dulce e internacional que encaja perfecto en cualquier idioma."
+        answer: "Nombres como Mia, Zoe, Lia, Iris y Aria tienen 3 o 4 letras y permiten comparar combinaciones breves. La facilidad de pronunciación depende del idioma; esta selección no acredita popularidad internacional."
       },
       {
         question: "¿Cuáles son algunos nombres de niña no comunes y preciosos para 2026?",
-        answer: "Nombres como Nayra, Lyra, Aria, Adara, Ayla, Freya, Sira, Gala e Iria destacan por ser poco comunes, elegantes, tener significados profundos y sonar con gran dulzura."
+        answer: "Puedes comparar Nayra, Lyra, Aria, Adara, Ayla y Freya como propuestas editoriales. No afirmamos su frecuencia en 2026 y cada significado necesita su propia fuente."
       },
       {
         question: "¿Cómo probar la sonoridad y pronunciación de un nombre compuesto?",
-        answer: "Escribe la combinación deseada (ej. 'Zoe Valentina' o 'Mia Aitana') en nuestro generador e interactúa con el botón de audio para escuchar la pronunciación real con voz natural."
+        answer: "Escribe la combinación deseada (ej. 'Zoe Valentina' o 'Mia Aitana') en nuestro generador e interactúa con el botón de audio para escuchar la voz sintetizada del dispositivo."
       },
       {
         question: "¿Qué nombres de niña cortos significan 'luz' o 'vida'?",
-        answer: "Zoe (vida), Iris (mensajera de luz), Alba (amanecer resplandeciente), Maya (agua o ilusión) y Kira (brillante o sol) son excelentes ejemplos de nombres cortos con significados luminosos."
+        answer: "Zoe significa vida según la referencia enlazada en esta página. Iris significa arcoíris, no luz. Otros nombres requieren comprobar su escritura y fuente antes de atribuirles ese significado."
       }
     ]
   },
@@ -2100,7 +2094,7 @@ export const seoData: Record<string, CategoryData> = {
               <th class="py-3.5 px-4 font-bold">Nombre Masculino</th>
               <th class="py-3.5 px-4 font-bold">Nº de Letras</th>
               <th class="py-3.5 px-4 font-bold">Origen Etimológico</th>
-              <th class="py-3.5 px-4 font-bold">Significado Profundo</th>
+              <th class="py-3.5 px-4 font-bold">Significado y estado de revisión</th>
               <th class="py-3.5 px-4 font-bold">Combinación Recomendada</th>
             </tr>
           </thead>
@@ -2108,50 +2102,50 @@ export const seoData: Record<string, CategoryData> = {
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-blue-400">Mateo</td>
               <td class="py-3 px-4 font-mono text-zinc-400">5 letras</td>
-              <td class="py-3 px-4 text-zinc-300">Hebreo (Mattityahu)</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Regalo de Dios y bendición divina.</td>
+              <td class="py-3 px-4 text-zinc-300">Hebreo, a través del griego</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Forma de Matthew; su raíz Mattithiah significa regalo de Yahweh. <a href="https://www.behindthename.com/name/mattithiah" target="_blank" rel="noopener noreferrer">Fuente de Mateo</a></td>
               <td class="py-3 px-4 font-mono text-blue-300">Mateo Gael</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-blue-400">Leo</td>
               <td class="py-3 px-4 font-mono text-zinc-400">3 letras</td>
-              <td class="py-3 px-4 text-zinc-300">Latín (Leo)</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Fuerte, valiente y fiero como un león.</td>
+              <td class="py-3 px-4 text-zinc-300">Pendiente de verificación</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-blue-300">Leo Alexander</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-blue-400">Liam</td>
               <td class="py-3 px-4 font-mono text-zinc-400">4 letras</td>
-              <td class="py-3 px-4 text-zinc-300">Irlandés / Germánico</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Protector firme y guerrero de voluntad resuelta.</td>
+              <td class="py-3 px-4 text-zinc-300">Pendiente de verificación</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-blue-300">Liam Gabriel</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-blue-400">Gael</td>
               <td class="py-3 px-4 font-mono text-zinc-400">4 letras</td>
-              <td class="py-3 px-4 text-zinc-300">Celta</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Hombre generoso, protector y magnánimo.</td>
+              <td class="py-3 px-4 text-zinc-300">Pendiente de verificación</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-blue-300">Oliver Gael</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-blue-400">Enzo</td>
               <td class="py-3 px-4 font-mono text-zinc-400">4 letras</td>
-              <td class="py-3 px-4 text-zinc-300">Germánico / Italiano</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Príncipe o señor de su hogar.</td>
+              <td class="py-3 px-4 text-zinc-300">Pendiente de verificación</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-blue-300">Enzo Thiago</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-blue-400">Oliver</td>
               <td class="py-3 px-4 font-mono text-zinc-400">6 letras</td>
-              <td class="py-3 px-4 text-zinc-300">Latín (Olivarius)</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Olivo de la paz y la dignidad.</td>
+              <td class="py-3 px-4 text-zinc-300">Pendiente de verificación</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-blue-300">Oliver Mateo</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-blue-400">Bastian</td>
               <td class="py-3 px-4 font-mono text-zinc-400">7 letras</td>
-              <td class="py-3 px-4 text-zinc-300">Griego (Sebastós)</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Venerable, augusto y respetado.</td>
+              <td class="py-3 px-4 text-zinc-300">Pendiente de verificación</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-blue-300">Ian Bastian</td>
             </tr>
           </tbody>
@@ -2162,7 +2156,7 @@ export const seoData: Record<string, CategoryData> = {
       <ol>
         <li><strong>Busca la Sinergia entre Nombre y Apellidos:</strong> Un primer nombre vibrante o corto como <em>Liam</em> o <em>Leo</em> equilibra muy bien los apellidos hispanos de varias sílabas.</li>
         <li><strong>Verifica la Sonoridad de la Combinación Compuesta:</strong> Evita la repetición de consonantes duras seguidas (por ejemplo, prefiere <em>Mateo Gael</em> sobre <em>Mateo Oscar</em>).</li>
-        <li><strong>Utiliza la Pronunciación en Voz Real:</strong> Aprovecha el reproductor de audio integrado en nuestro generador para escuchar cómo se pronuncia la combinación elegida.</li>
+        <li><strong>Utiliza la Pronunciación en Voz Sintetizada:</strong> Aprovecha el reproductor de audio integrado en nuestro generador para escuchar cómo se pronuncia la combinación elegida.</li>
       </ol>
     `,
     metaDescription: 'Lista de nombres de niños con significado. Nombres masculinos modernos, raros, cortos y bíblicos con etimología y pronunciación en audio.',
@@ -2171,20 +2165,20 @@ export const seoData: Record<string, CategoryData> = {
     customSymbols: ["⭐", "👑", "🛡️", "⚔️", "🦁", "⚡", "💙", "🏆", "🚀", "🌿"],
     faqs: [
       {
-        question: "¿Cuáles son los nombres de niños más elegidos y modernos en 2026?",
-        answer: "Los nombres de niño más populares de la actualidad son Mateo, Leo, Liam, Thiago, Enzo, Oliver, Lucas, Gael, Milan y Noah, reconocidos por su sonoridad enérgica y fácil pronunciación internacional."
+        question: "¿Cuáles son algunos nombres de niños  y modernos?",
+        answer: "Esta es una selección editorial, no un ranking de popularidad. Puedes comparar Mateo, Leo, Liam, Thiago, Enzo, Oliver, Lucas, Gael, Milan y Noah, reconocidos por su sonoridad enérgica y fácil pronunciación internacional."
       },
       {
         question: "¿Qué nombres masculinos de 3 y 4 letras transmiten fuerza?",
-        answer: "Nombres cortos como Leo (león), Ian (Dios es misericordioso), Marc (guerrero de Marte), Kai (mar o victoria), Max (el más grande) y Axel (padre de la paz) combinan brevedad con gran fuerza."
+        answer: "Leo, Ian, Marc, Kai, Max y Axel son propuestas breves para comparar. Fuerza es una asociación de estilo; no presentamos esas asociaciones como traducciones verificadas."
       },
       {
         question: "¿Cómo probar la sonoridad y combinación de dos nombres de niño?",
-        answer: "Usa nuestro Creador de Nombres Compuestos arriba: escribe la combinación (ej. 'Mateo Gael' o 'Leo Alexander'), revisa el origen etimológico y presiona el botón de audio para escuchar la pronunciación exacta en español."
+        answer: "Usa nuestro Creador de Nombres Compuestos arriba: escribe la combinación (ej. 'Mateo Gael' o 'Leo Alexander'), revisa el origen etimológico y presiona el botón de audio para escuchar la lectura aproximada en español."
       },
       {
         question: "¿Cuáles son los mejores nombres de niño raros con significado especial?",
-        answer: "Nombres raros pero con porte como Bastian (venerable), Kilian (pequeño guerrero), Ezra (ayuda), Dante (duradero) y Darian (regalo celestial) aportan distinción y carácter único."
+        answer: "Bastian, Kilian, Ezra, Dante y Darian son propuestas de la selección. Consulta una referencia específica para cada nombre antes de atribuirle un significado; raro no es una frecuencia estadística comprobada."
       }
     ]
   },
@@ -2199,7 +2193,7 @@ export const seoData: Record<string, CategoryData> = {
       <p>Los <strong>nombres unisex o sin género</strong> trascienden las barreras y estereotipos tradicionales. Al no estar encasillados en un solo género masculino o femenino, brindan una vibra contemporánea, versátil y cosmopolita que resulta ideal tanto para recién nacidos como para usuarios de redes sociales (Discord, Roblox, Instagram, TikTok), marcas o mascotas.</p>
 
       <h3>Principales Estilos de Nombres Unisex y Sin Género</h3>
-      <p>A continuación exploramos las 4 vertientes principales de nombres neutros que lideran las tendencias internacionales:</p>
+      <p>A continuación exploramos las 4 vertientes principales de nombres neutros de esta selección editorial:</p>
       <ul>
         <li><strong>Nombres Cortos y Modernos (3-5 Letras):</strong> Nombres globales de fácil pronunciación como <em>Alex, René, Milan, Sasha, Noah, Luka, Teo, Dani, Gabi</em> y <em>Kai</em>.</li>
         <li><strong>Nombres de la Naturaleza y Elementos:</strong> Inspirados en paisajes y fenómenos universales como <em>Sol, River, Sky, Eden, Vega, Cruz, Iris, Nieve, Boreal</em> y <em>Jade</em>.</li>
@@ -2215,7 +2209,7 @@ export const seoData: Record<string, CategoryData> = {
               <th class="py-3.5 px-4 font-bold">Nombre Unisex</th>
               <th class="py-3.5 px-4 font-bold">Nº de Letras</th>
               <th class="py-3.5 px-4 font-bold">Origen Etimológico</th>
-              <th class="py-3.5 px-4 font-bold">Significado Profundo</th>
+              <th class="py-3.5 px-4 font-bold">Significado y estado de revisión</th>
               <th class="py-3.5 px-4 font-bold">Combinación Estética</th>
             </tr>
           </thead>
@@ -2223,50 +2217,50 @@ export const seoData: Record<string, CategoryData> = {
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-emerald-400">Alex</td>
               <td class="py-3 px-4 font-mono text-zinc-400">4 letras</td>
-              <td class="py-3 px-4 text-zinc-300">Griego (Alexandros)</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Defensor o protector universal de todos.</td>
+              <td class="py-3 px-4 text-zinc-300">Forma abreviada</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Forma corta de Alexander, Alexandra y otros nombres que empiezan por Alex. <a href="https://www.behindthename.com/name/alex" target="_blank" rel="noopener noreferrer">Fuente de Alex</a></td>
               <td class="py-3 px-4 font-mono text-emerald-300">Alex Morgan</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-emerald-400">René</td>
               <td class="py-3 px-4 font-mono text-zinc-400">4 letras</td>
-              <td class="py-3 px-4 text-zinc-300">Latín / Francés</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Renacido con elegancia y espíritu renovado.</td>
+              <td class="py-3 px-4 text-zinc-300">Pendiente de verificación</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-emerald-300">René Sol</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-emerald-400">Milan</td>
               <td class="py-3 px-4 font-mono text-zinc-400">5 letras</td>
-              <td class="py-3 px-4 text-zinc-300">Eslavo / Italiano</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Amado, gracioso, lleno de gracia y afecto.</td>
+              <td class="py-3 px-4 text-zinc-300">Pendiente de verificación</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-emerald-300">Milan Ariel</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-emerald-400">Sasha</td>
               <td class="py-3 px-4 font-mono text-zinc-400">5 letras</td>
-              <td class="py-3 px-4 text-zinc-300">Ruso / Griego</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Guardián de la humanidad y defensor valiente.</td>
+              <td class="py-3 px-4 text-zinc-300">Pendiente de verificación</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-emerald-300">Sasha Sky</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-emerald-400">Ariel</td>
               <td class="py-3 px-4 font-mono text-zinc-400">5 letras</td>
-              <td class="py-3 px-4 text-zinc-300">Hebreo</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">León de Dios y espíritu radiante.</td>
+              <td class="py-3 px-4 text-zinc-300">Pendiente de verificación</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-emerald-300">Ariel Eden</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-emerald-400">Morgan</td>
               <td class="py-3 px-4 font-mono text-zinc-400">6 letras</td>
-              <td class="py-3 px-4 text-zinc-300">Galés / Celta</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Nacido del mar brillante u orilla de las olas.</td>
+              <td class="py-3 px-4 text-zinc-300">Galés</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Procede de Morcant; posiblemente combina mar y círculo. La etimología no es segura. <a href="https://www.behindthename.com/name/morgan-1" target="_blank" rel="noopener noreferrer">Fuente de Morgan</a></td>
               <td class="py-3 px-4 font-mono text-emerald-300">Taylor Morgan</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-emerald-400">Eden</td>
               <td class="py-3 px-4 font-mono text-zinc-400">4 letras</td>
-              <td class="py-3 px-4 text-zinc-300">Hebreo</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Jardín de deleite, serenidad y paz celestial.</td>
+              <td class="py-3 px-4 text-zinc-300">Pendiente de verificación</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-emerald-300">Eden River</td>
             </tr>
           </tbody>
@@ -2287,19 +2281,19 @@ export const seoData: Record<string, CategoryData> = {
     faqs: [
       {
         question: "¿Por qué elegir un nombre unisex o sin género para un bebé o personaje?",
-        answer: "Los nombres neutros como Alex, René, Milan, Ariel, Eden o Sasha brindan flexibilidad, distinción cosmopolita y evitan etiquetas rígidas de género, funcionando de manera fluida en múltiples idiomas."
+        answer: "Un nombre puede tener usos de género distintos según el país y el idioma. Alex, Sasha y Morgan son propuestas para comparar; comprueba el contexto cultural y los requisitos locales antes de elegir."
       },
       {
-        question: "¿Cuáles son los nombres unisex más populares y modernos para 2026?",
-        answer: "Los nombres neutros en tendencia son Alex, Milan, Sasha, Noah, Luka, René, Ariel, Morgan, Eden, Taylor, River y Sky debido a su eufonía y estética contemporánea."
+        question: "¿Cuáles son algunos nombres unisex  y modernos?",
+        answer: "Esta es una selección editorial, no un ranking de popularidad. Puedes comparar Alex, Milan, Sasha, Noah, Luka, René, Ariel, Morgan, Eden, Taylor, River y Sky debido a su eufonía y estética contemporánea."
       },
       {
         question: "¿Cómo probar la combinación y sonoridad de un nombre neutro compuesto?",
-        answer: "Utiliza nuestro Creador de Nombres Unisex arriba: escribe la combinación (ej. 'Alex Morgan' o 'René Sol'), consulta la etimología instantánea y presiona el botón del altavoz para escuchar la pronunciación en audio con voz en español."
+        answer: "Utiliza nuestro Creador de Nombres Unisex arriba: escribe la combinación (ej. 'Alex Morgan' o 'René Sol'), consulta la referencias de significado disponibles y presiona el botón del altavoz para escuchar la pronunciación en audio con voz en español."
       },
       {
         question: "¿Existen nombres unisex inspirados en la naturaleza?",
-        answer: "Sí, nombres como Sol, River, Sky, Eden, Vega, Cruz, Iris, Nieve, Jade y Boreal provienen de elementos naturales y celestiales, y suelen utilizarse como opciones unisex."
+        answer: "Sol, River y Sky pueden servir de inspiración. Que una palabra describa la naturaleza no demuestra que sea un nombre unisex en todos los idiomas o regiones."
       }
     ]
   },
@@ -2314,7 +2308,7 @@ export const seoData: Record<string, CategoryData> = {
       <p>Elegir un <strong>nombre raro y poco común</strong> es la vía definitiva para dejar una huella imborrable. Ya sea para un recién nacido cuyos padres buscan originalidad sin perder elegancia, para personajes de literatura y videojuegos, o para nicknames en redes sociales (TikTok, Instagram, Discord), los nombres raros aportan magnetismo, distinción y un toque de enigma fascinante.</p>
 
       <h3>Categorías Principales de Nombres Raros y Exóticos</h3>
-      <p>Explora las corrientes de nombres raros que están marcando tendencia este año:</p>
+      <p>Explora las corrientes de nombres raros de esta selección editorial:</p>
       <ul>
         <li><strong>Nombres Mitológicos y Legendarios:</strong> Inspirados en deidades y héroes de civilizaciones antiguas como <em>Orion, Freya, Selene, Astrid, Osiris, Indra, Astraea, Thoth, Valkiria</em> y <em>Ares</em>.</li>
         <li><strong>Nombres Cósmicos y Astronómicos:</strong> Referentes a estrellas, constelaciones y fenómenos galácticos como <em>Lyra, Zephyr, Nova, Cassiopeia, Sirius, Polaris, Vega, Atlas, Celeste</em> y <em>Andrómeda</em>.</li>
@@ -2330,7 +2324,7 @@ export const seoData: Record<string, CategoryData> = {
               <th class="py-3.5 px-4 font-bold">Nombre Raro</th>
               <th class="py-3.5 px-4 font-bold">Nº de Letras</th>
               <th class="py-3.5 px-4 font-bold">Origen Etimológico</th>
-              <th class="py-3.5 px-4 font-bold">Significado Profundo</th>
+              <th class="py-3.5 px-4 font-bold">Significado y estado de revisión</th>
               <th class="py-3.5 px-4 font-bold">Combinación Recomendada</th>
             </tr>
           </thead>
@@ -2338,50 +2332,50 @@ export const seoData: Record<string, CategoryData> = {
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-purple-400">Orion</td>
               <td class="py-3 px-4 font-mono text-zinc-400">5 letras</td>
-              <td class="py-3 px-4 text-zinc-300">Mitología Griega</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Constelación del gran cazador estelar e hijo del fuego.</td>
+              <td class="py-3 px-4 text-zinc-300">Mitología griega</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Nombre de un cazador mitológico y de una constelación. Su significado etimológico es incierto. <a href="https://www.behindthename.com/name/orion" target="_blank" rel="noopener noreferrer">Fuente de Orion</a></td>
               <td class="py-3 px-4 font-mono text-purple-300">Orion Cassian</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-purple-400">Freya</td>
               <td class="py-3 px-4 font-mono text-zinc-400">5 letras</td>
-              <td class="py-3 px-4 text-zinc-300">Mitología Nórdica</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Diosa del amor, la magia, la belleza y la valentía.</td>
+              <td class="py-3 px-4 text-zinc-300">Pendiente de verificación</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-purple-300">Freya Astrid</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-purple-400">Cassian</td>
               <td class="py-3 px-4 font-mono text-zinc-400">7 letras</td>
-              <td class="py-3 px-4 text-zinc-300">Latín (Cassianus)</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Perteneciente a la nobleza de Cassius, íntegro y fuerte.</td>
+              <td class="py-3 px-4 text-zinc-300">Romano</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Procede de Cassianus, derivado del apellido romano Cassius. <a href="https://www.behindthename.com/name/cassian" target="_blank" rel="noopener noreferrer">Fuente de Cassian</a></td>
               <td class="py-3 px-4 font-mono text-purple-300">Dante Cassian</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-purple-400">Zephyr</td>
               <td class="py-3 px-4 font-mono text-zinc-400">6 letras</td>
-              <td class="py-3 px-4 text-zinc-300">Griego (Zephyros)</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Viento del oeste, brisa suave, renovadora y libre.</td>
+              <td class="py-3 px-4 text-zinc-300">Pendiente de verificación</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-purple-300">Zephyr Soren</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-purple-400">Lyra</td>
               <td class="py-3 px-4 font-mono text-zinc-400">4 letras</td>
-              <td class="py-3 px-4 text-zinc-300">Griego / Astrología</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Constelación de la lira que emite música divina.</td>
+              <td class="py-3 px-4 text-zinc-300">Astronomía</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Nombre de la constelación de la Lira. <a href="https://www.behindthename.com/name/lyra" target="_blank" rel="noopener noreferrer">Fuente de Lyra</a></td>
               <td class="py-3 px-4 font-mono text-purple-300">Lyra Selene</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-purple-400">Astrid</td>
               <td class="py-3 px-4 font-mono text-zinc-400">6 letras</td>
-              <td class="py-3 px-4 text-zinc-300">Nórdico Antiguo</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Hermosa como los dioses o de belleza divina inmortal.</td>
+              <td class="py-3 px-4 text-zinc-300">Pendiente de verificación</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-purple-300">Aurelia Astrid</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-purple-400">Soren</td>
               <td class="py-3 px-4 font-mono text-zinc-400">5 letras</td>
-              <td class="py-3 px-4 text-zinc-300">Escandinavo / Latín</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Severo, digno de respeto y protector abnegado.</td>
+              <td class="py-3 px-4 text-zinc-300">Pendiente de verificación</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-purple-300">Soren Elion</td>
             </tr>
           </tbody>
@@ -2402,15 +2396,15 @@ export const seoData: Record<string, CategoryData> = {
     faqs: [
       {
         question: "¿Qué hace que un nombre sea clasificado como 'raro' pero distinguido?",
-        answer: "Un buen nombre raro equilibra la baja frecuencia estadística de uso con una eufonía limpia, un significado profundo (mitológico, astronómico o histórico) y facilidad para ser recordado, como Orion, Freya, Cassian, Lyra o Zephyr."
+        answer: "En esta web raro es una categoría editorial para explorar opciones como Orion, Cassian o Lyra. La frecuencia de un nombre depende del país y del período; no contamos con un ranking estadístico."
       },
       {
-        question: "¿Cuáles son los nombres raros y poco comunes en tendencia para 2026?",
+        question: "¿Cuáles son los nombres raros y poco comunes?",
         answer: "Entre los nombres raros más destacados para este año se encuentran Orion, Cassian, Zephyr, Freya, Lyra, Soren, Aurelia, Cyrus, Darian, Elion, Nyx y Atlas."
       },
       {
         question: "¿Cómo verificar la pronunciación y sonoridad de nombres raros compuestos?",
-        answer: "Puedes usar nuestro Creador de Nombres Raros interactivo arriba: combina dos términos exóticos (como 'Orion Cassian' o 'Freya Astrid'), revisa la etimología en tiempo real y presiona el botón del altavoz para escuchar su pronunciación con voz humana en español."
+        answer: "Puedes usar nuestro Creador de Nombres Raros interactivo arriba: combina dos términos exóticos (como 'Orion Cassian' o 'Freya Astrid'), revisa la referencias de significado disponibles y presiona el botón del altavoz para escuchar su pronunciación con voz sintetizada del dispositivo."
       },
       {
         question: "¿Existen nombres raros y cortos de 3 y 4 letras?",
@@ -2426,7 +2420,7 @@ export const seoData: Record<string, CategoryData> = {
     subtitle: 'Navega por el abecedario completo para descubrir nombres masculinos, femeninos y unisex organizados por su letra inicial con origen, significados y audio de pronunciación.',
     seoText: `
       <h2>Encuentra el Nombre Perfecto según su Letra Inicial (A a la Z) para 2026</h2>
-      <p>Organizar nombres por su <strong>letra inicial</strong> es una de las estrategias más efectivas a la hora de elegir el nombre ideal. Ya sea para combinar armónicamente con apellidos específicos, mantener iniciales familiares o encontrar una aliteración atractiva para apodos en redes sociales y perfiles de juego, el directorio alfabético A-Z te permite explorar miles de alternativas de forma rápida e intuitiva.</p>
+      <p>Organizar nombres por su <strong>letra inicial</strong> es una de las estrategias más efectivas a la hora de elegir el nombre ideal. Ya sea para combinar armónicamente con apellidos específicos, mantener iniciales familiares o encontrar una aliteración atractiva para apodos en redes sociales y perfiles de juego, el directorio alfabético A-Z te permite explorar una selección de alternativas de forma rápida e intuitiva.</p>
 
       <h3>Ventajas de Buscar Nombres por su Letra Inicial</h3>
       <p>Buscar por inicial ofrece beneficios clave tanto en el ámbito personal como en la estética del nombre:</p>
@@ -2444,8 +2438,8 @@ export const seoData: Record<string, CategoryData> = {
             <tr class="bg-indigo-950/60 text-indigo-200 border-b border-white/10">
               <th class="py-3.5 px-4 font-bold">Inicial</th>
               <th class="py-3.5 px-4 font-bold">Nombres Populares</th>
-              <th class="py-3.5 px-4 font-bold">Origen Principal</th>
-              <th class="py-3.5 px-4 font-bold">Significado Destacado</th>
+              <th class="py-3.5 px-4 font-bold">Criterio de selección</th>
+              <th class="py-3.5 px-4 font-bold">Estado de revisión</th>
               <th class="py-3.5 px-4 font-bold">Combinación Recomendada</th>
             </tr>
           </thead>
@@ -2453,50 +2447,50 @@ export const seoData: Record<string, CategoryData> = {
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Letra A</td>
               <td class="py-3 px-4 font-medium text-zinc-100">Alexander, Amelia, Aitana, Agustín</td>
-              <td class="py-3 px-4 text-zinc-300">Griego / Latín</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Defensor de la humanidad, venerable y llena de gracia.</td>
+              <td class="py-3 px-4 text-zinc-300">Selección por inicial</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Consultar cada nombre y su fuente</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Alexander Gael</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Letra B</td>
               <td class="py-3 px-4 font-medium text-zinc-100">Bruno, Bella, Benjamín, Bianca</td>
-              <td class="py-3 px-4 text-zinc-300">Germánico / Italiano</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Coraza protectora, pura y blanca, hijo predilecto.</td>
+              <td class="py-3 px-4 text-zinc-300">Selección por inicial</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Consultar cada nombre y su fuente</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Bruno Mateo</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Letra C</td>
               <td class="py-3 px-4 font-medium text-zinc-100">Camila, Carlos, Cristian, Chloe</td>
-              <td class="py-3 px-4 text-zinc-300">Latín / Griego</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Espíritu puro, hombre libre, floreciente y verde.</td>
+              <td class="py-3 px-4 text-zinc-300">Selección por inicial</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Consultar cada nombre y su fuente</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Camila Sofía</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Letra E</td>
               <td class="py-3 px-4 font-medium text-zinc-100">Enzo, Elena, Emanuel, Emma</td>
-              <td class="py-3 px-4 text-zinc-300">Germánico / Hebreo</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Príncipe del hogar, Dios con nosotros, resplandor de luz.</td>
+              <td class="py-3 px-4 text-zinc-300">Selección por inicial</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Consultar cada nombre y su fuente</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Enzo Thiago</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Letra M</td>
               <td class="py-3 px-4 font-medium text-zinc-100">Mateo, Mia, Milan, María</td>
-              <td class="py-3 px-4 text-zinc-300">Hebreo / Eslavo</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Regalo de Dios, amada, graciosa y llena de bendición.</td>
+              <td class="py-3 px-4 text-zinc-300">Selección por inicial</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Consultar cada nombre y su fuente</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Mateo Alexander</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Letra S</td>
               <td class="py-3 px-4 font-medium text-zinc-100">Sofía, Santiago, Samuel, Selene</td>
-              <td class="py-3 px-4 text-zinc-300">Griego / Hebreo</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Sabiduría divina, escuchado por Dios, diosa de la luna.</td>
+              <td class="py-3 px-4 text-zinc-300">Selección por inicial</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Consultar cada nombre y su fuente</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Sofía Valentina</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Letra Z</td>
               <td class="py-3 px-4 font-medium text-zinc-100">Zoe, Zach, Zaira, Zephyr</td>
-              <td class="py-3 px-4 text-zinc-300">Griego / Árabe</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Lleno de vida, flor resplandeciente y brisa del oeste.</td>
+              <td class="py-3 px-4 text-zinc-300">Selección por inicial</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Consultar cada nombre y su fuente</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Zoe Valentina</td>
             </tr>
           </tbody>
@@ -2517,19 +2511,19 @@ export const seoData: Record<string, CategoryData> = {
     faqs: [
       {
         question: "¿Cómo navegar eficientemente por el abecedario de nombres (A-Z)?",
-        answer: "Utiliza la barra interactiva de letras de la A a la Z arriba. Al seleccionar cualquier inicial, el generador filtrará al instante los nombres más destacados, el creador de nombres compuestos y las opciones con reproductor de audio."
+        answer: "Selecciona una inicial, escribe una búsqueda y combina el filtro de género. El directorio muestra una selección de nombres y permite solicitar una lectura sintetizada del dispositivo."
       },
       {
         question: "¿Puedo filtrar los nombres por letra según el género (niño, niña o unisex)?",
-        answer: "Sí, puedes combinar el filtro por inicial con la categoría de género para explorar exclusivamente nombres femeninos con A, masculinos con M o unisex con Z, entre miles de opciones."
+        answer: "Sí. Combina la inicial con el filtro de género para explorar la selección disponible. Los usos de género son orientativos y pueden variar según la cultura."
       },
       {
         question: "¿Puedo escuchar la pronunciación en audio de cada nombre?",
-        answer: "En nuestro generador interactivo, cada nombre y combinación generada cuenta con un botón de altavoz que reproduce la sonoridad en voz humana natural en español."
+        answer: "En nuestro generador interactivo, cada nombre y combinación generada cuenta con un botón de altavoz que reproduce la sonoridad en voz sintetizada del dispositivo."
       },
       {
         question: "¿Qué iniciales son las más populares para nombres de bebés y personajes?",
-        answer: "Las iniciales A, M, L, S, C y E son históricamente las más elegidas en español debido a la gran abundancia de nombres melódicos, bíblicos y modernos con los que cuentan."
+        answer: "No contamos con estadísticas para clasificar iniciales por popularidad. Puedes comparar las selecciones de cada letra y elegir según escritura, pronunciación y apellidos."
       }
     ]
   },
@@ -2559,7 +2553,7 @@ export const seoData: Record<string, CategoryData> = {
               <th class="py-3.5 px-4 font-bold">Nombre con A</th>
               <th class="py-3.5 px-4 font-bold">Género</th>
               <th class="py-3.5 px-4 font-bold">Origen Etimológico</th>
-              <th class="py-3.5 px-4 font-bold">Significado Profundo</th>
+              <th class="py-3.5 px-4 font-bold">Significado y estado de revisión</th>
               <th class="py-3.5 px-4 font-bold">Combinación Recomendada</th>
             </tr>
           </thead>
@@ -2567,50 +2561,50 @@ export const seoData: Record<string, CategoryData> = {
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Alexander</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Masculino</td>
-              <td class="py-3 px-4 text-zinc-300">Griego (Alexandros)</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Defensor de la humanidad y protector de los hombres.</td>
+              <td class="py-3 px-4 text-zinc-300">Griego</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Defensor de los hombres. <a href="https://www.behindthename.com/name/alexander" target="_blank" rel="noopener noreferrer">Fuente de Alexander</a></td>
               <td class="py-3 px-4 font-mono text-indigo-300">Alexander Gael</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Amelia</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Femenino</td>
-              <td class="py-3 px-4 text-zinc-300">Germánico (Amalia)</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Mujer activa, trabajadora incansable y dulce.</td>
+              <td class="py-3 px-4 text-zinc-300">Pendiente de verificación</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Amelia Rose</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Aitana</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Femenino</td>
-              <td class="py-3 px-4 text-zinc-300">Ibérico / Árabe</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Nacida en la montaña alta, gloria y resplandor.</td>
+              <td class="py-3 px-4 text-zinc-300">Pendiente de verificación</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Aitana Sofía</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Agustín</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Masculino</td>
-              <td class="py-3 px-4 text-zinc-300">Latín (Augustinus)</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Venerable, sagrado, digno de respeto y majestad.</td>
+              <td class="py-3 px-4 text-zinc-300">Pendiente de verificación</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Agustín Mateo</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Astrid</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Femenino</td>
-              <td class="py-3 px-4 text-zinc-300">Nórdico Antiguo</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Belleza divina e inmortal, amada por los dioses.</td>
+              <td class="py-3 px-4 text-zinc-300">Pendiente de verificación</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Astrid Selene</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Axel</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Masculino</td>
-              <td class="py-3 px-4 text-zinc-300">Escandinavo / Hebreo</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Padre de la paz, pacificador y enérgico.</td>
+              <td class="py-3 px-4 text-zinc-300">Pendiente de verificación</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Axel Thiago</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Ariel</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Unisex</td>
-              <td class="py-3 px-4 text-zinc-300">Hebreo (Ari'el)</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">León de Dios o altar celestial de luz.</td>
+              <td class="py-3 px-4 text-zinc-300">Pendiente de verificación</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Ariel Sol</td>
             </tr>
           </tbody>
@@ -2631,11 +2625,11 @@ export const seoData: Record<string, CategoryData> = {
     faqs: [
       {
         question: "¿Por qué la letra A es la inicial más popular para nombres en español?",
-        answer: "Lingüísticamente la vocal 'A' es abierta, limpia y luminosa, lo que facilita combinaciones muy eufónicas con apellidos de origen hispano, latino, germánico y anglosajón, además de encabezar históricamente las listas de popularidad."
+        answer: "Esta página reúne ejemplos que empiezan por A. No contamos con estadísticas para afirmar que sea la inicial más popular; compara las propuestas según tu preferencia."
       },
       {
-        question: "¿Cuáles son los nombres con A más elegidos para niña y niño en 2026?",
-        answer: "Para niños destacan Alexander, Agustín, Adrián, Axel, Ángel, Alonso y Adriel. Para niñas encabezan la tendencia Amelia, Aitana, Astrid, Alma, Ariana, Aurora, Alice y Alba."
+        question: "¿Cuáles son algunos nombres con A  para niña y niño?",
+        answer: "Esta es una selección editorial, no un ranking de popularidad. Para niños destacan Alexander, Agustín, Adrián, Axel, Ángel, Alonso y Adriel. Para niñas se incluyen Amelia, Aitana, Astrid, Alma, Ariana, Aurora, Alice y Alba."
       },
       {
         question: "¿Cómo combinar un primer nombre que empieza con A con un segundo nombre?",
@@ -2718,7 +2712,7 @@ export const seoData: Record<string, CategoryData> = {
               <th class="py-3.5 px-4 font-bold">Nombre con F</th>
               <th class="py-3.5 px-4 font-bold">Género</th>
               <th class="py-3.5 px-4 font-bold">Origen Etimológico</th>
-              <th class="py-3.5 px-4 font-bold">Significado Profundo</th>
+              <th class="py-3.5 px-4 font-bold">Significado y estado de revisión</th>
               <th class="py-3.5 px-4 font-bold">Combinación Recomendada</th>
             </tr>
           </thead>
@@ -2726,50 +2720,50 @@ export const seoData: Record<string, CategoryData> = {
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Fernando</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Masculino</td>
-              <td class="py-3 px-4 text-zinc-300">Germánico (Ferdinand)</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Viajero audaz, valiente y pacificador intrépido.</td>
+              <td class="py-3 px-4 text-zinc-300">Pendiente de verificación</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Fernando Gael</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Fiorella</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Femenino</td>
-              <td class="py-3 px-4 text-zinc-300">Italiano (Fiore)</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Flor pequeña, delicada, bella y llena de aroma.</td>
+              <td class="py-3 px-4 text-zinc-300">Pendiente de verificación</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Fiorella Sofía</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Felipe</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Masculino</td>
-              <td class="py-3 px-4 text-zinc-300">Griego (Philippos)</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Amante y amigo de los caballos, noble jinete.</td>
+              <td class="py-3 px-4 text-zinc-300">Pendiente de verificación</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Felipe Mateo</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Frida</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Femenino</td>
-              <td class="py-3 px-4 text-zinc-300">Germánico (Freda)</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Princesa portadora de paz y fuerza espiritual.</td>
+              <td class="py-3 px-4 text-zinc-300">Pendiente de verificación</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Frida Valentina</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Félix</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Masculino</td>
-              <td class="py-3 px-4 text-zinc-300">Latín (Felix)</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Afortunado, dichoso, próspero y lleno de éxito.</td>
+              <td class="py-3 px-4 text-zinc-300">Pendiente de verificación</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Félix Alexander</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Freya</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Femenino</td>
-              <td class="py-3 px-4 text-zinc-300">Nórdico Antiguo</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Diosa de la belleza, el amor, la magia y la fuerza.</td>
+              <td class="py-3 px-4 text-zinc-300">Pendiente de verificación</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Freya Astrid</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Francisco</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Masculino</td>
-              <td class="py-3 px-4 text-zinc-300">Italiano / Germánico</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Hombre libre, franco, honesto y generoso.</td>
+              <td class="py-3 px-4 text-zinc-300">Pendiente de verificación</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Francisco Javier</td>
             </tr>
           </tbody>
@@ -2793,8 +2787,8 @@ export const seoData: Record<string, CategoryData> = {
         answer: "Los nombres con la inicial F evocan fortaleza, fidelidad, fortuna y elegancia. Su sonoridad fricativa aporta una distinción refinada y memorable tanto en opciones masculinas como femeninas."
       },
       {
-        question: "¿Cuáles son los nombres con F más populares para niño y niña en 2026?",
-        answer: "Para niños, los más elegidos son Fernando, Felipe, Félix, Francisco, Franco, Fabricio y Federico. Para niñas destacan Fiorella, Frida, Freya, Francesca, Fátima, Florencia y Fabiola."
+        question: "¿Cuáles son algunos nombres con F  para niño y niña?",
+        answer: "Esta es una selección editorial, no un ranking de popularidad. Para niños, los más elegidos son Fernando, Felipe, Félix, Francisco, Franco, Fabricio y Federico. Para niñas destacan Fiorella, Frida, Freya, Francesca, Fátima, Florencia y Fabiola."
       },
       {
         question: "¿Cómo crear combinaciones armoniosas con nombres que empiezan por F?",
@@ -2811,7 +2805,7 @@ export const seoData: Record<string, CategoryData> = {
     path: '/nombres-con-m',
     title: 'Nombres con M para Mujer, Hombre y Bebés | GDN',
     h1: 'Nombres con la Letra M: Guía Completa para Mujer y Hombre',
-    subtitle: 'Descubre los nombres más populares, melódicos y elegantes que inician con la letra M. Incluye significados profundos, etimologías, combinaciones compuestas y audio de pronunciación.',
+    subtitle: "Descubre los nombres seleccionados, melódicos y elegantes que inician con la letra M. Incluye significados profundos, etimologías, combinaciones compuestas y audio de pronunciación.",
     seoText: `
       <h2>Los Mejores Nombres con la Letra M para Mujer, Hombre y Bebés (2026)</h2>
       <p>La letra <strong>M</strong> es una de las iniciales más queridas y utilizadas globalmente. Representa la maternidad, el misterio, la melodía y la majestuosidad. Fónicamente suave y profundamente resonante, la M encabeza algunos de los nombres más influyentes en el mundo hispanohablante: desde favoritos masculinos como <em>Mateo, Martín, Marcos, Matías</em> y <em>Milan</em>, hasta joyas femeninas atemporales y modernas como <em>Mia, María, Milena, Miranda, Melissa</em> y <em>Maya</em>.</p>
@@ -2832,7 +2826,7 @@ export const seoData: Record<string, CategoryData> = {
               <th class="py-3.5 px-4 font-bold">Nombre con M</th>
               <th class="py-3.5 px-4 font-bold">Género</th>
               <th class="py-3.5 px-4 font-bold">Origen Etimológico</th>
-              <th class="py-3.5 px-4 font-bold">Significado Profundo</th>
+              <th class="py-3.5 px-4 font-bold">Significado y estado de revisión</th>
               <th class="py-3.5 px-4 font-bold">Combinación Recomendada</th>
             </tr>
           </thead>
@@ -2840,50 +2834,50 @@ export const seoData: Record<string, CategoryData> = {
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Mateo</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Masculino</td>
-              <td class="py-3 px-4 text-zinc-300">Hebreo (Mattan)</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Regalo de Dios, don celestial y bendición amorosa.</td>
+              <td class="py-3 px-4 text-zinc-300">Hebreo, a través del griego</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Forma de Matthew; su raíz Mattithiah significa regalo de Yahweh. <a href="https://www.behindthename.com/name/mattithiah" target="_blank" rel="noopener noreferrer">Fuente de Mateo</a></td>
               <td class="py-3 px-4 font-mono text-indigo-300">Mateo Alexander</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Mia</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Femenino</td>
-              <td class="py-3 px-4 text-zinc-300">Hebreo / Escandinavo</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Amada de Dios, estrella elegida del mar y la luz.</td>
+              <td class="py-3 px-4 text-zinc-300">Forma corta de Maria</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Diminutivo de Maria; coincide con la palabra italiana mia (mía). <a href="https://www.behindthename.com/name/mia" target="_blank" rel="noopener noreferrer">Fuente de Mia</a></td>
               <td class="py-3 px-4 font-mono text-indigo-300">Mia Valentina</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Martín</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Masculino</td>
-              <td class="py-3 px-4 text-zinc-300">Latín (Martinus)</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Consagrado a Marte, guerrero honorable y valeroso.</td>
+              <td class="py-3 px-4 text-zinc-300">Pendiente de verificación</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Martín Gael</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">María</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Femenino</td>
-              <td class="py-3 px-4 text-zinc-300">Hebreo (Miriam)</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Exaltada por Dios, pura, excelsa y llena de gracia.</td>
+              <td class="py-3 px-4 text-zinc-300">Pendiente de verificación</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">María Sofía</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Milan</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Unisex</td>
-              <td class="py-3 px-4 text-zinc-300">Eslavo (Mil)</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Gracioso, querido, lleno de amor y bondadoso.</td>
+              <td class="py-3 px-4 text-zinc-300">Pendiente de verificación</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Milan Thiago</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Milena</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Femenino</td>
-              <td class="py-3 px-4 text-zinc-300">Eslavo / Checo</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Misericordiosa, afable, querida y portadora de paz.</td>
+              <td class="py-3 px-4 text-zinc-300">Pendiente de verificación</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Milena Rose</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Marcos</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Masculino</td>
-              <td class="py-3 px-4 text-zinc-300">Latín (Marcus)</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Relacionado con la fuerza del martillo y la protección.</td>
+              <td class="py-3 px-4 text-zinc-300">Pendiente de verificación</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Marcos Agustín</td>
             </tr>
           </tbody>
@@ -2904,11 +2898,11 @@ export const seoData: Record<string, CategoryData> = {
     faqs: [
       {
         question: "¿Por qué los nombres con la letra M son tan populares globalmente?",
-        answer: "Porque la consonante nasal 'M' es una de las primeras emisiones vocales en la infancia, lo que otorga a nombres como Mateo, Mia, María, Martín y Milena una calidez instintiva y una recordación afectuosa universal."
+        answer: "Esta selección reúne ejemplos que empiezan por M. No atribuimos una popularidad global ni una respuesta afectiva universal al sonido de esta letra."
       },
       {
-        question: "¿Cuáles son los nombres con M más elegidos para niña y niño en 2026?",
-        answer: "Para niño encabezan las listas Mateo, Martín, Marcos, Matías, Milan, Miguel y Mauricio. Para niña destacan Mia, María, Milena, Miranda, Melissa, Maya, Mariana y Martina."
+        question: "¿Cuáles son algunos nombres con M  para niña y niño?",
+        answer: "Esta es una selección editorial, no un ranking de popularidad. Puedes comparar Mateo, Martín, Marcos, Matías, Milan, Miguel y Mauricio. Para niña destacan Mia, María, Milena, Miranda, Melissa, Maya, Mariana y Martina."
       },
       {
         question: "¿Cómo combinar un nombre que empieza con M con un segundo nombre?",
@@ -2928,7 +2922,7 @@ export const seoData: Record<string, CategoryData> = {
     subtitle: 'Descubre los nombres con la letra Ñ más icónicos, raros y culturales para hombre y mujer. Incluye etimología vasca, quechua y latina, significados, combinaciones y audio de pronunciación.',
     seoText: `
       <h2>Los Mejores Nombres con la Letra Ñ para Hombre, Mujer y Personajes (2026)</h2>
-      <p>La letra <strong>Ñ</strong> es el símbolo cultural y lingüístico por excelencia del idioma español y de las civilizaciones hispanoamericanas e ibéricas. Aunque es una consonante sumamente exclusiva dentro de los abecedarios del mundo, posee una personalidad gráfica y fónica inconfundible. Ya sea en nombres que inician directamente con la letra Ñ (frecuentes en lenguas originarias como el quechua, guaraní y aymara) o en nombres tradicionales que la contienen en su raíz (vascos, castellanos antiguos y gallegos), los nombres con Ñ aportan identidad, sonoridad autóctona y gran orgullo cultural.</p>
+      <p>Esta selección de <strong>nombres con Ñ</strong> incluye nombres que contienen la letra, como Iñigo, Begoña y Nuño. Contener Ñ no equivale a empezar por Ñ. No asumimos que una palabra cultural sea un nombre personal ni atribuimos frecuencia a idiomas sin datos.</p>
 
       <h3>Categorías Principales de Nombres con la Letra Ñ</h3>
       <p>Explora las variedades de nombres que integran la eñe según sus raíces históricas, culturales y estilo:</p>
@@ -2946,7 +2940,7 @@ export const seoData: Record<string, CategoryData> = {
               <th class="py-3.5 px-4 font-bold">Nombre con Ñ</th>
               <th class="py-3.5 px-4 font-bold">Género</th>
               <th class="py-3.5 px-4 font-bold">Origen Etimológico</th>
-              <th class="py-3.5 px-4 font-bold">Significado Profundo</th>
+              <th class="py-3.5 px-4 font-bold">Significado y estado de revisión</th>
               <th class="py-3.5 px-4 font-bold">Combinación Recomendada</th>
             </tr>
           </thead>
@@ -2954,50 +2948,50 @@ export const seoData: Record<string, CategoryData> = {
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Iñigo</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Masculino</td>
-              <td class="py-3 px-4 text-zinc-300">Español / Vasco (Eneko)</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Forma española de Eneko; no equivale a «guerrero apasionado».</td>
+              <td class="py-3 px-4 text-zinc-300">Pendiente de verificación</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Iñigo Gael</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Begoña</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Femenino</td>
-              <td class="py-3 px-4 text-zinc-300">Vasco (Begoña)</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Relacionado con Nuestra Señora de Begoña y el lugar de Begoña en Bilbao.</td>
+              <td class="py-3 px-4 text-zinc-300">Pendiente de verificación</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Begoña Sofía</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Ñusta</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Femenino</td>
-              <td class="py-3 px-4 text-zinc-300">Quechua / Inca</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Término histórico para una princesa de los antiguos incas; no se presenta como nombre de pila verificado.</td>
+              <td class="py-3 px-4 text-zinc-300">Pendiente de verificación</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Ñusta Valentina</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Beñat</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Masculino</td>
-              <td class="py-3 px-4 text-zinc-300">Vasco (Bernard)</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Forma vasca de Bernardo.</td>
+              <td class="py-3 px-4 text-zinc-300">Pendiente de verificación</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Beñat Alexander</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Nuño</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Masculino</td>
-              <td class="py-3 px-4 text-zinc-300">Español Antiguo / Latín</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Forma española de Nuno; su etimología no permite atribuir rasgos personales.</td>
+              <td class="py-3 px-4 text-zinc-300">Pendiente de verificación</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Nuño Mateo</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Iñaki</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Masculino</td>
-              <td class="py-3 px-4 text-zinc-300">Vasco (Ignacio)</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Forma vasca de Ignacio; la asociación con el fuego no es una etimología segura.</td>
+              <td class="py-3 px-4 text-zinc-300">Pendiente de verificación</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Iñaki Thiago</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Cariño</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Apodo afectuoso</td>
-              <td class="py-3 px-4 text-zinc-300">Español Castellano</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Palabra afectuosa para un apodo; no se presenta como nombre personal documentado.</td>
+              <td class="py-3 px-4 text-zinc-300">Pendiente de verificación</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Cariño Rose</td>
             </tr>
           </tbody>
@@ -3006,7 +3000,7 @@ export const seoData: Record<string, CategoryData> = {
 
       <h3>Consejos Clave para Elegir Nombres que Integran la Letra Ñ</h3>
       <ol>
-        <li><strong>Valora el Significado Cultural e Hispano:</strong> Los nombres con la eñe destacan por una sonoridad atemporal imposible de replicar en otros idiomas. Elegir opciones como <em>Iñigo, Begoña</em> o <em>Ñusta</em> resalta la herencia autóctona.</li>
+        <li><strong>Comprueba la escritura y el uso:</strong> Compara Iñigo o Begoña y consulta una fuente específica antes de atribuir un origen o significado. Un título cultural no demuestra uso como nombre de pila.</li>
         <li><strong>Combina con Nombres Secundarios Ligeros:</strong> Debido a la sonoridad distintiva de la letra Ñ, acompáñala de un segundo nombre breve y melódico (como <em>Gael, Sofía, Mateo, Rose</em>) para crear un ritmo armónico.</li>
         <li><strong>Consulta la Pronunciación:</strong> La voz del dispositivo ofrece una lectura aproximada; consulta hablantes y fuentes lingüísticas para confirmar la pronunciación.</li>
       </ol>
@@ -3027,7 +3021,7 @@ export const seoData: Record<string, CategoryData> = {
       },
       {
         question: "¿Cómo combinar armoniosamente un nombre con Ñ con un segundo nombre?",
-        answer: "Se recomienda equilibrar la eñe con un segundo nombre de pronunciación fluida y ágil (como Iñigo Gael, Begoña Sofía, Beñat Alexander o Ñusta Valentina)."
+        answer: "Puedes comparar Iñigo Gael, Begoña Sofía o Nuño Alexander. Estas propuestas contienen Ñ; no presentamos títulos culturales ni palabras no verificadas como nombres personales."
       },
       {
         question: "¿Puedo escuchar el audio de la pronunciación de nombres con Ñ?",
@@ -3076,7 +3070,7 @@ export const seoData: Record<string, CategoryData> = {
               <th class="py-3.5 px-4 font-bold">Nombre con Z</th>
               <th class="py-3.5 px-4 font-bold">Género</th>
               <th class="py-3.5 px-4 font-bold">Origen Etimológico</th>
-              <th class="py-3.5 px-4 font-bold">Significado Profundo</th>
+              <th class="py-3.5 px-4 font-bold">Significado y estado de revisión</th>
               <th class="py-3.5 px-4 font-bold">Combinación Recomendada</th>
             </tr>
           </thead>
@@ -3084,50 +3078,50 @@ export const seoData: Record<string, CategoryData> = {
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Zeus</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Masculino</td>
-              <td class="py-3 px-4 text-zinc-300">Griego (Dyeus)</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Dios supremo del Olimpo, rey del cielo, rayo y luz diurna.</td>
+              <td class="py-3 px-4 text-zinc-300">Pendiente de verificación</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Zeus Alexander</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Zoey / Zoe</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Femenino</td>
-              <td class="py-3 px-4 text-zinc-300">Griego (Zoë)</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Llena de vida, vitalidad espiritual, alegría y resplandor.</td>
+              <td class="py-3 px-4 text-zinc-300">Pendiente de verificación</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Zoey Valentina</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Zaid</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Masculino</td>
-              <td class="py-3 px-4 text-zinc-300">Árabe (Zayd)</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Aumento, abundancia, crecimiento próspero y bendición.</td>
+              <td class="py-3 px-4 text-zinc-300">Pendiente de verificación</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Zaid Mateo</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Zahra</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Femenino</td>
-              <td class="py-3 px-4 text-zinc-300">Árabe (Zahrah)</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Flor brillante, estrella resplandeciente y luminosa.</td>
+              <td class="py-3 px-4 text-zinc-300">Pendiente de verificación</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Zahra Sofía</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Zulema</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Femenino</td>
-              <td class="py-3 px-4 text-zinc-300">Hebreo / Árabe</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Mujer pacífica, tranquila, sana y armoniosa.</td>
+              <td class="py-3 px-4 text-zinc-300">Pendiente de verificación</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Zulema Rose</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Zion</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Unisex</td>
-              <td class="py-3 px-4 text-zinc-300">Hebreo (Tsiyyon)</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Punto más alto, santuario sagrado y colina prometida.</td>
+              <td class="py-3 px-4 text-zinc-300">Pendiente de verificación</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Zion Sky</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Zelda</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Femenino</td>
-              <td class="py-3 px-4 text-zinc-300">Germánico (Griselda)</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Guerrera bendecida, sabia, fuerte y noble.</td>
+              <td class="py-3 px-4 text-zinc-300">Pendiente de verificación</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Zelda Astrid</td>
             </tr>
           </tbody>
@@ -3151,8 +3145,8 @@ export const seoData: Record<string, CategoryData> = {
         answer: "Transmiten fuerza, distinción, brillo estelar y sofisticación exótica. Al ser la última letra del abecedario, otorgan un sello de originalidad y personalidad inconfundible."
       },
       {
-        question: "¿Cuáles son los nombres con Z más elegidos para niña y niño en 2026?",
-        answer: "Para niño destacan Zeus, Zaid, Zacarias, Zack, Zenón, Zephyr y Zander. Para niña encabezan las listas Zoey, Zoe, Zahra, Zulema, Zaria, Zenaida, Zelda y Zara."
+        question: "¿Cuáles son algunos nombres con Z  para niña y niño?",
+        answer: "Esta es una selección editorial, no un ranking de popularidad. Para niño destacan Zeus, Zaid, Zacarias, Zack, Zenón, Zephyr y Zander. Para niña se incluyen Zoey, Zoe, Zahra, Zulema, Zaria, Zenaida, Zelda y Zara."
       },
       {
         question: "¿Cómo combinar de forma armoniosa un nombre que empieza con Z?",
@@ -3190,7 +3184,7 @@ export const seoData: Record<string, CategoryData> = {
               <th class="py-3.5 px-4 font-bold">Deidad</th>
               <th class="py-3.5 px-4 font-bold">Panteón</th>
               <th class="py-3.5 px-4 font-bold">Dominio y Atributo Principal</th>
-              <th class="py-3.5 px-4 font-bold">Significado Profundo</th>
+              <th class="py-3.5 px-4 font-bold">Asociación mitológica (no etimología)</th>
               <th class="py-3.5 px-4 font-bold">Combinación Recomendada</th>
             </tr>
           </thead>
@@ -3265,8 +3259,8 @@ export const seoData: Record<string, CategoryData> = {
         answer: "Porque transmiten inmediatamente un aura de imponencia, estrategia y poder épico ante los rivales. Al añadirle símbolos de trueno o espadas se vuelven extremadamente memorables."
       },
       {
-        question: "¿Cuáles son los nombres mitológicos más populares para bebés?",
-        answer: "En niños destacan Zeus, Thor, Apolo, Odín, Ares, Hermes y Anubis. En niñas encabezan las opciones Atenea, Freya, Selene, Artemisa, Isis y Valkiria."
+        question: "¿Cuáles son algunos nombres mitológicos  para bebés?",
+        answer: "Esta es una selección editorial, no un ranking de popularidad. En niños destacan Zeus, Thor, Apolo, Odín, Ares, Hermes y Anubis. En niñas se incluyen Atenea, Freya, Selene, Artemisa, Isis y Valkiria."
       },
       {
         question: "¿Cómo combinar un nombre mitológico con un segundo nombre?",
@@ -3274,7 +3268,7 @@ export const seoData: Record<string, CategoryData> = {
       },
       {
         question: "¿Puedo escuchar cómo se pronuncia cada nombre mitológico?",
-        answer: "Sí, en nuestro generador interactivo puedes hacer clic en el ícono del altavoz junto a cualquier nombre de dios o combinación para escuchar la pronunciación en voz sintetizada del dispositivo en español."
+        answer: "Usa el altavoz junto a un nombre de la selección para solicitar una lectura sintetizada en español. Depende de las voces del dispositivo y no reproduce necesariamente la pronunciación de la lengua de origen."
       }
     ]
   },
@@ -3293,7 +3287,7 @@ export const seoData: Record<string, CategoryData> = {
       <ul>
         <li><strong>Nombres Italianos para Niñas (Femeninos y Sofisticados):</strong> <em>Gianna, Chiara, Francesca, Isabella, Alessia, Beatrice, Valentina, Sofia, Guia, Milena, Carlotta, Gia</em> y <em>Flavia</em>. Destacan por su elegancia poética, dulzura y nobleza.</li>
         <li><strong>Nombres Italianos para Niños (Masculinos y Clásicos):</strong> <em>Matteo, Leonardo, Lorenzo, Alessandro, Enzo, Giovanni, Marco, Luca, Santino, Stefano, Vincenzo, Rocco</em> y <em>Flavio</em>. Reflejan fuerza mediterránea, sabiduría y estirpe.</li>
-        <li><strong>Nombres Cortos Italianos e Internacionales:</strong> <em>Enzo, Luca, Aldo, Vito, Nino, Mia, Gia, Cleo, Pia</em> y <em>Leo</em>. Sencillos de pronunciar en cualquier idioma y con un encanto cosmopolita inigualable.</li>
+        <li><strong>Nombres Cortos Italianos e Internacionales:</strong> <em>Enzo, Luca, Aldo, Vito, Nino, Mia, Gia, Cleo, Pia</em> y <em>Leo</em>. Son opciones breves; la facilidad de pronunciación depende del idioma y de la combinación elegida.</li>
       </ul>
 
       <h3>Tabla Comparativa: Nombre Italiano, Origen, Significado y Combinaciones</h3>
@@ -3304,7 +3298,7 @@ export const seoData: Record<string, CategoryData> = {
               <th class="py-3.5 px-4 font-bold">Nombre Italiano</th>
               <th class="py-3.5 px-4 font-bold">Género</th>
               <th class="py-3.5 px-4 font-bold">Origen Etimológico</th>
-              <th class="py-3.5 px-4 font-bold">Significado Profundo</th>
+              <th class="py-3.5 px-4 font-bold">Significado y estado de revisión</th>
               <th class="py-3.5 px-4 font-bold">Combinación Recomendada</th>
             </tr>
           </thead>
@@ -3312,50 +3306,50 @@ export const seoData: Record<string, CategoryData> = {
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Matteo</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Masculino</td>
-              <td class="py-3 px-4 text-zinc-300">Italiano / Hebreo</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Regalo de Dios, don celestial y bendición divina.</td>
+              <td class="py-3 px-4 text-zinc-300">Pendiente de verificación</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Matteo Alexander</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Chiara</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Femenino</td>
-              <td class="py-3 px-4 text-zinc-300">Italiano / Latín</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Clara, brillante, luminosa, pura y de gran renombre.</td>
+              <td class="py-3 px-4 text-zinc-300">Pendiente de verificación</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Chiara Valentina</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Leonardo</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Masculino</td>
-              <td class="py-3 px-4 text-zinc-300">Italiano / Germánico</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Fuerte, audaz, valiente y majestuoso como un león.</td>
+              <td class="py-3 px-4 text-zinc-300">Pendiente de verificación</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Leonardo Gael</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Gianna</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Femenino</td>
-              <td class="py-3 px-4 text-zinc-300">Italiano (Giovanni)</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Dios es misericordioso, lleno de gracia y compasión.</td>
+              <td class="py-3 px-4 text-zinc-300">Pendiente de verificación</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Gianna Sofía</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Lorenzo</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Masculino</td>
-              <td class="py-3 px-4 text-zinc-300">Italiano / Latín</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Coronado de laureles, victorioso, digno y honorable.</td>
+              <td class="py-3 px-4 text-zinc-300">Pendiente de verificación</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Lorenzo Mateo</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Francesca</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Femenino</td>
-              <td class="py-3 px-4 text-zinc-300">Italiano (Francesco)</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Mujer libre, franca, honesta y de espíritu distinguido.</td>
+              <td class="py-3 px-4 text-zinc-300">Pendiente de verificación</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Francesca Rose</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-indigo-400">Enzo</td>
               <td class="py-3 px-4 font-mono text-zinc-400">Masculino</td>
-              <td class="py-3 px-4 text-zinc-300">Italiano / Germánico</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Príncipe o señor de su hogar, líder resuelto y firme.</td>
+              <td class="py-3 px-4 text-zinc-300">Pendiente de verificación</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Pendiente de verificación: no se afirma una traducción ni una etimología.</td>
               <td class="py-3 px-4 font-mono text-indigo-300">Enzo Thiago</td>
             </tr>
           </tbody>
@@ -3365,8 +3359,8 @@ export const seoData: Record<string, CategoryData> = {
       <h3>Consejos Clave para Elegir Nombres Italianos</h3>
       <ol>
         <li><strong>Aprovecha la Fluidez Vocálica:</strong> La mayoría de nombres italianos terminan en vocal (a, o, e, i), lo que facilita combinarlos con un segundo nombre tradicional o internacional.</li>
-        <li><strong>Equilibra la Sonoridad de las Dobles Consonantes:</strong> Nombres con 'tt' (Matteo), 'zz' (Enzo) o 'll' (Isabella) aportan un ritmo melódico atemporal que resalta en cualquier registro.</li>
-        <li><strong>Prueba la Pronunciación en Voz Real:</strong> Escucha el ritmo y la entonación con nuestro reproductor de voz interactivo en la parte superior.</li>
+        <li><strong>Equilibra la Sonoridad de las Dobles Consonantes:</strong> Nombres con 'tt' (Matteo), 'zz' (Azzurra) o 'll' (Isabella) aportan un ritmo melódico atemporal que resalta en cualquier registro.</li>
+        <li><strong>Prueba la Pronunciación en Voz Sintetizada:</strong> Escucha el ritmo y la entonación con nuestro reproductor de voz interactivo en la parte superior.</li>
       </ol>
     `,
     metaDescription: 'Lista completa de nombres italianos para niña, niño y bebés. Descubre significados profundos, etimología latina y audio de pronunciación.',
@@ -3376,19 +3370,19 @@ export const seoData: Record<string, CategoryData> = {
     faqs: [
       {
         question: "¿Por qué los nombres italianos son tan populares y elegantes?",
-        answer: "Por su armoniosa terminations vocálica, su musicalidad lírica y su rica herencia histórica ligada al arte, la historia latina y la aristocracia mediterránea."
+        answer: "Elegante es una valoración de estilo, no una categoría estadística. Puedes comparar la escritura, el ritmo y las terminaciones de esta selección italiana con tus apellidos; no afirmamos su popularidad global."
       },
       {
-        question: "¿Cuáles son los nombres italianos más elegidos para niña y niño en 2026?",
-        answer: "Para niña destacan Gianna, Chiara, Francesca, Isabella, Alessia, Beatrice, Sofia y Valentina. Para niño encabezan las listas Matteo, Leonardo, Lorenzo, Alessandro, Enzo, Giovanni, Marco, Luca y Santino."
+        question: "¿Cuáles son algunos nombres italianos  para niña y niño?",
+        answer: "Esta es una selección editorial, no un ranking de popularidad. Para niña destacan Gianna, Chiara, Francesca, Isabella, Alessia, Beatrice, Sofia y Valentina. Puedes comparar Matteo, Leonardo, Lorenzo, Alessandro, Enzo, Giovanni, Marco, Luca y Santino."
       },
       {
         question: "¿Cómo funciona la fonética de las dobles consonantes en nombres italianos?",
-        answer: "Las dobles consonantes (como 'tt' en Matteo, 'll' en Isabella o 'zz' en Enzo) se acentúan sosteniendo brevemente el sonido consonántico, aportando un matiz rítmico y refinado."
+        answer: "Las guías fonéticas son orientativas y no sustituyen una referencia de pronunciación. Comprueba la escritura: Enzo no contiene zz. La voz sintetizada puede variar según el dispositivo."
       },
       {
         question: "¿Puedo escuchar la pronunciación en audio de cada nombre italiano?",
-        answer: "Sí, en nuestro generador interactivo arriba puedes ingresar cualquier nombre italiano o combinación compuesta y hacer clic en el altavoz para escuchar la voz sintetizada del dispositivo en español."
+        answer: "Usa el altavoz junto a una idea de la selección para solicitar una lectura sintetizada en italiano. Depende de que tu dispositivo tenga una voz compatible; no es una verificación lingüística."
       }
     ]
   },
@@ -3427,7 +3421,7 @@ export const seoData: Record<string, CategoryData> = {
     path: '/nombres-ingles',
     title: 'Nombres en Inglés para Niños y Niñas | GDN',
     h1: 'Nombres en Inglés (Modernos e Internacionales)',
-    subtitle: 'Los nombres en inglés más populares en Estados Unidos y Reino Unido.',
+    subtitle: "Selección de nombres en inglés para comparar escritura y sonoridad.",
     seoText: `
       <h2>Nombres en Inglés Internacionales</h2>
       <p>Nombres modernos como Oliver, Liam, Emma, Charlotte, Noah y Harper.</p>
@@ -3493,7 +3487,7 @@ export const seoData: Record<string, CategoryData> = {
             <tr class="bg-indigo-950/60 text-indigo-200 border-b border-white/10">
               <th class="py-3.5 px-4 font-bold">Nombre para Perro Macho</th>
               <th class="py-3.5 px-4 font-bold">Estilo / Tamaño</th>
-              <th class="py-3.5 px-4 font-bold">Significado / Atributo</th>
+              <th class="py-3.5 px-4 font-bold">Inspiración creativa (no etimología)</th>
               <th class="py-3.5 px-4 font-bold">Placa / Apodo Recomendado</th>
             </tr>
           </thead>
@@ -3546,8 +3540,8 @@ export const seoData: Record<string, CategoryData> = {
 
       <h3>Consejos Clave de Adiestramiento Canino para Enseñar su Nombre</h3>
       <ol>
-        <li><strong>Mantén la Constancia en la Pronunciación:</strong> Usa el reproductor de audio interactivo de nuestra herramienta arriba para asegurarte de modular la voz con tono firme y afectuoso.</li>
-        <li><strong>Facilita el Reconocimiento Auditivo:</strong> Prefiere nombres de 2 sílabas y evita nombres que suenen parecidos a comandos de orden ("Toma", "No", "Ven", "Sienta").</li>
+        <li><strong>Mantén la Constancia en la Pronunciación:</strong> Usa el reproductor de audio interactivo de nuestra herramienta arriba para comparar una lectura aproximada; no es una guía de entrenamiento.</li>
+        <li><strong>Compara nombres fáciles de repetir:</strong> Elige una longitud cómoda y evita nombres que suenen parecidos a comandos de orden ("Toma", "No", "Ven", "Sienta").</li>
         <li><strong>Refuerza con Premios y Halagos:</strong> Premia a tu perro con un premio saludable o caricias en el pecho cada vez que acuda a tu llamado al escuchar su nombre.</li>
       </ol>
     `,
@@ -3558,11 +3552,11 @@ export const seoData: Record<string, CategoryData> = {
     faqs: [
       {
         question: "¿Cuál es la longitud ideal para el nombre de un perro macho?",
-        answer: "Los adiestradores caninos sugieren nombres de 2 sílabas con sonidos claros y acentuados. Nombres como Max, Thor, Rocky, Toby, Milo o Zeus facilitan un rápido procesamiento por parte del perro."
+        answer: "Elige una longitud que puedas pronunciar con comodidad y usar de forma consistente. La selección no acredita que un nombre de dos sílabas mejore el aprendizaje del perro."
       },
       {
-        question: "¿Cuáles son los nombres para perros machos más populares en 2026?",
-        answer: "Entre los preferidos destacan Max, Thor, Rocky, Toby, Bruno, Zeus, Milo, Duke, Simba, Oliver, Coco, Ares, Leo y Jack."
+        question: "¿Cuáles son algunos nombres para perros machos ?",
+        answer: "Esta es una selección editorial, no un ranking de popularidad. Puedes comparar Max, Thor, Rocky, Toby, Bruno, Zeus, Milo, Duke, Simba, Oliver, Coco, Ares, Leo y Jack."
       },
       {
         question: "¿Cómo elegir un nombre según el tamaño y raza del perro?",
@@ -3599,7 +3593,7 @@ export const seoData: Record<string, CategoryData> = {
             <tr class="bg-indigo-950/60 text-indigo-200 border-b border-white/10">
               <th class="py-3.5 px-4 font-bold">Nombre para Chihuahua</th>
               <th class="py-3.5 px-4 font-bold">Estilo / Variedad</th>
-              <th class="py-3.5 px-4 font-bold">Significado Profundo</th>
+              <th class="py-3.5 px-4 font-bold">Inspiración creativa (no etimología)</th>
               <th class="py-3.5 px-4 font-bold">Placa / Apodo Recomendado</th>
             </tr>
           </thead>
@@ -3669,12 +3663,12 @@ export const seoData: Record<string, CategoryData> = {
     customSymbols: ["🐾", "🐶", "🎀", "💖", "✨", "👑", "🌸", "💎", "🦴", "💗", "🍪", "🌺", "💕", "🌶️", "🌮", "✦", "📜", "⚡"],
     faqs: [
       {
-        question: "¿Por qué los nombres cortos de 2 sílabas son mejores para perritas chihuahua?",
+        question: "¿Cómo elegir la longitud del nombre de una perrita chihuahua?",
         answer: "Los nombres de dos sílabas son una opción práctica porque suelen ser fáciles de pronunciar y repetir. No es una regla estricta: elige uno que tu familia pueda usar de forma consistente."
       },
       {
-        question: "¿Cuáles son los nombres más elegidos para perritas chihuahua en 2026?",
-        answer: "Entre los preferidos de la comunidad destacan Chispita, Chiquita, Mimi, Perlita, Canela, Frida, Bella, Lola, Chloe, Daisy, Pipa, Mochi y Princesa."
+        question: "¿Cuáles son algunos nombres  para perritas chihuahua?",
+        answer: "Esta es una selección editorial, no un ranking de popularidad. Puedes comparar Chispita, Chiquita, Mimi, Perlita, Canela, Frida, Bella, Lola, Chloe, Daisy, Pipa, Mochi y Princesa."
       },
       {
         question: "¿Qué diferencia hay entre nombres para chihuahuas Cabeza de Manzana y Cabeza de Ciervo?",
@@ -3713,7 +3707,7 @@ export const seoData: Record<string, CategoryData> = {
               <th class="py-3.5 px-4 font-bold">Nombre para Caballo</th>
               <th class="py-3.5 px-4 font-bold">Estilo / Pelaje</th>
               <th class="py-3.5 px-4 font-bold">Género</th>
-              <th class="py-3.5 px-4 font-bold">Significado Profundo</th>
+              <th class="py-3.5 px-4 font-bold">Inspiración creativa (no etimología)</th>
               <th class="py-3.5 px-4 font-bold">Hierro / Placa Recomendada</th>
             </tr>
           </thead>
@@ -3780,8 +3774,8 @@ export const seoData: Record<string, CategoryData> = {
 
       <h3>Consejos Clave para la Elección y Silbido de Llamado Equino</h3>
       <ol>
-        <li><strong>Frecuencia y Resonancia Sonora:</strong> Los caballos reaccionan positivamente a fonemas claros y sonoros de 2 o 3 sílabas con acentuación fuerte (<em>Tornado, Sultán, Valkiria, Rayo, Gitana</em>).</li>
-        <li><strong>Vinculación Afectiva en Rancho:</strong> Combina la pronunciación del nombre siempre con una palmada suave en la tabla del cuello o una golosina saludable (como trozos de manzana o zanahoria).</li>
+        <li><strong>Compara la sonoridad:</strong> Elige una opción que puedas repetir con comodidad. No atribuimos una respuesta del caballo a un número de sílabas.</li>
+        <li><strong>Uso consistente:</strong> Acuerda la misma escritura y pronunciación con las personas que cuidan del caballo.</li>
         <li><strong>Acupuntura y Tono del Llamado:</strong> Utiliza nuestro reproductor interactivo superior para ensayar la acústica del llamado o relincho simulado.</li>
       </ol>
     `,

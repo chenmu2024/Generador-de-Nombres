@@ -77,7 +77,7 @@ export default function AnimeNamesTool({
     </div>
     <div>
     <label htmlFor="animenamestool-field-2" className="text-[11px] text-zinc-400 font-bold uppercase block mb-1">2. Sufijo Honorífico Japonés</label>
-    <select id="animenamestool-field-2" aria-label="Seleccionar opción" value={animeSuffix}
+    <select id="animenamestool-field-2" value={animeSuffix}
     onChange={(e) => setAnimeSuffix(e.target.value)}
     className="gdn-tool-input w-full bg-zinc-900 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-red-500 font-mono"
     >

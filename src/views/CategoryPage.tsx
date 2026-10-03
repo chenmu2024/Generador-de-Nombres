@@ -101,6 +101,7 @@ export default function CategoryPage({
   const routerLocation = useLocation();
   const currentPath = initialPath || routerLocation.pathname || '/';
   const location = { pathname: currentPath };
+  const isGamingToolPage = ['/nombres-free-fire', '/generador-free-fire', '/espacios-invisible-ff', '/nombres-ff-unicos', '/nombres-ff-mujeres', '/nombres-clanes-ff', '/nombres-anime'].includes(currentPath);
   const usesDedicatedGenerator =
     !!nameIdeas[currentPath] ||
     location.pathname === '/espacios-invisible-ff' ||
@@ -178,20 +179,20 @@ export default function CategoryPage({
       )}
 
       {/* Breadcrumb Navigation for Google & Users */}
-      <nav aria-label="Breadcrumb" className={`${location.pathname === '/' ? 'hidden' : 'flex'} items-center gap-2 text-xs text-zinc-400 max-w-4xl mx-auto px-1`} itemScope itemType="https://schema.org/BreadcrumbList">
-        <span itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-          <Link to="/" itemProp="item" className="hover:text-violet-300 transition-colors flex items-center gap-1">
+      <nav aria-label="Breadcrumb" className={`${location.pathname === '/' ? 'hidden' : 'flex'} items-center gap-2 text-xs text-zinc-400 max-w-4xl mx-auto px-1`}>
+        <span>
+          <Link to="/" className="hover:text-violet-300 transition-colors flex items-center gap-1">
             <Home className="w-3.5 h-3.5" aria-hidden="true" />
-            <span itemProp="name">Inicio</span>
+            <span>Inicio</span>
           </Link>
-          <span itemProp="position" className="hidden">1</span>
+          <span className="hidden">1</span>
         </span>
         {location.pathname !== '/' && (
           <React.Fragment key="breadcrumb-sub">
             <ChevronRight className="w-3 h-3 text-zinc-600" aria-hidden="true" />
             <span itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem" className="text-zinc-200 font-semibold truncate">
-              <span itemProp="name">{data.h1}</span>
-              <span itemProp="position" className="hidden">2</span>
+              <span>{data.h1}</span>
+              <span className="hidden">2</span>
             </span>
           </React.Fragment>
         )}
@@ -550,7 +551,7 @@ export default function CategoryPage({
                   </div>
                   <div>
                     <label className="text-[11px] text-zinc-400 font-bold uppercase block mb-1">Símbolo / Emblema</label>
-                    <select aria-label="Seleccionar opción" value={ffClanSymbol}
+                    <select aria-label="Símbolo del clan" value={ffClanSymbol}
                       onChange={(e) => setFfClanSymbol(e.target.value)}
                       className="w-full bg-zinc-900 border border-white/10 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-red-500"
                     >
@@ -753,15 +754,16 @@ export default function CategoryPage({
                 <div className="space-y-1">
                   <div className="flex items-center gap-2">
                     <span className="text-xs font-bold text-amber-400 uppercase tracking-wider">Índice de Exclusividad Estimado</span>
-                    <span className="text-[10px] bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded border border-amber-500/30 font-bold">99% RARO</span>
+                    <span className="text-[10px] bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded border border-amber-500/30 font-bold">ESTILO DECORADO</span>
                   </div>
                   <p className="text-xs text-zinc-400">
-                    Al integrar caracteres Unicode avanzados (como U+3000 o símbolos egipcios 𓆩𓆪), la probabilidad de encontrar un nombre duplicado en Free Fire se reduce a prácticamente cero.
+                    Los caracteres Unicode y símbolos decorativos cambian el estilo visual. No comprobamos la disponibilidad del nombre ni garantizamos que sea único en Free Fire.
                   </p>
                 </div>
               </div>
             </div>
           )}
+          {isGamingToolPage && (
           <div className="bg-[#121212] border border-violet-500/20 rounded-3xl p-8 shadow-2xl relative overflow-hidden bg-gradient-to-br from-violet-950/20 via-[#121212] to-fuchsia-950/10">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8 relative z-10">
               <div>
@@ -936,6 +938,8 @@ export default function CategoryPage({
               </div>
             </div>
           </div>
+          )}
+          {!isGamingToolPage && <p className="text-sm text-zinc-400">¿Buscas apodos para juegos? <Link to="/generador-free-fire" className="text-violet-300 underline">Explorar el generador de Free Fire</Link>.</p>}
         </div>
       )}
 

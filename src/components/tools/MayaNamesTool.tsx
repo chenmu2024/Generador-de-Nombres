@@ -46,7 +46,7 @@ export default function MayaNamesTool({
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
     <div>
     <label htmlFor="mayanamestool-field-1" className="text-xs font-semibold text-zinc-400 block mb-2">Tótem / Animal de Poder:</label>
-    <select id="mayanamestool-field-1" aria-label="Seleccionar opción" value={myTotem}
+    <select id="mayanamestool-field-1" value={myTotem}
     onChange={(e) => setMyTotem(e.target.value)}
     className="gdn-tool-input w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-emerald-500 text-sm font-semibold"
     >

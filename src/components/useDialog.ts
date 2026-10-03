@@ -2,6 +2,9 @@
 
 import { useEffect, useRef } from 'react';
 
+let openDialogs = 0;
+let previousOverflow = '';
+
 export function useDialog(active: boolean, close: () => void) {
   const ref = useRef<HTMLDivElement>(null);
   const closeRef = useRef(close);
@@ -10,8 +13,10 @@ export function useDialog(active: boolean, close: () => void) {
     if (!active || !ref.current) return;
     const previous = document.activeElement as HTMLElement | null;
     const dialog = ref.current;
+    if (openDialogs++ === 0) previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
     const focusable = () => Array.from(dialog.querySelectorAll<HTMLElement>('button:not(:disabled), a[href], input, select, textarea, [tabindex="0"]')).filter(element => element.getClientRects().length > 0);
-    (focusable()[0] || dialog).focus();
+    (focusable()[0] || dialog).focus({ preventScroll: true });
     const handleKey = (event: KeyboardEvent) => {
       const dialogs = document.querySelectorAll('[aria-modal="true"]');
       if (dialogs[dialogs.length - 1] !== dialog) return;
@@ -25,7 +30,11 @@ export function useDialog(active: boolean, close: () => void) {
       else if (!event.shiftKey && (document.activeElement === last || !dialog.contains(document.activeElement))) { event.preventDefault(); first.focus(); }
     };
     document.addEventListener('keydown', handleKey);
-    return () => { document.removeEventListener('keydown', handleKey); if (previous?.isConnected) previous.focus(); };
+    return () => {
+      document.removeEventListener('keydown', handleKey);
+      if (--openDialogs === 0) document.body.style.overflow = previousOverflow;
+      if (previous?.isConnected) previous.focus({ preventScroll: true });
+    };
   }, [active]);
   return ref;
 }

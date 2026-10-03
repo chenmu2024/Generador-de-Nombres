@@ -1,6 +1,7 @@
 'use client';
 import { speakName } from '../utils/speech';
 
+import { normalizeSearch } from '../utils/text';
 import { alphabetNames } from '../data/nameIdeas';
 import { copyText } from '../utils/clipboard';
 import React, { useState, useEffect } from 'react';
@@ -23,7 +24,7 @@ export default function AlphabetMatrixTool({ currentLetter = 'A' }: { currentLet
 
   const filteredNames = currentNames.filter(n => {
     const matchesGender = genderFilter === 'all' || n.gender === genderFilter;
-    const matchesSearch = n.name.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesSearch = normalizeSearch(n.name).includes(normalizeSearch(searchTerm));
     return matchesGender && matchesSearch;
   });
 

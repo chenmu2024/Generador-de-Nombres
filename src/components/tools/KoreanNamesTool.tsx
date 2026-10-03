@@ -47,7 +47,7 @@ export default function KoreanNamesTool({
     <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
     <div>
     <label htmlFor="koreannamestool-field-1" className="text-xs font-semibold text-zinc-400 block mb-2">Apellido Coreano:</label>
-    <select id="koreannamestool-field-1" aria-label="Seleccionar opción" value={krSelectedSurname}
+    <select id="koreannamestool-field-1" value={krSelectedSurname}
     onChange={(e) => setKrSelectedSurname(e.target.value)}
     className="gdn-tool-input w-full bg-zinc-800 border border-white/10 rounded-xl px-3 py-2.5 text-white focus:outline-none focus:border-violet-500 text-sm font-semibold"
     >

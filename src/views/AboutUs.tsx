@@ -38,7 +38,7 @@ export default function AboutUs() {
             </div>
             <h3 className="text-lg font-bold text-white">Pruebas de compatibilidad</h3>
             <p className="text-sm text-zinc-400 leading-relaxed">
-              Revisamos periódicamente símbolos y espacios invisibles en distintas plataformas. La compatibilidad puede cambiar según la aplicación, el dispositivo y sus actualizaciones.
+              Las propuestas usan caracteres Unicode. Comprueba el resultado en el campo de destino: la compatibilidad cambia según la aplicación, el dispositivo y sus actualizaciones.
             </p>
           </div>
 
@@ -48,7 +48,7 @@ export default function AboutUs() {
             </div>
             <h3 className="text-lg font-bold text-white">Privacidad y Seguridad</h3>
             <p className="text-sm text-zinc-400 leading-relaxed">
-              Todas las operaciones de generación ocurren localmente en tu navegador sin almacenar tus apodos ni datos personales.
+              La generación ocurre en tu navegador. Los favoritos y la elección de privacidad se guardan en el almacenamiento local; la analítica opcional solo se carga con tu consentimiento.
             </p>
           </div>
 
@@ -71,20 +71,32 @@ export default function AboutUs() {
               ¿Quiénes Somos?
             </h2>
             <p className="text-zinc-300 leading-relaxed">
-              GeneradorDeNombres.net es un proyecto independiente desarrollado por entusiastas del diseño tipográfico y los videojuegos en español. Identificamos la necesidad de contar con apodos únicos, estéticos y sin errores de renderizado (&quot;bloques vacíos&quot; o caracteres desconfigurados) en los perfiles de usuario.
+              GeneradorDeNombres.net publica herramientas y selecciones editoriales en español para explorar nombres, apodos y caracteres Unicode. La marca es responsable del contenido del sitio. No presentamos las listas como rankings de popularidad ni como registros de disponibilidad.
             </p>
           </section>
 
           <section className="space-y-3">
             <h2 className="text-2xl font-bold text-white flex items-center gap-2">
               <CheckCircle2 className="w-5 h-5 text-emerald-400" />
-              Garantía de Calidad Técnica
+              Criterios de Calidad Técnica
             </h2>
             <ul className="space-y-2 text-zinc-300 list-disc list-inside">
-              <li>Mapeo exhaustivo de la tabla Unicode para garantizar estabilidad.</li>
+              <li>Uso de caracteres Unicode con compatibilidad sujeta al campo de destino.</li>
               <li>Generación instantánea con atajos de copiado en un clic.</li>
-              <li>Sincronización con las actualizaciones de apodos y restricciones de nombres en juegos populares.</li>
+              <li>Validadores de formato orientativos; cada plataforma decide la aceptación, disponibilidad y coste.</li>
             </ul>
+          </section>
+
+          <section id="metodologia" className="space-y-3 scroll-mt-24">
+            <h2 className="text-2xl font-bold text-white">Metodología y revisión editorial</h2>
+            <ul className="space-y-3 text-zinc-300 list-disc list-inside">
+              <li>Seleccionamos ejemplos por uso, idioma, inicial y longitud. Las categorías como raro, bonito o poderoso expresan criterios de estilo.</li>
+              <li>Cuando un significado está revisado, enlazamos la referencia del nombre y su escritura. Si falta evidencia, mostramos «Pendiente de verificación»; una asociación creativa no es una etimología.</li>
+              <li>En lenguas con varias escrituras, el significado depende de los caracteres concretos. La voz sintetizada del dispositivo es orientativa y no sustituye a un hablante o una fuente lingüística.</li>
+              <li>La fecha visible se actualiza al revisar el contenido, no automáticamente con cada compilación. Una cifra de popularidad requiere una fuente, un país y un período.</li>
+            </ul>
+            <p className="text-sm text-zinc-400">Referencias de nombres: <a href="https://www.behindthename.com/" className="text-violet-300 underline" target="_blank" rel="noopener noreferrer">Behind the Name</a>. Las referencias específicas aparecen junto a los significados revisados. Para las reglas de uso, consulta también el soporte oficial de la plataforma correspondiente.</p>
+            <p className="text-sm text-zinc-400">Revisión de esta página: <time dateTime="2026-10-04">4 de octubre de 2026</time>.</p>
           </section>
 
           <section className="space-y-3 pt-4 border-t border-white/10">
@@ -93,7 +105,7 @@ export default function AboutUs() {
               Compromiso con la Comunidad
             </h2>
             <p className="text-zinc-400 text-sm leading-relaxed">
-              Actualizamos nuestras listas de nombres y combinaciones de símbolos semanalmente basándonos en las tendencias actuales de juegos e influencers. Si tienes sugerencias, contáctanos a través de nuestra página de soporte.
+              Puedes solicitar una corrección indicando la página, el nombre y una referencia verificable. Nuestra <Link to="/contacto" className="text-violet-300 underline">página de contacto</Link> prepara un mensaje para copiarlo o abrirlo en tu aplicación de correo; no confirma por sí sola que se haya enviado.
             </p>
           </section>
         </div>

@@ -46,7 +46,7 @@ export default function FrenchNamesTool({
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
     <div>
     <label htmlFor="frenchnamestool-field-1" className="text-xs font-semibold text-zinc-400 block mb-2">Título / Prefijo de Cortesía:</label>
-    <select id="frenchnamestool-field-1" aria-label="Seleccionar opción" value={frTitlePrefix}
+    <select id="frenchnamestool-field-1" value={frTitlePrefix}
     onChange={(e) => setFrTitlePrefix(e.target.value)}
     className="gdn-tool-input w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-sky-500 text-sm font-semibold"
     >

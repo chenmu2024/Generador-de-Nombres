@@ -156,7 +156,7 @@ export default function PlushieTool({
       
       <div>
       <label htmlFor="plushietool-field-1" className="text-xs font-semibold text-zinc-400 block mb-1">Especie / Tipo de Peluche:</label>
-      <select id="plushietool-field-1" aria-label="Seleccionar opción" value={plushieType}
+      <select id="plushietool-field-1" value={plushieType}
       onChange={(e) => setPlushieType(e.target.value)}
       className="gdn-tool-input w-full bg-zinc-800 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-pink-500 text-sm font-semibold"
       >

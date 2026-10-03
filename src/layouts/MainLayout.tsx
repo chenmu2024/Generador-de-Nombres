@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from '../components/Link';
 import { useLocation, useNavigate } from '../utils/router';
-import { Flame, Menu, X, ChevronDown, Gamepad2, Users, Heart, Type, Globe, Briefcase, Search, Sparkles, ArrowRight, Bookmark, Copy, Trash2, Check, ExternalLink, ShieldAlert } from 'lucide-react';
+import { Flame, Menu, X, ChevronDown, Gamepad2, Users, Heart, Type, Globe, Briefcase, Search, Sparkles, ArrowRight, Bookmark, Copy, Trash2, Check, ExternalLink } from 'lucide-react';
 import { allLinks } from '../data/allLinks';
 import { copyText } from '../utils/clipboard';
 import { readFavorites, writeStorage } from '../utils/browserStorage';
@@ -32,7 +32,7 @@ const navGroups = [
     badge: '👶 Nuevo',
     links: [
       { path: '/nombres-de-mujer', label: 'Nombres de Mujer', desc: 'Lista bonita y elegante' },
-      { path: '/nombres-de-nina', label: 'Nombres de Niña', desc: '300+ no comunes y cortos' },
+      { path: '/nombres-de-nina', label: 'Nombres de Niña', desc: 'Ideas no comunes y cortas' },
       { path: '/nombres-de-nino', label: 'Nombres de Niño', desc: 'Con significado profundo' },
       { path: '/nombres-unisex', label: 'Nombres Unisex', desc: 'Neutros y modernos' },
       { path: '/nombres-raros', label: 'Nombres Raros', desc: 'Únicos y poco comunes' }
@@ -129,18 +129,6 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
-
-  useEffect(() => {
-    const shouldLockScroll = isSearchOpen || isFavDrawerOpen || isMenuOpen;
-    if (!shouldLockScroll) return;
-
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
-
-    return () => {
-      document.body.style.overflow = previousOverflow;
-    };
-  }, [isSearchOpen, isFavDrawerOpen, isMenuOpen]);
 
   const removeFavorite = (nameToRemove: string) => {
     const updated = favorites.filter(f => f !== nameToRemove);
@@ -480,19 +468,10 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
             <Link to="/contacto" className="hover:text-zinc-300 transition-colors">Contacto y Soporte</Link>
           </nav>
 
-          {/* Explicit Trademark & Brand Disclaimer Box */}
-          <div className="mt-10 p-5 rounded-2xl bg-zinc-950/80 border border-white/5 text-left max-w-4xl mx-auto space-y-2.5">
-            <div className="flex items-center gap-2 text-xs font-bold text-zinc-300">
-              <ShieldAlert className="w-4 h-4 text-amber-400 shrink-0" />
-              <span>Aviso Legal de Marcas y Exención de Responsabilidad (Nominative Fair Use)</span>
-            </div>
-            <p className="text-[11px] text-zinc-400 leading-relaxed">
-              <strong>GeneradorDeNombres.net</strong> es una plataforma y herramienta independiente de utilidades tipográficas, generación de texto Unicode y apoyo comunitario. Este sitio web <strong>NO</strong> está afiliado, patrocinado, respaldado ni asociado oficialmente con Garena International I Private Limited, Sea Group, Roblox Corporation, Meta Platforms Inc., ni ninguna de sus empresas matrices o subsidiarias.
+            <p className="mt-8 text-xs text-zinc-400 leading-relaxed max-w-3xl mx-auto">
+              Sitio independiente, sin afiliación con las marcas mencionadas.{' '}
+              <Link to="/terminos-y-condiciones#aviso-legal" className="text-violet-400 underline underline-offset-4 hover:text-violet-300">Aviso legal</Link>
             </p>
-            <p className="text-[11px] text-zinc-400 leading-relaxed">
-              Las marcas comerciales, nombres de productos y logotipos como <em>"Free Fire"</em>, <em>"Roblox"</em>, <em>"Instagram"</em> y otros citados en este sitio pertenecen en su totalidad a sus respectivos propietarios legales. Su mención en este portal se realiza con fines estrictamente identificativos e informativos bajo el principio de <strong>Uso Legítimo Nominativo</strong> para señalar la compatibilidad de caracteres, fuentes y nombres generados.
-            </p>
-          </div>
 
           <p className="text-zinc-400 text-sm mt-8">
             © {new Date().getFullYear()} generadordenombres.net. Todos los derechos reservados.

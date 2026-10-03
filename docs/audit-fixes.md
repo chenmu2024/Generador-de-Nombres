@@ -1,5 +1,34 @@
 # Website audit fixes — 2026-10-03
 
+## SEO/GEO follow-up — 2026-10-04
+
+- Added distinct summaries, selection criteria, contextual links and stable review dates for all 46 tool pages; retained locked keywords, title, H1 and routes.
+- Added the brand's documented editorial method, source and uncertainty policy and correction contact. Removed unsupported staff, exhaustive compatibility and weekly update claims.
+- Consolidated connected JSON-LD entities, removed duplicate FAQ/breadcrumb microdata and unsupported homepage SearchAction. FAQ answers match visible content; no rich-result guarantee.
+- Added material-review lastmod dates to the sitemap; legal/contact dates remain absent without an evidenced review. No automatically refreshed publication dates.
+- Reviewed six additional names against specific references, replaced unsupported etymological table cells with explicit pending status, distinguished creative/mythological associations, and corrected unsupported popularity, platform-acceptance and device-audio claims.
+- Added device-language speech buttons to the eight name-idea tools. Missing voices show an explicit message. Narrow tables now scroll inside a keyboard-focusable region with a 640-pixel minimum table width.
+- Validation: type checking, 22 tests and production build passed; all 50 exported pages and 5,197 internal links pass, including emitted schema cardinality, visible summaries and matching sitemap/page dates. Local browser checks at 1280 and 390 pixels passed; no page overflow, summary/source display and missing-Italian-voice feedback verified. A copy action showed success, but this turn's clipboard-reader returned stale content, so actual copied text was not independently confirmed for the newly added controls.
+- Owner confirms Google Search Console and Bing Webmaster Tools are verified. This session has no authenticated connector to read either. Measurement and post-deployment crawler checks are documented in seo-geo-validation.md; no ranking, indexing, real-user metric or AI-citation improvement is claimed. Changes remain local and have not been pushed or deployed in this round.
+
+## Follow-up fixes — 2026-10-04
+
+- Female, male, unisex and rare-name styles now select distinct editorial suggestions. Short-name filters count the first name and return only the declared lengths. The girl-name page starts with its short-name filter selected.
+- Removed invented fallback meanings. Reviewed entries link to their reference; unknown names clearly remain unverified. Accented and decomposed spellings share the same lookup. Corrected seven explanations in the girl-name comparison table against linked references.
+- Removed the large gaming utility panel from unrelated categories and provided a compact link instead. Replaced unsupported quantity, recorded-voice and uniqueness claims in the affected UI.
+- Filled the homepage related-tools card with six actual destinations and linked its catalogue action to the existing catalogue anchor.
+- Removed generic select names that masked specific labels and exposed style selection with aria-pressed.
+- Unified modal scroll locking, constrained PNG/roulette panels to the dynamic viewport, removed the nested mobile result scroller and replaced all-at-once rendering with batches of 100. Memoized result filtering.
+- Added complete contact-message copying and a selectable prepared-message fallback. Clipboard permission rejection and unanswered requests now settle without reporting success; unanswered requests time out after 2.5 seconds.
+- Expanded name-idea selections, added length filtering and accent-insensitive searching while retaining displayed spelling.
+- Added nosniff, frame denial and referrer-policy headers and a report-only CSP in Vercel configuration. Response-header enforcement needs verification after deployment; CSP is intentionally not enforced yet.
+
+Validation: TypeScript, 18 tests and production export passed. All 46 locked keyword pages retain keywords/title/H1/routes; 50 exported pages pass landmark/canonical checks and 5,019 internal links resolve. The npm bulk advisory endpoint returned no advisories for the 156 package/version entries extracted from bun.lock on 2026-10-04.
+
+Local browser verification passed for short-name filtering, unknown-meaning handling, accent search, zero-result feedback, complete contact-message clipboard contents, no horizontal overflow at 390px, modal focus cycling/Escape/focus restoration and a scrollable PNG panel at 390×400. No contact message was sent.
+
+Limitations: independent Chrome launch was rejected by automatic policy ("blocked by policy"). The in-app browser did not expose a completed TXT download event, so this pass does not confirm saved TXT/PNG files, throttled-network performance or real-device behavior. These changes have not been pushed or deployed.
+
 ## Preserved SEO contract
 
 The 46 existing keyword pages retain their exact route, keyword string, title and H1. An independent fixture captured from the original revision checks these fields in both the regression suite and SEO audit. The exported HTML is checked for emitted keywords, canonical URLs, one H1 and one main landmark. No pages were consolidated or added to target new keywords.

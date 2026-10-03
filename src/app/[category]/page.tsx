@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import CategoryPage from '../../views/CategoryPage';
 import SeoGuide from '../../components/SeoGuide';
 import { seoData } from '../../data/seoData';
+import { pageStructuredData, serializeStructuredData } from '../../utils/structuredData';
 
 export const dynamicParams = false;
 
@@ -72,69 +73,9 @@ export default async function DynamicCategoryPage({
     notFound();
   }
 
-  const breadcrumbSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: 'Inicio',
-        item: 'https://generadordenombres.net/',
-      },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: data?.h1 || data?.title || resolvedParams.category,
-        item: `https://generadordenombres.net/${resolvedParams.category}`,
-      },
-    ],
-  };
-
-  const faqSchema = data?.faqs && data.faqs.length > 0 ? {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: data.faqs.map((faq) => ({
-      '@type': 'Question',
-      name: faq.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: faq.answer,
-      },
-    })),
-  } : null;
-
-  const appSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'WebApplication',
-    name: data?.h1 || data?.title || 'Generador de Nombres',
-    url: `https://generadordenombres.net/${resolvedParams.category}`,
-    description: data?.metaDescription || 'Generador de nombres, letras bonitas y apodos con símbolos Unicode.',
-    applicationCategory: 'UtilityApplication',
-    operatingSystem: 'All',
-    offers: {
-      '@type': 'Offer',
-      price: '0',
-      priceCurrency: 'USD',
-    },
-  };
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
-      {faqSchema && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-        />
-      )}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(appSchema) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeStructuredData(pageStructuredData(data)) }} />
       <Suspense fallback={<div className="min-h-screen bg-[#0a0a0a]" />}>
         <CategoryPage
           initialPath={categoryPath}

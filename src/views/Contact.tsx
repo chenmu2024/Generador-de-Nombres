@@ -9,14 +9,16 @@ export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const [emailCopied, setEmailCopied] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', subject: 'Sugerencia', message: '' });
+  const [messageCopyStatus, setMessageCopyStatus] = useState('');
+  const preparedSubject = `[GeneradorDeNombres.net] ${formData.subject} - ${formData.name}`;
+  const preparedBody = `Nombre: ${formData.name}\nCorreo: ${formData.email}\nAsunto: ${formData.subject}\n\nMensaje:\n${formData.message}`;
+  const preparedMessage = `Para: soporte@generadordenombres.net\nAsunto: ${preparedSubject}\n\n${preparedBody}`;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (formData.email && formData.message) {
-      const subject = encodeURIComponent(`[GeneradorDeNombres.net] ${formData.subject} - ${formData.name}`);
-      const body = encodeURIComponent(
-        `Nombre: ${formData.name}\nCorreo: ${formData.email}\nAsunto: ${formData.subject}\n\nMensaje:\n${formData.message}`
-      );
+      const subject = encodeURIComponent(preparedSubject);
+      const body = encodeURIComponent(preparedBody);
       window.location.href = `mailto:soporte@generadordenombres.net?subject=${subject}&body=${body}`;
       setSubmitted(true);
     }
@@ -94,6 +96,11 @@ export default function Contact() {
 
           {/* Form Side */}
           <div className="md:col-span-2 bg-zinc-900/60 border border-white/10 rounded-2xl p-6 sm:p-8">
+            <div className="mb-4 space-y-2">
+              <button type="button" disabled={!formData.message.trim()} className="gdn-chip border px-4 py-2 rounded-xl text-sm disabled:opacity-50" onClick={async () => setMessageCopyStatus(await copyText(preparedMessage) ? 'Mensaje completo copiado.' : 'No se pudo copiar. Selecciona el texto preparado para copiarlo manualmente.')}>Copiar mensaje completo</button>
+              {messageCopyStatus && <p role="status" className="text-sm text-zinc-300">{messageCopyStatus}</p>}
+              {(submitted || messageCopyStatus) && <label className="block text-sm text-zinc-300">Mensaje preparado<textarea readOnly value={preparedMessage} className="gdn-input border w-full rounded-xl p-3 mt-2 min-h-48" /></label>}
+            </div>
             {submitted ? (
               <div className="text-center py-12 space-y-4">
                 <div className="w-12 h-12 bg-emerald-500/20 text-emerald-400 rounded-full flex items-center justify-center mx-auto">
@@ -118,9 +125,10 @@ export default function Contact() {
                   <label htmlFor="contact-field-1" className="block text-xs font-semibold text-zinc-300 mb-1">Nombre o Apodo</label>
                   <input id="contact-field-1"
                     type="text"
+                    maxLength={80}
                     required
                     value={formData.name}
-                    onChange={e => setFormData({ ...formData, name: e.target.value })}
+                    onChange={e => { setMessageCopyStatus(''); setFormData({ ...formData, name: e.target.value }); }}
                     placeholder="Tu nombre"
                     className="w-full px-3.5 py-2.5 bg-zinc-950 border border-white/10 rounded-xl text-sm text-white focus:outline-none focus:border-violet-500"
                   />
@@ -130,9 +138,10 @@ export default function Contact() {
                   <label htmlFor="contact-field-2" className="block text-xs font-semibold text-zinc-300 mb-1">Correo Electrónico</label>
                   <input id="contact-field-2"
                     type="email"
+                    maxLength={254}
                     required
                     value={formData.email}
-                    onChange={e => setFormData({ ...formData, email: e.target.value })}
+                    onChange={e => { setMessageCopyStatus(''); setFormData({ ...formData, email: e.target.value }); }}
                     placeholder="correo@ejemplo.com"
                     className="w-full px-3.5 py-2.5 bg-zinc-950 border border-white/10 rounded-xl text-sm text-white focus:outline-none focus:border-violet-500"
                   />
@@ -142,7 +151,7 @@ export default function Contact() {
                   <label htmlFor="contact-field-3" className="block text-xs font-semibold text-zinc-300 mb-1">Asunto</label>
                   <select id="contact-field-3"
                     value={formData.subject}
-                    onChange={e => setFormData({ ...formData, subject: e.target.value })}
+                    onChange={e => { setMessageCopyStatus(''); setFormData({ ...formData, subject: e.target.value }); }}
                     className="w-full px-3.5 py-2.5 bg-zinc-950 border border-white/10 rounded-xl text-sm text-white focus:outline-none focus:border-violet-500"
                   >
                     <option value="Sugerencia">Sugerencia de nombre o función</option>
@@ -154,11 +163,11 @@ export default function Contact() {
 
                 <div>
                   <label htmlFor="contact-field-4" className="block text-xs font-semibold text-zinc-300 mb-1">Mensaje</label>
-                  <textarea id="contact-field-4"
+                  <textarea id="contact-field-4" maxLength={4000}
                     rows={4}
                     required
                     value={formData.message}
-                    onChange={e => setFormData({ ...formData, message: e.target.value })}
+                    onChange={e => { setMessageCopyStatus(''); setFormData({ ...formData, message: e.target.value }); }}
                     placeholder="Escribe tu mensaje aquí..."
                     className="w-full px-3.5 py-2.5 bg-zinc-950 border border-white/10 rounded-xl text-sm text-white focus:outline-none focus:border-violet-500 resize-none"
                   />

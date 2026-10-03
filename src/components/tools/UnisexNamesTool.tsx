@@ -3,6 +3,7 @@
 import { speakName as readNameAloud } from '../../utils/speech';
 
 import { useState } from 'react';
+import { getCompoundSuggestions, lookupNameMeaning } from '../../data/compoundNames';
 import { Copy, Flame, Sparkles, Volume2 } from 'lucide-react';
 
 export default function UnisexNamesTool({
@@ -17,7 +18,7 @@ export default function UnisexNamesTool({
   const speakName = (text: string) => readNameAloud(text, 'es-ES');
 
   return (
-    <div className="gdn-tool-shell bg-gradient-to-br from-emerald-950/40 via-[#121212] to-teal-950/30 border border-emerald-500/30 rounded-3xl p-8 shadow-2xl relative overflow-hidden space-y-6">
+    <div className="gdn-tool-shell bg-gradient-to-br from-emerald-950/40 via-[#121212] to-teal-950/30 border border-emerald-500/30 rounded-3xl p-4 sm:p-8 shadow-2xl relative overflow-hidden space-y-6">
     <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10">
     <div>
     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 text-xs font-semibold uppercase tracking-wider mb-3">
@@ -33,14 +34,14 @@ export default function UnisexNamesTool({
     </div>
     
     {/* Interactive Unisex Compound Name Builder & Meaning Explorer */}
-    <div className="bg-zinc-950/90 border border-emerald-500/20 rounded-2xl p-6 relative z-10 space-y-5">
+    <div className="bg-zinc-950/90 border border-emerald-500/20 rounded-2xl p-4 sm:p-6 relative z-10 space-y-5">
     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/5 pb-4">
     <span className="text-xs font-bold text-emerald-300 uppercase tracking-wider flex items-center gap-1.5">
     <Sparkles className="w-4 h-4 text-emerald-400" /> Filtro por Estilo Neutro & Combinador
     </span>
     
     {/* Unisex Vibe Tabs */}
-    <div className="flex flex-wrap gap-1.5 bg-zinc-900 p-1 rounded-xl border border-white/10">
+    <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-1.5 bg-zinc-900 p-1 rounded-xl border border-white/10">
     {[
     { id: 'moderno', label: '🌿 Moderno / Corto' },
     { id: 'naturaleza', label: '🕊️ Naturaleza / Sol' },
@@ -49,8 +50,9 @@ export default function UnisexNamesTool({
     ].map(tab => (
     <button
     key={tab.id}
+    aria-pressed={unisexVibe === tab.id}
     onClick={() => setUnisexVibe(tab.id as any)}
-    className={`gdn-tool-tab px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+    className={`gdn-tool-tab min-h-11 px-2 sm:px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
     unisexVibe === tab.id
     ? 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-md'
     : 'text-zinc-400 hover:text-white'
@@ -67,6 +69,7 @@ export default function UnisexNamesTool({
     <div>
     <label htmlFor="unisexnamestool-field-1" className="text-[11px] text-zinc-400 font-bold uppercase block mb-1">1. Primer Nombre Neutro</label>
     <input id="unisexnamestool-field-1"
+    maxLength={80}
     type="text"
     value={unisexFirstName}
     onChange={(e) => setUnisexFirstName(e.target.value)}
@@ -77,6 +80,7 @@ export default function UnisexNamesTool({
     <div>
     <label htmlFor="unisexnamestool-field-2" className="text-[11px] text-zinc-400 font-bold uppercase block mb-1">2. Segundo Nombre Neutro</label>
     <input id="unisexnamestool-field-2"
+    maxLength={80}
     type="text"
     value={unisexSecondName}
     onChange={(e) => setUnisexSecondName(e.target.value)}
@@ -92,27 +96,8 @@ export default function UnisexNamesTool({
     const u2 = unisexSecondName.trim() || 'Morgan';
     const combinedUnisex = `${u1} ${u2}`;
     
-    const unisexMeaningsDb: Record<string, { origin: string; meaning: string }> = {
-    alex: { origin: 'Griego (Alexandros)', meaning: 'Defensor universal de la humanidad' },
-    rene: { origin: 'Latín / Francés', meaning: 'Renacido con elegancia y nueva luz' },
-    milan: { origin: 'Eslavo', meaning: 'Amado, gracioso y lleno de afecto' },
-    sasha: { origin: 'Ruso / Griego', meaning: 'Protector noble y guardián valiente' },
-    ariel: { origin: 'Hebreo', meaning: 'León de Dios y espíritu libre de los vientos' },
-    morgan: { origin: 'Galés / Celta', meaning: 'Nacido del mar brillante y las olas' },
-    river: { origin: 'Inglés', meaning: 'Río fluido, constante y lleno de vida' },
-    sky: { origin: 'Nórdico', meaning: 'Cielo libre, infinito y sereno' },
-    eden: { origin: 'Hebreo', meaning: 'Jardín de deleite, paz y armonía' },
-    sol: { origin: 'Latín', meaning: 'Luz radiante, calidez y sol brillante' },
-    noah: { origin: 'Hebreo', meaning: 'Paz, consuelo y descanso sereno' },
-    robin: { origin: 'Germánico / Inglés', meaning: 'Brillante reputación y canto de primavera' },
-    jordan: { origin: 'Hebreo', meaning: 'El que fluye hacia abajo con fuerza' },
-    vega: { origin: 'Árabe / Español', meaning: 'Estrella brillante que desciende' },
-    orion: { origin: 'Griego', meaning: 'Constelación del gran cazador estelar' },
-    phoenix: { origin: 'Griego', meaning: 'Ave inmortal que renace victoriosa' }
-    };
-    
-    const um1 = unisexMeaningsDb[u1.toLowerCase()] || { origin: 'Origen Internacional', meaning: 'Armonía, versatilidad y fortaleza' };
-    const um2 = unisexMeaningsDb[u2.toLowerCase()] || { origin: 'Origen Universal', meaning: 'Luz, libertad y belleza' };
+    const um1 = lookupNameMeaning(u1);
+    const um2 = lookupNameMeaning(u2);
     
     return (
     <div className="gdn-tool-result bg-zinc-900/90 p-5 rounded-2xl border border-emerald-500/30 space-y-4">
@@ -142,11 +127,13 @@ export default function UnisexNamesTool({
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
     <div className="bg-zinc-950/80 p-3 rounded-xl border border-white/5 space-y-1">
     <span className="text-emerald-300 font-bold">1. {u1} ({um1.origin})</span>
-    <p className="text-zinc-400">"{um1.meaning}"</p>
+    <p className="text-zinc-400">{um1.meaning}</p>
+    {um1.source && <a href={um1.source} target="_blank" rel="noopener noreferrer" className="text-violet-300 underline">Fuente del significado</a>}
     </div>
     <div className="bg-zinc-950/80 p-3 rounded-xl border border-white/5 space-y-1">
     <span className="text-emerald-300 font-bold">2. {u2} ({um2.origin})</span>
-    <p className="text-zinc-400">"{um2.meaning}"</p>
+    <p className="text-zinc-400">{um2.meaning}</p>
+    {um2.source && <a href={um2.source} target="_blank" rel="noopener noreferrer" className="text-violet-300 underline">Fuente del significado</a>}
     </div>
     </div>
     
@@ -181,19 +168,11 @@ export default function UnisexNamesTool({
     {/* Ready-to-copy Curated Unisex Names Grid */}
     <div className="space-y-3 relative z-10">
     <span className="text-xs font-bold text-emerald-300 uppercase tracking-wider flex items-center gap-1.5">
-    <Flame className="w-4 h-4 text-amber-400" /> Nombres Unisex Populares y Estéticos en 2026 (Clic para Copiar)
+    <Flame className="w-4 h-4 text-amber-400" /> Nombres Unisex Seleccionados por Estilo (Clic para Copiar)
     </span>
+    <p className="text-xs text-zinc-400" role="status">El estilo filtra las sugerencias; no cambia los nombres que escribes. La longitud corresponde al primer nombre. Selección editorial, no ranking de popularidad.</p>
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
-    {[
-    { label: 'Alex Morgan', val: 'Alex Morgan', desc: 'Defensor y Nacido del Mar' },
-    { label: 'René Sol', val: 'René Sol', desc: 'Renacido y Luz Radiante' },
-    { label: 'Milan Ariel', val: 'Milan Ariel', desc: 'Amado y León de Dios' },
-    { label: 'Sasha Sky', val: 'Sasha Sky', desc: 'Protector y Cielo Libre' },
-    { label: 'Eden River', val: 'Eden River', desc: 'Deleite y Río de Vida' },
-    { label: 'Noah Taylor', val: 'Noah Taylor', desc: 'Paz y Artesano' },
-    { label: 'Jordan Vega', val: 'Jordan Vega', desc: 'Fluido y Estrella' },
-    { label: 'Luka Phoenix', val: 'Luka Phoenix', desc: 'Luminoso y Fénix' }
-    ].map((item, idx) => (
+    {getCompoundSuggestions('unisex', unisexVibe).map((item, idx) => (
     <button
     key={idx}
     onClick={() => handleCopyTrending(item.val)}
