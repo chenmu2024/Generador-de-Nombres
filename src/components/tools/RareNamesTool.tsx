@@ -27,7 +27,7 @@ export default function RareNamesTool({
     Nombres Raros (Únicos, Poco Comunes y Fascinantes)
     </h2>
     <p className="text-zinc-400 mt-2 max-w-2xl text-sm">
-    Explora nombres extravagantes, mitológicos y cósmicos. Combina dos nombres exóticos, descubre su etimología antigua y escucha la pronunciación en audio real.
+    Explora nombres extravagantes, mitológicos y cósmicos. Combina dos nombres exóticos, descubre su etimología antigua y escucha la lectura sintetizada del dispositivo.
     </p>
     </div>
     </div>

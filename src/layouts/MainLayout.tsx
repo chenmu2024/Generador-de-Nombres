@@ -472,7 +472,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
             </div>
           </div>
           
-          <nav aria-label="Enlaces legales y de contacto" className="mt-12 pt-8 border-t border-white/5 flex flex-wrap justify-center gap-8 text-sm text-zinc-600">
+          <nav aria-label="Enlaces legales y de contacto" className="mt-12 pt-8 border-t border-white/5 flex flex-wrap justify-center gap-8 text-sm text-zinc-400">
             <Link to="/sobre-nosotros" className="hover:text-zinc-300 transition-colors">Sobre Nosotros</Link>
             <Link to="/politica-de-privacidad" className="hover:text-zinc-300 transition-colors">Política de Privacidad</Link>
             <button onClick={() => window.dispatchEvent(new Event("gdn-privacy-settings"))} className="hover:text-zinc-300">Preferencias de privacidad</button>
@@ -490,12 +490,12 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
             <p className="text-[11px] text-zinc-400 leading-relaxed">
               <strong>GeneradorDeNombres.net</strong> es una plataforma y herramienta independiente de utilidades tipográficas, generación de texto Unicode y apoyo comunitario. Este sitio web <strong>NO</strong> está afiliado, patrocinado, respaldado ni asociado oficialmente con Garena International I Private Limited, Sea Group, Roblox Corporation, Meta Platforms Inc., ni ninguna de sus empresas matrices o subsidiarias.
             </p>
-            <p className="text-[11px] text-zinc-500 leading-relaxed">
+            <p className="text-[11px] text-zinc-400 leading-relaxed">
               Las marcas comerciales, nombres de productos y logotipos como <em>"Free Fire"</em>, <em>"Roblox"</em>, <em>"Instagram"</em> y otros citados en este sitio pertenecen en su totalidad a sus respectivos propietarios legales. Su mención en este portal se realiza con fines estrictamente identificativos e informativos bajo el principio de <strong>Uso Legítimo Nominativo</strong> para señalar la compatibilidad de caracteres, fuentes y nombres generados.
             </p>
           </div>
 
-          <p className="text-zinc-700 text-sm mt-8">
+          <p className="text-zinc-400 text-sm mt-8">
             © {new Date().getFullYear()} generadordenombres.net. Todos los derechos reservados.
           </p>
         </div>

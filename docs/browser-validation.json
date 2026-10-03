@@ -1,0 +1,87 @@
+{
+  "date": "2026-10-03",
+  "browser": "Isolated Chrome 154 on Windows",
+  "method": "Unthrottled single lab samples; no field performance claim. Download-completed events and actual file reads.",
+  "metrics": [
+    {
+      "url": "http://127.0.0.1:3000/",
+      "viewport": "desktop",
+      "ttfbMs": 0.9,
+      "fcpMs": 32,
+      "lcpMs": 68,
+      "cls": 0,
+      "inp": null
+    },
+    {
+      "url": "http://127.0.0.1:3000/",
+      "viewport": "390x844",
+      "ttfbMs": 1.4,
+      "fcpMs": 40,
+      "lcpMs": 364,
+      "cls": 0,
+      "inp": null
+    },
+    {
+      "url": "http://127.0.0.1:3000/nombres-coreanos",
+      "viewport": "390x844",
+      "ttfbMs": 1.9,
+      "fcpMs": 240,
+      "lcpMs": 240,
+      "cls": 0,
+      "inp": null
+    },
+    {
+      "url": "http://127.0.0.1:3000/nombres-japoneses",
+      "viewport": "390x844",
+      "ttfbMs": 1.4,
+      "fcpMs": 152,
+      "lcpMs": 152,
+      "cls": 0,
+      "inp": null
+    },
+    {
+      "url": "https://generadordenombres.net/",
+      "viewport": "desktop",
+      "ttfbMs": 44.4,
+      "fcpMs": 560,
+      "lcpMs": 1084,
+      "cls": 0,
+      "inp": null
+    }
+  ],
+  "downloads": [
+    {
+      "file": "gamer-card.png",
+      "bytes": 207036,
+      "sha256": "d5f660d84bb34a1fd05e3aa01c31bc1ceb2561b9ed08d3e3abe243b5ad6afd3b",
+      "width": 764,
+      "height": 650
+    },
+    {
+      "file": "filtered-names.txt",
+      "bytes": 17228,
+      "sha256": "ee4f2f8a784b285c7c264340a4f772f48edc6d65995caec6934539a2975ef50f",
+      "lines": 528
+    },
+    {
+      "file": "selected-name.txt",
+      "bytes": 14,
+      "sha256": "5b5d4e8493a17dd607e7844d19ff7c955d33426b6168db1df5403850d5f6b1ec",
+      "lines": 1
+    }
+  ],
+  "accessibility": {
+    "url": "http://127.0.0.1:3000/",
+    "viewport": "390x844",
+    "axeVersion": "4.12.1",
+    "counts": {
+      "inapplicable": 44,
+      "incomplete": 1,
+      "passes": 45,
+      "violations": 0
+    },
+    "incompleteRuleIds": [
+      "color-contrast"
+    ]
+  }
+}

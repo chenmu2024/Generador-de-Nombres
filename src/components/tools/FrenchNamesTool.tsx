@@ -30,7 +30,7 @@ export default function FrenchNamesTool({
     <span>🥐</span> Generador de Nombres Franceses y Apodos Parisinos (con Audio)
     </h2>
     <p className="text-zinc-400 mt-1 text-sm">
-    Explora nombres refinados con guía fonética, voz francesa nativa en audio y creador de títulos estilo Paris Aesthetic.
+    Explora nombres refinados con guía fonética, lectura sintetizada en francés, si el dispositivo dispone de esa voz y creador de títulos estilo Paris Aesthetic.
     </p>
     </div>
     </div>
@@ -166,10 +166,10 @@ export default function FrenchNamesTool({
     { name: 'Amélie', phonetics: 'Ah-meh-lee', mean: 'Trabajadora dulce, dedicada y de noble espíritu', tag: '🌹 Elegante', category: 'Femeninos 🌹' },
     { name: 'Juliette', phonetics: 'Zhoo-lee-ett', mean: 'Joven, llena de gracia eterna y poesía', tag: '💌 Romántico', category: 'Románticos 💌' },
     { name: 'Chloé', phonetics: 'Kloh-eh', mean: 'Brote verde, flor que florece en primavera', tag: '🦋 Fresco', category: 'Femeninos 🌹' },
-    { name: 'Camille', phonetics: 'Kah-mee-yuh', mean: 'Noble, perfecta, refinada y dedicada', tag: '🎨 Sofisticado', category: 'Elegantes 💎' },
-    { name: 'Éloïse', phonetics: 'Eh-loh-eez', mean: 'Ilustre, famosa en el combate y brillante', tag: '⚜️ Real', category: 'Elegantes 💎' },
+    { name: 'Camille', phonetics: '/ka.mij/', mean: 'Forma francesa de Camilla; nombre también usado en masculino', tag: '🎨 Sofisticado', category: 'Elegantes 💎' },
+    { name: 'Éloïse', phonetics: 'Eh-loh-eez', mean: 'Variante de Héloïse; etimología pendiente de verificación', tag: '⚜️ Real', category: 'Elegantes 💎' },
     { name: 'Gabriel', phonetics: 'Gah-bree-ell', mean: 'Fuerza de Dios y mensajero protector', tag: '👑 Clásico', category: 'Masculinos ⚜️' },
-    { name: 'Antoine', phonetics: 'Ahn-twahn', mean: 'Inestimable, valioso y digno de alabanza', tag: '🏛️ Noble', category: 'Masculinos ⚜️' },
+    { name: 'Antoine', phonetics: 'Ahn-twahn', mean: 'Forma francesa de Antonius; su etimología es incierta', tag: '🏛️ Noble', category: 'Masculinos ⚜️' },
     { name: 'Céleste', phonetics: 'Seh-lest', mean: 'Celestial, perteneciente al cielo divino', tag: '✨ Divino', category: 'Femeninos 🌹' },
     { name: 'Louis', phonetics: 'Loo-ee', mean: 'Famoso guerrero y rey de gran espíritu', tag: '👑 Real', category: 'Clásicos 👑' },
     { name: 'Mathilde', phonetics: 'Mah-teeld', mean: 'Guerrera poderosa y valiente en batalla', tag: '🛡️ Fuerte', category: 'Elegantes 💎' },
@@ -182,7 +182,7 @@ export default function FrenchNamesTool({
     <h3 className="font-bold text-white text-lg font-heading group-hover:text-sky-300 transition-colors">{item.name}</h3>
     <span className="text-[10px] bg-sky-500/10 text-sky-300 px-2 py-0.5 rounded-full border border-sky-500/20">{item.tag}</span>
     </div>
-    <div className="text-xs text-sky-300/80 italic mb-1">Pronunciación: {item.phonetics}</div>
+    <div className="text-xs text-sky-300/80 italic mb-1">Guía aproximada: {item.phonetics}</div>
     <p className="text-xs text-zinc-400 leading-relaxed">{item.mean}</p>
     </div>
     

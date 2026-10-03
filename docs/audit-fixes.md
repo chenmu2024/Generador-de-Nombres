@@ -25,19 +25,22 @@ The 46 existing keyword pages retain their exact route, keyword string, title an
 
 - Frozen Bun 1.4.2 install: passed.
 - TypeScript and production export: passed.
-- Nine regression tests: passed (SEO preservation, Unicode boundaries, filters, whitespace, Instagram boundaries, alphabet data/rendering, storage failures, clipboard failures and consent withdrawal).
+- Eleven regression tests: passed (SEO preservation, Unicode boundaries, filters, whitespace, Instagram boundaries, alphabet data/rendering, storage failures, clipboard failures, consent withdrawal, cultural content and speech voice availability).
 - Export audit: 50 pages, one H1/main each, preserved emitted keywords/canonicals, 5,009 resolving internal links.
 - Raster decoding: all repaired assets and share image decoded successfully.
 - Bun dependency audit: no known vulnerabilities found across 156 packages.
 - Browser: generation, Unicode count, short filters, select-all, clipboard, favorites, alphabet initial/Ñ selection, Italian search/copy/empty state, Instagram invalid and maximum-length candidates, privacy reopening, mobile menu focus trap/Escape and roulette completion exercised.
 - Responsive checks: 360, 390, 768, 1280 and 1440-pixel widths; desktop navigation overflow repaired.
-- PNG rendering completed after the color fix. The in-app browser did not report download events for either PNG or TXT, so saved-file verification remains pending in a normal browser.
+- Saved-file verification passed in isolated Chrome 154: the actual PNG download decoded as 764×650 (207,036 bytes) and was visually inspected. The actual filtered TXT contained 528 names, all at most 12 graphemes with no isolated surrogates; the selected TXT contained exactly the selected first name. Browser download-completed events and disk reads confirmed both formats. The automation's Windows path separator issue was corrected in the test setup; no site download change was needed.
+- Homepage axe 4.12.1 at 390×844: 45 passing rules, zero definite violations. One incomplete contrast rule still needs manual judgment for gradients and decorative symbols. Fixed small-text/button/footer contrast and the quick-symbol heading level without changing H1.
+- Unthrottled local Chrome lab: homepage desktop LCP 68 ms, mobile LCP 364 ms; CLS 0. Production homepage sample LCP 1,084 ms / CLS 0 before this PR is deployed. These are separate local/network environments, not proof of a percentage improvement or a Lighthouse score. No field INP or CrUX result is claimed.
+- Removed remaining native-recording claims; clarified Korean meanings require the specific hanja, corrected known Japanese/French errors and marked unsupported Mayan translations as unverified. Maya and Nahuatl are distinguished; decorative emoji are not represented as Mayan glyphs. Added source links and cultural-content/speech regression tests.
 
 ## Remaining external checks
 
 These changes do not establish platform username availability, game character acceptance, native pronunciation, legal compliance or comprehensive etymological verification of all historical article data. Cultural articles still require source-by-source editorial review. Search Console/CrUX access is needed for ranking, keyword cannibalization and real-user performance conclusions. No invented performance score or SERP verification is claimed.
 
-The production host redirect requires deployment. This branch is not a production release; review before merging/deploying. Verify PNG/TXT saved files in a normal browser and sample voice behavior on target devices before release.
+The production host redirect requires deployment. This branch is not a production release; review before merging/deploying. Sample voice behavior on target devices before release. Full historical etymology review and real-user performance remain outstanding.
 
 ## Local checks
 

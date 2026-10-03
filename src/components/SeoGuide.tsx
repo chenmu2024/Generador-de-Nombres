@@ -81,11 +81,11 @@ export default function SeoGuide({ data, currentPath }: { data: CategoryData; cu
           </p>
           <div className="pt-2.5 border-t border-white/5 space-y-1.5 text-[11px] text-zinc-400">
             <div className="flex items-center justify-between">
-              <span className="text-zinc-500">Revisión funcional:</span>
+              <span className="text-zinc-400">Revisión funcional:</span>
               <span className="font-semibold text-zinc-300">3 de octubre de 2026</span>
             </div>
             <div className="flex items-center justify-between">
-              <span className="text-zinc-500">Compatibilidad:</span>
+              <span className="text-zinc-400">Compatibilidad:</span>
               <span className="font-semibold text-emerald-400">Compatibilidad variable por plataforma</span>
             </div>
             <div className="flex items-center justify-between pt-1">

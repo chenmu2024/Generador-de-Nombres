@@ -342,7 +342,7 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
               </div>
             </div>
             <div className="text-right mt-2 px-2">
-              <span className={`text-xs font-medium ${visibleLength(inputText) > 12 ? 'text-amber-500' : 'text-zinc-500'}`}>
+              <span className={`text-xs font-medium ${visibleLength(inputText) > 12 ? 'text-amber-500' : 'text-zinc-400'}`}>
                 {visibleLength(inputText)} caracteres {visibleLength(inputText) > 12 ? '(Más de 12 caracteres visibles)' : ''}
               </span>
             </div>
@@ -409,9 +409,9 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
         </div>
 
         <div>
-          <h3 className="text-sm font-semibold text-zinc-400 uppercase tracking-wider mb-4 flex items-center gap-2">
-            Símbolos Rápidos <span className="text-xs font-normal normal-case text-zinc-600">(Clic para agregar)</span>
-          </h3>
+          <h2 className="text-sm font-semibold text-zinc-400 uppercase tracking-wider mb-4 flex items-center gap-2">
+            Símbolos Rápidos <span className="text-xs font-normal normal-case text-zinc-400">(Clic para agregar)</span>
+          </h2>
           <div className="flex flex-wrap gap-2 md:gap-3">
             {symbolsToUse.map((sym, i) => (
               <button
@@ -429,7 +429,7 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
           <div className="gdn-tool-result">
             {/* Vibe / Mood Quick Filters */}
             <div className="mb-5 flex items-center gap-2 overflow-x-auto pb-1 text-xs">
-              <span className="text-zinc-500 font-bold shrink-0">Filtrar Estilo:</span>
+              <span className="text-zinc-400 font-bold shrink-0">Filtrar Estilo:</span>
               {[
                 { id: 'all', label: '🌟 Todos', color: 'bg-white/10 hover:bg-white/20 text-white' },
                 { id: 'epico', label: '⚔️ Épico / Pro', color: 'bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border-amber-500/30' },
@@ -549,7 +549,7 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
                           <span className={`text-[10px] font-extrabold px-2 py-0.5 rounded-md border ${rarity.bg}`}>
                             {rarity.label}
                           </span>
-                          <span className={`text-[10px] font-semibold tracking-wide ${isExceedFF ? 'text-amber-400' : 'text-zinc-500'}`}>
+                          <span className={`text-[10px] font-semibold tracking-wide ${isExceedFF ? 'text-amber-400' : 'text-zinc-400'}`}>
                             {visibleLength(name)} CARACTERES {isExceedFF && '(>12 visibles)'}
                           </span>
 
