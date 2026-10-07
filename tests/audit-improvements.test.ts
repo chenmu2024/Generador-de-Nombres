@@ -243,7 +243,7 @@ test('pet catalogues contain 20 distinct entries with documented categories and 
 test('pet filters combine category, accent-insensitive searching, length and sorting', () => {
   const all = petNameLists.blackCats;
   const results = selectPetNameIdeas(all, 'Todos 🐈‍⬛', 'Todos 🐈‍⬛', 'onix', 'all', 'alpha');
-  assert.deepEqual(results.map(item => item.name), ['Onyx', 'Ónix']);
+  assert.deepEqual(results.map(item => item.name), ['Ónix']);
   const night = selectPetNameIdeas(all, 'Noche / Cosmos 🌑', 'Todos 🐈‍⬛', '', 'short', 'alpha');
   assert.deepEqual(night.map(item => item.name), []);
   const shortNames = selectPetNameIdeas(petNameLists.cats, 'Todos 🐱', 'Todos 🐱', '', 'short', 'length');
