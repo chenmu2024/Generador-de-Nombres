@@ -40,7 +40,7 @@ export default function FreeFireToolkit({
                     Nombres para Clanes y Escuadras de Free Fire
                   </h2>
                   <p className="text-zinc-400 mt-2 max-w-2xl text-sm">
-                    Genera el tag oficial de tu clan, insignias imponentes con escudos y coronas 👑, y la combinación uniforme de nicks para los 4 integrantes de tu escuadra competitiva.
+                    Genera un tag visual para tu clan, insignias con escudos y coronas 👑, y una combinación uniforme de nicks para los 4 integrantes de tu escuadra.
                   </p>
                 </div>
               </div>
@@ -116,7 +116,7 @@ export default function FreeFireToolkit({
               {/* Ready-to-copy Clan Presets Grid */}
               <div className="space-y-3 relative z-10">
                 <span className="text-xs font-bold text-red-300 uppercase tracking-wider flex items-center gap-1.5">
-                  <Flame className="w-4 h-4 text-amber-400" /> Nombres para Clanes Top Competitivos (Clic para Copiar)
+                  <Flame className="w-4 h-4 text-amber-400" /> Ejemplos de Nombres para Clanes (Clic para Copiar)
                 </span>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
                   {[
@@ -165,7 +165,7 @@ export default function FreeFireToolkit({
               {/* Ready-to-copy Female Presets Grid */}
               <div className="space-y-3 relative z-10">
                 <span className="text-xs font-bold text-fuchsia-300 uppercase tracking-wider flex items-center gap-1.5">
-                  <Sparkles className="w-4 h-4 text-fuchsia-400" /> Apodos Femeninos Top Tendencia (Clic para Copiar)
+                  <Sparkles className="w-4 h-4 text-fuchsia-400" /> Apodos Femeninos Seleccionados (Clic para Copiar)
                 </span>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
                   {[
@@ -292,7 +292,7 @@ export default function FreeFireToolkit({
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8 relative z-10">
               <div>
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-300 text-xs font-semibold uppercase tracking-wider mb-3">
-                  🔥 Herramienta Top: Juegos & Redes
+                  🔥 Herramienta para Juegos & Redes
                 </div>
                 <h2 className="text-2xl md:text-3xl font-bold text-white font-heading flex items-center gap-3">
                   Espacio Invisible y Creador de Apodos Pro
