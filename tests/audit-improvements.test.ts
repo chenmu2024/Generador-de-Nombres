@@ -302,3 +302,15 @@ test('Free Fire advanced features hydrate only near the viewport or after explic
   assert.match(deferred, /data-loaded=/);
   assert.match(deferred, /Herramienta complementaria/);
 });
+
+
+test('live nickname updates debounce repeated transformations while explicit submit stays immediate', () => {
+  const source = fs.readFileSync('src/components/Generator.tsx', 'utf8');
+  assert.match(source, /const LIVE_GENERATION_DELAY_MS = 160/);
+  assert.match(source, /setTimeout\(\(\) => \{/);
+  assert.match(source, /\}, LIVE_GENERATION_DELAY_MS\)/);
+  assert.match(source, /clearTimeout\(timer\)/);
+  assert.match(source, /clearTimeout\(pendingLiveGeneration\.current\)/);
+  assert.match(source, /aria-label="Generar nombres"/);
+  assert.match(source, /skipAutoRefreshFor\.current/);
+});
