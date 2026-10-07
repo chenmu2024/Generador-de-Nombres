@@ -31,7 +31,7 @@ export default function KoreanNamesTool({
     <span>🇰🇷</span> Generador y Creador de Nombres Coreanos (con Audio)
     </h2>
     <p className="text-zinc-400 mt-1 text-sm">
-    Explora nombres en Hangul, romanización convencional y lectura sintetizada, si hay una voz coreana disponible y creador de apodos Idol.
+    Explora nombres en Hangul, romanización convencional y lectura sintetizada, si hay una voz coreana disponible, con una variante decorativa opcional.
     </p>
     </div>
     </div>
@@ -122,7 +122,7 @@ export default function KoreanNamesTool({
     .replace('[Name]', krCustomName || 'Min-Ji')
     .replace('[Hangul]', krCustomHangul || '민지')}
     </div>
-    <div className="text-xs text-zinc-400 italic">Ideal para TikTok, Instagram o Free Fire</div>
+    <div className="text-xs text-zinc-400 italic">Formato decorativo opcional; comprueba qué caracteres admite el lugar donde vayas a usarlo</div>
     </div>
     
     <div className="w-full space-y-2 mt-4">
@@ -185,7 +185,7 @@ export default function KoreanNamesTool({
     { hangul: '정국', name: 'Jung-Kook', vibe: '🔥 Estilo BTS JK', category: 'K-Pop Idols 🎤' },
     { hangul: '민호', name: 'Min-Ho', vibe: '🎬 Estilo Lee Min-ho', category: 'K-Drama 🎬' },
     { hangul: '서윤', name: 'Seo-Yoon', vibe: '✨ Clásico Elegante', category: 'Niñas 🌸' },
-    { hangul: '도윤', name: 'Do-Yoon', vibe: '⚡ Tendencia Masculina', category: 'Niños ⚡' },
+    { hangul: '도윤', name: 'Do-Yoon', vibe: '⚡ Masculino', category: 'Niños ⚡' },
     { hangul: '현우', name: 'Hyun-Woo', vibe: '🌟 Actor de Dorama', category: 'K-Drama 🎬' },
     { hangul: '지수', name: 'Ji-Soo', vibe: '💖 BLACKPINK Jisoo', category: 'K-Pop Idols 🎤' },
     { hangul: '지민', name: 'Ji-Min', vibe: '✨ BTS Jimin', category: 'K-Pop Idols 🎤' }
@@ -217,7 +217,7 @@ export default function KoreanNamesTool({
     className="py-1.5 bg-zinc-800 hover:bg-violet-500/20 text-violet-300 rounded-xl text-[11px] font-semibold border border-white/5 transition-all flex items-center justify-center gap-1"
     title="Cargar en el creador"
     >
-    <span>✨</span> Estilar
+    <span>✨</span> Usar
     </button>
     </div>
     <button
