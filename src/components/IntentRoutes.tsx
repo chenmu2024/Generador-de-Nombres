@@ -36,26 +36,26 @@ export default function IntentRoutes({ path }: { path: string }) {
 
   return (
     <nav aria-label="Elige la herramienta según lo que quieres hacer"
-      className="gdn-surface border rounded-2xl p-4 sm:p-5 space-y-3 max-w-6xl mx-auto">
+      className="gdn-surface border rounded-2xl p-3 sm:p-4 space-y-2 max-w-6xl mx-auto">
       <h2 className="text-base sm:text-lg font-heading font-semibold text-zinc-100">
         ¿Qué quieres hacer?
       </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-2">
         {routes.map(route => {
           const selected = route.href === path;
           const destination = selected ? '#generador' : route.href;
           return (
             <Link key={route.href} to={destination} aria-current={selected ? 'page' : undefined}
-              className={`rounded-xl min-h-16 p-3.5 flex flex-col gap-1 border transition-colors ${selected
+              className={`rounded-xl min-h-14 p-2.5 sm:p-3 flex flex-col justify-center gap-1 border transition-colors ${selected
                 ? 'border-violet-400/60 bg-violet-500/10'
                 : 'border-white/10 bg-white/[0.02] hover:border-violet-400/40'}`}>
               <span className="text-sm font-bold text-zinc-100">{route.label}{selected ? ' · Aquí' : ''}</span>
-              <span className="text-xs text-zinc-300 leading-relaxed">{route.description}</span>
+              <span className="hidden sm:block text-xs text-zinc-300 leading-relaxed">{route.description}</span>
             </Link>
           );
         })}
       </div>
-      <p className="text-xs text-zinc-400">
+      <p className="hidden sm:block text-xs text-zinc-400">
         Los ejemplos son inspiración editorial. Verifica la disponibilidad y los caracteres aceptados directamente en la plataforma correspondiente.
       </p>
     </nav>
