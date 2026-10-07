@@ -655,6 +655,7 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
               <div className="mt-4 flex items-center justify-center gap-3">
                 <button
                   onClick={() => setVisibleCount(prev => Math.min(prev + LOAD_MORE_NAMES, displayedNames.length))}
+                  aria-label="Cargar más nombres"
                   className="gdn-chip px-6 py-2.5 font-bold text-xs rounded-xl border transition-all flex items-center gap-2"
                 >
                   <Sparkles className="w-4 h-4" /> Cargar Más Nombres (+24)
