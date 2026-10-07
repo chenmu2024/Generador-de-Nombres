@@ -4,6 +4,7 @@ import { speakName as readNameAloud } from '../../utils/speech';
 
 import { useState } from 'react';
 import { Copy, Volume2 } from 'lucide-react';
+import PetNameLibrary from './PetNameLibrary';
 
 export default function BlackCatNamesTool({
   handleCopyTrending,
@@ -191,7 +192,7 @@ export default function BlackCatNamesTool({
       <h3 className="text-xl font-bold text-white font-heading flex items-center gap-2">
       <span>📖</span> Directorio de Nombres para Gatos Negros
       </h3>
-      <p className="text-xs text-zinc-400 mt-1">Filtra por temática mágica o de cultura pop y escucha su llamado.</p>
+      <p className="text-xs text-zinc-400 mt-1">Filtra por temática creativa o cultura pop y escucha una lectura sintetizada.</p>
       </div>
       
       <div className="flex flex-wrap gap-2">
@@ -199,7 +200,7 @@ export default function BlackCatNamesTool({
       <button
       key={tab}
       onClick={() => setBlackCatCategoryTab(tab)}
-      className={`gdn-tool-tab px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
+      className={`gdn-tool-tab px-3 py-2.5 min-h-11 rounded-xl text-xs font-bold transition-all ${
       blackCatCategoryTab === tab
       ? 'bg-purple-600 text-white shadow-md shadow-purple-500/20'
       : 'bg-zinc-800 text-zinc-400 hover:text-white'
@@ -211,57 +212,14 @@ export default function BlackCatNamesTool({
       </div>
       </div>
       
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-      {[
-      { name: 'Salem', mean: 'El inolvidable gato parlante de Sabrina. Sarcástico, sabio e icónico.', symbol: '🔮 Bruja #1', category: 'Místicos / Magia 🔮' },
-      { name: 'Jiji', mean: 'Gato negro de Kiki (Studio Ghibli). Leal, tierno y con gran voz interior.', symbol: '🎬 Ghibli', category: 'Cine / Anime 🎬' },
-      { name: 'Kuro', mean: 'Significa "Negro" en japonés. Muy usado en animes como Ao no Exorcist.', symbol: '⚡ Anime', category: 'Cine / Anime 🎬' },
-      { name: 'Bagheera', mean: 'La sabia pantera negra de El Libro de la Selva. Ágil, valiente y noble.', symbol: '🐆 Pantera', category: 'Cine / Anime 🎬' },
-      { name: 'Sombra', mean: 'Evoca a un gato sigiloso que se mueve entre sombras y rincones oscuros.', symbol: '🌑 Sigilo', category: 'Noche / Cosmos 🌑' },
-      { name: 'Eclipse', mean: 'Fenómeno cósmico donde la luna oculta al sol. Mágico y fascinante.', symbol: '🌑 Cosmos', category: 'Noche / Cosmos 🌑' },
-      { name: 'Onyx', mean: 'Inspirado en la valiosa piedra preciosa de tono negro profundo.', symbol: '💎 Elegante', category: 'Elegantes / Dark 🖤' },
-      { name: 'Merlín', mean: 'El mago más poderoso de las leyendas. Para michis misteriosos e inteligentes.', symbol: '🪄 Mago', category: 'Místicos / Magia 🔮' },
-      { name: 'Frijolito', mean: 'Una opción divertida y tierna para gatitos pequeños de pelaje oscuro.', symbol: '🍡 Tierno', category: 'Divertidos / Tiernos 🍡' },
-      { name: 'Panterita', mean: 'Cariñoso homenaje al rey de la selva en formato miniatura.', symbol: '🐈‍⬛ Clásico', category: 'Divertidos / Tiernos 🍡' },
-      { name: 'Velvet', mean: 'Significa "terciopelo". Para minipanteras de pelaje súper suave y brillante.', symbol: '🖤 Terciopelo', category: 'Elegantes / Dark 🖤' },
-      { name: 'Hécate', mean: 'Diosa griega de la magia, las encrucijadas, la luna y la noche.', symbol: '🔮 Deidad', category: 'Místicos / Magia 🔮' }
-      ].filter(item => blackCatCategoryTab === 'Todos 🐈‍⬛' || item.category === blackCatCategoryTab).map((item, idx) => (
-      <div key={idx} className="bg-zinc-900/80 border border-white/5 hover:border-purple-500/30 rounded-2xl p-5 flex flex-col justify-between gap-3 transition-all group">
-      <div>
-      <div className="flex items-center justify-between mb-2">
-      <h3 className="font-bold text-white text-lg font-heading group-hover:text-purple-300 transition-colors">{item.name}</h3>
-      <span className="text-[10px] bg-purple-500/10 text-purple-300 px-2.5 py-0.5 rounded-full border border-purple-500/20">{item.symbol}</span>
-      </div>
-      <p className="text-xs text-zinc-400 leading-relaxed mt-1">{item.mean}</p>
-      </div>
-      
-      <div className="space-y-1.5 pt-2 border-t border-white/5">
-      <div className="grid grid-cols-2 gap-1.5">
-      <button
-      onClick={() => speakBlackCatName(item.name)}
-      className="py-1.5 bg-zinc-800 hover:bg-zinc-700 text-purple-300 rounded-xl text-[11px] font-semibold border border-white/5 transition-all flex items-center justify-center gap-1"
-      title="Escuchar audio"
-      >
-      <Volume2 className="w-3 h-3" /> Audio
-      </button>
-      <button
-      onClick={() => setBlackCatCustomName(item.name)}
-      className="py-1.5 bg-zinc-800 hover:bg-purple-500/20 text-purple-300 rounded-xl text-[11px] font-semibold border border-white/5 transition-all flex items-center justify-center gap-1"
-      title="Cargar en el creador"
-      >
-      <span>✨</span> Usar
-      </button>
-      </div>
-      <button
-      onClick={() => handleCopyTrending(item.name)}
-      className="w-full py-1.5 bg-purple-500/10 hover:bg-purple-500/20 text-purple-300 rounded-xl text-xs font-bold border border-purple-500/20 transition-all flex items-center justify-center gap-1"
-      >
-      <Copy className="w-3 h-3" /> Copiar Nombre
-      </button>
-      </div>
-      </div>
-      ))}
-      </div>
+      <PetNameLibrary
+        kind="blackCats"
+        category={blackCatCategoryTab}
+        allCategory="Todos 🐈‍⬛"
+        onCopy={handleCopyTrending}
+        onUse={setBlackCatCustomName}
+        onSpeak={speakBlackCatName}
+      />
       </div>
       </div>
       </div>

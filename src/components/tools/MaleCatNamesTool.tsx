@@ -4,6 +4,7 @@ import { speakName as readNameAloud } from '../../utils/speech';
 
 import { useState } from 'react';
 import { Copy, Volume2 } from 'lucide-react';
+import PetNameLibrary from './PetNameLibrary';
 
 export default function MaleCatNamesTool({
   handleCopyTrending,
@@ -31,7 +32,7 @@ export default function MaleCatNamesTool({
       <span>🐱</span> Generador y Creador de Nombres para Gatos Machos (con Audio)
       </h2>
       <p className="text-zinc-400 mt-1 text-sm">
-      Diseña la placa de tu gato macho, simula el llamado felino por voz y explora el directorio filtrado.
+      Busca nombres para tu gato, escucha una lectura sintetizada y prueba una placa decorativa.
       </p>
       </div>
       </div>
@@ -144,7 +145,7 @@ export default function MaleCatNamesTool({
       <button
       key={tab}
       onClick={() => setMaleCatCategoryTab(tab)}
-      className={`gdn-tool-tab px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
+      className={`gdn-tool-tab px-3 py-2.5 min-h-11 rounded-xl text-xs font-bold transition-all ${
       maleCatCategoryTab === tab
       ? 'bg-blue-600 text-white shadow-md shadow-blue-500/20'
       : 'bg-zinc-800 text-zinc-400 hover:text-white'
@@ -156,57 +157,14 @@ export default function MaleCatNamesTool({
       </div>
       </div>
       
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-      {[
-      { name: 'Simba', mean: 'El rey de la selva. Significa "león valiente" y con gran presencia.', symbol: '🦁 Rey #1', category: 'Épicos / Reyes 👑' },
-      { name: 'Thor', mean: 'Inspirado en el dios nórdico del trueno; transmite una imagen fuerte y enérgica.', symbol: '⚡ Trueno', category: 'Mitología / Héroes 🏛️' },
-      { name: 'Leo', mean: 'Nombre breve de dos sílabas, práctico para repetir al llamarlo.', symbol: '⚡ Corto', category: 'Cortos (2 Sílabas) ⚡' },
-      { name: 'Mochi', mean: 'Inspirado en el pastel japonés mochi; una opción tierna para gatos cariñosos.', symbol: '🍡 Dulce', category: 'Comida / Tiernos 🍡' },
-      { name: 'Loki', mean: 'Inspirado en el dios nórdico asociado con las travesuras; encaja con una temática inquieta y juguetona.', symbol: '⚡ Travieso', category: 'Mitología / Héroes 🏛️' },
-      { name: 'Zeus', mean: 'Rey del Olimpo y señor de los cielos. Imponente y dominante.', symbol: '🏛️ Olimpo', category: 'Mitología / Héroes 🏛️' },
-      { name: 'Nacho', mean: 'Cálido y divertido; encaja especialmente con una temática de gatos naranjas.', symbol: '🍊 Naranjita', category: 'Comida / Tiernos 🍡' },
-      { name: 'Max', mean: 'Corto y directo; resulta fácil de repetir al llamar al gato.', symbol: '⚡ Corto', category: 'Cortos (2 Sílabas) ⚡' },
-      { name: 'Oreo', mean: 'Inspirado en la galleta blanca y negra. Un clásico entrañable.', symbol: '🍡 Galleta', category: 'Comida / Tiernos 🍡' },
-      { name: 'Oliver', mean: 'Inspirado en Oliver y su Pandilla de Disney. Curioso y noble.', symbol: '🎬 Disney', category: 'Famosos / Anime 🎬' },
-      { name: 'Garfield', mean: 'El icónico michi amante de la lasaña y las sestas mañaneras.', symbol: '🎬 Famoso', category: 'Famosos / Anime 🎬' },
-      { name: 'Apolo', mean: 'Dios del sol, la luz y las artes. Para gatos hermosos y dorados.', symbol: '🏛️ Sol', category: 'Mitología / Héroes 🏛️' }
-      ].filter(item => maleCatCategoryTab === 'Todos 🐱' || item.category === maleCatCategoryTab).map((item, idx) => (
-      <div key={idx} className="bg-zinc-900/80 border border-white/5 hover:border-blue-500/30 rounded-2xl p-5 flex flex-col justify-between gap-3 transition-all group">
-      <div>
-      <div className="flex items-center justify-between mb-2">
-      <h3 className="font-bold text-white text-lg font-heading group-hover:text-blue-300 transition-colors">{item.name}</h3>
-      <span className="text-[10px] bg-blue-500/10 text-blue-300 px-2.5 py-0.5 rounded-full border border-blue-500/20">{item.symbol}</span>
-      </div>
-      <p className="text-xs text-zinc-400 leading-relaxed mt-1">{item.mean}</p>
-      </div>
-      
-      <div className="space-y-1.5 pt-2 border-t border-white/5">
-      <div className="grid grid-cols-2 gap-1.5">
-      <button
-      onClick={() => speakMaleCatName(item.name)}
-      className="py-1.5 bg-zinc-800 hover:bg-zinc-700 text-blue-300 rounded-xl text-[11px] font-semibold border border-white/5 transition-all flex items-center justify-center gap-1"
-      title="Escuchar audio"
-      >
-      <Volume2 className="w-3 h-3" /> Audio
-      </button>
-      <button
-      onClick={() => setMaleCatCustomName(item.name)}
-      className="py-1.5 bg-zinc-800 hover:bg-blue-500/20 text-blue-300 rounded-xl text-[11px] font-semibold border border-white/5 transition-all flex items-center justify-center gap-1"
-      title="Cargar en el creador"
-      >
-      <span>✨</span> Usar
-      </button>
-      </div>
-      <button
-      onClick={() => handleCopyTrending(item.name)}
-      className="w-full py-1.5 bg-blue-500/10 hover:bg-blue-500/20 text-blue-300 rounded-xl text-xs font-bold border border-blue-500/20 transition-all flex items-center justify-center gap-1"
-      >
-      <Copy className="w-3 h-3" /> Copiar Nombre
-      </button>
-      </div>
-      </div>
-      ))}
-      </div>
+      <PetNameLibrary
+        kind="maleCats"
+        category={maleCatCategoryTab}
+        allCategory="Todos 🐱"
+        onCopy={handleCopyTrending}
+        onUse={setMaleCatCustomName}
+        onSpeak={speakMaleCatName}
+      />
       </div>
       </div>
       </div>

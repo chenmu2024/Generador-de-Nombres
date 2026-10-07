@@ -4,6 +4,7 @@ import { speakName as readNameAloud } from '../../utils/speech';
 
 import { useState } from 'react';
 import { Copy, Volume2 } from 'lucide-react';
+import PetNameLibrary from './PetNameLibrary';
 
 export default function DogNamesTool({
   handleCopyTrending,
@@ -32,7 +33,7 @@ export default function DogNamesTool({
       <span>🐶</span> Creador y Buscador de Nombres para Perritas (con Audio)
       </h2>
       <p className="text-zinc-400 mt-1 text-sm">
-      Encuentra el nombre ideal por personalidad, simula la llamada por audio y diseña su placa o usuario de redes sociales.
+      Explora nombres por estilo, escucha una lectura sintetizada y crea una placa opcional.
       </p>
       </div>
       </div>
@@ -137,7 +138,7 @@ export default function DogNamesTool({
       <h3 className="text-xl font-bold text-white font-heading flex items-center gap-2">
       <span>📖</span> Colección de Nombres para Perritas por Categoría
       </h3>
-      <p className="text-xs text-zinc-400 mt-1">Explora nombres populares con significado y voz de llamado.</p>
+      <p className="text-xs text-zinc-400 mt-1">Explora ideas editoriales para perritas; sin rankings ni significados inventados.</p>
       </div>
       
       <div className="flex flex-wrap gap-2">
@@ -145,7 +146,7 @@ export default function DogNamesTool({
       <button
       key={tab}
       onClick={() => setDogCategoryTab(tab)}
-      className={`gdn-tool-tab px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
+      className={`gdn-tool-tab px-3 py-2.5 min-h-11 rounded-xl text-xs font-bold transition-all ${
       dogCategoryTab === tab
       ? 'bg-pink-500 text-zinc-950 shadow-md shadow-pink-500/20'
       : 'bg-zinc-800 text-zinc-400 hover:text-white'
@@ -157,57 +158,14 @@ export default function DogNamesTool({
       </div>
       </div>
       
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-      {[
-      { name: 'Luna', mean: 'El nombre #1 más querido para perritas. Evoca la luz nocturna y tranquilidad.', symbol: '🌙 Popular #1', category: 'Tiernas 💖' },
-      { name: 'Kira', mean: 'Nombre corto asociado aquí con brillo o luz; resulta práctico para repetir al llamarla.', symbol: '✨ Brillo', category: 'Originales ✨' },
-      { name: 'Nala', mean: 'Inspirado en El Rey León. Significa "reina" o "regalo de la naturaleza".', symbol: '🦁 Leona', category: 'Famosas 👑' },
-      { name: 'Chloe', mean: 'Asociado tradicionalmente con brote verde; una opción suave y elegante.', symbol: '🎀 Coqueta', category: 'Pequeñas 🎀' },
-      { name: 'Copito', mean: 'Una opción descriptiva para perritas de pelaje blanco o muy esponjoso.', symbol: '❄️ Suave', category: 'Blancas / Peluditas ❄️' },
-      { name: 'Bella', mean: 'Un clásico hermoso para cachorras nobles, cariñosas y elegantes.', symbol: '🌸 Clásica', category: 'Tiernas 💖' },
-      { name: 'Sasha', mean: 'Nombre de sonido firme; puede encajar con estilos fuertes o clásicos.', symbol: '🛡️ Fuerte', category: 'Originales ✨' },
-      { name: 'Mimi', mean: 'Nombre muy dulce y de fácil pronunciación para razas miniatura.', symbol: '🍬 Miniatura', category: 'Pequeñas 🎀' },
-      { name: 'Bianca', mean: 'Significa "blanca y pura". Elegante para Poodle, Maltés o Pomerania.', symbol: '🕊️ Blanca', category: 'Blancas / Peluditas ❄️' },
-      { name: 'Arya', mean: 'De origen valiente e independeinte. Nombre corto e inspirador.', symbol: '👑 Noble', category: 'Famosas 👑' },
-      { name: 'Maya', mean: 'Inspirado en la gran cultura milenaria. Significa "ilusión o agua sagrada".', symbol: '🌿 Sagrada', category: 'Originales ✨' },
-      { name: 'Daisy', mean: 'Significa "margarita". Nombre alegre, jovial y lleno de vida.', symbol: '🌼 Flor', category: 'Tiernas 💖' }
-      ].filter(item => dogCategoryTab === 'Todas 🐾' || item.category === dogCategoryTab).map((item, idx) => (
-      <div key={idx} className="bg-zinc-900/80 border border-white/5 hover:border-pink-500/30 rounded-2xl p-5 flex flex-col justify-between gap-3 transition-all group">
-      <div>
-      <div className="flex items-center justify-between mb-2">
-      <h3 className="font-bold text-white text-lg font-heading group-hover:text-pink-300 transition-colors">{item.name}</h3>
-      <span className="text-[10px] bg-pink-500/10 text-pink-300 px-2.5 py-0.5 rounded-full border border-pink-500/20">{item.symbol}</span>
-      </div>
-      <p className="text-xs text-zinc-400 leading-relaxed mt-1">{item.mean}</p>
-      </div>
-      
-      <div className="space-y-1.5 pt-2 border-t border-white/5">
-      <div className="grid grid-cols-2 gap-1.5">
-      <button
-      onClick={() => speakDogName(item.name)}
-      className="py-1.5 bg-zinc-800 hover:bg-zinc-700 text-pink-300 rounded-xl text-[11px] font-semibold border border-white/5 transition-all flex items-center justify-center gap-1"
-      title="Escuchar audio"
-      >
-      <Volume2 className="w-3 h-3" /> Audio
-      </button>
-      <button
-      onClick={() => setDogCustomName(item.name)}
-      className="py-1.5 bg-zinc-800 hover:bg-pink-500/20 text-pink-300 rounded-xl text-[11px] font-semibold border border-white/5 transition-all flex items-center justify-center gap-1"
-      title="Cargar en el creador"
-      >
-      <span>✨</span> Usar
-      </button>
-      </div>
-      <button
-      onClick={() => handleCopyTrending(item.name)}
-      className="w-full py-1.5 bg-pink-500/10 hover:bg-pink-500/20 text-pink-300 rounded-xl text-xs font-bold border border-pink-500/20 transition-all flex items-center justify-center gap-1"
-      >
-      <Copy className="w-3 h-3" /> Copiar Nombre
-      </button>
-      </div>
-      </div>
-      ))}
-      </div>
+      <PetNameLibrary
+        kind="dogs"
+        category={dogCategoryTab}
+        allCategory="Todas 🐾"
+        onCopy={handleCopyTrending}
+        onUse={setDogCustomName}
+        onSpeak={speakDogName}
+      />
       </div>
       
       {/* Female Dog Name A-Z Filter Directory */}
