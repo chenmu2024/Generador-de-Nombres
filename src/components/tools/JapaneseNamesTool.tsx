@@ -107,7 +107,7 @@ export default function JapaneseNamesTool({
     .replace('[Name]', jpCustomName || 'Sakura')
     .replace('[Kanji]', jpCustomKanji || '桜')}
     </div>
-    <div className="text-xs text-zinc-400 italic">Listo para Free Fire, Discord o TikTok</div>
+    <div className="text-xs text-zinc-400 italic">Cópialo y comprueba qué caracteres admite la plataforma donde quieras usarlo.</div>
     </div>
     
     <div className="w-full space-y-2 mt-4">
@@ -139,7 +139,7 @@ export default function JapaneseNamesTool({
     <h3 className="text-xl font-bold text-white font-heading flex items-center gap-2">
     <span>📖</span> Directorio de Nombres Japoneses Seleccionados
     </h3>
-    <p className="text-xs text-zinc-400 mt-1">Presiona el botón de audio para escuchar la pronunciación auténtica en japonés.</p>
+    <p className="text-xs text-zinc-400 mt-1">El audio usa la voz japonesa disponible en tu dispositivo; es una lectura sintetizada y no una grabación de pronunciación nativa verificada.</p>
     </div>
     
     <div className="flex flex-wrap gap-2">
