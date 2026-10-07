@@ -21,6 +21,17 @@ export const metadata: Metadata = {
     { rel: 'apple-touch-icon', url: '/apple-touch-icon.png' }
   ],
   manifest: '/site.webmanifest',
+  robots: { index: true, follow: true },
+  openGraph: {
+    siteName: 'GeneradorDeNombres.net',
+    locale: 'es_ES',
+    type: 'website',
+    images: [{ url: '/opengraph-image.png', width: 1200, height: 630, alt: 'GeneradorDeNombres.net: herramientas y nombres en español' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: ['/opengraph-image.png'],
+  },
 };
 
 export default function RootLayout({
