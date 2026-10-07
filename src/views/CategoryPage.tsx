@@ -159,9 +159,10 @@ export default function CategoryPage({
   };
 
   const cluster = currentPath === '/' ? null : getClusterForPath(currentPath);
+  const clusterPathSet = new Set<string>(cluster ? [...cluster.paths] : []);
   const clusterLinks = currentPath === '/'
     ? allLinks
-    : allLinks.filter(link => cluster.paths.includes(link.path as never));
+    : allLinks.filter(link => clusterPathSet.has(link.path));
   const filteredLinks = clusterLinks.filter(link =>
     link.path !== '/' &&
     link.path !== currentPath &&
