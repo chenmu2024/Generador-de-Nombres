@@ -145,7 +145,7 @@ export default function FemaleNamesTool({
     
     {/* Aesthetic Profile Decor Variations */}
     <div className="pt-2 space-y-2">
-    <span className="text-xs font-bold text-zinc-300 block">Estilos Decorados con Símbolos Aesthetic (Haz clic para copiar):</span>
+    <span className="text-xs font-bold text-zinc-300 block">Variaciones tipográficas opcionales (haz clic para copiar):</span>
     <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
     {[
     `✨ ${combined} ✨`,

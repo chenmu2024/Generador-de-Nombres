@@ -71,7 +71,7 @@ export default function DogNamesTool({
       </div>
       
       <div>
-      <label className="text-xs font-semibold text-zinc-400 block mb-2">Diseño para Placa o Redes Social (Instagram / TikTok):</label>
+      <label className="text-xs font-semibold text-zinc-400 block mb-2">Formato opcional para placa o ficha:</label>
       <div className="flex flex-wrap gap-2">
       {[
       '🌸 [Name] 🌸',
@@ -160,12 +160,12 @@ export default function DogNamesTool({
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
       {[
       { name: 'Luna', mean: 'El nombre #1 más querido para perritas. Evoca la luz nocturna y tranquilidad.', symbol: '🌙 Popular #1', category: 'Tiernas 💖' },
-      { name: 'Kira', mean: 'Significa "brillo radiante" o "sol". Nombre corto e ideal para adiestramiento.', symbol: '✨ Brillo', category: 'Originales ✨' },
+      { name: 'Kira', mean: 'Nombre corto asociado aquí con brillo o luz; resulta práctico para repetir al llamarla.', symbol: '✨ Brillo', category: 'Originales ✨' },
       { name: 'Nala', mean: 'Inspirado en El Rey León. Significa "reina" o "regalo de la naturaleza".', symbol: '🦁 Leona', category: 'Famosas 👑' },
-      { name: 'Chloe', mean: 'Significa "brote verde" o "frescura". Perfecto para perritas coquetas.', symbol: '🎀 Coqueta', category: 'Pequeñas 🎀' },
-      { name: 'Copito', mean: 'Ideal para perritas de pelaje blanco, suave y muy esponjoso.', symbol: '❄️ Suave', category: 'Blancas / Peluditas ❄️' },
+      { name: 'Chloe', mean: 'Asociado tradicionalmente con brote verde; una opción suave y elegante.', symbol: '🎀 Coqueta', category: 'Pequeñas 🎀' },
+      { name: 'Copito', mean: 'Una opción descriptiva para perritas de pelaje blanco o muy esponjoso.', symbol: '❄️ Suave', category: 'Blancas / Peluditas ❄️' },
       { name: 'Bella', mean: 'Un clásico hermoso para cachorras nobles, cariñosas y elegantes.', symbol: '🌸 Clásica', category: 'Tiernas 💖' },
-      { name: 'Sasha', mean: 'Significa "protectora de la familia". Ideal para razas medianas o grandes.', symbol: '🛡️ Fuerte', category: 'Originales ✨' },
+      { name: 'Sasha', mean: 'Nombre de sonido firme; puede encajar con estilos fuertes o clásicos.', symbol: '🛡️ Fuerte', category: 'Originales ✨' },
       { name: 'Mimi', mean: 'Nombre muy dulce y de fácil pronunciación para razas miniatura.', symbol: '🍬 Miniatura', category: 'Pequeñas 🎀' },
       { name: 'Bianca', mean: 'Significa "blanca y pura". Elegante para Poodle, Maltés o Pomerania.', symbol: '🕊️ Blanca', category: 'Blancas / Peluditas ❄️' },
       { name: 'Arya', mean: 'De origen valiente e independeinte. Nombre corto e inspirador.', symbol: '👑 Noble', category: 'Famosas 👑' },
@@ -195,7 +195,7 @@ export default function DogNamesTool({
       className="py-1.5 bg-zinc-800 hover:bg-pink-500/20 text-pink-300 rounded-xl text-[11px] font-semibold border border-white/5 transition-all flex items-center justify-center gap-1"
       title="Cargar en el creador"
       >
-      <span>✨</span> Estilar
+      <span>✨</span> Usar
       </button>
       </div>
       <button
@@ -216,7 +216,7 @@ export default function DogNamesTool({
       <h3 className="text-xl font-bold text-white font-heading flex items-center gap-2">
       <span>🔤</span> Directorio de Nombres para Perritas A-Z
       </h3>
-      <p className="text-xs text-zinc-400 mt-1">Filtra por la letra inicial para encontrar el nombre perfecto para tu cachorra.</p>
+      <p className="text-xs text-zinc-400 mt-1">Filtra por la letra inicial para comparar nombres que encajen con tu cachorra.</p>
       </div>
       
       <div className="flex flex-wrap gap-2 mb-6">
@@ -248,7 +248,7 @@ export default function DogNamesTool({
       P: [{ name: 'Penny', tag: '🪙 Tierna' }, { name: 'Perla', tag: '🦪 Valiosa' }, { name: 'Princesa', tag: '👑 Consentida' }, { name: 'Pipa', tag: '🍭 Chispa' }],
       S: [{ name: 'Sasha', tag: '🛡️ Fuerte' }, { name: 'Stella', tag: '⭐ Estrella' }, { name: 'Sombra', tag: '🖤 Oscura' }, { name: 'Sunnie', tag: '☀️ Sol' }],
       T: [{ name: 'Tiana', tag: '👑 Princesa' }, { name: 'Tara', tag: '🌸 Tierra' }, { name: 'Toby', tag: '🎾 Juguetona' }, { name: 'Trufa', tag: '🍫 Dulce' }],
-      Z: [{ name: 'Zoe', tag: '✨ Vida' }, { name: 'Zelda', tag: '🎮 Gamer' }, { name: 'Zuri', tag: '🌸 Hermosa' }, { name: 'Zaza', tag: 'Chispa' }]
+      Z: [{ name: 'Zoe', tag: '✨ Vida' }, { name: 'Zelda', tag: '✨ Fantasía' }, { name: 'Zuri', tag: '🌸 Hermosa' }, { name: 'Zaza', tag: 'Chispa' }]
       }[dogLetter] || []).map((dog, idx) => (
       <div
       key={idx}
@@ -270,9 +270,9 @@ export default function DogNamesTool({
       <button
       onClick={() => setDogCustomName(dog.name)}
       className="px-2 py-1 bg-zinc-800 hover:bg-pink-500/20 text-pink-300 rounded-lg text-[10px] font-semibold transition-all"
-      title="Estilar en creador"
+      title="Usar en creador"
       >
-      Estilar
+      Usar
       </button>
       <button
       onClick={() => handleCopyTrending(dog.name)}

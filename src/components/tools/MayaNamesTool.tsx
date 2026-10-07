@@ -109,7 +109,7 @@ export default function MayaNamesTool({
     .replace('[Totem]', myTotem.split(' ')[0])
     .replace('[Name]', myCustomName || 'Ixchel')}
     </div>
-    <div className="text-xs text-zinc-400 italic">Ideal para Free Fire, TikTok, Discord o Novelas</div>
+    <div className="text-xs text-zinc-400 italic">Formato decorativo opcional para personajes, perfiles o proyectos creativos</div>
     </div>
     
     <div className="w-full space-y-2 mt-4">
@@ -199,7 +199,7 @@ export default function MayaNamesTool({
     className="py-1.5 bg-zinc-800 hover:bg-emerald-500/20 text-emerald-300 rounded-xl text-[11px] font-semibold border border-white/5 transition-all flex items-center justify-center gap-1"
     title="Cargar en el creador"
     >
-    <span>✨</span> Estilar
+    <span>✨</span> Usar
     </button>
     </div>
     <button

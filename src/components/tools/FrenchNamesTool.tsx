@@ -30,7 +30,7 @@ export default function FrenchNamesTool({
     <span>🥐</span> Generador de Nombres Franceses y Apodos Parisinos (con Audio)
     </h2>
     <p className="text-zinc-400 mt-1 text-sm">
-    Explora nombres refinados con guía fonética, lectura sintetizada en francés, si el dispositivo dispone de esa voz y creador de títulos estilo Paris Aesthetic.
+    Explora nombres refinados con guía fonética, lectura sintetizada en francés, si el dispositivo dispone de esa voz, y una variante decorativa opcional.
     </p>
     </div>
     </div>
@@ -77,7 +77,7 @@ export default function FrenchNamesTool({
     '🥐 Fleur • [Name] ✨',
     '🍷 Monsieur [Name] 🍷',
     '💋 Mademoiselle [Name] 💋',
-    '🎨 [Name] • Paris Aesthetic 🎨'
+    '🎨 [Name] • Paris 🎨'
     ].map((frame) => (
     <button
     key={frame}
@@ -109,7 +109,7 @@ export default function FrenchNamesTool({
     .replace('[Title]', frTitlePrefix)
     .replace('[Name]', frCustomName || 'Amélie')}
     </div>
-    <div className="text-xs text-zinc-400 italic">Listo para Instagram, TikTok o Discord</div>
+    <div className="text-xs text-zinc-400 italic">Formato decorativo opcional para perfiles o fichas</div>
     </div>
     
     <div className="w-full space-y-2 mt-4">
@@ -200,7 +200,7 @@ export default function FrenchNamesTool({
     className="py-1.5 bg-zinc-800 hover:bg-sky-500/20 text-sky-300 rounded-xl text-[11px] font-semibold border border-white/5 transition-all flex items-center justify-center gap-1"
     title="Cargar en el creador"
     >
-    <span>✨</span> Estilar
+    <span>✨</span> Usar
     </button>
     </div>
     <button

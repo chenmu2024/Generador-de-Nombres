@@ -1,4 +1,5 @@
 import test from 'node:test';
+import fs from 'node:fs';
 import assert from 'node:assert/strict';
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
@@ -81,4 +82,24 @@ test('home related navigation links to actual tools and the catalogue anchor', (
 test('contact message copy is available before launching an email application', () => {
   const html = renderToStaticMarkup(React.createElement(Contact));
   assert.match(html, /Copiar mensaje completo/);
+});
+
+
+test('non-gaming tools avoid platform hijacking and unsupported official claims', () => {
+  const files = [
+    'src/components/tools/CatNamesTool.tsx',
+    'src/components/tools/DogNamesTool.tsx',
+    'src/components/tools/BlackCatNamesTool.tsx',
+    'src/components/tools/MaleCatNamesTool.tsx',
+    'src/components/tools/JapaneseNamesTool.tsx',
+    'src/components/tools/KoreanNamesTool.tsx',
+    'src/components/tools/FrenchNamesTool.tsx',
+    'src/components/tools/MayaNamesTool.tsx',
+    'src/components/tools/PlushieTool.tsx',
+  ];
+  const source = files.map(file => fs.readFileSync(file, 'utf8')).join('\n');
+  assert.doesNotMatch(source, /Certificado Oficial|Ficha Oficial|Acta Oficial|Documento Oficial|Adoptante Oficial|Nombre Oficial/);
+  assert.doesNotMatch(source, /pronunciación oficial|pronunciación auténtica/i);
+  assert.doesNotMatch(source, /Ideal para TikTok, Instagram o Free Fire|Ideal para Free Fire, TikTok, Discord/i);
+  assert.doesNotMatch(source, /Diseño para (?:Collar|Placa) o Redes/i);
 });

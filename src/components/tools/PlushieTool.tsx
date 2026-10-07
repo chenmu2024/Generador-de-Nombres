@@ -88,7 +88,7 @@ export default function PlushieTool({
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
       <div>
       <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-500/10 border border-pink-500/20 text-pink-300 text-xs font-semibold uppercase tracking-wider mb-3">
-      🧸 Certificado Oficial de Adopción & Generador 2026
+      🧸 Ficha Creativa de Adopción & Generador 2026
       </div>
       <h2 className="text-2xl md:text-3xl font-bold text-white font-heading flex items-center gap-3">
       <span>🧸</span> Generador de Nombres para Peluches y Certificado de Adopción (con Audio)
@@ -103,7 +103,7 @@ export default function PlushieTool({
       <div className="bg-zinc-900/90 border border-white/10 rounded-2xl p-6 mb-8">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 pb-4 border-b border-white/10">
       <h3 className="text-lg font-bold text-white flex items-center gap-2 font-heading">
-      <span>📜</span> Creador de Ficha Oficial de Adopción
+      <span>📜</span> Creador de Ficha Creativa de Adopción
       </h3>
       {/* Theme Selector Pills */}
       <div className="flex items-center gap-2">
@@ -167,7 +167,7 @@ export default function PlushieTool({
       </div>
       
       <div>
-      <label htmlFor="plushietool-field-2" className="text-xs font-semibold text-zinc-400 block mb-1">Adoptante Oficial:</label>
+      <label htmlFor="plushietool-field-2" className="text-xs font-semibold text-zinc-400 block mb-1">Nombre del Adoptante:</label>
       <input id="plushietool-field-2"
       type="text"
       value={plushieOwner}
@@ -216,7 +216,7 @@ export default function PlushieTool({
       plushieTheme === 'pink' ? 'text-pink-400' :
       plushieTheme === 'blue' ? 'text-sky-400' :
       plushieTheme === 'purple' ? 'text-purple-400' : 'text-amber-400'
-      }`}>Certificado Oficial de Amor</span>
+      }`}>Recuerdo Creativo de Adopción</span>
       <h3 className="font-extrabold text-white text-xl font-heading">Acta de Adopción de Peluche</h3>
       </div>
       </div>
@@ -232,7 +232,7 @@ export default function PlushieTool({
       
       <div className="grid grid-cols-2 gap-3 text-xs mb-4">
       <div className="bg-zinc-950/80 p-3 rounded-xl border border-white/5">
-      <span className="text-zinc-500 block text-[10px] uppercase font-bold">Nombre Oficial:</span>
+      <span className="text-zinc-500 block text-[10px] uppercase font-bold">Nombre del Peluche:</span>
       <span className={`font-extrabold text-base ${
       plushieTheme === 'pink' ? 'text-pink-300' :
       plushieTheme === 'blue' ? 'text-sky-300' :
@@ -260,7 +260,7 @@ export default function PlushieTool({
       
       <div className="space-y-2 pt-2 border-t border-white/10">
       <button
-      onClick={() => handleCopyTrending(`📜 CERTIFICADO DE ADOPCIÓN DE PELUCHE 📜\n• Nombre: ${plushieName}\n• Especie: ${plushieType}\n• Adoptante: ${plushieOwner}\n• Fecha: ${plushieAdoptionDate}\n• Rasgo Especial: ${plushieTrait}\n• Promesa: ${plushiePromise}\n✨ Certificado Oficial 2026`)}
+      onClick={() => handleCopyTrending(`📜 FICHA DE ADOPCIÓN DE PELUCHE 📜\n• Nombre: ${plushieName}\n• Especie: ${plushieType}\n• Adoptante: ${plushieOwner}\n• Fecha: ${plushieAdoptionDate}\n• Rasgo Especial: ${plushieTrait}\n• Promesa: ${plushiePromise}\n✨ Ficha creativa 2026`)}
       className={`w-full py-2.5 text-white font-bold text-xs rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg ${
       plushieTheme === 'pink' ? 'bg-gradient-to-r from-pink-600 to-rose-600 hover:from-pink-500 hover:to-rose-500 shadow-pink-600/30' :
       plushieTheme === 'blue' ? 'bg-gradient-to-r from-sky-600 to-cyan-600 hover:from-sky-500 hover:to-cyan-500 shadow-sky-600/30' :
@@ -416,12 +416,12 @@ export default function PlushieTool({
       
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
       {[
-      { name: 'Algodón', mean: 'Suave como la nube más blanca. El preferido para ositos esponjosos.', symbol: '☁️ Esponjoso', category: 'Ositos de Felpa 🐻' },
-      { name: 'Mochi', mean: 'Inspirado en el dulce japonés ultra blando. Ideal para Squishmallows.', symbol: '🍡 Squish', category: 'Squishmallows / Esponjosos ☁️' },
+      { name: 'Algodón', mean: 'Suave como la nube más blanca. Una opción suave para ositos esponjosos.', symbol: '☁️ Esponjoso', category: 'Ositos de Felpa 🐻' },
+      { name: 'Mochi', mean: 'Inspirado en el dulce japonés ultra blando. Una opción inspirada en texturas suaves y redondeadas.', symbol: '🍡 Squish', category: 'Squishmallows / Esponjosos ☁️' },
       { name: 'Boba', mean: 'Por las perlas de té de burbujas. Dulce, moderno y encantador.', symbol: '🧋 Kawaii', category: 'Tiernos / Kawaii 🌸' },
       { name: 'Sr. Abrazos', mean: 'Un clásico lleno de afecto para el peluche que siempre está ahí.', symbol: '🧸 Clásico', category: 'Ositos de Felpa 🐻' },
       { name: 'Marshmallow', mean: 'Para muñecos blancos y tiernos que dan ganas de apretar.', symbol: '☁️ Dulce', category: 'Squishmallows / Esponjosos ☁️' },
-      { name: 'Burbuja', mean: 'Alegre, flotante y divertido. Perfecto para criaturas acuáticas o unicornios.', symbol: '✨ Fantasía', category: 'Dinosaurios / Fantasía 🦕' },
+      { name: 'Burbuja', mean: 'Alegre, flotante y divertido. Una opción divertida para criaturas acuáticas o unicornios.', symbol: '✨ Fantasía', category: 'Dinosaurios / Fantasía 🦕' },
       { name: 'Muffin', mean: 'Cálido y reconfortante como un bizcochito recién horneado.', symbol: '🧁 Comida', category: 'Divertidos / Comida 🍡' },
       { name: 'Dino', mean: 'Sencillo y tierno para peluches de dinosaurios de felpa.', symbol: '🦕 Dino', category: 'Dinosaurios / Fantasía 🦕' },
       { name: 'Pompon', mean: 'Bolita de algodón pequeña y cariñosa que alegra el día.', symbol: '🌸 Kawaii', category: 'Tiernos / Kawaii 🌸' },
@@ -505,8 +505,8 @@ export default function PlushieTool({
       {/* Certificate Header */}
       <div className="text-center border-b-2 border-dashed border-amber-300 pb-6 mb-6">
       <div className="text-4xl mb-2">🧸 📜 💖</div>
-      <span className="text-xs font-bold uppercase tracking-widest text-amber-600 block">Documento Oficial de Amor</span>
-      <h2 className="text-2xl sm:text-3xl font-extrabold text-pink-600 font-heading">Acta Oficial de Adopción de Peluche</h2>
+      <span className="text-xs font-bold uppercase tracking-widest text-amber-600 block">Recuerdo Creativo de Adopción</span>
+      <h2 className="text-2xl sm:text-3xl font-extrabold text-pink-600 font-heading">Ficha Creativa de Adopción de Peluche</h2>
       <p className="text-xs text-zinc-500 mt-1 font-serif italic">Registrado en la República de la Ternura • N° 2026-PEL</p>
       </div>
       
@@ -521,7 +521,7 @@ export default function PlushieTool({
       <span className="text-base font-bold text-amber-700">{plushieType}</span>
       </div>
       <div>
-      <span className="text-xs font-bold uppercase text-zinc-400 block">Adoptante Oficial:</span>
+      <span className="text-xs font-bold uppercase text-zinc-400 block">Nombre del Adoptante:</span>
       <span className="text-base font-bold text-zinc-800">{plushieOwner}</span>
       </div>
       <div>
@@ -547,7 +547,7 @@ export default function PlushieTool({
       <div className="text-center">
       <div className="w-16 h-16 rounded-full bg-amber-400/20 border-2 border-amber-500 text-amber-600 font-bold text-[10px] flex flex-col items-center justify-center p-1 uppercase mx-auto shadow-inner">
       <span>⭐ SELLO ⭐</span>
-      <span className="text-[8px] font-extrabold">OFICIAL</span>
+      <span className="text-[8px] font-extrabold">CREATIVO</span>
       </div>
       </div>
       <div className="w-1/3">

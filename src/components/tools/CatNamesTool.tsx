@@ -31,7 +31,7 @@ export default function CatNamesTool({
       <span>🐈</span> Creador y Generador de Nombres para Gatos (con Audio)
       </h2>
       <p className="text-zinc-400 mt-1 text-sm">
-      Encuentra el nombre ideal por color de pelaje o personalidad, simula la llamada felina y diseña su placa o usuario.
+      Encuentra ideas por color de pelaje o personalidad, escucha una lectura del nombre y prepara una placa o ficha opcional.
       </p>
       </div>
       </div>
@@ -70,14 +70,14 @@ export default function CatNamesTool({
       </div>
       
       <div>
-      <label className="text-xs font-semibold text-zinc-400 block mb-2">Diseño para Collar o Redes (Instagram / TikTok):</label>
+      <label className="text-xs font-semibold text-zinc-400 block mb-2">Formato opcional para placa o ficha:</label>
       <div className="flex flex-wrap gap-2">
       {[
       '🐾 [Name] • Michi 🐾',
       '🐟 [Name] • [Breed] 🐟',
       '👑 Sir [Name] • Royalty 👑',
       '🍊 [Name] • Mochi 🍡',
-      '✨ [Name] • Instagram Michi 📸',
+      '✨ [Name] • Michi 📸',
       '🧶 [Name] • Kitten 🐾'
       ].map((frame) => (
       <button
@@ -122,7 +122,7 @@ export default function CatNamesTool({
       )}
       className="w-full py-2.5 bg-amber-500 hover:bg-amber-400 text-zinc-950 font-bold text-xs rounded-xl transition-all flex items-center justify-center gap-1.5 shadow-md shadow-amber-500/20"
       >
-      <Copy className="w-3.5 h-3.5" /> Copiar para Collar / Redes
+      <Copy className="w-3.5 h-3.5" /> Copiar para placa / ficha
       </button>
       <button
       onClick={() => speakCatName(catCustomName)}
@@ -167,13 +167,13 @@ export default function CatNamesTool({
       { name: 'Mochi', mean: 'Pastelito japonés dulce y suave. El nombre favorito para gatos tiernos.', symbol: '🍡 Comida #1', category: 'Graciosos / Comida 🍡' },
       { name: 'Simba', mean: 'Inspirado en El Rey León. Significa "león valiente" y lleno de liderazgo.', symbol: '🦁 Rey León', category: 'Machos ♂️' },
       { name: 'Luna', mean: 'Nombre #1 para gatitas. Evoca el misterio de la noche y ojos brillantes.', symbol: '🌙 Noche', category: 'Hembras ♀️' },
-      { name: 'Nacho', mean: 'Divertido, cálido y perfecto para michis naranjas o crujientes.', symbol: '🍊 Naranjita', category: 'Gatos Naranjas 🍊' },
+      { name: 'Nacho', mean: 'Divertido y cálido; encaja especialmente con la temática de gatos naranjas.', symbol: '🍊 Naranjita', category: 'Gatos Naranjas 🍊' },
       { name: 'Oliver', mean: 'Inspirado en Oliver y su Pandilla. Elegante, curioso y juguetón.', symbol: '👑 Elegante', category: 'Elegantes / Reales 👑' },
-      { name: 'Mimi', mean: 'Muy corto de dos sílabas, perfecto para la capacidad auditiva felina.', symbol: '⚡ Corto (i)', category: 'Cortos (2 Sílabas) ⚡' },
+      { name: 'Mimi', mean: 'Nombre muy corto de dos sílabas, práctico para repetir al llamarlo.', symbol: '⚡ Corto (i)', category: 'Cortos (2 Sílabas) ⚡' },
       { name: 'Garfield', mean: 'El felino naranja amante de la lasaña más famoso del mundo.', symbol: '🍊 Famoso', category: 'Gatos Naranjas 🍊' },
       { name: 'Salem', mean: 'Gato negro místico e inteligente con personalidad única.', symbol: '🐈‍⬛ Místico', category: 'Machos ♂️' },
       { name: 'Kira', mean: 'Significa "brillo solar". Nombre rápido y claro para adiestramiento.', symbol: '✨ Brillo', category: 'Hembras ♀️' },
-      { name: 'Sushi', mean: 'Adictivo, simpático e ideal para gatitos ágiles y traviesos.', symbol: '🍣 Divertido', category: 'Graciosos / Comida 🍡' },
+      { name: 'Sushi', mean: 'Simpático y juguetón; una opción creativa para gatos ágiles y traviesos.', symbol: '🍣 Divertido', category: 'Graciosos / Comida 🍡' },
       { name: 'Duque', mean: 'Para gatos aristocráticos que caminan como reyes de la casa.', symbol: '👑 Aristócrata', category: 'Elegantes / Reales 👑' },
       { name: 'Leo', mean: 'Súper corto (2 sílabas) y con gran resonancia para la llamada.', symbol: '⚡ Corto', category: 'Cortos (2 Sílabas) ⚡' }
       ].filter(item => catCategoryTab === 'Todos 🐱' || item.category === catCategoryTab).map((item, idx) => (

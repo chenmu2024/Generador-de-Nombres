@@ -5,8 +5,7 @@ import { nameIdeas } from '../data/nameIdeas';
 import { visibleLength } from '../utils/text';
 import { copyText } from '../utils/clipboard';
 
-import React, { useState, type ReactNode } from 'react';
-import { useLocation } from '../utils/router';
+import React, { useEffect, useMemo, useState, type ReactNode } from 'react';
 import { Link } from '../components/Link';
 import { ChevronRight, Flame, Shield, CheckCircle2, Search, Sparkles, Copy, ListOrdered, Home } from 'lucide-react';
 import Generator from '../components/Generator';
@@ -80,7 +79,14 @@ const LazyAnimeNamesTool = dynamic(() => import('../components/tools/AnimeNamesT
   loading: () => <div className="min-h-[520px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>
 });
 import { allLinks } from '../data/allLinks';
-import { getBreadcrumbTrail } from '../data/topicClusters';
+import { getBreadcrumbTrail, getClusterForPath } from '../data/topicClusters';
+
+const SYMBOL_CATEGORIES = {
+  populares: ['꧁', '꧂', ' ঔৣ', '☬', '✞', '乂', '亗', '么', '★', '❤', '⚡', '✿', '╰‿╯', '⚓'],
+  coronas: ['👑', '♕', '♔', '𓆩', '𓆪', '♚', '♛', '𓄂', '𓆃', '𓅓'],
+  armas: ['⚔️', '🗡️', '🔫', '💣', '🛡️', '🏹', '⚡', '💥', '☠️', '☣️'],
+  japoneses: ['乄', '么', '亗', '卍', '气', '王', '神', '鬼', '龍', '魔'],
+} as const;
 
 type CategoryClientData = {
   h1: string;
@@ -95,49 +101,45 @@ export default function CategoryPage({
   data,
   children,
 }: {
-  initialPath?: string;
+  initialPath: string;
   data: CategoryClientData;
   children?: ReactNode;
 }) {
-  const routerLocation = useLocation();
-  const currentPath = initialPath || routerLocation.pathname || '/';
-  const location = { pathname: currentPath };
+  const currentPath = initialPath || '/';
   const breadcrumbTrail = getBreadcrumbTrail(currentPath, data.h1);
   const isGamingToolPage = ['/nombres-free-fire', '/generador-free-fire', '/espacios-invisible-ff', '/nombres-ff-unicos', '/nombres-ff-mujeres', '/nombres-clanes-ff', '/nombres-anime'].includes(currentPath);
   const usesDedicatedGenerator =
     !!nameIdeas[currentPath] ||
-    location.pathname === '/espacios-invisible-ff' ||
-    location.pathname === '/nombres-por-letra' ||
-    location.pathname.startsWith('/nombres-con-') ||
-    location.pathname === '/nombres-para-tiendas' ||
-    location.pathname === '/nombres-roblox' ||
-    location.pathname === '/nombres-instagram' ||
-    location.pathname === '/nombres-equipos-futbol' ||
-    location.pathname === '/nombres-japoneses' ||
-    location.pathname === '/nombres-coreanos' ||
-    location.pathname === '/nombres-franceses' ||
-    location.pathname === '/nombres-mayas' ||
-    location.pathname === '/nombres-perritas' ||
-    location.pathname === '/nombres-perros-machos' ||
-    location.pathname === '/perritas-chihuahua' ||
-    location.pathname === '/nombres-gatos-negros' ||
-    location.pathname === '/nombres-gatos' ||
-    location.pathname === '/nombres-gatos-machos' ||
-    location.pathname === '/nombres-peluches' ||
-    location.pathname === '/nombres-raros' ||
-    location.pathname === '/nombres-unisex' ||
-    location.pathname === '/nombres-de-nino' ||
-    location.pathname === '/nombres-de-mujer' ||
-    location.pathname === '/nombres-de-nina' ||
-    location.pathname === '/nombres-anime';
+    currentPath === '/espacios-invisible-ff' ||
+    currentPath === '/nombres-por-letra' ||
+    currentPath.startsWith('/nombres-con-') ||
+    currentPath === '/nombres-para-tiendas' ||
+    currentPath === '/nombres-roblox' ||
+    currentPath === '/nombres-instagram' ||
+    currentPath === '/nombres-equipos-futbol' ||
+    currentPath === '/nombres-japoneses' ||
+    currentPath === '/nombres-coreanos' ||
+    currentPath === '/nombres-franceses' ||
+    currentPath === '/nombres-mayas' ||
+    currentPath === '/nombres-perritas' ||
+    currentPath === '/nombres-perros-machos' ||
+    currentPath === '/perritas-chihuahua' ||
+    currentPath === '/nombres-gatos-negros' ||
+    currentPath === '/nombres-gatos' ||
+    currentPath === '/nombres-gatos-machos' ||
+    currentPath === '/nombres-peluches' ||
+    currentPath === '/nombres-raros' ||
+    currentPath === '/nombres-unisex' ||
+    currentPath === '/nombres-de-nino' ||
+    currentPath === '/nombres-de-mujer' ||
+    currentPath === '/nombres-de-nina' ||
+    currentPath === '/nombres-anime';
   const [showToast, setShowToast] = useState(false);
-  const [searchCategory, setSearchCategory] = useState(() => {
-    if (typeof window !== 'undefined') {
-      const params = new URLSearchParams(window.location.search);
-      return params.get('s') || '';
-    }
-    return '';
-  });
+  const [searchCategory, setSearchCategory] = useState('');
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    setSearchCategory(params.get('s') || '');
+  }, []);
   const [activeSymbolTab, setActiveSymbolTab] = useState('populares');
   const [ffTag, setFfTag] = useState('TAG');
   const [ffName, setFfName] = useState('NINJA');
@@ -151,16 +153,22 @@ export default function CategoryPage({
     setTimeout(() => setShowToast(false), 2000);
   };
 
-  const symbolCategories = {
-    populares: ['꧁', '꧂', ' ঔৣ', '☬', '✞', '乂', '亗', '么', '★', '❤', '⚡', '✿', '╰‿╯', '⚓'],
-    coronas: ['👑', '♕', '♔', '𓆩', '𓆪', '♚', '♛', '𓄂', '𓆃', '𓅓'],
-    armas: ['⚔️', '🗡️', '🔫', '💣', '🛡️', '🏹', '⚡', '💥', '☠️', '☣️'],
-    japoneses: ['乄', '么', '亗', '卍', '气', '王', '神', '鬼', '龍', '魔']
-  };
-
-  const filteredLinks = allLinks.filter(link => 
-    link.path !== '/' && 
-    link.label.toLowerCase().includes(searchCategory.toLowerCase())
+  const cluster = useMemo(
+    () => currentPath === '/' ? null : getClusterForPath(currentPath),
+    [currentPath],
+  );
+  const clusterLinks = useMemo(() => {
+    if (currentPath === '/') return allLinks;
+    const clusterPathSet = new Set<string>(cluster ? [...cluster.paths] : []);
+    return allLinks.filter(link => clusterPathSet.has(link.path));
+  }, [cluster, currentPath]);
+  const filteredLinks = useMemo(
+    () => clusterLinks.filter(link =>
+      link.path !== '/' &&
+      link.path !== currentPath &&
+      link.label.toLowerCase().includes(searchCategory.toLowerCase())
+    ),
+    [clusterLinks, currentPath, searchCategory],
   );
 
 
@@ -181,7 +189,7 @@ export default function CategoryPage({
       )}
 
       {/* Breadcrumb Navigation for Google & Users */}
-      <nav aria-label="Breadcrumb" className={`${location.pathname === '/' ? 'hidden' : 'flex'} items-center gap-2 text-xs text-zinc-400 max-w-4xl mx-auto px-1`}>
+      <nav aria-label="Breadcrumb" className={`${currentPath === '/' ? 'hidden' : 'flex'} items-center gap-2 text-xs text-zinc-400 max-w-4xl mx-auto px-1`}>
         {breadcrumbTrail.map((item, index) => (
           <React.Fragment key={item.path}>
             {index > 0 && <ChevronRight className="w-3 h-3 text-zinc-600 shrink-0" aria-hidden="true" />}
@@ -207,7 +215,7 @@ export default function CategoryPage({
         </p>
 
         {/* Table of Contents / Índice Rápido */}
-        <div className={`${location.pathname === '/' ? 'hidden' : 'gdn-surface-raised'} border p-3 sm:p-4 rounded-2xl max-w-2xl mx-auto text-left`}>
+        <div className={`${currentPath === '/' ? 'hidden' : 'gdn-surface-raised'} border p-3 sm:p-4 rounded-2xl max-w-2xl mx-auto text-left`}>
           <div className="gdn-section-label flex items-center gap-2 font-bold text-xs uppercase tracking-wider mb-2">
             <ListOrdered className="w-4 h-4 text-violet-400" /> Índice de Contenidos Rápido
           </div>
@@ -234,29 +242,29 @@ export default function CategoryPage({
         {[['Juegos', '/generador-free-fire'], ['Personas', '/nombres-de-nina'], ['Mascotas', '/nombres-gatos'], ['Tiendas', '/nombres-para-tiendas']].map(([label, path]) => <Link key={path} to={path} className="gdn-chip border rounded-xl px-4 py-3">{label}</Link>)}
       </nav>}
       {nameIdeas[currentPath] && <NameIdeasTool key={currentPath} path={currentPath} onCopy={handleCopyTrending} />}
-      <div className={`max-w-6xl mx-auto ${location.pathname === '/' ? 'pt-0 pb-2' : 'py-6'}`}>
+      <div className={`max-w-6xl mx-auto ${currentPath === '/' ? 'pt-0 pb-2' : 'py-6'}`}>
         {!usesDedicatedGenerator && (
           <Generator 
-            title={location.pathname === '/' ? 'Generador de Nombres, Apodos y Símbolos' : data.h1}
+            title={currentPath === '/' ? 'Generador de Nombres, Apodos y Símbolos' : data.h1}
             defaultName={data.defaultName || "Gamer"}
             customSymbols={data.customSymbols}
-            compact={location.pathname === '/'}
+            compact={currentPath === '/'}
           />
         )}
 
-        {location.pathname === '/espacios-invisible-ff' && (
+        {currentPath === '/espacios-invisible-ff' && (
           <div className="mt-3 md:mt-5">
             <InvisibleSpaceTool />
           </div>
         )}
 
-        {(location.pathname === '/nombres-por-letra' || location.pathname.startsWith('/nombres-con-')) && (
+        {(currentPath === '/nombres-por-letra' || currentPath.startsWith('/nombres-con-')) && (
           <div className="mt-3 md:mt-5">
             <AlphabetMatrixTool key={currentPath} currentLetter={currentPath === "/nombres-con-en" ? "Ñ" : currentPath.startsWith("/nombres-con-") ? currentPath.split("-").pop() : "A"} />
           </div>
         )}
 
-        {location.pathname === '/nombres-para-tiendas' && (
+        {currentPath === '/nombres-para-tiendas' && (
           <div className="mt-3 md:mt-5">
             <StoreNameTool />
           </div>
@@ -264,7 +272,7 @@ export default function CategoryPage({
       </div>
 
       {/* Homepage quick access — compact, no duplicated embedded tools */}
-      {location.pathname === '/' && (
+      {currentPath === '/' && (
         <section className="gdn-home-discovery space-y-4" aria-label="Accesos rápidos y tendencias">
           <div className="gdn-home-quick gdn-nav border p-2 max-w-4xl mx-auto flex flex-wrap items-center justify-center gap-2">
             <span className="gdn-section-label px-2 text-[11px] font-bold uppercase tracking-wider">Accesos rápidos</span>
@@ -305,7 +313,7 @@ export default function CategoryPage({
       )}
 
       {/* Bento Grid Portal Hub for Homepage */}
-      {location.pathname === '/' && (
+      {currentPath === '/' && (
         <div className="gdn-home-hub max-w-6xl mx-auto space-y-8">
           <div className="text-center space-y-3">
             <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-bold bg-violet-500/10 text-violet-300 border border-violet-500/20">
@@ -486,25 +494,25 @@ export default function CategoryPage({
       )}
 
       {/* Espacio Invisible Section & FF Pro Kit (Pestaña / Herramienta Exclusiva Free Fire) */}
-      {(location.pathname === '/nombres-free-fire' || location.pathname === '/generador-free-fire' || location.pathname === '/nombres-ff-unicos' || location.pathname === '/nombres-ff-mujeres' || location.pathname === '/nombres-clanes-ff' || location.pathname === '/nombres-anime' || location.pathname === '/nombres-de-mujer' || location.pathname === '/nombres-de-nina' || location.pathname === '/nombres-de-nino' || location.pathname === '/nombres-unisex' || location.pathname === '/nombres-raros') && (
+      {(currentPath === '/nombres-free-fire' || currentPath === '/generador-free-fire' || currentPath === '/nombres-ff-unicos' || currentPath === '/nombres-ff-mujeres' || currentPath === '/nombres-clanes-ff' || currentPath === '/nombres-anime' || currentPath === '/nombres-de-mujer' || currentPath === '/nombres-de-nina' || currentPath === '/nombres-de-nino' || currentPath === '/nombres-unisex' || currentPath === '/nombres-raros') && (
         <div className="gdn-tool-shell max-w-6xl mx-auto py-2 space-y-8">
-          {location.pathname === '/nombres-raros' && (
+          {currentPath === '/nombres-raros' && (
             <LazyRareNamesTool handleCopyTrending={handleCopyTrending} />
           )}
-          {location.pathname === '/nombres-unisex' && (
+          {currentPath === '/nombres-unisex' && (
             <LazyUnisexNamesTool handleCopyTrending={handleCopyTrending} />
           )}
-          {location.pathname === '/nombres-de-nino' && (
+          {currentPath === '/nombres-de-nino' && (
             <LazyMaleNamesTool handleCopyTrending={handleCopyTrending} />
           )}
-          {(location.pathname === '/nombres-de-mujer' || location.pathname === '/nombres-de-nina') && (
-            <LazyFemaleNamesTool handleCopyTrending={handleCopyTrending} currentPath={location.pathname} />
+          {(currentPath === '/nombres-de-mujer' || currentPath === '/nombres-de-nina') && (
+            <LazyFemaleNamesTool handleCopyTrending={handleCopyTrending} currentPath={currentPath} />
           )}
-          {location.pathname === '/nombres-anime' && (
+          {currentPath === '/nombres-anime' && (
             <LazyAnimeNamesTool handleCopyTrending={handleCopyTrending} />
           )}
           {/* Clan & Squad Specialized Generator Block for /nombres-clanes-ff */}
-          {location.pathname === '/nombres-clanes-ff' && (
+          {currentPath === '/nombres-clanes-ff' && (
             <div className="bg-gradient-to-br from-red-950/40 via-[#121212] to-amber-950/30 border border-red-500/30 rounded-3xl p-8 shadow-2xl relative overflow-hidden space-y-6">
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10">
                 <div>
@@ -621,7 +629,7 @@ export default function CategoryPage({
             </div>
           )}
           {/* Female / Chicas Insanas Specialized Generator Block for /nombres-ff-mujeres */}
-          {location.pathname === '/nombres-ff-mujeres' && (
+          {currentPath === '/nombres-ff-mujeres' && (
             <div className="bg-gradient-to-br from-fuchsia-950/40 via-[#121212] to-violet-950/30 border border-fuchsia-500/30 rounded-3xl p-8 shadow-2xl relative overflow-hidden space-y-6">
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10">
                 <div>
@@ -701,7 +709,7 @@ export default function CategoryPage({
             </div>
           )}
           {/* Unique & Rare FF Names Generator Component for /nombres-ff-unicos */}
-          {location.pathname === '/nombres-ff-unicos' && (
+          {currentPath === '/nombres-ff-unicos' && (
             <div className="bg-gradient-to-br from-amber-950/30 via-[#121212] to-violet-950/20 border border-amber-500/30 rounded-3xl p-8 shadow-2xl relative overflow-hidden space-y-6">
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10">
                 <div>
@@ -943,64 +951,64 @@ export default function CategoryPage({
       )}
 
       {/* Roblox Username Validator & Display Name Helper */}
-      {(location.pathname === '/nombres-roblox') && (
+      {(currentPath === '/nombres-roblox') && (
         <React.Suspense fallback={<div className="min-h-[400px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5 my-4" />}>
           <LazyRobloxTool handleCopyTrending={handleCopyTrending} />
         </React.Suspense>
       )}
 
       {/* Instagram Username Validator & Bio Aesthetic Generator */}
-      {(location.pathname === '/nombres-instagram') && (
+      {(currentPath === '/nombres-instagram') && (
         <React.Suspense fallback={<div className="min-h-[400px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5 my-4" />}>
           <LazyInstagramTool handleCopyTrending={handleCopyTrending} />
         </React.Suspense>
       )}
 
       {/* Football & Clan Customizer */}
-      {(location.pathname === '/nombres-equipos-futbol') && (
+      {(currentPath === '/nombres-equipos-futbol') && (
         <React.Suspense fallback={<div className="min-h-[400px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5 my-4" />}>
           <LazyFootballTool handleCopyTrending={handleCopyTrending} />
         </React.Suspense>
       )}
 
-      {location.pathname === '/nombres-japoneses' && (
+      {currentPath === '/nombres-japoneses' && (
         <LazyJapaneseNamesTool handleCopyTrending={handleCopyTrending} />
       )}
 
-      {location.pathname === '/nombres-coreanos' && (
+      {currentPath === '/nombres-coreanos' && (
         <LazyKoreanNamesTool handleCopyTrending={handleCopyTrending} />
       )}
 
-      {location.pathname === '/nombres-franceses' && (
+      {currentPath === '/nombres-franceses' && (
         <LazyFrenchNamesTool handleCopyTrending={handleCopyTrending} />
       )}
 
-      {location.pathname === '/nombres-mayas' && (
+      {currentPath === '/nombres-mayas' && (
         <LazyMayaNamesTool handleCopyTrending={handleCopyTrending} />
       )}
 
-      {(location.pathname === '/nombres-perritas' || location.pathname === '/nombres-perros-machos' || location.pathname === '/perritas-chihuahua') && (
+      {(currentPath === '/nombres-perritas' || currentPath === '/nombres-perros-machos' || currentPath === '/perritas-chihuahua') && (
         <LazyDogNamesTool handleCopyTrending={handleCopyTrending} />
       )}
 
-      {location.pathname === '/nombres-gatos-negros' && (
+      {currentPath === '/nombres-gatos-negros' && (
         <LazyBlackCatNamesTool handleCopyTrending={handleCopyTrending} />
       )}
 
-      {location.pathname === '/nombres-gatos' && (
+      {currentPath === '/nombres-gatos' && (
         <LazyCatNamesTool handleCopyTrending={handleCopyTrending} />
       )}
 
-      {location.pathname === '/nombres-gatos-machos' && (
+      {currentPath === '/nombres-gatos-machos' && (
         <LazyMaleCatNamesTool handleCopyTrending={handleCopyTrending} />
       )}
 
-      {location.pathname === '/nombres-peluches' && (
+      {currentPath === '/nombres-peluches' && (
         <LazyPlushieTool handleCopyTrending={handleCopyTrending} />
       )}
 
       {/* Trending Names Section */}
-      {(location.pathname === '/nombres-free-fire' || location.pathname === '/generador-free-fire' || location.pathname === '/espacios-invisible-ff' || location.pathname === '/nombres-ff-unicos' || location.pathname === '/nombres-ff-mujeres' || location.pathname === '/nombres-clanes-ff') && (
+      {(currentPath === '/nombres-free-fire' || currentPath === '/generador-free-fire' || currentPath === '/espacios-invisible-ff' || currentPath === '/nombres-ff-unicos' || currentPath === '/nombres-ff-mujeres' || currentPath === '/nombres-clanes-ff') && (
         <div className="max-w-6xl mx-auto py-8">
           <div className="gdn-surface border rounded-2xl p-7 md:p-8 relative overflow-hidden">
             {/* Background Glow */}
@@ -1049,7 +1057,7 @@ export default function CategoryPage({
       )}
 
       {/* Symbol Bank Section */}
-      {(location.pathname === '/nombres-free-fire' || location.pathname === '/generador-free-fire' || location.pathname === '/espacios-invisible-ff' || location.pathname === '/nombres-ff-unicos' || location.pathname === '/nombres-ff-mujeres' || location.pathname === '/nombres-clanes-ff') && (
+      {(currentPath === '/nombres-free-fire' || currentPath === '/generador-free-fire' || currentPath === '/espacios-invisible-ff' || currentPath === '/nombres-ff-unicos' || currentPath === '/nombres-ff-mujeres' || currentPath === '/nombres-clanes-ff') && (
         <div className="max-w-6xl mx-auto py-4">
           <div className="gdn-surface border rounded-2xl p-7 md:p-8 relative overflow-hidden">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
@@ -1086,7 +1094,7 @@ export default function CategoryPage({
 
             {/* Symbol Grid */}
             <div className="grid grid-cols-4 sm:grid-cols-7 md:grid-cols-10 gap-3">
-              {(symbolCategories[activeSymbolTab as keyof typeof symbolCategories] || symbolCategories.populares).map((sym, idx) => (
+              {(SYMBOL_CATEGORIES[activeSymbolTab as keyof typeof SYMBOL_CATEGORIES] || SYMBOL_CATEGORIES.populares).map((sym, idx) => (
                 <button
                   key={idx}
                   onClick={() => handleCopyTrending(sym)}
@@ -1103,7 +1111,7 @@ export default function CategoryPage({
       )}
 
       {/* Duos and Couples Section (For Free Fire page) */}
-      {(location.pathname === '/nombres-free-fire' || location.pathname === '/generador-free-fire' || location.pathname === '/espacios-invisible-ff' || location.pathname === '/nombres-ff-unicos' || location.pathname === '/nombres-ff-mujeres' || location.pathname === '/nombres-clanes-ff') && (
+      {(currentPath === '/nombres-free-fire' || currentPath === '/generador-free-fire' || currentPath === '/espacios-invisible-ff' || currentPath === '/nombres-ff-unicos' || currentPath === '/nombres-ff-mujeres' || currentPath === '/nombres-clanes-ff') && (
         <div className="max-w-6xl mx-auto py-2">
           <div className="gdn-surface border rounded-2xl p-7 md:p-8 relative overflow-hidden">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
@@ -1155,7 +1163,7 @@ export default function CategoryPage({
       )}
 
       {/* How to Change Name Guide */}
-      {(location.pathname === '/nombres-free-fire' || location.pathname === '/generador-free-fire' || location.pathname === '/espacios-invisible-ff' || location.pathname === '/nombres-ff-unicos' || location.pathname === '/nombres-ff-mujeres' || location.pathname === '/nombres-clanes-ff') && (
+      {(currentPath === '/nombres-free-fire' || currentPath === '/generador-free-fire' || currentPath === '/espacios-invisible-ff' || currentPath === '/nombres-ff-unicos' || currentPath === '/nombres-ff-mujeres' || currentPath === '/nombres-clanes-ff') && (
         <div className="max-w-6xl mx-auto py-4">
           <div className="bg-gradient-to-br from-zinc-900 to-zinc-950 border border-white/5 rounded-3xl p-8 shadow-2xl">
             <h2 className="text-2xl md:text-3xl font-bold text-white font-heading mb-6 flex items-center gap-3">
@@ -1186,11 +1194,11 @@ export default function CategoryPage({
       {children}
 
       {/* Category Sequential Pagination Bar for Google Crawling & UX */}
-      <nav aria-label="Navegación de categorías relacionadas" className={`${location.pathname === '/' ? 'hidden' : 'gdn-surface'} max-w-6xl mx-auto my-12 p-6 border rounded-2xl flex-col sm:flex-row items-center justify-between gap-4 ${location.pathname === '/' ? '' : 'flex'}`}>
+      <nav aria-label="Navegación de categorías relacionadas" className={`${currentPath === '/' ? 'hidden' : 'gdn-surface'} max-w-6xl mx-auto my-12 p-6 border rounded-2xl flex-col sm:flex-row items-center justify-between gap-4 ${currentPath === '/' ? '' : 'flex'}`}>
         {(() => {
-          const cIdx = allLinks.findIndex(l => l.path === location.pathname);
-          const pLink = cIdx > 0 ? allLinks[cIdx - 1] : allLinks[allLinks.length - 1];
-          const nLink = cIdx >= 0 && cIdx < allLinks.length - 1 ? allLinks[cIdx + 1] : allLinks[0];
+          const cIdx = clusterLinks.findIndex(l => l.path === currentPath);
+          const pLink = cIdx > 0 ? clusterLinks[cIdx - 1] : null;
+          const nLink = cIdx >= 0 && cIdx < clusterLinks.length - 1 ? clusterLinks[cIdx + 1] : null;
           return (
             <>
               {pLink && (
@@ -1209,7 +1217,7 @@ export default function CategoryPage({
               )}
 
               <div className="text-xs text-zinc-500 font-medium hidden md:block">
-                Explorando categoría {cIdx >= 0 ? cIdx + 1 : 1} de {allLinks.length}
+                Explorando {cluster?.label || 'categorías'} · {cIdx >= 0 ? cIdx + 1 : 1} de {clusterLinks.length}
               </div>
 
               {nLink && (
@@ -1232,45 +1240,45 @@ export default function CategoryPage({
       </nav>
 
       {/* Explore All Categories */}
-      <section id="relacionados" className={`max-w-6xl mx-auto border-t border-white/5 scroll-mt-24 ${location.pathname === '/' ? 'pt-10' : 'pt-16'}`}>
-        <div className={`text-center ${location.pathname === '/' ? 'mb-6' : 'mb-10'}`}>
-          <h2 className={`font-bold text-zinc-100 font-heading ${location.pathname === '/' ? 'text-2xl md:text-3xl' : 'text-3xl md:text-4xl'}`}>Explora Todos Nuestros Generadores</h2>
-          <p className={`text-zinc-400 mt-2 max-w-2xl mx-auto ${location.pathname === '/' ? 'text-sm' : 'text-lg'}`}>Encuentra el nombre perfecto para cualquier plataforma o mascota</p>
+      <section id="relacionados" className={`max-w-6xl mx-auto border-t border-white/5 scroll-mt-24 ${currentPath === '/' ? 'pt-10' : 'pt-16'}`}>
+        <div className={`text-center ${currentPath === '/' ? 'mb-6' : 'mb-10'}`}>
+          <h2 className={`font-bold text-zinc-100 font-heading ${currentPath === '/' ? 'text-2xl md:text-3xl' : 'text-3xl md:text-4xl'}`}>{currentPath === '/' ? 'Explora Todos Nuestros Generadores' : `Explora más sobre ${cluster?.label}`}</h2>
+          <p className={`text-zinc-400 mt-2 max-w-2xl mx-auto ${currentPath === '/' ? 'text-sm' : 'text-lg'}`}>{currentPath === '/' ? 'Encuentra ideas y herramientas para juegos, personas, mascotas y negocios' : 'Continúa con páginas de la misma temática para comparar opciones sin perder el contexto.'}</p>
           
           {/* Search Bar for Categories — internal pages only; global search already covers homepage */}
-          {location.pathname !== '/' && (
+          {currentPath !== '/' && (
             <div className="mt-8 max-w-md mx-auto relative">
               <Search className="w-5 h-5 text-zinc-500 absolute left-4 top-1/2 -translate-y-1/2" />
               <input
                 type="text"
                 value={searchCategory}
                 onChange={(e) => setSearchCategory(e.target.value)}
-                placeholder="Buscar generador (ej. Roblox, Gatos...)"
+                placeholder={`Buscar dentro de ${cluster?.label || 'esta categoría'}...`}
                 className="w-full bg-zinc-900/80 border border-white/10 rounded-2xl pl-12 pr-4 py-3.5 text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-violet-500 transition-colors"
               />
             </div>
           )}
         </div>
 
-        <div className={`grid grid-cols-1 sm:grid-cols-2 gap-3 ${location.pathname === '/' ? 'lg:grid-cols-4' : 'lg:grid-cols-3 lg:gap-6'}`}>
+        <div className={`grid grid-cols-1 sm:grid-cols-2 gap-3 ${currentPath === '/' ? 'lg:grid-cols-4' : 'lg:grid-cols-3 lg:gap-6'}`}>
           {filteredLinks.map(link => (
             <Link 
               key={link.path} 
               to={link.path}
-              className={`border border-white/5 hover:border-violet-500/30 hover:bg-white/[0.02] transition-all duration-300 group relative overflow-hidden ${location.pathname === '/' ? 'gdn-surface rounded-xl px-4 py-3 flex items-center gap-3 text-left' : 'bg-[#121212] p-8 rounded-3xl flex flex-col items-center text-center gap-4'}`}
+              className={`border border-white/5 hover:border-violet-500/30 hover:bg-white/[0.02] transition-all duration-300 group relative overflow-hidden ${currentPath === '/' ? 'gdn-surface rounded-xl px-4 py-3 flex items-center gap-3 text-left' : 'bg-[#121212] p-8 rounded-3xl flex flex-col items-center text-center gap-4'}`}
             >
               <div className="absolute inset-0 bg-gradient-to-br from-violet-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              <div className={`bg-zinc-800/50 text-violet-400 flex items-center justify-center group-hover:bg-violet-500/10 transition-all duration-300 relative z-10 ${location.pathname === '/' ? 'w-8 h-8 rounded-lg shrink-0' : 'w-14 h-14 rounded-2xl text-2xl group-hover:scale-110'}`}>
-                <Flame className={location.pathname === '/' ? 'w-4 h-4' : 'w-6 h-6'} />
+              <div className={`bg-zinc-800/50 text-violet-400 flex items-center justify-center group-hover:bg-violet-500/10 transition-all duration-300 relative z-10 ${currentPath === '/' ? 'w-8 h-8 rounded-lg shrink-0' : 'w-14 h-14 rounded-2xl text-2xl group-hover:scale-110'}`}>
+                <Flame className={currentPath === '/' ? 'w-4 h-4' : 'w-6 h-6'} />
               </div>
-              <h3 className={`font-bold text-zinc-300 group-hover:text-zinc-100 transition-colors relative z-10 font-heading ${location.pathname === '/' ? 'text-sm leading-tight' : 'text-xl'}`}>
+              <h3 className={`font-bold text-zinc-300 group-hover:text-zinc-100 transition-colors relative z-10 font-heading ${currentPath === '/' ? 'text-sm leading-tight' : 'text-xl'}`}>
                 {link.label}
               </h3>
             </Link>
           ))}
           {filteredLinks.length === 0 && (
             <div className="col-span-full text-center py-12 text-zinc-500">
-              No se encontraron generadores que coincidan con "{searchCategory}".
+              No se encontraron páginas relacionadas que coincidan con "{searchCategory}".
             </div>
           )}
         </div>

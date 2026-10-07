@@ -30,7 +30,7 @@ export default function JapaneseNamesTool({
     <span>🌸</span> Generador de Nombres y Apodos Japoneses (con Audio)
     </h2>
     <p className="text-zinc-400 mt-1 text-sm">
-    Explora nombres con Kanji, lectura sintetizada del dispositivo, significados y creador de apodos estilo Anime / Gamer.
+    Explora nombres con kanji, lectura sintetizada del dispositivo, significados y una variante decorativa opcional.
     </p>
     </div>
     </div>
@@ -38,7 +38,7 @@ export default function JapaneseNamesTool({
     {/* Japanese Name Decorator / Nickname Generator */}
     <div className="bg-zinc-900/90 border border-white/10 rounded-2xl p-6 mb-8">
     <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2 font-heading">
-    <span>⛩️</span> Creador de Apodo Aesthetic / Otaku para Juegos y Redes
+    <span>⛩️</span> Variante decorativa opcional para perfiles y personajes
     </h3>
     
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -98,7 +98,7 @@ export default function JapaneseNamesTool({
     {/* Styled Output Card */}
     <div className="gdn-tool-result bg-gradient-to-b from-rose-950/30 via-zinc-950 to-zinc-950 border border-rose-500/30 rounded-2xl p-5 flex flex-col justify-between items-center text-center shadow-xl">
     <div>
-    <div className="text-xs text-rose-400 font-bold uppercase tracking-widest mb-2">Vista Previa Apodo</div>
+    <div className="text-xs text-rose-400 font-bold uppercase tracking-widest mb-2">Vista previa decorativa</div>
     <div className="text-4xl font-extrabold text-rose-400 font-mono mb-2">
     {jpCustomKanji || '桜'}
     </div>
@@ -119,7 +119,7 @@ export default function JapaneseNamesTool({
     )}
     className="w-full py-2.5 bg-rose-500 hover:bg-rose-400 text-zinc-950 font-bold text-xs rounded-xl transition-all flex items-center justify-center gap-1.5 shadow-md shadow-rose-500/20"
     >
-    <Copy className="w-3.5 h-3.5" /> Copiar Apodo Aesthetic
+    <Copy className="w-3.5 h-3.5" /> Copiar variante decorada
     </button>
     <button
     onClick={() => speakJapanese(jpCustomName)}
@@ -206,7 +206,7 @@ export default function JapaneseNamesTool({
     className="py-1.5 bg-zinc-800 hover:bg-rose-500/20 text-rose-300 rounded-xl text-[11px] font-semibold border border-white/5 transition-all flex items-center justify-center gap-1"
     title="Cargar en el creador"
     >
-    <span>✨</span> Estilar
+    <span>✨</span> Usar
     </button>
     </div>
     <button

@@ -217,11 +217,11 @@ export default function BlackCatNamesTool({
       { name: 'Jiji', mean: 'Gato negro de Kiki (Studio Ghibli). Leal, tierno y con gran voz interior.', symbol: '🎬 Ghibli', category: 'Cine / Anime 🎬' },
       { name: 'Kuro', mean: 'Significa "Negro" en japonés. Muy usado en animes como Ao no Exorcist.', symbol: '⚡ Anime', category: 'Cine / Anime 🎬' },
       { name: 'Bagheera', mean: 'La sabia pantera negra de El Libro de la Selva. Ágil, valiente y noble.', symbol: '🐆 Pantera', category: 'Cine / Anime 🎬' },
-      { name: 'Sombra', mean: 'Perfecto para gatitos sigilosos que caminan en la penumbra de la casa.', symbol: '🌑 Sigilo', category: 'Noche / Cosmos 🌑' },
+      { name: 'Sombra', mean: 'Evoca a un gato sigiloso que se mueve entre sombras y rincones oscuros.', symbol: '🌑 Sigilo', category: 'Noche / Cosmos 🌑' },
       { name: 'Eclipse', mean: 'Fenómeno cósmico donde la luna oculta al sol. Mágico y fascinante.', symbol: '🌑 Cosmos', category: 'Noche / Cosmos 🌑' },
       { name: 'Onyx', mean: 'Inspirado en la valiosa piedra preciosa de tono negro profundo.', symbol: '💎 Elegante', category: 'Elegantes / Dark 🖤' },
       { name: 'Merlín', mean: 'El mago más poderoso de las leyendas. Para michis misteriosos e inteligentes.', symbol: '🪄 Mago', category: 'Místicos / Magia 🔮' },
-      { name: 'Frijolito', mean: 'Súper divertido e ideal para gatitos pequeños de pelaje oscuro.', symbol: '🍡 Tierno', category: 'Divertidos / Tiernos 🍡' },
+      { name: 'Frijolito', mean: 'Una opción divertida y tierna para gatitos pequeños de pelaje oscuro.', symbol: '🍡 Tierno', category: 'Divertidos / Tiernos 🍡' },
       { name: 'Panterita', mean: 'Cariñoso homenaje al rey de la selva en formato miniatura.', symbol: '🐈‍⬛ Clásico', category: 'Divertidos / Tiernos 🍡' },
       { name: 'Velvet', mean: 'Significa "terciopelo". Para minipanteras de pelaje súper suave y brillante.', symbol: '🖤 Terciopelo', category: 'Elegantes / Dark 🖤' },
       { name: 'Hécate', mean: 'Diosa griega de la magia, las encrucijadas, la luna y la noche.', symbol: '🔮 Deidad', category: 'Místicos / Magia 🔮' }
@@ -249,7 +249,7 @@ export default function BlackCatNamesTool({
       className="py-1.5 bg-zinc-800 hover:bg-purple-500/20 text-purple-300 rounded-xl text-[11px] font-semibold border border-white/5 transition-all flex items-center justify-center gap-1"
       title="Cargar en el creador"
       >
-      <span>✨</span> Estilar
+      <span>✨</span> Usar
       </button>
       </div>
       <button
