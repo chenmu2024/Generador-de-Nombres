@@ -102,15 +102,26 @@ let chrome;
 let browser;
 try {
   await retry(async () => (await fetch(baseUrl + '/')).ok, 12000);
-  chrome = spawn(await findChrome(), [
+  const chromeBinary = await findChrome();
+  let chromeDiagnostics = '';
+  console.log('[Browser] Launching Chromium: ' + chromeBinary);
+  chrome = spawn(chromeBinary, [
     '--headless', '--no-sandbox', '--disable-dev-shm-usage', '--disable-gpu',
     '--disable-extensions', '--no-first-run', '--no-default-browser-check',
+    '--disable-background-networking', '--disable-breakpad',
     '--remote-debugging-port=0', '--user-data-dir=' + profile, 'about:blank',
-  ], { stdio: 'ignore' });
-  const port = await retry(async () => {
-    try { return Number((await readFile(join(profile, 'DevToolsActivePort'), 'utf8')).split('\n')[0]); }
-    catch { return false; }
-  });
+  ], { stdio: ['ignore', 'ignore', 'pipe'] });
+  chrome.stderr?.on('data', chunk => { chromeDiagnostics = (chromeDiagnostics + String(chunk)).slice(-3500); });
+  chrome.on('error', error => { chromeDiagnostics += '\n' + String(error); });
+  let port;
+  try {
+    port = await retry(async () => {
+      try { return Number((await readFile(join(profile, 'DevToolsActivePort'), 'utf8')).split('\n')[0]); }
+      catch { return false; }
+    }, 30000);
+  } catch (error) {
+    throw new Error('Chromium startup failed (exit=' + chrome.exitCode + '): ' + String(error) + '\n' + chromeDiagnostics);
+  }
   const list = await (await fetch('http://127.0.0.1:' + port + '/json/list')).json();
   const tab = list.find(item => item.type === 'page');
   verify(tab?.webSocketDebuggerUrl, 'Cannot attach to Chrome');
@@ -209,6 +220,43 @@ try {
   await until('!!document.querySelector("[role=dialog][aria-label=\\"Mis nombres favoritos\\"]")');
   verify(await browser.evaluate("document.querySelector('[role=dialog][aria-label=\"Mis nombres favoritos\"]')?.innerText.includes('Nube')") === true, 'Favorite lost on navigation');
   console.log('[Browser] compound editing and cross-route favorite persistence OK');
+
+
+  // Verify progressive initial UI stays compact without removing access to any name or symbol.
+  await go('/');
+  await until('document.querySelectorAll("#gdn-symbol-palette button").length > 0');
+  const countRows = 'document.querySelectorAll(\'button[role="checkbox"][aria-label^="Seleccionar "]\').length';
+  const countSymbols = 'document.querySelectorAll("#gdn-symbol-palette button").length';
+  await until(countRows + ' === 12');
+  verify(await browser.evaluate(countSymbols) === 16, 'Expected exactly 16 initial quick symbols');
+  await click('button[aria-label="Cargar más nombres"]');
+  await until(countRows + ' === 36');
+  await click('button[aria-controls="gdn-symbol-palette"]');
+  await until(countSymbols + ' > 16');
+  await click('button[aria-controls="gdn-symbol-palette"]');
+  await until(countSymbols + ' === 16');
+  console.log('[Browser] generator initial 12 results, incremental 24, expandable 16-symbol palette OK');
+
+  // Deferred supplements must remain usable when navigated to via their buttons.
+  await go('/nombres-free-fire');
+  const labels = ['Herramientas Free Fire complementarias', 'Biblioteca de símbolos y ejemplos Free Fire'];
+  for (const label of labels) {
+    const selector = '[data-deferred-tool="' + label + '"]';
+    await until('!!document.querySelector(' + JSON.stringify(selector) + ')');
+    if (!(await browser.evaluate('document.querySelector(' + JSON.stringify(selector) + ').dataset.loaded === "true"'))) {
+      await click(selector + ' button');
+    }
+    await until('document.querySelector(' + JSON.stringify(selector) + ').dataset.loaded === "true"');
+  }
+  await until('!!document.querySelector("[data-deferred-tool] input, [data-deferred-tool] button")');
+  console.log('[Browser] Free Fire supplementary modules activate via viewport or manual controls');
+
+  const snapshots = Object.fromEntries(report.map(item => [item.path, item.dom]));
+  console.log('[Browser] DOM after progressive rendering: home=' + snapshots['/'] + ' clan=' + snapshots['/nombres-clanes-ff'] + ' unique=' + snapshots['/nombres-ff-unicos'] + ' women=' + snapshots['/nombres-ff-mujeres']);
+  verify(snapshots['/'] < 1644, 'Homepage DOM not reduced compared with PR #30 baseline');
+  verify(snapshots['/nombres-clanes-ff'] < 1773, 'Free Fire clan page DOM not reduced compared with PR #30 baseline');
+  verify(snapshots['/nombres-ff-unicos'] < 1730, 'Free Fire unique page DOM not reduced compared with PR #30 baseline');
+  verify(snapshots['/nombres-ff-mujeres'] < 1721, 'Free Fire women page DOM not reduced compared with PR #30 baseline');
 
   verify(browser.errors.length === 0, 'JavaScript errors or missing assets: ' + browser.errors.slice(0, 12).join('\n'));
   console.log('[Browser] largest DOM: ' + report.slice().sort((a,b) => b.dom - a.dom).slice(0,5).map(x=>x.path+'='+x.dom).join(', '));

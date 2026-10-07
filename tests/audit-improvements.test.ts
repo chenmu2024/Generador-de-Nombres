@@ -277,3 +277,28 @@ test('compound suggestions filter by first-name length without dropping the orig
   assert.ok(selectCompoundIdeas(samples, '', 'short').every(item => visibleLength(item.val.split(' ')[0]) <= 4));
   assert.deepEqual(selectCompoundIdeas(samples, 'unmatched_zz', 'all'), []);
 });
+
+
+test('first-paint generator results and palette are bounded without losing pagination', () => {
+  const source = fs.readFileSync('src/components/Generator.tsx', 'utf8');
+  assert.match(source, /const INITIAL_VISIBLE_NAMES = 12/);
+  assert.match(source, /const INITIAL_VISIBLE_SYMBOLS = 16/);
+  assert.match(source, /symbolsToUse\.slice\(0, INITIAL_VISIBLE_SYMBOLS\)/);
+  assert.match(source, /displayedNames\.slice\(0, visibleCount\)/);
+  assert.match(source, /aria-controls="gdn-symbol-palette"/);
+  assert.match(source, /aria-label="Cargar más nombres"/);
+  assert.match(source, /setVisibleCount\(prev => Math\.min\(prev \+ LOAD_MORE_NAMES, displayedNames\.length\)\)/);
+});
+
+test('Free Fire advanced features hydrate only near the viewport or after explicit activation', () => {
+  const source = fs.readFileSync('src/views/CategoryPage.tsx', 'utf8');
+  const deferred = fs.readFileSync('src/components/DeferredTool.tsx', 'utf8');
+  assert.match(source, /<DeferredTool label="Herramientas Free Fire complementarias">/);
+  assert.match(source, /<DeferredTool label="Biblioteca de símbolos y ejemplos Free Fire">/);
+  assert.match(source, /<LazyGenerator/);
+  assert.match(deferred, /IntersectionObserver/);
+  assert.match(deferred, /rootMargin: '600px 0px'/);
+  assert.match(deferred, /setActive\(true\)/);
+  assert.match(deferred, /data-loaded=/);
+  assert.match(deferred, /Herramienta complementaria/);
+});

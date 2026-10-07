@@ -16,6 +16,10 @@ interface GeneratorProps {
   compact?: boolean;
 }
 
+const INITIAL_VISIBLE_NAMES = 12;
+const LOAD_MORE_NAMES = 24;
+const INITIAL_VISIBLE_SYMBOLS = 16;
+
 const randomNames = ["Ninja", "Shadow", "Killer", "Pro", "Ghost", "Sniper", "King", "Queen", "Legend", "Alpha"];
 
 // Rarity calculation helper
@@ -39,7 +43,8 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
   const [generatedNames, setGeneratedNames] = useState<string[]>(() => 
     generateFancyNicknames(defaultName, 'all', customSymbols)
   );
-  const [visibleCount, setVisibleCount] = useState(24);
+  const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE_NAMES);
+  const [showAllSymbols, setShowAllSymbols] = useState(false);
   const [selectedNames, setSelectedNames] = useState<string[]>([]);
   const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
   const [showToast, setShowToast] = useState(false);
@@ -98,12 +103,17 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
 
   const symbolsToUse = customSymbols || popularSymbols;
 
+  const hasMountedGenerator = useRef(false);
   React.useEffect(() => {
-    // Generate names when the component mounts or category changes, now also updates live as user types
+    // Initial useState already generated the first set; skip duplicate mount work.
+    if (!hasMountedGenerator.current) {
+      hasMountedGenerator.current = true;
+      return;
+    }
     const names = generateFancyNicknames(inputText.trim() || defaultName, style, customSymbols);
     setGeneratedNames(names);
     setSelectedNames([]);
-    setVisibleCount(24);
+    setVisibleCount(INITIAL_VISIBLE_NAMES);
     setCopiedIndex(null);
   }, [inputText, defaultName, style, customSymbols]);
 
@@ -113,7 +123,7 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
       setGeneratedNames(names);
       setSelectedNames([]);
       setCopiedIndex(null);
-      setVisibleCount(24);
+      setVisibleCount(INITIAL_VISIBLE_NAMES);
   };
 
   const handleRandomize = () => {
@@ -274,7 +284,7 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
   const displayedNames = useMemo(() => filterNicknames(generatedNames, vibeFilter), [generatedNames, vibeFilter]);
   useEffect(() => {
     setSelectedNames([]);
-    setVisibleCount(24);
+    setVisibleCount(INITIAL_VISIBLE_NAMES);
     setCopiedIndex(null);
     setIsSpinnerOpen(false);
     setSpinnerResult(null);
@@ -412,8 +422,8 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
           <h2 className="text-sm font-semibold text-zinc-400 uppercase tracking-wider mb-4 flex items-center gap-2">
             Símbolos Rápidos <span className="text-xs font-normal normal-case text-zinc-400">(Clic para agregar)</span>
           </h2>
-          <div className="flex flex-wrap gap-2 md:gap-3">
-            {symbolsToUse.map((sym, i) => (
+          <div id="gdn-symbol-palette" className="flex flex-wrap gap-2 md:gap-3">
+            {(showAllSymbols ? symbolsToUse : symbolsToUse.slice(0, INITIAL_VISIBLE_SYMBOLS)).map((sym, i) => (
               <button
                 key={i}
                 onClick={() => appendSymbol(sym)}
@@ -423,6 +433,19 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
               </button>
             ))}
           </div>
+          {symbolsToUse.length > INITIAL_VISIBLE_SYMBOLS && (
+            <button
+              type="button"
+              aria-expanded={showAllSymbols}
+              aria-controls="gdn-symbol-palette"
+              onClick={() => setShowAllSymbols(expanded => !expanded)}
+              className="gdn-chip mt-3 min-h-11 rounded-xl border px-4 py-2 text-sm font-semibold"
+            >
+              {showAllSymbols
+                ? 'Mostrar menos símbolos'
+                : `Ver todos los símbolos (${symbolsToUse.length})`}
+            </button>
+          )}
         </div>
 
         {generatedNames.length > 0 ? (
@@ -631,10 +654,11 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
             {displayedNames.length > visibleCount && (
               <div className="mt-4 flex items-center justify-center gap-3">
                 <button
-                  onClick={() => setVisibleCount(prev => prev + 30)}
+                  onClick={() => setVisibleCount(prev => Math.min(prev + LOAD_MORE_NAMES, displayedNames.length))}
+                  aria-label="Cargar más nombres"
                   className="gdn-chip px-6 py-2.5 font-bold text-xs rounded-xl border transition-all flex items-center gap-2"
                 >
-                  <Sparkles className="w-4 h-4" /> Cargar Más Nombres (+30)
+                  <Sparkles className="w-4 h-4" /> Cargar Más Nombres (+24)
                 </button>
                 <button
                   onClick={() => setVisibleCount(prev => Math.min(prev + 100, displayedNames.length))}
