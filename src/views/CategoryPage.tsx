@@ -80,7 +80,7 @@ const LazyAnimeNamesTool = dynamic(() => import('../components/tools/AnimeNamesT
   loading: () => <div className="min-h-[520px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>
 });
 import { allLinks } from '../data/allLinks';
-import { getBreadcrumbTrail } from '../data/topicClusters';
+import { getBreadcrumbTrail, getClusterForPath } from '../data/topicClusters';
 
 type CategoryClientData = {
   h1: string;
@@ -158,8 +158,13 @@ export default function CategoryPage({
     japoneses: ['乄', '么', '亗', '卍', '气', '王', '神', '鬼', '龍', '魔']
   };
 
-  const filteredLinks = allLinks.filter(link => 
-    link.path !== '/' && 
+  const cluster = currentPath === '/' ? null : getClusterForPath(currentPath);
+  const clusterLinks = currentPath === '/'
+    ? allLinks
+    : allLinks.filter(link => cluster.paths.includes(link.path as never));
+  const filteredLinks = clusterLinks.filter(link =>
+    link.path !== '/' &&
+    link.path !== currentPath &&
     link.label.toLowerCase().includes(searchCategory.toLowerCase())
   );
 
@@ -1188,9 +1193,9 @@ export default function CategoryPage({
       {/* Category Sequential Pagination Bar for Google Crawling & UX */}
       <nav aria-label="Navegación de categorías relacionadas" className={`${location.pathname === '/' ? 'hidden' : 'gdn-surface'} max-w-6xl mx-auto my-12 p-6 border rounded-2xl flex-col sm:flex-row items-center justify-between gap-4 ${location.pathname === '/' ? '' : 'flex'}`}>
         {(() => {
-          const cIdx = allLinks.findIndex(l => l.path === location.pathname);
-          const pLink = cIdx > 0 ? allLinks[cIdx - 1] : allLinks[allLinks.length - 1];
-          const nLink = cIdx >= 0 && cIdx < allLinks.length - 1 ? allLinks[cIdx + 1] : allLinks[0];
+          const cIdx = clusterLinks.findIndex(l => l.path === location.pathname);
+          const pLink = cIdx > 0 ? clusterLinks[cIdx - 1] : null;
+          const nLink = cIdx >= 0 && cIdx < clusterLinks.length - 1 ? clusterLinks[cIdx + 1] : null;
           return (
             <>
               {pLink && (
@@ -1209,7 +1214,7 @@ export default function CategoryPage({
               )}
 
               <div className="text-xs text-zinc-500 font-medium hidden md:block">
-                Explorando categoría {cIdx >= 0 ? cIdx + 1 : 1} de {allLinks.length}
+                Explorando {cluster?.label || 'categorías'} · {cIdx >= 0 ? cIdx + 1 : 1} de {clusterLinks.length}
               </div>
 
               {nLink && (
@@ -1234,8 +1239,8 @@ export default function CategoryPage({
       {/* Explore All Categories */}
       <section id="relacionados" className={`max-w-6xl mx-auto border-t border-white/5 scroll-mt-24 ${location.pathname === '/' ? 'pt-10' : 'pt-16'}`}>
         <div className={`text-center ${location.pathname === '/' ? 'mb-6' : 'mb-10'}`}>
-          <h2 className={`font-bold text-zinc-100 font-heading ${location.pathname === '/' ? 'text-2xl md:text-3xl' : 'text-3xl md:text-4xl'}`}>Explora Todos Nuestros Generadores</h2>
-          <p className={`text-zinc-400 mt-2 max-w-2xl mx-auto ${location.pathname === '/' ? 'text-sm' : 'text-lg'}`}>Encuentra el nombre perfecto para cualquier plataforma o mascota</p>
+          <h2 className={`font-bold text-zinc-100 font-heading ${location.pathname === '/' ? 'text-2xl md:text-3xl' : 'text-3xl md:text-4xl'}`}>{location.pathname === '/' ? 'Explora Todos Nuestros Generadores' : `Explora más sobre ${cluster?.label}`}</h2>
+          <p className={`text-zinc-400 mt-2 max-w-2xl mx-auto ${location.pathname === '/' ? 'text-sm' : 'text-lg'}`}>{location.pathname === '/' ? 'Encuentra ideas y herramientas para juegos, personas, mascotas y negocios' : 'Continúa con páginas de la misma temática para comparar opciones sin perder el contexto.'}</p>
           
           {/* Search Bar for Categories — internal pages only; global search already covers homepage */}
           {location.pathname !== '/' && (
@@ -1245,7 +1250,7 @@ export default function CategoryPage({
                 type="text"
                 value={searchCategory}
                 onChange={(e) => setSearchCategory(e.target.value)}
-                placeholder="Buscar generador (ej. Roblox, Gatos...)"
+                placeholder={`Buscar dentro de ${cluster?.label || 'esta categoría'}...`}
                 className="w-full bg-zinc-900/80 border border-white/10 rounded-2xl pl-12 pr-4 py-3.5 text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-violet-500 transition-colors"
               />
             </div>
@@ -1270,7 +1275,7 @@ export default function CategoryPage({
           ))}
           {filteredLinks.length === 0 && (
             <div className="col-span-full text-center py-12 text-zinc-500">
-              No se encontraron generadores que coincidan con "{searchCategory}".
+              No se encontraron páginas relacionadas que coincidan con "{searchCategory}".
             </div>
           )}
         </div>
