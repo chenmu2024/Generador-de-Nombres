@@ -5,7 +5,7 @@ import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { compoundNameGroups, getCompoundSuggestions, lookupNameMeaning } from '../src/data/compoundNames';
 import { normalizeSearch, visibleLength } from '../src/utils/text';
-import { nameIdeas } from '../src/data/nameIdeas';
+import { nameIdeas, alphabetNames } from '../src/data/nameIdeas';
 import { nameIdeaPaths } from '../src/data/nameIdeaPaths';
 import { getNameIdeaInitials, getNameIdeaTheme, getNameIdeaThemes, nameIdeaContexts, selectNameIdeas, type NameIdeaFilters } from '../src/utils/nameIdeaExplorer';
 import FemaleNamesTool from '../src/components/tools/FemaleNamesTool';
@@ -189,4 +189,30 @@ test('name comparison tool offers selection, CSV export, favorites and evidence 
   assert.match(gods, /Filtrar por temática creativa/);
   assert.match(gods, /Poseidón/);
   assert.match(gods, /aria-label="Escuchar Poseidón"/);
+});
+
+
+test('A-Z catalogue provides usable selections and keeps Ñ as a contains-Ñ group', () => {
+  for (const [letter, names] of Object.entries(alphabetNames)) {
+    assert.ok(names.length >= (letter === 'Ñ' ? 3 : 8), `${letter}: too few names`);
+    assert.equal(new Set(names.map(item => item.name)).size, names.length, `${letter}: duplicates`);
+    for (const item of names) {
+      assert.ok(['f', 'm', 'u'].includes(item.gender));
+      if (letter === 'Ñ') {
+        assert.match(item.name, /ñ/i);
+      } else {
+        const first = normalizeSearch(item.name).slice(0, 1).toUpperCase();
+        assert.equal(first, letter, `${letter}: unexpected name ${item.name}`);
+      }
+    }
+  }
+});
+
+test('A-Z explorer offers bulk copying, length filtering and shared favorites', () => {
+  const source = fs.readFileSync('src/components/AlphabetMatrixTool.tsx', 'utf8');
+  assert.match(source, /Copiar resultados/);
+  assert.match(source, /Filtrar por longitud/);
+  assert.match(source, /Ordenar nombres/);
+  assert.match(source, /gdn_favorites_updated/);
+  assert.match(source, /Guardar favorito/);
 });
