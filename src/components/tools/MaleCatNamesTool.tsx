@@ -77,7 +77,7 @@ export default function MaleCatNamesTool({
       '⚡ [Name] • Macho 🐾',
       '🛡️ Sir [Name] • Hero ⚔️',
       '🍊 [Name] • Mochi 🍡',
-      '✨ [Name] • TikTok Cat 📸',
+      '✨ [Name] • Michi 📸',
       '🏆 [Name] • Champion 🏅'
       ].map((frame) => (
       <button
@@ -159,12 +159,12 @@ export default function MaleCatNamesTool({
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
       {[
       { name: 'Simba', mean: 'El rey de la selva. Significa "león valiente" y con gran presencia.', symbol: '🦁 Rey #1', category: 'Épicos / Reyes 👑' },
-      { name: 'Thor', mean: 'Dios nórdico del trueno. Perfecto para gatos fuertes y enérgicos.', symbol: '⚡ Trueno', category: 'Mitología / Héroes 🏛️' },
+      { name: 'Thor', mean: 'Inspirado en el dios nórdico del trueno; transmite una imagen fuerte y enérgica.', symbol: '⚡ Trueno', category: 'Mitología / Héroes 🏛️' },
       { name: 'Leo', mean: 'Nombre breve de dos sílabas, práctico para repetir al llamarlo.', symbol: '⚡ Corto', category: 'Cortos (2 Sílabas) ⚡' },
       { name: 'Mochi', mean: 'Inspirado en el pastel japonés mochi; una opción tierna para gatos cariñosos.', symbol: '🍡 Dulce', category: 'Comida / Tiernos 🍡' },
-      { name: 'Loki', mean: 'Dios nórdico de las travesuras. Excelente para gatos inquietos.', symbol: '⚡ Travieso', category: 'Mitología / Héroes 🏛️' },
+      { name: 'Loki', mean: 'Inspirado en el dios nórdico asociado con las travesuras; encaja con una temática inquieta y juguetona.', symbol: '⚡ Travieso', category: 'Mitología / Héroes 🏛️' },
       { name: 'Zeus', mean: 'Rey del Olimpo y señor de los cielos. Imponente y dominante.', symbol: '🏛️ Olimpo', category: 'Mitología / Héroes 🏛️' },
-      { name: 'Nacho', mean: 'Cálido, crujiente y divertido, perfecto para michis naranjas.', symbol: '🍊 Naranjita', category: 'Comida / Tiernos 🍡' },
+      { name: 'Nacho', mean: 'Cálido y divertido; encaja especialmente con una temática de gatos naranjas.', symbol: '🍊 Naranjita', category: 'Comida / Tiernos 🍡' },
       { name: 'Max', mean: 'Corto y directo; resulta fácil de repetir al llamar al gato.', symbol: '⚡ Corto', category: 'Cortos (2 Sílabas) ⚡' },
       { name: 'Oreo', mean: 'Inspirado en la galleta blanca y negra. Un clásico entrañable.', symbol: '🍡 Galleta', category: 'Comida / Tiernos 🍡' },
       { name: 'Oliver', mean: 'Inspirado en Oliver y su Pandilla de Disney. Curioso y noble.', symbol: '🎬 Disney', category: 'Famosos / Anime 🎬' },
@@ -194,7 +194,7 @@ export default function MaleCatNamesTool({
       className="py-1.5 bg-zinc-800 hover:bg-blue-500/20 text-blue-300 rounded-xl text-[11px] font-semibold border border-white/5 transition-all flex items-center justify-center gap-1"
       title="Cargar en el creador"
       >
-      <span>✨</span> Estilar
+      <span>✨</span> Usar
       </button>
       </div>
       <button
