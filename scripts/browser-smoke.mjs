@@ -102,6 +102,9 @@ let chrome;
 let browser;
 try {
   await retry(async () => (await fetch(baseUrl + '/')).ok, 12000);
+  const compressedPreview = await fetch(baseUrl + '/', { headers: { 'Accept-Encoding': 'br, gzip' } });
+  verify(compressedPreview.ok && compressedPreview.headers.get('content-encoding') === 'br',
+    'Static preview must serve Brotli to make local Lighthouse bandwidth comparable with production');
   const chromeBinary = await findChrome();
   let chromeDiagnostics = '';
   console.log('[Browser] Launching Chromium: ' + chromeBinary);
