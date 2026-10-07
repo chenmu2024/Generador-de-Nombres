@@ -80,6 +80,7 @@ const LazyAnimeNamesTool = dynamic(() => import('../components/tools/AnimeNamesT
   loading: () => <div className="min-h-[520px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>
 });
 import { allLinks } from '../data/allLinks';
+import { getBreadcrumbTrail } from '../data/topicClusters';
 
 type CategoryClientData = {
   h1: string;
@@ -101,6 +102,7 @@ export default function CategoryPage({
   const routerLocation = useLocation();
   const currentPath = initialPath || routerLocation.pathname || '/';
   const location = { pathname: currentPath };
+  const breadcrumbTrail = getBreadcrumbTrail(currentPath, data.h1);
   const isGamingToolPage = ['/nombres-free-fire', '/generador-free-fire', '/espacios-invisible-ff', '/nombres-ff-unicos', '/nombres-ff-mujeres', '/nombres-clanes-ff', '/nombres-anime'].includes(currentPath);
   const usesDedicatedGenerator =
     !!nameIdeas[currentPath] ||
@@ -180,22 +182,19 @@ export default function CategoryPage({
 
       {/* Breadcrumb Navigation for Google & Users */}
       <nav aria-label="Breadcrumb" className={`${location.pathname === '/' ? 'hidden' : 'flex'} items-center gap-2 text-xs text-zinc-400 max-w-4xl mx-auto px-1`}>
-        <span>
-          <Link to="/" className="hover:text-violet-300 transition-colors flex items-center gap-1">
-            <Home className="w-3.5 h-3.5" aria-hidden="true" />
-            <span>Inicio</span>
-          </Link>
-          <span className="hidden">1</span>
-        </span>
-        {location.pathname !== '/' && (
-          <React.Fragment key="breadcrumb-sub">
-            <ChevronRight className="w-3 h-3 text-zinc-600" aria-hidden="true" />
-            <span itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem" className="text-zinc-200 font-semibold truncate">
-              <span>{data.h1}</span>
-              <span className="hidden">2</span>
-            </span>
+        {breadcrumbTrail.map((item, index) => (
+          <React.Fragment key={item.path}>
+            {index > 0 && <ChevronRight className="w-3 h-3 text-zinc-600 shrink-0" aria-hidden="true" />}
+            {index === breadcrumbTrail.length - 1 ? (
+              <span className="text-zinc-200 font-semibold truncate" aria-current="page">{item.name}</span>
+            ) : (
+              <Link to={item.path} className="hover:text-violet-300 transition-colors flex items-center gap-1 shrink-0">
+                {index === 0 && <Home className="w-3.5 h-3.5" aria-hidden="true" />}
+                <span>{item.name}</span>
+              </Link>
+            )}
           </React.Fragment>
-        )}
+        ))}
       </nav>
 
       {/* Header Section */}

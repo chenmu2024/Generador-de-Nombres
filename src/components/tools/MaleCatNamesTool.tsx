@@ -99,7 +99,7 @@ export default function MaleCatNamesTool({
       {/* Live Male Cat Badge Preview */}
       <div className="gdn-tool-result bg-gradient-to-b from-blue-950/50 via-zinc-950 to-zinc-950 border border-blue-500/30 rounded-2xl p-5 flex flex-col justify-between items-center text-center shadow-xl">
       <div>
-      <div className="text-xs text-blue-400 font-bold uppercase tracking-widest mb-2">Placa Oficial de Gato Macho 🏷️</div>
+      <div className="text-xs text-blue-400 font-bold uppercase tracking-widest mb-2">Ficha de Nombre para Gato Macho 🏷️</div>
       <div className="text-3xl font-extrabold text-blue-300 font-heading mb-2">
       {maleCatCustomName || 'Simba'}
       </div>
@@ -136,7 +136,7 @@ export default function MaleCatNamesTool({
       <h3 className="text-xl font-bold text-white font-heading flex items-center gap-2">
       <span>📖</span> Directorio Seleccionado de Nombres para Gatos Machos
       </h3>
-      <p className="text-xs text-zinc-400 mt-1">Explora significados y escucha la pronunciación oficial de cada nombre.</p>
+      <p className="text-xs text-zinc-400 mt-1">Explora las notas editoriales y escucha una lectura sintetizada del nombre con la voz disponible en tu dispositivo.</p>
       </div>
       
       <div className="flex flex-wrap gap-2">
@@ -160,12 +160,12 @@ export default function MaleCatNamesTool({
       {[
       { name: 'Simba', mean: 'El rey de la selva. Significa "león valiente" y con gran presencia.', symbol: '🦁 Rey #1', category: 'Épicos / Reyes 👑' },
       { name: 'Thor', mean: 'Dios nórdico del trueno. Perfecto para gatos fuertes y enérgicos.', symbol: '⚡ Trueno', category: 'Mitología / Héroes 🏛️' },
-      { name: 'Leo', mean: 'Súper corto (2 sílabas) y con resonancia aguda idónea para felinos.', symbol: '⚡ Corto', category: 'Cortos (2 Sílabas) ⚡' },
-      { name: 'Mochi', mean: 'Pastelito japonés suave y dulce. El preferido para gatos cariñosos.', symbol: '🍡 Dulce', category: 'Comida / Tiernos 🍡' },
+      { name: 'Leo', mean: 'Nombre breve de dos sílabas, práctico para repetir al llamarlo.', symbol: '⚡ Corto', category: 'Cortos (2 Sílabas) ⚡' },
+      { name: 'Mochi', mean: 'Inspirado en el pastel japonés mochi; una opción tierna para gatos cariñosos.', symbol: '🍡 Dulce', category: 'Comida / Tiernos 🍡' },
       { name: 'Loki', mean: 'Dios nórdico de las travesuras. Excelente para gatos inquietos.', symbol: '⚡ Travieso', category: 'Mitología / Héroes 🏛️' },
       { name: 'Zeus', mean: 'Rey del Olimpo y señor de los cielos. Imponente y dominante.', symbol: '🏛️ Olimpo', category: 'Mitología / Héroes 🏛️' },
       { name: 'Nacho', mean: 'Cálido, crujiente y divertido, perfecto para michis naranjas.', symbol: '🍊 Naranjita', category: 'Comida / Tiernos 🍡' },
-      { name: 'Max', mean: 'Corto, directo y súper fácil de aprender para el adiestramiento.', symbol: '⚡ Corto', category: 'Cortos (2 Sílabas) ⚡' },
+      { name: 'Max', mean: 'Corto y directo; resulta fácil de repetir al llamar al gato.', symbol: '⚡ Corto', category: 'Cortos (2 Sílabas) ⚡' },
       { name: 'Oreo', mean: 'Inspirado en la galleta blanca y negra. Un clásico entrañable.', symbol: '🍡 Galleta', category: 'Comida / Tiernos 🍡' },
       { name: 'Oliver', mean: 'Inspirado en Oliver y su Pandilla de Disney. Curioso y noble.', symbol: '🎬 Disney', category: 'Famosos / Anime 🎬' },
       { name: 'Garfield', mean: 'El icónico michi amante de la lasaña y las sestas mañaneras.', symbol: '🎬 Famoso', category: 'Famosos / Anime 🎬' },

@@ -131,3 +131,26 @@ export function getClusterRelatedPaths(path: string): string[] {
   const cluster = getClusterForPath(path);
   return cluster.paths.filter((candidate) => candidate !== path);
 }
+
+export interface BreadcrumbItem {
+  name: string;
+  path: string;
+}
+
+/**
+ * One canonical hierarchy for visible breadcrumbs and BreadcrumbList JSON-LD.
+ * Hub pages stay shallow; cluster children inherit their thematic hub.
+ */
+export function getBreadcrumbTrail(path: string, currentLabel: string): BreadcrumbItem[] {
+  if (path === '/') return [{ name: 'Inicio', path: '/' }];
+
+  const cluster = getClusterForPath(path);
+  const trail: BreadcrumbItem[] = [{ name: 'Inicio', path: '/' }];
+
+  if (cluster.hubPath !== '/' && cluster.hubPath !== path) {
+    trail.push({ name: cluster.label, path: cluster.hubPath });
+  }
+
+  trail.push({ name: currentLabel, path });
+  return trail;
+}
