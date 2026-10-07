@@ -7,6 +7,7 @@ import { Link } from '../components/Link';
 import { ChevronRight, Flame, CheckCircle2, Search, Copy, ListOrdered, Home } from 'lucide-react';
 
 import dynamic from 'next/dynamic';
+import DeferredTool from '../components/DeferredTool';
 
 // The decorative generator only belongs to pages without a dedicated name tool.
 const LazyGenerator = dynamic(() => import('../components/Generator'), {
@@ -500,7 +501,9 @@ export default function CategoryPage({
       {currentPath === '/nombres-anime' && <LazyAnimeNamesTool handleCopyTrending={handleCopyTrending} />}
 
       {['/nombres-free-fire', '/generador-free-fire', '/nombres-ff-unicos', '/nombres-ff-mujeres', '/nombres-clanes-ff', '/nombres-anime'].includes(currentPath) && (
-        <LazyFreeFireToolkit currentPath={currentPath} handleCopyTrending={handleCopyTrending} />
+        <DeferredTool label="Herramientas Free Fire complementarias">
+          <LazyFreeFireToolkit currentPath={currentPath} handleCopyTrending={handleCopyTrending} />
+        </DeferredTool>
       )}
 
       {/* Roblox Username Validator & Display Name Helper */}
@@ -561,7 +564,9 @@ export default function CategoryPage({
       )}
 
       {['/nombres-free-fire', '/generador-free-fire', '/espacios-invisible-ff', '/nombres-ff-unicos', '/nombres-ff-mujeres', '/nombres-clanes-ff'].includes(currentPath) && (
-        <LazyFreeFireSupportSections currentPath={currentPath} handleCopyTrending={handleCopyTrending} />
+        <DeferredTool label="Biblioteca de símbolos y ejemplos Free Fire">
+          <LazyFreeFireSupportSections currentPath={currentPath} handleCopyTrending={handleCopyTrending} />
+        </DeferredTool>
       )}
 
       {children}
