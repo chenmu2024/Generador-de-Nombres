@@ -19,6 +19,7 @@ interface GeneratorProps {
 const INITIAL_VISIBLE_NAMES = 12;
 const LOAD_MORE_NAMES = 24;
 const INITIAL_VISIBLE_SYMBOLS = 16;
+const LIVE_GENERATION_DELAY_MS = 160;
 
 const randomNames = ["Ninja", "Shadow", "Killer", "Pro", "Ghost", "Sniper", "King", "Queen", "Legend", "Alpha"];
 
@@ -104,34 +105,61 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
   const symbolsToUse = customSymbols || popularSymbols;
 
   const hasMountedGenerator = useRef(false);
+  const pendingLiveGeneration = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const skipAutoRefreshFor = useRef<string | null>(null);
   React.useEffect(() => {
-    // Initial useState already generated the first set; skip duplicate mount work.
+    // The initial useState already generated the first set: never repeat the
+    // hundreds of Unicode transformations just after hydration.
     if (!hasMountedGenerator.current) {
       hasMountedGenerator.current = true;
       return;
     }
-    const names = generateFancyNicknames(inputText.trim() || defaultName, style, customSymbols);
-    setGeneratedNames(names);
-    setSelectedNames([]);
-    setVisibleCount(INITIAL_VISIBLE_NAMES);
-    setCopiedIndex(null);
+    // A random-name click generates synchronously; do not repeat that same work.
+    if (skipAutoRefreshFor.current !== null) {
+      const skipValue = skipAutoRefreshFor.current;
+      skipAutoRefreshFor.current = null;
+      if (skipValue === inputText) return;
+    }
+    // Input remains responsive while rapid keystrokes coalesce to one generation.
+    const timer = setTimeout(() => {
+      setGeneratedNames(generateFancyNicknames(inputText.trim() || defaultName, style, customSymbols));
+      setSelectedNames([]);
+      setVisibleCount(INITIAL_VISIBLE_NAMES);
+      setCopiedIndex(null);
+      pendingLiveGeneration.current = null;
+    }, LIVE_GENERATION_DELAY_MS);
+    pendingLiveGeneration.current = timer;
+    return () => {
+      clearTimeout(timer);
+      if (pendingLiveGeneration.current === timer) pendingLiveGeneration.current = null;
+    };
   }, [inputText, defaultName, style, customSymbols]);
 
   const handleGenerate = () => {
-      const textToGenerate = inputText.trim() || defaultName;
-      const names = generateFancyNicknames(textToGenerate, style, customSymbols);
-      setGeneratedNames(names);
-      setSelectedNames([]);
-      setCopiedIndex(null);
-      setVisibleCount(INITIAL_VISIBLE_NAMES);
+    // Explicit submit and Enter must stay immediate, even during the debounce.
+    if (pendingLiveGeneration.current !== null) {
+      clearTimeout(pendingLiveGeneration.current);
+      pendingLiveGeneration.current = null;
+    }
+    const names = generateFancyNicknames(inputText.trim() || defaultName, style, customSymbols);
+    setGeneratedNames(names);
+    setSelectedNames([]);
+    setCopiedIndex(null);
+    setVisibleCount(INITIAL_VISIBLE_NAMES);
   };
 
   const handleRandomize = () => {
     const random = randomNames[Math.floor(Math.random() * randomNames.length)];
+    if (pendingLiveGeneration.current !== null) {
+      clearTimeout(pendingLiveGeneration.current);
+      pendingLiveGeneration.current = null;
+    }
+    skipAutoRefreshFor.current = random;
     setInputText(random);
     setGeneratedNames(generateFancyNicknames(random, style, customSymbols));
     setSelectedNames([]);
     setCopiedIndex(null);
+    setVisibleCount(INITIAL_VISIBLE_NAMES);
   };
 
   const copyToClipboard = async (text: string, index: number | null, customMsg?: string) => {
@@ -405,6 +433,8 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
             <option value="birds">Aves (aʚ)</option>
           </select>
           <button
+            type="button"
+            aria-label="Generar nombres"
             onClick={handleGenerate}
             disabled={isGenerating}
             className="gdn-primary-button px-8 py-4 disabled:opacity-50 text-white font-bold font-heading rounded-xl flex items-center justify-center gap-2 transition-all active:scale-[0.98] min-w-[160px] w-full md:w-auto"
