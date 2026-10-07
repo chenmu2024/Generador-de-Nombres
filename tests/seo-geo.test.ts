@@ -6,6 +6,8 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import { seoData } from '../src/data/seoData';
 import { editorialProfiles } from '../src/data/editorialProfiles';
 import { pageStructuredData, serializeStructuredData } from '../src/utils/structuredData';
+import { getKeywordRecord } from '../src/data/keywordMaster';
+import { getBreadcrumbTrail } from '../src/data/topicClusters';
 import SeoGuide from '../src/components/SeoGuide';
 import AboutUs from '../src/views/AboutUs';
 
@@ -31,10 +33,20 @@ test('every indexable tool has distinct visible summary and a stable valid revie
 test('one page graph connects visible FAQs, breadcrumbs and stable publisher identity', () => {
   for (const data of Object.values(seoData)) {
     const graph = pageStructuredData(data)['@graph'] as Record<string, any>[];
-    const page = graph.find(node => node['@type'] === 'WebPage');
+    const intent = getKeywordRecord(data.path)?.intent ?? 'mixed';
+    const expectedPageType = intent === 'tool' ? 'WebPage' : 'CollectionPage';
+    const page = graph.find(node => node['@type'] === expectedPageType);
     assert.equal(page?.dateModified, editorialProfiles[data.path].updated);
     assert.equal(page?.publisher['@id'], 'https://generadordenombres.net/#organization');
-    assert.equal(graph.filter(node => node['@type'] === 'BreadcrumbList').length, data.path === '/' ? 0 : 1);
+    assert.equal(graph.filter(node => node['@type'] === 'WebApplication').length, intent === 'directory' || intent === 'list' ? 0 : 1);
+    const breadcrumbs = graph.filter(node => node['@type'] === 'BreadcrumbList');
+    assert.equal(breadcrumbs.length, data.path === '/' ? 0 : 1);
+    if (breadcrumbs.length) {
+      assert.deepEqual(
+        breadcrumbs[0].itemListElement.map((item: any) => item.name),
+        getBreadcrumbTrail(data.path, data.h1).map(item => item.name),
+      );
+    }
     const faqs = graph.filter(node => node['@type'] === 'FAQPage');
     assert.equal(faqs.length, data.faqs?.length ? 1 : 0);
     if (faqs.length) assert.deepEqual(faqs[0].mainEntity.map((question: any) => ({ question: question.name, answer: question.acceptedAnswer.text })), data.faqs);
