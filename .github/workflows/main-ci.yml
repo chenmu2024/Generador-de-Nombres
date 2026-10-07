@@ -59,6 +59,15 @@ jobs:
           trap 'kill "$server_pid" 2>/dev/null || true' EXIT
           node scripts/lighthouse-lab.mjs
 
+      - name: Upload SEO/GEO release evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: seo-geo-release-${{ github.run_number }}
+          path: reports/seo-geo-release-audit.json
+          if-no-files-found: warn
+          retention-days: 30
+
       - name: Upload Lighthouse reports
         if: always()
         uses: actions/upload-artifact@v4
