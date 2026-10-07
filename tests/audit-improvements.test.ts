@@ -166,7 +166,7 @@ test('name idea filters combine accent folding, initial, length, topic and stabl
   );
   assert.deepEqual(
     selectNameIdeas('/nombres-de-dioses', greek, { ...base, length: 'short' }),
-    ['Ares', 'Eos', 'Hera', 'Nike', 'Pan', 'Zeus'],
+    ['Ares', 'Eos', 'Eros', 'Hera', 'Nike', 'Pan', 'Zeus'],
   );
   assert.equal(getNameIdeaTheme('/nombres-caballos', 'Azabache'), 'Pelaje y color');
   assert.deepEqual(getNameIdeaInitials(['Ícaro', 'Azabache', 'Aurora']), ['A', 'Í']);
