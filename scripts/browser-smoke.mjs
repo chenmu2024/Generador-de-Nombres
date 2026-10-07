@@ -102,15 +102,26 @@ let chrome;
 let browser;
 try {
   await retry(async () => (await fetch(baseUrl + '/')).ok, 12000);
-  chrome = spawn(await findChrome(), [
+  const chromeBinary = await findChrome();
+  let chromeDiagnostics = '';
+  console.log('[Browser] Launching Chromium: ' + chromeBinary);
+  chrome = spawn(chromeBinary, [
     '--headless', '--no-sandbox', '--disable-dev-shm-usage', '--disable-gpu',
     '--disable-extensions', '--no-first-run', '--no-default-browser-check',
+    '--disable-background-networking', '--disable-breakpad',
     '--remote-debugging-port=0', '--user-data-dir=' + profile, 'about:blank',
-  ], { stdio: 'ignore' });
-  const port = await retry(async () => {
-    try { return Number((await readFile(join(profile, 'DevToolsActivePort'), 'utf8')).split('\n')[0]); }
-    catch { return false; }
-  });
+  ], { stdio: ['ignore', 'ignore', 'pipe'] });
+  chrome.stderr?.on('data', chunk => { chromeDiagnostics = (chromeDiagnostics + String(chunk)).slice(-3500); });
+  chrome.on('error', error => { chromeDiagnostics += '\n' + String(error); });
+  let port;
+  try {
+    port = await retry(async () => {
+      try { return Number((await readFile(join(profile, 'DevToolsActivePort'), 'utf8')).split('\n')[0]); }
+      catch { return false; }
+    }, 30000);
+  } catch (error) {
+    throw new Error('Chromium startup failed (exit=' + chrome.exitCode + '): ' + String(error) + '\n' + chromeDiagnostics);
+  }
   const list = await (await fetch('http://127.0.0.1:' + port + '/json/list')).json();
   const tab = list.find(item => item.type === 'page');
   verify(tab?.webSocketDebuggerUrl, 'Cannot attach to Chrome');
