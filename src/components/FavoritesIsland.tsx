@@ -14,7 +14,12 @@ export default function FavoritesIsland() {
   const [confirmClear, setConfirmClear] = useState(false);
   const [recentlyCleared, setRecentlyCleared] = useState<string[] | null>(null);
   const [storageWarning, setStorageWarning] = useState(false);
-  const drawerRef = useDialog(isOpen, () => setIsOpen(false));
+  const closeDrawer = () => {
+    setIsOpen(false);
+    setConfirmClear(false);
+    setRecentlyCleared(null);
+  };
+  const drawerRef = useDialog(isOpen, closeDrawer);
 
   useEffect(() => {
     const load = () => setFavorites(readFavorites());
@@ -73,7 +78,7 @@ export default function FavoritesIsland() {
       </button>
 
       {isOpen && (
-        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex justify-end" onClick={() => setIsOpen(false)} role="dialog" aria-modal="true" aria-label="Mis nombres favoritos" ref={drawerRef} tabIndex={-1}>
+        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex justify-end" onClick={closeDrawer} role="dialog" aria-modal="true" aria-label="Mis nombres favoritos" ref={drawerRef} tabIndex={-1}>
           <div className="gdn-surface border-l w-full max-w-md h-full flex flex-col overflow-hidden" onClick={event => event.stopPropagation()}>
             <div className="gdn-surface-raised p-4 border-b flex items-center justify-between">
               <div className="flex items-center gap-2">
@@ -81,7 +86,7 @@ export default function FavoritesIsland() {
                 <h3 className="font-bold text-white text-base">Mis Nombres Favoritos</h3>
                 <span className="text-xs font-mono text-zinc-400 bg-white/10 px-2 py-0.5 rounded-full">{favorites.length}</span>
               </div>
-              <button type="button" onClick={() => { setIsOpen(false); setConfirmClear(false); setRecentlyCleared(null); }} aria-label="Cerrar panel de favoritos" className="p-1 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-800">
+              <button type="button" onClick={closeDrawer} aria-label="Cerrar panel de favoritos" className="p-1 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-800">
                 <X className="w-5 h-5" />
               </button>
             </div>
@@ -92,7 +97,7 @@ export default function FavoritesIsland() {
                   {copiedAll ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
                   {copiedAll ? 'Lista copiada' : 'Copiar todos'}
                 </button>
-                <button type="button" onClick={() => setConfirmClear(true)} className="flex items-center gap-1 min-h-11 px-2.5 py-1.5 rounded-xl text-zinc-400 hover:text-red-400 hover:bg-red-500/10">
+                <button type="button" aria-label="Vaciar todos los favoritos" onClick={() => setConfirmClear(true)} className="flex items-center gap-1 min-h-11 px-2.5 py-1.5 rounded-xl text-zinc-400 hover:text-red-400 hover:bg-red-500/10">
                   <Trash2 className="w-3.5 h-3.5" /> Vaciar
                 </button>
               </div>
@@ -111,7 +116,7 @@ export default function FavoritesIsland() {
                   ¿Vaciar {favorites.length} favoritos? Podrás deshacerlo mientras mantengas abierto este panel.
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  <button type="button" onClick={clearFavorites} className="min-h-11 rounded-xl bg-red-600 hover:bg-red-500 px-4 py-2 text-sm font-semibold text-white">
+                  <button type="button" aria-label="Confirmar vaciado de favoritos" onClick={clearFavorites} className="min-h-11 rounded-xl bg-red-600 hover:bg-red-500 px-4 py-2 text-sm font-semibold text-white">
                     Sí, vaciar
                   </button>
                   <button type="button" onClick={() => setConfirmClear(false)} className="gdn-chip min-h-11 rounded-xl border px-4 py-2 text-sm">
@@ -124,7 +129,7 @@ export default function FavoritesIsland() {
             {recentlyCleared !== null && (
               <div role="status" aria-live="polite" className="m-3 px-4 py-3 rounded-xl border border-violet-400/30 bg-violet-500/10 flex items-center justify-between gap-3">
                 <span className="text-sm text-zinc-200">Se vació la lista.</span>
-                <button type="button" onClick={undoClear} className="gdn-chip border rounded-xl min-h-11 px-4 py-2 text-sm font-semibold">
+                <button type="button" aria-label="Deshacer vaciado de favoritos" onClick={undoClear} className="gdn-chip border rounded-xl min-h-11 px-4 py-2 text-sm font-semibold">
                   Deshacer vaciado
                 </button>
               </div>
