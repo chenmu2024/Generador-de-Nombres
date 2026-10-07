@@ -48,7 +48,7 @@ export default function FavoritesIsland() {
         type="button"
         onClick={() => setIsOpen(true)}
         aria-label={`Mis nombres favoritos guardados (${favorites.length})`}
-        className="gdn-chip relative border rounded-xl px-2.5 py-1.5 text-xs flex items-center gap-1.5 transition-all"
+        className="gdn-chip relative min-h-11 border rounded-xl px-2.5 py-1.5 text-xs flex items-center gap-1.5 transition-all"
       >
         <Bookmark className="w-3.5 h-3.5 text-violet-400 fill-violet-500/10" />
         <span className="hidden md:inline font-semibold">Favoritos</span>
