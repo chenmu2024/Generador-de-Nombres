@@ -1,4 +1,5 @@
 import { editorialProfiles } from '../data/editorialProfiles';
+import { searchAnswerExamples } from '../data/seoAnswerExamples';
 import type { CategoryData } from '../data/seoData';
 import { allLinks } from '../data/allLinks';
 import { getClusterForPath, getClusterRelatedPaths } from '../data/topicClusters';
@@ -25,6 +26,7 @@ function getTopicalLinks(currentPath: string, data: CategoryData) {
 export default function SeoGuide({ data, currentPath }: { data: CategoryData; currentPath: string }) {
   const moreLinks = getTopicalLinks(currentPath, data);
   const profile = editorialProfiles[currentPath];
+  const practicalExample = searchAnswerExamples[currentPath];
   const cluster = getClusterForPath(currentPath);
   const relatedHeading = currentPath === '/' ? 'Explora por categoría' : `Más sobre ${cluster.label}`;
 
@@ -35,6 +37,14 @@ export default function SeoGuide({ data, currentPath }: { data: CategoryData; cu
           <h2 className="text-xl font-bold text-white">Resumen y criterios de selección</h2>
           <p className="text-zinc-200 leading-relaxed">{profile.summary}</p>
           <p className="text-sm text-zinc-400 leading-relaxed">{profile.focus}</p>
+          {practicalExample && (
+            <section aria-label="Ejemplo práctico y comprobaciones" className="mt-4 rounded-xl border border-white/10 bg-white/[0.025] p-4 space-y-2">
+              <h3 className="text-base font-semibold text-zinc-100">Ejemplo práctico</h3>
+              <p className="text-sm text-zinc-200 leading-relaxed">{practicalExample.scenario}</p>
+              <p className="text-sm text-zinc-200 leading-relaxed">{practicalExample.action}</p>
+              <p className="text-sm text-zinc-400 leading-relaxed"><strong>Qué comprobar:</strong> {practicalExample.verify}</p>
+            </section>
+          )}
           {moreLinks.length > 0 && <p className="text-sm text-zinc-400">Continúa según lo que buscas: {moreLinks.slice(0, 3).map((link, index) => <span key={link.path}>{index > 0 && ' · '}<a className="text-violet-300 underline" href={link.path}>{link.label}</a></span>)}.</p>}
         </section>
         <div dangerouslySetInnerHTML={{ __html: data.seoText.replaceAll('<div class="overflow-x-auto', '<div tabindex="0" role="region" aria-label="Tabla comparativa; desplázate horizontalmente para ver todas las columnas" class="overflow-x-auto') }} />

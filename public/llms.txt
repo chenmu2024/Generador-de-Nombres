@@ -1,37 +1,36 @@
-# GeneradorDeNombres.net - Generador de Nombres
+# GeneradorDeNombres.net
 
-> GeneradorDeNombres.net ofrece herramientas en español para crear nombres de usuario, apodos, símbolos Unicode e ideas de nombres para juegos, redes sociales, personas, mascotas y negocios.
+> Free Spanish-language generators, curated naming ideas and Unicode text utilities for games, social profiles, pets, people and shops. Content and names are examples, not accounts, official approvals, validated etymologies or trademark clearances.
 
-## Herramientas Principales
+Canonical domain: https://generadordenombres.net/
+Primary language: es
+Publisher: GeneradorDeNombres.net
+Editorial method: https://generadordenombres.net/sobre-nosotros#metodologia
+Contact/corrections: https://generadordenombres.net/contacto
 
-- [Generador de Nombres para Free Fire](https://generadordenombres.net/generador-free-fire): Creador de apodos.
-- [Espacio Invisible para Free Fire](https://generadordenombres.net/espacios-invisible-ff): Copia gratis el carácter transparente.
-- [Nombres para Clanes de Free Fire](https://generadordenombres.net/nombres-clanes-ff): Generador de tags.
-- [Nombres para Roblox](https://generadordenombres.net/nombres-roblox): Creador de Display Names.
-- [Nombres para Instagram](https://generadordenombres.net/nombres-instagram): Generador de usuarios.
+## User tasks and canonical pages
 
-## Directorios y Listas de Nombres
+- [Personalize a Free Fire nickname](https://generadordenombres.net/generador-free-fire): type a base word and copy a styled Unicode candidate.
+- [Explore Free Fire names](https://generadordenombres.net/nombres-free-fire): browse curated inspiration, separate from personalized generation.
+- [Compare invisible Unicode spaces](https://generadordenombres.net/espacios-invisible-ff): choose Unicode characters and try them in the target platform.
+- [Create Free Fire clan tags](https://generadordenombres.net/nombres-clanes-ff): draft short team nicknames and tags.
+- [Create Instagram username ideas](https://generadordenombres.net/nombres-instagram): name-based formatting suggestions; no availability lookup.
+- [Compare Roblox display names](https://generadordenombres.net/nombres-roblox): local examples; platform validation still required.
+- [Find first-name ideas for girls](https://generadordenombres.net/nombres-de-nina): short-list filters and second-name combinations.
+- [Explore unisex names](https://generadordenombres.net/nombres-unisex): editorial usage suggestions with cultural limits.
+- [Browse names by letter](https://generadordenombres.net/nombres-por-letra): initial filters; the Ñ category matches names containing Ñ.
+- [Compare Japanese names](https://generadordenombres.net/nombres-japoneses): avoid inferring a meaning from romanization alone.
+- [Explore names for cats](https://generadordenombres.net/nombres-gatos): compare by description, length and theme.
+- [Make names for plush toys](https://generadordenombres.net/nombres-peluches): playful naming and a fictional adoption card.
+- [Compare shop names](https://generadordenombres.net/nombres-para-tiendas): ideas only; trademarks, domains and accounts not checked.
+- [Choose football team names](https://generadordenombres.net/nombres-equipos-futbol): name and abbreviation comparison.
 
-- [Nombres de Mujer](https://generadordenombres.net/nombres-de-mujer): Lista completa.
-- [Nombres de Niña](https://generadordenombres.net/nombres-de-nina): Nombres cortos.
-- [Nombres de Niño](https://generadordenombres.net/nombres-de-nino): Nombres masculinos modernos.
-- [Nombres Unisex](https://generadordenombres.net/nombres-unisex): Lista de nombres neutros.
-- [Nombres por Letra A-Z](https://generadordenombres.net/nombres-por-letra): Directorio organizado.
+## Editorial limitations
 
-## Nombres Internacionales
+- Every name list is a curated suggestion, not a national frequency ranking.
+- The Unicode characters count and appearance do not guarantee acceptance in Free Fire, Roblox or other applications.
+- Name origins/meanings are only supported where the specific spelling has an explicit relevant source; otherwise they are unresolved.
+- These tools compute suggestions locally in the browser. They do not reserve usernames, domains or trademarks.
+- Each topical page has its own canonical URL. See [sitemap](https://generadordenombres.net/sitemap.xml) for the full indexable route list.
 
-- [Nombres Japoneses](https://generadordenombres.net/nombres-japoneses): Nombres con Kanjis.
-- [Nombres Coreanos](https://generadordenombres.net/nombres-coreanos): Nombres en Hangul.
-- [Nombres de Dioses Mitológicos](https://generadordenombres.net/nombres-de-dioses): Nombres griegos.
-- [Nombres Italianos](https://generadordenombres.net/nombres-italianos): Nombres elegantes.
-
-## Mascotas y Negocios
-
-- [Nombres para Perritas](https://generadordenombres.net/nombres-perritas): Ideas bonitas.
-- [Nombres para Gatos](https://generadordenombres.net/nombres-gatos): Nombres para felinos.
-- [Nombres para Tiendas](https://generadordenombres.net/nombres-para-tiendas): Ideas pegajosas.
-
-## Información del Sitio
-
-- [Sobre Nosotros](https://generadordenombres.net/sobre-nosotros): Misión y desarrollo.
-- [Contacto](https://generadordenombres.net/contacto): Formulario de soporte.
+This file is optional interoperability metadata. It is **not** required for Google Search or Google's generative AI Search features, and it does not grant permission to train on the site's content.

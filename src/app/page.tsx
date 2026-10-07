@@ -14,9 +14,11 @@ export const metadata: Metadata = {
     description: seoData.home?.metaDescription,
     url: 'https://generadordenombres.net/',
     type: 'website',
+    siteName: 'GeneradorDeNombres.net',
+    locale: 'es_ES',
     images: [
       {
-        url: 'https://generadordenombres.net/opengraph-image',
+        url: 'https://generadordenombres.net/opengraph-image.png',
         width: 1200,
         height: 630,
         alt: 'GeneradorDeNombres Logo',
@@ -25,6 +27,12 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: 'https://generadordenombres.net/',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: seoData.home?.title,
+    description: seoData.home?.metaDescription,
+    images: ['https://generadordenombres.net/opengraph-image.png'],
   },
 };
 

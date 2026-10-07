@@ -1,7 +1,7 @@
 {
   "name": "Generador de Nombres, Apodos y Símbolos",
   "short_name": "GeneradorNombres",
-  "description": "El mejor generador y creador de nombres, apodos y símbolos para Free Fire, Roblox, Instagram y más.",
+  "description": "Herramientas para explorar nombres, personalizar apodos y copiar símbolos Unicode para juegos, redes y mascotas.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#09090b",

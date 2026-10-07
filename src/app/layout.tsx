@@ -14,13 +14,24 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL('https://generadordenombres.net'),
   title: 'Generador de Nombres, Apodos y Símbolos para Juegos | GDN',
-  description: 'El mejor generador y creador de nombres, apodos y símbolos para Free Fire, Roblox, Instagram y más.',
+  description: 'Herramientas para crear y comparar nombres, apodos y símbolos Unicode para juegos, redes sociales, personas y mascotas.',
   icons: [
     { rel: 'icon', url: '/favicon.svg', type: 'image/svg+xml' },
     { rel: 'icon', url: '/favicon.png', type: 'image/png' },
     { rel: 'apple-touch-icon', url: '/apple-touch-icon.png' }
   ],
   manifest: '/site.webmanifest',
+  robots: { index: true, follow: true },
+  openGraph: {
+    siteName: 'GeneradorDeNombres.net',
+    locale: 'es_ES',
+    type: 'website',
+    images: [{ url: '/opengraph-image.png', width: 1200, height: 630, alt: 'GeneradorDeNombres.net: herramientas y nombres en español' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: ['/opengraph-image.png'],
+  },
 };
 
 export default function RootLayout({

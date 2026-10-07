@@ -24,19 +24,19 @@ export const seoData: Record<string, CategoryData> = {
     path: '/',
     title: 'Generador de Nombres, Apodos y Símbolos para Juegos | GDN',
     h1: 'Generador de Nombres, Apodos y Símbolos',
-    subtitle: 'El mejor creador de nombres y apodos para juegos, redes sociales, bebés y mascotas. Copia símbolos y letras raras en 1 clic.',
+    subtitle: 'Crea y compara nombres y apodos para juegos, redes sociales, bebés y mascotas. Prueba símbolos y copia letras Unicode con las herramientas gratuitas.',
     seoText: `
-      <h2>El Mejor Generador de Nombres, Apodos y Letras Bonitas</h2>
-      <p>Bienvenido a <strong>GeneradorDeNombres.net</strong>, una plataforma para explorar y personalizar nicks, apodos, nombres y perfiles. Ya sea que busques destacar en tus partidas de videojuegos (como Free Fire, Roblox, PUBG) o en tus biografías de redes sociales (Instagram, TikTok, WhatsApp), nuestro sistema convierte texto común en combinaciones llamativas con símbolos especiales, letras góticas, cursivas y tipografías Unicode compatibles.</p>
+      <h2>Guía del generador de nombres, apodos y letras bonitas</h2>
+      <p>Bienvenido a <strong>GeneradorDeNombres.net</strong>, una plataforma para explorar y personalizar nicks, apodos, nombres y perfiles. Ya sea que busques destacar en tus partidas de videojuegos (como Free Fire, Roblox, PUBG) o en tus biografías de redes sociales (Instagram, TikTok, WhatsApp), nuestro generador transforma texto común en combinaciones con símbolos especiales, letras góticas, cursivas y caracteres Unicode. Cada plataforma establece qué caracteres acepta.</p>
       
       <h3>¿Cómo crear nombres y apodos personalizados?</h3>
       <p>Es muy sencillo: solo escribe tu nombre o palabra clave en el cuadro principal. Al instante, nuestro sistema generará decenas de estilos únicos. También incluimos herramientas para copiar el <strong>espacio invisible (Unicode U+3164)</strong> y una amplia biblioteca de <strong>símbolos y caracteres especiales</strong> listos para copiar con un solo clic (como ꧁༺ ༻꧂, ⚡, ☠︎, 👑, y flores).</p>
       
       <h3>Nombres para Personas, Bebés y Mascotas</h3>
-      <p>Nuestra plataforma abarca mucho más que apodos para juegos. Si buscas inspiración para la vida real, disponemos de extensas listas y guías para encontrar hermosos <strong>nombres de mujer</strong>, opciones con significado para bebés (niños y niñas), e incluso listas de <strong>nombres para perritas</strong> y gatos con significados profundos.</p>
+      <p>Nuestra plataforma abarca mucho más que apodos para juegos. Si buscas inspiración para la vida real, disponemos de extensas listas y guías para encontrar hermosos <strong>nombres de mujer</strong>, opciones con significado para bebés (niños y niñas), y también listas de <strong>nombres para perritas</strong> y gatos con criterios de elección y referencias cuando están verificadas.</p>
       
       <h3>Símbolos, Letras Raras y Fuentes Unicode</h3>
-      <p>Contamos con una amplia colección de caracteres Unicode estándar compatibles con la mayoría de navegadores, aplicaciones y juegos modernos. Transforma tu texto normal en letras cursivas, medievales, estéticas y asiáticas de forma 100% gratuita.</p>
+      <p>Puedes explorar caracteres Unicode para escribir variantes cursivas, decorativas y de otros estilos. El aspecto depende de las fuentes disponibles; algunos símbolos pueden no mostrarse o ser rechazados por un juego o una aplicación. El generador es gratuito.</p>
     `,
     metaDescription: 'Generador de nombres, apodos y símbolos para juegos, redes sociales, bebés y mascotas. Copia letras raras y espacios invisibles fácilmente.',
     keywords: 'generador de nombres, creador de apodos, letras raras, simbolos unicode, espacio invisible, nombres de mujer, nombres para perritas',
@@ -117,7 +117,7 @@ export const seoData: Record<string, CategoryData> = {
       </div>
 
       <h3>Cómo Poner Espacio Invisible y Símbolos Especiales en Free Fire</h3>
-      <p>Para incluir espacios entre tu tag de clan y tu apodo en Free Fire no puedes usar la barra espaciadora del teclado normal. Tienes que usar el <strong>carácter transparente Unicode <code>U+3164</code></strong> (Espacio Invisible). En nuestro creador de nombres arriba, solo haz clic en la opción de espacio transparente o copia directamente los nombres ya formateados.</p>
+      <p>Si necesitas un separador invisible entre un tag de clan y un apodo, puedes probar el <strong>carácter Unicode <code>U+3164</code></strong> desde nuestra guía de espacios invisibles. No todos los caracteres se aceptan en todas las versiones de un juego; comprueba el resultado antes de confirmar el cambio.</p>
 
       <h3>Qué Comprobar sobre Longitud y Caracteres en Free Fire</h3>
       <ul>
