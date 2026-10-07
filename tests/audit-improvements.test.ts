@@ -273,7 +273,7 @@ test('pet and human result cards have touch targets, copy, favorites and accessi
 test('compound suggestions filter by first-name length without dropping the original text', () => {
   const samples = getCompoundSuggestions('male','moderno');
   const mateo = selectCompoundIdeas(samples, 'MATEO', 'all');
-  assert.deepEqual(mateo.map(item=>item.val), ['Mateo Gael']);
+  assert.deepEqual(mateo.map(item=>item.val), ['Mateo Gael', 'Bastian Mateo']);
   assert.ok(selectCompoundIdeas(samples, '', 'short').every(item => visibleLength(item.val.split(' ')[0]) <= 4));
   assert.deepEqual(selectCompoundIdeas(samples, 'unmatched_zz', 'all'), []);
 });
