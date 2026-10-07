@@ -20,6 +20,10 @@ import { petNameLists } from '../src/data/petNameLists';
 import { selectPetNameIdeas } from '../src/utils/petNameFilter';
 import PetNameLibrary from '../src/components/tools/PetNameLibrary';
 import CompoundNamePicker, { selectCompoundIdeas } from '../src/components/tools/CompoundNamePicker';
+import InstagramTool from '../src/components/tools/InstagramTool';
+import IntentRoutes, { getIntentRoutes } from '../src/components/IntentRoutes';
+import { createInstagramPersonalizedIdeas } from '../src/utils/instagramPersonalized';
+import { isInstagramUsername } from '../src/utils/text';
 
 test('unknown and special object keys never receive invented etymology', () => {
   for (const name of ['PruebaXYZ', '', '   ', '__proto__', 'constructor', '👑']) {
@@ -313,4 +317,64 @@ test('live nickname updates debounce repeated transformations while explicit sub
   assert.match(source, /clearTimeout\(pendingLiveGeneration\.current\)/);
   assert.match(source, /aria-label="Generar nombres"/);
   assert.match(source, /skipAutoRefreshFor\.current/);
+});
+
+
+test('Instagram first-name and surname generation creates unique format-safe candidates without availability claims', () => {
+  const results = createInstagramPersonalizedIdeas('María López');
+  const names = results.map(item => item.username);
+  assert.ok(names.includes('maria.lopez'));
+  assert.ok(names.includes('maria_lopez'));
+  assert.ok(names.includes('soy.maria'));
+  assert.ok(names.includes('maria.crea'));
+  assert.equal(new Set(names).size, names.length);
+  assert.ok(names.every(isInstagramUsername));
+  assert.deepEqual(createInstagramPersonalizedIdeas('    ---   '), []);
+  assert.deepEqual(createInstagramPersonalizedIdeas('🔥✨🌈'), []);
+  for (const sample of ['Ana', 'Álvaro Núñez', 'Érica de la Cruz', 'x'.repeat(95), 'A.J. _ R.', '李 小龙']) {
+    const ideas = createInstagramPersonalizedIdeas(sample);
+    assert.equal(ideas.length, new Set(ideas.map(item => item.username)).size, sample);
+    assert.ok(ideas.every(item => isInstagramUsername(item.username)), sample);
+    assert.ok(ideas.every(item => item.username.length <= 30), sample);
+  }
+});
+
+test('Instagram name-to-username UI exposes search intent and safe copy controls', () => {
+  const rendered = renderToStaticMarkup(React.createElement(InstagramTool, { handleCopyTrending: () => {} }));
+  assert.match(rendered, /id="instagram-con-tu-nombre"/);
+  assert.match(rendered, /Tu nombre para crear usuarios de Instagram/);
+  assert.match(rendered, /Copiar todas las propuestas para Instagram/);
+  assert.match(rendered, /no verifica disponibilidad/i);
+  assert.match(rendered, /id="instagram-validar-usuario"/);
+  assert.match(rendered, /id="instagram-biografia"/);
+  assert.doesNotMatch(rendered, /Formato Válido en IG/);
+});
+
+test('Free Fire and Instagram intent routes distinguish generation, inspiration, spacing and clans', () => {
+  assert.deepEqual(getIntentRoutes('/nombres-instagram').map(route => route.href), [
+    '#instagram-con-tu-nombre',
+    '#instagram-validar-usuario',
+    '#instagram-biografia',
+  ]);
+  const ff = getIntentRoutes('/nombres-free-fire');
+  assert.deepEqual(ff.map(route => route.href), [
+    '/generador-free-fire', '/nombres-free-fire', '/espacios-invisible-ff', '/nombres-clanes-ff',
+  ]);
+  assert.ok(['/generador-free-fire', '/nombres-ff-unicos', '/nombres-ff-mujeres', '/nombres-clanes-ff']
+    .every(path => getIntentRoutes(path).length === 4));
+  assert.deepEqual(getIntentRoutes('/nombres-italianos'), []);
+  const rendered = renderToStaticMarkup(React.createElement(IntentRoutes, { path: '/nombres-free-fire' }));
+  assert.match(rendered, /Elige la herramienta según lo que quieres hacer/);
+  assert.match(rendered, /href="\/generador-free-fire"/);
+  assert.match(rendered, /href="\/espacios-invisible-ff"/);
+  assert.match(rendered, /aria-current="page"/);
+  assert.match(fs.readFileSync('src/views/CategoryPage.tsx', 'utf8'), /<IntentRoutes path=\{currentPath\}/);
+});
+
+test('GSC proxy report identifies source property separately from unverified target', () => {
+  const report = fs.readFileSync('docs/gsc-proxy-intent-study-2026-10-07.md', 'utf8');
+  assert.match(report, /not available/);
+  assert.match(report, /sc-domain:generadordelettering.org/);
+  assert.match(report, /2026-09-07 to 2026-10-04/);
+  assert.match(report, /no target-site growth or ranking improvements/i);
 });
