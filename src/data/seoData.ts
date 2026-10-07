@@ -63,12 +63,12 @@ export const seoData: Record<string, CategoryData> = {
     path: '/nombres-free-fire',
     title: 'Nombres para Free Fire - Apodos Chidos e Insanos | GDN',
     h1: 'Generador y Creador de Nombres para Free Fire',
-    subtitle: 'Crea nombres insanos, espacios invisibles, V de Verificado Ⓥ y apodos para clanes, dúos y chicas en FF.',
+    subtitle: 'Explora ideas de nombres para Free Fire por estilo, símbolos, clanes, dúos y variantes femeninas antes de personalizar tu propia base.',
     seoText: `
-      <h2>Los Mejores Nombres para Free Fire en 2026 (Apodos Insanos y Épicos)</h2>
-      <p>Destacar en Free Fire (FF) empieza antes de caer del avión: tu nickname o apodo es tu carta de presentación ante tus rivales y tu escuadra. Ya sea que busques un <strong>nombre insano que dé miedo</strong>, un nombre con <strong>espacio invisible Unicode (U+3164)</strong>, el icono <strong>V de Verificado (Ⓥ)</strong>, o combinaciones para <strong>dúos dinámicos y clanes nivel 10</strong>, nuestro generador crea variantes adaptadas a nombres cortos; los límites y caracteres admitidos pueden cambiar según la versión del juego.</p>
+      <h2>Ideas de Nombres para Free Fire por Estilo (Apodos Insanos y Épicos)</h2>
+      <p>Esta página funciona como guía e inspiración para comparar estilos de nombres en Free Fire: apodos agresivos, combinaciones con símbolos, ideas para dúos, variantes femeninas y ejemplos con tag de clan. Si ya tienes una palabra base y quieres transformarla, utiliza el <a href="/generador-free-fire">generador de nombres para Free Fire</a>. Los límites, caracteres admitidos y disponibilidad dependen siempre de lo que acepte el juego en ese momento.</p>
       
-      <h3>Guía Rápida: Estilos de Nombres para Free Fire Más Buscados</h3>
+      <h3>Guía Rápida: Estilos de Nombres para Free Fire</h3>
       <p>A continuación te mostramos combinaciones de esta selección editorial clasificadas por estilo e intención en partida:</p>
       
       <div class="overflow-x-auto not-prose mb-8 mt-4">
@@ -119,7 +119,7 @@ export const seoData: Record<string, CategoryData> = {
       <h3>Cómo Poner Espacio Invisible y Símbolos Especiales en Free Fire</h3>
       <p>Para incluir espacios entre tu tag de clan y tu apodo en Free Fire no puedes usar la barra espaciadora del teclado normal. Tienes que usar el <strong>carácter transparente Unicode <code>U+3164</code></strong> (Espacio Invisible). En nuestro creador de nombres arriba, solo haz clic en la opción de espacio transparente o copia directamente los nombres ya formateados.</p>
 
-      <h3>Reglas Oficiales de Longitud de Nombres en Free Fire</h3>
+      <h3>Qué Comprobar sobre Longitud y Caracteres en Free Fire</h3>
       <ul>
         <li><strong>Longitud del apodo:</strong> Comprueba el límite que muestra tu versión de Free Fire antes de confirmar, ya que las reglas pueden cambiar.</li>
         <li><strong>Símbolos para probar:</strong> Caracteres Unicode especiales (꧁, ꧂, ⚡, ☠︎, 👑, ✿, ☬, ⚔️, ☯︎, ★, ♥, ✨, 🔥, ツ, ×͜×, Ⓥ, ╰‿╯).</li>
@@ -133,7 +133,7 @@ export const seoData: Record<string, CategoryData> = {
     faqs: [
       {
         question: "¿Cómo pongo el espacio invisible en mi nombre de Free Fire?",
-        answer: "Free Fire no permite usar la barra espaciadora normal en los nombres. Para poner un espacio debes usar el carácter transparente Unicode (U+3164). Puedes usar nuestra herramienta de 'Espacio Invisible' arriba para copiarlo con 1 clic y pegarlo directamente en el juego."
+        answer: "Si el campo de apodo no conserva una separación normal, puedes probar el carácter Unicode U+3164 desde nuestra herramienta de Espacio Invisible. La aceptación depende de la versión y debe confirmarse dentro del juego."
       },
       {
         question: "¿Cuál es el límite de letras para los nombres en Free Fire?",
@@ -141,7 +141,7 @@ export const seoData: Record<string, CategoryData> = {
       },
       {
         question: "¿Cómo pongo la V de Verificado (Ⓥ) en mi perfil de Free Fire?",
-        answer: "La 'V de Verificado' oficial (insignia dorada de influencer) la otorga Garena a creadores asociados, pero puedes copiar el símbolo de texto Unicode Ⓥ o 🅅 de nuestra lista de símbolos para incluirlo en tu nickname o firma del perfil."
+        answer: "El símbolo de texto Ⓥ o 🅅 puede copiarse como decoración, pero no convierte una cuenta en verificada ni sustituye ninguna insignia que la plataforma otorgue dentro del juego."
       },
       {
         question: "¿Cuánto cuesta cambiar de nombre en Free Fire?",
@@ -1374,9 +1374,9 @@ export const seoData: Record<string, CategoryData> = {
     path: '/nombres-peluches',
     title: 'Nombres para Peluches y Osos - Tiernos y Bonitos | GDN',
     h1: 'Generador de Nombres para Peluches y Certificado de Adopción',
-    subtitle: 'Descubre los nombres más tiernos, dulces y divertidos para tu osito de felpa, Squishmallow, conejito o peluche con acta oficial de adopción personalizada y voz cariñosa.',
+    subtitle: 'Explora nombres tiernos y creativos para ositos, Squishmallows y otros peluches, con una ficha de adopción de juego y lectura sintetizada opcional.',
     seoText: `
-      <h2>Los Mejores Nombres para Peluches, Ositos de Felpa, Squishmallows y Muñecos (2026)</h2>
+      <h2>Ideas de Nombres para Peluches, Ositos de Felpa, Squishmallows y Muñecos</h2>
       <p>Ponerle un nombre a un peluche, osito de felpa o muñeco es un ritual entrañable lleno de ternura, nostalgia y afecto. Ya sea un osito clásico reglado por una persona especial, un Squishmallow ultra suave y esponjoso, un tierno conejito de orejas largas, un peluche kawaii de gatito o un majestuoso unicornio, bautizar a tu compañero suave le otorga una personalidad única y crea un recuerdo emotivo imborrable para toda la vida.</p>
 
       <h3>Categorías Principales de Nombres para Peluches</h3>
@@ -1397,7 +1397,7 @@ export const seoData: Record<string, CategoryData> = {
               <th class="py-3.5 px-4 font-bold">Tipo / Textura</th>
               <th class="py-3.5 px-4 font-bold">Estilo de Nombre</th>
               <th class="py-3.5 px-4 font-bold">Inspiración creativa (no etimología)</th>
-              <th class="py-3.5 px-4 font-bold">Promesa de Adopción Oficial</th>
+              <th class="py-3.5 px-4 font-bold">Promesa de Adopción Creativa</th>
             </tr>
           </thead>
           <tbody class="text-zinc-300 divide-y divide-white/5">
@@ -1449,9 +1449,9 @@ export const seoData: Record<string, CategoryData> = {
 
       <h3>Consejos Clave para Crear y Celebrar la Adopción de tu Peluche</h3>
       <ol>
-        <li><strong>Ficha Oficial de Adopción:</strong> Rellena el formulario interactivo superior con el nombre, tipo de muñeco, nombre del adoptante y su súper poder o promesa.</li>
+        <li><strong>Ficha Creativa de Adopción:</strong> Rellena el formulario interactivo superior con el nombre, tipo de muñeco, nombre del adoptante y su súper poder o promesa.</li>
         <li><strong>Pronunciación y Audio Cariñoso:</strong> Utiliza el reproductor de voz integrado para escuchar cómo suena el nombre de tu peluche en voz alta.</li>
-        <li><strong>Celebración de Cumpleaños:</strong> La fecha en que generas la ficha se convierte oficialmente en su día de cumpleaños o aniversario de adopción anual.</li>
+        <li><strong>Celebración de Cumpleaños:</strong> Puedes usar la fecha de la ficha como un cumpleaños o aniversario de adopción de juego si te apetece mantener esa tradición.</li>
       </ol>
     `,
     metaDescription: 'Nombres para peluches, osos de felpa y juguetes. Ideas tiernas, bonitas y creativas para darle personalidad a tus muñecos favoritos.',
@@ -1618,57 +1618,57 @@ export const seoData: Record<string, CategoryData> = {
     path: '/nombres-ff-unicos',
     title: 'Nombres para Free Fire que Nadie Tenga - Únicos | GDN',
     h1: 'Nombres para Free Fire que Nadie Tenga (Exclusivos y Raros)',
-    subtitle: 'Encuentra y genera nombres originales que no están en uso en Free Fire: combinaciones de 3-4 letras, símbolos raros y apodos de mitología.',
+    subtitle: 'Crea variaciones visuales poco comunes para Free Fire con bases cortas, símbolos y separadores, sin afirmar disponibilidad ni exclusividad comprobada.',
     seoText: `
-      <h2>Cómo Crear Nombres para Free Fire que Nadie Tenga (Guía 2026)</h2>
-      <p>Uno de los problemas más frustrantes al crear o modificar tu perfil de Free Fire es intentar decenas de apodos populares y recibir continuamente el mensaje de error de Garena: <em>"Este nombre ya se encuentra registrado"</em>. La causa es que nombres como "Pro", "King" o "Killer" están usados por millones de jugadores.</p>
+      <h2>Cómo Crear Variantes de Nombres para Free Fire que Nadie Tenga</h2>
+      <p>Cuando una base sencilla ya está ocupada, una forma práctica de diferenciarla visualmente es combinarla con letras, separadores o símbolos. Esta página se centra en esa intención creativa; no consulta una base de datos de usuarios ni puede demostrar que una propuesta esté libre.</p>
       
-      <p>Para conseguir un <strong>nombre para Free Fire que verdaderamente nadie tenga</strong>, debes recurrir a 4 estrategias efectivas de combinación: combinar <strong>runas o símbolos antiguos poco saturados (𓆩𓆪, 亗, ╰‿╯)</strong>, intercalar <strong>espacios invisibles (Unicode U+3000)</strong>, usar <strong>neologismos o nombres en latín/sánscrito</strong> o estructurar apodos cortos de 3 a 4 letras con fuentes estéticas.</p>
+      <p>Para aumentar la diferenciación visual puedes combinar una <strong>base corta</strong>, uno o dos <strong>símbolos Unicode</strong>, un <strong>separador que el juego acepte</strong> y una variación ortográfica propia. Cuantas más decoraciones añadas, más importante es comprobar legibilidad, longitud y compatibilidad antes de guardar.</p>
 
-      <h3>Ideas de Nombres Exclusivos y Poco Comunes por Creadores de Contenido</h3>
+      <h3>Ideas de Variaciones Visuales Poco Comunes</h3>
       <div class="overflow-x-auto not-prose mb-8 mt-4">
         <table class="min-w-full text-left border-collapse rounded-2xl overflow-hidden border border-white/10 bg-zinc-900/60">
           <thead>
             <tr class="bg-violet-950/60 text-violet-200 border-b border-white/10">
               <th class="py-3.5 px-4 font-bold">Estilo de Nombre</th>
               <th class="py-3.5 px-4 font-bold">Ejemplo Listo para Copiar</th>
-              <th class="py-3.5 px-4 font-bold">Por qué Nadie lo Tiene</th>
+              <th class="py-3.5 px-4 font-bold">Qué cambia visualmente</th>
             </tr>
           </thead>
           <tbody class="text-zinc-300 divide-y divide-white/5">
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-violet-300">Runas Antiguas & Jeroglíficos</td>
               <td class="py-3 px-4 font-mono text-amber-300">𓆩⚡𓆪 ㅤ K Y R O S</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Usa los símbolos raros egipcios 𓆩 𓆪 combinados con espacio transparente.</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Combina un marco poco habitual con un separador visual.</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-violet-300">Latín y Mitología Rara</td>
               <td class="py-3 px-4 font-mono text-amber-300">╰‿╯ ㅤ V O R T E X</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Basado en términos astronómicos poco comunes con la carita sonriente ╰‿╯.</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Usa una base temática y un marco sencillo para diferenciar la forma.</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-violet-300">Corto 3-4 Letras Insano</td>
               <td class="py-3 px-4 font-mono text-amber-300">7K ㅤ Z E X 亗</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Corta longitud con corona asiática 亗 y número de clan inicial.</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Mantiene una base corta y añade un tag más un símbolo final.</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-violet-300">Con Verificado & Manzana</td>
               <td class="py-3 px-4 font-mono text-amber-300">Ⓥ ㅤ S P E C T R E </td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Combina la 'V de Verificado' con el símbolo de la manzana  al final.</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Combina dos símbolos decorativos; no representa verificación oficial.</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-violet-300">Chiteros / Diabólicos</td>
               <td class="py-3 px-4 font-mono text-amber-300">乄 ㅤ N E X U S ☠︎</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Estructura limpia usando la espada oriental 乄 y la calavera militar.</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Mantiene una estructura simétrica con símbolos a ambos lados.</td>
             </tr>
           </tbody>
         </table>
       </div>
 
-      <h3>Fórmula Infalible para Inventar tu Apodo Único en 3 Pasos</h3>
+      <h3>Fórmula para Crear una Variación Propia en 3 Pasos</h3>
       <ol>
-        <li><strong>Paso 1: Elige una Palabra Base Desconocida:</strong> Busca términos de constelaciones (ej: <em>Antares, Orion, Polaris</em>), física (ej: <em>Quantum, Pulsar, Vector</em>) o dioses poco conocidos (ej: <em>Erebo, Kratos, Hypnos</em>).</li>
-        <li><strong>Paso 2: Inserta Espacios Invisibles:</strong> Usa el botón de espacio en blanco para separar cada letra o la inicial del nombre (ej: <code>A ㅤ N ㅤ T ㅤ A ㅤ R ㅤ E ㅤ S</code>).</li>
+        <li><strong>Paso 1: Elige una Base:</strong> Parte de una palabra que recuerdes fácilmente y que encaje con tu estilo de juego.</li>
+        <li><strong>Paso 2: Prueba un Separador:</strong> Usa un espacio Unicode solo si tu versión del juego lo acepta y comprueba el resultado antes de guardar.</li>
         <li><strong>Paso 3: Añade un Marco de Símbolos Raros:</strong> Encierra tu palabra entre dos símbolos simétricos como <code>𓆩...𓆪</code> o <code>꧁...꧂</code>.</li>
       </ol>
     `,
@@ -1742,13 +1742,13 @@ export const seoData: Record<string, CategoryData> = {
     path: '/nombres-clanes-ff',
     title: 'Nombres para Clanes de Free Fire - Generador | GDN',
     h1: 'Nombres para Clanes y Escuadras de Free Fire',
-    subtitle: 'Crea nombres e insignias impones para tu clan competitivo, clan mixto, escuadras 4v4 o gremios nivel 10 en FF.',
+    subtitle: 'Crea nombres, siglas y estilos visuales para clanes y escuadras de Free Fire, y comprueba después las reglas vigentes dentro del juego.',
     seoText: `
-      <h2>Los Mejores Nombres para Clanes y Escuadras de Free Fire en 2026</h2>
+      <h2>Ideas de Nombres para Clanes y Escuadras de Free Fire</h2>
       <p>El nombre de un clan en Free Fire es el sello de identidad que representa el nivel, la disciplina y el poder de tu grupo en la isla. Tanto si buscas formar un <strong>clan competitivo para torneos y salas privadas (eSports)</strong>, un <strong>clan insano o tóxico para apostados y 4v4</strong>, o un <strong>clan mixto y aesthetic con espacio invisible</strong>, la clave está en combinar una sigla o Tag limpia con un nombre imponente.</p>
       
       <h3>Tabla de Estilos de Nombres y Tags para Clanes (Con Ejemplos)</h3>
-      <p>A continuación te mostramos las mejores combinaciones organizadas por la temática de tu escuadra:</p>
+      <p>A continuación se muestran ejemplos organizados por la temática visual de la escuadra:</p>
       
       <div class="overflow-x-auto not-prose mb-8 mt-4">
         <table class="min-w-full text-left border-collapse rounded-2xl overflow-hidden border border-white/10 bg-zinc-900/60">
@@ -1795,15 +1795,15 @@ export const seoData: Record<string, CategoryData> = {
         </table>
       </div>
 
-      <h3>Estructura Perfecta para Formar la Sigla o Tag del Clan</h3>
-      <p>Un Tag de clan profesional consta generalmente de <strong>2 a 4 letras en mayúsculas</strong> acompañadas de un punto central (<code>•</code>), un guion especial o un espacio invisible. Por ejemplo: <code>VP • ㅤ N A M E</code>. De esta forma, cualquier miembro que se una al clan puede adoptar la sigla oficial sin agotar el límite de 12 caracteres del apodo personal.</p>
+      <h3>Una Estructura Práctica para la Sigla o Tag del Clan</h3>
+      <p>Una convención sencilla es usar una sigla breve de <strong>2 a 4 caracteres</strong> acompañada de un punto central, un guion o un separador que el juego acepte. Por ejemplo: <code>VP • ㅤ N A M E</code>. Mantener el tag corto facilita que varios integrantes conserven una estructura visual parecida sin asumir un límite fijo de caracteres.</p>
 
-      <h3>Reglas y Costos Oficiales de Creación de Clanes en Free Fire</h3>
+      <h3>Qué Comprobar Antes de Crear o Renombrar un Clan</h3>
       <ul>
-        <li><strong>Costo de Creación:</strong> Crear un Clan en Free Fire cuesta 5,000 Monedas de Oro (Gold) o 1,000 Diamantes.</li>
-        <li><strong>Límite de Longitud del Nombre del Clan:</strong> Máximo 12 caracteres para el nombre oficial del gremio.</li>
-        <li><strong>Símbolos Soportados:</strong> Símbolos de escudo (🛡️), coronas (👑), espadas (⚔️), fuego (🔥), verificado (Ⓥ) y espacios invisibles (<code>U+3000</code>).</li>
-        <li><strong>Liderazgo y Niveles:</strong> El clan sube de Nivel (hasta Nivel 10) al acumular honor semanal mediante partidas completadas por sus miembros.</li>
+        <li><strong>Coste:</strong> revisa el importe y la moneda que muestre tu cuenta antes de confirmar, porque pueden cambiar.</li>
+        <li><strong>Longitud:</strong> comprueba el límite vigente directamente en el campo de nombre del clan.</li>
+        <li><strong>Símbolos:</strong> prueba escudos, coronas, espadas u otros caracteres uno a uno; Unicode válido no significa compatibilidad garantizada.</li>
+        <li><strong>Gestión:</strong> revisa dentro del juego los permisos, niveles y requisitos actuales antes de organizar la escuadra.</li>
       </ul>
     `,
     metaDescription: 'Generador de nombres para clanes de Free Fire. Encuentra apodos para escuadras, tags intimidantes y nombres de clanes insanos con símbolos.',
@@ -1821,7 +1821,7 @@ export const seoData: Record<string, CategoryData> = {
       },
       {
         question: "¿Cómo hacer que mi clan se vea profesional para torneos?",
-        answer: "Usa un Tag corto de 2 o 3 letras (como FX, VX, 7K, ST) con una tipografía limpia y sin recargar demasiado de símbolos. Mantener uniformidad visual entre los 4 jugadores de la escuadra impone gran respeto en las salas privadas."
+        answer: "Usa un Tag corto de 2 o 3 letras (como FX, VX, 7K, ST) con una tipografía limpia y sin recargar demasiado de símbolos. Mantener una estructura visual coherente entre los integrantes hace que el tag sea más fácil de reconocer."
       },
       {
         question: "¿Cómo separar el Tag del clan con espacio invisible?",
