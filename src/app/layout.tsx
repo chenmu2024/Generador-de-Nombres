@@ -14,7 +14,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL('https://generadordenombres.net'),
   title: 'Generador de Nombres, Apodos y Símbolos para Juegos | GDN',
-  description: 'El mejor generador y creador de nombres, apodos y símbolos para Free Fire, Roblox, Instagram y más.',
+  description: 'Herramientas para crear y comparar nombres, apodos y símbolos Unicode para juegos, redes sociales, personas y mascotas.',
   icons: [
     { rel: 'icon', url: '/favicon.svg', type: 'image/svg+xml' },
     { rel: 'icon', url: '/favicon.png', type: 'image/png' },
