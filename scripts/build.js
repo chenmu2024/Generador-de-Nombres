@@ -11,4 +11,6 @@ const result = spawnSync(process.execPath, ['node_modules/next/dist/bin/next', '
 if (result.status !== 0) process.exit(result.status ?? 1);
 const verification = spawnSync(process.execPath, ['--import', 'tsx', 'scripts/verify-export.ts'], { stdio: 'inherit' });
 if (verification.status !== 0) process.exit(verification.status ?? 1);
+const releaseAudit = spawnSync(process.execPath, ['--import', 'tsx', 'scripts/seo-geo-release-audit.ts'], { stdio: 'inherit' });
+if (releaseAudit.status !== 0) process.exit(releaseAudit.status ?? 1);
 cpSync('out', 'dist', { recursive: true });
