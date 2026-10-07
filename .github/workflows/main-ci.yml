@@ -39,3 +39,15 @@ jobs:
 
       - name: Production build
         run: bun run build
+
+      - name: Node 22 for built-in WebSocket browser checks
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Chromium mobile viewport and interaction smoke test
+        run: |
+          node scripts/serve.js > /tmp/gdn-static-preview.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true' EXIT
+          node scripts/browser-smoke.mjs
