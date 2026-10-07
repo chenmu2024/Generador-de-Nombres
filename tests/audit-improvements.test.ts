@@ -5,8 +5,9 @@ import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { compoundNameGroups, getCompoundSuggestions, lookupNameMeaning } from '../src/data/compoundNames';
 import { normalizeSearch, visibleLength } from '../src/utils/text';
-import { nameIdeas } from '../src/data/nameIdeas';
+import { nameIdeas, alphabetNames } from '../src/data/nameIdeas';
 import { nameIdeaPaths } from '../src/data/nameIdeaPaths';
+import { getNameIdeaInitials, getNameIdeaTheme, getNameIdeaThemes, nameIdeaContexts, selectNameIdeas, type NameIdeaFilters } from '../src/utils/nameIdeaExplorer';
 import FemaleNamesTool from '../src/components/tools/FemaleNamesTool';
 import MaleNamesTool from '../src/components/tools/MaleNamesTool';
 import UnisexNamesTool from '../src/components/tools/UnisexNamesTool';
@@ -134,4 +135,84 @@ test('shared layout stays server-first and heavy client features are isolated', 
   assert.match(category, /dynamic\(\(\) => import\('\.\.\/components\/NameIdeasTool'\)/);
   assert.doesNotMatch(category, /import \{ nameIdeas \}|import NameIdeasTool from/);
   assert.doesNotMatch(category, /ffClanTag|ffClanName|ffClanSymbol|setActiveSymbolTab|390 Diamantes/);
+});
+
+
+test('all eight catalogues expose 24+ unique useful names and editorial context', () => {
+  for (const path of nameIdeaPaths) {
+    const entries = nameIdeas[path].names;
+    assert.ok(entries.length >= 24, `${path}: fewer than 24 entries`);
+    assert.equal(new Set(entries).size, entries.length, `${path}: duplicate name`);
+    assert.ok(nameIdeaContexts[path]?.explanation.length > 45, `${path}: missing context`);
+    assert.ok(nameIdeaContexts[path]?.verification.length > 45, `${path}: missing verification caveat`);
+    const groups = getNameIdeaThemes(path);
+    if (groups.length) {
+      const classified = groups.flatMap(group => group.names);
+      assert.deepEqual([...classified].sort(), [...entries].sort(), `${path}: missing or repeated theme assignment`);
+    }
+  }
+});
+
+test('name idea filters combine accent folding, initial, length, topic and stable ordering', () => {
+  const base: NameIdeaFilters = { query: '', initial: 'all', length: 'all', theme: 'all', sort: 'alphabetical' };
+  const greek = nameIdeas['/nombres-de-dioses'].names;
+  assert.deepEqual(
+    selectNameIdeas('/nombres-de-dioses', greek, { ...base, query: 'poseidon' }),
+    ['Poseidón'],
+  );
+  assert.deepEqual(
+    selectNameIdeas('/nombres-de-dioses', greek, { ...base, theme: 'Cielo y luz', initial: 'S' }),
+    ['Selene'],
+  );
+  assert.deepEqual(
+    selectNameIdeas('/nombres-de-dioses', greek, { ...base, length: 'short' }),
+    ['Ares', 'Eos', 'Eros', 'Hera', 'Nike', 'Pan', 'Zeus'],
+  );
+  assert.equal(getNameIdeaTheme('/nombres-caballos', 'Azabache'), 'Pelaje y color');
+  assert.deepEqual(getNameIdeaInitials(['Ícaro', 'Azabache', 'Aurora']), ['A', 'Í']);
+  assert.equal(selectNameIdeas('/nombres-chinos', nameIdeas['/nombres-chinos'].names, {...base, query: '__not_a_name__'}).length, 0);
+  assert.deepEqual(selectNameIdeas('/nombres-chinos', ['An', 'Bai'], {...base, sort: 'reverse'}), ['Bai', 'An']);
+});
+
+test('name comparison tool offers selection, CSV export, favorites and evidence caveats', () => {
+  for (const path of nameIdeaPaths) {
+    const html = renderToStaticMarkup(React.createElement(NameIdeasTool, {path, onCopy:()=>{}}));
+    assert.match(html, /Tabla de nombres comparables/);
+    assert.match(html, /Seleccionar visibles/);
+    assert.match(html, /Exportar CSV/);
+    assert.match(html, /Copiar resultados/);
+    assert.match(html, /Guardar favorito/);
+    assert.match(html, /no un ranking/);
+    assert.match(html, /Longitud del nombre/);
+  }
+  const gods = renderToStaticMarkup(React.createElement(NameIdeasTool, {path:'/nombres-de-dioses', onCopy:()=>{}}));
+  assert.match(gods, /Filtrar por temática creativa/);
+  assert.match(gods, /Poseidón/);
+  assert.match(gods, /aria-label="Escuchar Poseidón"/);
+});
+
+
+test('A-Z catalogue provides usable selections and keeps Ñ as a contains-Ñ group', () => {
+  for (const [letter, names] of Object.entries(alphabetNames)) {
+    assert.ok(names.length >= (letter === 'Ñ' ? 3 : 8), `${letter}: too few names`);
+    assert.equal(new Set(names.map(item => item.name)).size, names.length, `${letter}: duplicates`);
+    for (const item of names) {
+      assert.ok(['f', 'm', 'u'].includes(item.gender));
+      if (letter === 'Ñ') {
+        assert.match(item.name, /ñ/i);
+      } else {
+        const first = normalizeSearch(item.name).slice(0, 1).toUpperCase();
+        assert.equal(first, letter, `${letter}: unexpected name ${item.name}`);
+      }
+    }
+  }
+});
+
+test('A-Z explorer offers bulk copying, length filtering and shared favorites', () => {
+  const source = fs.readFileSync('src/components/AlphabetMatrixTool.tsx', 'utf8');
+  assert.match(source, /Copiar resultados/);
+  assert.match(source, /Filtrar por longitud/);
+  assert.match(source, /Ordenar nombres/);
+  assert.match(source, /gdn_favorites_updated/);
+  assert.match(source, /Guardar favorito/);
 });
