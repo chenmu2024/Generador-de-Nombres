@@ -227,7 +227,7 @@ try {
   await until('!!document.querySelector("[role=dialog][aria-label=\\"Mis nombres favoritos\\"]")');
   verify(await browser.evaluate("document.querySelector('[role=dialog][aria-label=\"Mis nombres favoritos\"]')?.innerText.includes('Nube')") === true, 'Favorite lost on navigation');
   await click('button[aria-label="Vaciar todos los favoritos"]');
-  await until('!!document.querySelector("[role=alertdialog][aria-label=\"Confirmar vaciado de favoritos\"]")');
+  await until('!!document.querySelector(' + JSON.stringify('[role="alertdialog"][aria-label="Confirmar vaciado de favoritos"]') + ')');
   verify((await browser.evaluate("localStorage.getItem('gdn_favorites') || ''")).includes('Nube'),
     'Opening the clear confirmation destroyed stored favorites');
   await click('[role="alertdialog"] button:last-child');
