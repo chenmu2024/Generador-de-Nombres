@@ -505,8 +505,12 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
             <div className="flex flex-wrap items-center justify-between gap-3 mb-6 border-b border-white/5 pb-4">
               <div className="flex items-center gap-2">
                 <button
+                  type="button"
                   disabled={displayedNames.length === 0}
                   onClick={toggleSelectAll}
+                  aria-label={displayedNames.slice(0, visibleCount).every(name => selectedNames.includes(name))
+                    ? 'Quitar selección visible'
+                    : `Seleccionar visibles (${Math.min(visibleCount, displayedNames.length)})`}
                   className="gdn-chip px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 border transition-all"
                 >
                   {displayedNames.slice(0, visibleCount).every(name => selectedNames.includes(name)) ? (
