@@ -243,7 +243,7 @@ try {
   // Unicode badges must describe visuals instead of pretending to report ranks.
   const badges = await browser.evaluate(`Array.from(document.querySelectorAll('button[role="checkbox"][aria-label^="Seleccionar "]'))
     .map(button => button.closest('.group')?.innerText || '')`);
-  verify(badges.length === 12, 'Expected generated nickname cards for visual-label audit');
+  verify(badges.length === 36, 'Expected 36 generated nickname cards after load-more for visual-label audit');
   verify(badges.every(card => !/MÍTICO|LEGENDARIO|ÉPICO/u.test(card)),
     'Generated cards still display invented rarity tiers');
   verify(badges.some(card => /visibles/u.test(card)),
