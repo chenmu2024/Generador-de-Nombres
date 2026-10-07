@@ -112,3 +112,34 @@ test('creative plushie adoption copy never presents the generated card as offici
   const plushies = seoData['nombres-peluches'];
   assert.doesNotMatch(plushies.subtitle + plushies.seoText, /acta oficial|Ficha Oficial|Promesa de Adopción Oficial|se convierte oficialmente/i);
 });
+
+
+test('editorial copy avoids unsupported rankings, dated template headings and authority language', () => {
+  const riskyHeading = /Los Mejores|\b2026\b|Tendencias|Reglas Oficiales|Significado Profundo|pronunciación auténtica/i;
+  const riskySummary = /\blos mejores\b|acta oficial|pronunciación auténtica|marca comercial ganadora|máxima confianza/i;
+
+  for (const data of Object.values(seoData)) {
+    const headings = Array.from(data.seoText.matchAll(/<h[23][^>]*>(.*?)<\/h[23]>/g), match => match[1].replace(/<[^>]+>/g, ' '));
+    for (const heading of headings) {
+      assert.doesNotMatch(heading, riskyHeading, `${data.path}: risky heading "${heading}"`);
+    }
+
+    const nonLockedCopy = [
+      data.subtitle,
+      data.metaDescription,
+      ...(data.faqs ?? []).flatMap(item => [item.question, item.answer]),
+    ].join(' ');
+    assert.doesNotMatch(nonLockedCopy, riskySummary, data.path);
+    assert.doesNotMatch(nonLockedCopy, /\b2026\b/, `${data.path}: stale year in non-locked copy`);
+  }
+});
+
+test('sensitive cultural and pet pages state their limitations instead of implying authenticity or popularity', () => {
+  const korean = seoData['nombres-coreanos'].subtitle + seoData['nombres-coreanos'].seoText + JSON.stringify(seoData['nombres-coreanos'].faqs);
+  const maleCats = seoData['nombres-gatos-machos'].seoText;
+  const shops = seoData['nombres-para-tiendas'].seoText + JSON.stringify(seoData['nombres-para-tiendas'].faqs);
+
+  assert.doesNotMatch(korean, /identificadores auténticos|nicks auténticos|pronunciación auténtica/i);
+  assert.doesNotMatch(maleCats, /nombres líderes|más populares en español|adiestramiento para que/i);
+  assert.doesNotMatch(shops, /calidad garantizada|marca comercial ganadora|máxima confianza/i);
+});
