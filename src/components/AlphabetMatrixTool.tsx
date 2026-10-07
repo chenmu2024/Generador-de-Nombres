@@ -74,12 +74,12 @@ export default function AlphabetMatrixTool({ currentLetter = 'A' }: { currentLet
 
   return (
     <div className="gdn-tool-shell w-full max-w-4xl mx-auto space-y-8">
-      {selectedLetter === "Ñ" && <p role="status" className="text-sm text-zinc-300">Estos nombres contienen Ñ. No se presentan como nombres que empiezan por Ñ.</p>}
+      {selectedLetter === "Ñ" && <p role="status" className="text-sm text-zinc-300">La letra Ñ puede aparecer dentro de un nombre, por ejemplo Iñaki, Begoña o Nuño. Este filtro busca nombres que contienen Ñ; no afirma que comiencen por ella.</p>}
       {/* Alphabet Pill Selector */}
       <div className="bg-zinc-900/90 border border-white/10 rounded-[2rem] p-6 shadow-2xl">
         <h3 className="text-xs font-bold text-zinc-400 uppercase tracking-wider mb-4 flex items-center justify-between">
-          <span>Selecciona la inicial del nombre</span>
-          <span className="text-violet-400">Abecedario A-Z</span>
+          <span>{selectedLetter === 'Ñ' ? 'Nombres que contienen Ñ' : 'Selecciona la inicial del nombre'}</span>
+          <span className="text-violet-400">Abecedario A–Z + Ñ</span>
         </h3>
         <div className="flex flex-wrap gap-2 justify-center">
           {ALPHABET.map((letter) => {
@@ -89,7 +89,7 @@ export default function AlphabetMatrixTool({ currentLetter = 'A' }: { currentLet
                 key={letter}
                 aria-pressed={isSelected}
                 onClick={() => setSelectedLetter(letter)}
-                className={`gdn-tool-tab w-10 h-10 rounded-xl font-black text-sm transition-all active:scale-95 ${
+                className={`gdn-tool-tab w-11 h-11 rounded-xl font-black text-sm transition-all active:scale-95 ${
                   isSelected
                     ? 'bg-gradient-to-br from-violet-600 to-fuchsia-600 text-white shadow-lg shadow-violet-600/30 border border-white/20'
                     : 'bg-zinc-950 text-zinc-400 hover:text-white hover:bg-white/10 border border-white/5'
@@ -111,7 +111,7 @@ export default function AlphabetMatrixTool({ currentLetter = 'A' }: { currentLet
             type="text"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            placeholder={`Buscar nombres con ${selectedLetter}...`}
+            placeholder={selectedLetter === 'Ñ' ? 'Buscar nombres que contienen Ñ...' : `Buscar nombres que empiezan por ${selectedLetter}...`}
             className="gdn-tool-input w-full pl-10 pr-4 py-2.5 bg-zinc-950 border border-white/10 rounded-xl text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-violet-500"
           />
         </div>
