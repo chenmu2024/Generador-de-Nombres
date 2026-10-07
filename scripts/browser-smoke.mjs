@@ -240,6 +240,23 @@ try {
   await until(countSymbols + ' === 16');
   console.log('[Browser] generator initial 12 results, incremental 24, expandable 16-symbol palette OK');
 
+  // Unicode badges must describe visuals instead of pretending to report ranks.
+  const badges = await browser.evaluate(`Array.from(document.querySelectorAll('button[role="checkbox"][aria-label^="Seleccionar "]'))
+    .map(button => button.closest('.group')?.innerText || '')`);
+  verify(badges.length === 12, 'Expected generated nickname cards for visual-label audit');
+  verify(badges.every(card => !/MÍTICO|LEGENDARIO|ÉPICO/u.test(card)),
+    'Generated cards still display invented rarity tiers');
+  verify(badges.some(card => /visibles/u.test(card)),
+    'Generated cards lack Unicode count context');
+
+  await go('/nombres-con-en');
+  await until("document.body.innerText.includes('La letra Ñ puede aparecer dentro de un nombre')");
+  verify(await browser.evaluate("document.body.innerText.includes('Beñat') && document.body.innerText.includes('Iñaki')"),
+    'Ñ catalogue examples or explanatory wording missing');
+  console.log('[Browser] honest Unicode styling badges and contains-Ñ category OK');
+  await go('/');
+
+
   // Rapid input should stay responsive and yield the latest complete result set.
   // This tests the actual event path, not only a source-code regex.
   const firstNickSelector = 'button[role="checkbox"][aria-label^="Seleccionar "]';
