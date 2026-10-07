@@ -251,6 +251,29 @@ try {
   verify(await browser.evaluate(countRows) === 12, 'Explicit generate unexpectedly changed the result count');
   console.log('[Browser] live nickname input debounces and explicit generate remains usable');
 
+  // Validate the GSC-proxy-led Instagram workflow in a real emulated mobile browser.
+  await go('/nombres-instagram');
+  await until('!!document.querySelector("input[aria-label=\\"Tu nombre para crear usuarios de Instagram\\"]")');
+  await type('input[aria-label="Tu nombre para crear usuarios de Instagram"]', 'María López');
+  await until('!!document.querySelector("button[aria-label=\\"Copiar usuario @maria.lopez\\"]")');
+  await click('button[aria-label="Copiar usuario @maria.lopez"]');
+  await until("(window.__smokeCopied || '') === 'maria.lopez'");
+  await click('button[aria-label="Copiar todas las propuestas para Instagram"]');
+  await until("(window.__smokeCopied || '').includes('@maria.lopez')");
+  await click('a[href="#instagram-validar-usuario"]');
+  await until("window.location.hash === '#instagram-validar-usuario'");
+  console.log('[Browser] personalized Instagram handles, individual/bulk copy and intent anchors OK');
+
+  await go('/nombres-free-fire');
+  await until('!!document.querySelector("nav[aria-label=\\"Elige la herramienta según lo que quieres hacer\\"]")');
+  verify(await browser.evaluate(
+    '!!document.querySelector("nav[aria-label=\\"Elige la herramienta según lo que quieres hacer\\"] a[href=\\"/generador-free-fire\\"]")'
+  ), 'Free Fire inspiration page lacks generator CTA');
+  verify(await browser.evaluate(
+    '!!document.querySelector("nav[aria-label=\\"Elige la herramienta según lo que quieres hacer\\"] a[href=\\"/espacios-invisible-ff\\"]")'
+  ), 'Free Fire page lacks invisible-space route');
+  console.log('[Browser] Free Fire list/generate/symbol tool intent routes OK');
+
   // Deferred supplements must remain usable when navigated to via their buttons.
   await go('/nombres-free-fire');
   const labels = ['Herramientas Free Fire complementarias', 'Biblioteca de símbolos y ejemplos Free Fire'];
