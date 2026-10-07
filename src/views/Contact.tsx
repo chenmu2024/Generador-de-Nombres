@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { Link } from '../components/Link';
 import { copyText } from '../utils/clipboard';
+import { CONTACT_EMAIL, prepareContactDraft } from '../utils/contactDraft';
 import { Mail, MessageSquare, Send, CheckCircle, ArrowLeft, HelpCircle, Clock, ShieldCheck } from 'lucide-react';
 
 export default function Contact() {
@@ -10,17 +11,35 @@ export default function Contact() {
   const [emailCopied, setEmailCopied] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', subject: 'Sugerencia', message: '' });
   const [messageCopyStatus, setMessageCopyStatus] = useState('');
-  const preparedSubject = `[GeneradorDeNombres.net] ${formData.subject} - ${formData.name}`;
-  const preparedBody = `Nombre: ${formData.name}\nCorreo: ${formData.email}\nAsunto: ${formData.subject}\n\nMensaje:\n${formData.message}`;
-  const preparedMessage = `Para: soporte@generadordenombres.net\nAsunto: ${preparedSubject}\n\n${preparedBody}`;
+  const prepared = prepareContactDraft(formData);
+  const preparedMessage = prepared.plainText;
+  const [triedEmailClient, setTriedEmailClient] = useState(false);
+  const canPrepare = Boolean(formData.name.trim() && formData.email.trim() && formData.message.trim());
+
+  const downloadDraft = () => {
+    if (!canPrepare) return;
+    const blob = new Blob(['\uFEFF', preparedMessage], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const anchor = document.createElement('a');
+    anchor.href = url;
+    anchor.download = 'mensaje-generadordenombres.txt';
+    document.body.appendChild(anchor);
+    anchor.click();
+    anchor.remove();
+    window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+    setMessageCopyStatus('Borrador descargado. Todavía debes enviar el mensaje por correo.');
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (formData.email && formData.message) {
-      const subject = encodeURIComponent(preparedSubject);
-      const body = encodeURIComponent(preparedBody);
-      window.location.href = `mailto:soporte@generadordenombres.net?subject=${subject}&body=${body}`;
-      setSubmitted(true);
+    if (!canPrepare) return;
+    setSubmitted(true);
+    if (prepared.mailtoUrl) {
+      setTriedEmailClient(true);
+      window.location.href = prepared.mailtoUrl;
+    } else {
+      setTriedEmailClient(false);
+      setMessageCopyStatus('El texto es demasiado largo para abrirlo como enlace de correo con fiabilidad. Copia o descarga el borrador.');
     }
   };
 
@@ -43,7 +62,7 @@ export default function Contact() {
             Contacto y Atención Editorial
           </h1>
           <p className="text-zinc-400 max-w-xl mx-auto text-base">
-            ¿Tienes dudas, sugerencias o encontraste un símbolo no compatible? Envíanos tu mensaje y te responderemos lo antes posible.
+            ¿Tienes dudas, sugerencias o encontraste un símbolo no compatible? Prepara tu mensaje aquí y envíalo desde tu aplicación de correo.
           </p>
         </div>
 
@@ -97,7 +116,10 @@ export default function Contact() {
           {/* Form Side */}
           <div className="md:col-span-2 bg-zinc-900/60 border border-white/10 rounded-2xl p-6 sm:p-8">
             <div className="mb-4 space-y-2">
-              <button type="button" disabled={!formData.message.trim()} className="gdn-chip border px-4 py-2 rounded-xl text-sm disabled:opacity-50" onClick={async () => setMessageCopyStatus(await copyText(preparedMessage) ? 'Mensaje completo copiado.' : 'No se pudo copiar. Selecciona el texto preparado para copiarlo manualmente.')}>Copiar mensaje completo</button>
+              <div className="flex flex-wrap gap-2">
+                <button type="button" disabled={!canPrepare} className="gdn-chip border min-h-11 px-4 py-2 rounded-xl text-sm disabled:opacity-50" onClick={async () => setMessageCopyStatus(await copyText(preparedMessage) ? 'Borrador copiado. Aún debes enviarlo.' : 'No se pudo copiar. Selecciona el texto preparado para copiarlo manualmente.')}>Copiar mensaje completo</button>
+                <button type="button" disabled={!canPrepare} className="gdn-chip border min-h-11 px-4 py-2 rounded-xl text-sm disabled:opacity-50" onClick={downloadDraft}>Descargar borrador TXT</button>
+              </div>
               {messageCopyStatus && <p role="status" className="text-sm text-zinc-300">{messageCopyStatus}</p>}
               {(submitted || messageCopyStatus) && <label className="block text-sm text-zinc-300">Mensaje preparado<textarea readOnly value={preparedMessage} className="gdn-input border w-full rounded-xl p-3 mt-2 min-h-48" /></label>}
             </div>
@@ -106,9 +128,11 @@ export default function Contact() {
                 <div className="w-12 h-12 bg-emerald-500/20 text-emerald-400 rounded-full flex items-center justify-center mx-auto">
                   <CheckCircle className="w-6 h-6" />
                 </div>
-                <h3 className="text-xl font-bold text-white">Correo preparado</h3>
+                <h3 className="text-xl font-bold text-white">Borrador preparado, todavía no enviado</h3>
                 <p className="text-sm text-zinc-400 max-w-sm mx-auto">
-                  Intentamos abrir tu aplicación de correo con el mensaje preparado. Si no se abre, puedes copiar el mensaje y escribir a soporte@generadordenombres.net. El envío se completa cuando confirmas el correo desde tu aplicación.
+                  {triedEmailClient
+                    ? 'Intentamos abrir tu aplicación de correo con el borrador. Debes pulsar Enviar allí. Si no se abrió, puedes copiar o descargar el texto y escribirnos.'
+                    : 'El mensaje no se ha enviado. Copia o descarga el borrador para enviarlo manualmente a nuestro correo.'}
                 </p>
                 <button
                   onClick={() => { setSubmitted(false); }}
@@ -119,7 +143,7 @@ export default function Contact() {
               </div>
             ) : (
               <>
-              <p className="text-sm text-zinc-400">Este formulario abre tu aplicación de correo; debes enviar el mensaje allí. Si no se abre, escribe a soporte@generadordenombres.net. El texto se conserva en esta página.</p>
+              <p className="text-sm text-zinc-400">Este sitio estático no almacena ni envía formularios. Si tienes una aplicación de correo configurada, intentaremos abrirla; en cualquier caso puedes copiar o descargar el borrador y enviarlo a <a className="underline text-violet-300" href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.</p>
                 <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                   <label htmlFor="contact-field-1" className="block text-xs font-semibold text-zinc-300 mb-1">Nombre o Apodo</label>
@@ -178,7 +202,7 @@ export default function Contact() {
                   className="w-full py-3 bg-violet-600 hover:bg-violet-500 text-white font-bold rounded-xl text-sm flex items-center justify-center gap-2 transition-colors cursor-pointer shadow-lg shadow-violet-600/20"
                 >
                   <Send className="w-4 h-4" />
-                  Preparar correo
+                  Preparar borrador de correo
                 </button>
               </form>
               </>

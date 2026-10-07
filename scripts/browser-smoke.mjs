@@ -209,6 +209,10 @@ try {
 
   await click('button[aria-label="Abrir menú principal"]');
   await until("!!document.querySelector('#mobile-primary-navigation')");
+  for (const missingBefore of ['/nombres-chinos', '/nombres-gatos-machos', '/nombres-free-fire', '/nombres-con-y']) {
+    verify(await browser.evaluate('!!document.querySelector(' + JSON.stringify('#mobile-primary-navigation a[href="' + missingBefore + '"]') + ')'),
+      'Mobile menu missing indexable category: ' + missingBefore);
+  }
   await click('button[aria-label="Cerrar menú principal"]');
   await until("!document.querySelector('#mobile-primary-navigation')");
   console.log('[Browser] mobile menu opens and closes');
@@ -222,6 +226,19 @@ try {
   await click('button[aria-label^="Mis nombres favoritos guardados"]');
   await until('!!document.querySelector("[role=dialog][aria-label=\\"Mis nombres favoritos\\"]")');
   verify(await browser.evaluate("document.querySelector('[role=dialog][aria-label=\"Mis nombres favoritos\"]')?.innerText.includes('Nube')") === true, 'Favorite lost on navigation');
+  await click('button[aria-label="Vaciar todos los favoritos"]');
+  await until('!!document.querySelector(' + JSON.stringify('[role="alertdialog"][aria-label="Confirmar vaciado de favoritos"]') + ')');
+  verify((await browser.evaluate("localStorage.getItem('gdn_favorites') || ''")).includes('Nube'),
+    'Opening the clear confirmation destroyed stored favorites');
+  await click('[role="alertdialog"] button:last-child');
+  verify((await browser.evaluate("localStorage.getItem('gdn_favorites') || ''")).includes('Nube'),
+    'Cancel unexpectedly removed favorites');
+  await click('button[aria-label="Vaciar todos los favoritos"]');
+  await click('button[aria-label="Confirmar vaciado de favoritos"]');
+  await until("localStorage.getItem('gdn_favorites') === '[]'");
+  await click('button[aria-label="Deshacer vaciado de favoritos"]');
+  await until("(localStorage.getItem('gdn_favorites') || '').includes('Nube')");
+  console.log('[Browser] favorites clear confirmation, cancel and undo OK');
   console.log('[Browser] compound editing and cross-route favorite persistence OK');
 
 
@@ -232,12 +249,20 @@ try {
   const countSymbols = 'document.querySelectorAll("#gdn-symbol-palette button").length';
   await until(countRows + ' === 12');
   verify(await browser.evaluate(countSymbols) === 16, 'Expected exactly 16 initial quick symbols');
+  await click('button[aria-label="Seleccionar visibles (12)"]');
+  await until("document.querySelectorAll('button[role=checkbox][aria-checked=true]').length === 12");
+  await click('button[aria-label="Quitar selección visible"]');
+  await until("document.querySelectorAll('button[role=checkbox][aria-checked=true]').length === 0");
   await click('button[aria-label="Cargar más nombres"]');
   await until(countRows + ' === 36');
   await click('button[aria-controls="gdn-symbol-palette"]');
   await until(countSymbols + ' > 16');
   await click('button[aria-controls="gdn-symbol-palette"]');
   await until(countSymbols + ' === 16');
+  await click('button[aria-label="Seleccionar visibles (36)"]');
+  await until("document.querySelectorAll('button[role=checkbox][aria-checked=true]').length === 36");
+  await click('button[aria-label="Quitar selección visible"]');
+  console.log('[Browser] generator visible-only selection at 12 and 36 results OK');
   console.log('[Browser] generator initial 12 results, incremental 24, expandable 16-symbol palette OK');
 
   // Unicode badges must describe visuals instead of pretending to report ranks.
@@ -311,6 +336,18 @@ try {
   verify(snapshots['/nombres-clanes-ff'] < 1773, 'Free Fire clan page DOM not reduced compared with PR #30 baseline');
   verify(snapshots['/nombres-ff-unicos'] < 1730, 'Free Fire unique page DOM not reduced compared with PR #30 baseline');
   verify(snapshots['/nombres-ff-mujeres'] < 1721, 'Free Fire women page DOM not reduced compared with PR #30 baseline');
+
+  await go('/contacto');
+  await type('#contact-field-1', 'Ana');
+  await type('#contact-field-2', 'ana@example.com');
+  await type('#contact-field-4', 'texto de prueba largo con ñ '.repeat(110));
+  await click('form button[type="submit"]');
+  await until("document.body.innerText.includes('Borrador preparado, todavía no enviado')");
+  verify(await browser.evaluate("document.querySelector('textarea[readonly]')?.value.length > 2500"),
+    'Long contact message was truncated or lost');
+  verify(await browser.evaluate("document.body.innerText.includes('demasiado largo')"),
+    'Contact form failed to explain oversized mailto fallback');
+  console.log('[Browser] long contact draft preserved, no misleading send confirmation');
 
   verify(browser.errors.length === 0, 'JavaScript errors or missing assets: ' + browser.errors.slice(0, 12).join('\n'));
   console.log('[Browser] largest DOM: ' + report.slice().sort((a,b) => b.dom - a.dom).slice(0,5).map(x=>x.path+'='+x.dom).join(', '));

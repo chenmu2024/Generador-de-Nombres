@@ -27,7 +27,7 @@ export default function SiteHeader() {
                   <span aria-hidden="true" className="text-zinc-500 group-open:rotate-180 transition-transform">⌄</span>
                 </summary>
                 <div className="absolute left-0 top-full pt-2 w-64 z-50">
-                  <div className="gdn-surface border rounded-2xl p-2 backdrop-blur-2xl">
+                  <div className="gdn-surface border rounded-2xl p-2 backdrop-blur-2xl max-h-[min(72vh,560px)] overflow-y-auto overscroll-contain">
                     {group.links.map(link => (
                       <a key={link.path} href={link.path} className="block px-3.5 py-2.5 rounded-xl hover:bg-white/5 text-zinc-300 hover:text-white transition-all">
                         <div className="text-sm font-bold">{link.label}</div>

@@ -58,7 +58,7 @@ export default function SearchIsland() {
         type="button"
         onClick={() => setIsSearchOpen(true)}
         aria-label="Buscar categorías y herramientas"
-        className="gdn-chip border rounded-xl px-3 py-1.5 text-xs flex items-center gap-2 transition-all"
+        className="gdn-chip border min-h-11 rounded-xl px-3 py-1.5 text-xs flex items-center gap-2 transition-all"
       >
         <Search className="w-3.5 h-3.5 text-violet-400" />
         <span className="hidden 2xl:inline">Buscar categorías...</span>

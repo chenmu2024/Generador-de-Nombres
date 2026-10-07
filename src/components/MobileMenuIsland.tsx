@@ -16,7 +16,7 @@ export default function MobileMenuIsland() {
     <>
       <button
         type="button"
-        className="xl:hidden p-2 text-zinc-400 hover:text-zinc-100 transition-colors"
+        className="xl:hidden min-w-11 min-h-11 p-2 flex items-center justify-center text-zinc-400 hover:text-zinc-100 transition-colors"
         onClick={() => setIsOpen(open => !open)}
         aria-label={isOpen ? 'Cerrar menú principal' : 'Abrir menú principal'}
         aria-expanded={isOpen}
@@ -33,7 +33,7 @@ export default function MobileMenuIsland() {
           aria-modal="true"
           aria-label="Menú principal"
           tabIndex={-1}
-          className="fixed left-0 right-0 top-16 z-50 xl:hidden border-t gdn-header max-h-[calc(100vh-4rem)] overflow-y-auto"
+          className="fixed left-0 right-0 top-16 z-50 xl:hidden border-t gdn-header max-h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain"
         >
           <div className="px-4 pt-4 pb-6 space-y-4">
             <Link to="/" onClick={() => setIsOpen(false)} className={`block px-4 py-2.5 rounded-xl text-base font-bold ${location.pathname === '/' ? 'bg-white/10 text-white' : 'text-zinc-400'}`}>
