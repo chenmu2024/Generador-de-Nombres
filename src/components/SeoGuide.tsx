@@ -1,7 +1,7 @@
 import { editorialProfiles } from '../data/editorialProfiles';
 import type { CategoryData } from '../data/seoData';
 import { allLinks } from '../data/allLinks';
-import { getClusterRelatedPaths } from '../data/topicClusters';
+import { getClusterForPath, getClusterRelatedPaths } from '../data/topicClusters';
 import FeedbackWidget from './FeedbackWidget';
 import { ChevronDown } from 'lucide-react';
 
@@ -25,6 +25,8 @@ function getTopicalLinks(currentPath: string, data: CategoryData) {
 export default function SeoGuide({ data, currentPath }: { data: CategoryData; currentPath: string }) {
   const moreLinks = getTopicalLinks(currentPath, data);
   const profile = editorialProfiles[currentPath];
+  const cluster = getClusterForPath(currentPath);
+  const relatedHeading = currentPath === '/' ? 'Explora por categoría' : `Más sobre ${cluster.label}`;
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 items-start gap-8 lg:gap-10 max-w-6xl mx-auto">
@@ -63,7 +65,7 @@ export default function SeoGuide({ data, currentPath }: { data: CategoryData; cu
         )}
 
         <div className="gdn-surface rounded-2xl p-6 border">
-          <h3 className="text-lg font-bold text-zinc-100 mb-4 font-heading">Más Generadores</h3>
+          <h3 className="text-lg font-bold text-zinc-100 mb-4 font-heading">{relatedHeading}</h3>
           <div className="space-y-2">
             {moreLinks.map((link) => (
               <a
@@ -77,8 +79,8 @@ export default function SeoGuide({ data, currentPath }: { data: CategoryData; cu
             ))}
           </div>
           <div className="mt-6 pt-6 border-t border-white/5">
-            <a href={currentPath === '/' ? '#relacionados' : '/'} className="text-violet-400 font-semibold hover:text-violet-300 transition-colors text-sm flex items-center justify-center gap-2">
-              Explorar todos los generadores <span aria-hidden="true">›</span>
+            <a href={currentPath === '/' ? '#relacionados' : cluster.hubPath} className="text-violet-400 font-semibold hover:text-violet-300 transition-colors text-sm flex items-center justify-center gap-2">
+              {currentPath === '/' ? 'Explorar todas las categorías' : `Ver guía principal de ${cluster.label}`} <span aria-hidden="true">›</span>
             </a>
           </div>
         </div>
