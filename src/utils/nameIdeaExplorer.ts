@@ -22,7 +22,7 @@ const themedNames: Record<string, NameIdeaTheme[]> = {
     { label: 'Cielo y luz', names: ['Zeus', 'Apolo', 'Helios', 'Selene', 'Eos'] },
     { label: 'Mar y naturaleza', names: ['Poseidón', 'Artemisa', 'Deméter', 'Pan', 'Perséfone'] },
     { label: 'Vida y comunidad', names: ['Hera', 'Hestia', 'Afrodita', 'Hermes', 'Dioniso', 'Eros'] },
-    { label: 'Conflicto y misterio', names: ['Ares', 'Hades', 'Hefesto', 'Hécate', 'Némesis', 'Nike', 'Tique'] },
+    { label: 'Conflicto y misterio', names: ['Ares', 'Atenea', 'Hades', 'Hefesto', 'Hécate', 'Némesis', 'Nike', 'Tique'] },
   ],
   '/nombres-caballos': [
     { label: 'Cielo y clima', names: ['Lucero', 'Trueno', 'Estrella', 'Relámpago', 'Luna', 'Aurora', 'Cometa', 'Niebla', 'Viento', 'Centella', 'Rayo', 'Tormenta'] },
