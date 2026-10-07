@@ -1,6 +1,7 @@
 'use client';
 
 import { instagramSuggestions } from '../../utils/text';
+import { createInstagramPersonalizedIdeas } from '../../utils/instagramPersonalized';
 import React, { useState } from 'react';
 import { Copy } from 'lucide-react';
 
@@ -10,6 +11,8 @@ interface InstagramToolProps {
 
 export default function InstagramTool({ handleCopyTrending }: InstagramToolProps) {
   const [igInput, setIgInput] = useState('');
+  const [personalName, setPersonalName] = useState('');
+  const personalSuggestions = createInstagramPersonalizedIdeas(personalName);
 
   const isIgLenValid = igInput.length >= 1 && igInput.length <= 30;
   const isIgCharsValid = /^[a-zA-Z0-9._]*$/.test(igInput);
@@ -19,8 +22,63 @@ export default function InstagramTool({ handleCopyTrending }: InstagramToolProps
 
   return (
     <div className="gdn-tool-shell max-w-6xl mx-auto py-4 space-y-8">
+      {/* Personalized entry from the observed "con tu nombre" search intent. */}
+      <section id="instagram-con-tu-nombre" className="gdn-surface scroll-mt-24 border rounded-3xl p-4 sm:p-6 lg:p-8 space-y-5">
+        <div>
+          <h2 className="text-2xl md:text-3xl font-bold text-zinc-100 font-heading">Crea un @usuario de Instagram con tu nombre</h2>
+          <p className="text-sm text-zinc-300 leading-relaxed mt-2">
+            Escribe tu nombre o una combinación de nombre y apellido. Compara variantes minimalistas, creativas y personales, y copia las que quieras probar.
+          </p>
+        </div>
+        <label htmlFor="instagram-personal-name" className="block text-sm font-semibold text-zinc-200">
+          Tu nombre o nombre y apellido
+        </label>
+        <input
+          id="instagram-personal-name"
+          aria-label="Tu nombre para crear usuarios de Instagram"
+          type="text"
+          autoComplete="off"
+          maxLength={90}
+          className="gdn-tool-input w-full min-h-11 px-4 py-3 rounded-xl border border-white/10 bg-zinc-900 text-zinc-100"
+          placeholder="Ej. María López"
+          value={personalName}
+          onChange={event => setPersonalName(event.target.value)}
+        />
+        <p className="text-xs text-zinc-400">
+          El generador adapta tildes y espacios al formato básico de @usuario. No consulta Instagram, no verifica disponibilidad y no reserva nombres.
+        </p>
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <p className="text-sm text-zinc-300" role="status" aria-live="polite">
+            {personalSuggestions.length} propuestas para comparar
+          </p>
+          <button type="button" className="gdn-chip min-h-11 rounded-xl border px-4 py-2 text-sm disabled:opacity-50"
+            disabled={!personalSuggestions.length} onClick={() => handleCopyTrending(personalSuggestions.map(item => '@' + item.username).join('\n'))}
+            aria-label="Copiar todas las propuestas para Instagram">
+            <Copy className="w-4 h-4 inline mr-2" aria-hidden="true" /> Copiar todas
+          </button>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3" aria-label="Usuarios personalizados">
+          {personalSuggestions.map(item => (
+            <div key={item.username} className="gdn-surface-raised border rounded-xl px-4 py-3 flex items-center justify-between gap-2 min-w-0">
+              <div className="min-w-0">
+                <p className="font-mono text-sm text-zinc-100 break-all">@{item.username}</p>
+                <span className="text-xs text-zinc-400">{item.group}</span>
+              </div>
+              <button type="button" aria-label={`Copiar usuario @${item.username}`}
+                className="gdn-chip min-h-11 min-w-11 p-2 rounded-lg border flex items-center justify-center shrink-0"
+                onClick={() => handleCopyTrending(item.username)}>
+                <Copy className="w-4 h-4" aria-hidden="true" />
+              </button>
+            </div>
+          ))}
+        </div>
+        {personalName && personalSuggestions.length === 0 && <p role="status" className="text-sm text-amber-200">
+          No se pudo formar un @usuario a partir de ese texto. Prueba letras o números.
+        </p>}
+      </section>
+
       {/* Username Validator */}
-      <div className="bg-[#121212] border border-pink-500/20 rounded-3xl p-8 shadow-2xl relative overflow-hidden bg-gradient-to-br from-pink-950/20 via-[#121212] to-rose-950/10">
+      <div id="instagram-validar-usuario" className="bg-[#121212] border border-pink-500/20 rounded-3xl p-4 sm:p-6 lg:p-8 shadow-2xl relative overflow-hidden bg-gradient-to-br from-pink-950/20 via-[#121212] to-rose-950/10 scroll-mt-24">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8 relative z-10">
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-500/10 border border-pink-500/20 text-pink-300 text-xs font-semibold uppercase tracking-wider mb-3">
@@ -53,11 +111,11 @@ export default function InstagramTool({ handleCopyTrending }: InstagramToolProps
               <div className="gdn-validator-status absolute right-4 top-1/2 -translate-y-1/2">
                 {isIgValid ? (
                   <span className="px-3 py-1 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded-full text-xs font-bold">
-                    ✓ Formato Válido en IG
+                    ✓ Formato básico compatible
                   </span>
                 ) : (
                   <span className="px-3 py-1 bg-amber-500/20 text-amber-400 border border-amber-500/30 rounded-full text-xs font-bold">
-                    ⚠ Formato Inválido
+                    ⚠ Revisar formato
                   </span>
                 )}
               </div>
@@ -101,7 +159,7 @@ export default function InstagramTool({ handleCopyTrending }: InstagramToolProps
       </div>
 
       {/* Aesthetic Bio Templates */}
-      <div className="bg-[#121212] border border-white/5 rounded-3xl p-8 shadow-2xl">
+      <div id="instagram-biografia" className="bg-[#121212] border border-white/5 rounded-3xl p-4 sm:p-6 lg:p-8 shadow-2xl scroll-mt-24">
         <div className="mb-6">
           <h2 className="text-2xl md:text-3xl font-bold text-white font-heading flex items-center gap-3">
             <span>✨</span> Plantillas de Biografía Aesthetic para Instagram
