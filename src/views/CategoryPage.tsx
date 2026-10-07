@@ -5,9 +5,13 @@ import { copyText } from '../utils/clipboard';
 import React, { useEffect, useMemo, useState, type ReactNode } from 'react';
 import { Link } from '../components/Link';
 import { ChevronRight, Flame, CheckCircle2, Search, Copy, ListOrdered, Home } from 'lucide-react';
-import Generator from '../components/Generator';
+
 import dynamic from 'next/dynamic';
 
+// The decorative generator only belongs to pages without a dedicated name tool.
+const LazyGenerator = dynamic(() => import('../components/Generator'), {
+  loading: () => <div className="min-h-[520px] w-full animate-pulse rounded-3xl border border-white/5 bg-zinc-900/50" />,
+});
 const LazyNameIdeasTool = dynamic(() => import('../components/NameIdeasTool'), {
   loading: () => <div className="min-h-[420px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>
 });
@@ -237,7 +241,7 @@ export default function CategoryPage({
       {nameIdeaPathSet.has(currentPath) && <LazyNameIdeasTool key={currentPath} path={currentPath} onCopy={handleCopyTrending} />}
       <div className={`max-w-6xl mx-auto ${currentPath === '/' ? 'pt-0 pb-2' : 'py-6'}`}>
         {!usesDedicatedGenerator && (
-          <Generator 
+          <LazyGenerator 
             title={currentPath === '/' ? 'Generador de Nombres, Apodos y Símbolos' : data.h1}
             defaultName={data.defaultName || "Gamer"}
             customSymbols={data.customSymbols}
