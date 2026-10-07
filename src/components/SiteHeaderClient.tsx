@@ -108,7 +108,89 @@ export default function SiteHeaderClient() {
     const handleFavUpdate = () => loadFavorites();
     window.addEventListener('gdn_favorites_updated', handleFavUpdate);
     window.addEventListener('storage', handleFavUpdate);
-  
+    return () => { window.removeEventListener('gdn_favorites_updated', handleFavUpdate); window.removeEventListener('storage', handleFavUpdate); };
+  }, []);
+
+  // Global Ctrl + K listener
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        setIsSearchOpen(prev => !prev);
+      }
+      if (e.key === 'Escape') {
+        setIsSearchOpen(false);
+        setIsFavDrawerOpen(false);
+        setIsMenuOpen(false);
+        setActiveDropdown(null);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
+  const removeFavorite = (nameToRemove: string) => {
+    const updated = favorites.filter(f => f !== nameToRemove);
+    setFavorites(updated);
+    writeStorage('gdn_favorites', JSON.stringify(updated));
+    window.dispatchEvent(new Event('gdn_favorites_updated'));
+  };
+
+  const clearAllFavorites = () => {
+    setFavorites([]);
+    writeStorage('gdn_favorites', '[]');
+    window.dispatchEvent(new Event('gdn_favorites_updated'));
+  };
+
+  const copyAllFavorites = async () => {
+    if (favorites.length === 0) return;
+    if (!await copyText(favorites.join('\n'))) return;
+    setFavCopied(true);
+    setTimeout(() => setFavCopied(false), 2000);
+  };
+
+  const copyFavorite = async (name: string) => {
+    if (!await copyText(name)) return;
+    setCopiedFavorite(name);
+    setTimeout(() => {
+      setCopiedFavorite(current => current === name ? null : current);
+    }, 1600);
+  };
+
+  const [audioError, setAudioError] = useState<string | null>(null);
+  useEffect(() => {
+    const failed = (event: Event) => setAudioError((event as CustomEvent<string>).detail);
+    window.addEventListener("gdn-audio-error", failed);
+    return () => window.removeEventListener("gdn-audio-error", failed);
+  }, []);
+  const [manualCopy, setManualCopy] = useState<string | null>(null);
+  const manualDialogRef = useDialog(manualCopy !== null, () => setManualCopy(null));
+  const menuDialogRef = useDialog(isMenuOpen, () => setIsMenuOpen(false));
+  const searchDialogRef = useDialog(isSearchOpen, () => setIsSearchOpen(false));
+  const favoritesDialogRef = useDialog(isFavDrawerOpen, () => setIsFavDrawerOpen(false));
+  useEffect(() => {
+    const failed = (event: Event) => setManualCopy((event as CustomEvent<string>).detail);
+    window.addEventListener('gdn-copy-error', failed);
+    return () => window.removeEventListener('gdn-copy-error', failed);
+  }, []);
+
+  // Filter categories and pages for quick search
+  const searchablePages = allLinks.map(page => ({
+    title: page.label,
+    path: page.path,
+    desc: `Generador de nombres y apodos para ${page.label}`,
+    h1: page.label
+  }));
+
+  const filteredResults = searchQuery.trim() === ''
+    ? searchablePages.slice(0, 6)
+    : searchablePages.filter(p => 
+        p.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        p.desc.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        p.h1.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        p.path.toLowerCase().includes(searchQuery.toLowerCase())
+      ).slice(0, 8);
+
   return (
     <>
       <header className="gdn-header backdrop-blur-xl border-b sticky top-0 z-50">
