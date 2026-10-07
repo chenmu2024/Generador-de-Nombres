@@ -99,11 +99,13 @@ const markdown = [
   '',
   '| Scenario | Score | FCP ms | LCP ms | TBT ms | CLS | JS KB | JS evaluation ms |',
   '| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |',
-  ...summaries.map(s => [
-    '| ' + s.name, s.score ?? 'n/a', s.fcpMs ?? 'n/a', s.lcpMs ?? 'n/a',
-    s.tbtMs ?? 'n/a', s.cls ?? 'n/a', s.scriptTransferKb ?? 'n/a',
-    s.jsExecutionMs ?? 'n/a | ' + (s.error ? 'error: ' + s.error.replaceAll('|', ' ') : '')
-  ].join(' | ')),
+  ...summaries.map(s =>
+    '| ' + [
+      s.name, s.score ?? 'n/a', s.fcpMs ?? 'n/a', s.lcpMs ?? 'n/a',
+      s.tbtMs ?? 'n/a', s.cls ?? 'n/a', s.scriptTransferKb ?? 'n/a',
+      s.jsExecutionMs ?? 'n/a',
+    ].join(' | ') + ' |',
+  ),
   '',
   'Production URLs may still have an older deployment than the PR build. Compare only runs in the same environment and version.',
   '',
