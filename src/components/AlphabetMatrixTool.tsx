@@ -1,12 +1,13 @@
 'use client';
 import { speakName } from '../utils/speech';
 
-import { normalizeSearch } from '../utils/text';
+import { normalizeSearch, visibleLength } from '../utils/text';
+import { readFavorites, writeStorage } from '../utils/browserStorage';
 import { alphabetNames } from '../data/nameIdeas';
 import { copyText } from '../utils/clipboard';
 import React, { useState, useEffect } from 'react';
 import { Link } from './Link';
-import { Search, Volume2, Copy, CheckCircle2, Sparkles, Filter } from 'lucide-react';
+import { Search, Volume2, Copy, CheckCircle2, Sparkles, Filter, Bookmark } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
 const ALPHABET = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "Ñ", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
@@ -17,6 +18,21 @@ export default function AlphabetMatrixTool({ currentLetter = 'A' }: { currentLet
   const [genderFilter, setGenderFilter] = useState<'all' | 'f' | 'm' | 'u'>('all');
   const [searchTerm, setSearchTerm] = useState('');
   const [copiedName, setCopiedName] = useState<string | null>(null);
+  const [favorites, setFavorites] = useState<string[]>([]);
+  const [lengthFilter, setLengthFilter] = useState<'all' | 'short' | 'long'>('all');
+  const [sortBy, setSortBy] = useState<'az' | 'length'>('az');
+  const [feedback, setFeedback] = useState('');
+
+  useEffect(() => {
+    const sync = () => setFavorites(readFavorites());
+    sync();
+    window.addEventListener('gdn_favorites_updated', sync);
+    window.addEventListener('storage', sync);
+    return () => {
+      window.removeEventListener('gdn_favorites_updated', sync);
+      window.removeEventListener('storage', sync);
+    };
+  }, []);
 
   const speak = (text: string) => speakName(text, 'es-ES');
 
@@ -25,8 +41,30 @@ export default function AlphabetMatrixTool({ currentLetter = 'A' }: { currentLet
   const filteredNames = currentNames.filter(n => {
     const matchesGender = genderFilter === 'all' || n.gender === genderFilter;
     const matchesSearch = normalizeSearch(n.name).includes(normalizeSearch(searchTerm));
-    return matchesGender && matchesSearch;
-  });
+    const nameLength = visibleLength(n.name);
+    const matchesLength = lengthFilter === 'all' || (lengthFilter === 'short' ? nameLength <= 4 : nameLength >= 5);
+    return matchesGender && matchesSearch && matchesLength;
+  }).sort((a, b) =>
+    sortBy === 'length'
+      ? visibleLength(a.name) - visibleLength(b.name) || a.name.localeCompare(b.name, 'es')
+      : a.name.localeCompare(b.name, 'es')
+  );
+
+  const copyVisible = async () => {
+    if (!filteredNames.length) return;
+    if (await copyText(filteredNames.map(item => item.name).join('\n'))) {
+      setFeedback(`${filteredNames.length} nombres copiados.`);
+    }
+  };
+
+  const toggleFavorite = (name: string) => {
+    const existing = readFavorites();
+    const next = existing.includes(name) ? existing.filter(item => item !== name) : [name, ...existing];
+    setFavorites(next);
+    const persisted = writeStorage('gdn_favorites', JSON.stringify(next));
+    window.dispatchEvent(new Event('gdn_favorites_updated'));
+    setFeedback(persisted ? 'Favoritos actualizados.' : 'Favoritos guardados solo durante esta sesión.');
+  };
 
   const copyName = async (name: string) => {
     if (!await copyText(name)) return;
@@ -109,6 +147,30 @@ export default function AlphabetMatrixTool({ currentLetter = 'A' }: { currentLet
         </div>
       </div>
 
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-3 gdn-surface-raised border rounded-xl p-4">
+        <div className="flex flex-wrap items-center gap-2">
+          <label className="text-sm text-zinc-300">Longitud
+            <select aria-label="Filtrar por longitud" className="gdn-input border rounded-lg p-2 ml-2" value={lengthFilter} onChange={event => setLengthFilter(event.target.value as 'all' | 'short' | 'long')}>
+              <option value="all">Todas</option><option value="short">Hasta 4 letras</option><option value="long">5 o más letras</option>
+            </select>
+          </label>
+          <label className="text-sm text-zinc-300">Orden
+            <select aria-label="Ordenar nombres" className="gdn-input border rounded-lg p-2 ml-2" value={sortBy} onChange={event => setSortBy(event.target.value as 'az' | 'length')}>
+              <option value="az">A → Z</option><option value="length">Por longitud</option>
+            </select>
+          </label>
+        </div>
+        <div className="flex flex-wrap items-center gap-3">
+          <span role="status" className="text-xs text-zinc-300">{filteredNames.length} de {currentNames.length} nombres</span>
+          <button type="button" disabled={!filteredNames.length} onClick={() => void copyVisible()} className="gdn-chip border px-3 py-2 text-xs rounded-xl flex items-center gap-2 disabled:opacity-50">
+            <Copy className="w-4 h-4" aria-hidden="true" /> Copiar resultados
+          </button>
+        </div>
+      </div>
+      <p className="text-xs text-zinc-400">Las etiquetas femenino, masculino y unisex son orientativas; el uso real de un nombre depende de la persona y el contexto.</p>
+      {feedback && <p role="status" className="text-sm text-emerald-300">{feedback}</p>}
+      {filteredNames.length === 0 && <p role="status" className="text-sm text-amber-200">No hay resultados. Prueba otra letra o ajusta los filtros.</p>}
+
       {/* Names Grid */}
       <div className="gdn-tool-result grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
         {filteredNames.map((item, idx) => (
@@ -135,6 +197,16 @@ export default function AlphabetMatrixTool({ currentLetter = 'A' }: { currentLet
                 title="Lectura aproximada con la voz del dispositivo" aria-label="Escuchar lectura aproximada"
               >
                 <Volume2 className="w-4 h-4" />
+              </button>
+              <button
+                type="button"
+                onClick={() => toggleFavorite(item.name)}
+                className="p-2 bg-zinc-800 hover:bg-violet-600/30 text-zinc-300 rounded-xl transition-colors"
+                aria-label={`${favorites.includes(item.name) ? 'Quitar de favoritos' : 'Guardar favorito'}: ${item.name}`}
+                aria-pressed={favorites.includes(item.name)}
+                title="Guardar favorito"
+              >
+                <Bookmark className={`w-4 h-4 ${favorites.includes(item.name) ? 'text-emerald-300 fill-emerald-500/30' : ''}`} aria-hidden="true" />
               </button>
               <button
                 onClick={() => copyName(item.name)}
