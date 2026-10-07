@@ -1,13 +1,13 @@
 // Editorial selections, not popularity rankings or availability checks.
 export const nameIdeas: Record<string, { names: string[]; source?: string }> = {
-  '/nombres-italianos': { names: ['Alessandro', 'Giulia', 'Francesco', 'Chiara', 'Lorenzo', 'Elena', 'Matteo', 'Sofia', 'Andrea', 'Beatrice', 'Antonio', 'Bianca', 'Carlo', 'Caterina', 'Dario', 'Domenico'], source: 'italian' },
-  '/nombres-rusos': { names: ['Aleksandr', 'Anastasiya', 'Dmitriy', 'Irina', 'Mikhail', 'Natalya', 'Nikolay', 'Olga', 'Aleksey', 'Anna', 'Andrey', 'Anton', 'Boris', 'Darya', 'Ekaterina', 'Elena'], source: 'russian' },
-  '/nombres-griegos': { names: ['Alexandros', 'Eleni', 'Georgios', 'Katerina', 'Nikolaos', 'Sophia', 'Dimitrios', 'Irene', 'Andreas', 'Anastasia', 'Dimitra', 'Ilias', 'Ioannis', 'Maria', 'Petros', 'Sotiris'], source: 'greek' },
-  '/nombres-ingles': { names: ['Arthur', 'Alice', 'Henry', 'Emily', 'Oliver', 'Charlotte', 'William', 'Rose', 'Adam', 'Amelia', 'Benjamin', 'Clara', 'Edward', 'Grace', 'James', 'Lucy'], source: 'english' },
-  '/nombres-turcos': { names: ['Ahmet', 'Ayşe', 'Emre', 'Elif', 'Mehmet', 'Zeynep', 'Deniz', 'Cem', 'Ayla', 'Aysel', 'Barış', 'Burak', 'Ceren', 'Derya', 'Ece', 'Eren'], source: 'turkish' },
-  '/nombres-chinos': { names: ['An', 'Bai', 'Chen', 'Fang', 'Hua', 'Jing', 'Jun', 'Mei', 'Ai', 'Bo', 'Chun', 'Da', 'Fen', 'Guang', 'Hai', 'Hong'], source: 'chinese' },
-  '/nombres-de-dioses': { names: ['Zeus', 'Hera', 'Atenea', 'Apolo', 'Artemisa', 'Hermes', 'Poseidón', 'Deméter', 'Hestia', 'Dioniso', 'Ares', 'Hades', 'Afrodita', 'Hefesto', 'Eros'] },
-  '/nombres-caballos': { names: ['Lucero', 'Brisa', 'Trueno', 'Estrella', 'Azabache', 'Canela', 'Relámpago', 'Luna', 'Aurora', 'Cometa', 'Dorado', 'Niebla', 'Roble', 'Sombra', 'Viento', 'Zafiro'] },
+  '/nombres-italianos': { names: ['Alessandro', 'Giulia', 'Francesco', 'Chiara', 'Lorenzo', 'Elena', 'Matteo', 'Sofia', 'Andrea', 'Beatrice', 'Antonio', 'Bianca', 'Carlo', 'Caterina', 'Dario', 'Domenico', 'Luca', 'Marco', 'Ginevra', 'Alessia', 'Pietro', 'Federico', 'Vittoria', 'Riccardo'], source: 'italian' },
+  '/nombres-rusos': { names: ['Aleksandr', 'Anastasiya', 'Dmitriy', 'Irina', 'Mikhail', 'Natalya', 'Nikolay', 'Olga', 'Aleksey', 'Anna', 'Andrey', 'Anton', 'Boris', 'Darya', 'Ekaterina', 'Elena', 'Sergei', 'Svetlana', 'Pavel', 'Tatiana', 'Yuri', 'Marina', 'Fyodor', 'Galina'], source: 'russian' },
+  '/nombres-griegos': { names: ['Alexandros', 'Eleni', 'Georgios', 'Katerina', 'Nikolaos', 'Sophia', 'Dimitrios', 'Irene', 'Andreas', 'Anastasia', 'Dimitra', 'Ilias', 'Ioannis', 'Maria', 'Petros', 'Sotiris', 'Konstantinos', 'Vasiliki', 'Theodoros', 'Despina', 'Panagiotis', 'Fotini', 'Stefanos', 'Niki'], source: 'greek' },
+  '/nombres-ingles': { names: ['Arthur', 'Alice', 'Henry', 'Emily', 'Oliver', 'Charlotte', 'William', 'Rose', 'Adam', 'Amelia', 'Benjamin', 'Clara', 'Edward', 'Grace', 'James', 'Lucy', 'George', 'Eleanor', 'Thomas', 'Olivia', 'Charles', 'Sophie', 'Robert', 'Lily'], source: 'english' },
+  '/nombres-turcos': { names: ['Ahmet', 'Ayşe', 'Emre', 'Elif', 'Mehmet', 'Zeynep', 'Deniz', 'Cem', 'Ayla', 'Aysel', 'Barış', 'Burak', 'Ceren', 'Derya', 'Ece', 'Eren', 'Mustafa', 'Selin', 'Mert', 'İrem', 'Onur', 'Esra', 'Hakan', 'Aslı'], source: 'turkish' },
+  '/nombres-chinos': { names: ['An', 'Bai', 'Chen', 'Fang', 'Hua', 'Jing', 'Jun', 'Mei', 'Ai', 'Bo', 'Chun', 'Da', 'Fen', 'Guang', 'Hai', 'Hong', 'Qiang', 'Xiu', 'Yan', 'Tao', 'Lei', 'Rui', 'Xin', 'Ling'], source: 'chinese' },
+  '/nombres-de-dioses': { names: ['Zeus', 'Hera', 'Atenea', 'Apolo', 'Artemisa', 'Hermes', 'Poseidón', 'Deméter', 'Hestia', 'Dioniso', 'Ares', 'Hades', 'Afrodita', 'Hefesto', 'Eros', 'Helios', 'Selene', 'Eos', 'Pan', 'Perséfone', 'Hécate', 'Némesis', 'Nike', 'Tique'] },
+  '/nombres-caballos': { names: ['Lucero', 'Brisa', 'Trueno', 'Estrella', 'Azabache', 'Canela', 'Relámpago', 'Luna', 'Aurora', 'Cometa', 'Dorado', 'Niebla', 'Roble', 'Sombra', 'Viento', 'Zafiro', 'Centella', 'Rayo', 'Tormenta', 'Noche', 'Copito', 'Perla', 'Ícaro', 'Valentía'] },
 };
 
 export const alphabetNames: Record<string, { name: string; gender: 'f' | 'm' | 'u' }[]> = Object.fromEntries(
