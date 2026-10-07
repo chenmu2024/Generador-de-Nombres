@@ -3,6 +3,7 @@ import { resolve } from 'node:path';
 import assert from 'node:assert/strict';
 import { seoData } from '../src/data/seoData';
 import { editorialProfiles } from '../src/data/editorialProfiles';
+import { getKeywordRecord } from '../src/data/keywordMaster';
 
 const root = resolve('out');
 const decode = (value: string) => value.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#x27;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
@@ -19,9 +20,13 @@ for (const path of routes) {
     assert.equal(decode(keywords?.[1] || ''), expected.keywords, `${path}: emitted keywords`);
     assert.ok(html.includes(`rel="canonical" href="https://generadordenombres.net${path === '/' ? '' : path}"`), `${path}: canonical`);
     const nodes = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].flatMap(match => JSON.parse(match[1])['@graph'] || []);
-    for (const type of ['Organization', 'WebSite', 'WebPage', 'WebApplication']) {
+    for (const type of ['Organization', 'WebSite']) {
       assert.equal(nodes.filter(node => node['@type'] === type).length, 1, `${path}: ${type} graph`);
     }
+    const intent = getKeywordRecord(path)?.intent ?? 'mixed';
+    const pageType = intent === 'tool' ? 'WebPage' : 'CollectionPage';
+    assert.equal(nodes.filter(node => node['@type'] === pageType).length, 1, `${path}: ${pageType} graph`);
+    assert.equal(nodes.filter(node => node['@type'] === 'WebApplication').length, intent === 'directory' || intent === 'list' ? 0 : 1, `${path}: WebApplication graph`);
     assert.equal(nodes.filter(node => node['@type'] === 'FAQPage').length, expected.faqs?.length ? 1 : 0, `${path}: FAQ graph`);
     assert.equal(nodes.filter(node => node['@type'] === 'BreadcrumbList').length, path === '/' ? 0 : 1, `${path}: breadcrumb graph`);
     assert.ok(html.includes(decode(editorialProfiles[path].summary)), `${path}: visible summary`);
