@@ -1026,7 +1026,7 @@ export const seoData: Record<string, CategoryData> = {
     subtitle: 'Descubre los nombres para michis más bonitos, cortos y graciosos. Incluye significados por tipo de pelaje, audio de llamado felino y creador de placas.',
     seoText: `
       <h2>Ideas de Nombres para Gatos, Gatitas y Gatitos</h2>
-      <p>Elegir el nombre perfecto para un gato o gatita es un momento mágico e inolvidable. Para el uso cotidiano suelen ser cómodos los nombres cortos y fáciles de repetir. Opciones como <em>Mochi, Simba, Salem, Kira, Felix, Luna, Mimi, Garfield</em> o <em>Nieve</em> funcionan bien como inspiración porque se pronuncian con rapidez y tienen sonidos claramente diferenciables.</p>
+      <p>Elegir un nombre para un gato o gatita puede partir de su apariencia, su comportamiento o simplemente de una preferencia familiar. Para el uso cotidiano suelen ser cómodos los nombres cortos y fáciles de repetir. Opciones como <em>Mochi, Simba, Salem, Kira, Felix, Luna, Mimi, Garfield</em> o <em>Nieve</em> funcionan bien como inspiración porque se pronuncian con rapidez y tienen sonidos claramente diferenciables.</p>
 
       <h3>Categorías Principales de Nombres Felinos</h3>
       <p>El aspecto físico y el carácter único de tu felino son la mejor fuente de inspiración:</p>
