@@ -17,7 +17,7 @@ export default function FreeFireSupportSections({
   currentPath: string;
   handleCopyTrending: (value: string) => void | Promise<void>;
 }) {
-  const [activeSymbolTab, setActiveSymbolTab] = useState<keyof typeof SYMBOL_CATEGORIES>('populares');
+  const [activeSymbolTab, setActiveSymbolTab] = useState('populares');
 
   return (
     <>
@@ -32,9 +32,9 @@ export default function FreeFireSupportSections({
               <div>
                 <h2 className="text-2xl md:text-3xl font-bold text-white font-heading flex items-center gap-3">
                   <Flame className="w-8 h-8 text-orange-500" />
-                  Apodos Populares
+                  Apodos de Ejemplo
                 </h2>
-                <p className="text-zinc-400 mt-2">Una selección de estilos populares para inspirarte y copiar.</p>
+                <p className="text-zinc-400 mt-2">Una selección de estilos para inspirarte, probar y copiar.</p>
               </div>
               <div className="flex items-center gap-2">
                 <span className="flex h-3 w-3 relative">
@@ -186,8 +186,8 @@ export default function FreeFireSupportSections({
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
                 { step: '1', title: 'Copia tu Apodo', desc: 'Genera o elige tu nombre favorito en nuestro sitio y haz clic en Copiar.' },
-                { step: '2', title: 'Abre Free Fire', desc: 'Entra al juego y toca tu foto de perfil en la esquina superior izquierda.' },
-                { step: '3', title: 'Icono de Lápiz', desc: 'Toca el icono amarillo de edición que aparece debajo de tu nombre actual.' },
+                { step: '2', title: 'Abre tu perfil', desc: 'Entra al juego y abre tu perfil para localizar las opciones de edición.' },
+                { step: '3', title: 'Busca Editar', desc: 'Busca la opción para editar tu nombre; la ubicación exacta puede cambiar entre versiones.' },
                 { step: '4', title: 'Pega y Confirma', desc: 'Pega el apodo copiado y confirma usando el método y coste que muestre tu cuenta en ese momento.' }
               ].map((item, idx) => (
                 <div key={idx} className="gdn-surface-raised border rounded-xl p-6 relative flex flex-col justify-between">
