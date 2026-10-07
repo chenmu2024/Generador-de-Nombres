@@ -240,6 +240,17 @@ try {
   await until(countSymbols + ' === 16');
   console.log('[Browser] generator initial 12 results, incremental 24, expandable 16-symbol palette OK');
 
+  // Rapid input should stay responsive and yield the latest complete result set.
+  // This tests the actual event path, not only a source-code regex.
+  const firstNickSelector = 'button[role="checkbox"][aria-label^="Seleccionar "]';
+  const beforeTyping = await browser.evaluate('document.querySelector(' + JSON.stringify(firstNickSelector) + ')?.getAttribute("aria-label")');
+  await type('input[aria-label="Nombre o palabra para personalizar"]', 'Nova');
+  await until('document.querySelector(' + JSON.stringify(firstNickSelector) + ')?.getAttribute("aria-label") !== ' + JSON.stringify(beforeTyping));
+  verify(await browser.evaluate(countRows) === 12, 'Debounced update did not reset visible result count');
+  await click('button[aria-label="Generar nombres"]');
+  verify(await browser.evaluate(countRows) === 12, 'Explicit generate unexpectedly changed the result count');
+  console.log('[Browser] live nickname input debounces and explicit generate remains usable');
+
   // Deferred supplements must remain usable when navigated to via their buttons.
   await go('/nombres-free-fire');
   const labels = ['Herramientas Free Fire complementarias', 'Biblioteca de símbolos y ejemplos Free Fire'];
