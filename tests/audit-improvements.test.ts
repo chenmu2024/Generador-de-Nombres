@@ -6,6 +6,7 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import { compoundNameGroups, getCompoundSuggestions, lookupNameMeaning } from '../src/data/compoundNames';
 import { normalizeSearch, visibleLength } from '../src/utils/text';
 import { nameIdeas } from '../src/data/nameIdeas';
+import { nameIdeaPaths } from '../src/data/nameIdeaPaths';
 import FemaleNamesTool from '../src/components/tools/FemaleNamesTool';
 import MaleNamesTool from '../src/components/tools/MaleNamesTool';
 import UnisexNamesTool from '../src/components/tools/UnisexNamesTool';
@@ -60,6 +61,7 @@ test('name components expose selected filters, sources and accurate device audio
 });
 
 test('accent insensitive searches preserve displayed spelling and expanded catalogues', () => {
+  assert.deepEqual([...nameIdeaPaths].sort(), Object.keys(nameIdeas).sort());
   assert.equal(normalizeSearch(' Poseidón '), normalizeSearch('poseidon'));
   assert.equal(normalizeSearch('Ai\u0308'), normalizeSearch('Aï'));
   for (const entry of Object.values(nameIdeas)) {
