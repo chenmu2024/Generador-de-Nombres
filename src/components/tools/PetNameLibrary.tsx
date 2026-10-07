@@ -118,6 +118,7 @@ export default function PetNameLibrary({ kind, category, allCategory, onCopy, on
             type="button"
             disabled={names.length === 0}
             onClick={() => void copyVisible()}
+            aria-label="Copiar resultados"
             className="gdn-chip min-h-11 px-3 py-2 rounded-xl border border-white/10 text-xs font-semibold flex items-center gap-2 disabled:opacity-50"
           ><Copy aria-hidden="true" className="w-4 h-4" /> Copiar resultados</button>
         </div>
