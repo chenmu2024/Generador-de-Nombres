@@ -105,19 +105,31 @@ test('non-gaming tools avoid platform hijacking and unsupported official claims'
 });
 
 
-test('shared layout stays server-first and Free Fire code is route-split', () => {
+test('shared layout stays server-first and heavy client features are isolated', () => {
   const layout = fs.readFileSync('src/layouts/MainLayout.tsx', 'utf8');
   const category = fs.readFileSync('src/views/CategoryPage.tsx', 'utf8');
   const footer = fs.readFileSync('src/components/SiteFooter.tsx', 'utf8');
-  const header = fs.readFileSync('src/components/SiteHeaderClient.tsx', 'utf8');
+  const header = fs.readFileSync('src/components/SiteHeader.tsx', 'utf8');
+  const search = fs.readFileSync('src/components/SearchIsland.tsx', 'utf8');
+  const favorites = fs.readFileSync('src/components/FavoritesIsland.tsx', 'utf8');
+  const mobile = fs.readFileSync('src/components/MobileMenuIsland.tsx', 'utf8');
 
   assert.doesNotMatch(layout, /['"]use client['"]/);
-  assert.match(layout, /SiteHeaderClient/);
+  assert.match(layout, /SiteHeader/);
   assert.match(layout, /SiteFooter/);
-  assert.match(header, /^'use client'/);
+  assert.doesNotMatch(header, /['"]use client['"]/);
+  assert.match(header, /SearchIsland/);
+  assert.match(header, /FavoritesIsland/);
+  assert.match(header, /MobileMenuIsland/);
+  assert.match(header, /<details/);
+  assert.match(search, /^'use client'/);
+  assert.match(favorites, /^'use client'/);
+  assert.match(mobile, /^'use client'/);
   assert.doesNotMatch(footer, /['"]use client['"]|next\/link/);
 
   assert.match(category, /dynamic\(\(\) => import\('\.\.\/components\/tools\/FreeFireToolkit'\)/);
   assert.match(category, /dynamic\(\(\) => import\('\.\.\/components\/tools\/FreeFireSupportSections'\)/);
+  assert.match(category, /dynamic\(\(\) => import\('\.\.\/components\/NameIdeasTool'\)/);
+  assert.doesNotMatch(category, /import \{ nameIdeas \}|import NameIdeasTool from/);
   assert.doesNotMatch(category, /ffClanTag|ffClanName|ffClanSymbol|setActiveSymbolTab|390 Diamantes/);
 });
