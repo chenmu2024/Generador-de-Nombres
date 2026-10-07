@@ -85,18 +85,8 @@ const LazyFreeFireSupportSections = dynamic(() => import('../components/tools/Fr
   loading: () => <div className="min-h-[520px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>
 });
 import { allLinks } from '../data/allLinks';
+import { nameIdeaPathSet } from '../data/nameIdeaPaths';
 import { getBreadcrumbTrail, getClusterForPath } from '../data/topicClusters';
-
-const NAME_IDEA_PATHS = new Set([
-  '/nombres-italianos',
-  '/nombres-rusos',
-  '/nombres-griegos',
-  '/nombres-ingles',
-  '/nombres-turcos',
-  '/nombres-chinos',
-  '/nombres-de-dioses',
-  '/nombres-caballos',
-]);
 
 type CategoryClientData = {
   h1: string;
@@ -118,7 +108,7 @@ export default function CategoryPage({
   const currentPath = initialPath || '/';
   const breadcrumbTrail = getBreadcrumbTrail(currentPath, data.h1);
   const usesDedicatedGenerator =
-    NAME_IDEA_PATHS.has(currentPath) ||
+    nameIdeaPathSet.has(currentPath) ||
     currentPath === '/espacios-invisible-ff' ||
     currentPath === '/nombres-por-letra' ||
     currentPath.startsWith('/nombres-con-') ||
@@ -244,7 +234,7 @@ export default function CategoryPage({
       {currentPath === '/' && <nav aria-label="Elegir tipo de nombre" className="flex flex-wrap justify-center gap-3">
         {[['Juegos', '/generador-free-fire'], ['Personas', '/nombres-de-nina'], ['Mascotas', '/nombres-gatos'], ['Tiendas', '/nombres-para-tiendas']].map(([label, path]) => <Link key={path} to={path} className="gdn-chip border rounded-xl px-4 py-3">{label}</Link>)}
       </nav>}
-      {NAME_IDEA_PATHS.has(currentPath) && <LazyNameIdeasTool key={currentPath} path={currentPath} onCopy={handleCopyTrending} />}
+      {nameIdeaPathSet.has(currentPath) && <LazyNameIdeasTool key={currentPath} path={currentPath} onCopy={handleCopyTrending} />}
       <div className={`max-w-6xl mx-auto ${currentPath === '/' ? 'pt-0 pb-2' : 'py-6'}`}>
         {!usesDedicatedGenerator && (
           <Generator 
