@@ -54,9 +54,8 @@ export const popularSymbols = [
  */
 export function generateFancyNicknames(inputText: string, style?: string, customSymbols?: string[]): string[] {
   const source = (inputText.trim() || 'Gamer').normalize('NFC').toLocaleLowerCase('es');
-  const selectedStyles = style && style !== 'all' && fontMaps[style]
-    ? [style]
-    : Object.keys(fontMaps);
+  const validStyle = style && style !== 'all' && Object.hasOwn(fontMaps, style) ? style : null;
+  const selectedStyles = validStyle ? [validStyle] : Object.keys(fontMaps);
 
   const convertedBases: string[] = [];
   const uniqueBases = new Set<string>();
@@ -73,7 +72,7 @@ export function generateFancyNicknames(inputText: string, style?: string, custom
   const results = [...convertedBases];
   const seen = new Set(results);
   const symbols = (customSymbols || []).filter(symbol => symbol.length > 0).slice(0, 10);
-  const perBase = style && style !== 'all' ? 12 : 6;
+  const perBase = validStyle ? 12 : 6;
 
   const append = (candidate: string) => {
     const normalized = candidate.normalize('NFC');
