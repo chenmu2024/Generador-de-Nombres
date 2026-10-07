@@ -44,7 +44,7 @@ export default function SeoGuide({ data, currentPath }: { data: CategoryData; cu
               <p className="text-sm text-zinc-200 leading-relaxed">{practicalExample.action}</p>
               <p className="text-sm text-zinc-400 leading-relaxed"><strong>Qué comprobar:</strong> {practicalExample.verify}</p>
             </section>
-          )
+          )}
           {moreLinks.length > 0 && <p className="text-sm text-zinc-400">Continúa según lo que buscas: {moreLinks.slice(0, 3).map((link, index) => <span key={link.path}>{index > 0 && ' · '}<a className="text-violet-300 underline" href={link.path}>{link.label}</a></span>)}.</p>}
         </section>
         <div dangerouslySetInnerHTML={{ __html: data.seoText.replaceAll('<div class="overflow-x-auto', '<div tabindex="0" role="region" aria-label="Tabla comparativa; desplázate horizontalmente para ver todas las columnas" class="overflow-x-auto') }} />
