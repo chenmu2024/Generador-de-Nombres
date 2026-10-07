@@ -103,3 +103,21 @@ test('non-gaming tools avoid platform hijacking and unsupported official claims'
   assert.doesNotMatch(source, /Ideal para TikTok, Instagram o Free Fire|Ideal para Free Fire, TikTok, Discord/i);
   assert.doesNotMatch(source, /Diseño para (?:Collar|Placa) o Redes/i);
 });
+
+
+test('shared layout stays server-first and Free Fire code is route-split', () => {
+  const layout = fs.readFileSync('src/layouts/MainLayout.tsx', 'utf8');
+  const category = fs.readFileSync('src/views/CategoryPage.tsx', 'utf8');
+  const footer = fs.readFileSync('src/components/SiteFooter.tsx', 'utf8');
+  const header = fs.readFileSync('src/components/SiteHeaderClient.tsx', 'utf8');
+
+  assert.doesNotMatch(layout, /['"]use client['"]/);
+  assert.match(layout, /SiteHeaderClient/);
+  assert.match(layout, /SiteFooter/);
+  assert.match(header, /^'use client'/);
+  assert.doesNotMatch(footer, /['"]use client['"]|next\/link/);
+
+  assert.match(category, /dynamic\(\(\) => import\('\.\.\/components\/tools\/FreeFireToolkit'\)/);
+  assert.match(category, /dynamic\(\(\) => import\('\.\.\/components\/tools\/FreeFireSupportSections'\)/);
+  assert.doesNotMatch(category, /ffClanTag|ffClanName|ffClanSymbol|setActiveSymbolTab|390 Diamantes/);
+});
