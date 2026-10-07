@@ -4,6 +4,7 @@ import { speakName as readNameAloud } from '../../utils/speech';
 
 import { useState } from 'react';
 import { Copy, Volume2 } from 'lucide-react';
+import PetNameLibrary from './PetNameLibrary';
 
 export default function CatNamesTool({
   handleCopyTrending,
@@ -142,7 +143,7 @@ export default function CatNamesTool({
       <h3 className="text-xl font-bold text-white font-heading flex items-center gap-2">
       <span>📖</span> Colección de Nombres para Gatos y Gatitas
       </h3>
-      <p className="text-xs text-zinc-400 mt-1">Explora nombres seleccionados con significado y voz de llamado.</p>
+      <p className="text-xs text-zinc-400 mt-1">Explora propuestas editoriales por estilo y escucha su lectura sintetizada.</p>
       </div>
       
       <div className="flex flex-wrap gap-2">
@@ -150,7 +151,7 @@ export default function CatNamesTool({
       <button
       key={tab}
       onClick={() => setCatCategoryTab(tab)}
-      className={`gdn-tool-tab px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
+      className={`gdn-tool-tab px-3 py-2.5 min-h-11 rounded-xl text-xs font-bold transition-all ${
       catCategoryTab === tab
       ? 'bg-amber-500 text-zinc-950 shadow-md shadow-amber-500/20'
       : 'bg-zinc-800 text-zinc-400 hover:text-white'
@@ -162,57 +163,14 @@ export default function CatNamesTool({
       </div>
       </div>
       
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-      {[
-      { name: 'Mochi', mean: 'Pastelito japonés dulce y suave. El nombre favorito para gatos tiernos.', symbol: '🍡 Comida #1', category: 'Graciosos / Comida 🍡' },
-      { name: 'Simba', mean: 'Inspirado en El Rey León. Significa "león valiente" y lleno de liderazgo.', symbol: '🦁 Rey León', category: 'Machos ♂️' },
-      { name: 'Luna', mean: 'Nombre #1 para gatitas. Evoca el misterio de la noche y ojos brillantes.', symbol: '🌙 Noche', category: 'Hembras ♀️' },
-      { name: 'Nacho', mean: 'Divertido y cálido; encaja especialmente con la temática de gatos naranjas.', symbol: '🍊 Naranjita', category: 'Gatos Naranjas 🍊' },
-      { name: 'Oliver', mean: 'Inspirado en Oliver y su Pandilla. Elegante, curioso y juguetón.', symbol: '👑 Elegante', category: 'Elegantes / Reales 👑' },
-      { name: 'Mimi', mean: 'Nombre muy corto de dos sílabas, práctico para repetir al llamarlo.', symbol: '⚡ Corto (i)', category: 'Cortos (2 Sílabas) ⚡' },
-      { name: 'Garfield', mean: 'El felino naranja amante de la lasaña más famoso del mundo.', symbol: '🍊 Famoso', category: 'Gatos Naranjas 🍊' },
-      { name: 'Salem', mean: 'Gato negro místico e inteligente con personalidad única.', symbol: '🐈‍⬛ Místico', category: 'Machos ♂️' },
-      { name: 'Kira', mean: 'Significa "brillo solar". Nombre rápido y claro para adiestramiento.', symbol: '✨ Brillo', category: 'Hembras ♀️' },
-      { name: 'Sushi', mean: 'Simpático y juguetón; una opción creativa para gatos ágiles y traviesos.', symbol: '🍣 Divertido', category: 'Graciosos / Comida 🍡' },
-      { name: 'Duque', mean: 'Para gatos aristocráticos que caminan como reyes de la casa.', symbol: '👑 Aristócrata', category: 'Elegantes / Reales 👑' },
-      { name: 'Leo', mean: 'Súper corto (2 sílabas) y con gran resonancia para la llamada.', symbol: '⚡ Corto', category: 'Cortos (2 Sílabas) ⚡' }
-      ].filter(item => catCategoryTab === 'Todos 🐱' || item.category === catCategoryTab).map((item, idx) => (
-      <div key={idx} className="bg-zinc-900/80 border border-white/5 hover:border-amber-500/30 rounded-2xl p-5 flex flex-col justify-between gap-3 transition-all group">
-      <div>
-      <div className="flex items-center justify-between mb-2">
-      <h3 className="font-bold text-white text-lg font-heading group-hover:text-amber-300 transition-colors">{item.name}</h3>
-      <span className="text-[10px] bg-amber-500/10 text-amber-300 px-2.5 py-0.5 rounded-full border border-amber-500/20">{item.symbol}</span>
-      </div>
-      <p className="text-xs text-zinc-400 leading-relaxed mt-1">{item.mean}</p>
-      </div>
-      
-      <div className="space-y-1.5 pt-2 border-t border-white/5">
-      <div className="grid grid-cols-2 gap-1.5">
-      <button
-      onClick={() => speakCatName(item.name)}
-      className="py-1.5 bg-zinc-800 hover:bg-zinc-700 text-amber-300 rounded-xl text-[11px] font-semibold border border-white/5 transition-all flex items-center justify-center gap-1"
-      title="Escuchar audio"
-      >
-      <Volume2 className="w-3 h-3" /> Audio
-      </button>
-      <button
-      onClick={() => setCatCustomName(item.name)}
-      className="py-1.5 bg-zinc-800 hover:bg-amber-500/20 text-amber-300 rounded-xl text-[11px] font-semibold border border-white/5 transition-all flex items-center justify-center gap-1"
-      title="Cargar en el creador"
-      >
-      <span>✨</span> Estilar
-      </button>
-      </div>
-      <button
-      onClick={() => handleCopyTrending(item.name)}
-      className="w-full py-1.5 bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 rounded-xl text-xs font-bold border border-amber-500/20 transition-all flex items-center justify-center gap-1"
-      >
-      <Copy className="w-3 h-3" /> Copiar Nombre
-      </button>
-      </div>
-      </div>
-      ))}
-      </div>
+      <PetNameLibrary
+        kind="cats"
+        category={catCategoryTab}
+        allCategory="Todos 🐱"
+        onCopy={handleCopyTrending}
+        onUse={setCatCustomName}
+        onSpeak={speakCatName}
+      />
       </div>
       </div>
       </div>
