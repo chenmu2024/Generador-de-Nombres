@@ -41,21 +41,15 @@ const urls = allPages.map((item) => {
   const loc = item.path === '/' ? baseUrl + '/' : baseUrl + item.path;
   const updated = editorialProfiles[item.path]?.updated || (item.path === '/sobre-nosotros' ? '2026-10-04' : undefined);
   const lastmod = updated ? `\n    <lastmod>${updated}</lastmod>` : '';
-  const imageXml = `
-    <image:image>
-      <image:loc>${baseUrl}/logo.webp</image:loc>
-      <image:title>${item.title.replace(/&/g, '&amp;')}</image:title>
-    </image:image>`;
-
+  // Do not label the same site logo as a unique image for every unrelated page.
+  // Image sitemap entries are reserved for genuinely relevant page imagery.
   return `  <url>
     <loc>${loc}</loc>${lastmod}
-${imageXml}
   </url>`;
 }).join('\n');
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls}
 </urlset>`;
 
