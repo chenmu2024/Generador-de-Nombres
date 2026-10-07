@@ -116,7 +116,7 @@ export default function AlphabetMatrixTool({ currentLetter = 'A' }: { currentLet
           />
         </div>
 
-        <div className="flex items-center gap-1.5 bg-zinc-950 p-1 rounded-xl border border-white/5 w-full sm:w-auto justify-center">
+        <div className="flex flex-wrap items-center gap-1.5 bg-zinc-950 p-1 rounded-xl border border-white/5 w-full sm:w-auto justify-center">
           <button
             onClick={() => setGenderFilter('all')}
             aria-pressed={genderFilter === 'all'}
@@ -143,6 +143,14 @@ export default function AlphabetMatrixTool({ currentLetter = 'A' }: { currentLet
             }`}
           >
             Masculinos ⚡
+          </button>
+          <button
+            type="button"
+            onClick={() => setGenderFilter('u')}
+            aria-pressed={genderFilter === 'u'}
+            className={`gdn-tool-tab px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${genderFilter === 'u' ? 'bg-amber-500/20 text-amber-300 border border-amber-500/30' : 'text-zinc-400 hover:text-white'}`}
+          >
+            Unisex
           </button>
         </div>
       </div>
