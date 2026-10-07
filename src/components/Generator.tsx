@@ -433,6 +433,8 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
             <option value="birds">Aves (aʚ)</option>
           </select>
           <button
+            type="button"
+            aria-label="Generar nombres"
             onClick={handleGenerate}
             disabled={isGenerating}
             className="gdn-primary-button px-8 py-4 disabled:opacity-50 text-white font-bold font-heading rounded-xl flex items-center justify-center gap-2 transition-all active:scale-[0.98] min-w-[160px] w-full md:w-auto"
