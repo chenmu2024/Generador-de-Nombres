@@ -176,11 +176,15 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
   };
 
   const toggleSelectAll = () => {
-    if (selectedNames.length === displayedNames.length) {
-      setSelectedNames([]);
-    } else {
-      setSelectedNames([...displayedNames]);
-    }
+    // Only select cards currently rendered on screen. Never silently select
+    // hundreds of hidden results before the visitor presses "Cargar más".
+    const currentlyVisible = displayedNames.slice(0, visibleCount);
+    if (currentlyVisible.length === 0) return;
+    const visibleSet = new Set(currentlyVisible);
+    const allVisibleSelected = currentlyVisible.every(name => selectedNames.includes(name));
+    setSelectedNames(previous => allVisibleSelected
+      ? previous.filter(name => !visibleSet.has(name))
+      : [...new Set([...previous, ...currentlyVisible])]);
   };
 
   const copySelected = () => {
@@ -496,6 +500,7 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
               Las etiquetas describen el diseño visual, no una rareza oficial. El contador distingue grafemas visibles, puntos de código Unicode y unidades UTF-16;
               ningún recuento confirma que un juego acepte el apodo. Prueba la versión copiada en la plataforma.
             </p>
+            <p className="text-xs text-zinc-400 mb-3">«Seleccionar visibles» solo marca las tarjetas mostradas. «Descargar TXT» exporta los nombres marcados o, si no hay selección, todos los resultados del filtro.</p>
             {/* Toolbar for Selection & Spinner */}
             <div className="flex flex-wrap items-center justify-between gap-3 mb-6 border-b border-white/5 pb-4">
               <div className="flex items-center gap-2">
@@ -504,13 +509,13 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
                   onClick={toggleSelectAll}
                   className="gdn-chip px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 border transition-all"
                 >
-                  {selectedNames.length === displayedNames.length ? (
+                  {displayedNames.slice(0, visibleCount).every(name => selectedNames.includes(name)) ? (
                     <>
-                      <CheckSquare className="w-4 h-4 text-violet-400" /> Desseleccionar Todo
+                      <CheckSquare className="w-4 h-4 text-violet-400" /> Quitar selección visible
                     </>
                   ) : (
                     <>
-                      <Square className="w-4 h-4 text-zinc-400" /> Seleccionar Todo ({displayedNames.length})
+                      <Square className="w-4 h-4 text-zinc-400" /> Seleccionar visibles ({Math.min(visibleCount, displayedNames.length)})
                     </>
                   )}
                 </button>
@@ -538,7 +543,7 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
                   className="gdn-chip px-3.5 py-1.5 font-bold text-xs rounded-xl border transition-all flex items-center gap-1.5"
                   title="Descargar lista como TXT"
                 >
-                  <Download className="w-3.5 h-3.5 text-emerald-400" /> Descargar TXT
+                  <Download className="w-3.5 h-3.5 text-emerald-400" /> {selectedNames.length > 0 ? `TXT de seleccionados (${selectedNames.length})` : `TXT filtrados (${displayedNames.length})`}
                 </button>
 
                 <button
