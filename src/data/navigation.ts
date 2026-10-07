@@ -18,10 +18,10 @@ export const navGroups: NavGroup[] = [
       { path: '/generador-free-fire', label: 'Free Fire Generator', desc: 'Escribe y crea apodos personalizados' },
       { path: '/nombres-free-fire', label: 'Nombres Free Fire', desc: 'Explora ejemplos e ideas para el juego' },
       { path: '/espacios-invisible-ff', label: 'Espacio Invisible', desc: 'Unicode transparente para FF' },
-      { path: '/nombres-ff-unicos', label: 'FF Nombres Únicos', desc: 'Ideas variadas para personalizar' }
+      { path: '/nombres-ff-unicos', label: 'FF Nombres Únicos', desc: 'Ideas variadas para personalizar' },
       { path: '/nombres-ff-mujeres', label: 'FF Chicas & Mujeres', desc: 'Estilo femenino e insano' },
       { path: '/nombres-clanes-ff', label: 'Clanes Free Fire', desc: 'Tags e insignias de escuadra' },
-      { path: '/nombres-roblox', label: 'Roblox Display Names', desc: 'Estilos para revisar en la plataforma' }
+      { path: '/nombres-roblox', label: 'Roblox Display Names', desc: 'Estilos para revisar en la plataforma' },
       { path: '/nombres-instagram', label: 'Instagram Aesthetic', desc: 'Nombres y bios de perfil' },
       { path: '/nombres-anime', label: 'Anime & Otaku', desc: 'Héroes, villanos y apodos' },
     ],
@@ -58,7 +58,7 @@ export const navGroups: NavGroup[] = [
     icon: '🌍',
     links: [
       { path: '/nombres-de-dioses', label: 'Dioses & Mitología', desc: 'Griegos, nórdicos y egipcios' },
-      { path: '/nombres-japoneses', label: 'Japoneses', desc: 'Ideas y escritura para comparar' }
+      { path: '/nombres-japoneses', label: 'Japoneses', desc: 'Ideas y escritura para comparar' },
       { path: '/nombres-coreanos', label: 'Coreanos (Hangul)', desc: 'K-Pop y Doramas' },
       { path: '/nombres-italianos', label: 'Italianos', desc: 'Elegancia mediterránea' },
       { path: '/nombres-mayas', label: 'Mayas & Sagrados', desc: 'Prehispánicos y deidades' },
