@@ -6,7 +6,7 @@ import { copyText } from '../utils/clipboard';
 
 import React, { useEffect, useMemo, useState, type ReactNode } from 'react';
 import { Link } from '../components/Link';
-import { ChevronRight, Flame, CheckCircle2, Search, ListOrdered, Home } from 'lucide-react';
+import { ChevronRight, Flame, CheckCircle2, Search, Copy, ListOrdered, Home } from 'lucide-react';
 import Generator from '../components/Generator';
 import dynamic from 'next/dynamic';
 
