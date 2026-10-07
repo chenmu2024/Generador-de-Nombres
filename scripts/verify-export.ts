@@ -30,7 +30,7 @@ for (const path of routes) {
     assert.equal(nodes.filter(node => node['@type'] === 'FAQPage').length, expected.faqs?.length ? 1 : 0, `${path}: FAQ graph`);
     assert.equal(nodes.filter(node => node['@type'] === 'BreadcrumbList').length, path === '/' ? 0 : 1, `${path}: breadcrumb graph`);
     assert.ok(html.includes(decode(editorialProfiles[path].summary)), `${path}: visible summary`);
-    assert.equal(nodes.find(node => node['@type'] === 'WebPage').dateModified, editorialProfiles[path].updated, `${path}: review date`);
+    assert.equal(nodes.find(node => node['@type'] === pageType)?.dateModified, editorialProfiles[path].updated, `${path}: review date`);
   }
   for (const match of html.matchAll(/href="(\/[^"]*)"/g)) {
     const destination = decode(match[1]).split(/[?#]/)[0];
