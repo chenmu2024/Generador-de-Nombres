@@ -45,9 +45,11 @@ export async function generateMetadata({
       description,
       url: `https://generadordenombres.net/${resolvedParams.category}`,
       type: 'website',
+      siteName: 'GeneradorDeNombres.net',
+      locale: 'es_ES',
       images: [
         {
-          url: 'https://generadordenombres.net/opengraph-image',
+          url: 'https://generadordenombres.net/opengraph-image.png',
           width: 1200,
           height: 630,
           alt: 'GeneradorDeNombres Logo',
@@ -56,6 +58,12 @@ export async function generateMetadata({
     },
     alternates: {
       canonical: `https://generadordenombres.net/${resolvedParams.category}`,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: ['https://generadordenombres.net/opengraph-image.png'],
     },
   };
 }
