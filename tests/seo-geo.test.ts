@@ -69,3 +69,46 @@ test('editorial methodology anchor exists and claims reflect actual product limi
   assert.doesNotMatch(html, /semanalmente|Mapeo exhaustivo|Sincronización con las actualizaciones/);
   assert.doesNotMatch(fs.readFileSync('src/app/layout.tsx', 'utf8'), /SearchAction/);
 });
+
+
+function visibleWordCount(html: string) {
+  return html
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&[a-zA-Z0-9#]+;/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .split(' ')
+    .filter(Boolean)
+    .length;
+}
+
+test('every indexable SEO page has substantive visible copy and thin pages have FAQs', () => {
+  for (const data of Object.values(seoData)) {
+    const words = visibleWordCount(data.seoText);
+    assert.ok(words >= 150, `${data.path}: only ${words} visible words in seoText`);
+    if (words < 250) {
+      assert.ok((data.faqs?.length ?? 0) >= 3, `${data.path}: short copy needs at least 3 distinct FAQs`);
+    }
+  }
+});
+
+test('Free Fire pages keep distinct intent and avoid unsupported exclusivity or stale fixed rules', () => {
+  const guide = seoData['nombres-free-fire'];
+  const generator = seoData['generador-free-fire'];
+  const unique = seoData['nombres-ff-unicos'];
+  const women = seoData['nombres-ff-mujeres'];
+  const clans = seoData['nombres-clanes-ff'];
+
+  assert.match(guide.seoText, /href="\/generador-free-fire"/);
+  assert.match(generator.seoText, /href="\/nombres-free-fire"/);
+  assert.match(generator.seoText, /punto de partida es tu propio texto/);
+  assert.doesNotMatch(women.metaDescription, /que nadie tenga/i);
+  assert.doesNotMatch(unique.subtitle, /no están en uso/i);
+  assert.doesNotMatch(unique.seoText, /verdaderamente nadie tenga|Fórmula Infalible/i);
+  assert.doesNotMatch(clans.seoText, /5,000 Monedas|1,000 Diamantes|Máximo 12 caracteres|Reglas y Costos Oficiales/i);
+});
+
+test('creative plushie adoption copy never presents the generated card as official', () => {
+  const plushies = seoData['nombres-peluches'];
+  assert.doesNotMatch(plushies.subtitle + plushies.seoText, /acta oficial|Ficha Oficial|Promesa de Adopción Oficial|se convierte oficialmente/i);
+});

@@ -63,12 +63,12 @@ export const seoData: Record<string, CategoryData> = {
     path: '/nombres-free-fire',
     title: 'Nombres para Free Fire - Apodos Chidos e Insanos | GDN',
     h1: 'Generador y Creador de Nombres para Free Fire',
-    subtitle: 'Crea nombres insanos, espacios invisibles, V de Verificado Ⓥ y apodos para clanes, dúos y chicas en FF.',
+    subtitle: 'Explora ideas de nombres para Free Fire por estilo, símbolos, clanes, dúos y variantes femeninas antes de personalizar tu propia base.',
     seoText: `
-      <h2>Los Mejores Nombres para Free Fire en 2026 (Apodos Insanos y Épicos)</h2>
-      <p>Destacar en Free Fire (FF) empieza antes de caer del avión: tu nickname o apodo es tu carta de presentación ante tus rivales y tu escuadra. Ya sea que busques un <strong>nombre insano que dé miedo</strong>, un nombre con <strong>espacio invisible Unicode (U+3164)</strong>, el icono <strong>V de Verificado (Ⓥ)</strong>, o combinaciones para <strong>dúos dinámicos y clanes nivel 10</strong>, nuestro generador crea variantes adaptadas a nombres cortos; los límites y caracteres admitidos pueden cambiar según la versión del juego.</p>
+      <h2>Ideas de Nombres para Free Fire por Estilo (Apodos Insanos y Épicos)</h2>
+      <p>Esta página funciona como guía e inspiración para comparar estilos de nombres en Free Fire: apodos agresivos, combinaciones con símbolos, ideas para dúos, variantes femeninas y ejemplos con tag de clan. Si ya tienes una palabra base y quieres transformarla, utiliza el <a href="/generador-free-fire">generador de nombres para Free Fire</a>. Los límites, caracteres admitidos y disponibilidad dependen siempre de lo que acepte el juego en ese momento.</p>
       
-      <h3>Guía Rápida: Estilos de Nombres para Free Fire Más Buscados</h3>
+      <h3>Guía Rápida: Estilos de Nombres para Free Fire</h3>
       <p>A continuación te mostramos combinaciones de esta selección editorial clasificadas por estilo e intención en partida:</p>
       
       <div class="overflow-x-auto not-prose mb-8 mt-4">
@@ -119,7 +119,7 @@ export const seoData: Record<string, CategoryData> = {
       <h3>Cómo Poner Espacio Invisible y Símbolos Especiales en Free Fire</h3>
       <p>Para incluir espacios entre tu tag de clan y tu apodo en Free Fire no puedes usar la barra espaciadora del teclado normal. Tienes que usar el <strong>carácter transparente Unicode <code>U+3164</code></strong> (Espacio Invisible). En nuestro creador de nombres arriba, solo haz clic en la opción de espacio transparente o copia directamente los nombres ya formateados.</p>
 
-      <h3>Reglas Oficiales de Longitud de Nombres en Free Fire</h3>
+      <h3>Qué Comprobar sobre Longitud y Caracteres en Free Fire</h3>
       <ul>
         <li><strong>Longitud del apodo:</strong> Comprueba el límite que muestra tu versión de Free Fire antes de confirmar, ya que las reglas pueden cambiar.</li>
         <li><strong>Símbolos para probar:</strong> Caracteres Unicode especiales (꧁, ꧂, ⚡, ☠︎, 👑, ✿, ☬, ⚔️, ☯︎, ★, ♥, ✨, 🔥, ツ, ×͜×, Ⓥ, ╰‿╯).</li>
@@ -133,7 +133,7 @@ export const seoData: Record<string, CategoryData> = {
     faqs: [
       {
         question: "¿Cómo pongo el espacio invisible en mi nombre de Free Fire?",
-        answer: "Free Fire no permite usar la barra espaciadora normal en los nombres. Para poner un espacio debes usar el carácter transparente Unicode (U+3164). Puedes usar nuestra herramienta de 'Espacio Invisible' arriba para copiarlo con 1 clic y pegarlo directamente en el juego."
+        answer: "Si el campo de apodo no conserva una separación normal, puedes probar el carácter Unicode U+3164 desde nuestra herramienta de Espacio Invisible. La aceptación depende de la versión y debe confirmarse dentro del juego."
       },
       {
         question: "¿Cuál es el límite de letras para los nombres en Free Fire?",
@@ -141,7 +141,7 @@ export const seoData: Record<string, CategoryData> = {
       },
       {
         question: "¿Cómo pongo la V de Verificado (Ⓥ) en mi perfil de Free Fire?",
-        answer: "La 'V de Verificado' oficial (insignia dorada de influencer) la otorga Garena a creadores asociados, pero puedes copiar el símbolo de texto Unicode Ⓥ o 🅅 de nuestra lista de símbolos para incluirlo en tu nickname o firma del perfil."
+        answer: "El símbolo de texto Ⓥ o 🅅 puede copiarse como decoración, pero no convierte una cuenta en verificada ni sustituye ninguna insignia que la plataforma otorgue dentro del juego."
       },
       {
         question: "¿Cuánto cuesta cambiar de nombre en Free Fire?",
@@ -1374,9 +1374,9 @@ export const seoData: Record<string, CategoryData> = {
     path: '/nombres-peluches',
     title: 'Nombres para Peluches y Osos - Tiernos y Bonitos | GDN',
     h1: 'Generador de Nombres para Peluches y Certificado de Adopción',
-    subtitle: 'Descubre los nombres más tiernos, dulces y divertidos para tu osito de felpa, Squishmallow, conejito o peluche con acta oficial de adopción personalizada y voz cariñosa.',
+    subtitle: 'Explora nombres tiernos y creativos para ositos, Squishmallows y otros peluches, con una ficha de adopción de juego y lectura sintetizada opcional.',
     seoText: `
-      <h2>Los Mejores Nombres para Peluches, Ositos de Felpa, Squishmallows y Muñecos (2026)</h2>
+      <h2>Ideas de Nombres para Peluches, Ositos de Felpa, Squishmallows y Muñecos</h2>
       <p>Ponerle un nombre a un peluche, osito de felpa o muñeco es un ritual entrañable lleno de ternura, nostalgia y afecto. Ya sea un osito clásico reglado por una persona especial, un Squishmallow ultra suave y esponjoso, un tierno conejito de orejas largas, un peluche kawaii de gatito o un majestuoso unicornio, bautizar a tu compañero suave le otorga una personalidad única y crea un recuerdo emotivo imborrable para toda la vida.</p>
 
       <h3>Categorías Principales de Nombres para Peluches</h3>
@@ -1397,7 +1397,7 @@ export const seoData: Record<string, CategoryData> = {
               <th class="py-3.5 px-4 font-bold">Tipo / Textura</th>
               <th class="py-3.5 px-4 font-bold">Estilo de Nombre</th>
               <th class="py-3.5 px-4 font-bold">Inspiración creativa (no etimología)</th>
-              <th class="py-3.5 px-4 font-bold">Promesa de Adopción Oficial</th>
+              <th class="py-3.5 px-4 font-bold">Promesa de Adopción Creativa</th>
             </tr>
           </thead>
           <tbody class="text-zinc-300 divide-y divide-white/5">
@@ -1449,9 +1449,9 @@ export const seoData: Record<string, CategoryData> = {
 
       <h3>Consejos Clave para Crear y Celebrar la Adopción de tu Peluche</h3>
       <ol>
-        <li><strong>Ficha Oficial de Adopción:</strong> Rellena el formulario interactivo superior con el nombre, tipo de muñeco, nombre del adoptante y su súper poder o promesa.</li>
+        <li><strong>Ficha Creativa de Adopción:</strong> Rellena el formulario interactivo superior con el nombre, tipo de muñeco, nombre del adoptante y su súper poder o promesa.</li>
         <li><strong>Pronunciación y Audio Cariñoso:</strong> Utiliza el reproductor de voz integrado para escuchar cómo suena el nombre de tu peluche en voz alta.</li>
-        <li><strong>Celebración de Cumpleaños:</strong> La fecha en que generas la ficha se convierte oficialmente en su día de cumpleaños o aniversario de adopción anual.</li>
+        <li><strong>Celebración de Cumpleaños:</strong> Puedes usar la fecha de la ficha como un cumpleaños o aniversario de adopción de juego si te apetece mantener esa tradición.</li>
       </ol>
     `,
     metaDescription: 'Nombres para peluches, osos de felpa y juguetes. Ideas tiernas, bonitas y creativas para darle personalidad a tus muñecos favoritos.',
@@ -1482,17 +1482,43 @@ export const seoData: Record<string, CategoryData> = {
     path: '/generador-free-fire',
     title: 'Generador de Nombres para Free Fire con Símbolos | GDN',
     h1: 'Generador y Creador de Nombres para Free Fire',
-    subtitle: 'La herramienta #1 para transformar tu apodo en letras raras, símbolos de armas, coronas y estilos insanos para FF.',
+    subtitle: 'Escribe una base, prueba símbolos y espacios, revisa la longitud y copia variantes para comprobarlas directamente en Free Fire.',
     seoText: `
-      <h2>El Generador de Nombres para Free Fire (FF)</h2>
-      <p>Bienvenido al creador de nombres para Free Fire más rápido e intuitivo. Diseñado específicamente para jugadores de Free Fire, PUBG, Call of Duty Mobile y Roblox, nuestro algoritmo convierte cualquier palabra simple en una combinación insana llena de estilo.</p>
-      <h3>Símbolos e Insignias Soportados</h3>
-      <p>Prueba símbolos como alas (꧁༺ ༻꧂), coronas (👑), rayos (⚡), cruces (☠︎), caras (ツ, ×͜×) y armas (🔫, ⚔️) para probar en Garena Free Fire; la aceptación depende de la versión y del dispositivo.</p>
+      <h2>Generador de Nombres para Free Fire: de una Base a Variantes Copiables</h2>
+      <p>Esta página tiene una intención de herramienta: tú escribes una palabra o apodo base y el generador produce variantes visuales con letras Unicode, símbolos y separadores. A diferencia de la guía de <a href="/nombres-free-fire">nombres para Free Fire</a>, aquí el punto de partida es tu propio texto.</p>
+
+      <h3>Flujo recomendado para crear un apodo</h3>
+      <ol>
+        <li><strong>Escribe una base corta</strong> que puedas reconocer fácilmente.</li>
+        <li><strong>Prueba una familia de símbolos</strong> en lugar de añadir muchos a la vez.</li>
+        <li><strong>Revisa la longitud visible</strong> y simplifica la variante si queda demasiado cargada.</li>
+        <li><strong>Copia y prueba el resultado en Free Fire</strong> antes de decidirte.</li>
+      </ol>
+
+      <h3>Qué comprueba el generador y qué decide el juego</h3>
+      <p>La herramienta puede transformar texto, contar caracteres visibles y facilitar la copia. No consulta la base de datos de Free Fire, no reserva nombres y no puede garantizar que cada carácter Unicode sea aceptado por una versión concreta del juego. Si necesitas separar palabras, consulta la guía de <a href="/espacios-invisible-ff">espacio invisible para Free Fire</a>.</p>
+
+      <h3>Usa la página específica cuando tu intención sea distinta</h3>
+      <p>Para nombres de equipo ve a <a href="/nombres-clanes-ff">clanes y escuadras</a>; para inspiración femenina consulta <a href="/nombres-ff-mujeres">nombres de mujer para Free Fire</a>; y para variaciones centradas en originalidad visual usa <a href="/nombres-ff-unicos">nombres únicos</a>. Esta separación evita mezclar herramientas y listas con objetivos diferentes.</p>
     `,
-    metaDescription: 'Creador y generador de nombres para Free Fire gratis. Personaliza tu apodo con letras raras, fuentes elegantes y símbolos especiales en 1 clic.',
+    metaDescription: 'Generador de nombres para Free Fire: escribe tu apodo, crea variantes con símbolos y espacios, revisa longitud y copia el resultado para probarlo en el juego.',
     keywords: 'generador de nombres para free fire, creador de nombres para free fire, crear nombres para free fire, nombres para free fire',
     defaultName: 'Insano',
     customSymbols: ["ㅤ", "Ⓥ", "꧁", "꧂", "༺", "༻", "⚡", "☠︎", "👑", "✿", "☬", "⚔️", "☯︎", "★", "♥", "✨", "🔥", "ツ", "×͜×", "シ", "ッ", "メ", "🔫"],
+    faqs: [
+      {
+        question: "¿Este generador comprueba si un nombre está disponible en Free Fire?",
+        answer: "No. Genera y formatea texto; la disponibilidad solo puede confirmarse al probar el nombre dentro del juego."
+      },
+      {
+        question: "¿Qué diferencia hay entre este generador y la lista de nombres para Free Fire?",
+        answer: "Aquí partes de tu propio texto y lo transformas. La página de nombres para Free Fire funciona principalmente como guía e inspiración por estilos."
+      },
+      {
+        question: "¿Todos los símbolos generados funcionan en cualquier versión de Free Fire?",
+        answer: "No se puede garantizar. La aceptación de caracteres puede cambiar según la versión, la plataforma y las reglas del juego."
+      }
+    ]
   },
   'espacios-invisible-ff': {
     id: 'espacios-invisible-ff',
@@ -1592,57 +1618,57 @@ export const seoData: Record<string, CategoryData> = {
     path: '/nombres-ff-unicos',
     title: 'Nombres para Free Fire que Nadie Tenga - Únicos | GDN',
     h1: 'Nombres para Free Fire que Nadie Tenga (Exclusivos y Raros)',
-    subtitle: 'Encuentra y genera nombres originales que no están en uso en Free Fire: combinaciones de 3-4 letras, símbolos raros y apodos de mitología.',
+    subtitle: 'Crea variaciones visuales poco comunes para Free Fire con bases cortas, símbolos y separadores, sin afirmar disponibilidad ni exclusividad comprobada.',
     seoText: `
-      <h2>Cómo Crear Nombres para Free Fire que Nadie Tenga (Guía 2026)</h2>
-      <p>Uno de los problemas más frustrantes al crear o modificar tu perfil de Free Fire es intentar decenas de apodos populares y recibir continuamente el mensaje de error de Garena: <em>"Este nombre ya se encuentra registrado"</em>. La causa es que nombres como "Pro", "King" o "Killer" están usados por millones de jugadores.</p>
+      <h2>Cómo Crear Variantes de Nombres para Free Fire que Nadie Tenga</h2>
+      <p>Cuando una base sencilla ya está ocupada, una forma práctica de diferenciarla visualmente es combinarla con letras, separadores o símbolos. Esta página se centra en esa intención creativa; no consulta una base de datos de usuarios ni puede demostrar que una propuesta esté libre.</p>
       
-      <p>Para conseguir un <strong>nombre para Free Fire que verdaderamente nadie tenga</strong>, debes recurrir a 4 estrategias efectivas de combinación: combinar <strong>runas o símbolos antiguos poco saturados (𓆩𓆪, 亗, ╰‿╯)</strong>, intercalar <strong>espacios invisibles (Unicode U+3000)</strong>, usar <strong>neologismos o nombres en latín/sánscrito</strong> o estructurar apodos cortos de 3 a 4 letras con fuentes estéticas.</p>
+      <p>Para aumentar la diferenciación visual puedes combinar una <strong>base corta</strong>, uno o dos <strong>símbolos Unicode</strong>, un <strong>separador que el juego acepte</strong> y una variación ortográfica propia. Cuantas más decoraciones añadas, más importante es comprobar legibilidad, longitud y compatibilidad antes de guardar.</p>
 
-      <h3>Ideas de Nombres Exclusivos y Poco Comunes por Creadores de Contenido</h3>
+      <h3>Ideas de Variaciones Visuales Poco Comunes</h3>
       <div class="overflow-x-auto not-prose mb-8 mt-4">
         <table class="min-w-full text-left border-collapse rounded-2xl overflow-hidden border border-white/10 bg-zinc-900/60">
           <thead>
             <tr class="bg-violet-950/60 text-violet-200 border-b border-white/10">
               <th class="py-3.5 px-4 font-bold">Estilo de Nombre</th>
               <th class="py-3.5 px-4 font-bold">Ejemplo Listo para Copiar</th>
-              <th class="py-3.5 px-4 font-bold">Por qué Nadie lo Tiene</th>
+              <th class="py-3.5 px-4 font-bold">Qué cambia visualmente</th>
             </tr>
           </thead>
           <tbody class="text-zinc-300 divide-y divide-white/5">
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-violet-300">Runas Antiguas & Jeroglíficos</td>
               <td class="py-3 px-4 font-mono text-amber-300">𓆩⚡𓆪 ㅤ K Y R O S</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Usa los símbolos raros egipcios 𓆩 𓆪 combinados con espacio transparente.</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Combina un marco poco habitual con un separador visual.</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-violet-300">Latín y Mitología Rara</td>
               <td class="py-3 px-4 font-mono text-amber-300">╰‿╯ ㅤ V O R T E X</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Basado en términos astronómicos poco comunes con la carita sonriente ╰‿╯.</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Usa una base temática y un marco sencillo para diferenciar la forma.</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-violet-300">Corto 3-4 Letras Insano</td>
               <td class="py-3 px-4 font-mono text-amber-300">7K ㅤ Z E X 亗</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Corta longitud con corona asiática 亗 y número de clan inicial.</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Mantiene una base corta y añade un tag más un símbolo final.</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-violet-300">Con Verificado & Manzana</td>
               <td class="py-3 px-4 font-mono text-amber-300">Ⓥ ㅤ S P E C T R E </td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Combina la 'V de Verificado' con el símbolo de la manzana  al final.</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Combina dos símbolos decorativos; no representa verificación oficial.</td>
             </tr>
             <tr class="hover:bg-white/5 transition-colors">
               <td class="py-3 px-4 font-bold text-violet-300">Chiteros / Diabólicos</td>
               <td class="py-3 px-4 font-mono text-amber-300">乄 ㅤ N E X U S ☠︎</td>
-              <td class="py-3 px-4 font-medium text-zinc-100">Estructura limpia usando la espada oriental 乄 y la calavera militar.</td>
+              <td class="py-3 px-4 font-medium text-zinc-100">Mantiene una estructura simétrica con símbolos a ambos lados.</td>
             </tr>
           </tbody>
         </table>
       </div>
 
-      <h3>Fórmula Infalible para Inventar tu Apodo Único en 3 Pasos</h3>
+      <h3>Fórmula para Crear una Variación Propia en 3 Pasos</h3>
       <ol>
-        <li><strong>Paso 1: Elige una Palabra Base Desconocida:</strong> Busca términos de constelaciones (ej: <em>Antares, Orion, Polaris</em>), física (ej: <em>Quantum, Pulsar, Vector</em>) o dioses poco conocidos (ej: <em>Erebo, Kratos, Hypnos</em>).</li>
-        <li><strong>Paso 2: Inserta Espacios Invisibles:</strong> Usa el botón de espacio en blanco para separar cada letra o la inicial del nombre (ej: <code>A ㅤ N ㅤ T ㅤ A ㅤ R ㅤ E ㅤ S</code>).</li>
+        <li><strong>Paso 1: Elige una Base:</strong> Parte de una palabra que recuerdes fácilmente y que encaje con tu estilo de juego.</li>
+        <li><strong>Paso 2: Prueba un Separador:</strong> Usa un espacio Unicode solo si tu versión del juego lo acepta y comprueba el resultado antes de guardar.</li>
         <li><strong>Paso 3: Añade un Marco de Símbolos Raros:</strong> Encierra tu palabra entre dos símbolos simétricos como <code>𓆩...𓆪</code> o <code>꧁...꧂</code>.</li>
       </ol>
     `,
@@ -1674,28 +1700,55 @@ export const seoData: Record<string, CategoryData> = {
     path: '/nombres-ff-mujeres',
     title: 'Nombres para Free Fire de Mujer - Apodos Chidos | GDN',
     h1: 'Nombres para Free Fire para Mujeres y Chicas Insanas',
-    subtitle: 'Apodos femeninos con estilo, nombres aesthetic, tiernos y agresivos para jugadoras de FF.',
+    subtitle: 'Apodos femeninos para Free Fire organizados por estilo visual, con variantes para copiar y adaptar sin afirmar disponibilidad o exclusividad.',
     seoText: `
-      <h2>Los Mejores Nombres Femeninos para Free Fire</h2>
-      <p>Las jugadoras de Free Fire destacan por su nivel competitivo y elegancia. Explora apodos adornados con flores (✿), coronas de reina (👑), alas (꧁༺) y estrellas (✨) para que tu perfil sea inolvidable.</p>
+      <h2>Nombres para Free Fire de Mujer por Estilo</h2>
+      <p>Esta página se centra en apodos femeninos para Free Fire y separa esa intención de otras herramientas del sitio. Aquí puedes explorar combinaciones con flores, coronas, mariposas, símbolos oscuros o estilos minimalistas; si quieres transformar cualquier palabra desde cero, utiliza el <a href="/generador-free-fire">generador de nombres para Free Fire</a>.</p>
+
+      <h3>Elige primero el estilo, después la decoración</h3>
+      <ul>
+        <li><strong>Suave y floral:</strong> usa uno o dos símbolos y deja que el nombre siga siendo legible.</li>
+        <li><strong>Competitivo:</strong> prioriza una base corta antes de añadir coronas, rayos o marcos.</li>
+        <li><strong>Dúo o pareja:</strong> crea dos nombres que compartan estructura, pero comprueba cada uno por separado.</li>
+        <li><strong>Minimalista:</strong> conserva el nombre casi limpio y añade un solo detalle visual.</li>
+      </ul>
+
+      <h3>Qué diferencia esta página de “nombres únicos”</h3>
+      <p>“Femenino” describe aquí un estilo editorial; no significa que el apodo esté libre ni que nadie más lo use. Para ideas centradas en variaciones poco comunes consulta <a href="/nombres-ff-unicos">nombres para Free Fire únicos</a>. Para tags de equipo, la página de <a href="/nombres-clanes-ff">nombres de clanes</a> mantiene esa intención separada.</p>
+
+      <p>Antes de guardar un resultado, pruébalo dentro del juego. Free Fire decide qué caracteres acepta, qué longitud permite y si un nombre está disponible en ese momento.</p>
     `,
-    metaDescription: 'Lista de nombres para Free Fire de mujer que nadie tenga. Apodos femeninos insanos, bonitos y con símbolos elegantes para destacar.',
+    metaDescription: 'Explora nombres para Free Fire de mujer por estilos floral, competitivo, minimalista y dúo. Personaliza símbolos y comprueba compatibilidad y disponibilidad en el juego.',
     keywords: 'nombres para free fire para mujeres, nombres para free fire de mujer que nadie tenga, apodos para mujeres en free fire',
     defaultName: 'Queen',
     customSymbols: ["✿", "👑", "🌸", "✨", "🎀", "💖", "💎", "🌙", "🦋", "🥀"],
+    faqs: [
+      {
+        question: "¿Los nombres femeninos de esta página están disponibles en Free Fire?",
+        answer: "No podemos comprobar disponibilidad. La página ofrece propuestas visuales y debes probar el resultado dentro del juego."
+      },
+      {
+        question: "¿Qué diferencia esta página del generador general de Free Fire?",
+        answer: "Esta página organiza inspiración femenina por estilo; el generador general está pensado para escribir cualquier base y transformarla."
+      },
+      {
+        question: "¿Puedo usar estos estilos aunque no quiera un apodo muy decorado?",
+        answer: "Sí. Puedes tomar solo el nombre base o usar una variante minimalista con pocos símbolos."
+      }
+    ]
   },
   'nombres-clanes-ff': {
     id: 'nombres-clanes-ff',
     path: '/nombres-clanes-ff',
     title: 'Nombres para Clanes de Free Fire - Generador | GDN',
     h1: 'Nombres para Clanes y Escuadras de Free Fire',
-    subtitle: 'Crea nombres e insignias impones para tu clan competitivo, clan mixto, escuadras 4v4 o gremios nivel 10 en FF.',
+    subtitle: 'Crea nombres, siglas y estilos visuales para clanes y escuadras de Free Fire, y comprueba después las reglas vigentes dentro del juego.',
     seoText: `
-      <h2>Los Mejores Nombres para Clanes y Escuadras de Free Fire en 2026</h2>
+      <h2>Ideas de Nombres para Clanes y Escuadras de Free Fire</h2>
       <p>El nombre de un clan en Free Fire es el sello de identidad que representa el nivel, la disciplina y el poder de tu grupo en la isla. Tanto si buscas formar un <strong>clan competitivo para torneos y salas privadas (eSports)</strong>, un <strong>clan insano o tóxico para apostados y 4v4</strong>, o un <strong>clan mixto y aesthetic con espacio invisible</strong>, la clave está en combinar una sigla o Tag limpia con un nombre imponente.</p>
       
       <h3>Tabla de Estilos de Nombres y Tags para Clanes (Con Ejemplos)</h3>
-      <p>A continuación te mostramos las mejores combinaciones organizadas por la temática de tu escuadra:</p>
+      <p>A continuación se muestran ejemplos organizados por la temática visual de la escuadra:</p>
       
       <div class="overflow-x-auto not-prose mb-8 mt-4">
         <table class="min-w-full text-left border-collapse rounded-2xl overflow-hidden border border-white/10 bg-zinc-900/60">
@@ -1742,15 +1795,15 @@ export const seoData: Record<string, CategoryData> = {
         </table>
       </div>
 
-      <h3>Estructura Perfecta para Formar la Sigla o Tag del Clan</h3>
-      <p>Un Tag de clan profesional consta generalmente de <strong>2 a 4 letras en mayúsculas</strong> acompañadas de un punto central (<code>•</code>), un guion especial o un espacio invisible. Por ejemplo: <code>VP • ㅤ N A M E</code>. De esta forma, cualquier miembro que se una al clan puede adoptar la sigla oficial sin agotar el límite de 12 caracteres del apodo personal.</p>
+      <h3>Una Estructura Práctica para la Sigla o Tag del Clan</h3>
+      <p>Una convención sencilla es usar una sigla breve de <strong>2 a 4 caracteres</strong> acompañada de un punto central, un guion o un separador que el juego acepte. Por ejemplo: <code>VP • ㅤ N A M E</code>. Mantener el tag corto facilita que varios integrantes conserven una estructura visual parecida sin asumir un límite fijo de caracteres.</p>
 
-      <h3>Reglas y Costos Oficiales de Creación de Clanes en Free Fire</h3>
+      <h3>Qué Comprobar Antes de Crear o Renombrar un Clan</h3>
       <ul>
-        <li><strong>Costo de Creación:</strong> Crear un Clan en Free Fire cuesta 5,000 Monedas de Oro (Gold) o 1,000 Diamantes.</li>
-        <li><strong>Límite de Longitud del Nombre del Clan:</strong> Máximo 12 caracteres para el nombre oficial del gremio.</li>
-        <li><strong>Símbolos Soportados:</strong> Símbolos de escudo (🛡️), coronas (👑), espadas (⚔️), fuego (🔥), verificado (Ⓥ) y espacios invisibles (<code>U+3000</code>).</li>
-        <li><strong>Liderazgo y Niveles:</strong> El clan sube de Nivel (hasta Nivel 10) al acumular honor semanal mediante partidas completadas por sus miembros.</li>
+        <li><strong>Coste:</strong> revisa el importe y la moneda que muestre tu cuenta antes de confirmar, porque pueden cambiar.</li>
+        <li><strong>Longitud:</strong> comprueba el límite vigente directamente en el campo de nombre del clan.</li>
+        <li><strong>Símbolos:</strong> prueba escudos, coronas, espadas u otros caracteres uno a uno; Unicode válido no significa compatibilidad garantizada.</li>
+        <li><strong>Gestión:</strong> revisa dentro del juego los permisos, niveles y requisitos actuales antes de organizar la escuadra.</li>
       </ul>
     `,
     metaDescription: 'Generador de nombres para clanes de Free Fire. Encuentra apodos para escuadras, tags intimidantes y nombres de clanes insanos con símbolos.',
@@ -1768,7 +1821,7 @@ export const seoData: Record<string, CategoryData> = {
       },
       {
         question: "¿Cómo hacer que mi clan se vea profesional para torneos?",
-        answer: "Usa un Tag corto de 2 o 3 letras (como FX, VX, 7K, ST) con una tipografía limpia y sin recargar demasiado de símbolos. Mantener uniformidad visual entre los 4 jugadores de la escuadra impone gran respeto en las salas privadas."
+        answer: "Usa un Tag corto de 2 o 3 letras (como FX, VX, 7K, ST) con una tipografía limpia y sin recargar demasiado de símbolos. Mantener una estructura visual coherente entre los integrantes hace que el tag sea más fácil de reconocer."
       },
       {
         question: "¿Cómo separar el Tag del clan con espacio invisible?",
@@ -2646,45 +2699,118 @@ export const seoData: Record<string, CategoryData> = {
     path: '/nombres-con-b',
     title: 'Nombres con B para Niña, Niño y Mascotas | GDN',
     h1: 'Nombres con la Letra B',
-    subtitle: 'Lista de nombres masculinos y femeninos que inician con B.',
+    subtitle: 'Directorio de nombres que empiezan con B para comparar opciones masculinas y femeninas dentro del índice A-Z.',
     seoText: `
-      <h2>Nombres con la Letra B y su Significado</h2>
-      <p>Nombres con gran personalidad como Bruno, Bella, Benjamín, Bianca, Balthazar y Bárbara.</p>
+      <h2>Nombres con B: Ideas para Comparar por Inicial</h2>
+      <p>La letra B reúne opciones muy distintas entre sí, desde Bruno, Benjamín y Balthazar hasta Bella, Bianca y Bárbara. Esta página está pensada como un filtro por inicial: primero eliges la B y después comparas escritura, longitud y el estilo que mejor encaje con el uso que buscas.</p>
+
+      <h3>Cómo usar una página de nombres por letra</h3>
+      <ul>
+        <li><strong>Empieza por la inicial:</strong> descarta rápidamente nombres que no cumplan tu requisito principal.</li>
+        <li><strong>Compara la longitud:</strong> prueba cómo se ve el nombre junto a los apellidos o un segundo nombre.</li>
+        <li><strong>Verifica el significado:</strong> no asumas un origen solo por cómo suena; consulta la fuente cuando el dato sea importante.</li>
+      </ul>
+
+      <h3>Cuándo volver al directorio completo</h3>
+      <p>Si todavía no estás decidido por la B, vuelve al <a href="/nombres-por-letra">directorio de nombres por letra</a> para comparar otras iniciales. También puedes explorar listas más amplias de <a href="/nombres-de-mujer">nombres de mujer</a> o <a href="/nombres-de-nino">nombres de niño</a>. La selección no representa un ranking de popularidad ni un registro civil exhaustivo.</p>
     `,
-    metaDescription: 'Directorio de nombres con B para niños, niñas y mascotas. Encuentra significados, origenes y audios de pronunciación con voz sintetizada del dispositivo.',
+    metaDescription: 'Explora nombres con B para hombre y mujer dentro del directorio A-Z. Compara escritura y longitud y revisa el origen antes de asumir un significado.',
     keywords: 'nombres con b, nombres con b de hombre, nombres con b de mujer',
     defaultName: 'Bruno',
     customSymbols: ["🅱️", "✨", "🧸"],
+    faqs: [
+      {
+        question: "¿Todos los nombres de esta página empiezan con B?",
+        answer: "Sí. La intención principal de la página es filtrar propuestas por la inicial B."
+      },
+      {
+        question: "¿La lista de nombres con B está ordenada por popularidad?",
+        answer: "No. Es una selección editorial y no utiliza estadísticas de nacimientos para ordenar los resultados."
+      },
+      {
+        question: "¿Dónde puedo comparar otras iniciales?",
+        answer: "En el directorio A-Z puedes cambiar de letra y explorar páginas específicas para otras iniciales."
+      }
+    ]
   },
   'nombres-con-c': {
     id: 'nombres-con-c',
     path: '/nombres-con-c',
     title: 'Nombres con C para Hombre, Mujer y Bebés | GDN',
     h1: 'Nombres con la Letra C',
-    subtitle: 'Ideas de nombres con la letra C para bebés y redes.',
+    subtitle: 'Directorio de nombres que comienzan con C para comparar escritura, longitud y distintas opciones de hombre y mujer.',
     seoText: `
-      <h2>Nombres que Empiezan con C</h2>
-      <p>Nombres tradicionales y modernos como Carlos, Camila, Cristian, Chloe, Christopher y Catalina.</p>
+      <h2>Nombres con C: Cómo Comparar Opciones por Inicial</h2>
+      <p>Camila, Carlos, Cristian, Clara, Catalina o Christopher muestran que una misma inicial puede aparecer en nombres de longitudes y tradiciones muy diferentes. Esta página agrupa propuestas que empiezan con C para que la inicial sea el primer criterio y no tengas que revisar listas que no cumplen ese requisito.</p>
+
+      <h3>Qué mirar además de la primera letra</h3>
+      <p>Después de elegir la C, compara el número de sílabas, la longitud escrita y cómo se combina cada opción con los apellidos. Si el origen o el significado es decisivo para ti, compruébalo en una fuente específica antes de tomar una descripción breve como una etimología definitiva.</p>
+      <ul>
+        <li><strong>Nombre corto:</strong> útil si buscas una combinación sencilla con apellidos largos.</li>
+        <li><strong>Nombre compuesto:</strong> prueba el ritmo completo antes de decidir.</li>
+        <li><strong>Uso internacional:</strong> revisa si la grafía cambia entre idiomas.</li>
+      </ul>
+
+      <h3>Explora otras letras</h3>
+      <p>El <a href="/nombres-por-letra">directorio A-Z</a> reúne las demás iniciales. Si tu prioridad no es una letra concreta, las páginas de <a href="/nombres-de-nina">nombres de niña</a> y <a href="/nombres-de-nino">nombres de niño</a> ofrecen filtros por otros criterios.</p>
     `,
-    metaDescription: 'Directorio de nombres con C de hombre, mujer y bebés. Encuentra listas completas con origen, significado y audio de pronunciación.',
+    metaDescription: 'Explora nombres con C para hombre y mujer. Compara longitud, escritura y combinaciones dentro del directorio A-Z sin asumir popularidad ni origen no verificado.',
     keywords: 'nombres con c, nombre con c, nombres con c de mujer',
     defaultName: 'Camila',
     customSymbols: ["Ⓒ", "✨", "💖"],
+    faqs: [
+      {
+        question: "¿Qué diferencia esta página del directorio A-Z?",
+        answer: "Aquí la selección ya está limitada a nombres que empiezan con C; el directorio A-Z permite cambiar entre todas las iniciales."
+      },
+      {
+        question: "¿Un nombre con C se escribe igual en todos los idiomas?",
+        answer: "No necesariamente. Algunas formas cambian de grafía o transliteración según el idioma y el país."
+      },
+      {
+        question: "¿Los ejemplos con C están ordenados de más a menos populares?",
+        answer: "No. La selección sirve para comparar opciones y no representa un ranking estadístico."
+      }
+    ]
   },
   'nombres-con-e': {
     id: 'nombres-con-e',
     path: '/nombres-con-e',
     title: 'Nombres con E para Hombre, Mujer y Bebés | GDN',
     h1: 'Nombres con la Letra E (Hombre y Mujer)',
-    subtitle: 'Lista de nombres populares con E y sus significados.',
+    subtitle: 'Directorio de nombres que empiezan con E para comparar opciones de hombre y mujer por escritura y longitud.',
     seoText: `
-      <h2>Los Mejores Nombres con E</h2>
-      <p>Nombres vibrantes como Emanuel, Elena, Enzo, Emma, Esteban y Eva.</p>
+      <h2>Nombres con E para Hombre y Mujer</h2>
+      <p>Enzo, Elena, Emma, Emanuel, Esteban y Eva son ejemplos de cómo la E aparece en nombres cortos y largos, clásicos y contemporáneos. La función de esta página es concentrar la búsqueda en una inicial concreta y ayudarte a comparar las opciones sin mezclar letras que no te interesan.</p>
+
+      <h3>Cómo reducir la lista</h3>
+      <ul>
+        <li><strong>Por longitud:</strong> compara nombres breves como Eva con formas más extensas como Emanuel.</li>
+        <li><strong>Por combinación:</strong> lee el nombre completo junto con los apellidos antes de elegir.</li>
+        <li><strong>Por contexto:</strong> si el origen o el idioma son importantes, investiga la forma concreta en una fuente fiable.</li>
+      </ul>
+
+      <h3>La inicial no determina el significado</h3>
+      <p>Compartir la letra E no implica compartir origen, significado ni popularidad. La página no crea una categoría lingüística artificial: solo usa la primera letra como herramienta de navegación. Para cambiar de inicial puedes volver al <a href="/nombres-por-letra">directorio completo A-Z</a>; para comparar por tipo de nombre, consulta <a href="/nombres-de-mujer">nombres de mujer</a> o <a href="/nombres-de-nino">nombres de niño</a>.</p>
     `,
-    metaDescription: 'Lista de nombres con E de hombre, mujer y bebés. Encuentra origenes, significados y audios de pronunciación clara en voz sintetizada del dispositivo.',
+    metaDescription: 'Explora nombres con E para hombre y mujer por longitud y escritura. Directorio por inicial con enlaces al índice A-Z y sin rankings de popularidad inventados.',
     keywords: 'nombres con e, nombres con e de hombre, nombres con e de mujer',
     defaultName: 'Enzo',
     customSymbols: ["Ⓔ", "✨", "🌟"],
+    faqs: [
+      {
+        question: "¿Compartir la letra E significa que los nombres tienen el mismo origen?",
+        answer: "No. La E es solo el criterio de navegación; cada nombre puede tener una historia lingüística distinta."
+      },
+      {
+        question: "¿Puedo comparar nombres cortos y largos con E?",
+        answer: "Sí. La página está pensada para revisar opciones de distintas longitudes antes de combinarlas con apellidos."
+      },
+      {
+        question: "¿Dónde cambio a otra letra?",
+        answer: "El directorio A-Z permite pasar a otras iniciales y mantener la búsqueda organizada por letra."
+      }
+    ]
   },
   'nombres-con-f': {
     id: 'nombres-con-f',
@@ -3034,15 +3160,40 @@ export const seoData: Record<string, CategoryData> = {
     path: '/nombres-con-y',
     title: 'Nombres con Y para Niña, Niño y Bebés | GDN',
     h1: 'Nombres con la Letra Y',
-    subtitle: 'Ideas de nombres exóticos y modernos que comienzan con Y.',
+    subtitle: 'Directorio de nombres que comienzan con Y para comparar grafías, longitudes y variantes sin convertir la rareza en una afirmación estadística.',
     seoText: `
-      <h2>Nombres que Inician con la Letra Y</h2>
-      <p>Nombres llamativos como Yaretzi, Yasmin, Yuri, Yanis, Yael y Yaritza.</p>
+      <h2>Nombres con Y: Una Inicial con Muchas Grafías</h2>
+      <p>Yaretzi, Yasmin, Yuri, Yanis, Yael o Yolanda muestran la variedad de nombres que pueden comenzar con Y. Esta página sirve para explorar esa inicial de forma directa, pero no asume que un nombre sea “raro” o “exótico” solo por empezar con una letra menos frecuente en español.</p>
+
+      <h3>Presta atención a las variantes de escritura</h3>
+      <p>Algunos nombres con Y circulan en varios idiomas y pueden tener formas alternativas con J, I u otras grafías. Si necesitas una forma para documentos o para un uso cultural específico, comprueba cuál corresponde al contexto que te interesa antes de elegir únicamente por apariencia.</p>
+      <ul>
+        <li><strong>Compara longitud</strong> para ver cómo funciona cada opción con los apellidos.</li>
+        <li><strong>Revisa la grafía</strong> cuando existan transliteraciones o variantes internacionales.</li>
+        <li><strong>No infieras popularidad</strong> por la inicial; hacen falta estadísticas para afirmarlo.</li>
+      </ul>
+
+      <h3>Más formas de explorar</h3>
+      <p>Desde el <a href="/nombres-por-letra">directorio A-Z</a> puedes saltar a cualquier otra letra. Si prefieres una selección basada en estilo en lugar de inicial, consulta las páginas de <a href="/nombres-raros">nombres raros</a> o <a href="/nombres-unisex">nombres unisex</a>.</p>
     `,
-    metaDescription: 'Directorio de nombres con Y para mujer, hombre y bebés. Descubre significados completos, origenes y audio de pronunciación.',
+    metaDescription: 'Explora nombres con Y para mujer y hombre. Compara grafías, longitud y variantes dentro del directorio A-Z sin confundir inicial con rareza o popularidad.',
     keywords: 'nombres con y, nombres con y de mujer, nombres con y de hombre',
     defaultName: 'Yaretzi',
     customSymbols: ["✨", "💖", "🌸"],
+    faqs: [
+      {
+        question: "¿Todos los nombres con Y son raros en español?",
+        answer: "No. La frecuencia depende del país y del periodo; la inicial por sí sola no permite afirmar que un nombre sea raro."
+      },
+      {
+        question: "¿Puede un nombre con Y tener otra grafía en otro idioma?",
+        answer: "Sí. Algunas formas cambian por transliteración o tradición ortográfica, por lo que conviene verificar el contexto."
+      },
+      {
+        question: "¿Dónde puedo buscar nombres por otra inicial?",
+        answer: "El directorio A-Z enlaza las páginas disponibles para cada letra y permite ampliar la búsqueda."
+      }
+    ]
   },
   'nombres-con-z': {
     id: 'nombres-con-z',
@@ -3391,75 +3542,200 @@ export const seoData: Record<string, CategoryData> = {
     path: '/nombres-rusos',
     title: 'Nombres Rusos para Niña y Niño con Significado | GDN',
     h1: 'Nombres Rusos (Fuertes y Místicos)',
-    subtitle: 'Nombres eslavos y rusos tradicionales con sonoridad única.',
+    subtitle: 'Selección de nombres rusos en romanización para comparar formas, recordando que la escritura cirílica y la transliteración pueden variar.',
     seoText: `
-      <h2>Nombres de Origen Ruso y Eslavo</h2>
-      <p>Nombres con gran porte como Dimitri, Anastasia, Sasha, Ivan, Natasha y Nikolai.</p>
+      <h2>Nombres Rusos: Romanización, Cirílico y Variantes</h2>
+      <p>Esta página permite explorar nombres rusos en una forma romanizada, como Aleksandr, Anastasiya, Dmitriy, Irina o Mikhail. La romanización facilita la búsqueda en español, pero no sustituye la escritura original en cirílico ni garantiza que exista una única transliteración aceptada para cada nombre.</p>
+
+      <h3>Por qué un mismo nombre puede verse escrito de varias maneras</h3>
+      <p>Los sistemas de transliteración convierten letras cirílicas a alfabeto latino siguiendo criterios distintos. Por eso puedes encontrar variantes de una misma forma en documentos, medios o traducciones. Antes de atribuir un significado, una pronunciación o una grafía “oficial”, confirma el nombre original y la fuente que estás usando.</p>
+
+      <h3>Cómo usar la selección</h3>
+      <ul>
+        <li><strong>Busca por texto:</strong> localiza rápidamente las formas romanizadas disponibles.</li>
+        <li><strong>Compara longitud:</strong> útil si quieres combinar el nombre con apellidos o un segundo nombre.</li>
+        <li><strong>Investiga la forma original:</strong> si el nombre se usará fuera de un ejercicio creativo, comprueba su escritura cirílica.</li>
+      </ul>
+      <p>La lista no es un ranking de popularidad en Rusia y tampoco convierte automáticamente diminutivos o formas familiares en equivalencias exactas. Para comparar otras tradiciones europeas puedes consultar <a href="/nombres-franceses">nombres franceses</a> o <a href="/nombres-italianos">nombres italianos</a>.</p>
     `,
-    metaDescription: 'Lista de nombres rusos para niñas y niños. Descubre significados eslavos, combinaciones tradicionales y audio de pronunciación.',
+    metaDescription: 'Explora nombres rusos en romanización y aprende por qué la escritura cirílica y las transliteraciones pueden variar. Selección editorial para comparar opciones.',
     keywords: 'nombres rusos, nombres rusos para niña, nombres rusos masculinos',
     defaultName: 'Sasha',
     customSymbols: ["🪆", "❄️", "🏰", "✨"],
+    faqs: [
+      {
+        question: "¿Por qué un nombre ruso puede aparecer escrito de varias maneras?",
+        answer: "Porque existen distintos sistemas de transliteración del alfabeto cirílico al latino y no todos producen exactamente la misma grafía."
+      },
+      {
+        question: "¿La página muestra la escritura cirílica oficial de cada nombre?",
+        answer: "No. La herramienta se centra en una selección romanizada; confirma la forma cirílica en una fuente adecuada si la necesitas."
+      },
+      {
+        question: "¿Los diminutivos rusos son siempre equivalentes directos del nombre completo?",
+        answer: "No conviene asumirlo automáticamente. El uso de formas familiares depende del nombre, del idioma y del contexto."
+      }
+    ]
   },
   'nombres-griegos': {
     id: 'nombres-griegos',
     path: '/nombres-griegos',
     title: 'Nombres Griegos Clásicos y Mitológicos | GDN',
     h1: 'Nombres Griegos (Clásicos y Mitológicos)',
-    subtitle: 'Nombres de la antigua Grecia llenos de historia, filosofía y mitología.',
+    subtitle: 'Selección de nombres griegos en alfabeto latino, separando nombres personales actuales de referencias mitológicas.',
     seoText: `
-      <h2>Nombres Griegos Tradicionales y su Significado</h2>
-      <p>Nombres ilustres como Alexander, Penelope, Theo, Helena, Nicholas y Chloe.</p>
+      <h2>Nombres Griegos: Uso Personal, Transliteración y Mitología</h2>
+      <p>Esta selección reúne nombres griegos escritos con alfabeto latino para que puedas comparar su forma y longitud. Algunos nombres tienen una larga historia y aparecen en distintas lenguas europeas, de modo que una grafía internacional no siempre coincide exactamente con la forma griega original.</p>
+
+      <h3>Nombres personales y nombres de dioses no son la misma búsqueda</h3>
+      <p>Si buscas un nombre para una persona, conviene separar ese objetivo de la mitología. Alexander, Eleni, Georgios o Katerina pueden explorarse como nombres personales; Zeus, Atenea o Apolo pertenecen a otro contexto cultural. Para esa segunda intención existe nuestra guía específica de <a href="/nombres-de-dioses">nombres de dioses y deidades</a>.</p>
+
+      <h3>Cómo comparar las propuestas</h3>
+      <ul>
+        <li><strong>Escritura:</strong> revisa si prefieres una forma internacional o una transliteración más cercana al griego.</li>
+        <li><strong>Longitud:</strong> filtra nombres cortos y largos antes de combinarlos con apellidos.</li>
+        <li><strong>Significado:</strong> no confundas los atributos de una figura histórica o mitológica con la etimología lingüística del nombre.</li>
+      </ul>
+      <p>La herramienta no presenta estadísticas de popularidad en Grecia ni certifica una transliteración oficial. Su función es ayudarte a comparar una selección y detectar qué opciones merecen una investigación más profunda.</p>
     `,
-    metaDescription: 'Explora nombres griegos clásicos y mitológicos para hombres y mujeres. Descubre significados profundos y audio de pronunciación.',
+    metaDescription: 'Explora nombres griegos clásicos y actuales en alfabeto latino. Compara escritura y longitud y separa nombres personales de referencias mitológicas.',
     keywords: 'nombres griegos, nombres griegos de mujer, nombres griegos masculinos',
     defaultName: 'Alexander',
     customSymbols: ["🏛️", "🌿", "📜", "⚡"],
+    faqs: [
+      {
+        question: "¿Todos los nombres griegos de esta página son mitológicos?",
+        answer: "No. La selección incluye nombres personales; las figuras mitológicas se tratan por separado para no mezclar ambas intenciones."
+      },
+      {
+        question: "¿La escritura en alfabeto latino es la única forma correcta?",
+        answer: "No necesariamente. Puede haber distintas transliteraciones de un nombre originalmente escrito en griego."
+      },
+      {
+        question: "¿La lista muestra cuáles son los nombres más populares en Grecia?",
+        answer: "No. Es una selección editorial y no un ranking basado en registros de nacimientos."
+      }
+    ]
   },
   'nombres-ingles': {
     id: 'nombres-ingles',
     path: '/nombres-ingles',
     title: 'Nombres en Inglés para Niños y Niñas | GDN',
     h1: 'Nombres en Inglés (Modernos e Internacionales)',
-    subtitle: "Selección de nombres en inglés para comparar escritura y sonoridad.",
+    subtitle: "Selección editorial de nombres usados en contextos anglófonos para comparar escritura, longitud y sonoridad.",
     seoText: `
-      <h2>Nombres en Inglés Internacionales</h2>
-      <p>Nombres modernos como Oliver, Liam, Emma, Charlotte, Noah y Harper.</p>
+      <h2>Nombres en Inglés para Comparar por Escritura y Sonoridad</h2>
+      <p>Esta página reúne una selección editorial de nombres usados en contextos anglófonos, como Oliver, Liam, Emma, Charlotte, Noah y Harper. No es un ranking de popularidad de Estados Unidos, Reino Unido, Canadá o Australia: la frecuencia de un nombre cambia por país, año y fuente estadística.</p>
+
+      <h3>Cómo usar la lista sin confundir idioma con popularidad</h3>
+      <p>Empieza comparando la forma escrita y la longitud. Un nombre puede resultar familiar en inglés y, al mismo tiempo, tener historia en otros idiomas. Por eso evitamos presentar cada propuesta como “exclusivamente inglesa” cuando no hay una fuente específica que lo demuestre.</p>
+      <ul>
+        <li><strong>Para nombres cortos:</strong> filtra por longitud y comprueba cómo se combina con los apellidos.</li>
+        <li><strong>Para pronunciación:</strong> usa la lectura sintetizada solo como referencia si tu dispositivo dispone de una voz en inglés.</li>
+        <li><strong>Para niñas o niños:</strong> compara también nuestras páginas de <a href="/nombres-de-nina">nombres de niña</a> y <a href="/nombres-de-nino">nombres de niño</a>.</li>
+      </ul>
+
+      <h3>Qué verifica esta página y qué no</h3>
+      <p>La herramienta sirve para explorar y copiar nombres de la selección. No consulta registros civiles, estadísticas de nacimientos ni disponibilidad en redes sociales. Si necesitas confirmar el origen histórico o la popularidad de un nombre concreto, conviene revisar una fuente lingüística o estadística del país que te interese.</p>
     `,
-    metaDescription: 'Descubre nombres en inglés para niños y niñas. Tendencias internacionales, significados completos y audio de pronunciación clara.',
+    metaDescription: 'Explora nombres en inglés para niños y niñas por escritura y longitud. Selección editorial con lectura sintetizada cuando el dispositivo dispone de voz en inglés.',
     keywords: 'nombres en ingles, nombres para niños en ingles, nombres de niña en ingles',
     defaultName: 'Oliver',
     customSymbols: ["🇺🇸", "🇬🇧", "✨", "⭐"],
+    faqs: [
+      {
+        question: "¿Estos nombres son los más populares en países de habla inglesa?",
+        answer: "No. La página ofrece una selección editorial para comparar opciones; no presenta un ranking de nacimientos ni estadísticas de un país concreto."
+      },
+      {
+        question: "¿La pronunciación de los nombres en inglés es una grabación nativa?",
+        answer: "No. Cuando está disponible, la herramienta usa una voz sintetizada del dispositivo como referencia de lectura."
+      },
+      {
+        question: "¿Un nombre usado en inglés tiene necesariamente origen inglés?",
+        answer: "No. Muchos nombres circulan entre varios idiomas y culturas. Para afirmar un origen concreto hace falta revisar la historia y la fuente del nombre."
+      }
+    ]
   },
   'nombres-turcos': {
     id: 'nombres-turcos',
     path: '/nombres-turcos',
     title: 'Nombres Turcos para Niña y Series de TV | GDN',
     h1: 'Nombres Turcos (Inspirados en Series y Novelas)',
-    subtitle: 'Nombres poéticos de origen turco populares por las telenovelas turcas.',
+    subtitle: 'Selección de nombres turcos para comparar escritura y sonoridad sin convertir apariciones en series en rankings de popularidad.',
     seoText: `
-      <h2>Nombres Turcos Femeninos y Masculinos</h2>
-      <p>Nombres exóticos y melódicos como Elif, Eda, Kerem, Defne, Can y Zehra.</p>
+      <h2>Nombres Turcos para Comparar por Escritura y Sonoridad</h2>
+      <p>Nombres como Elif, Eda, Kerem, Defne, Can o Zehra resultan familiares para muchas personas por la cultura popular y las series turcas, pero aparecer en una producción no demuestra que un nombre sea de los más usados en Turquía. Esta página funciona como selección editorial, no como ranking estadístico.</p>
+
+      <h3>Conserva las letras propias del turco</h3>
+      <p>El alfabeto turco incluye letras como ç, ğ, ı, İ, ö, ş y ü. Cuando investigues una forma concreta, conserva su ortografía original en lugar de reemplazar automáticamente esos caracteres por versiones españolas o inglesas. La escritura correcta también puede influir en la pronunciación.</p>
+
+      <h3>Cómo elegir una propuesta</h3>
+      <ul>
+        <li><strong>Compara la longitud</strong> del nombre con tus apellidos o con un segundo nombre.</li>
+        <li><strong>Escucha la lectura sintetizada</strong> solo como referencia si tu dispositivo dispone de una voz adecuada.</li>
+        <li><strong>Verifica origen y significado</strong> antes de presentar una interpretación como un hecho lingüístico.</li>
+      </ul>
+      <p>Si tu interés surgió por una novela o serie, usa ese contexto como inspiración y después investiga el nombre de forma independiente. También puedes comparar estilos mediterráneos en <a href="/nombres-italianos">nombres italianos</a> o <a href="/nombres-franceses">nombres franceses</a>.</p>
     `,
-    metaDescription: 'Lista de nombres turcos para niñas y telenovelas. Descubre significados poéticos, origen oriental y audio de pronunciación.',
+    metaDescription: 'Explora nombres turcos para niña y niño por escritura y longitud. Selección editorial con notas sobre ortografía turca, pronunciación y verificación de significados.',
     keywords: 'nombres turcos para niña, nombres turcos, nombres de novelas turcas',
     defaultName: 'Elif',
     customSymbols: ["🇹🇷", "🌙", "✨", "🌸"],
+    faqs: [
+      {
+        question: "¿Los nombres de esta lista son los más populares de las series turcas?",
+        answer: "No. Las series pueden servir como inspiración, pero la página no usa apariciones televisivas como medida de popularidad."
+      },
+      {
+        question: "¿Debo conservar letras como ı, ş, ç u ö?",
+        answer: "Sí cuando formen parte de la ortografía original del nombre. Sustituirlas puede cambiar la escritura y la lectura."
+      },
+      {
+        question: "¿La lectura de audio confirma la pronunciación exacta en turco?",
+        answer: "No. Es una lectura sintetizada dependiente de la voz instalada en el dispositivo y debe tomarse como referencia."
+      }
+    ]
   },
   'nombres-chinos': {
     id: 'nombres-chinos',
     path: '/nombres-chinos',
     title: 'Nombres Chinos para Niña y Niño con Caracteres | GDN',
     h1: 'Nombres Chinos (Pinyin, Hanzi y Significado)',
-    subtitle: 'Nombres chinos armónicos inspirados en virtudes, flores y elementos naturales.',
+    subtitle: 'Selección romanizada para comparar nombres chinos sin inventar caracteres Hanzi ni significados que dependan de una escritura no especificada.',
     seoText: `
-      <h2>Nombres Chinos Tradicionales</h2>
-      <p>Nombres poéticos como Mei-Ling, Li, Chen, Lin, Wei y Xia.</p>
+      <h2>Nombres Chinos: Romanización, Hanzi y Significado</h2>
+      <p>En los nombres chinos, una forma romanizada como Li, Wei, Lin o Mei no basta por sí sola para fijar una escritura ni un significado. Una misma sílaba puede corresponder a caracteres Hanzi distintos y, por tanto, a sentidos diferentes. Por eso esta página usa la romanización como punto de exploración y evita asignar un Hanzi o una etimología cuando no están verificados.</p>
+
+      <h3>Cómo interpretar Pinyin y Hanzi con cuidado</h3>
+      <p>El pinyin representa la pronunciación del mandarín mediante alfabeto latino, mientras que el significado concreto depende de los caracteres elegidos. Si quieres usar un nombre en un contexto real, confirma la escritura completa con una fuente fiable o con una persona que conozca el idioma; no conviertas automáticamente una forma romanizada en un carácter “equivalente”.</p>
+      <ul>
+        <li><strong>Romanización:</strong> útil para buscar, comparar y copiar una forma latina.</li>
+        <li><strong>Hanzi:</strong> necesario para verificar la escritura y el significado concreto.</li>
+        <li><strong>Tonos y lectura:</strong> una voz sintetizada puede ayudar a escuchar una aproximación, pero no sustituye una revisión lingüística.</li>
+      </ul>
+
+      <h3>Cómo usar esta selección</h3>
+      <p>Filtra por texto o longitud y guarda las opciones que quieras investigar después. Si buscas otras tradiciones de Asia oriental, puedes comparar también <a href="/nombres-japoneses">nombres japoneses</a> y <a href="/nombres-coreanos">nombres coreanos</a>, donde la escritura y la romanización siguen reglas diferentes.</p>
     `,
-    metaDescription: 'Descubre nombres chinos para niña y niño con caracteres Hanzi, Pinyin, virtudes de la naturaleza y audio de pronunciación.',
+    metaDescription: 'Explora nombres chinos en forma romanizada y aprende por qué el Hanzi concreto es necesario para verificar significado y lectura. Selección editorial para comparar opciones.',
     keywords: 'nombres chinos para niña, nombres chinos, nombres chinos masculinos',
     defaultName: 'Mei',
     customSymbols: ["🇨🇳", "🏮", "🌸", "🐉", "☯️"],
+    faqs: [
+      {
+        question: "¿Puedo saber el significado de un nombre chino solo con el pinyin?",
+        answer: "No siempre. Una misma sílaba romanizada puede corresponder a distintos caracteres Hanzi; el significado depende de la escritura concreta."
+      },
+      {
+        question: "¿La página asigna caracteres Hanzi automáticamente?",
+        answer: "No. Evitamos inventar una escritura. La selección sirve para explorar formas romanizadas y después verificar los caracteres adecuados en una fuente fiable."
+      },
+      {
+        question: "¿La lectura de audio sustituye la pronunciación de una persona nativa?",
+        answer: "No. La lectura sintetizada del dispositivo es solo una referencia y puede variar según la voz instalada."
+      }
+    ]
   },
   'nombres-perros-machos': {
     id: 'nombres-perros-machos',

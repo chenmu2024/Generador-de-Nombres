@@ -58,8 +58,29 @@ for (const [slug, [letter, examples]] of Object.entries(letterFocus)) {
     : [`Compara nombres con ${letter}, como ${examples}, y filtra la selección por texto y género.`, `Esta página se centra en la inicial ${letter}. Para comparar otras letras, utiliza el directorio A-Z; la lista no indica popularidad estadística.`];
 }
 
+const updatedOn20261007 = new Set([
+  '/nombres-free-fire',
+  '/generador-free-fire',
+  '/nombres-ff-unicos',
+  '/nombres-ff-mujeres',
+  '/nombres-clanes-ff',
+  '/nombres-peluches',
+  '/nombres-ingles',
+  '/nombres-chinos',
+  '/nombres-griegos',
+  '/nombres-rusos',
+  '/nombres-turcos',
+  '/nombres-con-b',
+  '/nombres-con-c',
+  '/nombres-con-e',
+  '/nombres-con-y',
+]);
+
 export const editorialProfiles: Record<string, EditorialProfile> = Object.fromEntries(
-  Object.entries(profiles).map(([path, [summary, focus]]) => [path, { summary, focus, updated: '2026-10-04' }]),
+  Object.entries(profiles).map(([path, [summary, focus]]) => [
+    path,
+    { summary, focus, updated: updatedOn20261007.has(path) ? '2026-10-07' : '2026-10-04' },
+  ]),
 );
 
 export const publisher = {
