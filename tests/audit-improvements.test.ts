@@ -16,6 +16,10 @@ import SeoGuide from '../src/components/SeoGuide';
 import NameIdeasTool from '../src/components/NameIdeasTool';
 import Contact from '../src/views/Contact';
 import { seoData } from '../src/data/seoData';
+import { petNameLists } from '../src/data/petNameLists';
+import { selectPetNameIdeas } from '../src/utils/petNameFilter';
+import PetNameLibrary from '../src/components/tools/PetNameLibrary';
+import CompoundNamePicker, { selectCompoundIdeas } from '../src/components/tools/CompoundNamePicker';
 
 test('unknown and special object keys never receive invented etymology', () => {
   for (const name of ['PruebaXYZ', '', '   ', '__proto__', 'constructor', '👑']) {
@@ -215,4 +219,61 @@ test('A-Z explorer offers bulk copying, length filtering and shared favorites', 
   assert.match(source, /Ordenar nombres/);
   assert.match(source, /gdn_favorites_updated/);
   assert.match(source, /Guardar favorito/);
+});
+
+
+test('pet catalogues contain 20 distinct entries with documented categories and no fabricated rankings', () => {
+  const categories: Record<string, string[]> = {
+    cats: ['Machos ♂️', 'Hembras ♀️', 'Graciosos / Comida 🍡', 'Gatos Naranjas 🍊', 'Elegantes / Reales 👑', 'Cortos (2 Sílabas) ⚡'],
+    dogs: ['Tiernas 💖', 'Pequeñas 🎀', 'Blancas / Peluditas ❄️', 'Originales ✨', 'Famosas 👑'],
+    blackCats: ['Místicos / Magia 🔮', 'Cine / Anime 🎬', 'Noche / Cosmos 🌑', 'Elegantes / Dark 🖤', 'Divertidos / Tiernos 🍡'],
+    maleCats: ['Épicos / Reyes 👑', 'Cortos (2 Sílabas) ⚡', 'Comida / Tiernos 🍡', 'Mitología / Héroes 🏛️', 'Famosos / Anime 🎬'],
+  };
+  for (const [kind, ideas] of Object.entries(petNameLists)) {
+    assert.equal(ideas.length, 20, `${kind}: expected 20 ideas`);
+    assert.equal(new Set(ideas.map(item => item.name)).size, ideas.length);
+    for (const idea of ideas) {
+      assert.ok(categories[kind].includes(idea.category), `${kind}: invalid category ${idea.category}`);
+      assert.ok(idea.note.length >= 16);
+      assert.doesNotMatch(idea.note, /nombre #1|el más popular|garantizado/i);
+    }
+  }
+});
+
+test('pet filters combine category, accent-insensitive searching, length and sorting', () => {
+  const all = petNameLists.blackCats;
+  const results = selectPetNameIdeas(all, 'Todos 🐈‍⬛', 'Todos 🐈‍⬛', 'onix', 'all', 'alpha');
+  assert.deepEqual(results.map(item => item.name), ['Onyx', 'Ónix']);
+  const night = selectPetNameIdeas(all, 'Noche / Cosmos 🌑', 'Todos 🐈‍⬛', '', 'short', 'alpha');
+  assert.deepEqual(night.map(item => item.name), []);
+  const shortNames = selectPetNameIdeas(petNameLists.cats, 'Todos 🐱', 'Todos 🐱', '', 'short', 'length');
+  assert.ok(shortNames.length > 0 && shortNames.every(item => [...item.name].length <= 4));
+  assert.deepEqual(selectPetNameIdeas(all, 'Todos 🐈‍⬛', 'Todos 🐈‍⬛', '__no_match__', 'all', 'alpha'), []);
+});
+
+test('pet and human result cards have touch targets, copy, favorites and accessible labels', () => {
+  const pet = renderToStaticMarkup(React.createElement(PetNameLibrary, {
+    kind:'cats', category:'Todos 🐱', allCategory:'Todos 🐱',
+    onCopy:()=>{}, onUse:()=>{}, onSpeak:()=>{},
+  }));
+  assert.match(pet, /aria-label="Buscar nombres de mascotas"/);
+  assert.match(pet, /Copiar resultados/);
+  assert.match(pet, /Guardar favorito/);
+  assert.match(pet, /min-h-11/);
+  const people = renderToStaticMarkup(React.createElement(CompoundNamePicker, {
+    suggestions: getCompoundSuggestions('male','moderno'),
+    onCopy:()=>{}, onUse:()=>{},
+  }));
+  assert.match(people, /Buscar combinaciones/);
+  assert.match(people, /Editar combinación/);
+  assert.match(people, /min-h-11/);
+  assert.match(people, /Guardar favorito/);
+});
+
+test('compound suggestions filter by first-name length without dropping the original text', () => {
+  const samples = getCompoundSuggestions('male','moderno');
+  const mateo = selectCompoundIdeas(samples, 'MATEO', 'all');
+  assert.deepEqual(mateo.map(item=>item.val), ['Mateo Gael']);
+  assert.ok(selectCompoundIdeas(samples, '', 'short').every(item => visibleLength(item.val.split(' ')[0]) <= 4));
+  assert.deepEqual(selectCompoundIdeas(samples, 'unmatched_zz', 'all'), []);
 });
