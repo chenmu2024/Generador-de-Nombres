@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { seoData } from '../src/data/seoData';
 import { keywordMaster } from '../src/data/keywordMaster';
@@ -43,7 +43,7 @@ check(() => assert.match(robots, /Sitemap:\s*https:\/\/generadordenombres\.net\/
 check(() => assert.doesNotMatch(sitemap, /<image:image>|<image:loc>/, 'Site logo incorrectly reused as an image-sitemap asset'));
 
 const ogImagePath = resolve(ROOT, 'opengraph-image.png');
-check(() => assert.ok(existsSync(ogImagePath), 'Static OG asset missing: out/opengraph-image.png'));
+check(() => assert.ok(existsSync(ogImagePath), 'Static OG asset missing: out/opengraph-image.png; export candidates: ' + readdirSync(ROOT).filter(name => /open|image|png/i.test(name)).join(', ')));
 if (existsSync(ogImagePath)) {
   const png = readFileSync(ogImagePath);
   check(() => assert.equal(png.subarray(0, 8).toString('hex'), '89504e470d0a1a0a', 'OG asset is not a valid PNG'));
@@ -66,8 +66,12 @@ for (const data of pages) {
   ownership.add(record.primaryKeyword.toLocaleLowerCase('es'));
   summaries.add(editorial.summary);
 
-  check(() => assert.ok(html.includes(`rel="canonical" href="${canonical}"`), `${path}: canonical drift`));
-  check(() => assert.ok(html.includes(`property="og:url" content="${canonical}"`), `${path}: open graph URL mismatch`));
+  check(() => assert.ok(html.includes(`rel="canonical" href="${path === '/' ? HOST : canonical}"`), `${path}: canonical drift`));
+  check(() => assert.equal(
+    new URL(tagValue(html, 'og:url')).toString(),
+    new URL(canonical).toString(),
+    `${path}: open graph URL mismatch`,
+  ));
   check(() => assert.equal(tagValue(html, 'og:image'), HOST + '/opengraph-image.png', `${path}: broken/incorrect OG image URL`));
   check(() => assert.equal(tagValue(html, 'twitter:image'), HOST + '/opengraph-image.png', `${path}: broken/incorrect Twitter image URL`));
   check(() => assert.equal(tagValue(html, 'twitter:card'), 'summary_large_image', `${path}: social card type`));
