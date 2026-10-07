@@ -1,4 +1,5 @@
-// Editorial selections, not popularity rankings or availability checks.\n// The gender labels in the A–Z examples are practical editorial categories, not identity rules.
+// Editorial selections, not popularity rankings or availability checks.
+// A-Z gender labels are editorial groupings, not identity or origin guarantees.
 export const nameIdeas: Record<string, { names: string[]; source?: string }> = {
   '/nombres-italianos': { names: ['Alessandro', 'Giulia', 'Francesco', 'Chiara', 'Lorenzo', 'Elena', 'Matteo', 'Sofia', 'Andrea', 'Beatrice', 'Antonio', 'Bianca', 'Carlo', 'Caterina', 'Dario', 'Domenico', 'Luca', 'Marco', 'Ginevra', 'Alessia', 'Pietro', 'Federico', 'Vittoria', 'Riccardo'], source: 'italian' },
   '/nombres-rusos': { names: ['Aleksandr', 'Anastasiya', 'Dmitriy', 'Irina', 'Mikhail', 'Natalya', 'Nikolay', 'Olga', 'Aleksey', 'Anna', 'Andrey', 'Anton', 'Boris', 'Darya', 'Ekaterina', 'Elena', 'Sergei', 'Svetlana', 'Pavel', 'Tatiana', 'Yuri', 'Marina', 'Fyodor', 'Galina'], source: 'russian' },
@@ -20,7 +21,7 @@ export const alphabetNames: Record<string, { name: string; gender: 'f' | 'm' | '
     N: ['Nicolás:m', 'Natalia:f', 'Noé:m', 'Nora:f', 'Nadia:f', 'Nahuel:m', 'Noelia:f', 'Néstor:m'], O: ['Óscar:m', 'Olivia:f', 'Oliver:m', 'Ona:f', 'Omar:m', 'Ofelia:f', 'Octavio:m', 'Oriana:f'], P: ['Pedro:m', 'Paula:f', 'Pablo:m', 'Paloma:f', 'Patricia:f', 'Pascual:m', 'Pilar:f', 'Patricio:m'], Q: ['Quintín:m', 'Quirina:f', 'Quirino:m', 'Quinta:f', 'Quim:m', 'Queralt:f', 'Qadir:m', 'Quetzalli:u'],
     R: ['Rafael:m', 'Rosa:f', 'Ricardo:m', 'Raquel:f', 'Ramiro:m', 'Renata:f', 'Rodrigo:m', 'Rocío:f'], S: ['Samuel:m', 'Sofía:f', 'Sergio:m', 'Sara:f', 'Sebastián:m', 'Selena:f', 'Simón:m', 'Silvia:f'], T: ['Tomás:m', 'Teresa:f', 'Teo:m', 'Tamara:f', 'Tobías:m', 'Tatiana:f', 'Tania:f', 'Tiago:m'], U: ['Ulises:m', 'Úrsula:f', 'Urbano:m', 'Uma:f', 'Uriel:m', 'Uliana:f', 'Unai:m', 'Uxía:f'],
     V: ['Víctor:m', 'Valeria:f', 'Vicente:m', 'Vanesa:f', 'Verónica:f', 'Valentín:m', 'Violeta:f', 'Vidal:m'], W: ['William:m', 'Wendy:f', 'Walter:m', 'Wilma:f', 'Wanda:f', 'Wilfredo:m', 'Wilson:m', 'Whitney:u'], X: ['Xavier:m', 'Ximena:f', 'Xander:m', 'Xenia:f', 'Xóchitl:f', 'Xiomara:f', 'Xabier:m', 'Xerxes:m'],
-    Y: ['Yuri:u', 'Yolanda:f', 'Yago:m', 'Yasmina:f', 'Yara:f', 'Yahir:m', 'Yadira:f', 'Yamil:m'], Z: ['Zaid:m', 'Zahara:f', 'Zacarías:m', 'Zoe:f', 'Zulema:f', 'Zaira:f', 'Zenón:m', 'Zulay:f'], Ñ: ['Íñigo:m', 'Begoña:f', 'Toño:m'],
+    Y: ['Yuri:u', 'Yolanda:f', 'Yago:m', 'Yasmina:f', 'Yara:f', 'Yahir:m', 'Yadira:f', 'Yamil:m'], Z: ['Zaid:m', 'Zahara:f', 'Zacarías:m', 'Zoe:f', 'Zulema:f', 'Zaira:f', 'Zenón:m', 'Zulay:f'], Ñ: ['Íñigo:m', 'Begoña:f', 'Toño:m', 'Iñaki:m', 'Beñat:m', 'Nuño:m'],
   }).map(([letter, entries]) => [letter, entries.map(entry => {
     const [name, gender] = entry.split(':');
     return { name, gender: gender as 'f' | 'm' | 'u' };
