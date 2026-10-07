@@ -169,7 +169,7 @@ export default function FootballTool({ handleCopyTrending }: FootballToolProps) 
                 onClick={() => handleCopyTrending(`${teamMascot} ${teamPrefix} ${teamBase || 'Equipo'}`)}
                 className="w-full py-2.5 bg-amber-500 hover:bg-amber-400 text-zinc-950 font-bold text-xs rounded-xl transition-all flex items-center justify-center gap-1.5 shadow-md shadow-amber-500/20"
               >
-                <Copy className="w-4 h-4" /> Copiar Nombre Oficial
+                <Copy className="w-4 h-4" /> Copiar Nombre del Equipo
               </button>
               <button
                 onClick={() => handleCopyTrending(`⚽ EQUIPO: ${teamMascot} ${teamPrefix} ${teamBase || 'Equipo'}\n🎨 Colores: ${teamKitColor}\n💬 Eslogan: "${teamSlogan}"`)}
