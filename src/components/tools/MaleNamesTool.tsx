@@ -5,6 +5,7 @@ import { speakName as readNameAloud } from '../../utils/speech';
 import { useState } from 'react';
 import { getCompoundSuggestions, lookupNameMeaning } from '../../data/compoundNames';
 import { Copy, Flame, Sparkles, Volume2 } from 'lucide-react';
+import CompoundNamePicker from './CompoundNamePicker';
 
 export default function MaleNamesTool({
   handleCopyTrending,
@@ -109,7 +110,7 @@ export default function MaleNamesTool({
     <div className="flex items-center gap-2">
     <button
     onClick={() => handleCopyTrending(combinedMale)}
-    className="px-3.5 py-2 bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold rounded-xl transition-all shadow-md flex items-center gap-1.5"
+    className="min-h-11 px-3.5 py-2 bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold rounded-xl transition-all shadow-md flex items-center gap-1.5"
     >
     <Copy className="w-3.5 h-3.5" /> Copiar Nombre
     </button>
@@ -171,21 +172,15 @@ export default function MaleNamesTool({
     <Flame className="w-4 h-4 text-amber-400" /> Nombres de Niños Seleccionados por Estilo (Clic para Copiar)
     </span>
     <p className="text-xs text-zinc-400" role="status">El estilo filtra las sugerencias; no cambia los nombres que escribes. La longitud corresponde al primer nombre. Selección editorial, no ranking de popularidad.</p>
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
-    {getCompoundSuggestions('male', maleVibe).map((item, idx) => (
-    <button
-    key={idx}
-    onClick={() => handleCopyTrending(item.val)}
-    className="p-3.5 bg-zinc-900/90 hover:bg-blue-600/20 text-zinc-200 hover:text-white border border-white/10 hover:border-blue-500/40 rounded-xl text-xs font-medium transition-all active:scale-95 flex flex-col justify-between gap-1.5 group text-left"
-    >
-    <div className="flex items-center justify-between w-full">
-    <span className="text-blue-300 font-bold truncate">{item.label}</span>
-    <Copy className="w-3.5 h-3.5 text-zinc-500 group-hover:text-blue-300 shrink-0" />
-    </div>
-    <span className="text-[10px] text-zinc-500 font-normal">{item.desc}</span>
-    </button>
-    ))}
-    </div>
+    <CompoundNamePicker
+      suggestions={getCompoundSuggestions('male', maleVibe)}
+      onCopy={handleCopyTrending}
+      onUse={(value) => {
+        const [first, ...rest] = value.split(' ');
+        setMaleFirstName(first);
+        setMaleSecondName(rest.join(' '));
+      }}
+    />
     </div>
     </div>
   );
