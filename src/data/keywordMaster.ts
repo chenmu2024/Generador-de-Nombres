@@ -68,7 +68,10 @@ function inferIntent(path: string): KeywordIntent {
  * source for the user's already-validated keyword wording.
  *
  * Governance rules:
- * - Existing records are VERIFIED + locked by default.
+ * - Existing records are VERIFIED + locked by default. Here VERIFIED means
+ *   "approved existing target mapping", not "external SERP research completed".
+ * - External research remains explicit in serpChecked/dateVerified and the
+ *   Volume/KD/CPC fields; null/false must never be treated as measured data.
  * - lockedKeyword means automated refactors must not replace the primary
  *   keyword, target URL or core search intent.
  * - New candidate keywords must go through seoPageGate before a new route is
