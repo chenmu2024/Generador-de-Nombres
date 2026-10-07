@@ -1,13 +1,13 @@
 'use client';
 
-import { visibleLength, trimName, filterNicknames } from '../utils/text';
+import { visibleLength, filterNicknames, nicknameUnicodeMetrics, describeNicknameStyle } from '../utils/text';
 import { copyText } from '../utils/clipboard';
 import { readFavorites, writeStorage } from '../utils/browserStorage';
 import { useDialog } from './useDialog';
 
 import React, { useState, useRef, useEffect, useMemo } from 'react';
 import { Copy, Wand2, X, CheckCircle2, Dices, Loader2, Download, Sparkles, CheckSquare, Square, Trophy, Shield, Flame, Image, Share2, Scissors, Zap, Crown, Bookmark, Heart } from 'lucide-react';
-import { generateFancyNicknames, popularSymbols } from '../utils/nameLogic';
+import { generateFancyNicknames, popularSymbols, shortenDecoratedNickname } from '../utils/nameLogic';
 
 interface GeneratorProps {
   title: string;
@@ -23,19 +23,6 @@ const LIVE_GENERATION_DELAY_MS = 160;
 
 const randomNames = ["Ninja", "Shadow", "Killer", "Pro", "Ghost", "Sniper", "King", "Queen", "Legend", "Alpha"];
 
-// Rarity calculation helper
-function getRarityTier(name: string) {
-  if (/꧁|꧂|☠|⚔|👑|⚡|🔥|☣|🖤/u.test(name) || visibleLength(name) > 14) {
-    return { label: 'MÍTICO 👑', bg: 'bg-amber-500/10 text-amber-300 border-amber-500/30' };
-  }
-  if (/[✿♡✧★✦☆]/.test(name) || visibleLength(name) > 10) {
-    return { label: 'LEGENDARIO 💎', bg: 'bg-violet-500/10 text-violet-300 border-violet-500/30' };
-  }
-  return { label: 'ÉPICO ⚡', bg: 'bg-emerald-500/10 text-emerald-300 border-emerald-500/30' };
-}
-
-// Auto-trim helper for Free Fire limit (<= 12 chars)
-function autoTrimFF(name: string): string { return trimName(name); }
 
 export default function Generator({ title, defaultName = 'Gamer', customSymbols, compact = false }: GeneratorProps) {
   const [inputText, setInputText] = useState('');
@@ -210,7 +197,7 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
-    link.download = `Nombres_${title.replace(/\s+/g, '_')}_2026.txt`;
+    link.download = `Nombres_${title.replace(/\s+/g, '_')}.txt`;
     document.body.appendChild(link);
     link.click();
     link.remove();
@@ -381,7 +368,7 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
             </div>
             <div className="text-right mt-2 px-2">
               <span className={`text-xs font-medium ${visibleLength(inputText) > 12 ? 'text-amber-500' : 'text-zinc-400'}`}>
-                {visibleLength(inputText)} caracteres {visibleLength(inputText) > 12 ? '(Más de 12 caracteres visibles)' : ''}
+                {visibleLength(inputText)} caracteres visibles {visibleLength(inputText) > 12 ? '(guía visual, no límite oficial)' : ''}
               </span>
             </div>
           </div>
@@ -485,7 +472,7 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
               <span className="text-zinc-400 font-bold shrink-0">Filtrar Estilo:</span>
               {[
                 { id: 'all', label: '🌟 Todos', color: 'bg-white/10 hover:bg-white/20 text-white' },
-                { id: 'epico', label: '⚔️ Épico / Pro', color: 'bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border-amber-500/30' },
+                { id: 'epico', label: '⚔️ Gamer / Símbolos', color: 'bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border-amber-500/30' },
                 { id: 'aesthetic', label: '🌸 Aesthetic', color: 'bg-pink-500/10 hover:bg-pink-500/20 text-pink-300 border-pink-500/30' },
                 { id: 'short', label: '⚡ Cortos (≤12)', color: 'bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-300 border-emerald-500/30' },
                 { id: 'toxic', label: '☠️ Tóxico', color: 'bg-violet-500/10 hover:bg-violet-500/20 text-violet-300 border-violet-500/30' },
@@ -505,6 +492,10 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
               ))}
             </div>
 
+            <p className="text-xs text-zinc-400 mb-4">
+              Las etiquetas describen el diseño visual, no una rareza oficial. El contador distingue grafemas visibles, puntos de código Unicode y unidades UTF-16;
+              ningún recuento confirma que un juego acepte el apodo. Prueba la versión copiada en la plataforma.
+            </p>
             {/* Toolbar for Selection & Spinner */}
             <div className="flex flex-wrap items-center justify-between gap-3 mb-6 border-b border-white/5 pb-4">
               <div className="flex items-center gap-2">
@@ -568,8 +559,9 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
               {displayedNames.length === 0 && <p role="status" className="p-6 text-zinc-300">No hay resultados con este filtro. Prueba otro estilo o nombre.</p>}
               {displayedNames.slice(0, visibleCount).map((name, index) => {
                 const isSelected = selectedNames.includes(name);
-                const rarity = getRarityTier(name);
-                const isExceedFF = visibleLength(name) > 12;
+                const visualStyle = describeNicknameStyle(name);
+                const metrics = nicknameUnicodeMetrics(name);
+                const isOverVisualGuide = metrics.visibleGraphemes > 12;
 
                 return (
                   <div
@@ -599,24 +591,24 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
                         <span className="text-base sm:text-lg font-medium text-zinc-100 break-all">{name}</span>
                         
                         <div className="flex flex-wrap items-center gap-1.5">
-                          <span className={`text-[10px] font-extrabold px-2 py-0.5 rounded-md border ${rarity.bg}`}>
-                            {rarity.label}
+                          <span className={`text-[10px] font-extrabold px-2 py-0.5 rounded-md border ${visualStyle.tone}`}>
+                            {visualStyle.label}
                           </span>
-                          <span className={`text-[10px] font-semibold tracking-wide ${isExceedFF ? 'text-amber-400' : 'text-zinc-400'}`}>
-                            {visibleLength(name)} CARACTERES {isExceedFF && '(>12 visibles)'}
+                          <span className={`text-[10px] font-semibold tracking-wide ${isOverVisualGuide ? 'text-amber-400' : 'text-zinc-400'}`}>
+                            {metrics.visibleGraphemes} visibles {metrics.hasComplexUnicode && `· ${metrics.codePoints} Unicode · ${metrics.utf16Units} UTF-16`}
                           </span>
 
-                          {isExceedFF && (
+                          {isOverVisualGuide && (
                             <button
                               onClick={(e) => {
                                 e.stopPropagation();
-                                const trimmed = autoTrimFF(name);
-                                copyToClipboard(trimmed, index, '¡Nombre recortado ≤12 caracteres visibles copiado!');
+                                const trimmed = shortenDecoratedNickname(name);
+                                copyToClipboard(trimmed, index, 'Versión corta orientativa copiada. Verifica las reglas del juego.');
                               }}
                               className="text-[10px] bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 px-1.5 py-0.5 rounded flex items-center gap-1 border border-amber-500/30 transition-all"
-                              title="Recortar automáticamente a 12 caracteres"
+                              title="Crear una versión corta aproximada; no garantiza aceptación en juegos"
                             >
-                              <Scissors className="w-3 h-3" /> Ajustar ≤12
+                              <Scissors className="w-3 h-3" /> Versión corta (≤12 visibles)
                             </button>
                           )}
                         </div>
@@ -877,13 +869,16 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
                   </span>
                 </div>
                 <div className="bg-zinc-900/60 p-3 rounded-xl border border-white/5">
-                  <span className="text-[10px] text-zinc-500 block uppercase">Caracteres visibles</span>
+                  <span className="text-[10px] text-zinc-500 block uppercase">Grafemas visibles (orientativo)</span>
                   <span className={`text-xs font-black flex items-center gap-1 mt-0.5 ${visibleLength(cardModalName) <= 12 ? 'text-emerald-400' : 'text-amber-400'}`}>
                     <Zap className="w-3.5 h-3.5" /> {visibleLength(cardModalName)} caracteres
                   </span>
                 </div>
               </div>
 
+              <p className="text-[10px] text-zinc-400 leading-relaxed mt-2">
+                Unicode: {nicknameUnicodeMetrics(cardModalName).codePoints} puntos de código · UTF-16: {nicknameUnicodeMetrics(cardModalName).utf16Units} unidades. La aceptación depende de cada plataforma.
+              </p>
               <div className="relative z-10 flex items-center justify-between text-[10px] text-zinc-500 pt-2 border-t border-white/5">
                 <span>generadordenombres.net / 2026</span>
                 <span className="font-mono text-violet-400">Diseño independiente</span>

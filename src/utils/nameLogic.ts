@@ -47,41 +47,86 @@ export const popularSymbols = [
   "꧁", "꧂", "༺", "༻", "⚡", "☠︎", "👑", "✿", "☬", "⚔️", "☯︎", "★", "♥", "✨", "🔥", "ツ", "×͜×", "シ", "ッ", "メ", "❀", "『", "』", "【", "】", "彡", "♣", "♦", "♠", "♡", "╰‿╯", "乂", "๖ۣۜ", "༒", "⚚", "⚕️", "⚜️", "🔱", "♾️", "❄️", "🌙"
 ];
 
+/**
+ * Preserve a distinct output for every unique transformed base. Limiting
+ * repetitive frames avoids flooding the result list with near-identical
+ * decorations while leaving every font style and all 20 frames available.
+ */
 export function generateFancyNicknames(inputText: string, style?: string, customSymbols?: string[]): string[] {
-  inputText = inputText.trim() || "Gamer";
-  let plainResults: string[] = [];
-  let decoratedResults: string[] = [];
-  
-  const stylesToApply = style && style !== 'all' ? [style] : Object.keys(fontMaps);
-  
-  // First, generate all plain converted texts
-  stylesToApply.forEach(s => {
-    let convertedText = inputText.toLowerCase().split('').map(char => {
-      return fontMaps[s]?.[char] || char;
-    }).join('');
-    plainResults.push(convertedText);
-  });
+  const source = (inputText.trim() || 'Gamer').normalize('NFC').toLocaleLowerCase('es');
+  const validStyle = style && style !== 'all' && Object.hasOwn(fontMaps, style) ? style : null;
+  const selectedStyles = validStyle ? [validStyle] : Object.keys(fontMaps);
 
-  // Then, generate decorated versions
-  stylesToApply.forEach(s => {
-    let convertedText = inputText.toLowerCase().split('').map(char => {
-      return fontMaps[s]?.[char] || char;
-    }).join('');
-    
-    if (customSymbols && customSymbols.length > 0) {
-      for (let i = 0; i < Math.min(customSymbols.length, 10); i++) {
-        const sym = customSymbols[i];
-        decoratedResults.push(`${sym} ${convertedText} ${sym}`);
-        if (i % 2 === 0 && i + 1 < customSymbols.length) {
-          decoratedResults.push(`${sym} ${convertedText} ${customSymbols[i+1]}`);
+  const convertedBases: string[] = [];
+  const uniqueBases = new Set<string>();
+  for (const styleName of selectedStyles) {
+    const mapping = fontMaps[styleName];
+    const converted = Array.from(source, character => mapping[character] || character).join('').normalize('NFC');
+    if (uniqueBases.has(converted)) continue;
+    uniqueBases.add(converted);
+    convertedBases.push(converted);
+  }
+
+  // Keep the undecorated names discoverable first; render embellished variants
+  // after them. An explicit single-style choice offers more frames than "all".
+  const results = [...convertedBases];
+  const seen = new Set(results);
+  const symbols = (customSymbols || []).filter(symbol => symbol.length > 0).slice(0, 10);
+  const perBase = validStyle ? 12 : 6;
+
+  const append = (candidate: string) => {
+    const normalized = candidate.normalize('NFC');
+    if (!seen.has(normalized)) {
+      seen.add(normalized);
+      results.push(normalized);
+    }
+  };
+
+  convertedBases.forEach((base, baseIndex) => {
+    if (symbols.length) {
+      const count = Math.min(symbols.length, perBase);
+      for (let offset = 0; offset < count; offset++) {
+        const symbol = symbols[(baseIndex * 3 + offset) % symbols.length];
+        append(`${symbol} ${base} ${symbol}`);
+        if (symbols.length > 1 && offset % 2 === 0) {
+          const partner = symbols[(baseIndex * 3 + offset + 1) % symbols.length];
+          append(`${symbol} ${base} ${partner}`);
         }
       }
     } else {
-      for (let i = 0; i < decorationPrefixes.length; i++) {
-        decoratedResults.push(`${decorationPrefixes[i]}${convertedText}${decorationSuffixes[i]}`);
+      const count = Math.min(perBase, decorationPrefixes.length, decorationSuffixes.length);
+      for (let offset = 0; offset < count; offset++) {
+        const frameIndex = (baseIndex * 3 + offset * 3) % decorationPrefixes.length;
+        append(`${decorationPrefixes[frameIndex]}${base}${decorationSuffixes[frameIndex]}`);
       }
     }
   });
-  
-  return Array.from(new Set([...plainResults, ...decoratedResults]));
+
+  return results;
+}
+
+/**
+ * An approximate short variant for the copy button. Keep known paired
+ * decorations whole where possible; otherwise prefer the unframed core.
+ * This does not validate nicknames against a game's private rules.
+ */
+export function shortenDecoratedNickname(name: string, limit = 12): string {
+  const segmenter = new Intl.Segmenter('es', { granularity: 'grapheme' });
+  const graphemes = (value: string): string[] => Array.from(segmenter.segment(value), item => item.segment);
+  if (graphemes(name).length <= limit) return name;
+
+  for (let index = 0; index < decorationPrefixes.length; index++) {
+    const prefix = decorationPrefixes[index];
+    const suffix = decorationSuffixes[index];
+    if (!name.startsWith(prefix) || !name.endsWith(suffix)) continue;
+    const core = name.slice(prefix.length, name.length - suffix.length);
+    const decorationSize = graphemes(prefix).length + graphemes(suffix).length;
+    if (decorationSize < limit) {
+      const available = limit - decorationSize;
+      return prefix + graphemes(core).slice(0, available).join('') + suffix;
+    }
+    return graphemes(core).slice(0, limit).join('');
+  }
+
+  return graphemes(name).slice(0, Math.max(0, limit)).join('');
 }
