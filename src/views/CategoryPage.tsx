@@ -8,6 +8,7 @@ import { ChevronRight, Flame, CheckCircle2, Search, Copy, ListOrdered, Home } fr
 
 import dynamic from 'next/dynamic';
 import DeferredTool from '../components/DeferredTool';
+import IntentRoutes from '../components/IntentRoutes';
 
 // The decorative generator only belongs to pages without a dedicated name tool.
 const LazyGenerator = dynamic(() => import('../components/Generator'), {
@@ -239,6 +240,7 @@ export default function CategoryPage({
       {currentPath === '/' && <nav aria-label="Elegir tipo de nombre" className="flex flex-wrap justify-center gap-3">
         {[['Juegos', '/generador-free-fire'], ['Personas', '/nombres-de-nina'], ['Mascotas', '/nombres-gatos'], ['Tiendas', '/nombres-para-tiendas']].map(([label, path]) => <Link key={path} to={path} className="gdn-chip border rounded-xl px-4 py-3">{label}</Link>)}
       </nav>}
+      <IntentRoutes path={currentPath} />
       {nameIdeaPathSet.has(currentPath) && <LazyNameIdeasTool key={currentPath} path={currentPath} onCopy={handleCopyTrending} />}
       <div className={`max-w-6xl mx-auto ${currentPath === '/' ? 'pt-0 pb-2' : 'py-6'}`}>
         {!usesDedicatedGenerator && (
