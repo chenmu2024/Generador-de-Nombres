@@ -1,7 +1,5 @@
 'use client';
 
-import NameIdeasTool from '../components/NameIdeasTool';
-import { nameIdeas } from '../data/nameIdeas';
 import { copyText } from '../utils/clipboard';
 
 import React, { useEffect, useMemo, useState, type ReactNode } from 'react';
@@ -10,6 +8,9 @@ import { ChevronRight, Flame, CheckCircle2, Search, Copy, ListOrdered, Home } fr
 import Generator from '../components/Generator';
 import dynamic from 'next/dynamic';
 
+const LazyNameIdeasTool = dynamic(() => import('../components/NameIdeasTool'), {
+  loading: () => <div className="min-h-[420px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>
+});
 const InvisibleSpaceTool = dynamic(() => import('../components/InvisibleSpaceTool'), {
   loading: () => <div className="min-h-[520px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>
 });
@@ -84,6 +85,7 @@ const LazyFreeFireSupportSections = dynamic(() => import('../components/tools/Fr
   loading: () => <div className="min-h-[520px] w-full animate-pulse bg-zinc-900/50 rounded-3xl border border-white/5"></div>
 });
 import { allLinks } from '../data/allLinks';
+import { nameIdeaPathSet } from '../data/nameIdeaPaths';
 import { getBreadcrumbTrail, getClusterForPath } from '../data/topicClusters';
 
 type CategoryClientData = {
@@ -106,7 +108,7 @@ export default function CategoryPage({
   const currentPath = initialPath || '/';
   const breadcrumbTrail = getBreadcrumbTrail(currentPath, data.h1);
   const usesDedicatedGenerator =
-    !!nameIdeas[currentPath] ||
+    nameIdeaPathSet.has(currentPath) ||
     currentPath === '/espacios-invisible-ff' ||
     currentPath === '/nombres-por-letra' ||
     currentPath.startsWith('/nombres-con-') ||
@@ -232,7 +234,7 @@ export default function CategoryPage({
       {currentPath === '/' && <nav aria-label="Elegir tipo de nombre" className="flex flex-wrap justify-center gap-3">
         {[['Juegos', '/generador-free-fire'], ['Personas', '/nombres-de-nina'], ['Mascotas', '/nombres-gatos'], ['Tiendas', '/nombres-para-tiendas']].map(([label, path]) => <Link key={path} to={path} className="gdn-chip border rounded-xl px-4 py-3">{label}</Link>)}
       </nav>}
-      {nameIdeas[currentPath] && <NameIdeasTool key={currentPath} path={currentPath} onCopy={handleCopyTrending} />}
+      {nameIdeaPathSet.has(currentPath) && <LazyNameIdeasTool key={currentPath} path={currentPath} onCopy={handleCopyTrending} />}
       <div className={`max-w-6xl mx-auto ${currentPath === '/' ? 'pt-0 pb-2' : 'py-6'}`}>
         {!usesDedicatedGenerator && (
           <Generator 
