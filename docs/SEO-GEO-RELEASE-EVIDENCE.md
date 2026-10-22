@@ -94,3 +94,15 @@ Follow-up only once actual GSC ownership/access exists: 28 settled days by URL, 
 - Primary: https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap
 - Primary: https://developers.google.com/search/docs/appearance/core-web-vitals
 - Executable evidence: commit/job output of green CI #88 and project test suite; no manual extrapolation to GSC.
+
+
+## 9. Google Search Console HTML verification — 2026-10-22
+
+- Scope: add only the owner-supplied Google verification token through `metadata.verification.google` in `src/app/layout.tsx`; preserve all approved routes, keywords, titles, H1 values, canonicals and crawler preferences.
+- Source change: `17e95c9da9b26e949dfbc4017962d7e3b7ec0148`; GitHub Vercel commit status reported success for deployment `9QZvEDJpHN1wsS1KaB2KVQHPr5yh`.
+- Local checks: `npm run lint` PASS; `npm test` PASS (65/65); `npm run seo:audit` PASS; `npm run build` PASS, including static export verification (50 pages, 5,866 resolving internal links) and SEO/GEO release audit (46 locked indexable routes).
+- Export assertion: the supplied `google-site-verification` meta tag occurs exactly once inside the exported homepage `<head>`, before `<body>`.
+- Production check: `https://generadordenombres.net/` returned HTTP 200 and its raw `<head>` contained the exact supplied token after deployment.
+- Search Console: in the signed-in owner account, submitted the HTML tag method for `https://generadordenombres.net/`; Google displayed `已完成所有权验证` (ownership verified), method `HTML 标记` (HTML tag).
+- Keep the verification metadata deployed to retain verification. Ownership verification does not prove indexing, ranking, traffic or field Core Web Vitals. Earlier unverified-access statements above describe their historical baseline and are superseded only for this ownership check.
+- Browser/Chromium interaction in this change was limited to the Search Console verification workflow. Lighthouse and a new full responsive visual audit were NOT RUN for this invisible metadata-only change.
