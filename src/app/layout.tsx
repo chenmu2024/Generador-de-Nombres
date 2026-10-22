@@ -22,6 +22,9 @@ export const metadata: Metadata = {
   ],
   manifest: '/site.webmanifest',
   robots: { index: true, follow: true },
+  verification: {
+    google: 'D3_QS91STf6h3bExZO4i5jrWV6xwJzcpl3fO2Hi6a6A',
+  },
   openGraph: {
     siteName: 'GeneradorDeNombres.net',
     locale: 'es_ES',
