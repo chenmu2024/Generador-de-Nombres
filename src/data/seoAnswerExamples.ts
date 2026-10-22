@@ -13,6 +13,11 @@ export interface SearchAnswerExample {
 }
 
 export const searchAnswerExamples: Readonly<Record<string, SearchAnswerExample>> = {
+  '/simbolos-para-free-fire': {
+    scenario: 'Ya tienes el apodo Luna y quieres añadir dos extremos coordinados sin cambiar sus letras.',
+    action: 'Escribe Luna, selecciona el marco 『 』 y compara 『Luna』. Copia el resultado completo o llévalo al generador para probar otras letras.',
+    verify: 'Los códigos Unicode identifican los caracteres; solo el juego puede confirmar si acepta la combinación y si el nombre está disponible.',
+  },
   '/': {
     scenario: 'Quieres un apodo nuevo para un juego o una red social.',
     action: 'Escribe una palabra breve en el generador; compara estilos Unicode y copia solo el resultado que puedas leer claramente.',

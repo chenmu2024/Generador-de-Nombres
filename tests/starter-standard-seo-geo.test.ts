@@ -9,11 +9,11 @@ import { editorialProfiles } from '../src/data/editorialProfiles';
 import { searchAnswerExamples } from '../src/data/seoAnswerExamples';
 import SeoGuide from '../src/components/SeoGuide';
 
-test('Starter Standard project brief maps all 46 owner-locked primary routes without fake search data', () => {
+test('Starter Standard project brief maps all 47 owner-locked primary routes without fake search data', () => {
   const doc = fs.readFileSync('docs/SEO-GEO-PROJECT-BRIEF.md', 'utf8');
   const expected = Object.values(seoData);
-  assert.equal(expected.length, 46);
-  assert.equal(keywordMaster.length, 46);
+  assert.equal(expected.length, 47);
+  assert.equal(keywordMaster.length, 47);
   for (const data of expected) {
     const primary = keywordMaster.find(record => record.targetUrl === data.path)?.primaryKeyword;
     assert.ok(primary, data.path);

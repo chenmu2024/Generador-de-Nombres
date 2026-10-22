@@ -11,6 +11,7 @@ Source of truth: src/data/seoData.ts (exact keyword fields) + src/data/keywordMa
 | --- | --- | --- | --- |
 | / | generador de nombres | tool | index / self-canonical |
 | /nombres-free-fire | nombres para free fire | collection+tool | index / self-canonical |
+| /simbolos-para-free-fire | simbolos para free fire | tool | index / self-canonical |
 | /nombres-roblox | nombres para roblox | tool | index / self-canonical |
 | /nombres-instagram | nombres para instagram | tool | index / self-canonical |
 | /nombres-equipos-futbol | nombres para equipos de futbol | tool | index / self-canonical |
@@ -94,3 +95,11 @@ One genuine branded 1200×630 preview is exported as /opengraph-image.png and re
 L1: npm run lint, npm test, npm run seo:audit. L2: npm run build invokes scripts/verify-export.ts and scripts/seo-geo-release-audit.ts, creating reports/seo-geo-release-audit.json; CI then performs Chromium and Lighthouse lab checks. L3: requires first-party GSC (28 settled days of page/query/country/device, index coverage and prior-period baseline), field CWV and actual AI referrals if measurable. Third-party GSC references are not target-domain results. Production verification must check deployment SHA, HTTP statuses, robots, sitemap, OG media, redirects, WAF Search crawler access, and functionality: a successful GitHub build alone does not prove production deployment. Do not claim an unobserved release, indexing, ranking, AI citation or additional owner approval.
 
 Approved/frozen: existing route/keyword/Title/H1 snapshot. Pending external proof: first-party GSC permission, country/SERP metrics, crawler logs and live deployment version. All data gaps remain unknown, never invented as zero.
+
+
+## 12. Owner-approved symbols page — 2026-10-22
+Scope: one new Spanish tool at /simbolos-para-free-fire, approved by the owner after reviewing the proposed single-page addition. The original 46 URL/title/H1/keyword entries are unchanged; the fixture appends one entry (47 total). Original 46-entry SHA-256: c681b1c9e4a9a8efc93d74ebb21be61e2423a0534ffe8124fcce862efdbe22db.
+Observed Spanish SERP on 2026-10-22: dedicated searchable/copyable symbol tools at https://namesforfreefire.com/es/symbols and https://letrasbonitasplus.com/nombres-para-free-fire/simbolos, alongside naming tools. This verifies page type, not numeric demand. Volume/KD/CPC, country priority and quantitative SERP overlap remain unknown/unmeasured.
+The conservative seoPageGate was executed against the pre-addition keyword map and returned MERGE to /nombres-free-fire because the phrase is an existing secondary keyword. This is recorded, not represented as a CREATE pass. The owner's explicit approval to add this separate symbol task is the human decision: retain the old locked secondary keyword; give the new page one distinct primary task and link the two. No gate bypass or keyword rewrite was added to application code. Reassess overlap using actual GSC queries after release.
+Distinct value: 44 searchable named Unicode characters, code-point search, individual clipboard copy, paired frames, editable nickname preview with three explicit length measures, and URL-encoded handoff to the existing generator. The broader /nombres-free-fire keeps its name-inspiration intent.
+Indexation: self-canonical, index/follow, Free Fire hub/spoke navigation, sitemap inclusion and existing truthful WebApplication/FAQ/Breadcrumb schema. No new locale, paid dependency, database, account access, crawler policy or third-party API.

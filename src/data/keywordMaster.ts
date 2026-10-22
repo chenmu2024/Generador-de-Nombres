@@ -39,6 +39,7 @@ export interface KeywordMasterRecord {
 const TOOL_PATHS = new Set([
   '/',
   '/generador-free-fire',
+  '/simbolos-para-free-fire',
   '/espacios-invisible-ff',
   '/nombres-roblox',
   '/nombres-instagram',
@@ -97,10 +98,10 @@ export const keywordMaster: KeywordMasterRecord[] = Object.values(seoData).map((
     keywordDifficulty: null,
     cpc: null,
     country: null,
-    serpChecked: false,
+    serpChecked: data.path === '/simbolos-para-free-fire',
     serpOverlap: null,
-    competitors: [],
-    dateVerified: null,
+    competitors: data.path === '/simbolos-para-free-fire' ? ['https://namesforfreefire.com/es/symbols', 'https://letrasbonitasplus.com/nombres-para-free-fire/simbolos'] : [],
+    dateVerified: data.path === '/simbolos-para-free-fire' ? '2026-10-22' : null,
 
     gscImpressions: null,
     gscClicks: null,

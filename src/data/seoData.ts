@@ -4186,6 +4186,52 @@ export const seoData: Record<string, CategoryData> = {
       }
     ]
   },
+  'simbolos-para-free-fire': {
+    "id": "simbolos-para-free-fire",
+    "path": "/simbolos-para-free-fire",
+    "title": "Símbolos para Free Fire: Copiar y Combinar | GDN",
+    "h1": "Símbolos para Free Fire",
+    "subtitle": "Busca un símbolo, copia un marco completo o prueba adornos con tu apodo antes de llevarlo al juego.",
+    "seoText": "\n      <h2>Cómo combinar símbolos para tu nombre de Free Fire</h2>\n      <p>Esta biblioteca está pensada para cuando ya tienes un apodo y solo necesitas un símbolo o un marco. Busca por nombre, pega el carácter que reconoces o escribe su código, por ejemplo U+2605 para ★. Las categorías permiten comparar estrellas, corazones, coronas, flechas, marcos y separadores sin recorrer una lista de nombres completos.</p>\n      <h3>Copiar un símbolo o preparar el apodo completo</h3>\n      <p>El botón Copiar guarda únicamente el carácter de la tarjeta. Añadir sustituye el adorno del lado que hayas elegido, antes o después del apodo. Si necesitas dos extremos coordinados, utiliza un marco completo: con Luna y 『 』 obtienes 『Luna』. Quitar adornos recupera el nombre base sin cambiar sus letras. Después puedes copiar el apodo completo o abrir el <a class=\"underline\" href=\"/generador-free-fire\">generador de nombres para Free Fire</a> para comparar letras con la misma base.</p>\n      <h3>Qué significan los contadores</h3>\n      <p>Un carácter visible, un punto de código y una unidad UTF-16 son medidas diferentes. La herramienta muestra las tres para que puedas comparar el texto antes y después de decorarlo. Ninguna certifica cómo cuenta un campo concreto del juego. El <a class=\"underline\" href=\"https://www.unicode.org/faq/utf_bom.html\">Consorcio Unicode explica estas diferencias de codificación</a>; la apariencia depende también de la fuente disponible.</p>\n      <h3>Si aparecen cuadros o el nombre es rechazado</h3>\n      <p>Conserva una versión sencilla del apodo, prueba con menos adornos y revisa el resultado directamente en Free Fire antes de confirmar un cambio. Esta web no consulta cuentas, no comprueba disponibilidad y no garantiza que todos los símbolos sean aceptados. Las figuras de ajedrez se agrupan como coronas por su forma; no conceden rango, premios ni verificación de cuenta.</p>\n      <p>Para separar palabras consulta el <a class=\"underline\" href=\"/espacios-invisible-ff\">espacio invisible</a>. Si todavía no tienes una base, explora <a class=\"underline\" href=\"/nombres-free-fire\">ideas de nombres</a>; para un grupo utiliza <a class=\"underline\" href=\"/nombres-clanes-ff\">nombres y tags de clanes</a>. El texto de esta herramienta se procesa en tu navegador y no requiere iniciar sesión en el juego.</p>\n    ",
+    "metaDescription": "Busca símbolos para Free Fire por categoría o código Unicode. Copia estrellas, coronas y marcos, combínalos con tu apodo y revisa el resultado.",
+    "keywords": "simbolos para free fire, símbolos para free fire, simbolos ff, simbolos para nombres de free fire, adornos para free fire",
+    "faqs": [
+      {
+        "question": "¿Cómo copio solo un símbolo?",
+        "answer": "Pulsa Copiar en su tarjeta. Para preparar un nombre completo utiliza Añadir o elige un marco, escribe tu apodo y pulsa Copiar apodo completo. Si la copia automática falla, utiliza el campo de selección manual."
+      },
+      {
+        "question": "¿Todos los símbolos funcionan dentro de Free Fire?",
+        "answer": "No lo podemos garantizar. El juego puede rechazar caracteres o representarlos de otra forma. Comprueba el resultado en el campo del juego antes de confirmar un cambio."
+      },
+      {
+        "question": "¿Por qué hay varios contadores de caracteres?",
+        "answer": "Los caracteres visibles, los puntos de código y las unidades UTF-16 miden cosas distintas. Los contadores describen tu texto, pero no verifican los límites ni los filtros de Free Fire."
+      },
+      {
+        "question": "¿Una corona o una marca decorativa verifica mi cuenta?",
+        "answer": "No. Un carácter decorativo solo cambia la escritura del apodo. No concede insignias oficiales, verificación, rango ni ventajas dentro del juego."
+      }
+    ],
+    "related": [
+      {
+        "title": "Generador Free Fire",
+        "path": "/generador-free-fire"
+      },
+      {
+        "title": "Nombres Free Fire",
+        "path": "/nombres-free-fire"
+      },
+      {
+        "title": "Espacio invisible",
+        "path": "/espacios-invisible-ff"
+      },
+      {
+        "title": "Tags de clanes",
+        "path": "/nombres-clanes-ff"
+      }
+    ]
+  },
 };
 
 export { navLinks, allLinks } from './allLinks';

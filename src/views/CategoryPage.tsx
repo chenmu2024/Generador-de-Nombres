@@ -10,6 +10,10 @@ import dynamic from 'next/dynamic';
 import DeferredTool from '../components/DeferredTool';
 import IntentRoutes from '../components/IntentRoutes';
 
+const FreeFireSymbolsTool = dynamic(() => import('../components/tools/FreeFireSymbolsTool'), {
+  loading: () => <div className="min-h-[520px] w-full animate-pulse rounded-3xl border border-white/5 bg-zinc-900/50" />,
+});
+
 // The decorative generator only belongs to pages without a dedicated name tool.
 const LazyGenerator = dynamic(() => import('../components/Generator'), {
   loading: () => <div className="min-h-[520px] w-full animate-pulse rounded-3xl border border-white/5 bg-zinc-900/50" />,
@@ -115,6 +119,7 @@ export default function CategoryPage({
   const breadcrumbTrail = getBreadcrumbTrail(currentPath, data.h1);
   const usesDedicatedGenerator =
     nameIdeaPathSet.has(currentPath) ||
+    currentPath === '/simbolos-para-free-fire' ||
     currentPath === '/espacios-invisible-ff' ||
     currentPath === '/nombres-por-letra' ||
     currentPath.startsWith('/nombres-con-') ||
@@ -173,7 +178,7 @@ export default function CategoryPage({
 
 
   return (
-    <div className="gdn-page-shell py-8 md:py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12 md:space-y-16 relative">
+    <div className={`gdn-page-shell py-8 md:py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative ${currentPath === '/simbolos-para-free-fire' ? 'space-y-6 md:space-y-8 [&_.text-zinc-500]:text-zinc-400' : 'space-y-12 md:space-y-16'}`}>
       
       {/* Toast Notification */}
       {showToast && (
@@ -214,7 +219,7 @@ export default function CategoryPage({
         </p>
 
         {/* Table of Contents / Índice Rápido */}
-        <div className={`${currentPath === '/' ? 'hidden' : 'gdn-surface-raised'} border p-3 sm:p-4 rounded-2xl max-w-2xl mx-auto text-left`}>
+        <div className={`${currentPath === '/' || currentPath === '/simbolos-para-free-fire' ? 'hidden' : 'gdn-surface-raised'} border p-3 sm:p-4 rounded-2xl max-w-2xl mx-auto text-left`}>
           <div className="gdn-section-label flex items-center gap-2 font-bold text-xs uppercase tracking-wider mb-2">
             <ListOrdered className="w-4 h-4 text-violet-400" /> Índice de Contenidos Rápido
           </div>
@@ -240,9 +245,9 @@ export default function CategoryPage({
       {currentPath === '/' && <nav aria-label="Elegir tipo de nombre" className="flex flex-wrap justify-center gap-3">
         {[['Juegos', '/generador-free-fire'], ['Personas', '/nombres-de-nina'], ['Mascotas', '/nombres-gatos'], ['Tiendas', '/nombres-para-tiendas']].map(([label, path]) => <Link key={path} to={path} className="gdn-chip border rounded-xl px-4 py-3">{label}</Link>)}
       </nav>}
-      <IntentRoutes path={currentPath} />
+      {currentPath !== '/simbolos-para-free-fire' && <IntentRoutes path={currentPath} />}
       {nameIdeaPathSet.has(currentPath) && <LazyNameIdeasTool key={currentPath} path={currentPath} onCopy={handleCopyTrending} />}
-      <div className={`max-w-6xl mx-auto ${currentPath === '/' ? 'pt-0 pb-2' : 'py-6'}`}>
+      <div className={`max-w-6xl mx-auto ${currentPath === '/' || currentPath === '/simbolos-para-free-fire' ? 'pt-0 pb-2' : 'py-6'}`}>
         {!usesDedicatedGenerator && (
           <LazyGenerator 
             title={currentPath === '/' ? 'Generador de Nombres, Apodos y Símbolos' : data.h1}
@@ -251,6 +256,8 @@ export default function CategoryPage({
             compact={currentPath === '/'}
           />
         )}
+
+        {currentPath === '/simbolos-para-free-fire' && <FreeFireSymbolsTool />}
 
         {currentPath === '/espacios-invisible-ff' && (
           <div className="mt-3 md:mt-5">

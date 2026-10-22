@@ -5,6 +5,7 @@ type IntentRoute = { label: string; href: string; description: string };
 const freeFireRoutes: IntentRoute[] = [
   { label: 'Personalizar mi apodo', href: '/generador-free-fire', description: 'Escribe una base y transforma sus letras.' },
   { label: 'Explorar nombres', href: '/nombres-free-fire', description: 'Compara estilos y ejemplos antes de copiar.' },
+  { label: 'Buscar símbolos', href: '/simbolos-para-free-fire', description: 'Copia un carácter o combina un marco.' },
   { label: 'Copiar espacio invisible', href: '/espacios-invisible-ff', description: 'Prueba separadores Unicode con precaución.' },
   { label: 'Diseñar un clan', href: '/nombres-clanes-ff', description: 'Combina siglas y nombres de escuadra.' },
 ];
@@ -18,6 +19,7 @@ const instagramRoutes: IntentRoute[] = [
 const ffPaths = new Set([
   '/nombres-free-fire',
   '/generador-free-fire',
+  '/simbolos-para-free-fire',
   '/espacios-invisible-ff',
   '/nombres-ff-unicos',
   '/nombres-ff-mujeres',
@@ -40,7 +42,7 @@ export default function IntentRoutes({ path }: { path: string }) {
       <h2 className="text-base sm:text-lg font-heading font-semibold text-zinc-100">
         ¿Qué quieres hacer?
       </h2>
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-2">
+      <div className="grid grid-cols-2 lg:grid-cols-5 gap-2">
         {routes.map(route => {
           const selected = route.href === path;
           const destination = selected ? '#generador' : route.href;

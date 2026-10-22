@@ -50,6 +50,13 @@ export default function Generator({ title, defaultName = 'Gamer', customSymbols,
   const [favorites, setFavorites] = useState<string[]>([]);
 
   useEffect(() => {
+    const nick = new URLSearchParams(window.location.search).get('nick');
+    if (nick && window.location.pathname === '/generador-free-fire') {
+      setInputText(Array.from(nick).slice(0, 100).join(''));
+    }
+  }, []);
+
+  useEffect(() => {
     const sync = () => setFavorites(readFavorites());
     sync();
     window.addEventListener('gdn_favorites_updated', sync);

@@ -12,6 +12,7 @@ export const topicClusters = {
     paths: [
       '/nombres-free-fire',
       '/generador-free-fire',
+      '/simbolos-para-free-fire',
       '/espacios-invisible-ff',
       '/nombres-ff-unicos',
       '/nombres-ff-mujeres',

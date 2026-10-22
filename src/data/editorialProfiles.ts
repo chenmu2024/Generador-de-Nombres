@@ -6,6 +6,7 @@ export interface EditorialProfile {
 
 // Dates record an actual content change; do not refresh them during a build.
 const profiles: Record<string, [string, string]> = {
+  '/simbolos-para-free-fire': ['Busca símbolos por nombre o código y combina un marco con tu apodo antes de copiarlo.', 'Esta biblioteca describe caracteres Unicode; no verifica disponibilidad, insignias oficiales ni aceptación dentro de Free Fire.'],
   '/': ['Personaliza texto con letras Unicode o entra en una selección de nombres para personas, mascotas y negocios.', 'Elige primero el uso del nombre: un apodo para juegos tiene restricciones diferentes de un nombre personal o una marca.'],
   '/nombres-free-fire': ['Compara ideas de apodos para Free Fire por estilo, clanes y combinaciones de símbolos.', 'Esta página reúne ideas; el generador especializado sirve para personalizar tu propio texto y el espacio invisible tiene su guía separada.'],
   '/generador-free-fire': ['Escribe tu apodo, prueba letras y símbolos, y copia una propuesta para comprobarla en Free Fire.', 'El contador y la vista previa son orientativos. La aceptación y disponibilidad solo se confirman en el juego.'],
@@ -109,7 +110,7 @@ const updatedOn20261007 = new Set([
 export const editorialProfiles: Record<string, EditorialProfile> = Object.fromEntries(
   Object.entries(profiles).map(([path, [summary, focus]]) => [
     path,
-    { summary, focus, updated: updatedOn20261007.has(path) ? '2026-10-07' : '2026-10-04' },
+    { summary, focus, updated: path === '/simbolos-para-free-fire' ? '2026-10-22' : updatedOn20261007.has(path) ? '2026-10-07' : '2026-10-04' },
   ]),
 );
 

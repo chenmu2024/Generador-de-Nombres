@@ -39,3 +39,9 @@ Don't add arbitrary vivid colors or one-off font/gradient systems; don't promise
 
 ## Maintenance
 Update this file **before** any future design-system changes, and audit actual UI across screen sizes. Website-Starter-Standard is the process reference; src/index.css is the implementation source for exact tokens.
+
+
+## Symbols library route — 2026-10-22
+Operate page for Spanish-speaking Free Fire players who need to find and copy a character; charcoal/violet incumbent design, restrained controls, no decorative media. Design shorthand: variance 3, motion 1, density 7 (not quality scores).
+References: existing /generador-free-fire for shared inputs/copy states; existing /espacios-invisible-ff for Unicode limitations; https://namesforfreefire.com/es/symbols for symbol-category navigation. Reuse tokens, not competitor copy or compatibility promises.
+First screen: compact title, expandable nickname composer, searchable symbol catalogue. Selecting a symbol opens the composer. Native details, labeled controls, keyboard access, empty results and honest copy/error feedback are required. Keep other page layouts unchanged.

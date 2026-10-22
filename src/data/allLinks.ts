@@ -13,6 +13,7 @@ export const navLinks = [
 export const allLinks = [
   ...navLinks,
   { path: '/nombres-free-fire', label: 'FF Principal' },
+  { path: '/simbolos-para-free-fire', label: 'Símbolos Free Fire' },
   { path: '/nombres-ff-unicos', label: 'FF Nombres Únicos' },
   { path: '/nombres-ff-mujeres', label: 'FF Mujeres' },
   { path: '/nombres-clanes-ff', label: 'FF Clanes' },

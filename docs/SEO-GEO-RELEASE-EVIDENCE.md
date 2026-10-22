@@ -106,3 +106,16 @@ Follow-up only once actual GSC ownership/access exists: 28 settled days by URL, 
 - Search Console: in the signed-in owner account, submitted the HTML tag method for `https://generadordenombres.net/`; Google displayed `已完成所有权验证` (ownership verified), method `HTML 标记` (HTML tag).
 - Keep the verification metadata deployed to retain verification. Ownership verification does not prove indexing, ranking, traffic or field Core Web Vitals. Earlier unverified-access statements above describe their historical baseline and are superseded only for this ownership check.
 - Browser/Chromium interaction in this change was limited to the Search Console verification workflow. Lighthouse and a new full responsive visual audit were NOT RUN for this invisible metadata-only change.
+
+
+## 10. Symbols library release — 2026-10-22
+
+- Scope: one route /simbolos-para-free-fire. Original 46 locked route/title/H1/keyword records preserved by SHA-256 regression; approved fixture appends one entry.
+- PASS: npm run lint; npm test (67/67); npm run build, including SEO governance, static export verification (51 pages / 6057 resolving internal links), and SEO/GEO release audit (47 locked indexable routes).
+- PASS: raw HTML contains the symbol catalogue, single H1, metadata, self-canonical, FAQ/Breadcrumb/WebApplication schema; sitemap now lists 51 URLs. Search Console verification metadata is retained.
+- PASS in Chromium browser: name/code-point and accent-insensitive search; category filtering; empty results; individual clipboard and full nickname clipboard equality; empty nickname disables copy/handoff; paired frames; replacing a frame with one symbol removes the unmatched endpoint; URL-encoded nickname transfer to the existing generator (Álex, emoji, ampersand); feedback remains visible with composer collapsed.
+- PASS: widths 360/390/768/1024/1440 have no horizontal page overflow and expose search within the first viewport. Browser error/warning log for the new page was empty.
+- Lighthouse mobile lab: see reports/lighthouse-symbols-release.json and UI release evidence. Lab values are not field CWV or ranking evidence.
+- SEO gate returned MERGE because the query was an existing secondary keyword; the explicit owner-approved task split and unchanged original keyword mapping are documented in SEO-GEO-PROJECT-BRIEF.md. No automated CREATE pass or numeric demand is claimed.
+- Production checks: pending publication at this commit preparation; require HTTP 200, correct new-page canonical, deployed sitemap membership, working clipboard and generator link. No GSC indexing/ranking gain is claimed.
+- Revert the symbols-library commit to roll back the new route and its entries. Previous Search Console verification remains in the parent commit.

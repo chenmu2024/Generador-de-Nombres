@@ -358,10 +358,10 @@ test('Free Fire and Instagram intent routes distinguish generation, inspiration,
   ]);
   const ff = getIntentRoutes('/nombres-free-fire');
   assert.deepEqual(ff.map(route => route.href), [
-    '/generador-free-fire', '/nombres-free-fire', '/espacios-invisible-ff', '/nombres-clanes-ff',
+    '/generador-free-fire', '/nombres-free-fire', '/simbolos-para-free-fire', '/espacios-invisible-ff', '/nombres-clanes-ff',
   ]);
   assert.ok(['/generador-free-fire', '/nombres-ff-unicos', '/nombres-ff-mujeres', '/nombres-clanes-ff']
-    .every(path => getIntentRoutes(path).length === 4));
+    .every(path => getIntentRoutes(path).length === 5));
   assert.deepEqual(getIntentRoutes('/nombres-italianos'), []);
   const rendered = renderToStaticMarkup(React.createElement(IntentRoutes, { path: '/nombres-free-fire' }));
   assert.match(rendered, /Elige la herramienta según lo que quieres hacer/);
